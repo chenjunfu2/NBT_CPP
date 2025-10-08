@@ -11,6 +11,10 @@ int main(void)
 	cpd.PutDouble(MU8STR("d"), 0.114514);
 	NBT_Helper::Print(cpd);
 
+	std::vector<uint8_t> v;
+	NBT_Writer::WriteNBT({ v }, cpd);
 
-	return 114514;
+	NBT_IO::WriteFile("test.nbt", v);
+
+	return 0;
 }
