@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.36422.26
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "NBT_CPP", "NBT_CPP\NBT_CPP.vcxproj", "{8C435495-5A89-43CD-BB71-0825634B3019}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "NBT_CPP", "NBT_CPP.vcxproj", "{8C435495-5A89-43CD-BB71-0825634B3019}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
