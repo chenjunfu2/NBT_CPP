@@ -59,7 +59,6 @@ int main(void)
 		return -1;
 	}
 
-
 	//从文件中读入
 	NBT_Type::Compound readCpd{};
 	bool br = ReadNbtFile("test.nbt", readCpd);
@@ -71,6 +70,7 @@ int main(void)
 	//丢弃空根
 	auto cpdr = std::move(readCpd.GetCompound(MU8STR("")));
 
+	//输出比较结果
 	NBT_Print{}("\ncmp:{}\n", cpd == cpdr);
 
 	return 0;
