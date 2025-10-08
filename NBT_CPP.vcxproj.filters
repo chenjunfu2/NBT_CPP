@@ -71,5 +71,8 @@
     <ClInclude Include="nbt\NBT_Writer.hpp">
       <Filter>头文件\nbt</Filter>
     </ClInclude>
+    <ClInclude Include="NBT_Print.hpp">
+      <Filter>头文件\nbt</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

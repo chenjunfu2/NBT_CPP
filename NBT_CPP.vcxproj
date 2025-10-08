@@ -166,6 +166,7 @@
     <ClInclude Include="nbt\NBT_TAG.hpp" />
     <ClInclude Include="nbt\NBT_Type.hpp" />
     <ClInclude Include="nbt\NBT_Writer.hpp" />
+    <ClInclude Include="NBT_Print.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
