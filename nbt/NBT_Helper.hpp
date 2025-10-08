@@ -178,7 +178,7 @@ private:
 			break;
 		case NBT_TAG::String:
 			{
-				funcPrint("\"{}\"", nRoot.GetData<NBT_Type::String>().ToCharTypeUTF8().c_str());
+				funcPrint("\"{}\"", nRoot.GetData<NBT_Type::String>().ToCharTypeUTF8());
 			}
 			break;
 		case NBT_TAG::List://需要打印缩进的地方
@@ -210,7 +210,7 @@ private:
 				for (const auto &it : cpd)
 				{
 					PrintPadding(szLevel, true, true, funcPrint);
-					funcPrint("\"{}\":", it.first.ToCharTypeUTF8().c_str());
+					funcPrint("\"{}\":", it.first.ToCharTypeUTF8());
 					PrintSwitch<false>(it.second, szLevel + 1, funcPrint);
 					funcPrint(",");
 				}
