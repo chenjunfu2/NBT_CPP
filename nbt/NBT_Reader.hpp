@@ -280,8 +280,6 @@ private:
 		}
 	}
 
-#undef FMT_STR
-
 #define _RP___FUNCTION__ __FUNCTION__//用于编译过程二次替换达到函数内部
 
 #define _RP___LINE__ _RP_STRLING(__LINE__)
