@@ -17,7 +17,7 @@ class NBT_Helper
 	~NBT_Helper() = delete;
 
 public:
-	template<typename PrintFunc>
+	template<typename PrintFunc = NBT_Print>
 	static void Print(const NBT_Node_View<true> nRoot, PrintFunc funcPrint = NBT_Print{}, bool bPadding = true, bool bNewLine = true)
 	{
 		size_t szLevelStart = bPadding ? 0 : (size_t)-1;//跳过打印
@@ -87,7 +87,7 @@ private:
 	}
 
 	//首次调用默认为true，二次调用开始内部主动变为false
-	template<typename PrintFunc, bool bRoot = true>//首次使用NBT_Node_View解包，后续直接使用NBT_Node引用免除额外初始化开销
+	template<bool bRoot = true, typename PrintFunc = NBT_Print>//首次使用NBT_Node_View解包，后续直接使用NBT_Node引用免除额外初始化开销
 	static void PrintSwitch(std::conditional_t<bRoot, const NBT_Node_View<true> &, const NBT_Node &>nRoot, size_t szLevel, PrintFunc &funcPrint)
 	{
 		auto tag = nRoot.GetTag();
@@ -225,7 +225,7 @@ private:
 			break;
 		default:
 			{
-				funcPrint("[Unknown NBT Tag Type [{:02X}({})]]", tag, tag);
+				funcPrint("[Unknown NBT Tag Type [{:02X}({})]]", (NBT_TAG_RAW_TYPE)tag, (NBT_TAG_RAW_TYPE)tag);
 			}
 			break;
 		}

@@ -12,7 +12,7 @@ bool WriteNbtFile(const char *pFileName, const NBT_Type::Compound &cpd)
 bool ReadNbtFile(const char *pFileName, NBT_Type::Compound &cpd)
 {
 	std::vector<uint8_t> data;
-	return NBT_Reader::ReadNBT(cpd, { data }) && NBT_IO::ReadFile(pFileName, data);
+	return NBT_IO::ReadFile(pFileName, data) && NBT_Reader::ReadNBT({ data }, cpd);
 }
 
 int main(void)
@@ -21,11 +21,11 @@ int main(void)
 
 	//插入各种示例数据
 	NBT_Type::Compound cpd;
-	cpd.PutByte(MU8STR("byte"), 127);
-	cpd.PutShort(MU8STR("short"), 65535);
+	cpd.PutByte(MU8STR("byte"), -128);
+	cpd.PutShort(MU8STR("short"), 32767);
 	cpd.PutInt(MU8STR("int"), -2147483648);
 	cpd.PutLong(MU8STR("long"), 1145141919810LL);
-	cpd.PutFloat(MU8STR("float"), 0.1145f);
+	cpd.PutFloat(MU8STR("float"), -0.1145f);
 	cpd.PutDouble(MU8STR("double"), 114514.1919810);
 	cpd.PutString(MU8STR("string"), MU8STR("测试"));
 
@@ -53,7 +53,25 @@ int main(void)
 	NBT_Helper::Print(cpd);
 
 	//通过一个componud下挂载一个空名称根来创建符合Mojang NBT标准的输出
-	WriteNbtFile("test.nbt", NBT_Type::Compound{ {MU8STR(""),std::move(cpd)} });
+	bool bw = WriteNbtFile("test.nbt", NBT_Type::Compound{ {MU8STR(""),cpd} });
+	if (!bw)
+	{
+		return -1;
+	}
+
+
+	//从文件中读入
+	NBT_Type::Compound readCpd{};
+	bool br = ReadNbtFile("test.nbt", readCpd);
+	if (!br)
+	{
+		return -1;
+	}
+
+	//丢弃空根
+	readCpd = std::move(readCpd.GetCompound(MU8STR("")));
+
+	NBT_Print{}("cmp:{}\n", cpd == readCpd);
 
 	return 0;
 }
