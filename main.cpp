@@ -69,9 +69,9 @@ int main(void)
 	}
 
 	//丢弃空根
-	readCpd = std::move(readCpd.GetCompound(MU8STR("")));
+	auto cpdr = std::move(readCpd.GetCompound(MU8STR("")));
 
-	NBT_Print{}("cmp:{}\n", cpd == readCpd);
+	NBT_Print{}("cmp:{}\n", cpd == cpdr);
 
 	return 0;
 }

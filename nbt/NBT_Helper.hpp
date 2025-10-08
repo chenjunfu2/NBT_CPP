@@ -205,7 +205,7 @@ private:
 			{
 				const auto &cpd = nRoot.GetData<NBT_Type::Compound>();
 				PrintPadding(szLevel, false, !bRoot, funcPrint);//不是根部则打印开头换行
-				funcPrint("{");
+				funcPrint("{{");//大括号转义
 
 				for (const auto &it : cpd)
 				{
@@ -220,7 +220,7 @@ private:
 					funcPrint("\b \b");//清除最后一个逗号
 					PrintPadding(szLevel, false, true, funcPrint);//空集合无需换行以及对齐
 				}
-				funcPrint("}");
+				funcPrint("}}");//大括号转义
 			}
 			break;
 		default:
