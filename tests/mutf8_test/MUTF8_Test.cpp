@@ -2,9 +2,10 @@
 //
 
 
-#include <stdio.h>
 #include <nbt_cpp/MUTF8_Tool.hpp>
 #include <Windows_ANSI.hpp>
+
+#include <stdio.h>
 #include <clocale>
 
 std::basic_string<char16_t> generate_all_valid_utf16le()
@@ -441,9 +442,9 @@ int mainyy(void)
 
 
 
-#include "../MaterialListEx/nbt/NBT_Node.hpp"
-#include "../MaterialListEx/nbt/MUTF8_Tool.hpp"
-#include "../MaterialListEx/Windows_ANSI.hpp"
+#include <nbt_cpp/NBT_Node.hpp>
+#include <nbt_cpp/MUTF8_Tool.hpp>
+#include <Windows_ANSI.hpp>
 
 #include <stdlib.h>
 #include <locale.h>

@@ -1,4 +1,4 @@
-﻿#include "../MaterialListEx/nbt/NBT_Endian.hpp"
+﻿#include <nbt_cpp/NBT_Endian.hpp>
 
 #include <stdio.h>
 
