@@ -3,7 +3,7 @@
 
 
 #include <nbt_cpp/MUTF8_Tool.hpp>
-#include <Windows_ANSI.hpp>
+#include <my/Windows_ANSI.hpp>
 
 #include <stdio.h>
 #include <clocale>
@@ -444,7 +444,7 @@ int mainyy(void)
 
 #include <nbt_cpp/NBT_Node.hpp>
 #include <nbt_cpp/MUTF8_Tool.hpp>
-#include <Windows_ANSI.hpp>
+#include <my/Windows_ANSI.hpp>
 
 #include <stdlib.h>
 #include <locale.h>

@@ -1,7 +1,7 @@
 ﻿#define USE_GZIPZLIB
 #define USE_XXHASH
-#include "../MaterialListEx/nbt/NBT_All.hpp"
-#include "../MaterialListEx/CodeTimer.hpp"
+#include <nbt_cpp/NBT_All.hpp>
+#include <my/CodeTimer.hpp>
 
 #include <stdio.h>
 //#include <source_location>
