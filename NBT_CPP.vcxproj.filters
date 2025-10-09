@@ -13,7 +13,7 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="头文件\nbt">
+    <Filter Include="头文件\nbt_cpp">
       <UniqueIdentifier>{dee8f9de-48c4-43ee-ad87-cb5c18827085}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
@@ -24,55 +24,55 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\nbt\MUTF8_Tool.hpp">
-      <Filter>头文件\nbt</Filter>
+      <Filter>头文件\nbt_cpp</Filter>
     </ClInclude>
     <ClInclude Include="include\nbt\NBT_All.hpp">
-      <Filter>头文件\nbt</Filter>
+      <Filter>头文件\nbt_cpp</Filter>
     </ClInclude>
     <ClInclude Include="include\nbt\NBT_Array.hpp">
-      <Filter>头文件\nbt</Filter>
+      <Filter>头文件\nbt_cpp</Filter>
     </ClInclude>
     <ClInclude Include="include\nbt\NBT_Compound.hpp">
-      <Filter>头文件\nbt</Filter>
+      <Filter>头文件\nbt_cpp</Filter>
     </ClInclude>
     <ClInclude Include="include\nbt\NBT_Endian.hpp">
-      <Filter>头文件\nbt</Filter>
+      <Filter>头文件\nbt_cpp</Filter>
     </ClInclude>
     <ClInclude Include="include\nbt\NBT_Hash.hpp">
-      <Filter>头文件\nbt</Filter>
+      <Filter>头文件\nbt_cpp</Filter>
     </ClInclude>
     <ClInclude Include="include\nbt\NBT_Helper.hpp">
-      <Filter>头文件\nbt</Filter>
+      <Filter>头文件\nbt_cpp</Filter>
     </ClInclude>
     <ClInclude Include="include\nbt\NBT_IO.hpp">
-      <Filter>头文件\nbt</Filter>
+      <Filter>头文件\nbt_cpp</Filter>
     </ClInclude>
     <ClInclude Include="include\nbt\NBT_List.hpp">
-      <Filter>头文件\nbt</Filter>
+      <Filter>头文件\nbt_cpp</Filter>
     </ClInclude>
     <ClInclude Include="include\nbt\NBT_Node.hpp">
-      <Filter>头文件\nbt</Filter>
+      <Filter>头文件\nbt_cpp</Filter>
     </ClInclude>
     <ClInclude Include="include\nbt\NBT_Node_View.hpp">
-      <Filter>头文件\nbt</Filter>
+      <Filter>头文件\nbt_cpp</Filter>
     </ClInclude>
     <ClInclude Include="include\nbt\NBT_Print.hpp">
-      <Filter>头文件\nbt</Filter>
+      <Filter>头文件\nbt_cpp</Filter>
     </ClInclude>
     <ClInclude Include="include\nbt\NBT_Reader.hpp">
-      <Filter>头文件\nbt</Filter>
+      <Filter>头文件\nbt_cpp</Filter>
     </ClInclude>
     <ClInclude Include="include\nbt\NBT_String.hpp">
-      <Filter>头文件\nbt</Filter>
+      <Filter>头文件\nbt_cpp</Filter>
     </ClInclude>
     <ClInclude Include="include\nbt\NBT_TAG.hpp">
-      <Filter>头文件\nbt</Filter>
+      <Filter>头文件\nbt_cpp</Filter>
     </ClInclude>
     <ClInclude Include="include\nbt\NBT_Type.hpp">
-      <Filter>头文件\nbt</Filter>
+      <Filter>头文件\nbt_cpp</Filter>
     </ClInclude>
     <ClInclude Include="include\nbt\NBT_Writer.hpp">
-      <Filter>头文件\nbt</Filter>
+      <Filter>头文件\nbt_cpp</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

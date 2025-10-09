@@ -24,6 +24,7 @@
     <ProjectGuid>{77bb30d6-589b-4484-b09f-a40b1d131e7a}</ProjectGuid>
     <RootNamespace>EndianTest</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <ProjectName>endian_test</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">

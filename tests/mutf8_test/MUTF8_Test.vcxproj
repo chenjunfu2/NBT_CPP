@@ -24,6 +24,7 @@
     <ProjectGuid>{6301278c-b686-4abc-b7d6-3b0eaf6f1129}</ProjectGuid>
     <RootNamespace>MUTF8Test</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <ProjectName>mutf8_test</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
