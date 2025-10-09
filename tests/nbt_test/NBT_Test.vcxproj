@@ -21,8 +21,8 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{8c435495-5a89-43cd-bb71-0825634b3019}</ProjectGuid>
-    <RootNamespace>NBTCPP</RootNamespace>
+    <ProjectGuid>{5ce5ec05-83a5-4c65-a847-1ff098a0be56}</ProjectGuid>
+    <RootNamespace>NBTTest</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -72,19 +72,23 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>$(SolutionDir)include;$(IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir)deps\gzip;$(SolutionDir)deps\zlib;$(SolutionDir)deps\xxhash;$(SolutionDir)deps;$(SolutionDir)include;$(IncludePath)</IncludePath>
+    <ExternalIncludePath>$(SolutionDir)deps\gzip;$(SolutionDir)deps\zlib;$(SolutionDir)deps\xxhash;$(ExternalIncludePath)</ExternalIncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
-    <IncludePath>$(SolutionDir)include;$(IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir)deps\gzip;$(SolutionDir)deps\zlib;$(SolutionDir)deps\xxhash;$(SolutionDir)deps;$(SolutionDir)include;$(IncludePath)</IncludePath>
+    <ExternalIncludePath>$(SolutionDir)deps\gzip;$(SolutionDir)deps\zlib;$(SolutionDir)deps\xxhash;$(ExternalIncludePath)</ExternalIncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>$(SolutionDir)include;$(IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir)deps\gzip;$(SolutionDir)deps\zlib;$(SolutionDir)deps\xxhash;$(SolutionDir)deps;$(SolutionDir)include;$(IncludePath)</IncludePath>
+    <ExternalIncludePath>$(SolutionDir)deps\gzip;$(SolutionDir)deps\zlib;$(SolutionDir)deps\xxhash;$(ExternalIncludePath)</ExternalIncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
-    <IncludePath>$(SolutionDir)include;$(IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir)deps\gzip;$(SolutionDir)deps\zlib;$(SolutionDir)deps\xxhash;$(SolutionDir)deps;$(SolutionDir)include;$(IncludePath)</IncludePath>
+    <ExternalIncludePath>$(SolutionDir)deps\gzip;$(SolutionDir)deps\zlib;$(SolutionDir)deps\xxhash;$(ExternalIncludePath)</ExternalIncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -92,7 +96,7 @@
       <SDLCheck>false</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <LanguageStandard>stdcpplatest</LanguageStandard>
+      <LanguageStandard>stdcpp20</LanguageStandard>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
     </ClCompile>
     <Link>
@@ -108,7 +112,7 @@
       <SDLCheck>false</SDLCheck>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <LanguageStandard>stdcpplatest</LanguageStandard>
+      <LanguageStandard>stdcpp20</LanguageStandard>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
     </ClCompile>
     <Link>
@@ -116,6 +120,7 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <Profile>true</Profile>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -124,13 +129,17 @@
       <SDLCheck>false</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <LanguageStandard>stdcpplatest</LanguageStandard>
+      <LanguageStandard>stdcpp20</LanguageStandard>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
+      <BrowseInformation>false</BrowseInformation>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
+    <Bscmake>
+      <PreserveSbr>true</PreserveSbr>
+    </Bscmake>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
@@ -140,7 +149,7 @@
       <SDLCheck>false</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <LanguageStandard>stdcpplatest</LanguageStandard>
+      <LanguageStandard>stdcpp20</LanguageStandard>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
     </ClCompile>
     <Link>
@@ -148,29 +157,28 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <Profile>true</Profile>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="main.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="include\nbt\MUTF8_Tool.hpp" />
-    <ClInclude Include="include\nbt\NBT_All.hpp" />
-    <ClInclude Include="include\nbt\NBT_Array.hpp" />
-    <ClInclude Include="include\nbt\NBT_Compound.hpp" />
-    <ClInclude Include="include\nbt\NBT_Endian.hpp" />
-    <ClInclude Include="include\nbt\NBT_Hash.hpp" />
-    <ClInclude Include="include\nbt\NBT_Helper.hpp" />
-    <ClInclude Include="include\nbt\NBT_IO.hpp" />
-    <ClInclude Include="include\nbt\NBT_List.hpp" />
-    <ClInclude Include="include\nbt\NBT_Node.hpp" />
-    <ClInclude Include="include\nbt\NBT_Node_View.hpp" />
-    <ClInclude Include="include\nbt\NBT_Print.hpp" />
-    <ClInclude Include="include\nbt\NBT_Reader.hpp" />
-    <ClInclude Include="include\nbt\NBT_String.hpp" />
-    <ClInclude Include="include\nbt\NBT_TAG.hpp" />
-    <ClInclude Include="include\nbt\NBT_Type.hpp" />
-    <ClInclude Include="include\nbt\NBT_Writer.hpp" />
+    <ClCompile Include="..\..\deps\xxhash\xxhash.c" />
+    <ClCompile Include="..\..\deps\xxhash\xxh_x86dispatch.c" />
+    <ClCompile Include="..\..\deps\zlib\adler32.c" />
+    <ClCompile Include="..\..\deps\zlib\compress.c" />
+    <ClCompile Include="..\..\deps\zlib\crc32.c" />
+    <ClCompile Include="..\..\deps\zlib\deflate.c" />
+    <ClCompile Include="..\..\deps\zlib\gzclose.c" />
+    <ClCompile Include="..\..\deps\zlib\gzlib.c" />
+    <ClCompile Include="..\..\deps\zlib\gzread.c" />
+    <ClCompile Include="..\..\deps\zlib\gzwrite.c" />
+    <ClCompile Include="..\..\deps\zlib\infback.c" />
+    <ClCompile Include="..\..\deps\zlib\inffast.c" />
+    <ClCompile Include="..\..\deps\zlib\inflate.c" />
+    <ClCompile Include="..\..\deps\zlib\inftrees.c" />
+    <ClCompile Include="..\..\deps\zlib\trees.c" />
+    <ClCompile Include="..\..\deps\zlib\uncompr.c" />
+    <ClCompile Include="..\..\deps\zlib\zutil.c" />
+    <ClCompile Include="NBT_Test.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -1,4 +1,4 @@
-﻿#include "nbt/NBT_All.hpp"
+﻿#include <nbt_cpp/NBT_All.hpp>
 
 #include <stdio.h>
 #include <locale.h>

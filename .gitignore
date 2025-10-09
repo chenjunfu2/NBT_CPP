@@ -364,3 +364,10 @@ FodyWeavers.xsd
 
 # My
 *.nbt
+*.TMP
+*.bak
+*.nbt
+*.litematic
+*.url
+*.csv
+*.exe
