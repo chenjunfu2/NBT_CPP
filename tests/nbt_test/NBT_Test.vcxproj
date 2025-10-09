@@ -24,6 +24,7 @@
     <ProjectGuid>{5ce5ec05-83a5-4c65-a847-1ff098a0be56}</ProjectGuid>
     <RootNamespace>NBTTest</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <ProjectName>nbt_test</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -178,7 +179,7 @@
     <ClCompile Include="..\..\deps\zlib\trees.c" />
     <ClCompile Include="..\..\deps\zlib\uncompr.c" />
     <ClCompile Include="..\..\deps\zlib\zutil.c" />
-    <ClCompile Include="NBT_Test.cpp" />
+    <ClCompile Include="nbt_test.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

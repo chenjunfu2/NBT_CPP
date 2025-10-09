@@ -15,7 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Endian_Test.cpp">
+    <ClCompile Include="endian_test.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

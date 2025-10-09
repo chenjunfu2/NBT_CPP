@@ -21,7 +21,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="NBT_Test.cpp">
+    <ClCompile Include="nbt_test.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="..\..\deps\xxhash\xxhash.c">
