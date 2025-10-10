@@ -172,6 +172,25 @@
       <Project>{e304062b-8190-4215-affe-d2bf30de6600}</Project>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\include\nbt_cpp\MUTF8_Tool.hpp" />
+    <ClInclude Include="..\..\include\nbt_cpp\NBT_All.hpp" />
+    <ClInclude Include="..\..\include\nbt_cpp\NBT_Array.hpp" />
+    <ClInclude Include="..\..\include\nbt_cpp\NBT_Compound.hpp" />
+    <ClInclude Include="..\..\include\nbt_cpp\NBT_Endian.hpp" />
+    <ClInclude Include="..\..\include\nbt_cpp\NBT_Hash.hpp" />
+    <ClInclude Include="..\..\include\nbt_cpp\NBT_Helper.hpp" />
+    <ClInclude Include="..\..\include\nbt_cpp\NBT_IO.hpp" />
+    <ClInclude Include="..\..\include\nbt_cpp\NBT_List.hpp" />
+    <ClInclude Include="..\..\include\nbt_cpp\NBT_Node.hpp" />
+    <ClInclude Include="..\..\include\nbt_cpp\NBT_Node_View.hpp" />
+    <ClInclude Include="..\..\include\nbt_cpp\NBT_Print.hpp" />
+    <ClInclude Include="..\..\include\nbt_cpp\NBT_Reader.hpp" />
+    <ClInclude Include="..\..\include\nbt_cpp\NBT_String.hpp" />
+    <ClInclude Include="..\..\include\nbt_cpp\NBT_TAG.hpp" />
+    <ClInclude Include="..\..\include\nbt_cpp\NBT_Type.hpp" />
+    <ClInclude Include="..\..\include\nbt_cpp\NBT_Writer.hpp" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
