@@ -22,7 +22,7 @@
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
     <ProjectGuid>{5ce5ec05-83a5-4c65-a847-1ff098a0be56}</ProjectGuid>
-    <RootNamespace>NBTTest</RootNamespace>
+    <RootNamespace>nbttest</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
     <ProjectName>nbt_test</ProjectName>
   </PropertyGroup>
