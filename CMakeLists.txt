@@ -11,9 +11,9 @@ add_subdirectory(tests/nbt_test)
 add_subdirectory(usage)
 
 include_directories(
-    ${CMAKE_CURRENT_SOURCE_DIR}/deps/gzip
-    ${CMAKE_CURRENT_SOURCE_DIR}/deps/zlib
-    ${CMAKE_CURRENT_SOURCE_DIR}/deps/xxhash
-    ${CMAKE_CURRENT_SOURCE_DIR}/deps
-    ${CMAKE_CURRENT_SOURCE_DIR}/include
+    ${CMAKE_SOURCE_DIR}/deps/gzip
+    ${CMAKE_SOURCE_DIR}/deps/zlib
+    ${CMAKE_SOURCE_DIR}/deps/xxhash
+    ${CMAKE_SOURCE_DIR}/deps
+    ${CMAKE_SOURCE_DIR}/include
 )

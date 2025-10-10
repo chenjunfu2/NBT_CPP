@@ -3,8 +3,9 @@ project(xxhash LANGUAGES CXX)
 
 
 add_library(xxhash
-    xxh_x86dispatch.c
-    xxhash.c
+    STATIC
+        xxh_x86dispatch.c
+        xxhash.c
 )
 
 target_compile_features(xxhash
