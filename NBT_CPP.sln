@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.36422.26
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "endian_test", "tests\endian_test\Endian_Test.vcxproj", "{77BB30D6-589B-4484-B09F-A40B1D131E7A}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "endian_test", "tests\endian_test\endian_test.vcxproj", "{77BB30D6-589B-4484-B09F-A40B1D131E7A}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "mutf8_test", "tests\mutf8_test\MUTF8_Test.vcxproj", "{6301278C-B686-4ABC-B7D6-3B0EAF6F1129}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "mutf8_test", "tests\mutf8_test\mutf8_test.vcxproj", "{6301278C-B686-4ABC-B7D6-3B0EAF6F1129}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "nbt_test", "tests\nbt_test\NBT_Test.vcxproj", "{5CE5EC05-83A5-4C65-A847-1FF098A0BE56}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "nbt_test", "tests\nbt_test\nbt_test.vcxproj", "{5CE5EC05-83A5-4C65-A847-1FF098A0BE56}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{CB0077C9-8803-486A-BD8C-1EEF01298AAA}"
 EndProject
