@@ -15,7 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="nbt_type_test.cpp">
+    <ClCompile Include="nbt_all_test.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
