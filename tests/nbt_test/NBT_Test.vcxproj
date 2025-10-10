@@ -77,23 +77,15 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>$(SolutionDir)deps\gzip;$(SolutionDir)deps\zlib;$(SolutionDir)deps\xxhash;$(SolutionDir)deps;$(SolutionDir)include;$(IncludePath)</IncludePath>
-    <ExternalIncludePath>$(SolutionDir)deps\gzip;$(SolutionDir)deps\zlib;$(SolutionDir)deps\xxhash;$(ExternalIncludePath)</ExternalIncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
-    <IncludePath>$(SolutionDir)deps\gzip;$(SolutionDir)deps\zlib;$(SolutionDir)deps\xxhash;$(SolutionDir)deps;$(SolutionDir)include;$(IncludePath)</IncludePath>
-    <ExternalIncludePath>$(SolutionDir)deps\gzip;$(SolutionDir)deps\zlib;$(SolutionDir)deps\xxhash;$(ExternalIncludePath)</ExternalIncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>$(SolutionDir)deps\gzip;$(SolutionDir)deps\zlib;$(SolutionDir)deps\xxhash;$(SolutionDir)deps;$(SolutionDir)include;$(IncludePath)</IncludePath>
-    <ExternalIncludePath>$(SolutionDir)deps\gzip;$(SolutionDir)deps\zlib;$(SolutionDir)deps\xxhash;$(ExternalIncludePath)</ExternalIncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
-    <IncludePath>$(SolutionDir)deps\gzip;$(SolutionDir)deps\zlib;$(SolutionDir)deps\xxhash;$(SolutionDir)deps;$(SolutionDir)include;$(IncludePath)</IncludePath>
-    <ExternalIncludePath>$(SolutionDir)deps\gzip;$(SolutionDir)deps\zlib;$(SolutionDir)deps\xxhash;$(ExternalIncludePath)</ExternalIncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
