@@ -1,7 +1,6 @@
 cmake_minimum_required(VERSION 3.13)
 project(endian_test LANGUAGES CXX)
 
-
 add_executable(endian_test
     endian_test.cpp
 )
@@ -26,6 +25,14 @@ target_link_libraries(endian_test
     PUBLIC
         xxhash
         zlib
+)
+
+include_directories(
+    ${CMAKE_SOURCE_DIR}/deps/gzip
+    ${CMAKE_SOURCE_DIR}/deps/zlib
+    ${CMAKE_SOURCE_DIR}/deps/xxhash
+    ${CMAKE_SOURCE_DIR}/deps
+    ${CMAKE_SOURCE_DIR}/include
 )
 
 target_compile_options(endian_test
