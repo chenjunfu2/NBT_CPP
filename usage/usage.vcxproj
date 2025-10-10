@@ -24,7 +24,7 @@
     <ProjectGuid>{8c435495-5a89-43cd-bb71-0825634b3019}</ProjectGuid>
     <RootNamespace>NBTCPP</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
-    <ProjectName>nbt_cpp</ProjectName>
+    <ProjectName>usage</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -60,23 +60,23 @@
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-    <Import Project="LibraryDependencies.props" />
-    <Import Project="BasicConfiguration.props" />
+    <Import Project="..\BasicConfiguration.props" />
+    <Import Project="..\LibraryDependencies.props" />
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-    <Import Project="LibraryDependencies.props" />
-    <Import Project="BasicConfiguration.props" />
+    <Import Project="..\BasicConfiguration.props" />
+    <Import Project="..\LibraryDependencies.props" />
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-    <Import Project="LibraryDependencies.props" />
-    <Import Project="BasicConfiguration.props" />
+    <Import Project="..\BasicConfiguration.props" />
+    <Import Project="..\LibraryDependencies.props" />
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-    <Import Project="LibraryDependencies.props" />
-    <Import Project="BasicConfiguration.props" />
+    <Import Project="..\BasicConfiguration.props" />
+    <Import Project="..\LibraryDependencies.props" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -156,34 +156,26 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="main.cpp" />
+    <ClCompile Include="example.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="include\nbt_cpp\MUTF8_Tool.hpp" />
-    <ClInclude Include="include\nbt_cpp\NBT_All.hpp" />
-    <ClInclude Include="include\nbt_cpp\NBT_Array.hpp" />
-    <ClInclude Include="include\nbt_cpp\NBT_Compound.hpp" />
-    <ClInclude Include="include\nbt_cpp\NBT_Endian.hpp" />
-    <ClInclude Include="include\nbt_cpp\NBT_Hash.hpp" />
-    <ClInclude Include="include\nbt_cpp\NBT_Helper.hpp" />
-    <ClInclude Include="include\nbt_cpp\NBT_IO.hpp" />
-    <ClInclude Include="include\nbt_cpp\NBT_List.hpp" />
-    <ClInclude Include="include\nbt_cpp\NBT_Node.hpp" />
-    <ClInclude Include="include\nbt_cpp\NBT_Node_View.hpp" />
-    <ClInclude Include="include\nbt_cpp\NBT_Print.hpp" />
-    <ClInclude Include="include\nbt_cpp\NBT_Reader.hpp" />
-    <ClInclude Include="include\nbt_cpp\NBT_String.hpp" />
-    <ClInclude Include="include\nbt_cpp\NBT_TAG.hpp" />
-    <ClInclude Include="include\nbt_cpp\NBT_Type.hpp" />
-    <ClInclude Include="include\nbt_cpp\NBT_Writer.hpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="deps\xxhash\xxhash.vcxproj">
-      <Project>{dc504567-a6fa-4e8f-a354-e1ecfdde5d81}</Project>
-    </ProjectReference>
-    <ProjectReference Include="deps\zlib\zlib.vcxproj">
-      <Project>{e304062b-8190-4215-affe-d2bf30de6600}</Project>
-    </ProjectReference>
+    <ClInclude Include="..\include\nbt_cpp\MUTF8_Tool.hpp" />
+    <ClInclude Include="..\include\nbt_cpp\NBT_All.hpp" />
+    <ClInclude Include="..\include\nbt_cpp\NBT_Array.hpp" />
+    <ClInclude Include="..\include\nbt_cpp\NBT_Compound.hpp" />
+    <ClInclude Include="..\include\nbt_cpp\NBT_Endian.hpp" />
+    <ClInclude Include="..\include\nbt_cpp\NBT_Hash.hpp" />
+    <ClInclude Include="..\include\nbt_cpp\NBT_Helper.hpp" />
+    <ClInclude Include="..\include\nbt_cpp\NBT_IO.hpp" />
+    <ClInclude Include="..\include\nbt_cpp\NBT_List.hpp" />
+    <ClInclude Include="..\include\nbt_cpp\NBT_Node.hpp" />
+    <ClInclude Include="..\include\nbt_cpp\NBT_Node_View.hpp" />
+    <ClInclude Include="..\include\nbt_cpp\NBT_Print.hpp" />
+    <ClInclude Include="..\include\nbt_cpp\NBT_Reader.hpp" />
+    <ClInclude Include="..\include\nbt_cpp\NBT_String.hpp" />
+    <ClInclude Include="..\include\nbt_cpp\NBT_TAG.hpp" />
+    <ClInclude Include="..\include\nbt_cpp\NBT_Type.hpp" />
+    <ClInclude Include="..\include\nbt_cpp\NBT_Writer.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
