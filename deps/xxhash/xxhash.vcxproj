@@ -27,6 +27,9 @@
     <ClCompile Include="xxhash.c" />
     <ClCompile Include="xxh_x86dispatch.c" />
   </ItemGroup>
+  <ItemGroup>
+    <Text Include="CMakeLists.txt" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>

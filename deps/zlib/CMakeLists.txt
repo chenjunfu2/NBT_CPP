@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.13)
 project(zlib LANGUAGES CXX)
 
 
-add_executable(zlib
+add_library(zlib
     adler32.c
     compress.c
     crc32.c
@@ -33,7 +33,7 @@ target_compile_definitions(zlib
         _UNICODE
         $<$<CONFIG:Debug>:_DEBUG>
         $<$<CONFIG:Release>:NDEBUG>
-        $<$<STREQUAL:$<CMAKE_CXX_COMPILER_ARCHITECTURE_ID>,X86>:WIN32>
+        $<$<STREQUAL:${CMAKE_CXX_COMPILER_ARCHITECTURE_ID},X86>:WIN32>
 )
 
 target_compile_options(zlib

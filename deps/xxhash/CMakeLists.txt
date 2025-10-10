@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.13)
 project(xxhash LANGUAGES CXX)
 
 
-add_executable(xxhash
+add_library(xxhash
     xxh_x86dispatch.c
     xxhash.c
 )
@@ -20,7 +20,7 @@ target_compile_definitions(xxhash
         _UNICODE
         $<$<CONFIG:Debug>:_DEBUG>
         $<$<CONFIG:Release>:NDEBUG>
-        $<$<STREQUAL:$<CMAKE_CXX_COMPILER_ARCHITECTURE_ID>,X86>:WIN32>
+        $<$<STREQUAL:${CMAKE_CXX_COMPILER_ARCHITECTURE_ID},X86>:WIN32>
 )
 
 target_compile_options(xxhash

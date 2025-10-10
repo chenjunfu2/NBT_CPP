@@ -18,6 +18,10 @@ EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "zlib", "deps\zlib\zlib.vcxproj", "{E304062B-8190-4215-AFFE-D2BF30DE6600}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "props", "props", "{0D2B0EAF-1FE2-4D91-A1EC-E55D4AF85FD2}"
+	ProjectSection(SolutionItems) = preProject
+		BasicConfiguration.props = BasicConfiguration.props
+		LibraryDependencies.props = LibraryDependencies.props
+	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "nbt_all_test", "tests\nbt_all_test\nbt_all_test.vcxproj", "{254337A7-8904-45A2-B4BB-8ABEE74865B6}"
 EndProject
