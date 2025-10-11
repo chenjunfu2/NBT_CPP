@@ -65,6 +65,29 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "gzip", "gzip", "{5C18D889-9
 		deps\gzip\version.hpp = deps\gzip\version.hpp
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "include", "include", "{0B625B37-5E58-4D1B-AB4D-B0070E93FB0A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "nbt_cpp", "nbt_cpp", "{E9EBAA7E-93FB-4C05-9568-EDAA96E9A2FD}"
+	ProjectSection(SolutionItems) = preProject
+		include\nbt_cpp\MUTF8_Tool.hpp = include\nbt_cpp\MUTF8_Tool.hpp
+		include\nbt_cpp\NBT_All.hpp = include\nbt_cpp\NBT_All.hpp
+		include\nbt_cpp\NBT_Array.hpp = include\nbt_cpp\NBT_Array.hpp
+		include\nbt_cpp\NBT_Compound.hpp = include\nbt_cpp\NBT_Compound.hpp
+		include\nbt_cpp\NBT_Endian.hpp = include\nbt_cpp\NBT_Endian.hpp
+		include\nbt_cpp\NBT_Hash.hpp = include\nbt_cpp\NBT_Hash.hpp
+		include\nbt_cpp\NBT_Helper.hpp = include\nbt_cpp\NBT_Helper.hpp
+		include\nbt_cpp\NBT_IO.hpp = include\nbt_cpp\NBT_IO.hpp
+		include\nbt_cpp\NBT_List.hpp = include\nbt_cpp\NBT_List.hpp
+		include\nbt_cpp\NBT_Node.hpp = include\nbt_cpp\NBT_Node.hpp
+		include\nbt_cpp\NBT_Node_View.hpp = include\nbt_cpp\NBT_Node_View.hpp
+		include\nbt_cpp\NBT_Print.hpp = include\nbt_cpp\NBT_Print.hpp
+		include\nbt_cpp\NBT_Reader.hpp = include\nbt_cpp\NBT_Reader.hpp
+		include\nbt_cpp\NBT_String.hpp = include\nbt_cpp\NBT_String.hpp
+		include\nbt_cpp\NBT_TAG.hpp = include\nbt_cpp\NBT_TAG.hpp
+		include\nbt_cpp\NBT_Type.hpp = include\nbt_cpp\NBT_Type.hpp
+		include\nbt_cpp\NBT_Writer.hpp = include\nbt_cpp\NBT_Writer.hpp
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -161,6 +184,7 @@ Global
 		{59EBCE72-5BD7-461E-80A1-F684C796497C} = {769C1520-63A1-46FC-8F5B-FC2489461722}
 		{256B3826-0979-494F-B01B-CB5A217CE4FA} = {575F30F7-1871-4C8A-80F9-95B324BF9895}
 		{5C18D889-9CD5-4BB1-814F-2E5B61C7D14B} = {575F30F7-1871-4C8A-80F9-95B324BF9895}
+		{E9EBAA7E-93FB-4C05-9568-EDAA96E9A2FD} = {0B625B37-5E58-4D1B-AB4D-B0070E93FB0A}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {F73690EB-AAEC-4C50-A189-1C05372948D5}

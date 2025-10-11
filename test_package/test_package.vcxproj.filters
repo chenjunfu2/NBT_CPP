@@ -13,67 +13,11 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="头文件\nbt_cpp">
-      <UniqueIdentifier>{082841cc-45e3-4f43-8e27-1b5f02cc0dd9}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="test.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="..\include\nbt_cpp\MUTF8_Tool.hpp">
-      <Filter>头文件\nbt_cpp</Filter>
-    </ClInclude>
-    <ClInclude Include="..\include\nbt_cpp\NBT_All.hpp">
-      <Filter>头文件\nbt_cpp</Filter>
-    </ClInclude>
-    <ClInclude Include="..\include\nbt_cpp\NBT_Array.hpp">
-      <Filter>头文件\nbt_cpp</Filter>
-    </ClInclude>
-    <ClInclude Include="..\include\nbt_cpp\NBT_Compound.hpp">
-      <Filter>头文件\nbt_cpp</Filter>
-    </ClInclude>
-    <ClInclude Include="..\include\nbt_cpp\NBT_Endian.hpp">
-      <Filter>头文件\nbt_cpp</Filter>
-    </ClInclude>
-    <ClInclude Include="..\include\nbt_cpp\NBT_Hash.hpp">
-      <Filter>头文件\nbt_cpp</Filter>
-    </ClInclude>
-    <ClInclude Include="..\include\nbt_cpp\NBT_Helper.hpp">
-      <Filter>头文件\nbt_cpp</Filter>
-    </ClInclude>
-    <ClInclude Include="..\include\nbt_cpp\NBT_IO.hpp">
-      <Filter>头文件\nbt_cpp</Filter>
-    </ClInclude>
-    <ClInclude Include="..\include\nbt_cpp\NBT_List.hpp">
-      <Filter>头文件\nbt_cpp</Filter>
-    </ClInclude>
-    <ClInclude Include="..\include\nbt_cpp\NBT_Node.hpp">
-      <Filter>头文件\nbt_cpp</Filter>
-    </ClInclude>
-    <ClInclude Include="..\include\nbt_cpp\NBT_Node_View.hpp">
-      <Filter>头文件\nbt_cpp</Filter>
-    </ClInclude>
-    <ClInclude Include="..\include\nbt_cpp\NBT_Print.hpp">
-      <Filter>头文件\nbt_cpp</Filter>
-    </ClInclude>
-    <ClInclude Include="..\include\nbt_cpp\NBT_Reader.hpp">
-      <Filter>头文件\nbt_cpp</Filter>
-    </ClInclude>
-    <ClInclude Include="..\include\nbt_cpp\NBT_String.hpp">
-      <Filter>头文件\nbt_cpp</Filter>
-    </ClInclude>
-    <ClInclude Include="..\include\nbt_cpp\NBT_TAG.hpp">
-      <Filter>头文件\nbt_cpp</Filter>
-    </ClInclude>
-    <ClInclude Include="..\include\nbt_cpp\NBT_Type.hpp">
-      <Filter>头文件\nbt_cpp</Filter>
-    </ClInclude>
-    <ClInclude Include="..\include\nbt_cpp\NBT_Writer.hpp">
-      <Filter>头文件\nbt_cpp</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="CMakeLists.txt">
