@@ -1,12 +1,5 @@
 ﻿#include <nbt_cpp/NBT_Endian.hpp>
-
-#include <stdio.h>
-
-
-void PrintBool(bool b)
-{
-	printf("%s\n", b ? "true" : "false");
-}
+#include <my\MyAssert.hpp>
 
 #define U64VAL (uint64_t)0x12'34'56'78'9A'BC'DE'F0
 #define _U64VAL (uint64_t)0xF0'DE'BC'9A'78'56'34'12
@@ -22,11 +15,14 @@ void PrintBool(bool b)
 
 int main(void)
 {
+	MyAssert(NBT_Endian::ByteSwapAny(U8VAL) == _U8VAL);
+	MyAssert(NBT_Endian::ByteSwapAny(U16VAL) == _U16VAL);
+	MyAssert(NBT_Endian::ByteSwapAny(U32VAL) == _U32VAL);
+	MyAssert(NBT_Endian::ByteSwapAny(U64VAL) == _U64VAL);
 
-	PrintBool(NBT_Endian::ByteSwapAny(U8VAL) == _U8VAL);
-	PrintBool(NBT_Endian::ByteSwapAny(U16VAL) == _U16VAL);
-	PrintBool(NBT_Endian::ByteSwapAny(U32VAL) == _U32VAL);
-	PrintBool(NBT_Endian::ByteSwapAny(U64VAL) == _U64VAL);
+	MyAssert(NBT_Endian::ByteSwap16(U16VAL) == _U16VAL);
+	MyAssert(NBT_Endian::ByteSwap32(U32VAL) == _U32VAL);
+	MyAssert(NBT_Endian::ByteSwap64(U64VAL) == _U64VAL);
 	
 	return 0;
 }
