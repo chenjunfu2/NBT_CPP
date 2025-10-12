@@ -3,8 +3,10 @@
 #include <array>
 #include <bit>
 #include <stdint.h>
+#include <stddef.h>
 
 template<typename T, size_t N>
+requires(sizeof(T) == 1)
 struct StaticHexArrayStaticStr: public std::array<T, N>
 {
 public:
@@ -93,7 +95,7 @@ private:
 		return (CharToHex(h) & 0x0F) << 4 | (CharToHex(l) & 0x0F) << 0;
 	}
 
-	static consteval bool IsSpace(char c)
+	static consteval bool IsSpace(char c) noexcept
 	{
 		switch (c)
 		{
@@ -110,33 +112,34 @@ private:
 		}
 	}
 
-	template<StaticHexArrayStaticStr sStr, typename T>
-	static consteval auto Parse(void) noexcept
+	template<typename RetT, typename T>
+	static consteval auto Parse(const T *tpData, size_t szDataSize) noexcept
 	{
-		T tRet{};
-
+		RetT tRet{};
 		size_t i = 0;
+
+		//获取一个非空白字符
+		auto GetNoSpaceChar = [&](char &c) noexcept -> bool
+		{
+			//跳过空白
+			while (i < szDataSize && IsSpace(tpData[i]))//注意这里的IsSpace对于字符串结尾\0也视作空白并跳过
+			{
+				++i;
+			}
+
+			//如果是因为i < sStr.Size()不满足，而不是
+			//遇到了一个非空白字符离开的while，则失败
+			if (i >= szDataSize)
+			{
+				return false;
+			}
+
+			c = tpData[i++];
+			return true;
+		};
+
 		while (true)
 		{
-			auto GetNoSpaceChar = [&](char &c) -> bool
-			{
-				//跳过空白
-				while (i < sStr.size() && IsSpace(sStr[i]))//注意这里的IsSpace对于字符串结尾\0也视作空白并跳过
-				{
-					++i;
-				}
-
-				//如果是因为i < sStr.Size()不满足，而不是
-				//遇到了一个非空白字符离开的while，则失败
-				if (i >= sStr.size())
-				{
-					return false;
-				}
-
-				c = sStr[i];
-				return true;
-			};
-
 			char h, l;
 
 			if (!GetNoSpaceChar(h))//没有高位，退出
@@ -161,7 +164,7 @@ public:
 	template<StaticHexArrayStaticStr sStr, typename T = uint8_t>
 	static consteval auto ToHexArr(void) noexcept
 	{
-		constexpr auto szArrSize = Parse<sStr, Counter>();
-		return Parse<sStr, Array<T, szArrSize>>();
+		constexpr auto szArrSize = Parse<Counter>(sStr.data(), sStr.size());
+		return Parse<Array<T, szArrSize>>(sStr.data(), sStr.size());
 	}
 };
