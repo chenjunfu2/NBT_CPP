@@ -1,10 +1,21 @@
 ﻿#include <stdio.h>
-
 #include <my/StaticHexArray.hpp>
-#include "..\..\StaticHexArray.hpp"
+
+template<typename T>
+void PrintHex()
+{
+
+
+
+
+
+
+}
 
 int main(void)
 {
-	constexpr auto h = StaticHexArray::ToHexArr<"ABCDEF", uint8_t>();
+	StaticHexArrayStaticStr str("test");
+
+	constexpr auto h = StaticHexArray::ToHexArr<"ABCDEF">();
 	return 0;
 }

@@ -17,7 +17,7 @@
       <UniqueIdentifier>{baa0cb30-38b9-446d-9c28-b7a011898b5d}</UniqueIdentifier>
     </Filter>
     <Filter Include="头文件\my">
-      <UniqueIdentifier>{ec385161-0d5e-47d2-aee5-9b7613d72abe}</UniqueIdentifier>
+      <UniqueIdentifier>{c50084c8-4bd6-4f6b-a477-961a94972fb6}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -82,7 +82,7 @@
     <ClInclude Include="..\..\include\nbt_cpp\NBT_Writer.hpp">
       <Filter>头文件\nbt_cpp</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\StaticHexArray.hpp">
+    <ClInclude Include="..\..\deps\my\StaticHexArray.hpp">
       <Filter>头文件\my</Filter>
     </ClInclude>
   </ItemGroup>
