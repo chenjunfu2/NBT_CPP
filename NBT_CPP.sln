@@ -53,6 +53,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "my", "my", "{256B3826-0979-
 	ProjectSection(SolutionItems) = preProject
 		deps\my\CodeTimer.hpp = deps\my\CodeTimer.hpp
 		deps\my\MyAssert.hpp = deps\my\MyAssert.hpp
+		StaticHexArray.hpp = StaticHexArray.hpp
 		deps\my\Windows_ANSI.hpp = deps\my\Windows_ANSI.hpp
 	EndProjectSection
 EndProject
