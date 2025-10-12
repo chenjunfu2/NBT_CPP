@@ -11,13 +11,14 @@ void PrintHex(T data) noexcept
 	{
 		if (u8CountCur == 0)
 		{
-			printf("0x%0*X: ", sizeof(size_t) * 2, iAddr);
+			printf("0x%0*zX: ", (int)sizeof(iAddr) * 2, iAddr);
 		}
 
 		printf("%02X ", (uint8_t)data[iAddr]);
 
 		if (++u8CountCur == u8CountOfLine)
 		{
+			putchar('\n');
 			u8CountCur = 0;
 		}
 	}

@@ -119,39 +119,33 @@ private:
 		size_t i = 0;
 
 		//获取一个非空白字符
-		auto GetNoSpaceChar = [&](char &c) noexcept -> bool
-		{
-			//跳过空白
-			while (i < szDataSize && IsSpace(tpData[i]))//注意这里的IsSpace对于字符串结尾\0也视作空白并跳过
-			{
-				++i;
-			}
-
-			//如果是因为i < sStr.Size()不满足，而不是
-			//遇到了一个非空白字符离开的while，则失败
-			if (i >= szDataSize)
-			{
-				return false;
-			}
-
-			c = tpData[i++];
-			return true;
-		};
+		//但是为什么这里不用lambda而要使用宏定义呢？因为三大家编译器中，
+		//只有一家不支持带捕获的编译期lambda，是谁呢，好难猜呀~
+#define GetNoSpaceChar(c,...)\
+/*跳过空白*/\
+{\
+	while (i < szDataSize && IsSpace(tpData[i]))/*注意这里的IsSpace对于字符串结尾\0也视作空白并跳过*/\
+	{\
+		++i;\
+	}\
+	\
+	/*如果是因为i < sStr.Size()不满足，而不是遇到了一个非空白字符离开的while，则失败*/\
+	if (i >= szDataSize)\
+	{\
+		__VA_ARGS__;\
+		break;\
+	}\
+	\
+	c = tpData[i++];\
+}
 
 		while (true)
 		{
 			char h, l;
 
-			if (!GetNoSpaceChar(h))//没有高位，退出
-			{
-				break;
-			}
-
-			if (!GetNoSpaceChar(l))//仅有高位，低位补0
-			{
-				tRet.Push(CharsToHex(h, '0'));
-				break;
-			}
+			GetNoSpaceChar(h);//高位不存在则退出
+			GetNoSpaceChar(l,//低位不存在，仅有高位
+				tRet.Push(CharsToHex(h, '0')));//低位补0，然后退出
 
 			//高低位合并
 			tRet.Push(CharsToHex(h, l));
