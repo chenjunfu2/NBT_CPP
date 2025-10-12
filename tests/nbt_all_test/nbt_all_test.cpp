@@ -1,5 +1,6 @@
-﻿#include <stdio.h>
-#include <my/StaticHexArray.hpp>
+﻿#include <my/StaticHexArray.hpp>
+
+#include <stdio.h>
 
 template<typename T>
 void PrintHex(T data) noexcept
