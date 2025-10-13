@@ -4,6 +4,7 @@
 
 #include <array>
 #include <string>
+#include <vector>
 
 #include <stdint.h>
 #include <stddef.h>
@@ -208,15 +209,20 @@ public:
 		return Parse<Array<T, szArrSize>>(sStr.data(), sStr.size());
 	}
 
-	template<typename T>
-	static size_t ToHexArrLength(const T &tStr)
+	static size_t ToHexArrLength(const std::string_view &viewStr)
 	{
-		return Parse<Counter>(tStr.data(), tStr.size());
+		return Parse<Counter>(viewStr.data(), viewStr.size());
 	}
 
-	template<typename RetT, typename T>
-	static auto ToHexArr(const T &tStr, size_t szReserve = 0)
+	template<typename RetT = std::vector<uint8_t>>
+	static auto ToHexArr(const std::string_view &viewStr, size_t szReserve = 0)
 	{
-		 return Parse<DynamicArray<RetT>>(tStr.data(), tStr.size(), { szReserve });
+		 return Parse<DynamicArray<RetT>>(viewStr.data(), viewStr.size(), { szReserve });
+	}
+
+	template<typename RetT = std::vector<uint8_t>, typename T = char>
+	static auto ToHexArr(const T *tpData, size_t szDataSize, size_t szReserve = 0)
+	{
+		return Parse<DynamicArray<RetT>>(tpData, szDataSize, { szReserve });
 	}
 };
