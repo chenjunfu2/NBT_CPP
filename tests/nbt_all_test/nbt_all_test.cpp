@@ -26,7 +26,8 @@ void PrintHex(T data) noexcept
 	}
 }
 
-int main(void)
+
+void StaticHexArrayTest(void)
 {
 	constexpr auto h0 = StaticHexArray::ToHexArr<R"(
 	00 01 02 03 04 05 06 07 08 09 0A 0B 0C 0D 0E 0F
@@ -85,17 +86,37 @@ int main(void)
 	F0 F1 F2 F3 F4 F5 F6 F7 F8 F9 FA FB FC FD FE FF
 )", 786);
 
+	//PrintHex(h0);
+	//printf("\n\n");
+	//PrintHex(h1);
+	//printf("\n\n");
+	//PrintHex(h2);
 
+	//构造目标序列
+	std::vector<uint8_t> vt{};
+	for (uint8_t i = 0; i < 255; ++i)
+	{
+		vt.push_back(i);
+	}
+	vt.push_back(255);
 
-	PrintHex(h0);
-	printf("\n\n");
-	PrintHex(h1);
-	printf("\n\n");
-	PrintHex(h2);
-
+	//静态h0转换到vector进行测试
 	std::vector<uint8_t> v0(h0.begin(), h0.end());
-	MyAssert(v0 == h1);
-	MyAssert(v0 == h2);
+
+	//验证
+	MyAssert(vt == v0);
+	MyAssert(vt == h1);
+	MyAssert(vt == h2);
+}
+
+
+
+int main(void)
+{
+	StaticHexArrayTest();
+
+
+
 
 	return 0;
 }
