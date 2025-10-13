@@ -9,10 +9,10 @@
 #include <stdint.h>
 #include <stddef.h>
 
-class StaticHexArray
+class StrHexArray
 {
-	StaticHexArray(void) = delete;
-	~StaticHexArray(void) = delete;
+	StrHexArray(void) = delete;
+	~StrHexArray(void) = delete;
 
 public:
 	template<typename T, size_t N>

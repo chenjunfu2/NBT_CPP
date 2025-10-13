@@ -150,7 +150,7 @@
     <Text Include="CMakeLists.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\deps\my\StaticHexArray.hpp" />
+    <ClInclude Include="..\..\deps\my\StrHexArray.hpp" />
     <ClInclude Include="..\..\include\nbt_cpp\MUTF8_Tool.hpp" />
     <ClInclude Include="..\..\include\nbt_cpp\NBT_All.hpp" />
     <ClInclude Include="..\..\include\nbt_cpp\NBT_Array.hpp" />

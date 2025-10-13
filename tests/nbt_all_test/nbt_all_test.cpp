@@ -1,4 +1,4 @@
-﻿#include <my/StaticHexArray.hpp>
+﻿#include <my/StrHexArray.hpp>
 #include <my/MyAssert.hpp>
 
 #include <stdio.h>
@@ -27,9 +27,9 @@ void PrintHex(T data) noexcept
 }
 
 
-void StaticHexArrayTest(void)
+void StrHexArrayTest(void)
 {
-	constexpr auto h0 = StaticHexArray::ToHexArr<R"(
+	constexpr auto h0 = StrHexArray::ToHexArr<R"(
 	00 01 02 03 04 05 06 07 08 09 0A 0B 0C 0D 0E 0F
 	10 11 12 13 14 15 16 17 18 19 1A 1B 1C 1D 1E 1F
 	20 21 22 23 24 25 26 27 28 29 2A 2B 2C 2D 2E 2F
@@ -48,7 +48,7 @@ void StaticHexArrayTest(void)
 	F0 F1 F2 F3 F4 F5 F6 F7 F8 F9 FA FB FC FD FE FF
 )">();
 
-	auto h1 = StaticHexArray::ToHexArr(R"(
+	auto h1 = StrHexArray::ToHexArr(R"(
 	00'01|02.03,04"05\06/07`08-09_0A;0B:0C 0D		0E0F			
 	10'11|12.13,14"15\16/17`18-19_1A;1B:1C 1D		1E1F			
 	20'21|22.23,24"25\26/27`28-29_2A;2B:2C 2D		2E2F			
@@ -67,7 +67,7 @@ void StaticHexArrayTest(void)
 	F0'F1|F2.F3,F4"F5\F6/F7`F8-F9_FA;FB:FC FD		FEFF			
 )");
 
-	auto h2 = StaticHexArray::ToHexArr(R"(
+	auto h2 = StrHexArray::ToHexArr(R"(
 	00 01 02 03 04 05 06 07 08 09 0A 0B 0C 0D 0E 0F
 	10 11 12 13 14 15 16 17 18 19 1A 1B 1C 1D 1E 1F
 	20 21 22 23 24 25 26 27 28 29 2A 2B 2C 2D 2E 2F
@@ -113,7 +113,7 @@ void StaticHexArrayTest(void)
 
 int main(void)
 {
-	StaticHexArrayTest();
+	StrHexArrayTest();
 
 
 
