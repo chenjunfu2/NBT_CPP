@@ -3,7 +3,7 @@
 //必须没有提前定义过任何此类宏
 #if !defined(__COMPILER_MSVC__) &&\
 	!defined(__COMPILER_GCC__) &&\
-	~defined(__COMPILER_CLANG__)
+	!defined(__COMPILER_CLANG__)
 
 	//先预定义所有可能的编译器宏
 	#define __COMPILER_MSVC__ 0
