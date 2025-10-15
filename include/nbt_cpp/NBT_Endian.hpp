@@ -6,27 +6,7 @@
 #include <utility>//std::index_sequence
 #include <type_traits>//std::make_unsigned_t
 
-#if defined(_MSC_VER)
-#define COMPILER_MSVC 1
-#define COMPILER_GCC 0
-#define COMPILER_CLANG 0
-#define COMPILER_NAME "MSVC"
-#elif defined(__clang__)
-#define COMPILER_MSVC 0
-#define COMPILER_GCC 0
-#define COMPILER_CLANG 1
-#define COMPILER_NAME "Clang"
-#elif defined(__GNUC__)
-#define COMPILER_MSVC 0
-#define COMPILER_GCC 1
-#define COMPILER_CLANG 0
-#define COMPILER_NAME "GCC"
-#else
-#define COMPILER_MSVC 0
-#define COMPILER_GCC 0
-#define COMPILER_CLANG 0
-#define COMPILER_NAME "Unknown"
-#endif
+#include "Compiler_Define.h"//编译器类型判断
 
 class NBT_Endian
 {
@@ -88,9 +68,9 @@ public:
 	static uint16_t ByteSwap16(uint16_t data) noexcept
 	{
 		//根据编译器切换内建指令或使用默认位移实现
-#if COMPILER_MSVC
+#if __COMPILER_MSVC__
 		return _byteswap_ushort(data);
-#elif COMPILER_GCC || COMPILER_CLANG
+#elif __COMPILER_GCC__ || __COMPILER_CLANG__
 		return __builtin_bswap16(data);
 #else
 		return ByteSwapAny(data);
@@ -100,9 +80,9 @@ public:
 	static uint32_t ByteSwap32(uint32_t data) noexcept
 	{
 		//根据编译器切换内建指令或使用默认位移实现
-#if COMPILER_MSVC
+#if __COMPILER_MSVC__
 		return _byteswap_ulong(data);
-#elif COMPILER_GCC || COMPILER_CLANG
+#elif __COMPILER_GCC__ || __COMPILER_CLANG__
 		return __builtin_bswap32(data);
 #else
 		return ByteSwapAny(data);
@@ -112,9 +92,9 @@ public:
 	static uint64_t ByteSwap64(uint64_t data) noexcept
 	{
 		//根据编译器切换内建指令或使用默认位移实现
-#if COMPILER_MSVC
+#if __COMPILER_MSVC__
 		return _byteswap_uint64(data);
-#elif COMPILER_GCC || COMPILER_CLANG
+#elif __COMPILER_GCC__ || __COMPILER_CLANG__
 		return __builtin_bswap64(data);
 #else
 		return ByteSwapAny(data);
@@ -203,8 +183,3 @@ public:
 		return AutoByteSwap(data);
 	}
 };
-
-#undef COMPILER_NAME
-#undef COMPILER_CLANG
-#undef COMPILER_GCC
-#undef COMPILER_MSVC

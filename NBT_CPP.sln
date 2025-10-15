@@ -70,6 +70,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "include", "include", "{0B62
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "nbt_cpp", "nbt_cpp", "{E9EBAA7E-93FB-4C05-9568-EDAA96E9A2FD}"
 	ProjectSection(SolutionItems) = preProject
+		include\nbt_cpp\Compiler_Define.h = include\nbt_cpp\Compiler_Define.h
 		include\nbt_cpp\MUTF8_Tool.hpp = include\nbt_cpp\MUTF8_Tool.hpp
 		include\nbt_cpp\NBT_All.hpp = include\nbt_cpp\NBT_All.hpp
 		include\nbt_cpp\NBT_Array.hpp = include\nbt_cpp\NBT_Array.hpp

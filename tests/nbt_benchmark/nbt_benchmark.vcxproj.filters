@@ -79,5 +79,8 @@
     <ClInclude Include="..\..\include\nbt_cpp\NBT_Writer.hpp">
       <Filter>头文件\nbt_cpp</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\include\nbt_cpp\Compiler_Define.h">
+      <Filter>头文件\nbt_cpp</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

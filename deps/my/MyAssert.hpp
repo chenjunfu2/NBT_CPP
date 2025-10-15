@@ -3,33 +3,33 @@
 #include <stdio.h>
 #include <stdarg.h>
 
+//先预定义所有可能的编译器宏
+#define __COMPILER_MSVC__ 0
+#define __COMPILER_GCC__ 0
+#define __COMPILER_CLANG__ 0
+
+//然后实机判断是哪个编译器，是就替换它自己的宏为1
 #if defined(_MSC_VER)
-#define COMPILER_MSVC 1
-#define COMPILER_GCC 0
-#define COMPILER_CLANG 0
-#define COMPILER_NAME "MSVC"
-#elif defined(__clang__)
-#define COMPILER_MSVC 0
-#define COMPILER_GCC 0
-#define COMPILER_CLANG 1
-#define COMPILER_NAME "Clang"
+#undef  __COMPILER_MSVC__
+#define __COMPILER_MSVC__ 1
+#define __COMPILER_NAME__ "MSVC"
 #elif defined(__GNUC__)
-#define COMPILER_MSVC 0
-#define COMPILER_GCC 1
-#define COMPILER_CLANG 0
-#define COMPILER_NAME "GCC"
+#undef  __COMPILER_GCC__
+#define __COMPILER_GCC__ 1
+#define __COMPILER_NAME__ "GCC"
+#elif defined(__clang__)
+#undef  __COMPILER_CLANG__
+#define __COMPILER_CLANG__ 1
+#define __COMPILER_NAME__ "Clang"
 #else
-#define COMPILER_MSVC 0
-#define COMPILER_GCC 0
-#define COMPILER_CLANG 0
-#define COMPILER_NAME "Unknown"
+#define __COMPILER_NAME__ "Unknown"
 #endif
 
 
-#if COMPILER_MSVC
+#if __COMPILER_MSVC__
 #define PRINTF_FORMAT_ARGS _Printf_format_string_
 #define PRINTF_FORMAT_ATTR
-#elif COMPILER_GCC || COMPILER_CLANG
+#elif __COMPILER_GCC__ || __COMPILER_CLANG__
 #define PRINTF_FORMAT_ARGS
 #define PRINTF_FORMAT_ATTR __attribute__((__format__ (__printf__, 5, 6)))
 #else
@@ -78,7 +78,7 @@ inline void __MyAssert_Function__(const char *pFileName, size_t szLine, const ch
 #undef PRINTF_FORMAT_ATTR
 #undef PRINTF_FORMAT_ARGS
 
-#undef COMPILER_NAME
-#undef COMPILER_CLANG
-#undef COMPILER_GCC
-#undef COMPILER_MSVC
+#undef __COMPILER_NAME__
+#undef __COMPILER_CLANG__
+#undef __COMPILER_GCC__
+#undef __COMPILER_MSVC__

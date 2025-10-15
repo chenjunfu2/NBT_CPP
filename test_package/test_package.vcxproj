@@ -154,6 +154,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\deps\my\MyAssert.hpp" />
+    <ClInclude Include="..\include\nbt_cpp\Compiler_Define.h" />
     <ClInclude Include="..\include\nbt_cpp\MUTF8_Tool.hpp" />
     <ClInclude Include="..\include\nbt_cpp\NBT_All.hpp" />
     <ClInclude Include="..\include\nbt_cpp\NBT_Array.hpp" />
