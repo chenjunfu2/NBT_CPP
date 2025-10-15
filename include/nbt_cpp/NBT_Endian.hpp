@@ -203,3 +203,8 @@ public:
 		return AutoByteSwap(data);
 	}
 };
+
+#undef COMPILER_NAME
+#undef COMPILER_CLANG
+#undef COMPILER_GCC
+#undef COMPILER_MSVC
