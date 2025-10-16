@@ -1,10 +1,9 @@
-cmake_minimum_required(VERSION 3.13)
+﻿cmake_minimum_required(VERSION 3.13)
 project(mutf8_test LANGUAGES CXX)
 
 target_link_libraries(mutf8_test
     PUBLIC
-        xxhash
-        zlib
+        ${COMMON_LIBS}
 )
 
 add_executable(mutf8_test

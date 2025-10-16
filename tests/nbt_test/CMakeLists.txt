@@ -1,10 +1,9 @@
-cmake_minimum_required(VERSION 3.13)
+﻿cmake_minimum_required(VERSION 3.13)
 project(nbt_test LANGUAGES CXX)
 
 target_link_libraries(nbt_test
     PUBLIC
-        xxhash
-        zlib
+        ${COMMON_LIBS}
 )
 
 add_executable(nbt_test

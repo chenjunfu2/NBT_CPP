@@ -1,10 +1,9 @@
-cmake_minimum_required(VERSION 3.13)
+﻿cmake_minimum_required(VERSION 3.13)
 project(endian_test LANGUAGES CXX)
 
 target_link_libraries(endian_test
     PUBLIC
-        xxhash
-        zlib
+        ${COMMON_LIBS}
 )
 
 add_executable(endian_test

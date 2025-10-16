@@ -1,10 +1,9 @@
-cmake_minimum_required(VERSION 3.13)
+﻿cmake_minimum_required(VERSION 3.13)
 project(test_package LANGUAGES CXX)
 
 target_link_libraries(test_package
     PUBLIC
-        xxhash
-        zlib
+        ${COMMON_LIBS}
 )
 
 add_executable(test_package
