@@ -24,3 +24,15 @@ target_compile_definitions(zlib
     PUBLIC
         $<$<STREQUAL:${CMAKE_CXX_COMPILER_ARCHITECTURE_ID},X86>:WIN32>
 )
+
+#添加对 POSIX 功能的支持
+if(UNIX AND NOT APPLE)
+    target_compile_definitions(zlib PRIVATE 
+        _POSIX_C_SOURCE=200112L
+        _XOPEN_SOURCE=600
+    )
+endif()
+
+if(UNIX)
+    target_compile_definitions(zlib PRIVATE HAVE_UNISTD_H)
+endif()

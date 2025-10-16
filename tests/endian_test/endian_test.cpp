@@ -1,5 +1,5 @@
 ﻿#include <nbt_cpp/NBT_Endian.hpp>
-#include <my\MyAssert.hpp>
+#include <my/MyAssert.hpp>
 
 #define U64VAL (uint64_t)0x12'34'56'78'9A'BC'DE'F0
 #define _U64VAL (uint64_t)0xF0'DE'BC'9A'78'56'34'12
