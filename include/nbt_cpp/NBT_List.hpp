@@ -389,6 +389,56 @@ public:
 		return List::shrink_to_fit();
 	}
 
+	template <bool bNoCheck = false>
+	std::conditional_t<bNoCheck, void, bool> Merge(const MyList &_Copy)
+	{
+		if constexpr (!bNoCheck)
+		{
+			if (_Copy.enElementTag != enElementTag)
+			{
+				return false;
+			}
+		}
+
+		List::insert(List::end(), _Copy.begin(), _Copy.end());
+
+		if constexpr (!bNoCheck)
+		{
+			return true;
+		}
+	}
+
+	template <bool bNoCheck = false>
+	std::conditional_t<bNoCheck, void, bool> Merge(MyList &&_Move)
+	{
+		if constexpr (!bNoCheck)
+		{
+			if (_Move.enElementTag != enElementTag)
+			{
+				return false;
+			}
+		}
+
+		List::insert(List::end(), std::make_move_iterator(_Move.begin()), std::make_move_iterator(_Move.end()));
+
+		if constexpr (!bNoCheck)
+		{
+			return true;
+		}
+	}
+
+	//简化判断
+	bool Contains(const typename List::value_type &tValue) const noexcept
+	{
+		return std::find(List::begin(), List::end(), tValue) != List::end();
+	}
+
+	template<typename Predicate>
+	bool ContainsIf(Predicate pred) const noexcept
+	{
+		return std::find_if(List::begin(), List::end(), pred) != List::end();
+	}
+
 #define TYPE_GET_FUNC(type)\
 const typename NBT_Type::type &Get##type(const typename List::size_type &szPos) const\
 {\

@@ -132,12 +132,43 @@ void NBT_ReadWrite_Test(void)
 )">();
 
 	//读取解析
-	NBT_Type::Compound cpd{};
-	NBT_Reader::ReadNBT(NbtRawData, 0, cpd);
+	NBT_Type::Compound cpdRead{};
+	NBT_Reader::ReadNBT(NbtRawData, 0, cpdRead);
 
 	//判断读到的内容是否与生成的相同
 
+	NBT_Type::Compound cpdGen
+	{
+		{MU8STR(""),NBT_Type::Compound{}}
+	};
+	{
+		auto &insertTarget = cpdGen.GetCompound(MU8STR(""));
 
+		insertTarget.PutCompound(MU8STR("compound"),
+			NBT_Type::Compound
+			{
+				{MU8STR("byte array"),NBT_Type::ByteArray{1,2,3,4,5,6,7}},
+				{MU8STR("int array"),NBT_Type::IntArray{1,2,3,4,5,6,7}},
+				{MU8STR("long array"),NBT_Type::LongArray{1,2,3,4,5,6,7}},
+			}
+		);
+
+		insertTarget.PutList(MU8STR("compound"),
+			NBT_Type::List
+			{
+				MU8STR("test str0"),
+				MU8STR("test str1"),
+				MU8STR("test str2"),
+				MU8STR("test str3"),
+				MU8STR("test str4"),
+				MU8STR("test str5"),
+			}
+		);
+
+		//insertTarget.PutByte();
+		
+		//insertTarget.merge()
+	}
 
 
 
@@ -146,7 +177,7 @@ void NBT_ReadWrite_Test(void)
 
 	//再次写出
 	std::vector<uint8_t> testWrite;
-	NBT_Writer::WriteNBT(testWrite, 0, cpd);
+	NBT_Writer::WriteNBT(testWrite, 0, cpdRead);
 
 	//判断不同的字节数目是否相同（因为nbt的compound是无须类型所以字节可能被打乱，但是数量必须相同）
 	auto TestByteCount =

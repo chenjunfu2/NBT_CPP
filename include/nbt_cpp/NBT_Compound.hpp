@@ -221,6 +221,16 @@ public:
 		return Compound::size();
 	}
 
+	void Merge(const MyCompound &_Copy)
+	{
+		Compound::merge(_Copy);
+	}
+
+	void Merge(MyCompound &&_Move)
+	{
+		Compound::merge(std::move(_Move));
+	}
+
 	//简化判断
 	bool Contains(const typename Compound::key_type &sTagName) const noexcept
 	{
@@ -231,6 +241,12 @@ public:
 	{
 		auto *p = Search(sTagName);
 		return p != NULL && p->GetTag() == enTypeTag;
+	}
+
+	template<typename Predicate>
+	bool ContainsIf(Predicate pred) const noexcept
+	{
+		return std::find_if(Compound::begin(), Compound::end(), pred) != Compound::end();
 	}
 
 #define TYPE_GET_FUNC(type)\
