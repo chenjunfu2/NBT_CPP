@@ -1,34 +1,34 @@
-cmake_minimum_required(VERSION 3.13)
+ï»¿cmake_minimum_required(VERSION 3.13)
 project(NBT_CPP)
 
-#È«¾Ö C++/C ±ê×¼
+#å…¨å±€ C++/C æ ‡å‡†
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_C_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_C_STANDARD_REQUIRED ON)
 
-#¹«¹²±àÒëÑ¡Ïî
+#å…¬å…±ç¼–è¯‘é€‰é¡¹
 if(MSVC)
     add_compile_options(/W3)
 else()
     add_compile_options(-Wall -Wextra)
 endif()
 
-#¹«¹²±àÒë¶¨Òå
+#å…¬å…±ç¼–è¯‘å®šä¹‰
 add_definitions(-D_CONSOLE -DUNICODE -D_UNICODE)
 
-#²»Í¬ÅäÖÃÏÂµÄ¶¨Òå
+#ä¸åŒé…ç½®ä¸‹çš„å®šä¹‰
 set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -D_DEBUG")
 set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -DNDEBUG")
 
-#Ìí¼Ó¿â
+#æ·»åŠ åº“
 add_subdirectory(deps/xxhash)
 add_subdirectory(deps/zlib)
 
-#¹«¹²¿â±äÁ¿£¨·½±ã¸´ÓÃ£©
+#å…¬å…±åº“å˜é‡ï¼ˆæ–¹ä¾¿å¤ç”¨ï¼‰
 set(COMMON_LIBS xxhash zlib)
 
-#È«¾ÖÍ·ÎÄ¼şÄ¿Â¼
+#å…¨å±€å¤´æ–‡ä»¶ç›®å½•
 include_directories(
     ${CMAKE_SOURCE_DIR}/deps/gzip
     ${CMAKE_SOURCE_DIR}/deps/zlib
@@ -37,17 +37,17 @@ include_directories(
     ${CMAKE_SOURCE_DIR}/include
 )
 
-#Ìí¼ÓÏîÄ¿
+#æ·»åŠ é¡¹ç›®
 
-#²âÊÔÏîÄ¿
+#æµ‹è¯•é¡¹ç›®
 add_subdirectory(tests/endian_test)
 add_subdirectory(tests/mutf8_test)
 add_subdirectory(tests/nbt_all_test)
 add_subdirectory(tests/nbt_benchmark)
 add_subdirectory(tests/nbt_test)
 
-#°ü²âÊÔ
+#åŒ…æµ‹è¯•
 add_subdirectory(test_package)
 
-#Ê¹ÓÃ°¸Àı
+#ä½¿ç”¨æ¡ˆä¾‹
 add_subdirectory(usage)
