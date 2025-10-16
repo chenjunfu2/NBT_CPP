@@ -131,12 +131,51 @@ void NBT_ReadWrite_Test(void)
 	72 34 00 09 74 65 73 74 20 73 74 72 35 00
 )">();
 
+	//读取解析
 	NBT_Type::Compound cpd{};
 	NBT_Reader::ReadNBT(NbtRawData, 0, cpd);
 
-	//NBT_Writer::WriteNBT();
+	//判断读到的内容是否与生成的相同
 
 
+
+
+
+
+
+
+	//再次写出
+	std::vector<uint8_t> testWrite;
+	NBT_Writer::WriteNBT(testWrite, 0, cpd);
+
+	//判断不同的字节数目是否相同（因为nbt的compound是无须类型所以字节可能被打乱，但是数量必须相同）
+	auto TestByteCount =
+	[](const auto l, const auto r) -> bool
+	requires (sizeof(l[0]) == 1 && sizeof(r[0]) == 1)
+	{
+		uint64_t u64ByteCountArr[UINT8_MAX] = {};
+		for (const auto &it : l)
+		{
+			++u64ByteCountArr[(uint8_t)it];
+		}
+
+		for (const auto &it : r)
+		{
+			--u64ByteCountArr[(uint8_t)it];
+		}
+
+		for (const auto &it : u64ByteCountArr)
+		{
+			if (it != 0)
+			{
+				return false;
+			}
+		}
+
+		return true;
+	};
+
+	MyAssert(TestByteCount(std::vector<uint8_t>(NbtRawData.begin(), NbtRawData.end()), testWrite));
 }
 
 int main(void)
