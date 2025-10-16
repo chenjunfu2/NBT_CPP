@@ -286,11 +286,11 @@ private:
 #define _RP_STRLING(l) STRLING(l)
 #define STRLING(l) #l
 
-#define STACK_TRACEBACK(fmt, ...) funcErrInfo("In [" _RP___FUNCTION__ "] Line:[" _RP___LINE__ "]: \n" fmt "\n\n" __VA_OPT__(,) __VA_ARGS__);
+#define STACK_TRACEBACK(fmt, ...) funcErrInfo("In [{}] Line:[" _RP___LINE__ "]: \n" fmt "\n\n", _RP___FUNCTION__ __VA_OPT__(,) __VA_ARGS__);
 #define CHECK_STACK_DEPTH(Depth) \
 if((Depth) <= 0)\
 {\
-	eRet = Error(StackDepthExceeded, tData, funcErrInfo, _RP___FUNCTION__ ": NBT nesting depth exceeded maximum call stack limit");\
+	eRet = Error(StackDepthExceeded, tData, funcErrInfo, "{}: NBT nesting depth exceeded maximum call stack limit", _RP___FUNCTION__);\
 	STACK_TRACEBACK("(Depth) <= 0");\
 	return eRet;\
 }\
@@ -303,19 +303,19 @@ try\
 }\
 catch(const std::bad_alloc &e)\
 {\
-	ErrCode eRet = Error(OutOfMemoryError, tData, funcErrInfo, _RP___FUNCTION__ ": Info:[{}]", e.what());\
+	ErrCode eRet = Error(OutOfMemoryError, tData, funcErrInfo, "{}: Info:[{}]", _RP___FUNCTION__, e.what());\
 	STACK_TRACEBACK("catch(std::bad_alloc)");\
 	return eRet;\
 }\
 catch(const std::exception &e)\
 {\
-	ErrCode eRet = Error(StdException, tData, funcErrInfo, _RP___FUNCTION__ ": Info:[{}]", e.what());\
+	ErrCode eRet = Error(StdException, tData, funcErrInfo, "{}: Info:[{}]", _RP___FUNCTION__, e.what());\
 	STACK_TRACEBACK("catch(std::exception)");\
 	return eRet;\
 }\
 catch(...)\
 {\
-	ErrCode eRet =  Error(UnknownError, tData, funcErrInfo, _RP___FUNCTION__ ": Info:[Unknown Exception]");\
+	ErrCode eRet =  Error(UnknownError, tData, funcErrInfo, "{}: Info:[Unknown Exception]", _RP___FUNCTION__);\
 	STACK_TRACEBACK("catch(...)");\
 	return eRet;\
 }
@@ -363,7 +363,7 @@ catch(...)\
 		//判断长度是否超过
 		if (!tData.HasAvailData(wStringLength))
 		{
-			ErrCode eRet = Error(OutOfRangeError, tData, funcErrInfo, __FUNCTION__ ":\n(Index[{}] + wStringLength[{}])[{}] > DataSize[{}]",
+			ErrCode eRet = Error(OutOfRangeError, tData, funcErrInfo, "{}:\n(Index[{}] + wStringLength[{}])[{}] > DataSize[{}]", __FUNCTION__,
 				tData.Index(), (size_t)wStringLength, tData.Index() + (size_t)wStringLength, tData.Size());
 			STACK_TRACEBACK("HasAvailData Test");
 			return eRet;
@@ -421,7 +421,7 @@ catch(...)\
 		//判断长度是否超过
 		if (!tData.HasAvailData(iElementCount * sizeof(ValueType)))//保证下方调用安全
 		{
-			eRet = Error(OutOfRangeError, tData, funcErrInfo, __FUNCTION__ ":\n(Index[{}] + iElementCount[{}] * sizeof(T::value_type)[{}])[{}] > DataSize[{}]",
+			eRet = Error(OutOfRangeError, tData, funcErrInfo, "{}:\n(Index[{}] + iElementCount[{}] * sizeof(T::value_type)[{}])[{}] > DataSize[{}]", __FUNCTION__,
 				tData.Index(), (size_t)iElementCount, sizeof(ValueType), tData.Index() + (size_t)iElementCount * sizeof(T::value_type), tData.Size());
 			STACK_TRACEBACK("HasAvailData Test");
 			return eRet;
@@ -457,7 +457,8 @@ catch(...)\
 			{
 				if constexpr (!bRoot)//非根部情况遇到末尾，则报错
 				{
-					eRet = Error(OutOfRangeError, tData, funcErrInfo, __FUNCTION__ ":\nIndex[{}] >= DataSize()[{}]", tData.Index(), tData.Size());
+					eRet = Error(OutOfRangeError, tData, funcErrInfo, "{}:\nIndex[{}] >= DataSize()[{}]", __FUNCTION__,
+						tData.Index(), tData.Size());
 				}
 
 				return eRet;//否则直接返回（默认值AllOk）
@@ -472,7 +473,7 @@ catch(...)\
 
 			if (tagNbt >= NBT_TAG::ENUM_END)//确认在范围内
 			{
-				eRet = Error(NbtTypeTagError, tData, funcErrInfo, __FUNCTION__ ":\nNBT Tag switch default: Unknown Type Tag[0x{:02X}({})]",
+				eRet = Error(NbtTypeTagError, tData, funcErrInfo, "{}:\nNBT Tag switch default: Unknown Type Tag[0x{:02X}({})]", __FUNCTION__,
 					(NBT_TAG_RAW_TYPE)tagNbt, (NBT_TAG_RAW_TYPE)tagNbt);//此处不进行提前返回，往后默认返回处理
 				STACK_TRACEBACK("tagNbt Test");
 				return eRet;//超出范围立刻返回
@@ -507,7 +508,7 @@ catch(...)\
 				it->second = std::move(tmpNode);
 
 				//发出警告，注意警告不用eRet接返回值
-				Error(ElementExistsWarn, tData, funcErrInfo, __FUNCTION__ ":\nName: \"{}\", Type: [NBT_Type::{}] data already exist!",
+				Error(ElementExistsWarn, tData, funcErrInfo, "{}:\nName: \"{}\", Type: [NBT_Type::{}] data already exist!", __FUNCTION__,
 					sName.ToCharTypeUTF8(), NBT_Type::GetTypeName(tagNbt));
 			}
 
@@ -558,7 +559,7 @@ catch(...)\
 		//错误的列表元素类型
 		if (enListElementTag >= NBT_TAG::ENUM_END)
 		{
-			eRet = Error(NbtTypeTagError, tData, funcErrInfo, __FUNCTION__ ":\nList NBT Type:Unknown Type Tag[0x{:02X}({})]",
+			eRet = Error(NbtTypeTagError, tData, funcErrInfo, "{}:\nList NBT Type:Unknown Type Tag[0x{:02X}({})]", __FUNCTION__,
 				(NBT_TAG_RAW_TYPE)enListElementTag, (NBT_TAG_RAW_TYPE)enListElementTag);
 			STACK_TRACEBACK("enListElementTag Test");
 			return eRet;
@@ -576,7 +577,7 @@ catch(...)\
 		//检查有符号数大小范围
 		if (iListLength < 0)
 		{
-			eRet = Error(OutOfRangeError, tData, funcErrInfo, __FUNCTION__ ":\niListLength[{}] < 0", iListLength);
+			eRet = Error(OutOfRangeError, tData, funcErrInfo, ":\niListLength[{}] < 0", __FUNCTION__, iListLength);
 			STACK_TRACEBACK("iListLength Test");
 			return eRet;
 		}
@@ -584,7 +585,7 @@ catch(...)\
 		//防止重复N个结束标签，带有结束标签的必须是空列表
 		if (enListElementTag == NBT_TAG::End && iListLength != 0)
 		{
-			eRet = Error(ListElementTypeError, tData, funcErrInfo, __FUNCTION__ ":\nThe list with TAG_End[0x00] tag must be empty, but [{}] elements were found",
+			eRet = Error(ListElementTypeError, tData, funcErrInfo, "{}:\nThe list with TAG_End[0x00] tag must be empty, but [{}] elements were found", __FUNCTION__,
 				iListLength);
 			STACK_TRACEBACK("enListElementTag And iListLength Test");
 			return eRet;
@@ -713,12 +714,12 @@ catch(...)\
 			break;
 		case NBT_TAG::End://不应该在任何时候遇到此标签，Compound会读取到并消耗掉，不会传入，List遇到此标签不会调用读取，所以遇到即为错误
 			{
-				eRet = Error(NbtTypeTagError, tData, funcErrInfo, __FUNCTION__ ":\nNBT Tag switch error: Unexpected Type Tag NBT_TAG::End[0x00(0)]");
+				eRet = Error(NbtTypeTagError, tData, funcErrInfo, "{}:\nNBT Tag switch error: Unexpected Type Tag NBT_TAG::End[0x00(0)]", __FUNCTION__);
 			}
 			break;
 		default://其它未知标签，如NBT内标数据签错误
 			{
-				eRet = Error(NbtTypeTagError, tData, funcErrInfo, __FUNCTION__ ":\nNBT Tag switch error: Unknown Type Tag[0x{:02X}({})]",
+				eRet = Error(NbtTypeTagError, tData, funcErrInfo, "{}:\nNBT Tag switch error: Unknown Type Tag[0x{:02X}({})]", __FUNCTION__,
 					(NBT_TAG_RAW_TYPE)tagNbt, (NBT_TAG_RAW_TYPE)tagNbt);//此处不进行提前返回，往后默认返回处理
 			}
 			break;
