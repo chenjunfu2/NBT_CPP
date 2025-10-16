@@ -7,6 +7,7 @@
 #include <stddef.h>//size_t
 #include <stdlib.h>//byte swap
 #include <string.h>//memcpy
+#include <utility>//std::move
 #include <type_traits>//类型约束
 
 #include "NBT_Print.hpp"//打印输出
@@ -754,7 +755,7 @@ public:
 	//szStackDepth 控制栈深度，递归层检查仅由可嵌套的可能进行递归的函数进行，栈深度递减仅由对选择函数的调用进行
 	//注意此函数不会清空tCompound，所以可以对一个tCompound通过不同的tData多次调用来读取多个nbt片段并合并到一起
 	//如果指定了szDataStartIndex则会忽略tData中长度为szDataStartIndex的数据
-	template<typename DataType = std::vector<uint8_t>, typename InputStream = MyInputStream<DataType>, typename ErrInfoFunc = NBT_Print>
+	template<typename InputStream, typename ErrInfoFunc = NBT_Print>
 	static bool ReadNBT(InputStream IptStream, NBT_Type::Compound &tCompound, size_t szStackDepth = 512, ErrInfoFunc funcErrInfo = NBT_Print{}) noexcept//从data中读取nbt
 	{
 		//输出最大栈深度
@@ -762,6 +763,12 @@ public:
 
 		//开始递归读取
 		return GetCompoundType<true>(IptStream, tCompound, szStackDepth, funcErrInfo) == AllOk;//从data中获取nbt数据到nRoot中，只有此调用为根部调用（模板true），用于处理特殊情况
+	}
+
+	template<typename DataType = std::vector<uint8_t>, typename ErrInfoFunc = NBT_Print>
+	static bool ReadNBT(const DataType &tDataInput, size_t szStartIdx, NBT_Type::Compound &tCompound, size_t szStackDepth = 512, ErrInfoFunc funcErrInfo = NBT_Print{}) noexcept//从data中读取nbt
+	{
+		return ReadNBT(MyInputStream<DataType>(tDataInput, szStartIdx), tCompound, szStackDepth, std::move(funcErrInfo));
 	}
 
 

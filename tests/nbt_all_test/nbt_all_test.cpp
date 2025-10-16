@@ -132,8 +132,7 @@ void NBT_ReadWrite_Test(void)
 )">();
 
 	NBT_Type::Compound cpd{};
-
-	NBT_Reader::ReadNBT((NbtRawData), cpd);
+	NBT_Reader::ReadNBT(NbtRawData, 0, cpd);
 
 	//NBT_Writer::WriteNBT();
 

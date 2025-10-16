@@ -7,8 +7,8 @@
 #include <stddef.h>//size_t
 #include <stdlib.h>//byte swap
 #include <string.h>//memcpy
+#include <utility>//std::move
 #include <type_traits>//类型约束
-#include <format>//格式化
 
 #include "NBT_Print.hpp"//打印输出
 #include "NBT_Node.hpp"//nbt类型
@@ -671,7 +671,7 @@ catch(...)\
 public:
 	//输出到tData中，部分功能和原理参照ReadNBT处的注释，szDataStartIndex在此处可以对一个tData通过不同的tCompound和szDataStartIndex = tData.size()
 	//来调用以达到把多个不同的nbt输出到同一个tData内的功能
-	template<typename DataType = std::vector<uint8_t>, typename OutputStream = MyOutputStream<DataType>, typename ErrInfoFunc = NBT_Print>
+	template<typename OutputStream, typename ErrInfoFunc = NBT_Print>
 	static bool WriteNBT(OutputStream OptStream, const NBT_Type::Compound &tCompound, size_t szStackDepth = 512, ErrInfoFunc funcErrInfo = NBT_Print{}) noexcept
 	{
 		//输出最大栈深度
@@ -679,6 +679,12 @@ public:
 
 		//开始递归输出
 		return PutCompoundType<true>(OptStream, tCompound, szStackDepth, funcErrInfo) == AllOk;
+	}
+
+	template<typename DataType = std::vector<uint8_t>, typename ErrInfoFunc = NBT_Print>
+	static bool WriteNBT(DataType &tDataOutput, size_t szStartIdx, const NBT_Type::Compound &tCompound, size_t szStackDepth = 512, ErrInfoFunc funcErrInfo = NBT_Print{}) noexcept
+	{
+		return WriteNBT(MyOutputStream<DataType>(tDataOutput, szStartIdx), tCompound, szStackDepth, std::move(funcErrInfo));
 	}
 
 
