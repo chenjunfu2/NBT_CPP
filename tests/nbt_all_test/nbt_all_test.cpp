@@ -252,6 +252,7 @@ void NBT_ReadWrite_Test(void)
 		{
 			if (!b)
 			{
+				PrintHex(NbtRawData);
 				PrintHex(testWrite);
 			}
 			return b;
@@ -262,6 +263,7 @@ void NBT_ReadWrite_Test(void)
 		{
 			if (!b)
 			{
+				PrintHex(testWrite);
 				PrintHex(testGenWrite);
 			}
 			return b;
