@@ -286,7 +286,7 @@ private:
 #define _RP_STRLING(l) STRLING(l)
 #define STRLING(l) #l
 
-#define STACK_TRACEBACK(fmt, ...) funcErrInfo("In [" _RP___FUNCTION__ "] Line:[" _RP___LINE__ "]: \n" fmt "\n\n", __VA_ARGS__);
+#define STACK_TRACEBACK(fmt, ...) funcErrInfo("In [" _RP___FUNCTION__ "] Line:[" _RP___LINE__ "]: \n" fmt "\n\n" __VA_OPT__(,) __VA_ARGS__);
 #define CHECK_STACK_DEPTH(Depth) \
 if((Depth) <= 0)\
 {\

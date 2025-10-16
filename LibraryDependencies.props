@@ -6,10 +6,10 @@
     <IncludePath>$(SolutionDir)deps\gzip;$(SolutionDir)deps\zlib;$(SolutionDir)deps\xxhash;$(SolutionDir)deps;$(SolutionDir)include;$(IncludePath)</IncludePath>
   </PropertyGroup>
 	<ItemGroup>
-		<ProjectReference Include="..\..\deps\xxhash\xxhash.vcxproj">
+		<ProjectReference Include="$(SolutionDir)deps\xxhash\xxhash.vcxproj">
 			<Project>{dc504567-a6fa-4e8f-a354-e1ecfdde5d81}</Project>
 		</ProjectReference>
-		<ProjectReference Include="..\..\deps\zlib\zlib.vcxproj">
+		<ProjectReference Include="$(SolutionDir)deps\zlib\zlib.vcxproj">
 			<Project>{e304062b-8190-4215-affe-d2bf30de6600}</Project>
 		</ProjectReference>
 	</ItemGroup>

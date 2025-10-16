@@ -234,23 +234,23 @@ public:
 	}
 
 #define TYPE_GET_FUNC(type)\
-const typename NBT_Type::##type &Get##type(const typename Compound::key_type & sTagName) const\
+const typename NBT_Type::type &Get##type(const typename Compound::key_type & sTagName) const\
 {\
 	return Compound::at(sTagName).Get##type();\
 }\
 \
-typename NBT_Type::##type &Get##type(const typename Compound::key_type & sTagName)\
+typename NBT_Type::type &Get##type(const typename Compound::key_type & sTagName)\
 {\
 	return Compound::at(sTagName).Get##type();\
 }\
 \
-const typename NBT_Type::##type *Has##type(const typename Compound::key_type & sTagName) const noexcept\
+const typename NBT_Type::type *Has##type(const typename Compound::key_type & sTagName) const noexcept\
 {\
 	auto find = Compound::find(sTagName);\
 	return find != Compound::end() && find->second.Is##type() ? &(find->second.Get##type()) : NULL;\
 }\
 \
-typename NBT_Type::##type *Has##type(const typename Compound::key_type & sTagName) noexcept\
+typename NBT_Type::type *Has##type(const typename Compound::key_type & sTagName) noexcept\
 {\
 	auto find = Compound::find(sTagName);\
 	return find != Compound::end() && find->second.Is##type() ? &(find->second.Get##type()) : NULL;\
@@ -274,14 +274,14 @@ typename NBT_Type::##type *Has##type(const typename Compound::key_type & sTagNam
 
 #define TYPE_PUT_FUNC(type)\
 template <typename K>\
-std::pair<typename Compound::iterator, bool> Put##type(K &&sTagName, const typename NBT_Type::##type &vTagVal)\
+std::pair<typename Compound::iterator, bool> Put##type(K &&sTagName, const typename NBT_Type::type &vTagVal)\
 	requires std::constructible_from<typename Compound::key_type, K &&>\
 {\
 	return Put(std::forward<K>(sTagName), vTagVal);\
 }\
 \
 template <typename K>\
-std::pair<typename Compound::iterator, bool> Put##type(K &&sTagName, typename NBT_Type::##type &&vTagVal)\
+std::pair<typename Compound::iterator, bool> Put##type(K &&sTagName, typename NBT_Type::type &&vTagVal)\
 	requires std::constructible_from<typename Compound::key_type, K &&>\
 {\
 	return Put(std::forward<K>(sTagName), std::move(vTagVal));\
