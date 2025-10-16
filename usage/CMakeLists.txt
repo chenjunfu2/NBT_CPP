@@ -1,13 +1,13 @@
 ﻿cmake_minimum_required(VERSION 3.13)
 project(usage LANGUAGES CXX)
 
+add_executable(usage
+    example.cpp
+)
+
 target_link_libraries(usage
     PUBLIC
         ${COMMON_LIBS}
-)
-
-add_executable(usage
-    example.cpp
 )
 
 target_compile_definitions(usage
