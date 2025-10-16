@@ -8,8 +8,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_C_STANDARD_REQUIRED ON)
 
 #全局头文件目录
-include_directories
-(
+include_directories(
     ${CMAKE_SOURCE_DIR}/deps/gzip
     ${CMAKE_SOURCE_DIR}/deps/zlib
     ${CMAKE_SOURCE_DIR}/deps/xxhash
