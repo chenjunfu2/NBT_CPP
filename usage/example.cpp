@@ -6,13 +6,13 @@
 bool WriteNbtFile(const char *pFileName, const NBT_Type::Compound &cpd)
 {
 	std::vector<uint8_t> data;
-	return NBT_Writer::WriteNBT({ data }, cpd) && NBT_IO::WriteFile(pFileName, data);
+	return NBT_Writer::WriteNBT(data, 0, cpd) &&NBT_IO::WriteFile(pFileName, data);
 }
 
 bool ReadNbtFile(const char *pFileName, NBT_Type::Compound &cpd)
 {
 	std::vector<uint8_t> data;
-	return NBT_IO::ReadFile(pFileName, data) && NBT_Reader::ReadNBT({ data }, cpd);
+	return NBT_IO::ReadFile(pFileName, data) && NBT_Reader::ReadNBT(data, 0, cpd);
 }
 
 int main(void)

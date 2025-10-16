@@ -214,7 +214,7 @@ int main(int argc, char *argv[])
 	printf("\ndataOriginal ReadNBT To cpdOriginal Start\n");
 	ct.Start();
 	NBT_Type::Compound cpdOriginal{};
-	if (!NBT_Reader::ReadNBT({ dataOriginal }, cpdOriginal))
+	if (!NBT_Reader::ReadNBT(dataOriginal, 0, cpdOriginal))
 	{
 		printf("[Line:%d]dataOriginal ReadNBT To cpdOriginal Fail\n", __LINE__);
 		return -1;
@@ -227,7 +227,7 @@ int main(int argc, char *argv[])
 	auto &dataNew = dataOriginal;//起个别名继续用，不删除内存减少重复分配开销
 	printf("\ndataOriginal WriteNBT To dataNew Start\n");
 	ct.Start();
-	if (!NBT_Writer::WriteNBT({ dataNew }, cpdOriginal))
+	if (!NBT_Writer::WriteNBT(dataNew, 0, cpdOriginal))
 	{
 		printf("[Line:%d]dataOriginal WriteNBT To dataNew Fail\n", __LINE__);
 		return -1;
@@ -257,7 +257,7 @@ int main(int argc, char *argv[])
 	NBT_Type::Compound cpdNew{};
 	printf("\ndataNew ReadNBT To cpdNew Start\n");
 	ct.Start();
-	if (!NBT_Reader::ReadNBT({ dataNew },  cpdNew))
+	if (!NBT_Reader::ReadNBT(dataNew, 0,  cpdNew))
 	{
 		printf("[Line:%d]dataNew ReadNBT To cpdNew Fail\n", __LINE__);
 		return -1;
@@ -317,7 +317,7 @@ int main0(int argc, char *argv[])
 	std::vector<uint8_t> tR{};
 	NBT_Type::Compound cpd;
 	if (!NBT_IO::ReadFile("TestNbt.nbt", tR) ||
-		!NBT_Reader::ReadNBT({ tR }, cpd))
+		!NBT_Reader::ReadNBT(tR, 0, cpd))
 	{
 		printf("TestNbt Read Fail!\nData before the error was encountered:\n");
 	}
@@ -382,7 +382,7 @@ int main0(int argc, char *argv[])
 
 	//NBT_IO::IsFileExist("TestNbt.nbt");
 	std::vector<uint8_t> tData{};
-	if (!NBT_Writer::WriteNBT({ tData }, NBT_Type::Compound{ {MU8STR(""),std::move(test)} }) ||//构造一个空名称compound
+	if (!NBT_Writer::WriteNBT(tData, 0, NBT_Type::Compound{ {MU8STR(""),std::move(test)} }) ||//构造一个空名称compound
 		!NBT_IO::WriteFile("TestNbt.nbt", tData))
 	{
 		printf("write fail\n");
@@ -508,7 +508,7 @@ int mainhh(void)
 	cpd.Put(MU8STR("list"), std::move(lst));
 
 	std::vector<uint8_t> data{};
-	if (!NBT_Writer::WriteNBT({ data }, cpd))
+	if (!NBT_Writer::WriteNBT(data, 0, cpd))
 	{
 		return -1;
 	}
