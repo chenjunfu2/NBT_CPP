@@ -221,7 +221,7 @@ void NBT_ReadWrite_Test(void)
 	std::vector<uint8_t> testGenWrite;
 	NBT_Writer::WriteNBT(testGenWrite, 0, cpdGen);
 
-	//判断不同的字节数目是否相同（因为nbt的compound是无须类型所以字节可能被打乱，但是数量必须相同）
+	//判断不同的字节数目是否相同（因为nbt的compound是无序类型，所以字节可能被打乱，但是数量必须相同）
 	auto TestByteCount =
 	[](const auto l, const auto r) -> bool
 	requires (sizeof(l[0]) == 1 && sizeof(r[0]) == 1)
