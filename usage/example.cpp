@@ -32,8 +32,8 @@ int main(void)
 	//插入数组
 	NBT_Type::Compound cpd2;
 	cpd2.PutByteArray(MU8STR("byte array"), { 1,2,3,4,5,6,7 });
-	cpd2.PutByteArray(MU8STR("int array"), { 1,2,3,4,5,6,7 });
-	cpd2.PutByteArray(MU8STR("long array"), { 1,2,3,4,5,6,7 });
+	cpd2.PutIntArray(MU8STR("int array"), { 1,2,3,4,5,6,7 });
+	cpd2.PutLongArray(MU8STR("long array"), { 1,2,3,4,5,6,7 });
 
 	//转移所有权
 	cpd.PutCompound(MU8STR("compound"), std::move(cpd2));

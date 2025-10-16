@@ -87,12 +87,6 @@ void StrHexArrayTest(void)
 	F0 F1 F2 F3 F4 F5 F6 F7 F8 F9 FA FB FC FD FE FF
 )", 786);
 
-	//PrintHex(h0);
-	//printf("\n\n");
-	//PrintHex(h1);
-	//printf("\n\n");
-	//PrintHex(h2);
-
 	//构造目标序列
 	std::vector<uint8_t> vt{};
 	for (uint8_t i = 0; i < 255; ++i)
@@ -105,9 +99,35 @@ void StrHexArrayTest(void)
 	std::vector<uint8_t> v0(h0.begin(), h0.end());
 
 	//验证
-	MyAssert(vt == v0);
-	MyAssert(vt == h1);
-	MyAssert(vt == h2);
+	MyAssert([&](bool b)->bool
+		{
+			if (!b)
+			{
+				PrintHex(v0);
+			}
+			return b;
+		}(vt == v0)
+	);
+
+	MyAssert([&](bool b)->bool
+		{
+			if (!b)
+			{
+				PrintHex(h1);
+			}
+			return b;
+		}(vt == h1)
+	);
+
+	MyAssert([&](bool b)->bool
+		{
+			if (!b)
+			{
+				PrintHex(h2);
+			}
+			return b;
+		}(vt == h2)
+	);
 }
 
 void NBT_ReadWrite_Test(void)
@@ -120,15 +140,20 @@ void NBT_ReadWrite_Test(void)
 	69 6E 67 00 06 E6 B5 8B E8 AF 95 06 00 06 64 6F
 	75 62 6C 65 40 FB F5 23 12 5A AB 47 0A 00 08 63
 	6F 6D 70 6F 75 6E 64 07 00 0A 62 79 74 65 20 61
-	72 72 61 79 00 00 00 07 01 02 03 04 05 06 07 07
-	00 09 69 6E 74 20 61 72 72 61 79 00 00 00 07 01
-	02 03 04 05 06 07 07 00 0A 6C 6F 6E 67 20 61 72
-	72 61 79 00 00 00 07 01 02 03 04 05 06 07 00 09
-	00 04 6C 69 73 74 08 00 00 00 06 00 09 74 65 73
-	74 20 73 74 72 30 00 09 74 65 73 74 20 73 74 72
-	31 00 09 74 65 73 74 20 73 74 72 32 00 09 74 65
-	73 74 20 73 74 72 33 00 09 74 65 73 74 20 73 74
-	72 34 00 09 74 65 73 74 20 73 74 72 35 00
+	72 72 61 79 00 00 00 07 01 02 03 04 05 06 07 0B
+	00 09 69 6E 74 20 61 72 72 61 79 00 00 00 07 00
+	00 00 01 00 00 00 02 00 00 00 03 00 00 00 04 00
+	00 00 05 00 00 00 06 00 00 00 07 0C 00 0A 6C 6F
+	6E 67 20 61 72 72 61 79 00 00 00 07 00 00 00 00
+	00 00 00 01 00 00 00 00 00 00 00 02 00 00 00 00
+	00 00 00 03 00 00 00 00 00 00 00 04 00 00 00 00
+	00 00 00 05 00 00 00 00 00 00 00 06 00 00 00 00
+	00 00 00 07 00 09 00 04 6C 69 73 74 08 00 00 00
+	06 00 09 74 65 73 74 20 73 74 72 30 00 09 74 65
+	73 74 20 73 74 72 31 00 09 74 65 73 74 20 73 74
+	72 32 00 09 74 65 73 74 20 73 74 72 33 00 09 74
+	65 73 74 20 73 74 72 34 00 09 74 65 73 74 20 73
+	74 72 35 00
 )">();
 
 	//读取解析
@@ -153,7 +178,7 @@ void NBT_ReadWrite_Test(void)
 			}
 		);
 
-		insertTarget.PutList(MU8STR("compound"),
+		insertTarget.PutList(MU8STR("list"),
 			NBT_Type::List
 			{
 				MU8STR("test str0"),
@@ -165,19 +190,36 @@ void NBT_ReadWrite_Test(void)
 			}
 		);
 
-		//insertTarget.PutByte();
-		
-		//insertTarget.merge()
+		NBT_Type::Compound cpdTemp{};
+		cpdTemp.PutByte(MU8STR("byte"), -128);
+		cpdTemp.PutShort(MU8STR("short"), 32767);
+		cpdTemp.PutInt(MU8STR("int"), -2147483648);
+		cpdTemp.PutLong(MU8STR("long"), 1145141919810);
+		cpdTemp.PutFloat(MU8STR("float"), -0.1145f);
+		cpdTemp.PutDouble(MU8STR("double"), 114514.191981);
+		cpdTemp.PutString(MU8STR("string"), MU8STR("测试"));
+
+		insertTarget.Merge(std::move(cpdTemp));
 	}
 
-
-
-
-
+	//测试数据与生成的是否相同
+	MyAssert([&](bool b)->bool
+		{
+			if (!b)
+			{
+				NBT_Helper::Print(cpdGen);
+				NBT_Helper::Print(cpdRead);
+			}
+			return b;
+		}(cpdGen == cpdRead)
+	);
 
 	//再次写出
 	std::vector<uint8_t> testWrite;
 	NBT_Writer::WriteNBT(testWrite, 0, cpdRead);
+
+	std::vector<uint8_t> testGenWrite;
+	NBT_Writer::WriteNBT(testGenWrite, 0, cpdGen);
 
 	//判断不同的字节数目是否相同（因为nbt的compound是无须类型所以字节可能被打乱，但是数量必须相同）
 	auto TestByteCount =
@@ -206,7 +248,25 @@ void NBT_ReadWrite_Test(void)
 		return true;
 	};
 
-	MyAssert(TestByteCount(std::vector<uint8_t>(NbtRawData.begin(), NbtRawData.end()), testWrite));
+	MyAssert([&](bool b)->bool
+		{
+			if (!b)
+			{
+				PrintHex(testWrite);
+			}
+			return b;
+		}(TestByteCount(std::vector<uint8_t>(NbtRawData.begin(), NbtRawData.end()), testWrite))
+	);
+
+	MyAssert([&](bool b)->bool
+		{
+			if (!b)
+			{
+				PrintHex(testGenWrite);
+			}
+			return b;
+		}(TestByteCount(testWrite, testGenWrite))
+	);
 }
 
 int main(void)
@@ -214,10 +274,6 @@ int main(void)
 	StrHexArrayTest();
 
 	NBT_ReadWrite_Test();
-
-
-
-
 
 
 	return 0;
