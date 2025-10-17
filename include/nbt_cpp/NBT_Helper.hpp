@@ -22,7 +22,7 @@ public:
 	{
 		size_t szLevelStart = bPadding ? 0 : (size_t)-1;//跳过打印
 
-		PrintSwitch(nRoot, 0, funcPrint);
+		PrintSwitch(nRoot, szLevelStart, funcPrint);
 		if (bNewLine)
 		{
 			funcPrint("\n");
