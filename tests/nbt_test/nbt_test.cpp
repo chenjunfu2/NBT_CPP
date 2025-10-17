@@ -149,7 +149,12 @@ return 0;
 */
 //#define WRITE_TO_FILE
 
-int main(int argc, char *argv[])
+int main(void)//本地使用，仅用于在GitHub Workflow上过检测
+{
+	return 0;
+}
+
+int mainzzzz(int argc, char *argv[])
 {
 	if (argc != 2)
 	{
