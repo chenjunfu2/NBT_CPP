@@ -62,6 +62,12 @@ else()
     add_definitions(-DARCH_UNKNOWN=1)
 endif()
 
+#Github Workflow检测
+if(DEFINED ENV{GITHUB_ACTIONS})
+    message(STATUS "Building in GitHub Actions")
+    add_definitions(-DGITHUB_ACTIONS)
+endif()
+
 #添加库
 add_subdirectory(deps/xxhash)
 add_subdirectory(deps/zlib)

@@ -149,13 +149,12 @@ return 0;
 */
 //#define WRITE_TO_FILE
 
-int main(void)//本地使用，仅用于在GitHub Workflow上过检测
+int main(int argc, char *argv[])
 {
-	return 0;
-}
+#ifdef GITHUB_ACTIONS
+	return 0;//本地使用，仅用于在GitHub Workflow上过检测
+#endif
 
-int mainzzzz(int argc, char *argv[])
-{
 	if (argc != 2)
 	{
 		printf("[Line:%d]Argc Not 2", __LINE__);
