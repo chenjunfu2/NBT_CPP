@@ -423,7 +423,7 @@ catch(...)\
 		if (!tData.HasAvailData(iElementCount * sizeof(ValueType)))//保证下方调用安全
 		{
 			eRet = Error(OutOfRangeError, tData, funcErrInfo, "{}:\n(Index[{}] + iElementCount[{}] * sizeof(T::value_type)[{}])[{}] > DataSize[{}]", __FUNCTION__,
-				tData.Index(), (size_t)iElementCount, sizeof(ValueType), tData.Index() + (size_t)iElementCount * sizeof(T::value_type), tData.Size());
+				tData.Index(), (size_t)iElementCount, sizeof(ValueType), tData.Index() + (size_t)iElementCount * sizeof(typename T::value_type), tData.Size());
 			STACK_TRACEBACK("HasAvailData Test");
 			return eRet;
 		}
