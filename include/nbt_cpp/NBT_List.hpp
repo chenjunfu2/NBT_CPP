@@ -41,7 +41,7 @@ private:
 	template<typename V>
 	bool TestAndSetType(const V &vTagVal)
 	{
-		if constexpr (std::is_same_v<std::decay_t<V>, List::value_type>)
+		if constexpr (std::is_same_v<std::decay_t<V>, typename List::value_type>)
 		{
 			return TestTagAndSetType(vTagVal.GetTag());
 		}
