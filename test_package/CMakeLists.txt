@@ -9,8 +9,3 @@ target_link_libraries(test_package
     PUBLIC
         ${COMMON_LIBS}
 )
-
-target_compile_definitions(test_package
-    PUBLIC
-        $<$<STREQUAL:${CMAKE_CXX_COMPILER_ARCHITECTURE_ID},X86>:WIN32>
-)

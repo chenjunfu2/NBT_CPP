@@ -9,8 +9,3 @@ target_link_libraries(nbt_all_test
     PUBLIC
         ${COMMON_LIBS}
 )
-
-target_compile_definitions(nbt_all_test
-    PUBLIC
-        $<$<STREQUAL:${CMAKE_CXX_COMPILER_ARCHITECTURE_ID},X86>:WIN32>
-)

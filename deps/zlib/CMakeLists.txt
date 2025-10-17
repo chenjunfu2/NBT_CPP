@@ -20,11 +20,6 @@ add_library(zlib
         zutil.c
 )
 
-target_compile_definitions(zlib
-    PUBLIC
-        $<$<STREQUAL:${CMAKE_CXX_COMPILER_ARCHITECTURE_ID},X86>:WIN32>
-)
-
 #添加对 POSIX 功能的支持
 if(UNIX AND NOT APPLE)
     target_compile_definitions(zlib PRIVATE 

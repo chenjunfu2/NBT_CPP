@@ -6,8 +6,3 @@ add_library(xxhash
         xxh_x86dispatch.c
         xxhash.c
 )
-
-target_compile_definitions(xxhash
-    PUBLIC
-        $<$<STREQUAL:${CMAKE_CXX_COMPILER_ARCHITECTURE_ID},X86>:WIN32>
-)

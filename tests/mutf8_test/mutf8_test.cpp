@@ -3,7 +3,7 @@
 
 
 #include <nbt_cpp/MUTF8_Tool.hpp>
-#include <my/Windows_ANSI.hpp>
+//#include <my/Windows_ANSI.hpp>
 
 #include <stdio.h>
 #include <clocale>
@@ -151,7 +151,7 @@ int main(void)
 		if (l != r)
 		{
 			printf("test fail\n");
-			auto min = min(l.size(), r.size());
+			auto min = std::min(l.size(), r.size());
 			using utl = std::make_unsigned_t<std::remove_reference_t<decltype(l[0])>>;
 			using utr = std::make_unsigned_t<std::remove_reference_t<decltype(r[0])>>;
 			for (size_t i = 0, c = 0; i < min && c < 16; ++i)
