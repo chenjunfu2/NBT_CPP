@@ -11,7 +11,7 @@ class NBT_Writer;
 template<typename String, typename StringView>
 class MyString;
 
-template<typename StringView>
+template<typename String, typename StringView>
 class MyStringView : public StringView
 {
 	friend class NBT_Reader;
@@ -50,7 +50,6 @@ public:
 	constexpr MyStringView(const std::array<typename StringView::value_type, N> &strArray) : StringView(strArray.data(), strArray.size())
 	{}
 
-	template<typename String, typename StringView>
 	constexpr explicit MyStringView(const MyString<String, StringView> &myString) : StringView(myString.data(), myString.size())//允许从string显示构造view
 	{}
 };
@@ -88,7 +87,7 @@ private:
 
 public:
 	//view类型
-	using View = MyStringView<StringView>;
+	using View = MyStringView<String, StringView>;
 
 	//继承基类构造
 	using String::String;
