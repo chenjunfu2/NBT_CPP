@@ -61,6 +61,8 @@ class MyString :public String//暂时不考虑保护继承
 {
 	friend class NBT_Reader;
 	friend class NBT_Writer;
+
+	static_assert(sizeof(typename std::string::value_type) == sizeof(typename String::value_type), "Size error");
 	
 private:
 	static constexpr size_t CalcStringSize(const typename String::value_type *ltrStr, size_t N)
@@ -125,17 +127,17 @@ public:
 
 	void FromCharTypeUTF8(std::basic_string_view<char> u8String)
 	{
-		*this = std::move(MUTF8_Tool<typename String::value_type, char16_t, char>::U8ToMU8(u8String));//char8_t改为char
+		String::operator=(std::move(MUTF8_Tool<typename String::value_type, char16_t, char>::U8ToMU8(u8String)));//char8_t改为char
 	}
 
 	void FromUTF8(std::basic_string_view<char8_t> u8String)
 	{
-		*this = std::move(MUTF8_Tool<typename String::value_type, char16_t, char8_t>::U8ToMU8(u8String));
+		String::operator=(std::move(MUTF8_Tool<typename String::value_type, char16_t, char8_t>::U8ToMU8(u8String)));
 	}
 
 	void FromUTF16(std::basic_string_view<char16_t> u16String)
 	{
-		*this = std::move(MUTF8_Tool<typename String::value_type, char16_t, char8_t>::U16ToMU8(u16String));
+		String::operator=(std::move(MUTF8_Tool<typename String::value_type, char16_t, char8_t>::U16ToMU8(u16String)));
 	}
 };
 
@@ -148,7 +150,7 @@ namespace std
 	{
 		size_t operator()(const MyString<T, StringView> &s) const noexcept
 		{
-			return std::hash<T>{}(s);
+			return std::hash<std::basic_string_view<char>>{}(s.GetCharTypeView());
 		}
 	};
 }
