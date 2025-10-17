@@ -1,8 +1,11 @@
-﻿#include <my/StrHexArray.hpp>
-#include <my/MyAssert.hpp>
-#include <nbt_cpp/NBT_All.hpp>
+﻿#include <stdio.h>
 
-#include <stdio.h>
+#include <my/StrHexArray.hpp>
+#include <my/MyAssert.hpp>
+
+#define USE_GZIPZLIB
+#define USE_XXHASH
+#include <nbt_cpp/NBT_All.hpp>
 
 template<typename T>
 void PrintHex(T data) noexcept
