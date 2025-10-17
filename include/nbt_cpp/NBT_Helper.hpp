@@ -100,37 +100,37 @@ private:
 			break;
 		case NBT_TAG::Byte:
 			{
-				funcPrint("{}B", nRoot.GetData<NBT_Type::Byte>());
+				funcPrint("{}B", nRoot.template GetData<NBT_Type::Byte>());
 			}
 			break;
 		case NBT_TAG::Short:
 			{
-				funcPrint("{}S", nRoot.GetData<NBT_Type::Short>());
+				funcPrint("{}S", nRoot.template GetData<NBT_Type::Short>());
 			}
 			break;
 		case NBT_TAG::Int:
 			{
-				funcPrint("{}I", nRoot.GetData<NBT_Type::Int>());
+				funcPrint("{}I", nRoot.template GetData<NBT_Type::Int>());
 			}
 			break;
 		case NBT_TAG::Long:
 			{
-				funcPrint("{}L", nRoot.GetData<NBT_Type::Long>());
+				funcPrint("{}L", nRoot.template GetData<NBT_Type::Long>());
 			}
 			break;
 		case NBT_TAG::Float:
 			{
-				funcPrint("{}F", nRoot.GetData<NBT_Type::Float>());
+				funcPrint("{}F", nRoot.template GetData<NBT_Type::Float>());
 			}
 			break;
 		case NBT_TAG::Double:
 			{
-				funcPrint("{}D", nRoot.GetData<NBT_Type::Double>());
+				funcPrint("{}D", nRoot.template GetData<NBT_Type::Double>());
 			}
 			break;
 		case NBT_TAG::ByteArray:
 			{
-				const auto &arr = nRoot.GetData<NBT_Type::ByteArray>();
+				const auto &arr = nRoot.template GetData<NBT_Type::ByteArray>();
 				funcPrint("[B;");
 				for (const auto &it : arr)
 				{
@@ -146,7 +146,7 @@ private:
 			break;
 		case NBT_TAG::IntArray:
 			{
-				const auto &arr = nRoot.GetData<NBT_Type::IntArray>();
+				const auto &arr = nRoot.template GetData<NBT_Type::IntArray>();
 				funcPrint("[I;");
 				for (const auto &it : arr)
 				{
@@ -162,7 +162,7 @@ private:
 			break;
 		case NBT_TAG::LongArray:
 			{
-				const auto &arr = nRoot.GetData<NBT_Type::LongArray>();
+				const auto &arr = nRoot.template GetData<NBT_Type::LongArray>();
 				funcPrint("[L;");
 				for (const auto &it : arr)
 				{
@@ -178,12 +178,12 @@ private:
 			break;
 		case NBT_TAG::String:
 			{
-				funcPrint("\"{}\"", nRoot.GetData<NBT_Type::String>().ToCharTypeUTF8());
+				funcPrint("\"{}\"", nRoot.template GetData<NBT_Type::String>().ToCharTypeUTF8());
 			}
 			break;
 		case NBT_TAG::List://需要打印缩进的地方
 			{
-				const auto &list = nRoot.GetData<NBT_Type::List>();
+				const auto &list = nRoot.template GetData<NBT_Type::List>();
 				PrintPadding(szLevel, false, !bRoot, funcPrint);//不是根部则打印开头换行
 				funcPrint("[");
 				for (const auto &it : list)
@@ -203,7 +203,7 @@ private:
 			break;
 		case NBT_TAG::Compound://需要打印缩进的地方
 			{
-				const auto &cpd = nRoot.GetData<NBT_Type::Compound>();
+				const auto &cpd = nRoot.template GetData<NBT_Type::Compound>();
 				PrintPadding(szLevel, false, !bRoot, funcPrint);//不是根部则打印开头换行
 				funcPrint("{{");//大括号转义
 
@@ -272,43 +272,43 @@ private:
 			break;
 		case NBT_TAG::Byte:
 			{
-				ToHexString(nRoot.GetData<NBT_Type::Byte>(), sRet);
+				ToHexString(nRoot.template GetData<NBT_Type::Byte>(), sRet);
 				sRet += 'B';
 			}
 			break;
 		case NBT_TAG::Short:
 			{
-				ToHexString(nRoot.GetData<NBT_Type::Short>(), sRet);
+				ToHexString(nRoot.template GetData<NBT_Type::Short>(), sRet);
 				sRet += 'S';
 			}
 			break;
 		case NBT_TAG::Int:
 			{
-				ToHexString(nRoot.GetData<NBT_Type::Int>(), sRet);
+				ToHexString(nRoot.template GetData<NBT_Type::Int>(), sRet);
 				sRet += 'I';
 			}
 			break;
 		case NBT_TAG::Long:
 			{
-				ToHexString(nRoot.GetData<NBT_Type::Long>(), sRet);
+				ToHexString(nRoot.template GetData<NBT_Type::Long>(), sRet);
 				sRet += 'L';
 			}
 			break;
 		case NBT_TAG::Float:
 			{
-				ToHexString(nRoot.GetData<NBT_Type::Float>(), sRet);
+				ToHexString(nRoot.template GetData<NBT_Type::Float>(), sRet);
 				sRet += 'F';
 			}
 			break;
 		case NBT_TAG::Double:
 			{
-				ToHexString(nRoot.GetData<NBT_Type::Double>(), sRet);
+				ToHexString(nRoot.template GetData<NBT_Type::Double>(), sRet);
 				sRet += 'D';
 			}
 			break;
 		case NBT_TAG::ByteArray:
 			{
-				const auto &arr = nRoot.GetData<NBT_Type::ByteArray>();
+				const auto &arr = nRoot.template GetData<NBT_Type::ByteArray>();
 				sRet += "[B;";
 				for (const auto &it : arr)
 				{
@@ -325,7 +325,7 @@ private:
 			break;
 		case NBT_TAG::IntArray:
 			{
-				const auto &arr = nRoot.GetData<NBT_Type::IntArray>();
+				const auto &arr = nRoot.template GetData<NBT_Type::IntArray>();
 				sRet += "[I;";
 				for (const auto &it : arr)
 				{
@@ -342,7 +342,7 @@ private:
 			break;
 		case NBT_TAG::LongArray:
 			{
-				const auto &arr = nRoot.GetData<NBT_Type::LongArray>();
+				const auto &arr = nRoot.template GetData<NBT_Type::LongArray>();
 				sRet += "[L;";
 				for (const auto &it : arr)
 				{
@@ -360,13 +360,13 @@ private:
 		case NBT_TAG::String:
 			{
 				sRet += '\"';
-				sRet += nRoot.GetData<NBT_Type::String>().ToCharTypeUTF8();
+				sRet += nRoot.template GetData<NBT_Type::String>().ToCharTypeUTF8();
 				sRet += '\"';
 			}
 			break;
 		case NBT_TAG::List:
 			{
-				const auto &list = nRoot.GetData<NBT_Type::List>();
+				const auto &list = nRoot.template GetData<NBT_Type::List>();
 				sRet += '[';
 				for (const auto &it : list)
 				{
@@ -383,7 +383,7 @@ private:
 			break;
 		case NBT_TAG::Compound://需要打印缩进的地方
 			{
-				const auto &cpd = nRoot.GetData<NBT_Type::Compound>();
+				const auto &cpd = nRoot.template GetData<NBT_Type::Compound>();
 				sRet += '{';
 	
 				for (const auto &it : cpd)
@@ -434,43 +434,43 @@ private:
 			break;
 		case NBT_TAG::Byte:
 			{
-				const auto &tmp = nRoot.GetData<NBT_Type::Byte>();
+				const auto &tmp = nRoot.template GetData<NBT_Type::Byte>();
 				nbtHash.Update(tmp);
 			}
 			break;
 		case NBT_TAG::Short:
 			{
-				const auto &tmp = nRoot.GetData<NBT_Type::Short>();
+				const auto &tmp = nRoot.template GetData<NBT_Type::Short>();
 				nbtHash.Update(tmp);
 			}
 			break;
 		case NBT_TAG::Int:
 			{
-				const auto &tmp = nRoot.GetData<NBT_Type::Int>();
+				const auto &tmp = nRoot.template GetData<NBT_Type::Int>();
 				nbtHash.Update(tmp);
 			}
 			break;
 		case NBT_TAG::Long:
 			{
-				const auto &tmp = nRoot.GetData<NBT_Type::Long>();
+				const auto &tmp = nRoot.template GetData<NBT_Type::Long>();
 				nbtHash.Update(tmp);
 			}
 			break;
 		case NBT_TAG::Float:
 			{
-				const auto &tmp = nRoot.GetData<NBT_Type::Float>();
+				const auto &tmp = nRoot.template GetData<NBT_Type::Float>();
 				nbtHash.Update(tmp);
 			}
 			break;
 		case NBT_TAG::Double:
 			{
-				const auto &tmp = nRoot.GetData<NBT_Type::Double>();
+				const auto &tmp = nRoot.template GetData<NBT_Type::Double>();
 				nbtHash.Update(tmp);
 			}
 			break;
 		case NBT_TAG::ByteArray:
 			{
-				const auto &arr = nRoot.GetData<NBT_Type::ByteArray>();
+				const auto &arr = nRoot.template GetData<NBT_Type::ByteArray>();
 				for (const auto &it : arr)
 				{
 					const auto &tmp = it;
@@ -480,7 +480,7 @@ private:
 			break;
 		case NBT_TAG::IntArray:
 			{
-				const auto &arr = nRoot.GetData<NBT_Type::IntArray>();
+				const auto &arr = nRoot.template GetData<NBT_Type::IntArray>();
 				for (const auto &it : arr)
 				{
 					const auto &tmp = it;
@@ -490,7 +490,7 @@ private:
 			break;
 		case NBT_TAG::LongArray:
 			{
-				const auto &arr = nRoot.GetData<NBT_Type::LongArray>();
+				const auto &arr = nRoot.template GetData<NBT_Type::LongArray>();
 				for (const auto &it : arr)
 				{
 					const auto &tmp = it;
@@ -500,13 +500,13 @@ private:
 			break;
 		case NBT_TAG::String:
 			{
-				const auto &tmp = nRoot.GetData<NBT_Type::String>();
+				const auto &tmp = nRoot.template GetData<NBT_Type::String>();
 				nbtHash.Update(tmp.data(), tmp.size());
 			}
 			break;
 		case NBT_TAG::List:
 			{
-				const auto &list = nRoot.GetData<NBT_Type::List>();
+				const auto &list = nRoot.template GetData<NBT_Type::List>();
 				for (const auto &it : list)
 				{
 					HashSwitch<false>(it, nbtHash);
@@ -515,7 +515,7 @@ private:
 			break;
 		case NBT_TAG::Compound://需要打印缩进的地方
 			{
-				const auto &cpd = nRoot.GetData<NBT_Type::Compound>();
+				const auto &cpd = nRoot.template GetData<NBT_Type::Compound>();
 				for (const auto &it : cpd)
 				{
 					const auto &tmp = it.first;
