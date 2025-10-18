@@ -50,7 +50,7 @@ public:
 			return tData[szIndex];
 		}
 
-		ValueType GetNext() noexcept
+		const ValueType &GetNext() noexcept
 		{
 			return tData[szIndex++];
 		}
