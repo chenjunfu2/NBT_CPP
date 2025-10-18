@@ -30,6 +30,7 @@ public:
 		using StreamType = T;
 		using ValueType = typename T::value_type;
 		static_assert(sizeof(ValueType) == 1, "Error ValueType Size");
+		static_assert(std::is_trivially_copyable_v<ValueType>, "ValueType Must Be Trivially Copyable");
 
 		//引用天生无法使用临时值构造，无需担心临时值构造导致的悬空引用
 		MyOutputStream(T &_tData, size_t szStartIdx = 0) :tData(_tData)

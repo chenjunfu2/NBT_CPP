@@ -31,6 +31,7 @@ public:
 		using StreamType = T;
 		using ValueType = typename T::value_type;
 		static_assert(sizeof(ValueType) == 1, "Error ValueType Size");
+		static_assert(std::is_trivially_copyable_v<ValueType>, "ValueType Must Be Trivially Copyable");
 
 		//禁止用户使用临时值构造
 		MyInputStream(const T &&_tData, size_t szStartIdx = 0) = delete;
