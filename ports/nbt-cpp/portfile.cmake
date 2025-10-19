@@ -3,7 +3,7 @@ vcpkg_from_github(
     REPO chenjunfu2/NBT_CPP
     REF "v${VERSION}"
     HEAD_REF master
-    SHA512 0
+    SHA512 29092779b0e5f2d159046686e85ad8c18309eacae5180b61d359c6b8024622f2c61f7e754895a2e7be83c3e2bcd8d59ebd7eb7191c7b97b80eaae29cd1111ac9
 )
 
 file(INSTALL "${SOURCE_PATH}/include/nbt_cpp/"
