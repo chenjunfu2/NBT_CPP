@@ -274,12 +274,57 @@ void NBT_ReadWrite_Test(void)
 	);
 }
 
+void NBT_IO_Test(void)
+{
+	//测试nbt io
+	constexpr auto NbtRawData = StrHexArray::ToHexArr < R"(
+	0A 00 00 01 00 04 62 79 74 65 80 05 00 05 66 6C
+	6F 61 74 BD EA 7E FA 02 00 05 73 68 6F 72 74 7F
+	FF 03 00 03 69 6E 74 80 00 00 00 04 00 04 6C 6F
+	6E 67 00 00 01 0A 9F C7 00 42 08 00 06 73 74 72
+	69 6E 67 00 06 E6 B5 8B E8 AF 95 06 00 06 64 6F
+	75 62 6C 65 40 FB F5 23 12 5A AB 47 0A 00 08 63
+	6F 6D 70 6F 75 6E 64 07 00 0A 62 79 74 65 20 61
+	72 72 61 79 00 00 00 07 01 02 03 04 05 06 07 0B
+	00 09 69 6E 74 20 61 72 72 61 79 00 00 00 07 00
+	00 00 01 00 00 00 02 00 00 00 03 00 00 00 04 00
+	00 00 05 00 00 00 06 00 00 00 07 0C 00 0A 6C 6F
+	6E 67 20 61 72 72 61 79 00 00 00 07 00 00 00 00
+	00 00 00 01 00 00 00 00 00 00 00 02 00 00 00 00
+	00 00 00 03 00 00 00 00 00 00 00 04 00 00 00 00
+	00 00 00 05 00 00 00 00 00 00 00 06 00 00 00 00
+	00 00 00 07 00 09 00 04 6C 69 73 74 08 00 00 00
+	06 00 09 74 65 73 74 20 73 74 72 30 00 09 74 65
+	73 74 20 73 74 72 31 00 09 74 65 73 74 20 73 74
+	72 32 00 09 74 65 73 74 20 73 74 72 33 00 09 74
+	65 73 74 20 73 74 72 34 00 09 74 65 73 74 20 73
+	74 72 35 00
+)" > ();
+
+	std::vector<uint8_t> vData(NbtRawData.begin(), NbtRawData.end());
+	MyAssert(NBT_IO::CompressDataIfUnzipped(vData));
+	MyAssert(NBT_IO::DecompressDataIfZipped(vData));
+
+	MyAssert([&](bool b)->bool
+		{
+			if (!b)
+			{
+				PrintHex(NbtRawData);
+				PrintHex(vData);
+			}
+
+			return b;
+		}(vData == std::vector<uint8_t>(NbtRawData.begin(), NbtRawData.end()))
+	);
+}
+
 int main(void)
 {
 	StrHexArrayTest();
 
 	NBT_ReadWrite_Test();
 
+	NBT_IO_Test();
 
 	return 0;
 }

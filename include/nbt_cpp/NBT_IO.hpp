@@ -135,11 +135,11 @@ public:
 
 		z_stream zs
 		{
+			.next_in = Z_NULL,
+			.avail_in = 0,
 			.zalloc = Z_NULL,
 			.zfree = Z_NULL,
 			.opaque = Z_NULL,
-			.avail_in = 0,
-			.next_in = Z_NULL,
 		};
 
 		if (inflateInit2(&zs, 15 + 32) != Z_OK)//15+32自动判断是gzip还是zlib
@@ -211,11 +211,11 @@ public:
 
 		z_stream zs
 		{
+			.next_in = Z_NULL,
+			.avail_in = 0,
 			.zalloc = Z_NULL,
 			.zfree = Z_NULL,
 			.opaque = Z_NULL,
-			.avail_in = 0,
-			.next_in = Z_NULL,
 		};
 
 		if (deflateInit2(&zs, iLevel, Z_DEFLATED, 15 + 16, 8, Z_DEFAULT_STRATEGY) != Z_OK)//15+16使用gzip（mojang默认格式）
