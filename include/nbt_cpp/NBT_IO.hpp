@@ -172,6 +172,7 @@ public:
 		{
 			tData = std::move(tmpData);
 		}
+
 		return bRet;
 	}
 
@@ -189,6 +190,7 @@ public:
 		{
 			tData = std::move(tmpData);
 		}
+
 		return bRet;
 	}
 
