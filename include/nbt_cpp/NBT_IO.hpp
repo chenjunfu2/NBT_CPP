@@ -277,6 +277,7 @@ public:
 	}
 
 	template<typename T = std::vector<uint8_t>>
+	requires (sizeof(typename T::value_type) == 1 && std::is_trivially_copyable_v<typename T::value_type>)
 	static bool DecompressDataIfZipped(T &tData)
 	{
 		if (!IsDataZipped(tData))
@@ -310,6 +311,7 @@ public:
 	}
 
 	template<typename T = std::vector<uint8_t>>
+	requires (sizeof(typename T::value_type) == 1 && std::is_trivially_copyable_v<typename T::value_type>)
 	static bool CompressDataIfUnzipped(T &tData)
 	{
 		if (IsDataZipped(tData))
