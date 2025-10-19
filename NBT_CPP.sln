@@ -34,17 +34,14 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "resources", "resources", "{
 		CMakeLists.txt = CMakeLists.txt
 		init.bat = init.bat
 		LICENSE = LICENSE
-		portfile.cmake = portfile.cmake
 		README.md = README.md
 		TODO.txt = TODO.txt
-		vcpkg.json = vcpkg.json
+		vcpkg_test.bat = vcpkg_test.bat
 	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "nbt_benchmark", "tests\nbt_benchmark\nbt_benchmark.vcxproj", "{7C808AA5-ADF0-4962-946A-C770B0B82E7D}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "usage", "usage\usage.vcxproj", "{8C435495-5A89-43CD-BB71-0825634B3019}"
-EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "test_package", "test_package\test_package.vcxproj", "{59EBCE72-5BD7-461E-80A1-F684C796497C}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "my", "my", "{256B3826-0979-494F-B01B-CB5A217CE4FA}"
 	ProjectSection(SolutionItems) = preProject
@@ -86,6 +83,16 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "nbt_cpp", "nbt_cpp", "{E9EB
 		include\nbt_cpp\NBT_Type.hpp = include\nbt_cpp\NBT_Type.hpp
 		include\nbt_cpp\NBT_Writer.hpp = include\nbt_cpp\NBT_Writer.hpp
 	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ports", "ports", "{6242EFA2-633E-45F0-B3F7-052D9EEBCE19}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "nbt_cpp", "nbt_cpp", "{D32F5F3B-6692-4501-AFE0-026227FB7D48}"
+	ProjectSection(SolutionItems) = preProject
+		ports\nbt_cpp\portfile.cmake = ports\nbt_cpp\portfile.cmake
+		ports\nbt_cpp\vcpkg.json = ports\nbt_cpp\vcpkg.json
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "test_package", "ports\nbt_cpp\test_package\test_package.vcxproj", "{59EBCE72-5BD7-461E-80A1-F684C796497C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -182,6 +189,8 @@ Global
 		{256B3826-0979-494F-B01B-CB5A217CE4FA} = {575F30F7-1871-4C8A-80F9-95B324BF9895}
 		{5C18D889-9CD5-4BB1-814F-2E5B61C7D14B} = {575F30F7-1871-4C8A-80F9-95B324BF9895}
 		{E9EBAA7E-93FB-4C05-9568-EDAA96E9A2FD} = {0B625B37-5E58-4D1B-AB4D-B0070E93FB0A}
+		{D32F5F3B-6692-4501-AFE0-026227FB7D48} = {6242EFA2-633E-45F0-B3F7-052D9EEBCE19}
+		{59EBCE72-5BD7-461E-80A1-F684C796497C} = {D32F5F3B-6692-4501-AFE0-026227FB7D48}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {F73690EB-AAEC-4C50-A189-1C05372948D5}

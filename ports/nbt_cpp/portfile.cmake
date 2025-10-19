@@ -6,8 +6,8 @@ vcpkg_from_github(
     HEAD_REF main
 )
 
-file(INSTALL "${SOURCE_PATH}/include/"
-     DESTINATION "${CURRENT_PACKAGES_DIR}/include"
+file(INSTALL "${SOURCE_PATH}/include/nbt_cpp/"
+     DESTINATION "${CURRENT_PACKAGES_DIR}/include/nbt_cpp"
      FILES_MATCHING
      PATTERN "*.hpp"
      PATTERN "*.h"
