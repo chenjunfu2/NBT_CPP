@@ -168,7 +168,10 @@ public:
 
 		T tmpData{};
 		bool bRet = DecompressData(tmpData, tData);
-		tData = std::move(tmpData);
+		if (bRet)
+		{
+			tData = std::move(tmpData);
+		}
 		return bRet;
 	}
 
@@ -182,7 +185,10 @@ public:
 
 		T tmpData{};
 		bool bRet = CompressData(tmpData, tData);
-		tData = std::move(tmpData);
+		if (bRet)
+		{
+			tData = std::move(tmpData);
+		}
 		return bRet;
 	}
 
