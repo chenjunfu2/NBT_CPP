@@ -86,13 +86,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "nbt_cpp", "nbt_cpp", "{E9EB
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ports", "ports", "{6242EFA2-633E-45F0-B3F7-052D9EEBCE19}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "nbt_cpp", "nbt_cpp", "{D32F5F3B-6692-4501-AFE0-026227FB7D48}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "nbt-cpp", "nbt-cpp", "{D32F5F3B-6692-4501-AFE0-026227FB7D48}"
 	ProjectSection(SolutionItems) = preProject
-		ports\nbt_cpp\portfile.cmake = ports\nbt_cpp\portfile.cmake
-		ports\nbt_cpp\vcpkg.json = ports\nbt_cpp\vcpkg.json
+		ports\nbt-cpp\portfile.cmake = ports\nbt-cpp\portfile.cmake
+		ports\nbt-cpp\vcpkg.json = ports\nbt-cpp\vcpkg.json
 	EndProjectSection
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "test_package", "ports\nbt_cpp\test_package\test_package.vcxproj", "{59EBCE72-5BD7-461E-80A1-F684C796497C}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "test_package", "ports\nbt-cpp\test_package\test_package.vcxproj", "{59EBCE72-5BD7-461E-80A1-F684C796497C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
