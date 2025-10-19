@@ -102,21 +102,21 @@ public:
 
 #ifdef USE_GZIPZLIB
 
-	template<typename T = std::vector<uint8_t>>
-	static bool DecompressIfZipped(T &tData)
+	template<typename T>
+	static bool IsDataZipped(T &tData)
 	{
-		if (!gzip::is_compressed((const char *)tData.data(), tData.size()))
-		{
-			return true;
-		}
+		return gzip::is_compressed((const char *)tData.data(), tData.size());
+	}
 
+	template<typename I, typename O>
+	static bool DecompressData(O &oData, const I &iData)
+	{
 		try
 		{
-			T tmpData{};
-			gzip::Decompressor{ SIZE_MAX }.decompress(tmpData, (const char *)tData.data(), tData.size());
-			tData = std::move(tmpData);
+			gzip::Decompressor{ SIZE_MAX }.decompress(oData, (const char *)iData.data(), iData.size());
+			return true;
 		}
-		catch (const std::bad_alloc& e)
+		catch (const std::bad_alloc &e)
 		{
 			printf("std::bad_alloc:[%s]\n", e.what());
 			return false;
@@ -131,8 +131,59 @@ public:
 			printf("Unknown Error\n");
 			return false;
 		}
+	}
 
-		return true;
+	template<typename I, typename O>
+	static bool CompressData(O &oData, const I &iData, int iLevel = Z_DEFAULT_COMPRESSION)
+	{
+		try
+		{
+			gzip::Compressor{ iLevel , SIZE_MAX }.compress(oData, (const char *)iData.data(), iData.size());
+			return true;
+		}
+		catch (const std::bad_alloc &e)
+		{
+			printf("std::bad_alloc:[%s]\n", e.what());
+			return false;
+		}
+		catch (const std::exception &e)
+		{
+			printf("std::exception:[%s]\n", e.what());
+			return false;
+		}
+		catch (...)
+		{
+			printf("Unknown Error\n");
+			return false;
+		}
+	}
+
+	template<typename T = std::vector<uint8_t>>
+	static bool DecompressDataIfZipped(T &tData)
+	{
+		if (!IsDataZipped(tData))
+		{
+			return true;
+		}
+
+		T tmpData{};
+		bool bRet = DecompressData(tmpData, tData);
+		tData = std::move(tmpData);
+		return bRet;
+	}
+
+	template<typename T = std::vector<uint8_t>>
+	static bool CompressDataIfUnzipped(T &tData)
+	{
+		if (IsDataZipped(tData))
+		{
+			return true;
+		}
+
+		T tmpData{};
+		bool bRet = CompressData(tmpData, tData);
+		tData = std::move(tmpData);
+		return bRet;
 	}
 
 #endif

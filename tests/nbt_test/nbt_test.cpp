@@ -188,7 +188,7 @@ int main(int argc, char *argv[])
 	//如果已经压缩则解压
 	printf("\ndataOriginal DecompressIfZipped Start\n");
 	ct.Start();
-	if (!NBT_IO::DecompressIfZipped(dataOriginal))
+	if (!NBT_IO::DecompressDataIfZipped(dataOriginal))
 	{
 		printf("[Line:%d]dataOriginal DecompressIfZipped Fail\n", __LINE__);
 		return -1;
