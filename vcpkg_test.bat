@@ -8,7 +8,7 @@ pause
 vcpkg remove nbt-cpp
 pause
 
-vcpkg install nbt-cpp[gzip] --overlay-ports=.\ports
+vcpkg install nbt-cpp[zlib] --overlay-ports=.\ports
 pause
 vcpkg remove nbt-cpp
 pause

@@ -7,20 +7,12 @@
 #include <vector>
 #include <filesystem>
 
-#ifdef USE_GZIPZLIB
+#ifdef USE_ZLIB
 
 /*zlib*/
 #define ZLIB_CONST
 #include <zlib.h>
 /*zlib*/
-
-/*gzip*/
-#include <compress.hpp>
-#include <config.hpp>
-#include <decompress.hpp>
-#include <utils.hpp>
-#include <version.hpp>
-/*gzip*/
 
 #endif
 
@@ -100,61 +92,187 @@ public:
 		return !ec && bExists;//没有错误并且存在
 	}
 
-#ifdef USE_GZIPZLIB
+#ifdef USE_ZLIB
+
+	static bool IsZlib(uint8_t u8DataFirst, uint8_t u8DataSecond)
+	{
+		return u8DataFirst == (uint8_t)0x78 &&
+			(
+				u8DataSecond == (uint8_t)0x9C ||
+				u8DataSecond == (uint8_t)0x01 ||
+				u8DataSecond == (uint8_t)0xDA ||
+				u8DataSecond == (uint8_t)0x5E
+			);
+	}
+
+	static bool IsGzip(uint8_t u8DataFirst, uint8_t u8DataSecond)
+	{
+		return u8DataFirst == (uint8_t)0x1F && u8DataSecond == (uint8_t)0x8B;
+	}
 
 	template<typename T>
 	static bool IsDataZipped(T &tData)
 	{
-		return gzip::is_compressed((const char *)tData.data(), tData.size());
+		if (tData.size() <= 2)
+		{
+			return false;
+		}
+
+		uint8_t u8DataFirst = (uint8_t)tData[0];
+		uint8_t u8DataSecond = (uint8_t)tData[1];
+
+		return IsZlib(u8DataFirst, u8DataSecond) || IsGzip(u8DataFirst, u8DataSecond);
 	}
 
 	template<typename I, typename O>
-	static bool DecompressData(O &oData, const I &iData)
+	static void DecompressData(O &oData, const I &iData)
 	{
-		try
+		if (iData.empty())
 		{
-			gzip::Decompressor{ SIZE_MAX }.decompress(oData, (const char *)iData.data(), iData.size());
-			return true;
+			oData.clear();
+			return;
 		}
-		catch (const std::bad_alloc &e)
+
+		z_stream zs
 		{
-			printf("std::bad_alloc:[%s]\n", e.what());
-			return false;
+			.zalloc = Z_NULL,
+			.zfree = Z_NULL,
+			.opaque = Z_NULL,
+			.avail_in = 0,
+			.next_in = Z_NULL,
+		};
+
+		if (inflateInit2(&zs, 15 + 32) != Z_OK)//15+32自动判断是gzip还是zlib
+		{
+			throw std::runtime_error("Failed to initialize zlib decompression");
 		}
-		catch (const std::exception &e)
+
+		zs.next_in = (z_const Bytef *)iData.data();
+		zs.avail_in = (uInt)iData.size();
+
+		oData.resize(iData.size() * 4);
+
+		std::size_t szDecompressedSize = 0;
+		int iRet = Z_OK;
+		do
 		{
-			printf("std::exception:[%s]\n", e.what());
-			return false;
-		}
-		catch (...)
+			size_t szOut = oData.size() - szDecompressedSize;
+			if (szOut == 0)
+			{
+				oData.resize(oData.size() * 2);
+				szOut = oData.size() - szDecompressedSize;
+			}
+
+			zs.next_out = (Bytef *)(&oData.data()[szDecompressedSize]);
+			zs.avail_out = (uInt)szOut;
+			
+			iRet = inflate(&zs, Z_FINISH);
+			if (iRet != Z_STREAM_END &&
+				iRet != Z_OK &&
+				iRet != Z_BUF_ERROR)
+			{
+				inflateEnd(&zs);
+				
+				switch (iRet)
+				{
+				case Z_NEED_DICT:
+					throw std::runtime_error("Zlib decompression failed: need dictionary");
+				case Z_DATA_ERROR:
+					throw std::runtime_error("Zlib decompression failed: invalid or corrupted data");
+				case Z_MEM_ERROR:
+					throw std::runtime_error("Zlib decompression failed: insufficient memory");
+				case Z_STREAM_ERROR:
+					throw std::runtime_error("Zlib decompression failed: invalid stream state");
+				default:
+					throw std::runtime_error("Zlib decompression failed with error code: " + std::to_string(iRet));
+				}
+			}
+
+			szDecompressedSize += szOut - zs.avail_out;
+		} while (iRet != Z_STREAM_END && zs.avail_in > 0);
+
+		inflateEnd(&zs);
+		oData.resize(szDecompressedSize);
+
+		if (iRet != Z_STREAM_END)
 		{
-			printf("Unknown Error\n");
-			return false;
+			throw std::runtime_error("Zlib decompression incomplete: stream did not end properly");
 		}
 	}
 
 	template<typename I, typename O>
-	static bool CompressData(O &oData, const I &iData, int iLevel = Z_DEFAULT_COMPRESSION)
+	static void CompressData(O &oData, const I &iData, int iLevel = Z_DEFAULT_COMPRESSION)
 	{
-		try
+		if (iData.empty())
 		{
-			gzip::Compressor{ iLevel , SIZE_MAX }.compress(oData, (const char *)iData.data(), iData.size());
-			return true;
+			oData.clear();
+			return;
 		}
-		catch (const std::bad_alloc &e)
+
+		z_stream zs
 		{
-			printf("std::bad_alloc:[%s]\n", e.what());
-			return false;
+			.zalloc = Z_NULL,
+			.zfree = Z_NULL,
+			.opaque = Z_NULL,
+			.avail_in = 0,
+			.next_in = Z_NULL,
+		};
+
+		if (deflateInit2(&zs, iLevel, Z_DEFLATED, 15 + 16, 8, Z_DEFAULT_STRATEGY) != Z_OK)//15+16使用gzip（mojang默认格式）
+		{
+			throw std::runtime_error("Failed to initialize zlib compression");
 		}
-		catch (const std::exception &e)
+
+		zs.next_in = (z_const Bytef *)iData.data();
+		zs.avail_in = (uInt)iData.size();
+
+		oData.resize(deflateBound(&zs, iData.size()));//预测压缩大小
+
+		std::size_t szCompressedSize = 0;
+		int iRet = Z_OK;
+		do
 		{
-			printf("std::exception:[%s]\n", e.what());
-			return false;
-		}
-		catch (...)
+			size_t szOut = oData.size() - szCompressedSize;
+			if (szOut == 0)
+			{
+				oData.resize(oData.size() * 2);
+				szOut = oData.size() - szCompressedSize;
+			}
+
+			zs.next_out = (Bytef *)(&oData.data()[szCompressedSize]);
+			zs.avail_out = (uInt)szOut;
+			
+			iRet = deflate(&zs, Z_FINISH);
+			if (iRet != Z_STREAM_END &&
+				iRet != Z_OK &&
+				iRet != Z_BUF_ERROR)
+			{
+				deflateEnd(&zs);
+
+				switch (iRet)
+				{
+				case Z_STREAM_ERROR:
+					throw std::runtime_error("Zlib compression failed: invalid compression level or stream state");
+				case Z_DATA_ERROR:
+					throw std::runtime_error("Zlib compression failed: input data is invalid");
+				case Z_MEM_ERROR:
+					throw std::runtime_error("Zlib compression failed: insufficient memory");
+				case Z_BUF_ERROR:
+					throw std::runtime_error("Zlib compression failed: no progress possible");
+				default:
+					throw std::runtime_error("Zlib compression failed with error code: " + std::to_string(iRet));
+				}
+			}
+
+			szCompressedSize += (szOut - zs.avail_out);
+		} while (iRet != Z_STREAM_END && zs.avail_in > 0);
+
+		deflateEnd(&zs);
+		oData.resize(szCompressedSize);
+
+		if (iRet != Z_STREAM_END)
 		{
-			printf("Unknown Error\n");
-			return false;
+			throw std::runtime_error("Zlib compression incomplete: stream did not end properly");
 		}
 	}
 
@@ -166,14 +284,29 @@ public:
 			return true;
 		}
 
-		T tmpData{};
-		bool bRet = DecompressData(tmpData, tData);
-		if (bRet)
+		try
 		{
+			T tmpData{};
+			DecompressData(tmpData, tData);
 			tData = std::move(tmpData);
-		}
 
-		return bRet;
+			return true;
+		}
+		catch (const std::bad_alloc &e)
+		{
+			printf("std::bad_alloc:[%s]\n", e.what());
+			return false;
+		}
+		catch (const std::exception &e)
+		{
+			printf("std::exception:[%s]\n", e.what());
+			return false;
+		}
+		catch (...)
+		{
+			printf("Unknown Error\n");
+			return false;
+		}
 	}
 
 	template<typename T = std::vector<uint8_t>>
@@ -184,14 +317,29 @@ public:
 			return true;
 		}
 
-		T tmpData{};
-		bool bRet = CompressData(tmpData, tData);
-		if (bRet)
+		try
 		{
+			T tmpData{};
+			DecompressData(tmpData, tData);
 			tData = std::move(tmpData);
-		}
 
-		return bRet;
+			return true;
+		}
+		catch (const std::bad_alloc &e)
+		{
+			printf("std::bad_alloc:[%s]\n", e.what());
+			return false;
+		}
+		catch (const std::exception &e)
+		{
+			printf("std::exception:[%s]\n", e.what());
+			return false;
+		}
+		catch (...)
+		{
+			printf("Unknown Error\n");
+			return false;
+		}
 	}
 
 #endif

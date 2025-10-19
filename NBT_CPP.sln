@@ -51,15 +51,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "my", "my", "{256B3826-0979-
 		deps\my\Windows_ANSI.hpp = deps\my\Windows_ANSI.hpp
 	EndProjectSection
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "gzip", "gzip", "{5C18D889-9CD5-4BB1-814F-2E5B61C7D14B}"
-	ProjectSection(SolutionItems) = preProject
-		deps\gzip\compress.hpp = deps\gzip\compress.hpp
-		deps\gzip\config.hpp = deps\gzip\config.hpp
-		deps\gzip\decompress.hpp = deps\gzip\decompress.hpp
-		deps\gzip\utils.hpp = deps\gzip\utils.hpp
-		deps\gzip\version.hpp = deps\gzip\version.hpp
-	EndProjectSection
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "include", "include", "{0B625B37-5E58-4D1B-AB4D-B0070E93FB0A}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "nbt_cpp", "nbt_cpp", "{E9EBAA7E-93FB-4C05-9568-EDAA96E9A2FD}"
@@ -177,7 +168,6 @@ Global
 		{254337A7-8904-45A2-B4BB-8ABEE74865B6} = {CB0077C9-8803-486A-BD8C-1EEF01298AAA}
 		{7C808AA5-ADF0-4962-946A-C770B0B82E7D} = {CB0077C9-8803-486A-BD8C-1EEF01298AAA}
 		{256B3826-0979-494F-B01B-CB5A217CE4FA} = {575F30F7-1871-4C8A-80F9-95B324BF9895}
-		{5C18D889-9CD5-4BB1-814F-2E5B61C7D14B} = {575F30F7-1871-4C8A-80F9-95B324BF9895}
 		{E9EBAA7E-93FB-4C05-9568-EDAA96E9A2FD} = {0B625B37-5E58-4D1B-AB4D-B0070E93FB0A}
 		{D32F5F3B-6692-4501-AFE0-026227FB7D48} = {6242EFA2-633E-45F0-B3F7-052D9EEBCE19}
 	EndGlobalSection

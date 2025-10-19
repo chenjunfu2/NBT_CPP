@@ -3,7 +3,7 @@
   <ImportGroup Label="PropertySheets" />
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup>
-    <IncludePath>$(SolutionDir)deps\gzip;$(SolutionDir)deps\zlib;$(SolutionDir)deps\xxhash;$(SolutionDir)deps;$(SolutionDir)include;$(IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir)deps\zlib;$(SolutionDir)deps\xxhash;$(SolutionDir)deps;$(SolutionDir)include;$(IncludePath)</IncludePath>
   </PropertyGroup>
 	<ItemGroup>
 		<ProjectReference Include="$(SolutionDir)deps\xxhash\xxhash.vcxproj">

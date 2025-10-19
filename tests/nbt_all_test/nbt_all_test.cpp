@@ -3,7 +3,7 @@
 #include <my/StrHexArray.hpp>
 #include <my/MyAssert.hpp>
 
-#define USE_GZIPZLIB
+#define USE_ZLIB
 #define USE_XXHASH
 #include <nbt_cpp/NBT_All.hpp>
 

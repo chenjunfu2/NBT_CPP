@@ -12,10 +12,10 @@
       "description": "Enable XXHASH support for hash functionality",
       "dependencies": [ "xxhash" ]
     },
-    "gzip": 
+    "zlib": 
     {
-      "description": "Enable GZIP/ZLIB support for compression",
-      "dependencies": [ "gzip", "zlib" ]
+      "description": "Enable ZLIB support for compression",
+      "dependencies": [ "zlib" ]
     }
   }
 }

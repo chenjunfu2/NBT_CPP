@@ -77,7 +77,6 @@ set(COMMON_LIBS xxhash zlib)
 
 #全局头文件目录
 include_directories(
-    ${CMAKE_SOURCE_DIR}/deps/gzip
     ${CMAKE_SOURCE_DIR}/deps/zlib
     ${CMAKE_SOURCE_DIR}/deps/xxhash
     ${CMAKE_SOURCE_DIR}/deps
