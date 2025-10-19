@@ -28,12 +28,10 @@ if("tests" IN_LIST FEATURES)
         BINARY_DIR "${TEST_BUILD_DIR}"
     )
     vcpkg_cmake_build(
-        BINARY_DIR "${TEST_BUILD_DIR}"
         TARGET ALL
     )
-    vcpkg_cmake_build(
-        BINARY_DIR "${TEST_BUILD_DIR}"
-        TARGET test
+    vcpkg_cmake_test(
+        BUILD_DIR "${TEST_BUILD_DIR}"
     )
     
     message(STATUS "Tests completed successfully")
