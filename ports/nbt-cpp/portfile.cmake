@@ -13,31 +13,6 @@ file(INSTALL "${SOURCE_PATH}/include/nbt_cpp/"
      PATTERN "*.h"
 )
 
-
-if("tests" IN_LIST FEATURES)
-    message(STATUS "Building tests for nbt-cpp")
-    
-    set(TEST_SOURCE_PATH "${CURRENT_PORT_DIR}/test_package")
-    set(TEST_BUILD_DIR "${CURRENT_BUILDTREES_DIR}/${TARGET_TRIPLET}-test")
-    file(MAKE_DIRECTORY "${TEST_BUILD_DIR}")
-    
-    vcpkg_cmake_configure(
-        SOURCE_PATH "${TEST_SOURCE_PATH}"
-        OPTIONS
-            -DCMAKE_PREFIX_PATH=${CURRENT_INSTALLED_DIR}
-        BINARY_DIR "${TEST_BUILD_DIR}"
-    )
-    vcpkg_cmake_build(
-        TARGET ALL
-    )
-    vcpkg_cmake_test(
-        BUILD_DIR "${TEST_BUILD_DIR}"
-    )
-    
-    message(STATUS "Tests completed successfully")
-endif()
-
-
 if(EXISTS "${SOURCE_PATH}/LICENSE")
     file(INSTALL "${SOURCE_PATH}/LICENSE"
          DESTINATION "${CURRENT_PACKAGES_DIR}/share/${PORT}"

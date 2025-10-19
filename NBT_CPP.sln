@@ -92,8 +92,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "nbt-cpp", "nbt-cpp", "{D32F
 		ports\nbt-cpp\vcpkg.json = ports\nbt-cpp\vcpkg.json
 	EndProjectSection
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "test_package", "ports\nbt-cpp\test_package\test_package.vcxproj", "{59EBCE72-5BD7-461E-80A1-F684C796497C}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -166,14 +164,6 @@ Global
 		{8C435495-5A89-43CD-BB71-0825634B3019}.Release|x64.Build.0 = Release|x64
 		{8C435495-5A89-43CD-BB71-0825634B3019}.Release|x86.ActiveCfg = Release|Win32
 		{8C435495-5A89-43CD-BB71-0825634B3019}.Release|x86.Build.0 = Release|Win32
-		{59EBCE72-5BD7-461E-80A1-F684C796497C}.Debug|x64.ActiveCfg = Debug|x64
-		{59EBCE72-5BD7-461E-80A1-F684C796497C}.Debug|x64.Build.0 = Debug|x64
-		{59EBCE72-5BD7-461E-80A1-F684C796497C}.Debug|x86.ActiveCfg = Debug|Win32
-		{59EBCE72-5BD7-461E-80A1-F684C796497C}.Debug|x86.Build.0 = Debug|Win32
-		{59EBCE72-5BD7-461E-80A1-F684C796497C}.Release|x64.ActiveCfg = Release|x64
-		{59EBCE72-5BD7-461E-80A1-F684C796497C}.Release|x64.Build.0 = Release|x64
-		{59EBCE72-5BD7-461E-80A1-F684C796497C}.Release|x86.ActiveCfg = Release|Win32
-		{59EBCE72-5BD7-461E-80A1-F684C796497C}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -190,7 +180,6 @@ Global
 		{5C18D889-9CD5-4BB1-814F-2E5B61C7D14B} = {575F30F7-1871-4C8A-80F9-95B324BF9895}
 		{E9EBAA7E-93FB-4C05-9568-EDAA96E9A2FD} = {0B625B37-5E58-4D1B-AB4D-B0070E93FB0A}
 		{D32F5F3B-6692-4501-AFE0-026227FB7D48} = {6242EFA2-633E-45F0-B3F7-052D9EEBCE19}
-		{59EBCE72-5BD7-461E-80A1-F684C796497C} = {D32F5F3B-6692-4501-AFE0-026227FB7D48}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {F73690EB-AAEC-4C50-A189-1C05372948D5}

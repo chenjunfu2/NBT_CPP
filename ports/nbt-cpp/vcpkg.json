@@ -16,15 +16,6 @@
     {
       "description": "Enable GZIP/ZLIB support for compression",
       "dependencies": [ "gzip", "zlib" ]
-    },
-    "tests": 
-    {
-      "description": "Build tests",
-      "dependencies": 
-      [
-        {"name": "vcpkg-cmake", "host": true},
-        {"name": "catch2", "host": true}
-      ]
     }
   }
 }

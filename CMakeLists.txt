@@ -93,21 +93,5 @@ add_subdirectory(tests/nbt_all_test)
 add_subdirectory(tests/nbt_benchmark)
 add_subdirectory(tests/nbt_test)
 
-#包测试，已从项目中分离，供vcpkg测试安装
-#add_subdirectory(test_package)
-
-#以下是test_package内的内容，保留到此处以备不时之需
-#cmake_minimum_required(VERSION 3.13)
-#project(test_package LANGUAGES CXX)
-#
-#add_executable(test_package
-#    test.cpp
-#)
-#
-#target_link_libraries(test_package
-#    PUBLIC
-#        ${COMMON_LIBS}
-#)
-
 #使用案例
 add_subdirectory(usage)
