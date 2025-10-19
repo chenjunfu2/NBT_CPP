@@ -17,6 +17,6 @@
 #define USE_XXHASH//安装xxhash库
 
 解锁的功能有：
-nbt解压
+nbt压缩
 nbt哈希
 */
