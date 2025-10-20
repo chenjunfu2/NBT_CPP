@@ -328,9 +328,7 @@ void NBT_IO_Test(void)
 int main(void)
 {
 	StrHexArrayTest();
-
 	NBT_ReadWrite_Test();
-
 	NBT_IO_Test();
 
 	return 0;

@@ -132,6 +132,11 @@ public:
 			  sizeof(typename O::value_type) == 1 && std::is_trivially_copyable_v<typename O::value_type>)
 	static void DecompressData(O &oData, const I &iData)
 	{
+		if (std::addressof(oData) == std::addressof(iData))
+		{
+			throw std::runtime_error("The oData object cannot be the iData object");
+		}
+
 		if (iData.empty())
 		{
 			oData.clear();
@@ -210,6 +215,11 @@ public:
 			  sizeof(typename O::value_type) == 1 && std::is_trivially_copyable_v<typename O::value_type>)
 	static void CompressData(O &oData, const I &iData, int iLevel = Z_DEFAULT_COMPRESSION)
 	{
+		if (std::addressof(oData) == std::addressof(iData))
+		{
+			throw std::runtime_error("The oData object cannot be the iData object");
+		}
+
 		if (iData.empty())
 		{
 			oData.clear();
