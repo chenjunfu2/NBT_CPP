@@ -8,7 +8,7 @@
 - 编译期使用
 
 **类信息**
-'''cpp
+```cpp
 类模板：
 template<typename T, size_t N>
 class StringLiteral : public std::array<T, N>
@@ -32,7 +32,7 @@ constexpr StringLiteral(const T(&_tStr)[N]) noexcept
 constexpr ~StringLiteral(void)
 说明：
 默认析构
-'''
+```
 
 ## 类MUTF8_Tool
 - 禁止构造
@@ -41,7 +41,7 @@ constexpr ~StringLiteral(void)
 - 静态成员函数
 
 **类信息**
-'''
+```
 类模板：
 template<typename MU8T = uint8_t, typename U16T = char16_t, typename U8T = char8_t>
 class MUTF8_Tool
@@ -143,10 +143,10 @@ static std::basic_string<U8T> MU8ToU8(const MU8T *mu8String, size_t szStringLeng
 动态转换mutf8到utf8，提供两种重载，支持string_view或字符串指针+长度
 szReserve代表需要扩容的字节数，如果通过MU8ToU16Size计算最终长度，可以传递给此参数以避免动态扩容开销
 返回值为转换后的string
-'''
+```
 
 ## 宏定义
-'''cpp
+```cpp
 声明：
 U16CV2MU8(u16String)
 说明：
@@ -181,4 +181,4 @@ U16TOMU8STR(u16LiteralString)
 U8TOMU8STR(u8LiteralString)
 说明：
 静态转换，代理api：U8ToMU8
-'''
+```

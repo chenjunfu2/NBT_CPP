@@ -8,7 +8,7 @@
 - 静态成员函数
 
 **类信息**
-'''cpp
+```cpp
 声明：
 template<typename T>
 requires std::integral<T>
@@ -81,4 +81,4 @@ requires std::integral<T>
 static T LittleToNativeAny(T data) noexcept
 说明：
 接受任意整数类型T，自动匹配位数，从小端字节序转换到当前平台字节序，如果平台字节序与小端相同，则不做转换
-'''
+```

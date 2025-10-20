@@ -8,10 +8,10 @@
 - zlib（解锁NBT_IO中的压缩解压相关功能）
 
 **可选依赖激活方式**
-'''cpp
+```cpp
 #define USE_ZLIB//安装zlib库的情况下
 #define USE_XXHASH//安装xxhash库的情况下
-'''
+```
 
 # 头文件信息
 - [Compiler_Define.h](Compiler_Define.md)
