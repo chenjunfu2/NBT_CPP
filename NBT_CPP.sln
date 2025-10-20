@@ -84,6 +84,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "nbt-cpp", "nbt-cpp", "{D32F
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docs", "docs", "{9324FCEB-618E-4F4C-B093-35503E5AA5CB}"
+	ProjectSection(SolutionItems) = preProject
+		docs\ROOT.md = docs\ROOT.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
