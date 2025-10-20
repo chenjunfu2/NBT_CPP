@@ -1,6 +1,6 @@
 # 使用方式
 一般情况下，直接使用\"#include<nbt_cpp\/NBT_All.hpp>\"即可包含所有有头文件</br>
-具体使用示例请参见项目根目录下的usage文件夹内的项目</br>
+具体使用示例请参见项目根目录下的\"usage\"文件夹内的项目</br>
 
 # 文件
 - [Compiler_Define.h](Compiler_Define.md)
