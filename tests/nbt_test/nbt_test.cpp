@@ -188,10 +188,15 @@ int main(int argc, char *argv[])
 	//如果已经压缩则解压
 	printf("\ndataOriginal DecompressIfZipped Start\n");
 	ct.Start();
-	if (!NBT_IO::DecompressDataIfZipped(dataOriginal))
+	if(NBT_IO::IsDataZipped(dataOriginal))
 	{
-		printf("[Line:%d]dataOriginal DecompressIfZipped Fail\n", __LINE__);
-		return -1;
+		std::vector<uint8_t> tmpData;
+		if (!NBT_IO::DecompressDataNoThrow(tmpData, dataOriginal))
+		{
+			printf("[Line:%d]dataOriginal DecompressIfZipped Fail\n", __LINE__);
+			return -1;
+		}
+		dataOriginal = std::move(tmpData);
 	}
 	ct.Stop();
 	ct.PrintElapsed("dataOriginal DecompressIfZipped Time: ");
