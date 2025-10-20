@@ -19,22 +19,23 @@ class NBT_Helper
 	~NBT_Helper() = delete;
 
 public:
-	template<typename PrintFunc = NBT_Print>
+	template<bool bSortCompound = true, typename PrintFunc = NBT_Print>
 	static void Print(const NBT_Node_View<true> nRoot, PrintFunc funcPrint = NBT_Print{ stdout }, bool bPadding = true, bool bNewLine = true)
 	{
 		size_t szLevelStart = bPadding ? 0 : (size_t)-1;//跳过打印
 
-		PrintSwitch(nRoot, szLevelStart, funcPrint);
+		PrintSwitch<true, bSortCompound>(nRoot, szLevelStart, funcPrint);
 		if (bNewLine)
 		{
 			funcPrint("\n");
 		}
 	}
 
+	template<bool bSortCompound = true>
 	static std::string Serialize(const NBT_Node_View<true> nRoot)
 	{
 		std::string sRet{};
-		SerializeSwitch(nRoot, sRet);
+		SerializeSwitch<true, bSortCompound>(nRoot, sRet);
 		return sRet;
 	}
 
@@ -62,6 +63,28 @@ public:
 #endif
 
 private:
+	static auto CompoundSort(const NBT_Type::Compound &cpd)
+	{
+		std::vector<NBT_Type::Compound::const_iterator> vSort{};
+		vSort.reserve(cpd.size());//提前扩容
+
+		//插入迭代器
+		for (auto it = cpd.cbegin(), end = cpd.cend(); it != end; ++it)
+		{
+			vSort.push_back(it);
+		}
+
+		//进行排序
+		std::sort(vSort.begin(), vSort.end(),
+			[](const auto &l, const auto &r) -> bool
+			{
+				return l->first < r->first;
+			}
+		);
+
+		return vSort;
+	}
+
 	constexpr const static inline char *const LevelPadding = "    ";//默认对齐
 
 	template<typename PrintFunc>
@@ -89,7 +112,7 @@ private:
 	}
 
 	//首次调用默认为true，二次调用开始内部主动变为false
-	template<bool bRoot = true, typename PrintFunc = NBT_Print>//首次使用NBT_Node_View解包，后续直接使用NBT_Node引用免除额外初始化开销
+	template<bool bRoot = true, bool bSortCompound = true, typename PrintFunc = NBT_Print>//首次使用NBT_Node_View解包，后续直接使用NBT_Node引用免除额外初始化开销
 	static void PrintSwitch(std::conditional_t<bRoot, const NBT_Node_View<true> &, const NBT_Node &>nRoot, size_t szLevel, PrintFunc &funcPrint)
 	{
 		auto tag = nRoot.GetTag();
@@ -209,12 +232,27 @@ private:
 				PrintPadding(szLevel, false, !bRoot, funcPrint);//不是根部则打印开头换行
 				funcPrint("{{");//大括号转义
 
-				for (const auto &it : cpd)
+				if constexpr (!bSortCompound)
 				{
-					PrintPadding(szLevel, true, true, funcPrint);
-					funcPrint("\"{}\":", it.first.ToCharTypeUTF8());
-					PrintSwitch<false>(it.second, szLevel + 1, funcPrint);
-					funcPrint(",");
+					for (const auto &it : cpd)
+					{
+						PrintPadding(szLevel, true, true, funcPrint);
+						funcPrint("\"{}\":", it.first.ToCharTypeUTF8());
+						PrintSwitch<false>(it.second, szLevel + 1, funcPrint);
+						funcPrint(",");
+					}
+				}
+				else
+				{
+					auto vSort = CompoundSort(cpd);
+
+					for (const auto &it : vSort)
+					{
+						PrintPadding(szLevel, true, true, funcPrint);
+						funcPrint("\"{}\":", it->first.ToCharTypeUTF8());
+						PrintSwitch<false>(it->second, szLevel + 1, funcPrint);
+						funcPrint(",");
+					}
 				}
 
 				if (cpd.Size() != 0)
@@ -261,7 +299,7 @@ private:
 	}
 
 	//首次调用默认为true，二次调用开始内部主动变为false
-	template<bool bRoot = true>//首次使用NBT_Node_View解包，后续直接使用NBT_Node引用免除额外初始化开销
+	template<bool bRoot = true, bool bSortCompound = true>//首次使用NBT_Node_View解包，后续直接使用NBT_Node引用免除额外初始化开销
 	static void SerializeSwitch(std::conditional_t<bRoot, const NBT_Node_View<true> &, const NBT_Node &>nRoot, std::string &sRet)
 	{
 		auto tag = nRoot.GetTag();
@@ -388,13 +426,29 @@ private:
 				const auto &cpd = nRoot.template GetData<NBT_Type::Compound>();
 				sRet += '{';
 	
-				for (const auto &it : cpd)
+				if constexpr (!bSortCompound)
 				{
-					sRet += '\"';
-					sRet += it.first.ToCharTypeUTF8();
-					sRet += "\":";
-					SerializeSwitch<false>(it.second, sRet);
-					sRet += ',';
+					for (const auto &it : cpd)
+					{
+						sRet += '\"';
+						sRet += it.first.ToCharTypeUTF8();
+						sRet += "\":";
+						SerializeSwitch<false>(it.second, sRet);
+						sRet += ',';
+					}
+				}
+				else
+				{
+					auto vSort = CompoundSort(cpd);
+
+					for (const auto &it : vSort)
+					{
+						sRet += '\"';
+						sRet += it->first.ToCharTypeUTF8();
+						sRet += "\":";
+						SerializeSwitch<false>(it->second, sRet);
+						sRet += ',';
+					}
 				}
 	
 				if (cpd.Size() != 0)
@@ -530,22 +584,7 @@ private:
 				}
 				else//对compound迭代器进行排序，以使得hash获得一致性结果
 				{
-					std::vector<NBT_Type::Compound::const_iterator> vSort{};
-					vSort.reserve(cpd.size());//提前扩容
-
-					//插入迭代器
-					for (auto it = cpd.cbegin(), end = cpd.cend(); it != end; ++it)
-					{
-						vSort.push_back(it);
-					}
-
-					//进行排序
-					std::sort(vSort.begin(), vSort.end(),
-						[](const auto &l, const auto &r) -> bool
-						{
-							return l->first > r->first;
-						}
-					);
+					auto vSort = CompoundSort(cpd);
 
 					//遍历有序结构
 					for (const auto &it : vSort)

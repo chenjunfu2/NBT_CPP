@@ -97,8 +97,8 @@ int main(void)
 	auto cpdr = std::move(readCpd.GetCompound(MU8STR("")));
 
 	//输出比较结果
-	NBT_Print{}("\ncmp:{}\n", cpd == cpdr);
-	NBT_Print{}("\ncmphash:{}\n", NBT_Helper::Hash(cpd, 0x1234abcd) == NBT_Helper::Hash(cpdr, 0x1234abcd));
+	NBT_Print{ stdout }("\ncmp:{}\n", cpd == cpdr);
+	NBT_Print{ stdout }("cmphash:{}\n", NBT_Helper::Hash(cpd, 0x1234abcd) == NBT_Helper::Hash(cpdr, 0x1234abcd));
 
 	return 0;
 }
