@@ -419,6 +419,8 @@ catch(...)\
 		ErrCode eRet = AllOk;
 		CHECK_STACK_DEPTH(szStackDepth);
 		
+		//TODO:添加功能，通过模板指定是否执行排序输出（nbt中仅compound是无序结构）
+
 		//注意compound是为数不多的没有元素数量限制的结构
 		//此处无需检查大小，且无需写出大小
 		for (const auto &[sName, nodeNbt] : tCompound)

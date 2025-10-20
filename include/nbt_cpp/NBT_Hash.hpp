@@ -21,8 +21,11 @@ public:
 
 	~NBT_Hash(void)
 	{
-		XXH64_freeState(pHashState);
-		pHashState = nullptr;
+		if (pHashState != nullptr)
+		{
+			XXH64_freeState(pHashState);
+			pHashState = nullptr;
+		}
 	}
 
 	NBT_Hash(const NBT_Hash &_Copy) = delete;
