@@ -111,6 +111,33 @@ private:
 		}
 	}
 
+	template<typename T>
+	static void ToHexString(const T &value, std::string &result)
+	{
+		static_assert(std::is_arithmetic_v<T>, "T must be an arithmetic type");
+		static constexpr char hex_chars[] = "0123456789ABCDEF";
+
+		//按固定字节序处理
+		const unsigned char *bytes = (const unsigned char *)&value;
+		if constexpr (std::endian::native == std::endian::little)
+		{
+			for (size_t i = sizeof(T); i-- > 0; )
+			{
+				result += hex_chars[(bytes[i] >> 4) & 0x0F];//高4
+				result += hex_chars[(bytes[i] >> 0) & 0x0F];//低4
+			}
+		}
+		else
+		{
+			for (size_t i = 0; i < sizeof(T); ++i)
+			{
+				result += hex_chars[(bytes[i] >> 4) & 0x0F];//高4
+				result += hex_chars[(bytes[i] >> 0) & 0x0F];//低4
+			}
+		}
+	}
+
+private:
 	//首次调用默认为true，二次调用开始内部主动变为false
 	template<bool bRoot = true, bool bSortCompound = true, typename PrintFunc = NBT_Print>//首次使用NBT_Node_View解包，后续直接使用NBT_Node引用免除额外初始化开销
 	static void PrintSwitch(std::conditional_t<bRoot, const NBT_Node_View<true> &, const NBT_Node &>nRoot, size_t szLevel, PrintFunc &funcPrint)
@@ -268,33 +295,6 @@ private:
 				funcPrint("[Unknown NBT Tag Type [{:02X}({})]]", (NBT_TAG_RAW_TYPE)tag, (NBT_TAG_RAW_TYPE)tag);
 			}
 			break;
-		}
-	}
-
-private:
-	template<typename T>
-	static void ToHexString(const T &value, std::string &result)
-	{
-		static_assert(std::is_arithmetic_v<T>, "T must be an arithmetic type");
-		static constexpr char hex_chars[] = "0123456789ABCDEF";
-
-		//按固定字节序处理
-		const unsigned char *bytes = (const unsigned char *)&value;
-		if constexpr (std::endian::native == std::endian::little)
-		{
-			for (size_t i = sizeof(T); i-- > 0; )
-			{
-				result += hex_chars[(bytes[i] >> 4) & 0x0F];//高4
-				result += hex_chars[(bytes[i] >> 0) & 0x0F];//低4
-			}
-		}
-		else
-		{
-			for (size_t i = 0; i < sizeof(T); ++i)
-			{
-				result += hex_chars[(bytes[i] >> 4) & 0x0F];//高4
-				result += hex_chars[(bytes[i] >> 0) & 0x0F];//低4
-			}
 		}
 	}
 
