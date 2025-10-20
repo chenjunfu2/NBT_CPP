@@ -9,6 +9,7 @@
 
 class NBT_Reader;
 class NBT_Writer;
+class NBT_Helper;
 
 template <typename T>
 concept HasSpaceship = requires(const T & a, const T & b)

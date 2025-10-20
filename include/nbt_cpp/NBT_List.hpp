@@ -10,6 +10,7 @@
 
 class NBT_Reader;
 class NBT_Writer;
+class NBT_Helper;
 
 template <typename List>
 class MyList :protected List

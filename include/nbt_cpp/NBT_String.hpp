@@ -7,6 +7,7 @@
 
 class NBT_Reader;
 class NBT_Writer;
+class NBT_Helper;
 
 template<typename String, typename StringView>
 class MyString;
