@@ -301,11 +301,17 @@ void NBT_IO_Test(void)
 	74 72 35 00
 )" > ();
 
-	std::vector<uint8_t> vData(NbtRawData.begin(), NbtRawData.end());
-	MyAssert(NBT_IO::CompressDataIfUnzipped(vData));
+	const std::vector<uint8_t> vData(NbtRawData.begin(), NbtRawData.end());
 
-	MyAssert(NBT_IO::DecompressDataIfZipped(vData));
+	//压缩
+	std::vector<uint8_t> vcpsData{};
+	MyAssert(NBT_IO::CompressDataNoThrow(vcpsData, vData));
 
+	//再次解压
+	std::vector<uint8_t> vDataNew{};
+	MyAssert(NBT_IO::DecompressDataNoThrow(vDataNew, vcpsData));
+
+	//与原数据比对
 	MyAssert([&](bool b)->bool
 		{
 			if (!b)
@@ -315,7 +321,7 @@ void NBT_IO_Test(void)
 			}
 
 			return b;
-		}(vData == std::vector<uint8_t>(NbtRawData.begin(), NbtRawData.end()))
+		}(vData == vDataNew)
 	);
 }
 
