@@ -52,12 +52,14 @@ public:
 	}
 
 	template<typename T>
+	requires(std::is_trivially_copyable_v<T>)
 	void Update(const T &tData)
 	{
 		Update(&tData, sizeof(tData));
 	}
 
 	template<typename T, size_t S>
+	requires(std::is_trivially_copyable_v<T>)
 	void Update(const T(&tData)[S])
 	{
 		Update(&tData, sizeof(tData));
@@ -70,12 +72,14 @@ public:
 	}
 
 	template<typename T>
+	requires(std::is_trivially_copyable_v<T>)
 	static HASH_T Hash(const T &tData, HASH_T tHashSeed)
 	{
 		return Hash(&tData, sizeof(tData), tHashSeed);
 	}
 
 	template<typename T, size_t S>
+	requires(std::is_trivially_copyable_v<T>)
 	static HASH_T Hash(const T(&tData)[S], HASH_T tHashSeed)
 	{
 		return Hash(&tData, sizeof(tData), tHashSeed);
