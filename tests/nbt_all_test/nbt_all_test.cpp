@@ -303,6 +303,7 @@ void NBT_IO_Test(void)
 
 	std::vector<uint8_t> vData(NbtRawData.begin(), NbtRawData.end());
 	MyAssert(NBT_IO::CompressDataIfUnzipped(vData));
+
 	MyAssert(NBT_IO::DecompressDataIfZipped(vData));
 
 	MyAssert([&](bool b)->bool

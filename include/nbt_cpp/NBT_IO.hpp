@@ -16,6 +16,8 @@
 
 #endif
 
+#include "NBT_Print.hpp"//打印输出
+
 class NBT_IO
 {
 	NBT_IO(void) = delete;
@@ -111,6 +113,7 @@ public:
 	}
 
 	template<typename T>
+	requires (sizeof(typename T::value_type) == 1 && std::is_trivially_copyable_v<typename T::value_type>)
 	static bool IsDataZipped(T &tData)
 	{
 		if (tData.size() <= 2)
@@ -125,6 +128,8 @@ public:
 	}
 
 	template<typename I, typename O>
+	requires (sizeof(typename I::value_type) == 1 && std::is_trivially_copyable_v<typename I::value_type> &&
+			  sizeof(typename O::value_type) == 1 && std::is_trivially_copyable_v<typename O::value_type>)
 	static void DecompressData(O &oData, const I &iData)
 	{
 		if (iData.empty())
@@ -142,7 +147,7 @@ public:
 			.opaque = Z_NULL,
 		};
 
-		if (inflateInit2(&zs, 15 + 32) != Z_OK)//15+32自动判断是gzip还是zlib
+		if (inflateInit2(&zs, 32 + MAX_WBITS) != Z_OK)//32+MAX_WBITS自动判断是gzip还是zlib
 		{
 			throw std::runtime_error("Failed to initialize zlib decompression");
 		}
@@ -201,6 +206,8 @@ public:
 	}
 
 	template<typename I, typename O>
+	requires (sizeof(typename I::value_type) == 1 && std::is_trivially_copyable_v<typename I::value_type> &&
+			  sizeof(typename O::value_type) == 1 && std::is_trivially_copyable_v<typename O::value_type>)
 	static void CompressData(O &oData, const I &iData, int iLevel = Z_DEFAULT_COMPRESSION)
 	{
 		if (iData.empty())
@@ -276,70 +283,56 @@ public:
 		}
 	}
 
-	template<typename T = std::vector<uint8_t>>
-	requires (sizeof(typename T::value_type) == 1 && std::is_trivially_copyable_v<typename T::value_type>)
-	static bool DecompressDataIfZipped(T &tData)
+	template<typename I, typename O, typename ErrInfoFunc = NBT_Print>
+	requires (sizeof(typename I::value_type) == 1 && std::is_trivially_copyable_v<typename I::value_type> &&
+			  sizeof(typename O::value_type) == 1 && std::is_trivially_copyable_v<typename O::value_type>)
+	static bool DecompressDataNoThrow(O &oData, const I &iData, ErrInfoFunc funcErrInfo = NBT_Print{}) noexcept
 	{
-		if (!IsDataZipped(tData))
-		{
-			return true;
-		}
-
 		try
 		{
-			T tmpData{};
-			DecompressData(tmpData, tData);
-			tData = std::move(tmpData);
-
+			DecompressData(oData, iData);
 			return true;
 		}
 		catch (const std::bad_alloc &e)
 		{
-			printf("std::bad_alloc:[%s]\n", e.what());
+			funcErrInfo("std::bad_alloc:[{}]\n", e.what());
 			return false;
 		}
 		catch (const std::exception &e)
 		{
-			printf("std::exception:[%s]\n", e.what());
+			funcErrInfo("std::exception:[{}]\n", e.what());
 			return false;
 		}
 		catch (...)
 		{
-			printf("Unknown Error\n");
+			funcErrInfo("Unknown Error\n");
 			return false;
 		}
 	}
 
-	template<typename T = std::vector<uint8_t>>
-	requires (sizeof(typename T::value_type) == 1 && std::is_trivially_copyable_v<typename T::value_type>)
-	static bool CompressDataIfUnzipped(T &tData)
+	template<typename I, typename O, typename ErrInfoFunc = NBT_Print>
+	requires (sizeof(typename I::value_type) == 1 && std::is_trivially_copyable_v<typename I::value_type> &&
+			  sizeof(typename O::value_type) == 1 && std::is_trivially_copyable_v<typename O::value_type>)
+	static bool CompressDataNoThrow(O &oData, const I &iData, int iLevel = Z_DEFAULT_COMPRESSION, ErrInfoFunc funcErrInfo = NBT_Print{}) noexcept
 	{
-		if (IsDataZipped(tData))
-		{
-			return true;
-		}
-
 		try
 		{
-			T tmpData{};
-			DecompressData(tmpData, tData);
-			tData = std::move(tmpData);
-
+			CompressData(oData, iData, iLevel);
 			return true;
 		}
 		catch (const std::bad_alloc &e)
 		{
-			printf("std::bad_alloc:[%s]\n", e.what());
+			funcErrInfo("std::bad_alloc:[{}]\n", e.what());
 			return false;
 		}
 		catch (const std::exception &e)
 		{
-			printf("std::exception:[%s]\n", e.what());
+			funcErrInfo("std::exception:[{}]\n", e.what());
 			return false;
 		}
 		catch (...)
 		{
-			printf("Unknown Error\n");
+			funcErrInfo("Unknown Error\n");
 			return false;
 		}
 	}
