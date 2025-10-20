@@ -1,4 +1,8 @@
-﻿#include <nbt_cpp/NBT_All.hpp>
+﻿#define USE_ZLIB
+#define USE_XXHASH
+#include <nbt_cpp/NBT_All.hpp>
+#undef USE_ZLIB
+#undef USE_XXHASH
 
 #include <stdio.h>
 #include <locale.h>
@@ -6,13 +10,35 @@
 bool WriteNbtFile(const char *pFileName, const NBT_Type::Compound &cpd)
 {
 	std::vector<uint8_t> data;
-	return NBT_Writer::WriteNBT(data, 0, cpd) &&NBT_IO::WriteFile(pFileName, data);
+	if (!NBT_Writer::WriteNBT(data, 0, cpd))
+	{
+		return false;
+	}
+
+	std::vector<uint8_t> tmpCompress{};
+	if (!NBT_IO::CompressDataNoThrow(tmpCompress, data))
+	{
+		return false;
+	}
+
+	return NBT_IO::WriteFile(pFileName, tmpCompress);
 }
 
 bool ReadNbtFile(const char *pFileName, NBT_Type::Compound &cpd)
 {
 	std::vector<uint8_t> data;
-	return NBT_IO::ReadFile(pFileName, data) && NBT_Reader::ReadNBT(data, 0, cpd);
+	if (!NBT_IO::ReadFile(pFileName, data))
+	{
+		return false;
+	}
+
+	std::vector<uint8_t> tmpDecompress{};
+	if (!NBT_IO::DecompressDataNoThrow(tmpDecompress, data))
+	{
+		return false;
+	}
+
+	return NBT_Reader::ReadNBT(tmpDecompress, 0, cpd);
 }
 
 int main(void)
@@ -72,6 +98,7 @@ int main(void)
 
 	//输出比较结果
 	NBT_Print{}("\ncmp:{}\n", cpd == cpdr);
+	NBT_Print{}("\ncmphash:{}\n", NBT_Helper::Hash(cpd, 0x1234abcd) == NBT_Helper::Hash(cpdr, 0x1234abcd));
 
 	return 0;
 }

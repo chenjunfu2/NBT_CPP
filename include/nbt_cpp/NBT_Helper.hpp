@@ -2,6 +2,8 @@
 
 #include <bit>
 #include <concepts>
+#include <iterator>
+#include <algorithm>
 
 #include "NBT_Print.hpp"//打印输出
 #include "NBT_Node.hpp"
@@ -44,11 +46,11 @@ public:
 
 	using DefaultFuncType = std::decay_t<decltype(DefaultFunc)>;
 
-	template<typename TB = DefaultFuncType, typename TA = DefaultFuncType>//两个函数，分别在前后调用，可以用于插入哈希数据
+	template<bool bSortCompound = true, typename TB = DefaultFuncType, typename TA = DefaultFuncType>//两个函数，分别在前后调用，可以用于插入哈希数据
 	static NBT_Hash::HASH_T Hash(const NBT_Node_View<true> nRoot, NBT_Hash nbtHash, TB funBefore = DefaultFunc, TA funAfter = DefaultFunc)
 	{
 		funBefore(nbtHash);
-		HashSwitch(nRoot, nbtHash);
+		HashSwitch<true, bSortCompound>(nRoot, nbtHash);
 		funAfter(nbtHash);
 
 		return nbtHash.Digest();
@@ -413,7 +415,7 @@ private:
 	}
 
 #ifdef USE_XXHASH
-	template<bool bRoot = true>//首次使用NBT_Node_View解包，后续直接使用NBT_Node引用免除额外初始化开销
+	template<bool bRoot = true, bool bSortCompound = true>//首次使用NBT_Node_View解包，后续直接使用NBT_Node引用免除额外初始化开销
 	static void HashSwitch(std::conditional_t<bRoot, const NBT_Node_View<true> &, const NBT_Node &>nRoot, NBT_Hash &nbtHash)
 	{
 		auto tag = nRoot.GetTag();
@@ -516,11 +518,42 @@ private:
 		case NBT_TAG::Compound://需要打印缩进的地方
 			{
 				const auto &cpd = nRoot.template GetData<NBT_Type::Compound>();
-				for (const auto &it : cpd)
+
+				if constexpr (!bSortCompound)
 				{
-					const auto &tmp = it.first;
-					nbtHash.Update(tmp.data(), tmp.size());
-					HashSwitch<false>(it.second, nbtHash);
+					for (const auto &it : cpd)
+					{
+						const auto &tmp = it.first;
+						nbtHash.Update(tmp.data(), tmp.size());
+						HashSwitch<false>(it.second, nbtHash);
+					}
+				}
+				else//对compound迭代器进行排序，以使得hash获得一致性结果
+				{
+					std::vector<NBT_Type::Compound::const_iterator> vSort{};
+					vSort.reserve(cpd.size());//提前扩容
+
+					//插入迭代器
+					for (auto it = cpd.cbegin(), end = cpd.cend(); it != end; ++it)
+					{
+						vSort.push_back(it);
+					}
+
+					//进行排序
+					std::sort(vSort.begin(), vSort.end(),
+						[](const auto &l, const auto &r) -> bool
+						{
+							return l->first > r->first;
+						}
+					);
+
+					//遍历有序结构
+					for (const auto &it : vSort)
+					{
+						const auto &tmp = it->first;
+						nbtHash.Update(tmp.data(), tmp.size());
+						HashSwitch<false>(it->second, nbtHash);
+					}
 				}
 			}
 			break;

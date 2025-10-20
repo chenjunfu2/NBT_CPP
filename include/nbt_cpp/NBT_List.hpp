@@ -16,6 +16,7 @@ class MyList :protected List
 {
 	friend class NBT_Reader;
 	friend class NBT_Writer;
+	friend class NBT_Helper;
 
 private:
 	//列表元素类型（只能一种元素）

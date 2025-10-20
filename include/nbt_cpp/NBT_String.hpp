@@ -16,6 +16,7 @@ class MyStringView : public StringView
 {
 	friend class NBT_Reader;
 	friend class NBT_Writer;
+	friend class NBT_Helper;
 
 private:
 	static constexpr size_t CalcStringViewSize(const typename StringView::value_type *ltrStr, size_t N)
@@ -60,6 +61,7 @@ class MyString :public String//暂时不考虑保护继承
 {
 	friend class NBT_Reader;
 	friend class NBT_Writer;
+	friend class NBT_Helper;
 
 	static_assert(sizeof(typename std::string::value_type) == sizeof(typename String::value_type), "Size error");
 	
