@@ -675,7 +675,7 @@ public:
 	//输出到tData中，部分功能和原理参照ReadNBT处的注释，szDataStartIndex在此处可以对一个tData通过不同的tCompound和szDataStartIndex = tData.size()
 	//来调用以达到把多个不同的nbt输出到同一个tData内的功能
 	template<typename OutputStream, typename ErrInfoFunc = NBT_Print>
-	static bool WriteNBT(OutputStream OptStream, const NBT_Type::Compound &tCompound, size_t szStackDepth = 512, ErrInfoFunc funcErrInfo = NBT_Print{}) noexcept
+	static bool WriteNBT(OutputStream OptStream, const NBT_Type::Compound &tCompound, size_t szStackDepth = 512, ErrInfoFunc funcErrInfo = NBT_Print{ stderr }) noexcept
 	{
 		//输出最大栈深度
 		//printf("Max Stack Depth [%zu]\n", szStackDepth);
@@ -685,7 +685,7 @@ public:
 	}
 
 	template<typename DataType = std::vector<uint8_t>, typename ErrInfoFunc = NBT_Print>
-	static bool WriteNBT(DataType &tDataOutput, size_t szStartIdx, const NBT_Type::Compound &tCompound, size_t szStackDepth = 512, ErrInfoFunc funcErrInfo = NBT_Print{}) noexcept
+	static bool WriteNBT(DataType &tDataOutput, size_t szStartIdx, const NBT_Type::Compound &tCompound, size_t szStackDepth = 512, ErrInfoFunc funcErrInfo = NBT_Print{ stderr }) noexcept
 	{
 		return WriteNBT(MyOutputStream<DataType>(tDataOutput, szStartIdx), tCompound, szStackDepth, std::move(funcErrInfo));
 	}

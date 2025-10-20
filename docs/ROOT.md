@@ -2,6 +2,7 @@
 一般情况下，直接使用\"#include<nbt_cpp\/NBT_All.hpp>\"即可包含所有有头文件</br>
 具体使用示例请参见项目根目录下的\"usage\"文件夹内的项目</br>
 本库仅头文件，无源文件</br>
+注意本库仅针对nbt对象处理与nbt二进制文件处理，不涉及snbt转换与处理，不提供snbt相关功能</br>
 
 # 可选依赖
 - xxhash（解锁NBT_Helper中的Hash功能）

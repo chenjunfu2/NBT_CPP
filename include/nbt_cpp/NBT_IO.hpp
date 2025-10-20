@@ -296,7 +296,7 @@ public:
 	template<typename I, typename O, typename ErrInfoFunc = NBT_Print>
 	requires (sizeof(typename I::value_type) == 1 && std::is_trivially_copyable_v<typename I::value_type> &&
 			  sizeof(typename O::value_type) == 1 && std::is_trivially_copyable_v<typename O::value_type>)
-	static bool DecompressDataNoThrow(O &oData, const I &iData, ErrInfoFunc funcErrInfo = NBT_Print{}) noexcept
+	static bool DecompressDataNoThrow(O &oData, const I &iData, ErrInfoFunc funcErrInfo = NBT_Print{ stderr }) noexcept
 	{
 		try
 		{
@@ -323,7 +323,7 @@ public:
 	template<typename I, typename O, typename ErrInfoFunc = NBT_Print>
 	requires (sizeof(typename I::value_type) == 1 && std::is_trivially_copyable_v<typename I::value_type> &&
 			  sizeof(typename O::value_type) == 1 && std::is_trivially_copyable_v<typename O::value_type>)
-	static bool CompressDataNoThrow(O &oData, const I &iData, int iLevel = Z_DEFAULT_COMPRESSION, ErrInfoFunc funcErrInfo = NBT_Print{}) noexcept
+	static bool CompressDataNoThrow(O &oData, const I &iData, int iLevel = Z_DEFAULT_COMPRESSION, ErrInfoFunc funcErrInfo = NBT_Print{ stderr }) noexcept
 	{
 		try
 		{

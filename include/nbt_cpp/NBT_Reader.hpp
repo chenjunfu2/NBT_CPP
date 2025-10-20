@@ -757,7 +757,7 @@ public:
 	//注意此函数不会清空tCompound，所以可以对一个tCompound通过不同的tData多次调用来读取多个nbt片段并合并到一起
 	//如果指定了szDataStartIndex则会忽略tData中长度为szDataStartIndex的数据
 	template<typename InputStream, typename ErrInfoFunc = NBT_Print>
-	static bool ReadNBT(InputStream IptStream, NBT_Type::Compound &tCompound, size_t szStackDepth = 512, ErrInfoFunc funcErrInfo = NBT_Print{}) noexcept//从data中读取nbt
+	static bool ReadNBT(InputStream IptStream, NBT_Type::Compound &tCompound, size_t szStackDepth = 512, ErrInfoFunc funcErrInfo = NBT_Print{ stderr }) noexcept//从data中读取nbt
 	{
 		//输出最大栈深度
 		//printf("Max Stack Depth [%zu]\n", szStackDepth);
@@ -767,7 +767,7 @@ public:
 	}
 
 	template<typename DataType = std::vector<uint8_t>, typename ErrInfoFunc = NBT_Print>
-	static bool ReadNBT(const DataType &tDataInput, size_t szStartIdx, NBT_Type::Compound &tCompound, size_t szStackDepth = 512, ErrInfoFunc funcErrInfo = NBT_Print{}) noexcept//从data中读取nbt
+	static bool ReadNBT(const DataType &tDataInput, size_t szStartIdx, NBT_Type::Compound &tCompound, size_t szStackDepth = 512, ErrInfoFunc funcErrInfo = NBT_Print{ stderr }) noexcept//从data中读取nbt
 	{
 		return ReadNBT(MyInputStream<DataType>(tDataInput, szStartIdx), tCompound, szStackDepth, std::move(funcErrInfo));
 	}

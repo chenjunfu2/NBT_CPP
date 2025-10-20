@@ -20,7 +20,7 @@ class NBT_Helper
 
 public:
 	template<typename PrintFunc = NBT_Print>
-	static void Print(const NBT_Node_View<true> nRoot, PrintFunc funcPrint = NBT_Print{}, bool bPadding = true, bool bNewLine = true)
+	static void Print(const NBT_Node_View<true> nRoot, PrintFunc funcPrint = NBT_Print{ stdout }, bool bPadding = true, bool bNewLine = true)
 	{
 		size_t szLevelStart = bPadding ? 0 : (size_t)-1;//跳过打印
 
