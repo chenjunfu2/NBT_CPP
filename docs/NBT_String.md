@@ -1,1 +1,1 @@
-# NBT_String.hpp
+﻿# NBT_String.hpp

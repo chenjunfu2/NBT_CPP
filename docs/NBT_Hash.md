@@ -1,1 +1,1 @@
-# NBT_Hash.hpp
+﻿# NBT_Hash.hpp
