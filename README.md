@@ -2,4 +2,4 @@
 一个基于CPP20的NBT(Named Binary Tag)库
 
 ## 文档
-[文档](docs/ROOT.md)
+点击[文档](docs/ROOT.md)进入
