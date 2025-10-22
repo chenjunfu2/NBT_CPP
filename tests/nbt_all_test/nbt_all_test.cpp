@@ -8,26 +8,49 @@
 #include <nbt_cpp/NBT_All.hpp>
 
 template<typename T>
-void PrintHex(T data) noexcept
+void PrintHexArr(T data, uint8_t u8CountOfLine = 16, const char *pstrLineBeg = " ", const char *pstrLineEnd = "\n", const char* pstrHexPadding = " ") noexcept
 {
-	constexpr uint8_t u8CountOfLine = 16;
 	uint8_t u8CountCur = 0;
 	
-	for (size_t iAddr = 0; iAddr < data.size(); ++iAddr)
+	for (size_t szAddr = 0; szAddr < data.size(); ++szAddr)
 	{
 		if (u8CountCur == 0)
 		{
-			printf("%0*zX: ", (int)sizeof(iAddr) * 2, iAddr);
+			printf("%0*zX:%s", (int)sizeof(szAddr) * 2, szAddr, pstrLineBeg);
 		}
 
-		printf("%02X ", (uint8_t)data[iAddr]);
-
-		if (++u8CountCur == u8CountOfLine)
+		if (++u8CountCur < u8CountOfLine)
 		{
-			putchar('\n');
+			printf("%02X%s", (uint8_t)data[szAddr], pstrHexPadding);
+		}
+		else//u8CountCur >= u8CountOfLine
+		{
+			printf("%02X%s", (uint8_t)data[szAddr], pstrLineEnd);
 			u8CountCur = 0;
 		}
 	}
+
+	if (u8CountCur != 0)
+	{
+		printf("\n");
+	}
+}
+
+template<typename T>
+requires std::is_integral_v<T>
+void PrintHexValNative(T data) noexcept
+{
+	printf("[%zubits]: ", sizeof(T) * 8);
+
+	uint8_t u8Arr[sizeof(T)] = {};
+	memcpy(u8Arr, &data, sizeof(u8Arr));
+
+	for (auto it : u8Arr)
+	{
+		printf("%02X ", it);
+	}
+
+	printf("\n");
 }
 
 
@@ -102,35 +125,59 @@ void StrHexArrayTest(void)
 	std::vector<uint8_t> v0(h0.begin(), h0.end());
 
 	//验证
-	MyAssert([&](bool b)->bool
-		{
-			if (!b)
-			{
-				PrintHex(v0);
-			}
-			return b;
-		}(vt == v0)
-	);
 
-	MyAssert([&](bool b)->bool
+	auto TestFunc = []<typename T>(const T &l, const T & r) -> bool
+	{
+		if (l != r)
 		{
-			if (!b)
-			{
-				PrintHex(h1);
-			}
-			return b;
-		}(vt == h1)
-	);
+			PrintHexArr(l);
+			PrintHexArr(r);
+			return false;
+		}
 
-	MyAssert([&](bool b)->bool
+		return true;
+	};
+
+	MyAssert(TestFunc(vt, v0));
+	MyAssert(TestFunc(vt, h1));
+	MyAssert(TestFunc(vt, h2));
+}
+
+void NBT_Endian_Test(void)
+{
+	auto U64VAL = (uint64_t)0x12'34'56'78'9A'BC'DE'F0;
+	auto _U64VAL = (uint64_t)0xF0'DE'BC'9A'78'56'34'12;
+
+	auto U32VAL = (uint32_t)0x12'34'56'78;
+	auto _U32VAL = (uint32_t)0x78'56'34'12;
+
+	auto U16VAL = (uint16_t)0x12'34;
+	auto _U16VAL = (uint16_t)0x34'12;
+
+	auto U8VAL = (uint8_t)0x12;
+	auto _U8VAL = (uint8_t)0x12;
+
+	auto TestFunc = []<typename T>(const T &l, const T &r) -> bool
+	{
+		if (l != r)
 		{
-			if (!b)
-			{
-				PrintHex(h2);
-			}
-			return b;
-		}(vt == h2)
-	);
+			PrintHexValNative(l);
+			PrintHexValNative(r);
+			return false;
+		}
+
+		return true;
+	};
+
+
+	MyAssert(TestFunc(NBT_Endian::ByteSwapAny(U8VAL),  _U8VAL));
+	MyAssert(TestFunc(NBT_Endian::ByteSwapAny(U16VAL), _U16VAL));
+	MyAssert(TestFunc(NBT_Endian::ByteSwapAny(U32VAL), _U32VAL));
+	MyAssert(TestFunc(NBT_Endian::ByteSwapAny(U64VAL), _U64VAL));
+
+	MyAssert(TestFunc(NBT_Endian::ByteSwap16(U16VAL), _U16VAL));
+	MyAssert(TestFunc(NBT_Endian::ByteSwap32(U32VAL), _U32VAL));
+	MyAssert(TestFunc(NBT_Endian::ByteSwap64(U64VAL), _U64VAL));
 }
 
 void NBT_ReadWrite_Test(void)
@@ -255,8 +302,8 @@ void NBT_ReadWrite_Test(void)
 		{
 			if (!b)
 			{
-				PrintHex(NbtRawData);
-				PrintHex(testWrite);
+				PrintHexArr(NbtRawData);
+				PrintHexArr(testWrite);
 			}
 			return b;
 		}(TestByteCount(std::vector<uint8_t>(NbtRawData.begin(), NbtRawData.end()), testWrite))
@@ -266,8 +313,8 @@ void NBT_ReadWrite_Test(void)
 		{
 			if (!b)
 			{
-				PrintHex(testWrite);
-				PrintHex(testGenWrite);
+				PrintHexArr(testWrite);
+				PrintHexArr(testGenWrite);
 			}
 			return b;
 		}(TestByteCount(testWrite, testGenWrite))
@@ -316,8 +363,8 @@ void NBT_IO_Test(void)
 		{
 			if (!b)
 			{
-				PrintHex(NbtRawData);
-				PrintHex(vData);
+				PrintHexArr(NbtRawData);
+				PrintHexArr(vData);
 			}
 
 			return b;

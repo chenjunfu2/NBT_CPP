@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.36422.26
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "endian_test", "tests\endian_test\endian_test.vcxproj", "{77BB30D6-589B-4484-B09F-A40B1D131E7A}"
-EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "mutf8_test", "tests\mutf8_test\mutf8_test.vcxproj", "{6301278C-B686-4ABC-B7D6-3B0EAF6F1129}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "nbt_test", "tests\nbt_test\nbt_test.vcxproj", "{5CE5EC05-83A5-4C65-A847-1FF098A0BE56}"
@@ -114,14 +112,6 @@ Global
 		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{77BB30D6-589B-4484-B09F-A40B1D131E7A}.Debug|x64.ActiveCfg = Debug|x64
-		{77BB30D6-589B-4484-B09F-A40B1D131E7A}.Debug|x64.Build.0 = Debug|x64
-		{77BB30D6-589B-4484-B09F-A40B1D131E7A}.Debug|x86.ActiveCfg = Debug|Win32
-		{77BB30D6-589B-4484-B09F-A40B1D131E7A}.Debug|x86.Build.0 = Debug|Win32
-		{77BB30D6-589B-4484-B09F-A40B1D131E7A}.Release|x64.ActiveCfg = Release|x64
-		{77BB30D6-589B-4484-B09F-A40B1D131E7A}.Release|x64.Build.0 = Release|x64
-		{77BB30D6-589B-4484-B09F-A40B1D131E7A}.Release|x86.ActiveCfg = Release|Win32
-		{77BB30D6-589B-4484-B09F-A40B1D131E7A}.Release|x86.Build.0 = Release|Win32
 		{6301278C-B686-4ABC-B7D6-3B0EAF6F1129}.Debug|x64.ActiveCfg = Debug|x64
 		{6301278C-B686-4ABC-B7D6-3B0EAF6F1129}.Debug|x64.Build.0 = Debug|x64
 		{6301278C-B686-4ABC-B7D6-3B0EAF6F1129}.Debug|x86.ActiveCfg = Debug|Win32
@@ -183,7 +173,6 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{77BB30D6-589B-4484-B09F-A40B1D131E7A} = {CB0077C9-8803-486A-BD8C-1EEF01298AAA}
 		{6301278C-B686-4ABC-B7D6-3B0EAF6F1129} = {CB0077C9-8803-486A-BD8C-1EEF01298AAA}
 		{5CE5EC05-83A5-4C65-A847-1FF098A0BE56} = {CB0077C9-8803-486A-BD8C-1EEF01298AAA}
 		{DC504567-A6FA-4E8F-A354-E1ECFDDE5D81} = {575F30F7-1871-4C8A-80F9-95B324BF9895}

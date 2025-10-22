@@ -86,7 +86,6 @@ include_directories(
 #添加项目
 
 #测试项目
-add_subdirectory(tests/endian_test)
 add_subdirectory(tests/mutf8_test)
 add_subdirectory(tests/nbt_all_test)
 add_subdirectory(tests/nbt_benchmark)
