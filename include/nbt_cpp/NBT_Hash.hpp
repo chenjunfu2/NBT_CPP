@@ -34,11 +34,12 @@ public:
 		_Move.pHashState = nullptr;
 	}
 
-	NBT_Hash operator=(const NBT_Hash &) = delete;
-	NBT_Hash operator=(NBT_Hash &&_Move) noexcept
+	NBT_Hash &operator=(const NBT_Hash &) = delete;
+	NBT_Hash &operator=(NBT_Hash &&_Move) noexcept
 	{
 		pHashState = _Move.pHashState;
 		_Move.pHashState = nullptr;
+		return *this;
 	}
 
 	HASH_T Digest(void)
