@@ -455,7 +455,7 @@ catch(...)\
 
 		//注意compound是为数不多的没有元素数量限制的结构
 		//此处无需检查大小，且无需写出大小
-		for (const auto it: tmpIterableRange)
+		for (const auto &it: tmpIterableRange)
 		{
 			const auto &[sName, nodeNbt] = [&](void) -> const auto &
 			{
