@@ -264,19 +264,26 @@ void NBT_ReadWrite_Test(void)
 		}(cpdGen == cpdRead)
 	);
 
-	//再次写出
+	//无序写出测试
 	std::vector<uint8_t> testWrite;
-	NBT_Writer::WriteNBT(testWrite, 0, cpdRead);
+	NBT_Writer::WriteNBT<false>(testWrite, 0, cpdRead);//false使用无序写出
 
 	std::vector<uint8_t> testGenWrite;
-	NBT_Writer::WriteNBT(testGenWrite, 0, cpdGen);
+	NBT_Writer::WriteNBT<false>(testGenWrite, 0, cpdGen);//false使用无序写出
+
+	//有序写出测试
+	std::vector<uint8_t> testSortWrite;
+	NBT_Writer::WriteNBT<true>(testSortWrite, 0, cpdRead);//false使用有序写出
+
+	std::vector<uint8_t> testSortGenWrite;
+	NBT_Writer::WriteNBT<true>(testSortGenWrite, 0, cpdGen);//false使用有序写出
 
 	//判断不同的字节数目是否相同（因为nbt的compound是无序类型，所以字节可能被打乱，但是数量必须相同）
 	auto TestByteCount =
-	[](const auto l, const auto r) -> bool
+	[](const auto &l, const auto &r) -> bool
 	requires (sizeof(l[0]) == 1 && sizeof(r[0]) == 1)
 	{
-		uint64_t u64ByteCountArr[UINT8_MAX] = {};
+		uint64_t u64ByteCountArr[UINT8_MAX] = { 0 };
 		for (const auto &it : l)
 		{
 			++u64ByteCountArr[(uint8_t)it];
@@ -291,6 +298,8 @@ void NBT_ReadWrite_Test(void)
 		{
 			if (it != 0)
 			{
+				PrintHexArr(l);
+				PrintHexArr(r);
 				return false;
 			}
 		}
@@ -298,27 +307,28 @@ void NBT_ReadWrite_Test(void)
 		return true;
 	};
 
-	MyAssert([&](bool b)->bool
-		{
-			if (!b)
-			{
-				PrintHexArr(NbtRawData);
-				PrintHexArr(testWrite);
-			}
-			return b;
-		}(TestByteCount(std::vector<uint8_t>(NbtRawData.begin(), NbtRawData.end()), testWrite))
-	);
 
-	MyAssert([&](bool b)->bool
+	//判断字节是否完全相等
+	auto TestBytes = [](const auto &l, const auto &r) -> bool
+	{
+		if (l != r)
 		{
-			if (!b)
-			{
-				PrintHexArr(testWrite);
-				PrintHexArr(testGenWrite);
-			}
-			return b;
-		}(TestByteCount(testWrite, testGenWrite))
-	);
+			PrintHexArr(l);
+			PrintHexArr(r);
+			return false;
+		}
+
+		return true;
+	};
+
+	//无序写出判断
+	//无序写出只能判断字节数量是否一致，内部顺序不保证，但是无排序开销
+	MyAssert(TestByteCount(std::vector<uint8_t>(NbtRawData.begin(), NbtRawData.end()), testWrite));
+	MyAssert(TestByteCount(testWrite, testGenWrite));
+
+	//有序写出判断
+	//有序写出无论内部顺序为何种情况，结果都保证一致
+	MyAssert(TestBytes(testSortWrite, testSortGenWrite));
 }
 
 void NBT_IO_Test(void)
