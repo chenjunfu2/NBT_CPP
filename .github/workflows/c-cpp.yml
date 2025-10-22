@@ -16,10 +16,16 @@ jobs:
     - uses: actions/checkout@v4
     - name: List Dir
       run: find . -type f | sort
+      
     - name: Configure with CMake
       run: cmake -B build -S .
+      
     - name: Build
       run: cmake --build build
+      
+    - name: List Dir
+      run: find . -type f | sort
+      
     - name: Run all tests
       run: |
         cd build/tests
@@ -37,7 +43,7 @@ jobs:
               echo -e "${GREEN}Test passed: $test_exec${NC}"
             else
               echo -e "${RED}Test failed: $test_exec${NC}"
-              EXIT_CODE=1
+              EXIT_CODE=-1
             fi
             echo "----------------------------------------"
           else
