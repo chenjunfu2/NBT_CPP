@@ -273,10 +273,10 @@ void NBT_ReadWrite_Test(void)
 
 	//有序写出测试
 	std::vector<uint8_t> testSortWrite;
-	NBT_Writer::WriteNBT<true>(testSortWrite, 0, cpdRead);//false使用有序写出
+	NBT_Writer::WriteNBT<true>(testSortWrite, 0, cpdRead);//true使用有序写出
 
 	std::vector<uint8_t> testSortGenWrite;
-	NBT_Writer::WriteNBT<true>(testSortGenWrite, 0, cpdGen);//false使用有序写出
+	NBT_Writer::WriteNBT<true>(testSortGenWrite, 0, cpdGen);//true使用有序写出
 
 	//判断不同的字节数目是否相同（因为nbt的compound是无序类型，所以字节可能被打乱，但是数量必须相同）
 	auto TestByteCount =
