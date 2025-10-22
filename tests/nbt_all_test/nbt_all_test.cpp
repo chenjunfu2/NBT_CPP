@@ -264,6 +264,20 @@ void NBT_ReadWrite_Test(void)
 		}(cpdGen == cpdRead)
 	);
 
+	//测试排序后的固定哈希是否一致
+	MyAssert([](const auto &l,const auto &r)->bool
+		{
+			if (l != r)
+			{
+				PrintHexValNative(l);
+				PrintHexValNative(r);
+				return false;
+			}
+
+			return true;
+		}(NBT_Helper::Hash<true>(cpdGen, 0x12345678), NBT_Helper::Hash<true>(cpdRead, 0x12345678))//true使用排序hash
+	);
+
 	//无序写出测试
 	std::vector<uint8_t> testWrite;
 	NBT_Writer::WriteNBT<false>(testWrite, 0, cpdRead);//false使用无序写出
