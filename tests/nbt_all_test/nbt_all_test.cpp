@@ -32,7 +32,7 @@ void PrintHexArr(T data, uint8_t u8CountOfLine = 16, const char *pstrLineBeg = "
 
 	if (u8CountCur != 0)
 	{
-		printf("\n");
+		printf("\n\n");
 	}
 }
 
@@ -40,7 +40,7 @@ template<typename T>
 requires std::is_integral_v<T>
 void PrintHexValNative(T data) noexcept
 {
-	printf("[%zubits]: ", sizeof(T) * 8);
+	printf("[%zuBit]: ", sizeof(T) * 8);
 
 	uint8_t u8Arr[sizeof(T)] = {};
 	memcpy(u8Arr, &data, sizeof(u8Arr));
@@ -253,7 +253,7 @@ void NBT_ReadWrite_Test(void)
 	}
 
 	//测试数据与生成的是否相同
-	MyAssert([&](bool b)->bool
+	MyAssert([&](bool b) -> bool
 		{
 			if (!b)
 			{
