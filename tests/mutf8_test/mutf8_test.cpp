@@ -1,9 +1,4 @@
-﻿// MUTF8_Test.cpp : 此文件包含 "main" 函数。程序执行将在此处开始并结束。
-//
-
-
-#include <nbt_cpp/MUTF8_Tool.hpp>
-//#include <my/Windows_ANSI.hpp>
+﻿#include <nbt_cpp/MUTF8_Tool.hpp>
 
 #include <stdio.h>
 #include <clocale>
@@ -37,23 +32,14 @@ std::basic_string<char16_t> generate_all_valid_utf16le()
 	return result;
 }
 
-
-void PrintHex(const char *ps, const std::basic_string_view<char> &s, const char *pe = "\n")
+template<typename T>
+requires std::is_integral_v<T>
+void PrintHex(const char *ps, const std::basic_string_view<T> &s, const char *pe = "\n")
 {
 	printf("%s", ps);
 	for (const auto &c : s)
 	{
-		printf("0x%02X ", (uint8_t)c);
-	}
-	printf("%s", pe);
-}
-
-void PrintHex(const char *ps, const std::basic_string_view<char16_t> &s, const char *pe = "\n")
-{
-	printf("%s", ps);
-	for (const auto &c : s)
-	{
-		printf("0x%04X ", (uint16_t)c);
+		printf("0x%0*X ", (int)sizeof(T), (typename std::make_unsigned_t<T>)c);
 	}
 	printf("%s", pe);
 }
@@ -294,191 +280,6 @@ int main(void)
 		u"\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD"); // 两个高代理编码形式 → 两个 U+FFFD
 
 	printf("TestU16ToMU8 | TestMU8ToU16\n");
-
-	return 0;
-}
-
-
-consteval size_t operator""_Y(const char *Str, size_t Size)
-{
-	return Size;
-}
-
-template <char... Cs>
-consteval size_t operator""_X(void)
-{
-	constexpr char arr[] = { Cs... };
-	return sizeof(arr);
-}
-
-
-int main999(void)
-{
-	printf("%zu\n%zu", ("test"_Y), 123_X);
-	return 0;
-}
-
-//--------------------------------------------------------------------------//
-#include <stdio.h>
-#include <utility>
-
-consteval size_t MyStaticFunc(const char16_t *u16String, size_t N)
-{
-	size_t szCounter = 0;
-	for (auto it = u16String, end = u16String + N; it != end; ++it)
-	{
-		if (*it < 255)
-		{
-			++szCounter;
-		}
-		else
-		{
-			szCounter += 2;
-		}
-	}
-
-	return szCounter;
-}
-
-template<size_t N>
-consteval size_t MyStaticFunc(const char16_t(&u16String)[N])
-{
-	return MyStaticFunc(u16String, N);
-}
-
-
-template<size_t N>
-consteval size_t Test(void)
-{
-	return N;
-}
-
-consteval auto Test0(void)
-{
-	return MyStaticFunc(u"你好");
-}
-
-consteval auto Test1(void)
-{
-	return Test<Test0()>();
-}
-
-template<size_t N>
-consteval size_t Test2(const char16_t(&u16String)[N])
-{
-	return MyStaticFunc(u16String);
-}
-
-consteval size_t Test3(const char16_t *u16String, size_t N)
-{
-	auto tmp = MyStaticFunc(u16String, N);
-	return tmp;
-}
-
-consteval size_t Test4(const char16_t *u16String, size_t N)
-{
-	return Test3(u16String, N);
-}
-
-//template<size_t N>
-//consteval size_t Test5(const char16_t(&u16String)[N])
-//{
-//	return Test<Test2(u16String)>();
-//}
-//
-//consteval size_t Test6(const char16_t *u16String, size_t N)
-//{
-//	return Test<Test3(u16String, N)>();
-//}
-
-//template<typename ...Args>
-//consteval size_t Test7(Args... args)
-//{
-//	return Test<Test2(std::forward<Args>(args)...)>();
-//}
-
-//template<typename T>
-//consteval size_t Test8(T&& t)
-//{
-//	return Test<Test2(std::forward<T>(t))>();
-//}
-
-//template <auto &Str>
-//consteval size_t Test9()
-//{
-//	return Test<Test2(Str)>();
-//}
-
-
-int mainyy(void)
-{
-	constexpr auto t0 = Test<Test0()>();
-	constexpr auto t1 = Test1();
-
-	constexpr auto t2 = Test<Test2(u"测试，哥们")>();
-	constexpr auto t3 = Test<Test3(u"测试，哥们", sizeof(u"测试，哥们") / sizeof(char16_t) - 1)>();
-	constexpr auto t4 = Test<Test4(u"测试，哥们", sizeof(u"测试，哥们") / sizeof(char16_t) - 1)>();
-
-	//constexpr auto t5 = Test5(u"不是，哥们");
-	//constexpr auto t6 = Test6(u"不是，哥们", sizeof(u"不是，哥们") / sizeof(char16_t) - 1);
-	//constexpr auto t7 = Test7(u"不是，哥们");
-	//constexpr auto t8 = Test8(u"不是，哥们");
-	//constexpr auto t9 = Test9<u"不是，哥们">();
-
-	printf("%zu\n", t0);
-	printf("%zu\n", t1);
-	printf("%zu\n", t2);
-	printf("%zu\n", t3);
-	printf("%zu\n", t4);
-	//printf("%zu\n", t5);
-	//printf("%zu\n", t6);
-	//printf("%zu\n", t7);
-	//printf("%zu\n", t8);
-	//printf("%zu\n", t9);
-	return 0;
-}
-
-
-
-#include <nbt_cpp/NBT_Node.hpp>
-#include <nbt_cpp/MUTF8_Tool.hpp>
-//#include <my/Windows_ANSI.hpp>
-
-#include <stdlib.h>
-#include <locale.h>
-
-//转换为静态字符串数组
-//#define MU8STR_(charLiteralString) (MUTF8_Tool<char,char16_t>::U16ToMU8<MUTF8_Tool<char,char16_t>::U16ToMU8Size(u##charLiteralString)>(u##charLiteralString))
-
-NBT_Type::String FT(const NBT_Type::String &s)
-{
-	return s;
-}
-
-
-int maintttt(void)
-{
-	//NBT_Type::String t = MU8STR("test啊");
-	//std::string t(std::string_view("test啊"));
-
-	//bool b = t.ends_with(MU8STR("t啊"));
-
-	//printf("%.*s\n%s\n", (unsigned int)t.size(), t.data(), b ? "true" : "false");
-
-	//setlocale(LC_ALL, "zn_CN.UTF-8");
-	//NBT_Type::String t(MU8STR("测试"));
-	//std::string t1("测试");
-	//printf("%s\n", t.c_str());
-	//printf("%s\n", t1.c_str());
-
-
-	//setlocale(LC_ALL, "zn_CN.UTF-8");
-	//printf("%s\n", MU8STR("😂🤣").c_str());
-
-	NBT_Type::String s(MU8STR("123123"));
-
-	NBT_Type::String::View sv(s);
-
 
 	return 0;
 }
