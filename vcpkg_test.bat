@@ -1,6 +1,3 @@
-vcpkg remove cjf2-nbt-cpp --recurse
-pause
-
 vcpkg install cjf2-nbt-cpp --overlay-ports=.\ports
 pause
 vcpkg remove cjf2-nbt-cpp
