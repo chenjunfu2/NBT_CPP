@@ -75,12 +75,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "nbt_cpp", "nbt_cpp", "{E9EB
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ports", "ports", "{6242EFA2-633E-45F0-B3F7-052D9EEBCE19}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "nbt-cpp", "nbt-cpp", "{D32F5F3B-6692-4501-AFE0-026227FB7D48}"
-	ProjectSection(SolutionItems) = preProject
-		ports\nbt-cpp\portfile.cmake = ports\nbt-cpp\portfile.cmake
-		ports\nbt-cpp\vcpkg.json = ports\nbt-cpp\vcpkg.json
-	EndProjectSection
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docs", "docs", "{9324FCEB-618E-4F4C-B093-35503E5AA5CB}"
 	ProjectSection(SolutionItems) = preProject
 		docs\Compiler_Define.md = docs\Compiler_Define.md
@@ -102,6 +96,12 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docs", "docs", "{9324FCEB-6
 		docs\NBT_Type.md = docs\NBT_Type.md
 		docs\NBT_Writer.md = docs\NBT_Writer.md
 		docs\ROOT.md = docs\ROOT.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "cjf2-nbt-cpp", "cjf2-nbt-cpp", "{7D5F266E-97ED-4816-B2D8-6234FE40A737}"
+	ProjectSection(SolutionItems) = preProject
+		ports\cjf2-nbt-cpp\portfile.cmake = ports\cjf2-nbt-cpp\portfile.cmake
+		ports\cjf2-nbt-cpp\vcpkg.json = ports\cjf2-nbt-cpp\vcpkg.json
 	EndProjectSection
 EndProject
 Global
@@ -181,7 +181,7 @@ Global
 		{7C808AA5-ADF0-4962-946A-C770B0B82E7D} = {CB0077C9-8803-486A-BD8C-1EEF01298AAA}
 		{256B3826-0979-494F-B01B-CB5A217CE4FA} = {575F30F7-1871-4C8A-80F9-95B324BF9895}
 		{E9EBAA7E-93FB-4C05-9568-EDAA96E9A2FD} = {0B625B37-5E58-4D1B-AB4D-B0070E93FB0A}
-		{D32F5F3B-6692-4501-AFE0-026227FB7D48} = {6242EFA2-633E-45F0-B3F7-052D9EEBCE19}
+		{7D5F266E-97ED-4816-B2D8-6234FE40A737} = {6242EFA2-633E-45F0-B3F7-052D9EEBCE19}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {F73690EB-AAEC-4C50-A189-1C05372948D5}
