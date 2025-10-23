@@ -1,8 +1,4 @@
-﻿#define USE_ZLIB
-#define USE_XXHASH
-#include <nbt_cpp/NBT_All.hpp>
-#undef USE_ZLIB
-#undef USE_XXHASH
+﻿#include <nbt_cpp/NBT_All.hpp>
 
 #include <stdio.h>
 #include <locale.h>

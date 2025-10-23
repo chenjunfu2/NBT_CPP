@@ -71,6 +71,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "nbt_cpp", "nbt_cpp", "{E9EB
 		include\nbt_cpp\NBT_TAG.hpp = include\nbt_cpp\NBT_TAG.hpp
 		include\nbt_cpp\NBT_Type.hpp = include\nbt_cpp\NBT_Type.hpp
 		include\nbt_cpp\NBT_Writer.hpp = include\nbt_cpp\NBT_Writer.hpp
+		include\nbt_cpp\vcpkg_config.h = include\nbt_cpp\vcpkg_config.h
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ports", "ports", "{6242EFA2-633E-45F0-B3F7-052D9EEBCE19}"

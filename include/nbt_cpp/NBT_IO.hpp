@@ -7,6 +7,8 @@
 #include <vector>
 #include <filesystem>
 
+#include "vcpkg_config.h"//包含vcpkg生成的配置以确认库安装情况
+
 #ifdef USE_ZLIB
 
 /*zlib*/
@@ -349,3 +351,5 @@ public:
 
 #endif
 };
+
+#include "vcpkg_config.h"//二次包含取消定义防止宏污染
