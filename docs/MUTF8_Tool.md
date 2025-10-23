@@ -158,7 +158,7 @@ static constexpr size_t MU8ToU16Length(const MU8T *mu8String, size_t szStringLen
 static std::basic_string<U16T> MU8ToU16(const std::basic_string_view<MU8T> &mu8String, size_t szReserve = 0)
 static std::basic_string<U16T> MU8ToU16(const MU8T *mu8String, size_t szStringLength, size_t szReserve = 0)
 说明：
-动态转换mutf8到utf16，提供两种重载，支持string_view或字符串指针+长度
+动态转换mutf8到utf16，提供两种重载
 	重载1参数：
 		mu8String：mutf8字符串类型的std::basic_string_view
 	重载2参数：
@@ -173,7 +173,7 @@ static std::basic_string<U16T> MU8ToU16(const MU8T *mu8String, size_t szStringLe
 static constexpr size_t MU8ToU8Length(const std::basic_string_view<MU8T> &mu8String)
 static constexpr size_t MU8ToU8Length(const MU8T *mu8String, size_t szStringLength)
 说明：
-动态精确计算mutf8转换到utf8的最终长度，提供两种重载，支持string_view或字符串指针+长度
+动态精确计算mutf8转换到utf8的最终长度，提供两种重载
 	重载1参数：
 		mu8String：mutf8字符串类型的std::basic_string_view
 	重载2参数：
