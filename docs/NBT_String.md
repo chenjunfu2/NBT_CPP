@@ -76,7 +76,7 @@ std::basic_string_view<char> GetCharTypeView(void) const noexcept
 返回值：char类型的std::basic_string_view
 ```
 
-# 类MyString
+## 类MyString
 - 继承所有基类构造
 - 允许字符串或字符数组直接拷贝构造
 - 允许从MUTF8_Tool返回的std::array直接拷贝构造
@@ -218,4 +218,45 @@ void FromUTF16(std::basic_string_view<char16_t> u16String)
 	参数：
 		u16String：char16_t类型的utf16编码的字符串视图
 返回值：无
+```
+
+## 名称空间std
+- 新增hash特化MyString
+- 新增hash特化MyStringView
+- 用于将此类作为map的key的情况
+
+### 类hash特化MyString
+```cpp
+类声明：
+template<typename String, typename StringView>
+struct hash<MyString<String, StringView>>
+说明：
+模板参数与MyString一致，为hash特化
+
+
+声明：
+size_t operator()(const MyString<String, StringView> &s) const noexcept
+说明：
+仿函数调用，计算类的哈希
+	参数：
+		s：类的const引用
+返回值：类内数据的哈希值
+```
+
+### 类hash特化MyStringView
+```cpp
+类声明：
+template<typename String, typename StringView>
+struct hash<MyStringView<String, StringView>>
+说明：
+模板参数与MyStringView一致，为hash特化
+
+
+声明：
+size_t operator()(const MyStringView<String, StringView> &s) const noexcept
+说明：
+仿函数调用，计算类的哈希
+	参数：
+		s：类的const引用
+返回值：类内数据的哈希值
 ```
