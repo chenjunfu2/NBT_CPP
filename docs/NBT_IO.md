@@ -140,6 +140,7 @@ static bool CompressDataNoThrow(O &oData, const I &iData, int iLevel = Z_DEFAULT
 	参数：
 		oData：输出压缩数据的容器对象
 		iData：输入原始数据的容器对象
+		iLevel：压缩等级
 		funcErrInfo：打印异常信息的函数，需要接受std::format参数格式，默认值实现请参见[NBT_Print.hpp](NBT_Print.md)
 返回值：是否成功执行
 ```
