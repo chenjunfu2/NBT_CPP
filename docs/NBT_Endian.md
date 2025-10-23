@@ -19,7 +19,7 @@ constexpr static T ByteSwapAny(T data) noexcept
 		T：任意整数类型
 	参数：
 		data：任意整数类型的值
-返回值为字节序的颠倒形式
+返回值：字节序的颠倒形式
 
 
 声明：
@@ -28,7 +28,7 @@ static uint16_t ByteSwap16(uint16_t data) noexcept
 颠倒字节序16位特化版，如果平台支持内建指令，则使用平台内建指令，否则落到保守实现ByteSwapAny
 	参数：
 		data：uint16_t类型的值
-返回值为字节序的颠倒形式
+返回值：字节序的颠倒形式
 
 
 声明：
@@ -37,7 +37,7 @@ static uint32_t ByteSwap32(uint32_t data) noexcept
 颠倒字节序32位特化版，如果平台支持内建指令，则使用平台内建指令，否则落到保守实现ByteSwapAny
 	参数：
 		data：uint32_t类型的值
-返回值为字节序的颠倒形式
+返回值：字节序的颠倒形式
 
 
 声明：
@@ -46,7 +46,7 @@ static uint64_t ByteSwap64(uint64_t data) noexcept
 颠倒字节序64位特化版，如果平台支持内建指令，则使用平台内建指令，否则落到保守实现ByteSwapAny
 	参数：
 		data：uint64_t类型的值
-返回值为字节序的颠倒形式
+返回值：字节序的颠倒形式
 
 
 声明：
@@ -59,7 +59,7 @@ constexpr static T AutoByteSwap(T data) noexcept
 		T：任意整数类型
 	参数：
 		data：任意整数类型的值
-返回值为字节序的颠倒形式
+返回值：字节序的颠倒形式
 
 
 声明：
@@ -72,7 +72,7 @@ static T NativeToBigAny(T data) noexcept
 		T：任意整数类型
 	参数：
 		data：任意整数类型的值
-如果进行转换，则返回值为字节序的颠倒形式
+返回值：如果进行转换，则返回字节序的颠倒形式，否则为原始形式
 
 
 声明：
@@ -85,7 +85,7 @@ static T NativeToLittleAny(T data) noexcept
 		T：任意整数类型
 	参数：
 		data：任意整数类型的值
-如果进行转换，则返回值为字节序的颠倒形式
+返回值：如果进行转换，则返回字节序的颠倒形式，否则为原始形式
 
 
 声明：
@@ -98,7 +98,7 @@ static T BigToNativeAny(T data) noexcept
 		T：任意整数类型
 	参数：
 		data：任意整数类型的值
-如果进行转换，则返回值为字节序的颠倒形式
+返回值：如果进行转换，则返回字节序的颠倒形式，否则为原始形式
 
 
 声明：
@@ -111,5 +111,5 @@ static T LittleToNativeAny(T data) noexcept
 		T：任意整数类型
 	参数：
 		data：任意整数类型的值
-如果进行转换，则返回值为字节序的颠倒形式
+返回值：如果进行转换，则返回字节序的颠倒形式
 ```

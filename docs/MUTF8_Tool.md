@@ -69,7 +69,7 @@ static constexpr size_t U16ToMU8Length(const U16T *u16String, size_t szStringLen
 	重载2参数：
 		u16String：utf16字符串指针
 		szStringLength：utf16字符串长度（注意是长度而非字节数，且不包含末尾\0）
-返回值为计算的长度（注意是长度而非字节数，且不包含末尾\0）
+返回值：计算的长度（注意是长度而非字节数，且不包含末尾\0）
 
 
 声明：
@@ -84,7 +84,7 @@ static std::basic_string<MU8T> U16ToMU8(const U16T *u16String, size_t szStringLe
 		szStringLength：utf16字符串长度（注意是长度而非字节数，且不包含末尾\0）
 	所有重载参数：
 		szReserve：需要扩容的字节数，如果通过U16ToMU8Length计算最终长度，可以传递给此参数以避免动态扩容开销
-返回值为转换后的mutf8类型string
+返回值：转换后的mutf8类型string
 
 
 声明：
@@ -97,7 +97,7 @@ static consteval auto U16ToMU8(void)
 		u16String：utf16静态字符串或字符数组（包含长度信息）
 	参数：
 		无
-返回值为std::array存储的mutf8静态字符数组
+返回值：std::array存储的mutf8静态字符数组
 
 
 声明：
@@ -110,7 +110,7 @@ static constexpr size_t U8ToMU8Length(const U8T *u8String, size_t szStringLength
 	重载2参数：
 		u8String：utf8字符串指针
 		szStringLength：utf8字符串长度（注意是长度而非字节数，且不包含末尾\0）
-返回值为计算的长度（注意是长度而非字节数，且不包含末尾\0）
+返回值：计算的长度（注意是长度而非字节数，且不包含末尾\0）
 
 
 声明：
@@ -125,7 +125,7 @@ static std::basic_string<MU8T> U8ToMU8(const U8T *u8String, size_t szStringLengt
 		szStringLength：utf8字符串长度（注意是长度而非字节数，且不包含末尾\0）
 	所有重载参数：
 		szReserve：需要扩容的字节数，如果通过U8ToMU8Length计算最终长度，可以传递给此参数以避免动态扩容开销
-返回值为转换后的mutf8类型string
+返回值：转换后的mutf8类型string
 
 
 声明：
@@ -138,7 +138,7 @@ static consteval auto U8ToMU8(void)
 		u8String：utf8静态字符串或字符数组（包含长度信息）
 	参数：
 		无
-返回值为std::array存储的mutf8静态字符数组
+返回值：std::array存储的mutf8静态字符数组
 
 
 声明：
@@ -151,7 +151,7 @@ static constexpr size_t MU8ToU16Length(const MU8T *mu8String, size_t szStringLen
 	重载2参数：
 		mu8String：mutf8字符串指针
 		szStringLength：mutf8字符串长度（注意是长度而非字节数，且不包含末尾\0）
-返回值为计算的长度（注意是长度而非字节数，且不包含末尾\0）
+返回值：计算的长度（注意是长度而非字节数，且不包含末尾\0）
 
 
 声明：
@@ -166,7 +166,7 @@ static std::basic_string<U16T> MU8ToU16(const MU8T *mu8String, size_t szStringLe
 		szStringLength：mutf8字符串长度（注意是长度而非字节数，且不包含末尾\0）
 	所有重载参数：
 		szReserve：需要扩容的字节数，如果通过MU8ToU16Length计算最终长度，可以传递给此参数以避免动态扩容开销
-返回值为转换后的utf16类型string
+返回值：转换后的utf16类型string
 
 
 声明：
@@ -179,7 +179,7 @@ static constexpr size_t MU8ToU8Length(const MU8T *mu8String, size_t szStringLeng
 	重载2参数：
 		mu8String：mutf8字符串指针
 		szStringLength：mutf8字符串长度（注意是长度而非字节数，且不包含末尾\0）
-返回值为计算的长度（注意是长度而非字节数，且不包含末尾\0）
+返回值：计算的长度（注意是长度而非字节数，且不包含末尾\0）
 
 
 声明：
@@ -194,7 +194,7 @@ static std::basic_string<U8T> MU8ToU8(const MU8T *mu8String, size_t szStringLeng
 		szStringLength：mutf8字符串长度（注意是长度而非字节数，且不包含末尾\0）
 	所有重载参数：
 		szReserve：需要扩容的字节数，如果通过MU8ToU8Length计算最终长度，可以传递给此参数以避免动态扩容开销
-返回值为转换后的utf8类型string
+返回值：转换后的utf8类型string
 ```
 
 ## 宏定义
