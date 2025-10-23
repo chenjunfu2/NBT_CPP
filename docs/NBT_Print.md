@@ -50,6 +50,6 @@ void operator()(const std::FMT_STR<Args...> fmt, Args&&... args) noexcept
 		Args：变长参数模板，接受任意类型
 	参数：
 		fmt：接受cpp20的format_string
-		args：用于输出的值变长参数
+		args：多个用于输出的值
 返回值：无
 ```
