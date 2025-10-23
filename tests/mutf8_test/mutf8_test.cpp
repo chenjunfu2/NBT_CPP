@@ -44,6 +44,42 @@ void PrintHex(const char *ps, const std::basic_string_view<T> &s, const char *pe
 	printf("%s", pe);
 }
 
+template<typename T>
+requires std::is_integral_v<T>
+void PrintHex(const char *ps, const std::basic_string<T> &s, const char *pe = "\n")
+{
+	printf("%s", ps);
+	for (const auto &c : s)
+	{
+		printf("0x%0*X ", (int)sizeof(T), (typename std::make_unsigned_t<T>)c);
+	}
+	printf("%s", pe);
+}
+
+template<typename T, size_t N>
+requires std::is_integral_v<T>
+void PrintHex(const char *ps, const std::array<T, N> &s, const char *pe = "\n")
+{
+	printf("%s", ps);
+	for (const auto &c : s)
+	{
+		printf("0x%0*X ", (int)sizeof(T), (typename std::make_unsigned_t<T>)c);
+	}
+	printf("%s", pe);
+}
+
+template<typename T, size_t N>
+requires std::is_integral_v<T>
+void PrintHex(const char *ps, const T(&s)[N], const char *pe = "\n")
+{
+	printf("%s", ps);
+	for (const auto &c : s)
+	{
+		printf("0x%0*X ", (int)sizeof(T), (typename std::make_unsigned_t<T>)c);
+	}
+	printf("%s", pe);
+}
+
 // 测试 UTF-16 → MUTF-8
 template<size_t iN, size_t eN>
 void TestU16ToMU8Impl(size_t szLine, const char16_t(&input)[iN], const char(&expected)[eN])
