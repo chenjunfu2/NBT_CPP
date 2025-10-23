@@ -34,7 +34,7 @@ if("xxhash" IN_LIST FEATURES)
     set(CONFIG_HEADER_CONTENT "${CONFIG_HEADER_CONTENT}#endif\n\n")
 endif()
 
-file(WRITE "${CURRENT_BUILDTREES_DIR}/vcpkg_config.h" "${CONFIG_HEADER_CONTENT}")
+file(WRITE "${CURRENT_PACKAGES_DIR}/include/nbt_cpp/vcpkg_config.h" "${CONFIG_HEADER_CONTENT}")
 
 if(EXISTS "${SOURCE_PATH}/LICENSE")
     file(INSTALL "${SOURCE_PATH}/LICENSE"
