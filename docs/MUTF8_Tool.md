@@ -9,11 +9,14 @@
 
 **类信息**
 ```cpp
-类模板：
+类声明：
 template<typename T, size_t N>
 class StringLiteral : public std::array<T, N>
 说明：
-T为字符串类型，N为字符串大小
+继承自std::array
+	模板：
+		T：字符串类型
+		N：字符串大小
 
 
 类型：
