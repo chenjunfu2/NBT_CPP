@@ -423,6 +423,7 @@ catch(...)\
 		using IterableRangeType = typename std::conditional_t<bSortCompound, std::vector<NBT_Type::Compound::const_iterator>, const NBT_Type::Compound &>;
 
 		//通过模板bSortCompound指定是否执行排序输出（nbt中仅compound是无序结构）
+		MYTRY;
 		IterableRangeType tmpIterableRange =//万能引用推导类型
 		[&](void) -> IterableRangeType
 		{
@@ -452,6 +453,7 @@ catch(...)\
 				return tCompound;
 			}
 		}();
+		MYCATCH;
 
 		//注意compound是为数不多的没有元素数量限制的结构
 		//此处无需检查大小，且无需写出大小
