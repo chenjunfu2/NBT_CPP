@@ -99,10 +99,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docs", "docs", "{9324FCEB-6
 		docs\ROOT.md = docs\ROOT.md
 	EndProjectSection
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "cjf2-nbt-cpp", "cjf2-nbt-cpp", "{7D5F266E-97ED-4816-B2D8-6234FE40A737}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "chenjunfu2-nbt-cpp", "chenjunfu2-nbt-cpp", "{7D5F266E-97ED-4816-B2D8-6234FE40A737}"
 	ProjectSection(SolutionItems) = preProject
-		ports\cjf2-nbt-cpp\portfile.cmake = ports\cjf2-nbt-cpp\portfile.cmake
-		ports\cjf2-nbt-cpp\vcpkg.json = ports\cjf2-nbt-cpp\vcpkg.json
+		ports\chenjunfu2-nbt-cpp\portfile.cmake = ports\chenjunfu2-nbt-cpp\portfile.cmake
+		ports\chenjunfu2-nbt-cpp\vcpkg.json = ports\chenjunfu2-nbt-cpp\vcpkg.json
 	EndProjectSection
 EndProject
 Global
