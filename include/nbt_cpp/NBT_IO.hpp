@@ -168,7 +168,7 @@ public:
 			.reserved = {},
 		};
 
-		if (inflateInit2(&zs, 32 + MAX_WBITS) != Z_OK)//32+MAX_WBITS自动判断是gzip还是zlib
+		if (inflateInit2(&zs, 32 + 15) != Z_OK)//32+15自动判断是gzip还是zlib
 		{
 			throw std::runtime_error("Failed to initialize zlib decompression");
 		}
@@ -279,7 +279,7 @@ public:
 			.reserved = {},
 		};
 
-		if (deflateInit2(&zs, iLevel, Z_DEFLATED, 15 + 16, 8, Z_DEFAULT_STRATEGY) != Z_OK)//15+16使用gzip（mojang默认格式）
+		if (deflateInit2(&zs, iLevel, Z_DEFLATED, 16 + 15, 8, Z_DEFAULT_STRATEGY) != Z_OK)//16+15使用gzip（mojang默认格式）
 		{
 			throw std::runtime_error("Failed to initialize zlib compression");
 		}
