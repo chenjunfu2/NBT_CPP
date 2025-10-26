@@ -3,7 +3,7 @@
     REPO chenjunfu2/NBT_CPP
     REF "v${VERSION}"
     HEAD_REF master
-    SHA512 0
+    SHA512 b9c5bbad78764d695a56dc9eb933cc3a3d444de8dad39eea2a02a6635c5f623fb978561e63d00c3760163b6b4c7cf165db3a183b3515cfc5ae1361358f180637
 )
 
 file(INSTALL "${SOURCE_PATH}/include/nbt_cpp/"
