@@ -149,9 +149,23 @@ public:
 		{
 			.next_in = Z_NULL,
 			.avail_in = 0,
+			.total_in = 0,
+
+			.next_out = Z_NULL,
+			.avail_out = 0,
+			.total_out = 0,
+
+			.msg = Z_NULL,
+			.state = Z_NULL,
+
 			.zalloc = Z_NULL,
 			.zfree = Z_NULL,
 			.opaque = Z_NULL,
+
+			.data_type = Z_BINARY,
+
+			.adler = 0,
+			.reserved = {},
 		};
 
 		if (inflateInit2(&zs, 32 + MAX_WBITS) != Z_OK)//32+MAX_WBITS自动判断是gzip还是zlib
@@ -159,15 +173,21 @@ public:
 			throw std::runtime_error("Failed to initialize zlib decompression");
 		}
 
+		//对于大于uint_max的数据来说，切分为多个uint_max的块作为流依次输入
+		//注意zlib在实现内会移动指针，所以对于大于一定字节的情况下，只需要更新
+		//avail_in，而无须更新next_in。这里的容器保证不变，所以地址不会失效
 		zs.next_in = (z_const Bytef *)iData.data();
-		zs.avail_in = (uInt)iData.size();
 
-		oData.resize(iData.size() * 4);
+		//默认解压大小为压缩大小，后续扩容
+		oData.resize(iData.size());
 
-		std::size_t szDecompressedSize = 0;
+		//两个变量用于记录已经压缩的大小和剩余数据大小
+		size_t szDecompressedSize = 0;
+		size_t szRemainingSize = iData.size();
 		int iRet = Z_OK;
 		do
 		{
+			//首先计算剩余可用空间，然后决定是否扩容
 			size_t szOut = oData.size() - szDecompressedSize;
 			if (szOut == 0)
 			{
@@ -175,40 +195,48 @@ public:
 				szOut = oData.size() - szDecompressedSize;
 			}
 
+			//虽然next_out也会在内部实现被移动，但是oData是容器，会被扩容
+			//一旦扩容触发，那么实际上的地址就可能会改变，所以必须每次重新获取
+			//切记上面与这里的代码顺序不可改变，必须在上面计算并扩容完成后获取地址
 			zs.next_out = (Bytef *)(&oData.data()[szDecompressedSize]);
-			zs.avail_out = (uInt)szOut;
-			
-			iRet = inflate(&zs, Z_FINISH);
-			if (iRet != Z_STREAM_END &&
-				iRet != Z_OK &&
-				iRet != Z_BUF_ERROR)
+
+			//如果输入被消耗完，重新赋值
+			if (zs.avail_in == 0)
 			{
-				inflateEnd(&zs);
-				
-				switch (iRet)
-				{
-				case Z_NEED_DICT:
-					throw std::runtime_error("Zlib decompression failed: need dictionary");
-				case Z_DATA_ERROR:
-					throw std::runtime_error("Zlib decompression failed: invalid or corrupted data");
-				case Z_MEM_ERROR:
-					throw std::runtime_error("Zlib decompression failed: insufficient memory");
-				case Z_STREAM_ERROR:
-					throw std::runtime_error("Zlib decompression failed: invalid stream state");
-				default:
-					throw std::runtime_error("Zlib decompression failed with error code: " + std::to_string(iRet));
-				}
+				constexpr uInt uIntMax = (uInt)-1;
+				zs.avail_in = szRemainingSize > (size_t)uIntMax ? uIntMax : (uInt)szRemainingSize;
+				szRemainingSize -= zs.avail_in;//缩小剩余待处理大小
+			}
+			
+			//如果输出大小耗尽，重新赋值
+			if (zs.avail_out == 0)
+			{
+				constexpr uInt uIntMax = (uInt)-1;
+				zs.avail_out = szOut > (size_t)uIntMax ? uIntMax : (uInt)szOut;
+				//这里不对szOut处理，因为会在开头与结尾计算
 			}
 
+			//继续解压
+			iRet = inflate(&zs, szRemainingSize != 0 ? Z_NO_FLUSH : Z_FINISH);
+
+			//计算本次解压的大小
 			szDecompressedSize += szOut - zs.avail_out;
-		} while (iRet != Z_STREAM_END && zs.avail_in > 0);
+		} while (iRet == Z_OK);//只要没错或者没到结尾就继续运行
 
-		inflateEnd(&zs);
-		oData.resize(szDecompressedSize);
+		inflateEnd(&zs);//结束解压
+		oData.resize(szDecompressedSize);//设置解压大小
 
+		//错误处理
 		if (iRet != Z_STREAM_END)
 		{
-			throw std::runtime_error("Zlib decompression incomplete: stream did not end properly");
+			if (zs.msg != NULL)//错误消息不为null则抛出带消息异常
+			{
+				throw std::runtime_error(std::string("Zlib decompression failed with error message: ") + std::string(zs.msg));
+			}
+			else//如果为null直接使用错误码
+			{
+				throw std::runtime_error(std::string("Zlib decompression failed with error code: ") + std::to_string(iRet));
+			}
 		}
 	}
 
@@ -232,9 +260,23 @@ public:
 		{
 			.next_in = Z_NULL,
 			.avail_in = 0,
+			.total_in = 0,
+
+			.next_out = Z_NULL,
+			.avail_out = 0,
+			.total_out = 0,
+
+			.msg = Z_NULL,
+			.state = Z_NULL,
+
 			.zalloc = Z_NULL,
 			.zfree = Z_NULL,
 			.opaque = Z_NULL,
+
+			.data_type = Z_BINARY,
+
+			.adler = 0,
+			.reserved = {},
 		};
 
 		if (deflateInit2(&zs, iLevel, Z_DEFLATED, 15 + 16, 8, Z_DEFAULT_STRATEGY) != Z_OK)//15+16使用gzip（mojang默认格式）
@@ -268,18 +310,13 @@ public:
 			{
 				deflateEnd(&zs);
 
-				switch (iRet)
+				if (zs.msg != NULL)
 				{
-				case Z_STREAM_ERROR:
-					throw std::runtime_error("Zlib compression failed: invalid compression level or stream state");
-				case Z_DATA_ERROR:
-					throw std::runtime_error("Zlib compression failed: input data is invalid");
-				case Z_MEM_ERROR:
-					throw std::runtime_error("Zlib compression failed: insufficient memory");
-				case Z_BUF_ERROR:
-					throw std::runtime_error("Zlib compression failed: no progress possible");
-				default:
-					throw std::runtime_error("Zlib compression failed with error code: " + std::to_string(iRet));
+					throw std::runtime_error(std::string("Zlib compression failed with error message: ") + std::string(zs.msg));
+				}
+				else
+				{
+					throw std::runtime_error(std::string("Zlib compression failed with error code: ") + std::to_string(iRet));
 				}
 			}
 

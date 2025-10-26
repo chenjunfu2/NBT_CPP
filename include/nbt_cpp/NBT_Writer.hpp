@@ -417,13 +417,14 @@ catch(...)\
 	template<bool bRoot, bool bSortCompound, typename OutputStream, typename ErrInfoFunc>
 	static ErrCode PutCompoundType(OutputStream &tData, const NBT_Type::Compound &tCompound, size_t szStackDepth, ErrInfoFunc &funcErrInfo) noexcept
 	{
+	MYTRY;
 		ErrCode eRet = AllOk;
 		CHECK_STACK_DEPTH(szStackDepth);
 		
 		using IterableRangeType = typename std::conditional_t<bSortCompound, std::vector<NBT_Type::Compound::const_iterator>, const NBT_Type::Compound &>;
 
 		//通过模板bSortCompound指定是否执行排序输出（nbt中仅compound是无序结构）
-		IterableRangeType tmpIterableRange =//万能引用推导类型
+		IterableRangeType tmpIterableRange =//注意此处如果内部抛出异常，返回空vector的情况下还有可能二次异常，所以外部还需另一个try catch
 		[&](void) noexcept -> IterableRangeType
 		{
 			if constexpr (bSortCompound)
@@ -548,6 +549,7 @@ catch(...)\
 		}
 
 		return eRet;
+	MYCATCH;
 	}
 
 	template<typename OutputStream, typename ErrInfoFunc>
