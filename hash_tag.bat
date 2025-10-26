@@ -11,7 +11,7 @@ set FILE=%TEMP%\nbt-cpp-%TAG%.tar.gz
 echo Downloading: %URL%
 echo To: %FILE%
 echo.
-curl -L -o "%FILE%" "%URL%" --proxy http://127.0.0.1:7897
+curl -L -o "%FILE%" "%URL%" --proxy socks5h://127.0.0.1:7897
 if errorlevel 1 (
     echo Download Error
     echo.
