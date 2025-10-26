@@ -374,4 +374,5 @@ build/
 *.url
 *.csv
 *.exe
+*.html
 vcpkg_fork/
