@@ -158,9 +158,9 @@ public:
 			.msg = Z_NULL,
 			.state = Z_NULL,
 
-			.zalloc = Z_NULL,
-			.zfree = Z_NULL,
-			.opaque = Z_NULL,
+			.zalloc = (alloc_func)Z_NULL,
+			.zfree = (free_func)Z_NULL,
+			.opaque = (voidpf)Z_NULL,
 
 			.data_type = Z_BINARY,
 
@@ -216,7 +216,7 @@ public:
 				//这里不对szOut处理，因为会在开头与结尾计算
 			}
 
-			//继续解压
+			//解压，如果剩余不为0则代表分块了，使用Z_NO_FLUSH，否则Z_FINISH
 			iRet = inflate(&zs, szRemainingSize != 0 ? Z_NO_FLUSH : Z_FINISH);
 
 			//计算本次解压的大小
@@ -269,9 +269,9 @@ public:
 			.msg = Z_NULL,
 			.state = Z_NULL,
 
-			.zalloc = Z_NULL,
-			.zfree = Z_NULL,
-			.opaque = Z_NULL,
+			.zalloc = (alloc_func)Z_NULL,
+			.zfree = (free_func)Z_NULL,
+			.opaque = (voidpf)Z_NULL,
 
 			.data_type = Z_BINARY,
 
@@ -284,15 +284,45 @@ public:
 			throw std::runtime_error("Failed to initialize zlib compression");
 		}
 
+		//与上方解压例程相同，不做重复解释
 		zs.next_in = (z_const Bytef *)iData.data();
-		zs.avail_in = (uInt)iData.size();
 
-		oData.resize(deflateBound(&zs, iData.size()));//预测压缩大小
+		/*
+			如果范围溢出，则设置为比原始数据的大小加12字节大0.1%的一半
+			这样做的目的是为了尽可能缩小一开始的体积
+			比如实际上压缩率非常低的情况下可能根本用不到一半
+			但是如果实际上压缩率很高，那么下面二倍扩容一次后刚好就是最坏情况
+			这样基本上性能较优，下面zlib文档说明的最坏情况：
+			
+			Upon entry, destLen is the total size of the
+			destination buffer, which must be at least 0.1%
+			larger than sourceLen plus 12 bytes.
+		*/
 
-		std::size_t szCompressedSize = 0;
+		constexpr uLong uLongMax = (uLong)-1;
+		if (iData.size() > (size_t)uLongMax)
+		{
+			size_t szNeedSize = iData.size() + 12;//先比原始数据大12byte
+			//注意这里使用了向上取整的整数除法
+			//加等于自身的0.1%相当于比原先的自己大0.1%，这里的1/1000就是0.1/100
+			szNeedSize += (szNeedSize + (1000 - 1)) / 1000;
+			//设置目标大小
+			oData.resize((szNeedSize + (2 - 1)) / 2);//向上取整除以二
+		}
+		else
+		{
+			//在范围未溢出的情况下，进行预测
+			//把压缩大小设置为预测的压缩大小
+			oData.resize(deflateBound(&zs, iData.size()));
+		}
+		
+		//设置压缩后大小与待处理大小
+		size_t szCompressedSize = 0;
+		size_t szRemainingSize = iData.size();
 		int iRet = Z_OK;
 		do
 		{
+			//计算剩余大小并在不足时扩容
 			size_t szOut = oData.size() - szCompressedSize;
 			if (szOut == 0)
 			{
@@ -300,35 +330,47 @@ public:
 				szOut = oData.size() - szCompressedSize;
 			}
 
+			//获取新的地址
 			zs.next_out = (Bytef *)(&oData.data()[szCompressedSize]);
-			zs.avail_out = (uInt)szOut;
-			
-			iRet = deflate(&zs, Z_FINISH);
-			if (iRet != Z_STREAM_END &&
-				iRet != Z_OK &&
-				iRet != Z_BUF_ERROR)
-			{
-				deflateEnd(&zs);
 
-				if (zs.msg != NULL)
-				{
-					throw std::runtime_error(std::string("Zlib compression failed with error message: ") + std::string(zs.msg));
-				}
-				else
-				{
-					throw std::runtime_error(std::string("Zlib compression failed with error code: ") + std::to_string(iRet));
-				}
+			//如果输入被消耗完，重新赋值
+			if (zs.avail_in == 0)
+			{
+				constexpr uInt uIntMax = (uInt)-1;
+				zs.avail_in = szRemainingSize > (size_t)uIntMax ? uIntMax : (uInt)szRemainingSize;
+				szRemainingSize -= zs.avail_in;//缩小剩余待处理大小
 			}
 
-			szCompressedSize += (szOut - zs.avail_out);
-		} while (iRet != Z_STREAM_END && zs.avail_in > 0);
+			//如果输出大小耗尽，重新赋值
+			if (zs.avail_out == 0)
+			{
+				constexpr uInt uIntMax = (uInt)-1;
+				zs.avail_out = szOut > (size_t)uIntMax ? uIntMax : (uInt)szOut;
+				//这里不对szOut处理，因为会在开头与结尾计算
+			}
+			
+			//解压，如果剩余不为0则代表分块了，使用Z_NO_FLUSH，否则Z_FINISH
+			iRet = deflate(&zs, szRemainingSize != 0 ? Z_NO_FLUSH : Z_FINISH);
 
+			//计算本次压缩的大小
+			szCompressedSize += szOut - zs.avail_out;
+		} while (iRet == Z_OK);//只要没错或者没到结尾就继续运行
+
+		//结束并设置大小
 		deflateEnd(&zs);
 		oData.resize(szCompressedSize);
 
+		//错误处理
 		if (iRet != Z_STREAM_END)
 		{
-			throw std::runtime_error("Zlib compression incomplete: stream did not end properly");
+			if (zs.msg != NULL)
+			{
+				throw std::runtime_error(std::string("Zlib compression failed with error message: ") + std::string(zs.msg));
+			}
+			else
+			{
+				throw std::runtime_error(std::string("Zlib compression failed with error code: ") + std::to_string(iRet));
+			}
 		}
 	}
 
