@@ -470,7 +470,7 @@ private:
 		}
 	}
 
-#ifdef USE_XXHASH
+#ifdef __USE_XXHASH__
 	template<bool bRoot = true, bool bSortCompound = true>//首次使用NBT_Node_View解包，后续直接使用NBT_Node引用免除额外初始化开销
 	static void HashSwitch(std::conditional_t<bRoot, const NBT_Node_View<true> &, const NBT_Node &>nRoot, NBT_Hash &nbtHash)
 	{
