@@ -70,7 +70,7 @@ inline void __MyAssert_Function__(const char *pFileName, size_t szLine, const ch
 	//帮忙换行
 	putchar('\n');
 
-	exit(-114514);
+	exit(-1);
 }
 
 //代理宏，延迟展开
