@@ -11,7 +11,7 @@
 
 #include "vcpkg_config.h"//包含vcpkg生成的配置以确认库安装情况
 
-#ifdef USE_XXHASH
+#ifdef __USE_XXHASH__
 #include "NBT_Hash.hpp"
 #endif
 
@@ -41,7 +41,7 @@ public:
 		return sRet;
 	}
 
-#ifdef USE_XXHASH
+#ifdef __USE_XXHASH__
 	static void DefaultFunc(NBT_Hash &)
 	{
 		return;

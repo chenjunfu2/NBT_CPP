@@ -12,12 +12,38 @@
 - zlib（解锁NBT_IO中的压缩解压相关功能）
 
 **可选依赖激活方式**
+如果你不是通过vcpkg安装的本库</br>
+那么在头文件vcpkg_config.h中：</br>
+</br>
+安装zlib库则存在下面内容</br>
+否则删除下面内容</br>
 ```cpp
-#define USE_ZLIB//安装zlib库的情况下
-#define USE_XXHASH//安装xxhash库的情况下
+//use zlib
+#ifndef __USE_ZLIB__
+#define __USE_ZLIB__
+#else
+#undef __USE_ZLIB__
+#endif
+```
+</br>
+安装xxhash库则存在下面内容</br>
+否则删除下面内容</br>
+```cpp
+//use xxhash
+#ifndef __USE_XXHASH__
+#define __USE_XXHASH__
+#else
+#undef __USE_XXHASH__
+#endif
 ```
 
-# 头文件信息
+# 库内容主要内容介绍
+
+
+
+
+
+# 头文件详细信息
 - [Compiler_Define.h](Compiler_Define.md)
 - [MUTF8_Tool.hpp](MUTF8_Tool.md)
 - [NBT_All.hpp](NBT_All.md)
@@ -36,3 +62,4 @@
 - [NBT_TAG.hpp](NBT_TAG.md)
 - [NBT_Type.hpp](NBT_Type.md)
 - [NBT_Writer.hpp](NBT_Writer.md)
+- [vcpkg_config.h](vcpkg_config.md)
