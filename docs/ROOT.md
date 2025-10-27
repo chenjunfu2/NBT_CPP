@@ -19,22 +19,14 @@
 否则删除下面内容</br>
 ```cpp
 //use zlib
-#ifndef CJF2_NBT_CPP_USE_ZLIB
 #define CJF2_NBT_CPP_USE_ZLIB
-#else
-#undef CJF2_NBT_CPP_USE_ZLIB
-#endif
 ```
 </br>
 安装xxhash库则存在下面内容</br>
 否则删除下面内容</br>
 ```cpp
 //use xxhash
-#ifndef CJF2_NBT_CPP_USE_XXHASH
 #define CJF2_NBT_CPP_USE_XXHASH
-#else
-#undef CJF2_NBT_CPP_USE_XXHASH
-#endif
 ```
 
 # 库内容主要内容介绍
