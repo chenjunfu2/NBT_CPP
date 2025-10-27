@@ -430,5 +430,3 @@ public:
 
 #endif
 };
-
-#include "vcpkg_config.h"//二次包含取消定义防止宏污染
