@@ -19,10 +19,10 @@
 否则删除下面内容</br>
 ```cpp
 //use zlib
-#ifndef __USE_ZLIB__
-#define __USE_ZLIB__
+#ifndef CJF2_NBT_CPP_USE_ZLIB
+#define CJF2_NBT_CPP_USE_ZLIB
 #else
-#undef __USE_ZLIB__
+#undef CJF2_NBT_CPP_USE_ZLIB
 #endif
 ```
 </br>
@@ -30,10 +30,10 @@
 否则删除下面内容</br>
 ```cpp
 //use xxhash
-#ifndef __USE_XXHASH__
-#define __USE_XXHASH__
+#ifndef CJF2_NBT_CPP_USE_XXHASH
+#define CJF2_NBT_CPP_USE_XXHASH
 #else
-#undef __USE_XXHASH__
+#undef CJF2_NBT_CPP_USE_XXHASH
 #endif
 ```
 

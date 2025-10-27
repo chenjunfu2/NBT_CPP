@@ -68,9 +68,9 @@ public:
 	static uint16_t ByteSwap16(uint16_t data) noexcept
 	{
 		//根据编译器切换内建指令或使用默认位移实现
-#if __COMPILER_MSVC__
+#if CJF2_NBT_CPP_COMPILER_MSVC
 		return _byteswap_ushort(data);
-#elif __COMPILER_GCC__ || __COMPILER_CLANG__
+#elif CJF2_NBT_CPP_COMPILER_GCC || CJF2_NBT_CPP_COMPILER_CLANG
 		return __builtin_bswap16(data);
 #else
 		return ByteSwapAny(data);
@@ -80,9 +80,9 @@ public:
 	static uint32_t ByteSwap32(uint32_t data) noexcept
 	{
 		//根据编译器切换内建指令或使用默认位移实现
-#if __COMPILER_MSVC__
+#if CJF2_NBT_CPP_COMPILER_MSVC
 		return _byteswap_ulong(data);
-#elif __COMPILER_GCC__ || __COMPILER_CLANG__
+#elif CJF2_NBT_CPP_COMPILER_GCC || CJF2_NBT_CPP_COMPILER_CLANG
 		return __builtin_bswap32(data);
 #else
 		return ByteSwapAny(data);
@@ -92,9 +92,9 @@ public:
 	static uint64_t ByteSwap64(uint64_t data) noexcept
 	{
 		//根据编译器切换内建指令或使用默认位移实现
-#if __COMPILER_MSVC__
+#if CJF2_NBT_CPP_COMPILER_MSVC
 		return _byteswap_uint64(data);
-#elif __COMPILER_GCC__ || __COMPILER_CLANG__
+#elif CJF2_NBT_CPP_COMPILER_GCC || CJF2_NBT_CPP_COMPILER_CLANG
 		return __builtin_bswap64(data);
 #else
 		return ByteSwapAny(data);
