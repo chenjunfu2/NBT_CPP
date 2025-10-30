@@ -7,6 +7,8 @@
 #include <vector>
 #include <filesystem>
 
+#include "NBT_Print.hpp"//打印输出
+
 #include "vcpkg_config.h"//包含vcpkg生成的配置以确认库安装情况
 
 #ifdef CJF2_NBT_CPP_USE_ZLIB
@@ -17,8 +19,6 @@
 /*zlib*/
 
 #endif
-
-#include "NBT_Print.hpp"//打印输出
 
 class NBT_IO
 {
