@@ -79,6 +79,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docs", "docs", "{9324FCEB-618E-4F4C-B093-35503E5AA5CB}"
 	ProjectSection(SolutionItems) = preProject
 		docs\Compiler_Define.md = docs\Compiler_Define.md
+		docs\example.md = docs\example.md
 		docs\MUTF8_Tool.md = docs\MUTF8_Tool.md
 		docs\NBT_All.md = docs\NBT_All.md
 		docs\NBT_Array.md = docs\NBT_Array.md
