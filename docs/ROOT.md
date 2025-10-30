@@ -12,22 +12,17 @@
 - zlib（解锁NBT_IO中的压缩解压相关功能）
 
 ## 可选依赖激活方式
-如果你是通过vcpkg安装的，则可以忽略下面内容</br>
-同时也请不要编辑vcpkg_config.h</br>
+**如果你是通过vcpkg安装的，会自动激活依赖，请直接忽略下面内容，同时也请不要编辑vcpkg_config.h**</br>
 </br>
-如果你不是通过vcpkg安装的</br>
-那么在头文件vcpkg_config.h中：</br>
-</br>
+**如果你不是通过vcpkg安装的，那么在头文件vcpkg_config.h中：**</br>
 **zlib配置**</br>
-安装zlib库则存在下面内容</br>
-否则删除下面内容
+安装zlib库则存在下面内容，否则删除下面内容</br>
 ```cpp
 //use zlib
 #define CJF2_NBT_CPP_USE_ZLIB
 ```
 **xxhash配置**</br>
-安装xxhash库则存在下面内容</br>
-否则删除下面内容
+安装xxhash库则存在下面内容，否则删除下面内容</br>
 ```cpp
 //use xxhash
 #define CJF2_NBT_CPP_USE_XXHASH
