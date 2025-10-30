@@ -1,0 +1,358 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<DirectedGraph DataVirtualized="True" ZoomLevel="-1" xmlns="http://schemas.microsoft.com/vs/2009/dgml">
+  <Nodes>
+    <Node Id="(@1 @15)" Category="CodeSchema_ProjectItem" Bounds="4299.90220478177,149.77158433514,125.008000077079,25.998000077079" FilePath="$(VsSolution)\include\nbt_cpp\NBT_Hash.hpp" Label="NBT_Hash.hpp" UseManualLocation="True" />
+    <Node Id="(@1 @18)" Category="CodeSchema_ProjectItem" Bounds="4266.56636460603,405.502129342479,138.291333410412,25.998000077079" FilePath="$(VsSolution)\include\nbt_cpp\MUTF8_Tool.hpp" Label="MUTF8_Tool.hpp" UseManualLocation="True" />
+    <Node Id="(@1 @2)" Category="CodeSchema_ProjectItem" Bounds="3750.16169245216,-206.109186808112,146.508000077079,25.998000077079" FilePath="$(VsSolution)\include\nbt_cpp\Compiler_Define.h" Label="Compiler_Define.h" UseManualLocation="True" />
+    <Node Id="(@1 @35)" Category="CodeSchema_ProjectItem" Bounds="3598.69339344578,318.12071197561,126.744666743747,25.998000077079" FilePath="$(VsSolution)\include\nbt_cpp\NBT_Array.hpp" Label="NBT_Array.hpp" UseManualLocation="True" />
+    <Node Id="@10" Category="CodeSchema_ProjectItem" Bounds="3964.89481295805,406.727701388771,123.854666743746,25.998000077079" FilePath="$(VsSolution)\include\nbt_cpp\NBT_Type.hpp" Label="NBT_Type.hpp" UseManualLocation="True" />
+    <Node Id="@12" Category="CodeSchema_ProjectItem" Bounds="3966.50734046058,496.463990158738,120.398000077079,25.998000077079" FilePath="$(VsSolution)\include\nbt_cpp\NBT_TAG.hpp" Label="NBT_TAG.hpp" UseManualLocation="True" />
+    <Node Id="@14" Category="CodeSchema_ProjectItem" Bounds="4271.30503923955,325.130249543653,130.394666743745,25.998000077079" FilePath="$(VsSolution)\include\nbt_cpp\NBT_String.hpp" Label="NBT_String.hpp" UseManualLocation="True" />
+    <Node Id="@17" Category="CodeSchema_ProjectItem" Bounds="3970.72686259167,-35.9479747497558,110.981333410413,25.998000077079" FilePath="$(VsSolution)\include\nbt_cpp\NBT_All.hpp" Label="NBT_All.hpp" UseManualLocation="True" />
+    <Node Id="@20" Category="CodeSchema_ProjectItem" Bounds="3756.23035495421,-124.895715123771,135.038000077078,25.998000077079" FilePath="$(VsSolution)\include\nbt_cpp\NBT_Endian.hpp" Label="NBT_Endian.hpp" UseManualLocation="True" />
+    <Node Id="@22" Category="CodeSchema_ProjectItem" Bounds="4091.87675807659,-91.9460748268349,109.458000077078,25.998000077079" FilePath="$(VsSolution)\include\nbt_cpp\NBT_IO.hpp" Label="NBT_IO.hpp" UseManualLocation="True" />
+    <Node Id="@24" Category="CodeSchema_ProjectItem" Bounds="3668.92156397602,60.8578909686302,136.498000077079,25.998000077079" FilePath="$(VsSolution)\include\nbt_cpp\NBT_Reader.hpp" Label="NBT_Reader.hpp" UseManualLocation="True" />
+    <Node Id="@26" Category="CodeSchema_ProjectItem" Bounds="4293.52541988238,62.7868396959726,134.491333410413,25.9980000770792" FilePath="$(VsSolution)\include\nbt_cpp\NBT_Helper.hpp" Label="NBT_Helper.hpp" UseManualLocation="True" />
+    <Node Id="@28" Category="CodeSchema_ProjectItem" Bounds="3848.95220119857,62.0973504364549,132.001333410411,25.998000077079" FilePath="$(VsSolution)\include\nbt_cpp\NBT_Writer.hpp" Label="NBT_Writer.hpp" UseManualLocation="True" />
+    <Node Id="@30" Category="CodeSchema_ProjectItem" Bounds="4016.92796138361,-253.254001029896,123.134666743746,25.998000077079" FilePath="$(VsSolution)\include\nbt_cpp\NBT_Print.hpp" Label="NBT_Print.hpp" UseManualLocation="True" />
+    <Node Id="@32" Category="CodeSchema_ProjectItem" Bounds="4078.64297714222,323.326639355106,115.524666743746,25.998000077079" FilePath="$(VsSolution)\include\nbt_cpp\NBT_List.hpp" Label="NBT_List.hpp" UseManualLocation="True" />
+    <Node Id="@34" Category="CodeSchema_ProjectItem" Bounds="4054.95480998151,64.9273152690777,160.998000077079,25.998000077079" FilePath="$(VsSolution)\include\nbt_cpp\NBT_Node_View.hpp" Label="NBT_Node_View.hpp" UseManualLocation="True" />
+    <Node Id="@4" Category="CodeSchema_ProjectItem" Bounds="4295.49600685424,-97.509260452576,126.918000077079,25.998000077079" FilePath="$(VsSolution)\include\nbt_cpp\vcpkg_config.h" Label="vcpkg_config.h" UseManualLocation="True" />
+    <Node Id="@6" Category="CodeSchema_ProjectItem" Bounds="3811.94982768844,319.855340921087,160.808000077079,25.998000077079" FilePath="$(VsSolution)\include\nbt_cpp\NBT_Compound.hpp" Label="NBT_Compound.hpp" UseManualLocation="True" />
+    <Node Id="@8" Category="CodeSchema_ProjectItem" Bounds="3962.42459337298,191.103339922783,128.024666743745,25.998000077079" FilePath="$(VsSolution)\include\nbt_cpp\NBT_Node.hpp" Label="NBT_Node.hpp" UseManualLocation="True" />
+  </Nodes>
+  <Links>
+    <Link Source="@10" Target="@12" Category="PoundInclude" Bounds="4026.73472827306,432.72571512643,0.0707386573953954,54.7382897867987" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@14" Target="(@1 @18)" Category="PoundInclude" Bounds="4335.92846642119,351.128257240688,0.446157987158585,45.3743069203474" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@17" Target="@22" Category="PoundInclude" Bounds="4054.16364119911,-62.1523116487458,56.3358041977144,26.2043293714368" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@17" Target="@24" Category="PoundInclude" Bounds="3784.51769048775,-9.94998220023004,202.886896647612,67.9496742701698" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@17" Target="@26" Category="PoundInclude" Bounds="4070.26339175596,-9.94998220023004,237.829808055969,70.1893324703823" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@17" Target="@28" Category="PoundInclude" Bounds="3936.45684904484,-9.94998220023004,75.009027122368,66.0971579174099" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@17" Target="@34" Category="PoundInclude" Bounds="4040.29396480524,-9.94998220023004,74.4716048430537,68.7714154375039" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@17" Target="@8" Category="PoundInclude" Bounds="4026.23009496693,-9.94998220023004,0.185651106578007,192.05332706491" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@20" Target="(@1 @2)" Category="PoundInclude" Bounds="3823.50605056455,-171.111262647863,0.189825102273062,46.2155493524872" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@22" Target="@30" Category="PoundInclude" Bounds="4087.48481719572,-218.964827868474,53.6324376921998,127.018745310403" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@22" Target="@4" Category="PoundInclude" Bounds="4201.33495706979,-82.6120407888576,85.164136767723,2.23115311031424" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@24" Target="@20" Category="PoundInclude" Bounds="3743.22940867416,-90.7402753183443,70.6589726367561,151.598155467793" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@24" Target="@30" Category="PoundInclude" Bounds="3751.29580615647,-221.161531167505,306.451804015333,282.019411316953" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@24" Target="@8" Category="PoundInclude" Bounds="3766.04055407338,86.8558802265278,223.320067130391,100.552394837116" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@26" Target="(@1 @15)" Category="PoundInclude" Bounds="4361.01536844337,88.7848429340474,0.977345225035606,51.9883310772318" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@26" Target="@30" Category="PoundInclude" Bounds="4096.10073616786,-220.543598586964,253.060044276159,283.330441443932" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@26" Target="@34" Category="PoundInclude" Bounds="4224.9525734481,76.4246650163906,68.5727559404386,0.651429237465763" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@26" Target="@4" Category="PoundInclude" Bounds="4359.20428775426,-62.5118313215481,1.41944887268619,125.298674178516" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@26" Target="@8" Category="PoundInclude" Bounds="4068.70885951214,88.7848429340474,258.192700069584,99.0936745275667" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@28" Target="@20" Category="PoundInclude" Bounds="3834.03473572489,-90.8085817943688,74.5779259780938,152.905933379364" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@28" Target="@30" Category="PoundInclude" Bounds="3921.15771484375,-219.338470458984,146.032470703125,281.435821533203" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@28" Target="@8" Category="PoundInclude" Bounds="3926.18622026262,88.0953516620746,83.1326353498143,96.1984097830725" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@32" Target="@10" Category="PoundInclude" Bounds="4051.06378047759,349.324637855922,68.2618463247213,51.9524449250882" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@34" Target="@8" Category="PoundInclude" Bounds="4043.55226301094,90.9253153461567,80.6704895987918,93.3678669640209" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@6" Target="@10" Category="PoundInclude" Bounds="3912.47472929184,345.853354896938,86.666932877818,55.9905158819918" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@8" Target="(@1 @35)" Category="PoundInclude" Bounds="3707.85400156586,217.101340736782,281.293128687815,98.0568788902725" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@8" Target="@10" Category="PoundInclude" Bounds="4026.46023690169,217.101340736782,0.322723356332062,180.62638867771" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@8" Target="@14" Category="PoundInclude" Bounds="4056.50963173863,217.101340736782,241.658938374526,104.45796033627" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@8" Target="@32" Category="PoundInclude" Bounds="4037.24810973444,217.101340736782,82.5912544228217,99.3057058466792" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@8" Target="@6" Category="PoundInclude" Bounds="3912.38271931959,217.101340736782,100.517042448737,96.5204190991826" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+  </Links>
+  <Categories>
+    <Category Id="CodeSchema_ProjectItem" Label="项目项" BasedOn="File" CanBeDataDriven="True" DefaultAction="Node:Both:CodeSchema_Type" Icon="File" NavigationActionLabel="项目项" />
+    <Category Id="File" Label="文件" CanBeDataDriven="True" DefaultAction="Microsoft.Contains" Icon="File" NavigationActionLabel="文件" />
+    <Category Id="PoundInclude" Label="#include" CanBeDataDriven="True" CanLinkedNodesBeDataDriven="True" IncomingActionLabel="#include 调用方" OutgoingActionLabel="#include" />
+  </Categories>
+  <Properties>
+    <Property Id="Bounds" DataType="System.Windows.Rect" />
+    <Property Id="CanBeDataDriven" Label="CanBeDataDriven" Description="CanBeDataDriven" DataType="System.Boolean" />
+    <Property Id="CanLinkedNodesBeDataDriven" Label="CanLinkedNodesBeDataDriven" Description="CanLinkedNodesBeDataDriven" DataType="System.Boolean" />
+    <Property Id="DataVirtualized" Label="已虚拟化数据" Description="如果为 true，则图中可以包含表示虚拟化节点/链接(即，不在图中实际创建)的数据的节点和链接。" DataType="System.Boolean" />
+    <Property Id="DefaultAction" Label="DefaultAction" Description="DefaultAction" DataType="System.String" />
+    <Property Id="Expression" DataType="System.String" />
+    <Property Id="FilePath" Label="文件路径" Description="文件路径" DataType="System.String" />
+    <Property Id="GroupLabel" DataType="System.String" />
+    <Property Id="Icon" Label="图标" Description="图标" DataType="System.String" />
+    <Property Id="IncomingActionLabel" Label="IncomingActionLabel" Description="IncomingActionLabel" DataType="System.String" />
+    <Property Id="IsEnabled" DataType="System.Boolean" />
+    <Property Id="Label" Label="标签" Description="可批注对象的可显示标签" DataType="System.String" />
+    <Property Id="NativeProvider_CodeItemIds" Label="NodeIds" Description="NodeIds" DataType="System.String" />
+    <Property Id="NavigationActionLabel" Label="NavigationActionLabel" Description="NavigationActionLabel" DataType="System.String" />
+    <Property Id="OutgoingActionLabel" Label="OutgoingActionLabel" Description="OutgoingActionLabel" DataType="System.String" />
+    <Property Id="TargetType" DataType="System.Type" />
+    <Property Id="UseManualLocation" DataType="System.Boolean" />
+    <Property Id="Value" DataType="System.String" />
+    <Property Id="ValueLabel" DataType="System.String" />
+    <Property Id="Visibility" Label="可见性" Description="定义关系图中的节点是否可见" DataType="System.Windows.Visibility" />
+    <Property Id="ZoomLevel" DataType="System.String" />
+  </Properties>
+  <QualifiedNames>
+    <Name Id="Assembly" Label="程序集" ValueType="Uri" />
+    <Name Id="File" Label="文件" ValueType="Uri" />
+  </QualifiedNames>
+  <IdentifierAliases>
+    <Alias n="1" Uri="Assembly=$(VsSolutionUri)/tests/nbt_all_test/nbt_all_test.vcxproj" />
+    <Alias n="2" Uri="File=$(VsSolutionUri)/include/nbt_cpp/Compiler_Define.h" />
+    <Alias n="3" Uri="File=$(VsSolutionUri)/include/nbt_cpp/vcpkg_config.h" />
+    <Alias n="4" Id="(@1 @3)" />
+    <Alias n="5" Uri="File=$(VsSolutionUri)/include/nbt_cpp/NBT_Compound.hpp" />
+    <Alias n="6" Id="(@1 @5)" />
+    <Alias n="7" Uri="File=$(VsSolutionUri)/include/nbt_cpp/NBT_Node.hpp" />
+    <Alias n="8" Id="(@1 @7)" />
+    <Alias n="9" Uri="File=$(VsSolutionUri)/include/nbt_cpp/NBT_Type.hpp" />
+    <Alias n="10" Id="(@1 @9)" />
+    <Alias n="11" Uri="File=$(VsSolutionUri)/include/nbt_cpp/NBT_TAG.hpp" />
+    <Alias n="12" Id="(@1 @11)" />
+    <Alias n="13" Uri="File=$(VsSolutionUri)/include/nbt_cpp/NBT_String.hpp" />
+    <Alias n="14" Id="(@1 @13)" />
+    <Alias n="15" Uri="File=$(VsSolutionUri)/include/nbt_cpp/NBT_Hash.hpp" />
+    <Alias n="16" Uri="File=$(VsSolutionUri)/include/nbt_cpp/NBT_All.hpp" />
+    <Alias n="17" Id="(@1 @16)" />
+    <Alias n="18" Uri="File=$(VsSolutionUri)/include/nbt_cpp/MUTF8_Tool.hpp" />
+    <Alias n="19" Uri="File=$(VsSolutionUri)/include/nbt_cpp/NBT_Endian.hpp" />
+    <Alias n="20" Id="(@1 @19)" />
+    <Alias n="21" Uri="File=$(VsSolutionUri)/include/nbt_cpp/NBT_IO.hpp" />
+    <Alias n="22" Id="(@1 @21)" />
+    <Alias n="23" Uri="File=$(VsSolutionUri)/include/nbt_cpp/NBT_Reader.hpp" />
+    <Alias n="24" Id="(@1 @23)" />
+    <Alias n="25" Uri="File=$(VsSolutionUri)/include/nbt_cpp/NBT_Helper.hpp" />
+    <Alias n="26" Id="(@1 @25)" />
+    <Alias n="27" Uri="File=$(VsSolutionUri)/include/nbt_cpp/NBT_Writer.hpp" />
+    <Alias n="28" Id="(@1 @27)" />
+    <Alias n="29" Uri="File=$(VsSolutionUri)/include/nbt_cpp/NBT_Print.hpp" />
+    <Alias n="30" Id="(@1 @29)" />
+    <Alias n="31" Uri="File=$(VsSolutionUri)/include/nbt_cpp/NBT_List.hpp" />
+    <Alias n="32" Id="(@1 @31)" />
+    <Alias n="33" Uri="File=$(VsSolutionUri)/include/nbt_cpp/NBT_Node_View.hpp" />
+    <Alias n="34" Id="(@1 @33)" />
+    <Alias n="35" Uri="File=$(VsSolutionUri)/include/nbt_cpp/NBT_Array.hpp" />
+  </IdentifierAliases>
+  <Styles>
+    <Style TargetType="Node" GroupLabel="C++ 项目文件" ValueLabel="具有类别">
+      <Condition Expression="HasCategory('CodeSchema_PoundIncludeFile')" />
+      <Setter Property="Background" Value="#FFEFEFEF" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="外部" ValueLabel="具有类别">
+      <Condition Expression="HasCategory('Externals')" />
+      <Setter Property="Background" Value="#FFA08080" />
+      <Setter Property="Stroke" Value="#FF424242" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="源文件" ValueLabel="具有类别">
+      <Condition Expression="HasCategory('CodeSchema_ProjectItem')" />
+      <Setter Property="Background" Value="#FFC0C0C0" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="#include 组" ValueLabel="具有类别">
+      <Condition Expression="HasCategory('CodeSchema_PoundIncludeGroup')" />
+      <Setter Property="Background" Value="#FFEFEFEF" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="结果" ValueLabel="True">
+      <Condition Expression="HasCategory('QueryResult')" />
+      <Setter Property="Background" Value="#FFBCFFBE" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="测试项目" ValueLabel="测试项目">
+      <Condition Expression="HasCategory('CodeMap_TestProject')" />
+      <Setter Property="Icon" Value="CodeMap_TestProject" />
+      <Setter Property="Background" Value="#FF307A69" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Web 项目" ValueLabel="Web 项目">
+      <Condition Expression="HasCategory('CodeMap_WebProject')" />
+      <Setter Property="Icon" Value="CodeMap_WebProject" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Windows 应用商店项目" ValueLabel="Windows 应用商店项目">
+      <Condition Expression="HasCategory('CodeMap_WindowsStoreProject')" />
+      <Setter Property="Icon" Value="CodeMap_WindowsStoreProject" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="电话项目" ValueLabel="电话项目">
+      <Condition Expression="HasCategory('CodeMap_PhoneProject')" />
+      <Setter Property="Icon" Value="CodeMap_PhoneProject" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="可移植库" ValueLabel="可移植库">
+      <Condition Expression="HasCategory('CodeMap_PortableLibraryProject')" />
+      <Setter Property="Icon" Value="CodeMap_PortableLibraryProject" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="WPF 项目" ValueLabel="WPF 项目">
+      <Condition Expression="HasCategory('CodeMap_WpfProject')" />
+      <Setter Property="Icon" Value="CodeMap_WpfProject" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="VSIX 项目" ValueLabel="VSIX 项目">
+      <Condition Expression="HasCategory('CodeMap_VsixProject')" />
+      <Setter Property="Icon" Value="CodeMap_VsixProject" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="建模项目" ValueLabel="建模项目">
+      <Condition Expression="HasCategory('CodeMap_ModelingProject')" />
+      <Setter Property="Icon" Value="CodeMap_ModelingProject" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="程序集" ValueLabel="具有类别">
+      <Condition Expression="HasCategory('CodeSchema_Assembly')" />
+      <Setter Property="Background" Value="#FF094167" />
+      <Setter Property="Stroke" Value="#FF094167" />
+      <Setter Property="Icon" Value="CodeSchema_Assembly" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="命名空间" ValueLabel="具有类别">
+      <Condition Expression="HasCategory('CodeSchema_Namespace')" />
+      <Setter Property="Background" Value="#FF0E619A" />
+      <Setter Property="Stroke" Value="#FF0E619A" />
+      <Setter Property="Icon" Value="CodeSchema_Namespace" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="接口" ValueLabel="具有类别">
+      <Condition Expression="HasCategory('CodeSchema_Interface')" />
+      <Setter Property="Background" Value="#FF1382CE" />
+      <Setter Property="Stroke" Value="#FF1382CE" />
+      <Setter Property="Icon" Value="CodeSchema_Interface" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="结构" ValueLabel="具有类别">
+      <Condition Expression="HasCategory('CodeSchema_Struct')" />
+      <Setter Property="Background" Value="#FF1382CE" />
+      <Setter Property="Stroke" Value="#FF1382CE" />
+      <Setter Property="Icon" Value="CodeSchema_Struct" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="枚举" ValueLabel="具有类别">
+      <Condition Expression="HasCategory('CodeSchema_Enum')" />
+      <Setter Property="Background" Value="#FF1382CE" />
+      <Setter Property="Stroke" Value="#FF1382CE" />
+      <Setter Property="Icon" Value="CodeSchema_Enum" />
+      <Setter Property="LayoutSettings" Value="List" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="委托" ValueLabel="具有类别">
+      <Condition Expression="HasCategory('CodeSchema_Delegate')" />
+      <Setter Property="Background" Value="#FF1382CE" />
+      <Setter Property="Stroke" Value="#FF1382CE" />
+      <Setter Property="Icon" Value="CodeSchema_Delegate" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="类" ValueLabel="具有类别">
+      <Condition Expression="HasCategory('CodeSchema_Type')" />
+      <Setter Property="Background" Value="#FF0E70C0" />
+      <Setter Property="Stroke" Value="#FF0E70C0" />
+      <Setter Property="Icon" Value="CodeSchema_Class" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="属性" ValueLabel="具有类别">
+      <Condition Expression="HasCategory('CodeSchema_Property')" />
+      <Setter Property="Background" Value="#FFE0E0E0" />
+      <Setter Property="Stroke" Value="#FFE0E0E0" />
+      <Setter Property="Icon" Value="CodeSchema_Property" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="方法" ValueLabel="具有类别">
+      <Condition Expression="HasCategory('CodeSchema_Method') Or HasCategory('CodeSchema_CallStackUnresolvedMethod')" />
+      <Setter Property="Background" Value="#FFE0E0E0" />
+      <Setter Property="Stroke" Value="#FFE0E0E0" />
+      <Setter Property="Icon" Value="CodeSchema_Method" />
+      <Setter Property="LayoutSettings" Value="List" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="事件" ValueLabel="具有类别">
+      <Condition Expression="HasCategory('CodeSchema_Event')" />
+      <Setter Property="Background" Value="#FFE0E0E0" />
+      <Setter Property="Stroke" Value="#FFE0E0E0" />
+      <Setter Property="Icon" Value="CodeSchema_Event" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="字段" ValueLabel="具有类别">
+      <Condition Expression="HasCategory('CodeSchema_Field')" />
+      <Setter Property="Background" Value="#FFE0E0E0" />
+      <Setter Property="Stroke" Value="#FFE0E0E0" />
+      <Setter Property="Icon" Value="CodeSchema_Field" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Out 参数" ValueLabel="具有类别">
+      <Condition Expression="CodeSchemaProperty_IsOut = 'True'" />
+      <Setter Property="Icon" Value="CodeSchema_OutParameter" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="参数" ValueLabel="具有类别">
+      <Condition Expression="HasCategory('CodeSchema_Parameter')" />
+      <Setter Property="Icon" Value="CodeSchema_Parameter" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="局部变量" ValueLabel="具有类别">
+      <Condition Expression="HasCategory('CodeSchema_LocalExpression')" />
+      <Setter Property="Icon" Value="CodeSchema_LocalExpression" />
+    </Style>
+    <Style TargetType="Link" GroupLabel="继承自" ValueLabel="True">
+      <Condition Expression="HasCategory('InheritsFrom')" />
+      <Setter Property="Stroke" Value="#FF00A600" />
+      <Setter Property="StrokeDashArray" Value="2 0" />
+      <Setter Property="DrawArrow" Value="true" />
+    </Style>
+    <Style TargetType="Link" GroupLabel="实现" ValueLabel="True">
+      <Condition Expression="HasCategory('Implements')" />
+      <Setter Property="Stroke" Value="#8000A600" />
+      <Setter Property="StrokeDashArray" Value="2 2" />
+      <Setter Property="DrawArrow" Value="true" />
+    </Style>
+    <Style TargetType="Link" GroupLabel="调用" ValueLabel="True">
+      <Condition Expression="HasCategory('CodeSchema_Calls')" />
+      <Setter Property="Stroke" Value="#FFFF00FF" />
+      <Setter Property="StrokeDashArray" Value="2 0" />
+      <Setter Property="DrawArrow" Value="true" />
+    </Style>
+    <Style TargetType="Link" GroupLabel="函数指针" ValueLabel="True">
+      <Condition Expression="HasCategory('CodeSchema_FunctionPointer')" />
+      <Setter Property="Stroke" Value="#FFFF00FF" />
+      <Setter Property="StrokeDashArray" Value="2 2" />
+      <Setter Property="DrawArrow" Value="true" />
+    </Style>
+    <Style TargetType="Link" GroupLabel="字段读取" ValueLabel="True">
+      <Condition Expression="HasCategory('CodeSchema_FieldRead')" />
+      <Setter Property="Stroke" Value="#FF00AEEF" />
+      <Setter Property="StrokeDashArray" Value="2 2" />
+      <Setter Property="DrawArrow" Value="true" />
+    </Style>
+    <Style TargetType="Link" GroupLabel="字段写入" ValueLabel="True">
+      <Condition Expression="HasCategory('CodeSchema_FieldWrite')" />
+      <Setter Property="Stroke" Value="#FF00AEEF" />
+      <Setter Property="DrawArrow" Value="true" />
+      <Setter Property="IsHidden" Value="false" />
+    </Style>
+    <Style TargetType="Link" GroupLabel="Inherits From" ValueLabel="True" Visibility="Hidden">
+      <Condition Expression="HasCategory('InheritsFrom') And Target.HasCategory('CodeSchema_Class')" />
+      <Setter Property="TargetDecorator" Value="OpenArrow" />
+    </Style>
+    <Style TargetType="Link" GroupLabel="Implements" ValueLabel="True" Visibility="Hidden">
+      <Condition Expression="HasCategory('Implements') And Target.HasCategory('CodeSchema_Interface')" />
+      <Setter Property="TargetDecorator" Value="OpenArrow" />
+    </Style>
+    <Style TargetType="Link" GroupLabel="Comment Link" ValueLabel="True" Visibility="Hidden">
+      <Condition Expression="Source.HasCategory('Comment')" />
+      <Setter Property="Stroke" Value="#FFE5C365" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Cursor Location Changed" ValueLabel="True" Visibility="Hidden">
+      <Condition Expression="IsCursorLocation" />
+      <Setter Property="IndicatorWest" Value="WestIndicator" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Disabled Breakpoint Location Changed" ValueLabel="True" Visibility="Hidden">
+      <Condition Expression="DisabledBreakpointCount" />
+      <Setter Property="IndicatorWest" Value="WestIndicator" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Enabled Breakpoint Location Changed" ValueLabel="True" Visibility="Hidden">
+      <Condition Expression="EnabledBreakpointCount" />
+      <Setter Property="IndicatorWest" Value="WestIndicator" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Instruction Pointer Location Changed" ValueLabel="True" Visibility="Hidden">
+      <Condition Expression="IsInstructionPointerLocation" />
+      <Setter Property="IndicatorWest" Value="WestIndicator" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Current Callstack Changed" ValueLabel="True" Visibility="Hidden">
+      <Condition Expression="IsCurrentCallstackFrame" />
+      <Setter Property="IndicatorWest" Value="WestIndicator" />
+    </Style>
+    <Style TargetType="Link" GroupLabel="返回" ValueLabel="True" Visibility="Hidden">
+      <Condition Expression="HasCategory('CodeSchema_ReturnTypeLink')" />
+    </Style>
+    <Style TargetType="Link" GroupLabel="引用" ValueLabel="True" Visibility="Hidden">
+      <Condition Expression="HasCategory('References')" />
+    </Style>
+    <Style TargetType="Link" GroupLabel="使用特性" ValueLabel="True" Visibility="Hidden">
+      <Condition Expression="HasCategory('CodeSchema_AttributeUse')" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="解决方案文件夹" ValueLabel="True" Visibility="Hidden">
+      <Condition Expression="HasCategory('CodeMap_SolutionFolder')" />
+      <Setter Property="Background" Value="#FFDEBA83" />
+    </Style>
+    <Style TargetType="Link" GroupLabel="项目引用" ValueLabel="项目引用">
+      <Condition Expression="HasCategory('CodeMap_ProjectReference')" />
+      <Setter Property="Stroke" Value="#9A9A9A" />
+      <Setter Property="StrokeDashArray" Value="2 2" />
+      <Setter Property="DrawArrow" Value="true" />
+    </Style>
+    <Style TargetType="Link" GroupLabel="外部引用" ValueLabel="外部引用">
+      <Condition Expression="HasCategory('CodeMap_ExternalReference')" />
+      <Setter Property="Stroke" Value="#9A9A9A" />
+      <Setter Property="StrokeDashArray" Value="2 2" />
+      <Setter Property="DrawArrow" Value="true" />
+    </Style>
+  </Styles>
+  <Paths>
+    <Path Id="VsSolution" Value="E:\NBT_CPP" />
+    <Path Id="VsSolutionUri" Value="file:///E:/NBT_CPP" />
+  </Paths>
+</DirectedGraph>

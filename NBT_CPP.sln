@@ -32,6 +32,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "resources", "resources", "{
 		CMakeLists.txt = CMakeLists.txt
 		init.bat = init.bat
 		LICENSE = LICENSE
+		nbt_cpp dependency diagram.dgml = nbt_cpp dependency diagram.dgml
 		README.md = README.md
 		TODO.txt = TODO.txt
 		vcpkg_test.bat = vcpkg_test.bat
