@@ -10,7 +10,7 @@
 ### 类声明
 ```cpp
 template<typename T, size_t N>
-class StringLiteral : public std::array<T, N>
+class StringLiteral : public std::array<T, N>;
 ```
 **解释**</br>
 继承自std::array
@@ -29,7 +29,7 @@ using Super = std::array<T, N>;
 
 ### 构造函数
 ```cpp
-constexpr StringLiteral(const T(&_tStr)[N]) noexcept
+constexpr StringLiteral(const T(&_tStr)[N]) noexcept;
 ```
 **解释**</br>
 从字符串字面量、字符串数组构造编译期StringLiteral
@@ -43,7 +43,7 @@ constexpr StringLiteral(const T(&_tStr)[N]) noexcept
 
 ### 析构函数
 ```cpp
-constexpr ~StringLiteral(void)
+constexpr ~StringLiteral(void);
 ```
 **解释**</br>
 默认析构
@@ -64,7 +64,7 @@ constexpr ~StringLiteral(void)
 ### 类声明
 ```cpp
 template<typename MU8T = uint8_t, typename U16T = char16_t, typename U8T = char8_t>
-class MUTF8_Tool
+class MUTF8_Tool;
 ```
 **解释**</br>
 
@@ -99,8 +99,8 @@ MUTF8_Tool(void) = delete;
 
 ### 成员函数
 ```cpp
-static constexpr size_t U16ToMU8Length(const std::basic_string_view<U16T> &u16String)
-static constexpr size_t U16ToMU8Length(const U16T *u16String, size_t szStringLength)
+static constexpr size_t U16ToMU8Length(const std::basic_string_view<U16T> &u16String);
+static constexpr size_t U16ToMU8Length(const U16T *u16String, size_t szStringLength);
 ```
 **解释**</br>
 动态精确计算utf16转换到mutf8的最终长度，提供两种重载
@@ -123,8 +123,8 @@ static constexpr size_t U16ToMU8Length(const U16T *u16String, size_t szStringLen
 
 ### 成员函数
 ```cpp
-static std::basic_string<MU8T> U16ToMU8(const std::basic_string_view<U16T> &u16String, size_t szReserve = 0)
-static std::basic_string<MU8T> U16ToMU8(const U16T *u16String, size_t szStringLength, size_t szReserve = 0)
+static std::basic_string<MU8T> U16ToMU8(const std::basic_string_view<U16T> &u16String, size_t szReserve = 0);
+static std::basic_string<MU8T> U16ToMU8(const U16T *u16String, size_t szStringLength, size_t szReserve = 0);
 ```
 **解释**</br>
 动态转换utf16到mutf8，提供两种重载
@@ -155,7 +155,7 @@ static std::basic_string<MU8T> U16ToMU8(const U16T *u16String, size_t szStringLe
 ```cpp
 template<StringLiteral u16String>
 requires std::is_same_v<typename decltype(u16String)::value_type, U16T>
-static consteval auto U16ToMU8(void)
+static consteval auto U16ToMU8(void);
 ```
 **解释**</br>
 静态转换utf16到mutf8
@@ -173,8 +173,8 @@ std::array存储的mutf8静态字符数组
 
 ### 成员函数
 ```cpp
-static constexpr size_t U8ToMU8Length(const std::basic_string_view<U8T> &u8String)
-static constexpr size_t U8ToMU8Length(const U8T *u8String, size_t szStringLength)
+static constexpr size_t U8ToMU8Length(const std::basic_string_view<U8T> &u8String);
+static constexpr size_t U8ToMU8Length(const U8T *u8String, size_t szStringLength);
 ```
 **解释**</br>
 动态精确计算utf8转换到mutf8的最终长度，提供两种重载
@@ -197,8 +197,8 @@ static constexpr size_t U8ToMU8Length(const U8T *u8String, size_t szStringLength
 
 ### 成员函数
 ```cpp
-static std::basic_string<MU8T> U8ToMU8(const std::basic_string_view<U8T> &u8String, size_t szReserve = 0)
-static std::basic_string<MU8T> U8ToMU8(const U8T *u8String, size_t szStringLength, size_t szReserve = 0)
+static std::basic_string<MU8T> U8ToMU8(const std::basic_string_view<U8T> &u8String, size_t szReserve = 0);
+static std::basic_string<MU8T> U8ToMU8(const U8T *u8String, size_t szStringLength, size_t szReserve = 0);
 ```
 **解释**</br>
 动态转换utf8到mutf8，提供两种重载
@@ -229,7 +229,7 @@ static std::basic_string<MU8T> U8ToMU8(const U8T *u8String, size_t szStringLengt
 ```cpp
 template<StringLiteral u8String>
 requires std::is_same_v<typename decltype(u8String)::value_type, U8T>
-static consteval auto U8ToMU8(void)
+static consteval auto U8ToMU8(void);
 ```
 **解释**</br>
 静态转换utf8到mutf8
@@ -248,8 +248,8 @@ std::array存储的mutf8静态字符数组
 
 ### 成员函数
 ```cpp
-static constexpr size_t MU8ToU16Length(const std::basic_string_view<MU8T> &mu8String)
-static constexpr size_t MU8ToU16Length(const MU8T *mu8String, size_t szStringLength)
+static constexpr size_t MU8ToU16Length(const std::basic_string_view<MU8T> &mu8String);
+static constexpr size_t MU8ToU16Length(const MU8T *mu8String, size_t szStringLength);
 ```
 **解释**</br>
 动态精确计算mutf8转换到utf16的最终长度
@@ -272,8 +272,8 @@ static constexpr size_t MU8ToU16Length(const MU8T *mu8String, size_t szStringLen
 
 ### 成员函数
 ```cpp
-static std::basic_string<U16T> MU8ToU16(const std::basic_string_view<MU8T> &mu8String, size_t szReserve = 0)
-static std::basic_string<U16T> MU8ToU16(const MU8T *mu8String, size_t szStringLength, size_t szReserve = 0)
+static std::basic_string<U16T> MU8ToU16(const std::basic_string_view<MU8T> &mu8String, size_t szReserve = 0);
+static std::basic_string<U16T> MU8ToU16(const MU8T *mu8String, size_t szStringLength, size_t szReserve = 0);
 ```
 **解释**</br>
 动态转换mutf8到utf16，提供两种重载
@@ -303,8 +303,8 @@ static std::basic_string<U16T> MU8ToU16(const MU8T *mu8String, size_t szStringLe
 
 ### 成员函数
 ```cpp
-static constexpr size_t MU8ToU8Length(const std::basic_string_view<MU8T> &mu8String)
-static constexpr size_t MU8ToU8Length(const MU8T *mu8String, size_t szStringLength)
+static constexpr size_t MU8ToU8Length(const std::basic_string_view<MU8T> &mu8String);
+static constexpr size_t MU8ToU8Length(const MU8T *mu8String, size_t szStringLength);
 ```
 **解释**</br>
 动态精确计算mutf8转换到utf8的最终长度，提供两种重载
@@ -328,8 +328,8 @@ static constexpr size_t MU8ToU8Length(const MU8T *mu8String, size_t szStringLeng
 
 ### 成员函数
 ```cpp
-static std::basic_string<U8T> MU8ToU8(const std::basic_string_view<MU8T> &mu8String, size_t szReserve = 0)
-static std::basic_string<U8T> MU8ToU8(const MU8T *mu8String, size_t szStringLength, size_t szReserve = 0)
+static std::basic_string<U8T> MU8ToU8(const std::basic_string_view<MU8T> &mu8String, size_t szReserve = 0);
+static std::basic_string<U8T> MU8ToU8(const MU8T *mu8String, size_t szStringLength, size_t szReserve = 0);
 ```
 **解释**</br>
 动态转换mutf8到utf8，提供两种重载
