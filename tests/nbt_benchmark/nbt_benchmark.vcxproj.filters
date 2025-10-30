@@ -40,9 +40,6 @@
     <ClInclude Include="..\..\include\nbt_cpp\NBT_Compound.hpp">
       <Filter>头文件\nbt_cpp</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\include\nbt_cpp\NBT_Endian.hpp">
-      <Filter>头文件\nbt_cpp</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\include\nbt_cpp\NBT_Hash.hpp">
       <Filter>头文件\nbt_cpp</Filter>
     </ClInclude>
