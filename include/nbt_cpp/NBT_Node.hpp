@@ -2,7 +2,6 @@
 
 #include <compare>
 
-#include "NBT_TAG.hpp"
 #include "NBT_Type.hpp"
 
 #include "NBT_Array.hpp"
@@ -13,8 +12,7 @@
 //在这里，CHAR2MU8STR的定义与NBT_Type::String::View的定义都已完备，给出转换方式以使得所有静态
 //字符串初始化到NBT_Type::String::View，方便与标准库重载，而不是直接拿到std::array导致重载失败
 //注意任何需要保存MU8STR而不是临时使用MU8STR的情况下，都必须使用NBT_Type::String保存，而不能使用
-//NBT_Type::String::View保存，否则msvc不会报错但是使得NBT_Type::String::View持有无效地址导致
-//程序崩溃，但是这种情况下gcc和clang都会报错只有msvc不会还能过编译，只能说这是用msvc的福报（大哭）
+//NBT_Type::String::View保存，比较过程则可以使用MU8STRV来获得一个临时的比较对象以减少初始化开销。
 
 #define MU8STR(charLiteralString) (NBT_Type::String(U8TOMU8STR(u8##charLiteralString)))//初始化静态字符串为NBT_String
 #define MU8STRV(charLiteralString) (NBT_Type::String::View(U8TOMU8STR(u8##charLiteralString)))//初始化静态字符串为NBT_String_View
