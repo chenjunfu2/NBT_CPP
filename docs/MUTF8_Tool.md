@@ -315,7 +315,7 @@ static constexpr size_t MU8ToU8Length(const MU8T *mu8String, size_t szStringLeng
 |-|-|
 |mu8String|mutf8字符串类型的std::basic_string_view|
 
-**重载1**
+**重载2**
 
 |参数|说明|
 |-|-|
