@@ -374,7 +374,7 @@ build/
 *.url
 *.csv
 *.exe
-*.html
+*.lnk
 vcpkg_fork/
 other/
 docs/doxygen/
