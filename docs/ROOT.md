@@ -16,19 +16,17 @@
 那么在头文件vcpkg_config.h中：</br>
 </br>
 安装zlib库则存在下面内容</br>
-否则删除下面内容</br>
+否则删除下面内容
 ```cpp
 //use zlib
 #define CJF2_NBT_CPP_USE_ZLIB
 ```
-</br>
 安装xxhash库则存在下面内容</br>
-否则删除下面内容</br>
+否则删除下面内容
 ```cpp
 //use xxhash
 #define CJF2_NBT_CPP_USE_XXHASH
 ```
-</br>
 
 # 库内容主要内容介绍
 
