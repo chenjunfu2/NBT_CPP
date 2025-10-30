@@ -1,6 +1,21 @@
 # 启用 Markdown 支持
 MARKDOWN_SUPPORT = YES
 
+# 递归搜索子目录
+RECURSIVE = YES
+
+# 启用需要的输出格式
+GENERATE_HTML = YES
+GENERATE_LATEX = YES
+GENERATE_XML = YES
+GENERATE_RTF = YES
+
+# 文件模式
+FILE_PATTERNS = *.cpp \
+                *.h \
+                *.hpp \
+                *.md
+
 # 包含代码文件
 INPUT = include/nbt_cpp
 
