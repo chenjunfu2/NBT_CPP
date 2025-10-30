@@ -10,6 +10,10 @@
 /// @note 输出格式里的fmt为std::format格式
 class NBT_Print
 {
+
+/// @brief 用于MSVC低版本的std::format_string支持，
+/// 在版本过低的时候切换为msvc内部实现。
+/// 其它编译器与版本使用标准库实现。
 #if defined(_MSC_VER) && _MSC_VER < 1935 //旧版本MSVC 1935-不支持
 #define FMT_STR _Fmt_string //使用MSVC库内部类型
 #else

@@ -1,0 +1,11 @@
+# 启用 Markdown 支持
+MARKDOWN_SUPPORT = YES
+
+# 包含代码文件
+INPUT = include/nbt_cpp
+
+# 设置主页面文件
+USE_MDFILE_AS_MAINPAGE = docs/ROOT.md
+
+# 设置输出目录
+OUTPUT_DIRECTORY = docs/doxygen
