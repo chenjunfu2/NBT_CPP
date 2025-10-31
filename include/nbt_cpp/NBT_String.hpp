@@ -254,6 +254,9 @@ namespace std
 	template<typename String, typename StringView>
 	struct hash<MyString<String, StringView>>
 	{
+		/// @brief 仿函数调用运算符
+		/// @param s 需要hash的对象引用
+		/// @return hash的值
 		size_t operator()(const MyString<String, StringView> &s) const noexcept
 		{
 			return std::hash<std::basic_string_view<char>>{}(s.GetCharTypeView());
@@ -267,6 +270,9 @@ namespace std
 	template<typename String, typename StringView>
 	struct hash<MyStringView<String, StringView>>
 	{
+		/// @brief 仿函数调用运算符
+		/// @param s 需要hash的对象引用
+		/// @return hash的值
 		size_t operator()(const MyStringView<String, StringView> &s) const noexcept
 		{
 			return std::hash<std::basic_string_view<char>>{}(s.GetCharTypeView());
