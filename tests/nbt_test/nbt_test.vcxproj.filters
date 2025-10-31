@@ -49,9 +49,6 @@
     <ClInclude Include="..\..\include\nbt_cpp\NBT_Helper.hpp">
       <Filter>头文件\nbt_cpp</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\include\nbt_cpp\NBT_IO.hpp">
-      <Filter>头文件\nbt_cpp</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\include\nbt_cpp\NBT_List.hpp">
       <Filter>头文件\nbt_cpp</Filter>
     </ClInclude>
@@ -83,6 +80,9 @@
       <Filter>头文件\nbt_cpp</Filter>
     </ClInclude>
     <ClInclude Include="..\..\include\nbt_cpp\vcpkg_config.h">
+      <Filter>头文件\nbt_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\nbt_cpp\NBT_IO.hpp">
       <Filter>头文件\nbt_cpp</Filter>
     </ClInclude>
   </ItemGroup>

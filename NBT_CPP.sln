@@ -89,7 +89,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docs", "docs", "{9324FCEB-6
 		docs\NBT_Node.md = docs\NBT_Node.md
 		docs\NBT_Node_View.md = docs\NBT_Node_View.md
 		docs\NBT_Reader.md = docs\NBT_Reader.md
-		docs\NBT_String.md = docs\NBT_String.md
 		docs\NBT_TAG.md = docs\NBT_TAG.md
 		docs\NBT_Type.md = docs\NBT_Type.md
 		docs\NBT_Writer.md = docs\NBT_Writer.md
