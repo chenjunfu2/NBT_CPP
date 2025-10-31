@@ -162,6 +162,7 @@
     <ClInclude Include="..\..\include\nbt_cpp\NBT_All.hpp" />
     <ClInclude Include="..\..\include\nbt_cpp\NBT_Array.hpp" />
     <ClInclude Include="..\..\include\nbt_cpp\NBT_Compound.hpp" />
+    <ClInclude Include="..\..\include\nbt_cpp\NBT_Endian.hpp" />
     <ClInclude Include="..\..\include\nbt_cpp\NBT_Hash.hpp" />
     <ClInclude Include="..\..\include\nbt_cpp\NBT_Helper.hpp" />
     <ClInclude Include="..\..\include\nbt_cpp\NBT_IO.hpp" />
