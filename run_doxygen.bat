@@ -1,3 +1,3 @@
 rmdir /s /q "./docs/doxygen/"
-doxygen Doxyfile.config
+doxygen DoxyConfig.cfg
 pause
