@@ -7,7 +7,7 @@
 
 /// @file
 /// @brief 本文件包含的类用于存储、处理与转换Java的Modified-UTF-8字符串，
-/// 在NBT格式里，字符串全部使用Java的Modified-UTF-8。
+/// 在NBT格式里，字符串全部使用Java的Modified-UTF-8
 
 class NBT_Reader;
 class NBT_Writer;
@@ -56,9 +56,9 @@ public:
 	/// @brief 通过c风格字符串或字符数组初始化
 	/// @param ltrStr 数组的引用
 	/// @note 如果字符串或字符数组以c风格字符串的\0或mutf8的0x80 0xc0结尾，则裁切多余结尾，因为string数据中不应包含字符串结束符。
-	/// 这里视图的裁切仅缩小视图内存储的字符串实际大小，而非修改原始对象进行修改
+	/// 这里视图的裁切仅缩小视图内存储的字符串实际大小，而非修改原始对象进行修改，
 	/// 因为View仅构造为视图，不持有对象，如果引用的对象提前结束生命周期，会导致未定义行为，
-	/// 请保证被View引用的对象生存周期大于View，或在生存周期结束后不再使用由其初始化的View。
+	/// 请保证被View引用的对象生存周期大于View，或在生存周期结束后不再使用由其初始化的View
 	template<size_t N>//c风格字符串or数组
 	constexpr MyStringView(const typename StringView::value_type(&ltrStr)[N]) :StringView(ltrStr, CalcStringViewSize(ltrStr, N))
 	{}
@@ -77,7 +77,7 @@ public:
 	/// @note 显示构造的目的是防止意外的非持有性转换导致非预期的对象生命周期。
 	/// 因为View仅构造为视图，不持有对象，如果引用的对象提前结束生命周期，会导致未定义行为，
 	/// 请保证被View引用的对象生存周期大于View，或在生存周期结束后不再使用由其初始化的View。
-	/// 同时，如果构造视图的MyString对象改变，则它的data结果很可能也会改变，此时再使用此对象也会导致未定义行为。请重新构造。
+	/// 同时，如果构造视图的MyString对象改变，则它的data结果很可能也会改变，此时再使用此对象也会导致未定义行为，请重新构造
 	constexpr explicit MyStringView(const MyString<String, StringView> &myString) : StringView(myString.data(), myString.size())
 	{}
 
@@ -91,7 +91,7 @@ public:
 	/// @return 返回char类型的视图View
 	/// @note 仅用于方便部分只支持char类型字符串的库使用，不要把它当成Mutf8到Utf8的字符编码转换功能。要
 	/// 使用此转换，请使用MyString，也就是NBT_Type::String中的转换函数，或是直接通过此对象调用MUTF8_Tool中
-	/// 的转换API，此类不直接提供转换API的原因在于这个类不该完成带有额外拷贝或开销的内容，它只是视图。
+	/// 的转换API，此类不直接提供转换API的原因在于这个类不该完成带有额外拷贝或开销的内容，它只是视图
 	std::basic_string_view<char> GetCharTypeView(void) const noexcept
 	{
 		return std::basic_string_view<char>((const char *)StringView::data(), StringView::size());
@@ -143,8 +143,8 @@ public:
 
 	/// @brief 通过c风格字符串或字符数组初始化
 	/// @param ltrStr 数组的引用
-	/// @note 如果字符串或字符数组以c风格字符串的\0或mutf8的0x80 0xc0结尾，则裁切多余结尾，因为string数据中不应包含字符串结束符
-	/// 这里的裁切仅缩小拷贝字符串长度，而非修改原始对象进行修改
+	/// @note 如果字符串或字符数组以c风格字符串的\0或mutf8的0x80 0xc0结尾，则裁切多余结尾，因为string数据中不应包含字符串结束符，
+	/// 这里的裁切仅缩小拷贝字符串长度，而非修改原始对象进行修改。
 	template<size_t N>
 	MyString(const typename String::value_type(&ltrStr)[N]) :String(ltrStr, CalcStringSize(ltrStr, N))
 	{}
@@ -165,7 +165,7 @@ public:
 	/// @param 无
 	/// @return char类型的视图View
 	/// @note 仅用于方便部分只支持char类型字符串的库使用，如果需要转换到其它字符编码，请调用本类的转换API。
-	/// 在修改本对象，或离开作用域后，不应该再使用此函数原先返回的view类型。
+	/// 在修改本对象，或离开作用域后，不应该再使用此函数原先返回的view类型
 	std::basic_string_view<char> GetCharTypeView(void) const noexcept
 	{
 		return std::basic_string_view<char>((const char *)String::data(), String::size());
@@ -175,7 +175,7 @@ public:
 	/// @param 无
 	/// @return 自动推导，应为char类型的std::basic_string
 	/// @note 返回为char类型仅用于方便部分只支持char类型的库使用，实际编码仍为UTF-8。
-	/// 转换后的字符串与当前字符串对象与当前字符串对象独立，互不影响。
+	/// 转换后的字符串与当前字符串对象与当前字符串对象独立，互不影响
 	auto ToCharTypeUTF8(void) const
 	{
 		return MUTF8_Tool<typename String::value_type, char16_t, char>::MU8ToU8(*this);//char8_t改为char
@@ -184,7 +184,7 @@ public:
 	/// @brief 转换到UTF-8字符编码
 	/// @param 无
 	/// @return 自动推导，应为char8_t类型的std::basic_string
-	/// @note 转换后的字符串与当前字符串对象与当前字符串对象独立，互不影响。
+	/// @note 转换后的字符串与当前字符串对象与当前字符串对象独立，互不影响
 	auto ToUTF8(void) const
 	{
 		return MUTF8_Tool<typename String::value_type, char16_t, char8_t>::MU8ToU8(*this);
@@ -194,7 +194,7 @@ public:
 	/// @param 无
 	/// @return 自动推导，应为wchar_t类型的std::basic_string
 	/// @note 返回为wchar_t类型仅用于方便部分只支持wchar_t类型的库使用，实际编码仍为UTF-16。
-	/// 转换后的字符串与当前字符串对象与当前字符串对象独立，互不影响。
+	/// 转换后的字符串与当前字符串对象与当前字符串对象独立，互不影响
 	auto ToWchartTypeUTF16(void) const
 	{
 		return MUTF8_Tool<typename String::value_type, wchar_t, char8_t>::MU8ToU16(*this);//char16_t改为wchar_t
@@ -203,7 +203,7 @@ public:
 	/// @brief 转换到UTF-16字符编码
 	/// @param 无
 	/// @return 自动推导，应为char16_t类型的std::basic_string
-	/// @note 转换后的字符串与当前字符串对象与当前字符串对象独立，互不影响。
+	/// @note 转换后的字符串与当前字符串对象与当前字符串对象独立，互不影响
 	auto ToUTF16(void) const
 	{
 		return MUTF8_Tool<typename String::value_type, char16_t, char8_t>::MU8ToU16(*this);
