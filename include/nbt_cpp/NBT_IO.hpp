@@ -63,7 +63,7 @@ public:
 	/// @param strFileName 目标文件名
 	/// @param tData 顺序容器的引用
 	/// @return 读取是否成功
-	/// @note 如果文件不存在，则失败
+	/// @note 如果文件不存在，则失败。
 	/// 顺序容器必须存储字节流，内部的值类型大小必须为1，且必须可平凡拷贝。
 	template<typename T = std::vector<uint8_t>>
 	requires (sizeof(typename T::value_type) == 1 && std::is_trivially_copyable_v<typename T::value_type>)
@@ -108,7 +108,8 @@ public:
 	/// @brief 判断指定文件名的文件是否存在
 	/// @param sFileName 目标文件名
 	/// @return 文件是否存在
-	/// @note 如果判断出现错误，也返回不存在。只有明确返回存在的文件存在，否则文件可能不存在，也可能存在但是因为其它原因无法获取。
+	/// @note 如果判断出现错误，也返回不存在。只有明确返回存在的文件存在，
+	/// 否则文件可能不存在，也可能存在但是因为其它原因无法获取。
 	static bool IsFileExist(const std::string &sFileName)
 	{
 		std::error_code ec;//判断这东西是不是true确定有没有error
@@ -434,7 +435,7 @@ public:
 	/// @param iData 输出的顺序容器引用
 	/// @param funcErrInfo 打印异常信息的仿函数
 	/// @return 操作是否成功
-	/// @note funcErrInfo默认实现为NBT_Print并输出到标准异常stderr，用户可以自定义
+	/// @note funcErrInfo默认实现为NBT_Print并输出到标准异常stderr，用户可以自定义。
 	/// 类似于NBT_Print的仿函数类型并替换输出例程，具体情况请参照NBT_Print类的说明。
 	/// 顺序容器必须存储字节流，内部的值类型大小必须为1，且必须可平凡拷贝。
 	template<typename I, typename O, typename ErrInfoFunc = NBT_Print>
@@ -473,7 +474,7 @@ public:
 	/// @param iLevel 压缩等级
 	/// @param funcErrInfo 打印异常信息的仿函数
 	/// @return 操作是否成功
-	/// @note funcErrInfo默认实现为NBT_Print并输出到标准异常stderr，用户可以自定义
+	/// @note funcErrInfo默认实现为NBT_Print并输出到标准异常stderr，用户可以自定义。
 	/// 类似于NBT_Print的仿函数类型并替换输出例程，具体情况请参照NBT_Print类的说明。
 	/// 顺序容器必须存储字节流，内部的值类型大小必须为1，且必须可平凡拷贝。
 	template<typename I, typename O, typename ErrInfoFunc = NBT_Print>
