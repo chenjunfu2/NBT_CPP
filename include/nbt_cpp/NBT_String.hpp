@@ -243,7 +243,7 @@ public:
 };
 
 
-/// @brief 在std命名空间中添加此类的hash特化以便unordered_map等容器自动获取
+/// @brief 在std命名空间中添加类的默认hash特化以便unordered_map等容器自动获取
 /// @note 实际hash实现用标准库对默认char类型string的实现代理
 namespace std
 {
