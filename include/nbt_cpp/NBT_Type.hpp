@@ -12,13 +12,13 @@
 
 class NBT_Node;
 template <typename Array>
-class MyArray;
+class NBT_Array;
 template <typename String, typename StringView>
-class MyString;
+class NBT_String;
 template <typename List>
-class MyList;
+class NBT_List;
 template <typename Compound>
-class MyCompound;
+class NBT_Compound;
 
 class NBT_Type
 {
@@ -36,12 +36,12 @@ public:
 	using Long			= int64_t;
 	using Float			= std::conditional_t<(sizeof(float) == sizeof(Float_Raw)), float, Float_Raw>;//通过编译期确认类型大小来选择正确的类型，优先浮点类型，如果失败则替换为对应的可用类型
 	using Double		= std::conditional_t<(sizeof(double) == sizeof(Double_Raw)), double, Double_Raw>;
-	using ByteArray		= MyArray<std::vector<Byte>>;
-	using IntArray		= MyArray<std::vector<Int>>;
-	using LongArray		= MyArray<std::vector<Long>>;
-	using String		= MyString<std::basic_string<uint8_t>, std::basic_string_view<uint8_t>>;//Java MUTF-8 String
-	using List			= MyList<std::vector<NBT_Node>>;//存储一系列同类型标签的有效负载（无标签 ID 或名称）//原先为list，因为mc内list也通过下标访问，改为vector模拟
-	using Compound		= MyCompound<std::unordered_map<String, NBT_Node>>;//挂在序列下的内容都通过map绑定名称
+	using ByteArray		= NBT_Array<std::vector<Byte>>;
+	using IntArray		= NBT_Array<std::vector<Int>>;
+	using LongArray		= NBT_Array<std::vector<Long>>;
+	using String		= NBT_String<std::basic_string<uint8_t>, std::basic_string_view<uint8_t>>;//Java MUTF-8 String
+	using List			= NBT_List<std::vector<NBT_Node>>;//存储一系列同类型标签的有效负载（无标签 ID 或名称）//原先为list，因为mc内list也通过下标访问，改为vector模拟
+	using Compound		= NBT_Compound<std::unordered_map<String, NBT_Node>>;//挂在序列下的内容都通过map绑定名称
 
 	//类型列表
 	template<typename... Ts>

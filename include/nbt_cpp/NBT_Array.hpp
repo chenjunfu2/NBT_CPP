@@ -11,7 +11,7 @@ class NBT_Helper;
 /// @tparam Array 需要继承的父类类型
 /// @note 用户不应自行实例化此类，请使用NBT_Type::xxxArray来访问此类实例化类型（xxx为具体Array存储的类型）
 template<typename Array>
-class MyArray :public Array//暂时不考虑保护继承
+class NBT_Array :public Array//暂时不考虑保护继承
 {
 	friend class NBT_Reader;
 	friend class NBT_Writer;
