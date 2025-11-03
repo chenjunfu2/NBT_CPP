@@ -8,6 +8,7 @@
 class NBT_Hash
 {
 public:
+	/// @brief 类型别名，xxhash类型封装，类型必须是uint64_t
 	using HASH_T = XXH64_hash_t;
 	static_assert(std::is_same_v<HASH_T, uint64_t>, "Hash type does not match the required type.");
 

@@ -11,7 +11,9 @@
 /// @brief 用于处理大小端运算，根据实际平台字节序类型进行自动匹配
 class NBT_Endian
 {
+	/// @brief 禁止构造
 	NBT_Endian(void) = delete;
+	/// @brief 禁止析构
 	~NBT_Endian(void) = delete;
 	
 private:

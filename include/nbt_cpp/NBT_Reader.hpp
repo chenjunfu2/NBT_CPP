@@ -16,7 +16,9 @@
 
 class NBT_Reader
 {
+	/// @brief 禁止构造
 	NBT_Reader(void) = delete;
+	/// @brief 禁止析构
 	~NBT_Reader(void) = delete;
 
 public:

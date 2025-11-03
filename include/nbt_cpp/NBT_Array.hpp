@@ -18,6 +18,6 @@ class NBT_Array :public Array//暂时不考虑保护继承
 	friend class NBT_Helper;
 
 public:
-	//继承基类构造
+	/// @brief 继承基类构造
 	using Array::Array;
 };

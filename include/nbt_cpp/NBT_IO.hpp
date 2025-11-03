@@ -23,7 +23,9 @@
 /// @brief 用于提供nbt文件读写，解压与压缩功能
 class NBT_IO
 {
+	/// @brief 禁止构造
 	NBT_IO(void) = delete;
+	/// @brief 禁止析构
 	~NBT_IO(void) = delete;
 
 public:

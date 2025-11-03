@@ -22,7 +22,9 @@ class NBT_Compound;
 
 class NBT_Type
 {
+	/// @brief 禁止构造
 	NBT_Type(void) = delete;
+	/// @brief 禁止析构
 	~NBT_Type(void) = delete;
 
 public:

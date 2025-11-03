@@ -19,8 +19,10 @@
 /// @note 计算哈希需要安装xxhash库
 class NBT_Helper
 {
-	NBT_Helper() = delete;
-	~NBT_Helper() = delete;
+	/// @brief 禁止构造
+	NBT_Helper(void) = delete;
+	/// @brief 禁止析构
+	~NBT_Helper(void) = delete;
 
 public:
 	/// @brief 格式化对齐打印NBT对象
