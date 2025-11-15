@@ -11,7 +11,7 @@ class NBT_Reader;
 class NBT_Writer;
 class NBT_Helper;
 
-/// @brief 用于存放MUTF8_Tool使用的，无法存在于类内的概念
+/// @brief 用于存放NBT_Compound使用的，无法存在于类内的概念
 /// @note 用户不应直接使用此内容
 namespace NBT_Compound_Concept
 {
