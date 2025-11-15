@@ -79,7 +79,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ports", "ports", "{6242EFA2
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docs", "docs", "{9324FCEB-618E-4F4C-B093-35503E5AA5CB}"
 	ProjectSection(SolutionItems) = preProject
-		docs\MUTF8_Tool.md = docs\MUTF8_Tool.md
 		docs\NBT_Compound.md = docs\NBT_Compound.md
 		docs\NBT_List.md = docs\NBT_List.md
 		docs\NBT_Node.md = docs\NBT_Node.md

@@ -20,6 +20,7 @@ class NBT_List;
 template <typename Compound>
 class NBT_Compound;
 
+/// @brief 提供NBT类型定义，包括NBT格式中的所有数据类型，以及部分辅助功能，比如静态类型与Tag映射，类型存在查询，类型列表大小，类型最大小值等
 class NBT_Type
 {
 	/// @brief 禁止构造
@@ -28,28 +29,53 @@ class NBT_Type
 	~NBT_Type(void) = delete;
 
 public:
-	using Float_Raw = uint32_t;
-	using Double_Raw = uint64_t;
 
-	using End			= std::monostate;//无状态
-	using Byte			= int8_t;
-	using Short			= int16_t;
-	using Int			= int32_t;
-	using Long			= int64_t;
-	using Float			= std::conditional_t<(sizeof(float) == sizeof(Float_Raw)), float, Float_Raw>;//通过编译期确认类型大小来选择正确的类型，优先浮点类型，如果失败则替换为对应的可用类型
-	using Double		= std::conditional_t<(sizeof(double) == sizeof(Double_Raw)), double, Double_Raw>;
-	using ByteArray		= NBT_Array<std::vector<Byte>>;
-	using IntArray		= NBT_Array<std::vector<Int>>;
-	using LongArray		= NBT_Array<std::vector<Long>>;
-	using String		= NBT_String<std::basic_string<uint8_t>, std::basic_string_view<uint8_t>>;//Java MUTF-8 String
-	using List			= NBT_List<std::vector<NBT_Node>>;//存储一系列同类型标签的有效负载（无标签 ID 或名称）//原先为list，因为mc内list也通过下标访问，改为vector模拟
-	using Compound		= NBT_Compound<std::unordered_map<String, NBT_Node>>;//挂在序列下的内容都通过map绑定名称
+	/// @name 原始数据类型定义
+	/// @{
+	using Float_Raw = uint32_t;///< Float 类型的原始表示，用于在平台不支持或需要二进制读写时使用
+	using Double_Raw = uint64_t;///< Double 类型的原始表示，用于在平台不支持或需要二进制读写时使用
+	/// @}
 
-	//类型列表
+	/// @name NBT数据类型定义
+	/// @{
+ 
+	//内建类型
+	//默认为无状态，与std::variant兼容
+	using End			= std::monostate;	///< 结束标记类型，无数据
+	using Byte			= int8_t;			///<  8位有符号整数
+	using Short			= int16_t;			///< 16位有符号整数
+	using Int			= int32_t;			///< 32位有符号整数
+	using Long			= int64_t;			///< 64位有符号整数
+
+	//浮点类型
+	//通过编译期确认类型大小来选择正确的类型，优先浮点类型，如果失败则替换为对应的可用类型
+	using Float			= std::conditional_t<(sizeof(float) == sizeof(Float_Raw)), float, Float_Raw>;		///< 单精度浮点类型，如果平台不支持，则替换为同等大小的原始数据类型
+	using Double		= std::conditional_t<(sizeof(double) == sizeof(Double_Raw)), double, Double_Raw>;	///< 双精度浮点类型，如果平台不支持，则替换为同等大小的原始数据类型
+
+	//数组类型，不存在SortArray，由于NBT标准不提供，所以此处也不提供
+	using ByteArray		= NBT_Array<std::vector<Byte>>;	///< 存储 8位有符号整数的数组类型
+	using IntArray		= NBT_Array<std::vector<Int>>;	///< 存储32位有符号整数的数组类型
+	using LongArray		= NBT_Array<std::vector<Long>>;	///< 存储64位有符号整数的数组类型
+
+	//字符串类型
+	using String		= NBT_String<std::basic_string<uint8_t>, std::basic_string_view<uint8_t>>;	///< 字符串类型，存储Java M-UTF-8字符串
+
+	//列表类型
+	//存储一系列同类型标签的有效负载（无标签 ID 或名称），原先为list，因为mc内list也通过下标访问，所以改为vector模拟
+	using List			= NBT_List<std::vector<NBT_Node>>;	///< 列表类型，可顺序存储任意相同的NBT类型
+
+	//集合类型
+	//挂在序列下的内容都通过map绑定名称
+	using Compound		= NBT_Compound<std::unordered_map<String, NBT_Node>>;	///集合类型，可存储任意不同的NBT类型，通过名称映射值
+
+	/// @}
+
+	/// @brief 类型列表模板
+	/// @tparam ...Ts 变长参数包
 	template<typename... Ts>
 	struct _TypeList{};
 
-	//定义
+	/// @brief 完整的NBT类型列表定义
 	using TypeList = _TypeList
 	<
 		End,
@@ -68,6 +94,7 @@ public:
 	>;
 
 private:
+	//通过类型Tag映射到字符串指针数组
 	constexpr static inline const char *const cstrTypeName[] =
 	{
 		"End",
@@ -86,6 +113,10 @@ private:
 	};
 
 public:
+	/// @brief 通过类型标签获取类型名称
+	/// @param tag NBT_TAG枚举的类型标签
+	/// @return 类型标签对应的名称的以0结尾的C风格字符串地址，如果类型标签不存在，则返回\"Unknown\"
+	/// @note 返回的是全局静态字符串地址，请不要直接修改，需要修改请拷贝
 	constexpr static inline const char *GetTypeName(NBT_TAG tag) noexcept//运行时类型判断，允许静态
 	{
 		if (tag >= NBT_TAG::ENUM_END)

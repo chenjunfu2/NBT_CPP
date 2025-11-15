@@ -54,6 +54,7 @@ public:
 	using StringView::StringView;
 
 	/// @brief 通过c风格字符串或字符数组初始化
+	/// @tparam N 数组的长度，自动计算
 	/// @param ltrStr 数组的引用
 	/// @note 如果字符串或字符数组以c风格字符串的\0或mutf8的0x80 0xc0结尾，则裁切多余结尾，因为string数据中不应包含字符串结束符。
 	/// 这里视图的裁切仅缩小视图内存储的字符串实际大小，而非修改原始对象进行修改，
@@ -64,6 +65,7 @@ public:
 	{}
 
 	/// @brief 通过std::array初始化
+	/// @tparam N 数组的长度，自动计算
 	/// @param strArray std::array的引用
 	/// @note 这里的std::array通常是由MUTF8_Tool构造并返回的静态Modified-UTF-8字符数组。
 	/// 因为View仅构造为视图，不持有对象，如果引用的对象提前结束生命周期，会导致未定义行为，
