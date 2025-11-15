@@ -16,6 +16,7 @@ namespace MUTF8_Tool_Internal
 {
 	/// @brief 用于编译期构造静态字符串字面量为字符数组，作为模板参数，使得模板能接受字符串的辅助类
 	/// @tparam T 字符串的字符类型
+	/// @tparam N 自动匹配数组长度
 	/// @note 用户不应直接使用此类
 	template<typename T, size_t N>
 	class StringLiteral : public std::array<T, N>
@@ -890,24 +891,50 @@ public:
 
 	//---------------------------------------------------------------------------------------------//
 
+	/// @brief 精确计算UTF-8转换到M-UTF-8所需的M-UTF-8字符串的长度
+	/// @param u8String UTF-8字符串的视图
+	/// @return 计算的长度
+	/// @note 请注意：是长度而非字节数
 	static constexpr size_t U8ToMU8Length(const std::basic_string_view<U8T> &u8String)
 	{
 		return U8ToMU8Impl<FakeStringCounter<MU8T>>(u8String.data(), u8String.size()).GetData();
 	}
+
+	/// @brief 精确计算UTF-8转换到M-UTF-8所需的M-UTF-8字符串的长度
+	/// @param u8String UTF-8字符串的指针
+	/// @param szStringLength UTF-8字符串的长度
+	/// @return 计算的长度
+	/// @note 请注意：是长度而非字节数
 	static constexpr size_t U8ToMU8Length(const U8T *u8String, size_t szStringLength)
 	{
 		return U8ToMU8Impl<FakeStringCounter<MU8T>>(u8String, szStringLength).GetData();
 	}
 
+	/// @brief 获取UTF-8转换到M-UTF-8的字符串
+	/// @param u8String UTF-8字符串的视图
+	/// @param szReserve 转换后的字符串长度（此项用于一定程度避免动态扩容开销，值可以从U8ToMU8Length调用获得）
+	/// @return 转换后的字符串
+	/// @note 请注意：是长度而非字节数
 	static std::basic_string<MU8T> U8ToMU8(const std::basic_string_view<U8T> &u8String, size_t szReserve = 0)
 	{
 		return U8ToMU8Impl<DynamicString<std::basic_string<MU8T>>>(u8String.data(), u8String.size(), { szReserve }).GetData();
 	}
+
+	/// @brief 获取UTF-8转换到M-UTF-8的字符串
+	/// @param u8String UTF-8字符串的指针
+	/// @param szStringLength UTF-8字符串的长度
+	/// @param szReserve 转换后的字符串长度（此项用于一定程度避免动态扩容开销，值可以从U8ToMU8Length调用获得）
+	/// @return 转换后的字符串
+	/// @note 请注意：是长度而非字节数
 	static std::basic_string<MU8T> U8ToMU8(const U8T *u8String, size_t szStringLength, size_t szReserve = 0)
 	{
 		return U8ToMU8Impl<DynamicString<std::basic_string<MU8T>>>(u8String, szStringLength, { szReserve }).GetData();
 	}
 
+	/// @brief 通过UTF-8字符串字面量，直接获得编译期的M-UTF-8静态字符串
+	/// @tparam u8String UTF-8字符串字面量，用于构造MUTF8_Tool_Internal::StringLiteral
+	/// @return 一个由std::array<MU8T,N>返回的静态字符串数组，可用于构造NBT_Type::String或它的View类型
+	/// @note 此函数仅能在编译期使用
 	template<MUTF8_Tool_Internal::StringLiteral u8String>
 	requires std::is_same_v<typename decltype(u8String)::value_type, U8T>//限定类型
 	static consteval auto U8ToMU8(void)
