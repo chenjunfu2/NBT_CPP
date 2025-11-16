@@ -24,7 +24,7 @@ class NBT_Writer
 
 public:
 	template <typename T = std::vector<uint8_t>>
-	class MyOutputStream
+	class DefaultOutputStream
 	{
 	private:
 		T &tData;
@@ -36,11 +36,11 @@ public:
 		static_assert(std::is_trivially_copyable_v<ValueType>, "ValueType Must Be Trivially Copyable");
 
 		//引用天生无法使用临时值构造，无需担心临时值构造导致的悬空引用
-		MyOutputStream(T &_tData, size_t szStartIdx = 0) :tData(_tData)
+		DefaultOutputStream(T &_tData, size_t szStartIdx = 0) :tData(_tData)
 		{
 			tData.resize(szStartIdx);
 		}
-		~MyOutputStream(void) = default;
+		~DefaultOutputStream(void) = default;
 
 		const ValueType &operator[](size_t szIndex) const noexcept
 		{
@@ -752,18 +752,42 @@ catch(...)\
 	}
 
 public:
-	//输出到tData中，部分功能和原理参照ReadNBT处的注释，szDataStartIndex在此处可以对一个tData通过不同的tCompound和szDataStartIndex = tData.size()
+	//输出到tData中，部分功能和原理参照ReadNBT处的注释，szDataStartIndex在此处可以对一个tData通过不同的tCompound和szStartIdx = tData.size()
 	//来调用以达到把多个不同的nbt输出到同一个tData内的功能
+
+	/// @brief 将NBT_Type::Compound对象写入到输出流中
+	/// @tparam bSortCompound 是否对Compound对象内部的键进行排序，以获得一致性的输出结果
+	/// @tparam OutputStream 输出流类型，必须符合DefaultOutputStream类型的接口
+	/// @tparam ErrInfoFunc 错误信息输出仿函数类型
+	/// @param OptStream 输出流对象
+	/// @param tCompound 用于写出的对象
+	/// @param szStackDepth 递归最大深度，防止栈溢出
+	/// @param funcErrInfo 错误信息处理仿函数
+	/// @return 写入成功返回true，失败返回false
+	/// @note 错误与警告信息都输出到funcErrInfo，错误会导致函数结束剩下的写出任务，并进行栈回溯输出，最终返回false。警告则只会输出一次信息，然后继续执行，如果没有任何错误但是存在警告，函数仍将返回true。
 	template<bool bSortCompound = true, typename OutputStream, typename ErrInfoFunc = NBT_Print>
 	static bool WriteNBT(OutputStream OptStream, const NBT_Type::Compound &tCompound, size_t szStackDepth = 512, ErrInfoFunc funcErrInfo = NBT_Print{ stderr }) noexcept
 	{
 		return PutCompoundType<true, bSortCompound>(OptStream, tCompound, szStackDepth, funcErrInfo) == AllOk;
 	}
 
+	/// @brief 将NBT_Type::Compound对象写入到数据容器中
+	/// @tparam bSortCompound 是否对Compound对象内部的键进行排序，以获得一致性的输出结果
+	/// @tparam DataType 数据容器类型
+	/// @tparam ErrInfoFunc 错误信息输出仿函数类型
+	/// @param[out] tDataOutput 输出数据容器
+	/// @param szStartIdx 数据起始索引，用于指定起始写入位置，设置为tDataOutput.size()则可以进行拼接
+	/// @param tCompound 用于写出的对象
+	/// @param szStackDepth 递归最大深度，防止栈溢出
+	/// @param funcErrInfo 错误信息处理仿函数
+	/// @return 写入成功返回true，失败返回false
+	/// @note 函数不会清除tDataOutput对象的数据，通过设置szStartIdx = tDataOutput.size()，把多个Compound对象的数据流合并到同一个tDataOutput对象内，
+	/// 但是如果多个对象中有重复、同名的NBT键，虽然可以合并到流中，但是如果对这个流进行读取，读取例程为了保证在同一个Compound中的键的唯一性，会丢失部分信息，具体请参考ReadNBT接口的说明。
+	/// 此函数是WriteNBT的标准库容器版本，其它信息请参考WriteNBT(OutputStream)版本的详细说明。
 	template<bool bSortCompound = true, typename DataType = std::vector<uint8_t>, typename ErrInfoFunc = NBT_Print>
 	static bool WriteNBT(DataType &tDataOutput, size_t szStartIdx, const NBT_Type::Compound &tCompound, size_t szStackDepth = 512, ErrInfoFunc funcErrInfo = NBT_Print{ stderr }) noexcept
 	{
-		MyOutputStream<DataType> OptStream(tDataOutput, szStartIdx);
+		DefaultOutputStream<DataType> OptStream(tDataOutput, szStartIdx);
 		return PutCompoundType<true, bSortCompound>(OptStream, tCompound, szStackDepth, funcErrInfo) == AllOk;
 	}
 

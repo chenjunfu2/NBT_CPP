@@ -25,7 +25,7 @@ class NBT_Reader
 
 public:
 	template <typename T = std::vector<uint8_t>>
-	class MyInputStream
+	class DefaultInputStream
 	{
 	private:
 		const T &tData = {};
@@ -38,16 +38,16 @@ public:
 		static_assert(std::is_trivially_copyable_v<ValueType>, "ValueType Must Be Trivially Copyable");
 
 		//禁止用户使用临时值构造
-		MyInputStream(const T &&_tData, size_t szStartIdx = 0) = delete;
-		MyInputStream(const T &_tData, size_t szStartIdx = 0) :tData(_tData), szIndex(szStartIdx)
+		DefaultInputStream(const T &&_tData, size_t szStartIdx = 0) = delete;
+		DefaultInputStream(const T &_tData, size_t szStartIdx = 0) :tData(_tData), szIndex(szStartIdx)
 		{}
-		~MyInputStream(void) = default;//默认析构
+		~DefaultInputStream(void) = default;//默认析构
 
-		MyInputStream(const MyInputStream &) = delete;
-		MyInputStream(MyInputStream &&) = delete;
+		DefaultInputStream(const DefaultInputStream &) = delete;
+		DefaultInputStream(DefaultInputStream &&) = delete;
 
-		MyInputStream &operator=(const MyInputStream &) = delete;
-		MyInputStream &operator=(MyInputStream &&) = delete;
+		DefaultInputStream &operator=(const DefaultInputStream &) = delete;
+		DefaultInputStream &operator=(DefaultInputStream &&) = delete;
 
 		const ValueType &operator[](size_t szIndex) const noexcept
 		{
@@ -764,14 +764,16 @@ public:
 	//如果指定了szDataStartIndex则会忽略tData中长度为szDataStartIndex的数据
 
 	/// @brief 从输入流中读取NBT数据到NBT_Type::Compound对象中
-	/// @tparam InputStream 输入流类型
+	/// @tparam InputStream 输入流类型，必须符合DefaultOutputStream类型的接口
 	/// @tparam ErrInfoFunc 错误信息输出仿函数类型
 	/// @param IptStream 输入流对象
 	/// @param[out] tCompound 用于返回读取结果的对象
 	/// @param szStackDepth 递归最大深度深度，防止栈溢出
 	/// @param funcErrInfo 错误信息处理仿函数
 	/// @return 读取成功返回true，失败返回false
-	/// @note 错误与警告信息都输出到funcErrInfo
+	/// @note 错误与警告信息都输出到funcErrInfo，错误会导致函数结束剩下的写出任务，并进行栈回溯输出，最终返回false。警告则只会输出一次信息，然后继续执行，如果没有任何错误但是存在警告，函数仍将返回true。
+	/// 函数不会清除tCompound对象的数据，所以可以通过多次调用此函数，把多个NBT数据流合并到同一个tCompound对象内，
+	/// 但是如果多个流中有重复、同名的NBT键，则会产生冲突，为了保证键的唯一性，后来的值会替换原先的值，并通过funcErrInfo产生一个警告信息。
 	template<typename InputStream, typename ErrInfoFunc = NBT_Print>
 	static bool ReadNBT(InputStream IptStream, NBT_Type::Compound &tCompound, size_t szStackDepth = 512, ErrInfoFunc funcErrInfo = NBT_Print{ stderr }) noexcept//从data中读取nbt
 	{
@@ -787,12 +789,11 @@ public:
 	/// @param szStackDepth 递归最大深度深度，防止栈溢出
 	/// @param funcErrInfo 错误信息处理仿函数
 	/// @return 读取成功返回true，失败返回false
-	/// @note 错误与警告信息都输出到funcErrInfo
-	/// 此函数是ReadNBT的标准库容器版本，支持从任意顺序字节流容器中读取NBT数据。
+	/// @note 此函数是ReadNBT的标准库容器版本，其它信息请参考ReadNBT(InputStream)版本的详细说明
 	template<typename DataType = std::vector<uint8_t>, typename ErrInfoFunc = NBT_Print>
 	static bool ReadNBT(const DataType &tDataInput, size_t szStartIdx, NBT_Type::Compound &tCompound, size_t szStackDepth = 512, ErrInfoFunc funcErrInfo = NBT_Print{ stderr }) noexcept//从data中读取nbt
 	{
-		MyInputStream<DataType> IptStream(tDataInput, szStartIdx);
+		DefaultInputStream<DataType> IptStream(tDataInput, szStartIdx);
 		return GetCompoundType<true>(IptStream, tCompound, szStackDepth, funcErrInfo) == AllOk;
 	}
 
