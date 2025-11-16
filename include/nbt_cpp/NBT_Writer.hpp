@@ -808,7 +808,7 @@ public:
 
 	/// @brief 将NBT_Type::Compound对象写入到输出流中
 	/// @tparam bSortCompound 是否对Compound对象内部的键进行排序，以获得一致性的输出结果
-	/// @tparam OutputStream 输出流类型，必须符合DefaultOutputStream类型的接口
+	/// @tparam[out] OutputStream 输出流类型，必须符合DefaultOutputStream类型的接口
 	/// @tparam ErrInfoFunc 错误信息输出仿函数类型
 	/// @param OptStream 输出流对象
 	/// @param tCompound 用于写出的对象

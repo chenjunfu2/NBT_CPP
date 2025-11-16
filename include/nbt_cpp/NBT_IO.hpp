@@ -65,7 +65,7 @@ public:
 	/// @brief 从指定文件名的文件中读取字节流数据到任意顺序容器中
 	/// @tparam T 任意顺序容器类型
 	/// @param strFileName 目标文件名
-	/// @param tData 顺序容器的引用
+	/// @param[out] tData 顺序容器的引用
 	/// @return 读取是否成功
 	/// @note 如果文件不存在，则失败。
 	/// 顺序容器必须存储字节流，内部的值类型大小必须为1，且必须可平凡拷贝。
@@ -158,7 +158,7 @@ public:
 	/// 顺序容器必须存储字节流，内部的值类型大小必须为1，且必须可平凡拷贝。
 	template<typename T>
 	requires (sizeof(typename T::value_type) == 1 && std::is_trivially_copyable_v<typename T::value_type>)
-	static bool IsDataZipped(T &tData)
+	static bool IsDataZipped(const T &tData)
 	{
 		if (tData.size() <= 2)
 		{
@@ -174,7 +174,7 @@ public:
 	/// @brief 解压数据，自动判断Zlib或Gzip并解压，如果失败则抛出异常
 	/// @tparam I 输入的顺序容器类型
 	/// @tparam O 输出的顺序容器类型
-	/// @param oData 输入的顺序容器引用
+	/// @param[out] oData 输入的顺序容器引用
 	/// @param iData 输出的顺序容器引用
 	/// @note oData和iData不能引用相同对象，否则错误。如果输入为空，则输出也为空。
 	/// 顺序容器必须存储字节流，内部的值类型大小必须为1，且必须可平凡拷贝。
@@ -292,7 +292,7 @@ public:
 	/// @brief 压缩数据，默认压缩为Gzip，也就是NBT格式的标准压缩类型，如果失败则抛出异常
 	/// @tparam I 输入的顺序容器类型
 	/// @tparam O 输出的顺序容器类型
-	/// @param oData 输入的顺序容器引用
+	/// @param[out] oData 输入的顺序容器引用
 	/// @param iData 输出的顺序容器引用
 	/// @param iLevel 压缩等级
 	/// @note oData和iData不能引用相同对象，否则错误。如果输入为空，则输出也为空。
@@ -435,7 +435,7 @@ public:
 	/// @tparam I 输入的顺序容器类型
 	/// @tparam O 输出的顺序容器类型
 	/// @tparam ErrInfoFunc 打印异常信息的仿函数类型
-	/// @param oData 输入的顺序容器引用
+	/// @param[out] oData 输入的顺序容器引用
 	/// @param iData 输出的顺序容器引用
 	/// @param funcErrInfo 打印异常信息的仿函数
 	/// @return 操作是否成功
@@ -473,7 +473,7 @@ public:
 	/// @tparam I 输入的顺序容器类型
 	/// @tparam O 输出的顺序容器类型
 	/// @tparam ErrInfoFunc 打印异常信息的仿函数类型
-	/// @param oData 输入的顺序容器引用
+	/// @param[out] oData 输入的顺序容器引用
 	/// @param iData 输出的顺序容器引用
 	/// @param iLevel 压缩等级
 	/// @param funcErrInfo 打印异常信息的仿函数
