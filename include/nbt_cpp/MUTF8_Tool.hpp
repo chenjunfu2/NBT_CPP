@@ -8,6 +8,9 @@
 #include <array>
 #include <algorithm>
 
+/// @file
+/// @brief 用于处理Java的Modified-UTF-8的工具集
+
 //来个static string包装类，使得模板能接受字符串字面量
 //必须放在外面，否则NTTP推导主类模板会失败，
 //导致此并不依赖主类模板的模板也推导失败
@@ -1038,25 +1041,25 @@ public:
 
 //动态转换
 
-/// @def U16CV2MU8(u16String)
+/// @def
 /// @brief UTF-16到M-UTF-8字符串转换的便捷宏
 /// @param u16String UTF-16字符串视图
 /// @return 转换后的M-UTF-8字符串
 #define U16CV2MU8(u16String) MUTF8_Tool<>::U16ToMU8(u16String)
 
-/// @def MU8CV2U16(mu8String)
+/// @def
 /// @brief M-UTF-8到UTF-16字符串转换的便捷宏
 /// @param mu8String M-UTF-8字符串视图
 /// @return 转换后的UTF-16字符串
 #define MU8CV2U16(mu8String) MUTF8_Tool<>::MU8ToU16(mu8String)
 
-/// @def U8CV2MU8(u8String)
+/// @def
 /// @brief UTF-8到M-UTF-8字符串转换的便捷宏
 /// @param u8String UTF-8字符串视图
 /// @return 转换后的M-UTF-8字符串
 #define U8CV2MU8(u8String) MUTF8_Tool<>::U8ToMU8(u8String)
 
-/// @def MU8CV2U8(mu8String)
+/// @def
 /// @brief M-UTF-8到UTF-8字符串转换的便捷宏
 /// @param mu8String M-UTF-8字符串视图
 /// @return 转换后的UTF-8字符串
