@@ -346,6 +346,8 @@ private:
 	}
 
 private:
+///@cond
+
 //c=char d=do检查迭代器并获取下一个字节（如果可以，否则执行指定语句后跳出）
 #define GET_NEXTCHAR(c,d) if (++it == end) { (d);break; } else { (c) = *it; }
 //v=value m=mask p=pattern t=test 测试遮罩位之后的结果是否是指定值或值是否是由指定bits组成
@@ -354,10 +356,14 @@ private:
 //v=value b=begin e=end 注意范围是左右边界包含关系，而不是普通的左边界包含
 #define IN_RANGE(v,b,e) (((uint16_t)(v) >= (uint16_t)(b)) && ((uint16_t)(v) <= (uint16_t)(e)))
 
+///@endcond
+
 	template<typename T = std::basic_string<MU8T>>
 	static constexpr T U16ToMU8Impl(const U16T *u16String, size_t szStringLength, T mu8String = {})
 	{
+///@cond
 #define PUSH_FAIL_MU8CHAR mu8String.append(mu8FailChar, sizeof(mu8FailChar) / sizeof(MU8T))
+///@endcond
 
 		//因为string带长度信息，则不用处理0字符情况，for不会进入，直接返回size为0的mu8str
 		//mu8字符串结尾为0xC0 0x80而非0x00
@@ -428,7 +434,9 @@ private:
 	template<typename T = std::basic_string<U16T>>
 	static constexpr T MU8ToU16Impl(const MU8T *mu8String, size_t szStringLength, T u16String = {})
 	{
+///@cond
 #define PUSH_FAIL_U16CHAR u16String.push_back(u16FailChar)
+///@endcond
 
 		//因为string带长度信息，则不用处理0字符情况，for不会进入，直接返回size为0的u16str
 		//u16字符串末尾为0x0000
@@ -608,8 +616,10 @@ private:
 	template<typename T = DynamicString<std::basic_string<MU8T>>>
 	static constexpr T U8ToMU8Impl(const U8T *u8String, size_t szStringLength, T mu8String = {})
 	{
+///@cond
 #define PUSH_FAIL_MU8CHAR mu8String.append(mu8FailChar, sizeof(mu8FailChar) / sizeof(MU8T))
 #define INSERT_NORMAL(p) (mu8String.append_cvt((p) - szNormalLength, szNormalLength), szNormalLength = 0)
+///@endcond
 
 		size_t szNormalLength = 0;//普通字符的长度，用于优化批量插入
 		for (auto it = u8String, end = u8String + szStringLength; it != end; ++it)
@@ -686,8 +696,10 @@ private:
 	template<typename T = DynamicString<std::basic_string<U8T>>>
 	static constexpr T MU8ToU8Impl(const MU8T *mu8String, size_t szStringLength, T u8String = {})
 	{
+///@cond
 #define PUSH_FAIL_U8CHAR u8String.append(u8FailChar, sizeof(u8FailChar) / sizeof(U8T))
 #define INSERT_NORMAL(p) (u8String.append_cvt((p) - szNormalLength, szNormalLength), szNormalLength = 0)
+///@endcond
 
 		size_t szNormalLength = 0;//普通字符的长度，用于优化批量插入
 		for (auto it = mu8String, end = mu8String + szStringLength; it != end; ++it)
