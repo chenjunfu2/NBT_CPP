@@ -38,7 +38,6 @@ public:
 	/// @tparam ...Args 变参模板
 	/// @param fmt 接受std::format_string的format
 	/// @param ...args 变参，与string的format对应
-	/// @return 无
 	/// @note 函数不能也不应该抛出任何异常，因为函数可能用于异常信息打印，不能出现二次异常，
 	/// 本实现中如果std::format出现任何二次异常，则放弃打印自定义信息，从c标准io的printf输出新抛出的异常信息，
 	/// 如果再次失败，则不做处理，因为异常可能已经致命，导致无法执行任何代码。
