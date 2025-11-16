@@ -195,8 +195,6 @@ public:
 	/// @{
 
 	/// @brief 辅助函数
-	/// @tparam T 类型
-	/// @tparam ...Ts 类型列表
 	/// @return 类型在NBT_TAG中对应的Enum值的原始形式
 	template <typename T, typename... Ts>
 	static consteval NBT_TAG_RAW_TYPE TypeTagHelper()//consteval必须编译期求值

@@ -56,7 +56,6 @@ public:
 	}
 
 	/// @brief 根据之前已添加的数据，获取当前的哈希值
-	/// @param 无
 	/// @return 哈希值
 	HASH_T Digest(void)
 	{

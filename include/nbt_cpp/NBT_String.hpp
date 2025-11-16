@@ -89,7 +89,6 @@ public:
 	NBT_StringView(NBT_String<String, StringView> &&) = delete;
 
 	/// @brief 直接获取char类型的视图
-	/// @param 无
 	/// @return 返回char类型的视图View
 	/// @note 仅用于方便部分只支持char类型字符串的库使用，不要把它当成Mutf8到Utf8的字符编码转换功能。
 	/// 要使用此转换，请使用NBT_String，也就是NBT_Type::String中的转换函数，或是直接通过此对象调用MUTF8_Tool中
@@ -164,7 +163,6 @@ public:
 	{}
 
 	/// @brief 直接从当前对象获取char类型的视图
-	/// @param 无
 	/// @return char类型的视图View
 	/// @note 仅用于方便部分只支持char类型字符串的库使用，如果需要转换到其它字符编码，请调用本类的转换API。
 	/// 在修改本对象，或离开作用域后，不应该再使用此函数原先返回的view类型。
@@ -174,7 +172,6 @@ public:
 	}
 
 	/// @brief 转换到UTF-8字符编码，但是返回为char类型而非char8_t类型
-	/// @param 无
 	/// @return 自动推导，应为char类型的std::basic_string
 	/// @note 返回为char类型仅用于方便部分只支持char类型的库使用，实际编码仍为UTF-8。
 	/// 转换后的字符串与当前字符串对象与当前字符串对象独立，互不影响。
@@ -184,7 +181,6 @@ public:
 	}
 
 	/// @brief 转换到UTF-8字符编码
-	/// @param 无
 	/// @return 自动推导，应为char8_t类型的std::basic_string
 	/// @note 转换后的字符串与当前字符串对象与当前字符串对象独立，互不影响。
 	auto ToUTF8(void) const
@@ -193,7 +189,6 @@ public:
 	}
 
 	/// @brief 转换到UTF-16字符编码，但是返回为wchar_t类型而非char16_t类型
-	/// @param 无
 	/// @return 自动推导，应为wchar_t类型的std::basic_string
 	/// @note 返回为wchar_t类型仅用于方便部分只支持wchar_t类型的库使用，实际编码仍为UTF-16。
 	/// 转换后的字符串与当前字符串对象与当前字符串对象独立，互不影响。
@@ -203,7 +198,6 @@ public:
 	}
 
 	/// @brief 转换到UTF-16字符编码
-	/// @param 无
 	/// @return 自动推导，应为char16_t类型的std::basic_string
 	/// @note 转换后的字符串与当前字符串对象与当前字符串对象独立，互不影响。
 	auto ToUTF16(void) const

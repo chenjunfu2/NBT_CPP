@@ -32,7 +32,6 @@ public:
 	{}
 	
 	/// @brief 默认析构
-	/// @param 无
 	~NBT_Print(void) = default;
 
 	/// @brief 函数调用运算符重载，用于将类作为仿函数调用

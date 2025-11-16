@@ -36,7 +36,6 @@ namespace MUTF8_Tool_Internal
 		{}
 
 		/// @brief 默认构造
-		/// @param 无
 		/// @note 编译期构造
 		constexpr ~StringLiteral(void) = default;
 	};
