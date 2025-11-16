@@ -17,9 +17,12 @@
 
 /// @file
 
+/// @brief 这个类用于提供从NBT_Type::Compound对象写出到NBT二进制流的序列化功能
 class NBT_Writer
 {
+	/// @brief 禁止构造
 	NBT_Writer(void) = delete;
+	/// @brief 禁止析构
 	~NBT_Writer(void) = delete;
 
 public:
@@ -57,16 +60,12 @@ public:
 
 		/// @brief 默认析构函数
 		~DefaultOutputStream(void) = default;
-
 		/// @brief 禁止拷贝构造
 		DefaultOutputStream(const DefaultOutputStream &) = delete;
-
 		/// @brief 禁止移动构造
 		DefaultOutputStream(DefaultOutputStream &&) = delete;
-
 		/// @brief 禁止拷贝赋值
 		DefaultOutputStream &operator=(const DefaultOutputStream &) = delete;
-
 		/// @brief 禁止移动赋值
 		DefaultOutputStream &operator=(DefaultOutputStream &&) = delete;
 

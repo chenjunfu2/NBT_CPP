@@ -16,6 +16,7 @@
 
 /// @file
 
+/// @brief 这个类用于提供从NBT二进制流读取到NBT_Type::Compound对象的反序列化功能
 class NBT_Reader
 {
 	/// @brief 禁止构造
@@ -60,16 +61,12 @@ public:
 
 		/// @brief 默认析构函数
 		~DefaultInputStream(void) = default;
-
 		/// @brief 禁止拷贝构造
 		DefaultInputStream(const DefaultInputStream &) = delete;
-
 		/// @brief 禁止移动构造
 		DefaultInputStream(DefaultInputStream &&) = delete;
-
 		/// @brief 禁止拷贝赋值
 		DefaultInputStream &operator=(const DefaultInputStream &) = delete;
-
 		/// @brief 禁止移动赋值
 		DefaultInputStream &operator=(DefaultInputStream &&) = delete;
 
