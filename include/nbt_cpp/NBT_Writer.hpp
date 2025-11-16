@@ -248,6 +248,7 @@ private:
 		}
 	}
 
+///@cond
 #define _RP___FUNCTION__ __FUNCTION__//用于编译过程二次替换达到函数内部
 
 #define _RP___LINE__ _RP_STRLING(__LINE__)
@@ -287,6 +288,7 @@ catch(...)\
 	STACK_TRACEBACK("catch(...)");\
 	return eRet;\
 }
+///@endcond
 
 	template<typename OutputStream, typename ErrInfoFunc>
 	static inline ErrCode CheckReserve(OutputStream &tData, size_t szAddSize, ErrInfoFunc &funcErrInfo) noexcept

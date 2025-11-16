@@ -286,6 +286,7 @@ private:
 		}
 	}
 
+///@cond
 #define _RP___FUNCTION__ __FUNCTION__//用于编译过程二次替换达到函数内部
 
 #define _RP___LINE__ _RP_STRLING(__LINE__)
@@ -325,6 +326,7 @@ catch(...)\
 	STACK_TRACEBACK("catch(...)");\
 	return eRet;\
 }
+///@endcond
 
 	//读取大端序数值，bNoCheck为true则不进行任何检查
 	template<bool bNoCheck = false, typename T, typename InputStream, typename ErrInfoFunc>
@@ -760,12 +762,33 @@ public:
 	//szStackDepth 控制栈深度，递归层检查仅由可嵌套的可能进行递归的函数进行，栈深度递减仅由对选择函数的调用进行
 	//注意此函数不会清空tCompound，所以可以对一个tCompound通过不同的tData多次调用来读取多个nbt片段并合并到一起
 	//如果指定了szDataStartIndex则会忽略tData中长度为szDataStartIndex的数据
+
+	/// @brief 从输入流中读取NBT数据到NBT_Type::Compound对象中
+	/// @tparam InputStream 输入流类型
+	/// @tparam ErrInfoFunc 错误信息输出仿函数类型
+	/// @param IptStream 输入流对象
+	/// @param[out] tCompound 用于返回读取结果的对象
+	/// @param szStackDepth 栈最大深度，控制递归深度，防止栈溢出
+	/// @param funcErrInfo 错误信息处理仿函数
+	/// @return 读取成功返回true，失败返回false
+	/// @note 错误与警告信息都输出到funcErrInfo
 	template<typename InputStream, typename ErrInfoFunc = NBT_Print>
 	static bool ReadNBT(InputStream IptStream, NBT_Type::Compound &tCompound, size_t szStackDepth = 512, ErrInfoFunc funcErrInfo = NBT_Print{ stderr }) noexcept//从data中读取nbt
 	{
 		return GetCompoundType<true>(IptStream, tCompound, szStackDepth, funcErrInfo) == AllOk;//从data中获取nbt数据到nRoot中，只有此调用为根部调用（模板true），用于处理特殊情况
 	}
 
+	/// @brief 从数据容器中读取NBT数据到复合标签中
+	/// @tparam DataType 数据容器类型，默认为std::vector<uint8_t>
+	/// @tparam ErrInfoFunc 错误信息处理函数类型，默认为NBT_Print
+	/// @param tDataInput 输入数据容器
+	/// @param szStartIdx 数据起始索引，会忽略tDataInput中长度为szStartIndex的数据
+	/// @param[out] tCompound 用于存储读取结果的复合标签
+	/// @param szStackDepth 栈深度，控制递归层数，默认为512
+	/// @param funcErrInfo 错误信息处理函数，默认为输出到stderr
+	/// @return 读取成功返回true，失败返回false
+	/// @note 错误与警告信息都输出到funcErrInfo
+	/// 此函数是ReadNBT的容器版本，支持从任意顺序字节流容器中读取NBT数据。
 	template<typename DataType = std::vector<uint8_t>, typename ErrInfoFunc = NBT_Print>
 	static bool ReadNBT(const DataType &tDataInput, size_t szStartIdx, NBT_Type::Compound &tCompound, size_t szStackDepth = 512, ErrInfoFunc funcErrInfo = NBT_Print{ stderr }) noexcept//从data中读取nbt
 	{
