@@ -3,6 +3,8 @@
 #include <format>
 #include <stdio.h>
 
+/// @file
+
 /// @brief 一个用于打印信息到指定的C文件对象的工具类，作为库内大部分存在信息输出接口的默认实现。
 /// 实际可被使用此类为默认值参数的函数的调用方，以类似此类的仿函数参数重写的其它类型替换，
 /// 比如调用方实现了一个My_Print，只要重载了仿函数调用运算符，且参数与此类的仿函数调用运算符一致，
@@ -10,7 +12,6 @@
 /// @note 输出格式里的fmt为std::format格式
 class NBT_Print
 {
-/// @def FMT_STR
 /// @brief 用于MSVC低版本的std::format_string支持。
 /// @details 在版本过低的时候切换为msvc内部实现。
 /// 其它编译器与版本使用标准库实现。

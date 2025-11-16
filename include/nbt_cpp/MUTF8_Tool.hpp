@@ -1041,25 +1041,21 @@ public:
 
 //动态转换
 
-/// @def U16CV2MU8(u16String)
 /// @brief UTF-16到M-UTF-8字符串转换的便捷宏
 /// @param u16String UTF-16字符串视图
 /// @return 转换后的M-UTF-8字符串
 #define U16CV2MU8(u16String) MUTF8_Tool<>::U16ToMU8(u16String)
 
-/// @def MU8CV2U16(mu8String)
 /// @brief M-UTF-8到UTF-16字符串转换的便捷宏
 /// @param mu8String M-UTF-8字符串视图
 /// @return 转换后的UTF-16字符串
 #define MU8CV2U16(mu8String) MUTF8_Tool<>::MU8ToU16(mu8String)
 
-/// @def U8CV2MU8(u8String)
 /// @brief UTF-8到M-UTF-8字符串转换的便捷宏
 /// @param u8String UTF-8字符串视图
 /// @return 转换后的M-UTF-8字符串
 #define U8CV2MU8(u8String) MUTF8_Tool<>::U8ToMU8(u8String)
 
-/// @def MU8CV2U8(mu8String)
 /// @brief M-UTF-8到UTF-8字符串转换的便捷宏
 /// @param mu8String M-UTF-8字符串视图
 /// @return 转换后的UTF-8字符串
@@ -1068,14 +1064,12 @@ public:
 //静态转换
 //在mutf-8中，任何字符串结尾\0都会被映射成0xC0 0x80，且保证串中不包含\0，所以一定程度上可以和c-str（以\0结尾）兼容
 
-/// @def U16TOMU8STR(u16LiteralString)
 /// @brief UTF-16字符串字面量到M-UTF-8静态字符串数组的编译期转换宏
 /// @param u16LiteralString UTF-16字符串字面量
 /// @return 编译期生成的std::array存储的静态字符串数组
 /// @note 在M-UTF-8中，任何字符串结尾\\0都会被映射成0xC0 0x80，且保证串中不包含\\0，所以一定程度上可以和C字符串（以\\0结尾）兼容
 #define U16TOMU8STR(u16LiteralString) (MUTF8_Tool<>::U16ToMU8<u16LiteralString>())
 
-/// @def U8TOMU8STR(u8LiteralString)
 /// @brief UTF-8字符串字面量到M-UTF-8静态字符串数组的编译期转换宏
 /// @param u8LiteralString UTF-8字符串字面量
 /// @return 编译期生成的std::array存储的静态字符串数组
