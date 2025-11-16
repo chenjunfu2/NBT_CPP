@@ -1041,25 +1041,25 @@ public:
 
 //动态转换
 
-/// @def
+/// @def U16CV2MU8(u16String)
 /// @brief UTF-16到M-UTF-8字符串转换的便捷宏
 /// @param u16String UTF-16字符串视图
 /// @return 转换后的M-UTF-8字符串
 #define U16CV2MU8(u16String) MUTF8_Tool<>::U16ToMU8(u16String)
 
-/// @def
+/// @def MU8CV2U16(mu8String)
 /// @brief M-UTF-8到UTF-16字符串转换的便捷宏
 /// @param mu8String M-UTF-8字符串视图
 /// @return 转换后的UTF-16字符串
 #define MU8CV2U16(mu8String) MUTF8_Tool<>::MU8ToU16(mu8String)
 
-/// @def
+/// @def U8CV2MU8(u8String)
 /// @brief UTF-8到M-UTF-8字符串转换的便捷宏
 /// @param u8String UTF-8字符串视图
 /// @return 转换后的M-UTF-8字符串
 #define U8CV2MU8(u8String) MUTF8_Tool<>::U8ToMU8(u8String)
 
-/// @def
+/// @def MU8CV2U8(mu8String)
 /// @brief M-UTF-8到UTF-8字符串转换的便捷宏
 /// @param mu8String M-UTF-8字符串视图
 /// @return 转换后的UTF-8字符串
