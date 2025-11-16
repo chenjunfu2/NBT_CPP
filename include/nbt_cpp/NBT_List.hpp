@@ -8,6 +8,8 @@
 
 #include "NBT_Type.hpp"
 
+/// @file
+
 class NBT_Reader;
 class NBT_Writer;
 class NBT_Helper;

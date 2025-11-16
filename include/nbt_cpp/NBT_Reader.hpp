@@ -14,6 +14,8 @@
 #include "NBT_Node.hpp"//nbt类型
 #include "NBT_Endian.hpp"//字节序
 
+/// @file
+
 class NBT_Reader
 {
 	/// @brief 禁止构造

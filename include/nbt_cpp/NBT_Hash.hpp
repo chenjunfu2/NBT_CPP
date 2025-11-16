@@ -3,6 +3,8 @@
 #include <xxhash.h>
 #include <type_traits>
 
+/// @file
+
 /// @brief 一个封装xxhash调用的用于计算哈希的辅助类
 /// @note 该类仅在安装xxhash的情况下有效
 class NBT_Hash

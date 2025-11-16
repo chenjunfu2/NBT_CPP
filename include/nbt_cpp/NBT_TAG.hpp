@@ -4,6 +4,8 @@
 #include <stddef.h>//size_t
 #include <compare>
 
+/// @file
+
 using NBT_TAG_RAW_TYPE = uint8_t;
 enum class NBT_TAG : NBT_TAG_RAW_TYPE
 {

@@ -10,6 +10,8 @@
 
 #include "NBT_TAG.hpp"
 
+/// @file
+
 class NBT_Node;
 template <typename Array>
 class NBT_Array;

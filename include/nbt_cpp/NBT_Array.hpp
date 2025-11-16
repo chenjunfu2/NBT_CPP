@@ -2,6 +2,8 @@
 
 #include <vector>
 
+/// @file
+
 class NBT_Reader;
 class NBT_Writer;
 class NBT_Helper;

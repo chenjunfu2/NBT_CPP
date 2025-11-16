@@ -15,6 +15,8 @@
 #include "NBT_Node.hpp"//nbt类型
 #include "NBT_Endian.hpp"//字节序
 
+/// @file
+
 class NBT_Writer
 {
 	NBT_Writer(void) = delete;
