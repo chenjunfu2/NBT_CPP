@@ -170,7 +170,7 @@ public:
 	/// @brief 用于编译期检查一个给定类型是否为NBT中的类型
 	/// @{
 
-	/// @brief 基础声明
+	/// @brief 类型检查基础声明
 	/// @tparam T 类型
 	/// @tparam List 类型列表
 	template <typename T, typename List>
@@ -206,7 +206,7 @@ public:
 		return bFound ? tagIndex : (NBT_TAG_RAW_TYPE)-1;
 	}
 
-	/// @brief 基础声明
+	/// @brief 类型标签查找基础声明
 	template <typename T, typename List>
 	struct TypeTagImpl;
 
@@ -229,7 +229,7 @@ public:
 	/// @brief 编译期获取NBT类型的个数
 	/// @{
 
-	/// @brief 基础声明
+	/// @brief 类型列表大小计算基础声明
 	template <typename List>
 	struct TypeListSize;
 
@@ -291,7 +291,7 @@ public:
 	/// 部分平台对浮点数支持不完整的情况下，映射类型可能与原始类型相同，因为原始类型被声明为映射类型
 	/// @{
 
-	/// @brief 基础声明
+	/// @brief 内建类型原始类型映射基础声明
 	template<typename T>
 	struct BuiltinRawType
 	{
@@ -310,7 +310,7 @@ public:
 
 //显示特化
 
-/// @brief Float浮点数特化
+/// @brief Float类型映射特化
 template<>
 struct NBT_Type::BuiltinRawType<NBT_Type::Float>//浮点数映射
 {
@@ -318,7 +318,7 @@ struct NBT_Type::BuiltinRawType<NBT_Type::Float>//浮点数映射
 	static_assert(sizeof(Type) == sizeof(Float), "Type size does not match!");
 };
 
-/// @brief Double浮点数特化
+/// @brief Double类型映射特化
 template<>
 struct NBT_Type::BuiltinRawType<NBT_Type::Double>//浮点数映射
 {
