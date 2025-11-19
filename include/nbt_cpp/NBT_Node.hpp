@@ -12,7 +12,8 @@
 /// @file
 
 //在这里，所有依赖的定义都已完备，给出方便调用获取字符串字面量的的宏定义
-#define MU8STR(charLiteralString) (NBT_Type::String::View(U8TOMU8STR(u8##charLiteralString)))//从工具返回的std::string_view构造到nbt的string::view
+#define MU8STR(charLiteralString) (NBT_Type::String(U8TOMU8STR(u8##charLiteralString)))//从工具返回的std::string_view构造到nbt的string::view
+#define MU8STRV(charLiteralString) (NBT_Type::String::View(U8TOMU8STR(u8##charLiteralString)))//从工具返回的std::string_view构造到nbt的string::view
 
 template <bool bIsConst>
 class NBT_Node_View;
