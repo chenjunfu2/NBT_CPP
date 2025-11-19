@@ -64,16 +64,6 @@ public:
 	constexpr NBT_StringView(const typename StringView::value_type(&ltrStr)[N]) :StringView(ltrStr, CalcStringViewSize(ltrStr, N))
 	{}
 
-	/// @brief 通过std::array初始化
-	/// @tparam N 数组的长度，自动计算
-	/// @param strArray std::array的引用
-	/// @note 这里的std::array通常是由MUTF8_Tool构造并返回的静态Modified-UTF-8字符数组。
-	/// 因为View仅构造为视图，不持有对象，如果引用的对象提前结束生命周期，会导致未定义行为，
-	/// 请保证被View引用的对象生存周期大于View，或在生存周期结束后不再使用由其初始化的View。
-	template<size_t N>//注意，array不会CalcStringSize以删除不必要的结尾，因为预期array不包含任何结尾，以size代表长度。
-	constexpr NBT_StringView(const std::array<typename StringView::value_type, N> &strArray) : StringView(strArray.data(), strArray.size())
-	{}
-
 	/// @brief 通过对应的NBT_String，也就是NBT_Type::String显示初始化为视图View
 	/// @param myString 当前类对应的NBT_String的引用
 	/// @note 显示构造的目的是防止意外的非持有性转换导致非预期的对象生命周期。
