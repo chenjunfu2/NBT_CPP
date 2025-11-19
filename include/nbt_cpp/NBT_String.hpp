@@ -150,13 +150,6 @@ public:
 	NBT_String(const typename String::value_type(&ltrStr)[N]) :String(ltrStr, CalcStringSize(ltrStr, N))
 	{}
 
-	/// @brief 通过std::array初始化
-	/// @param strArray std::array的引用
-	/// @note 这里的std::array通常是由MUTF8_Tool构造并返回的静态Modified-UTF-8字符数组。
-	template<size_t N>//注意，array不会CalcStringSize以删除不必要的结尾，因为预期array不包含任何结尾，以size代表长度。
-	NBT_String(const std::array<typename String::value_type, N> &strArray) :String(strArray.data(), strArray.size())
-	{}
-
 	/// @brief 从对应的视图View类型中构造String
 	/// @param view 视图类型View的引用
 	NBT_String(const View &view) :String(view)

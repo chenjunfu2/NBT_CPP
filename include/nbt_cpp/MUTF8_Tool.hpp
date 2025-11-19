@@ -42,6 +42,16 @@ namespace MUTF8_Tool_Internal
 		/// @note 编译期构造
 		constexpr ~StringLiteral(void) = default;
 	};
+
+	/// @brief 利用模板固化编译期求值函数返回的数组临时量
+	/// @tparam ArrayData 函数返回的临时量
+	/// @tparam View_Type 字符串视图类型
+	/// @return 保存编译期固化的字符数组作为的字符串视图
+	template<auto ArrayData, typename View_Type>
+	consteval View_Type ToStringView(void) noexcept
+	{
+		return { ArrayData.data(), ArrayData.size() };
+	}
 }
 
 /// @brief 用于处理Java的Modified-UTF-8（以下简称M-UTF-8）字符串与UTF-8或UTF-16的静态或动态转换
@@ -893,16 +903,16 @@ public:
 
 	/// @brief 通过UTF-16字符串字面量，直接获得编译期的M-UTF-8静态字符串
 	/// @tparam u16String UTF-16字符串字面量，用于构造MUTF8_Tool_Internal::StringLiteral
-	/// @return 一个由std::array存储的静态字符串数组，可用于构造NBT_Type::String或它的View类型
+	/// @return 一个由std::basic_string_view存储的静态字符串数组，可用于构造NBT_Type::String或进行比较等
 	/// @note 此函数仅能在编译期使用
 	template<MUTF8_Tool_Internal::StringLiteral u16String>
 	requires std::is_same_v<typename decltype(u16String)::value_type, U16T>//限定类型
-	static consteval auto U16ToMU8(void)
+	static consteval std::basic_string_view<MU8T> U16ToMU8(void)
 	{
 		constexpr size_t szStringLength = ContentLength(u16String);
 		constexpr size_t szNewLength = U16ToMU8Impl<FakeStringCounter<MU8T>>(u16String.data(), szStringLength).GetData();
 
-		return U16ToMU8Impl<StaticString<MU8T, szNewLength>>(u16String.data(), szStringLength).GetData();
+		return MUTF8_Tool_Internal::ToStringView<U16ToMU8Impl<StaticString<MU8T, szNewLength>>(u16String.data(), szStringLength).GetData(), std::basic_string_view<MU8T>>();
 	}
 
 	//---------------------------------------------------------------------------------------------//
@@ -949,16 +959,16 @@ public:
 
 	/// @brief 通过UTF-8字符串字面量，直接获得编译期的M-UTF-8静态字符串
 	/// @tparam u8String UTF-8字符串字面量，用于构造MUTF8_Tool_Internal::StringLiteral
-	/// @return 一个由std::array存储的静态字符串数组，可用于构造NBT_Type::String或它的View类型
+	/// @return 一个由std::string_view存储的静态字符串数组，可用于构造NBT_Type::String或进行比较等
 	/// @note 此函数仅能在编译期使用
 	template<MUTF8_Tool_Internal::StringLiteral u8String>
 	requires std::is_same_v<typename decltype(u8String)::value_type, U8T>//限定类型
-	static consteval auto U8ToMU8(void)
+	static consteval std::basic_string_view<MU8T> U8ToMU8(void)
 	{
 		constexpr size_t szStringLength = ContentLength(u8String);
 		constexpr size_t szNewLength = U8ToMU8Impl<FakeStringCounter<MU8T>>(u8String.data(), szStringLength).GetData();
 
-		return U8ToMU8Impl<StaticString<MU8T, szNewLength>>(u8String.data(), szStringLength).GetData();
+		return MUTF8_Tool_Internal::ToStringView<U8ToMU8Impl<StaticString<MU8T, szNewLength>>(u8String.data(), szStringLength).GetData(), std::basic_string_view<MU8T>>();
 	}
 
 	//---------------------------------------------------------------------------------------------//
