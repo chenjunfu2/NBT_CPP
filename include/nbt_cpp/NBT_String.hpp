@@ -53,6 +53,16 @@ public:
 	/// @brief 继承基类构造
 	using StringView::StringView;
 
+	/// @brief 提供从父类拷贝构造此类的途径
+	/// @param _Copy 需要拷贝构造的对象
+	constexpr NBT_StringView(const StringView &_Copy) :StringView(_Copy)
+	{}
+
+	/// @brief 提供从父类移动构造此类的途径
+	/// @param _Move 需要移动构造的对象
+	constexpr NBT_StringView(StringView &&_Move) : StringView(std::move(_Move))
+	{}
+
 	/// @brief 通过c风格字符串或字符数组初始化
 	/// @tparam N 数组的长度，自动计算
 	/// @param ltrStr 数组的引用
@@ -140,9 +150,14 @@ public:
 	NBT_String(const typename String::value_type(&ltrStr)[N]) :String(ltrStr, CalcStringSize(ltrStr, N))
 	{}
 
-	/// @brief 从对应的视图View类型中构造String
+	/// @brief 从对应的视图类型View中构造String
 	/// @param view 视图类型View的引用
 	NBT_String(const View &view) :String(view)
+	{}
+
+	/// @brief 从对应的视图类型View的父类构造String
+	/// @param _View 视图类型View的父类的引用
+	NBT_String(const StringView &_View) :String(_View)
 	{}
 
 	/// @brief 直接从当前对象获取char类型的视图
