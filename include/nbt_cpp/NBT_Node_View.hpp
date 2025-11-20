@@ -76,13 +76,13 @@ public:
 		static_assert(NBT_Type::IsValidType_V<std::decay_t<T>>, "Invalid type for NBT node view");
 	}
 
-	/// @brief 用于一定程度防止用户直接使用临时对象初始化视图的防御手段
-	/// @tparam T 任意类型
-	/// @param value 任意类型的临时对象
-	/// @note 这是一个删除的构造函数
+	/// @brief 删除临时对象构造方式，防止从临时对象构造导致悬空指针
+	/// @tparam T 临时对象的类型
+	/// @param _Temp 任意类型的临时对象
+	/// @note 这是一个删除的构造函数，用于一定程度上防御用户通过临时对象构造
 	template <typename T>
 	requires(!std::is_same_v<std::decay_t<T>, NBT_Node>)//这里的requires是为了保证不要让任意类型的右值全部重载到这里
-	NBT_Node_View(T &&value) = delete;
+	NBT_Node_View(T &&_Temp) = delete;
 
 	/// @brief 从NBT_Node构造视图（适用于const与非const的情况）
 	/// @param node 要创建视图的NBT_Node对象
@@ -110,14 +110,14 @@ public:
 			}, node.data);
 	}
 
-	/// @brief 用于一定程度防止用户直接使用临时对象初始化视图的防御手段
-	/// @param node NBT_Node类型的临时对象
-	/// @note 这是一个删除的构造函数
-	NBT_Node_View(NBT_Node &&node) = delete;
+	/// @brief 删除临时对象构造方式，防止从临时对象构造导致悬空指针
+	/// @param _Temp NBT_Node类型的临时对象
+	/// @note 这是一个删除的构造函数，用于一定程度上防御用户通过临时对象构造
+	NBT_Node_View(NBT_Node &&_Temp) = delete;
 
 	/// @brief 从非const视图隐式构造const视图
 	/// @tparam void 占位模板参数
-	/// @param other 用于构造的非const视图对象
+	/// @param _Other 用于构造的非const视图对象
 	/// @note 从NBT_Node_View<false>隐式构造为NBT_Node_View<true>
 	template <typename = void>//requires占位模板
 	requires(bIsConst)//此构造只在const的情况下生效，不能从const视图转换到非const视图
