@@ -136,30 +136,46 @@ private:
 public:
 
 	/// @brief 默认析构函数
-	/// @note 视图析构不会影响实际数据对象，只释放内部指针引用
+	/// @note 视图析构不会影响实际数据对象，只释放内部指针
 	~NBT_Node_View() = default;
 
-	//拷贝构造
-	NBT_Node_View(const NBT_Node_View &_NBT_Node_View) : data(_NBT_Node_View.data)
+	/// @brief 拷贝构造函数
+	/// @param _Copy 要拷贝的源视图对象
+	/// @note 拷贝构造会创建指向相同数据对象的新视图，这可以让多个视图引用同一段数据
+	NBT_Node_View(const NBT_Node_View &_Copy) : data(_Copy.data)
 	{}
 
-	//移动构造
-	NBT_Node_View(NBT_Node_View &&_NBT_Node_View) noexcept : data(std::move(_NBT_Node_View.data))
+	/// @brief 移动构造函数
+	/// @param _Move 要移动的源视图对象
+	/// @note 移动构造会转移指针引用，原视图将变为无效状态
+	NBT_Node_View(NBT_Node_View &&_Move) noexcept : data(std::move(_Move.data))
 	{}
 
-	NBT_Node_View &operator=(const NBT_Node_View &_NBT_Node_View)
+	/// @brief 拷贝赋值运算符
+	/// @param _Copy 要拷贝的源视图对象
+	/// @return 当前视图对象的引用
+	/// @note 赋值操作会使当前视图指向与源视图相同的数据对象，这可以让多个视图引用同一段数据
+	NBT_Node_View &operator=(const NBT_Node_View &_Copy)
 	{
-		data = _NBT_Node_View.data;
+		data = _Copy.data;
 		return *this;
 	}
 
-	NBT_Node_View &operator=(NBT_Node_View &&_NBT_Node_View) noexcept
+	/// @brief 移动赋值运算符
+	/// @param _Move 要移动的源视图对象
+	/// @return 当前视图对象的引用
+	/// @note 移动赋值会转移指针引用，原视图将变为无效状态
+	NBT_Node_View &operator=(NBT_Node_View &&_Move) noexcept
 	{
-		data = std::move(_NBT_Node_View.data);
+		data = std::move(_Move.data);
 		return *this;
 	}
 
-
+	/// @brief 相等比较运算符
+	/// @param _Right 要比较的右操作数
+	/// @return 是否相等
+	/// @note 比较两个视图指向的数据内容是否相等，如果两个视图存储的类型不同则直接返回false，
+	/// 否则会返回引用的对象的比较结果
 	bool operator==(const NBT_Node_View &_Right) const noexcept
 	{
 		if (GetTag() != _Right.GetTag())
@@ -174,6 +190,11 @@ public:
 			}, this->data, _Right.data);
 	}
 
+	/// @brief 不等比较运算符
+	/// @param _Right 要比较的右操作数
+	/// @return 是否不相等
+	/// @note 比较两个视图指向的数据内容是否不相等，如果两个视图存储的类型不同则直接返回false，
+	/// 否则会返回引用的对象的比较结果
 	bool operator!=(const NBT_Node_View &_Right) const noexcept
 	{
 		if (GetTag() != _Right.GetTag())
@@ -188,6 +209,11 @@ public:
 			}, this->data, _Right.data);
 	}
 
+	/// @brief 三路比较运算符
+	/// @param _Right 要比较的右操作数
+	/// @return 比较结果，通过std::partial_ordering返回
+	/// @note 比较两个视图指向的数据内容，如果两个视图存储的类型不同则直接返回unordered，
+	/// 否则会返回引用的对象的比较结果
 	std::partial_ordering operator<=>(const NBT_Node_View &_Right) const noexcept
 	{
 		if (GetTag() != _Right.GetTag())
@@ -202,40 +228,46 @@ public:
 			}, this->data, _Right.data);
 	}
 
-	//获取标签类型
+	/// @brief 获取当前视图指向的NBT类型的枚举值
+	/// @return NBT类型枚举值
 	NBT_TAG GetTag() const noexcept
 	{
 		return (NBT_TAG)data.index();//返回当前存储类型的index（0基索引，与NBT_TAG enum一一对应）
 	}
 
-	//类型安全访问
+	/// @brief 通过指定类型获取当前视图指向的数据对象
+	/// @tparam T 要访问的数据类型
+	/// @return 对指向数据的常量引用
+	/// @note 如果类型不存在或当前存储的不是指定类型的指针，则抛出标准库异常，具体请参考std::get的说明
 	template<typename T>
 	const T &GetData() const
 	{
 		return *std::get<PtrType<T>>(data);
 	}
 
+	/// @brief 通过指定类型获取当前视图指向的数据对象（仅适用于非const视图）
+	/// @tparam T 要访问的数据类型
+	/// @return 对指向数据的引用
+	/// @note 如果类型不存在或当前存储的不是指定类型的指针，则抛出标准库异常，具体请参考std::get的说明
 	template<typename T>
-	requires(!bIsConst)
+	requires(!bIsConst)//仅在非const的情况下可用
 	T &GetData()
 	{
 		return *std::get<PtrType<T>>(data);
 	}
 
-	// 类型检查
+	/// @brief 类型判断
+	/// @tparam T 要判断的数据类型
+	/// @return 当前视图是否指向指定类型的数据
 	template<typename T>
 	bool TypeHolds() const
 	{
 		return std::holds_alternative<PtrType<T>>(data);
 	}
 
-	//针对每种类型重载一个方便的函数
-	/*
-		纯类型名函数：直接获取此类型，不做任何检查，由标准库std::get具体实现决定
-		Is开头的类型名函数：判断当前NBT_Node是否为此类型
-		纯类型名函数带参数版本：查找当前Compound指定的Name并转换到类型引用返回，不做检查，具体由标准库实现定义
-		Has开头的类型名函数带参数版本：查找当前Compound是否有特定Name的Tag，并返回此Name的Tag（转换到指定类型）的指针
-	*/
+//针对每种类型重载一个方便的函数
+//通过宏定义批量生成
+
 #define TYPE_GET_FUNC(type)\
 const NBT_Type::type &Get##type() const\
 {\
