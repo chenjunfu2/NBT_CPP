@@ -15,9 +15,9 @@
 //	return {};
 //}
 
-void PrintBool(bool b)
+void PrintBool(bool b, const char *s = "", const char *e = "")
 {
-	printf("%s", b ? "true" : "false");
+	printf("%s%s%s", s, b ? "true" : "false", e);
 }
 
 class MyTestValue
@@ -147,7 +147,7 @@ return 0;
 */
 //#define WRITE_TO_FILE
 
-int main(int argc, char *argv[])
+int mainzk(int argc, char *argv[])
 {
 #ifdef GITHUB_ACTIONS
 	return 0;//本地使用，仅用于在GitHub Workflow上过检测
@@ -524,6 +524,32 @@ int mainhh(void)
 	{
 		printf("%02X ", it);
 	}
+
+	return 0;
+}
+
+int main(void)
+{
+	NBT_Node node_cpd{ NBT_Type::Compound{} };
+
+	PrintBool(node_cpd.IsCompound(), "", "\n");
+	PrintBool(IsCompound(node_cpd), "", "\n");
+	PrintBool(node_cpd.IsList(), "", "\n");
+	PrintBool(IsList(node_cpd), "", "\n");
+
+	NBT_Type::Compound cpd{};
+
+	NBT_Node_View<true> const_view_cpd{ cpd };
+	PrintBool(const_view_cpd.IsCompound(), "", "\n");
+	PrintBool(IsCompound(const_view_cpd), "", "\n");
+	PrintBool(const_view_cpd.IsList(), "", "\n");
+	PrintBool(IsList(const_view_cpd), "", "\n");
+
+	NBT_Node_View<false> view_cpd{ cpd };
+	PrintBool(view_cpd.IsCompound(), "", "\n");
+	PrintBool(IsCompound(view_cpd), "", "\n");
+	PrintBool(view_cpd.IsList(), "", "\n");
+	PrintBool(IsList(view_cpd), "", "\n");
 
 	return 0;
 }
