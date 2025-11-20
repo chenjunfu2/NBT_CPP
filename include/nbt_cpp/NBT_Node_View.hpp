@@ -319,6 +319,16 @@ friend std::conditional_t<bIsConst, const NBT_Type::type &, NBT_Type::type &> Ge
 friend std::conditional_t<bIsConst, const NBT_Type::type &, NBT_Type::type &> &Get##type(const NBT_Node_View & node)\
 {\
 	return node.Get##type();\
+}\
+\
+/**\
+* @brief 友元函数：检查目标对象中是否指向 type 类型的数据\
+* @param node 要检查的对象\
+* @return 对象中是否指向 type 类型\
+*/\
+friend bool Is##type(const NBT_Node_View &node)\
+{\
+	return node.Is##type();\
 }
 
 	/// @name 针对每种类型提供一个方便使用的函数，由宏批量生成
