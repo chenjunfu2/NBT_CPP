@@ -9,13 +9,13 @@
 //构造传入nullptr指针且进行使用则后果自负
 
 /// @class NBT_Node_View
-/// @brief NBT节点的视图，用于引用而不持有对象，类似于标准库的std::string与std::string_view的关系
+/// @brief NBT节点的视图，用于指向而不持有对象，类似于标准库的std::string与std::string_view的关系
 /// @note 该类使用std::variant变体来存储指向不同类型NBT数据的指针，提供类型安全的访问接口
 /// @warning 视图类不持有实际数据对象，只持有指向外部数据的指针，它也不会延长外部对象或临时对象的生命周期。如果外部数据被销毁后继续使用视图则行为未定义，用户需自行负责数据生命周期管理
-/// @tparam bIsConst 模板参数，指定视图是否持有数据的只读引用，为true则持有对象的const指针，为false持有对象的非const指针。
-/// 这里的模板值控制的状态类似于指向const对象的指针与指向对象的const指针的区别。
+/// @tparam bIsConst 模板参数，指定视图是否持有数据的const指针，为true则持有对象的const指针，为false持有对象的非const指针。
+/// 这里的模板值控制的状态与类是否为const类，类似于指向const对象的指针与指向对象的const指针的区别，模板控制的是指向的对象是否不可修改，而类是否const控制的是类是否能修改指向。
 /// @note 与NBT_Node强制持有对象所有权不同，NBT_Node_View提供轻量级访问方式，适用于：
-/// - 函数参数传递：避免拷贝开销，或者移动的持有权转移，可以直接引用现有NBT数据对象本身
+/// - 函数参数传递：避免拷贝开销，或者移动的持有权转移，可以直接指向现有NBT数据对象本身
 /// - 临时数据访问：在明确数据生命周期时提供零拷贝访问
 /// - 统一接口处理：以变体方式兼容任意NBT类型，同时保持对原始数据的直接操作能力
 template <bool bIsConst>
@@ -49,26 +49,26 @@ private:
 	//数据对象（仅持有数据的指针）
 	VariantData data;
 public:
-	/// @brief 静态常量，表示当前视图引用的数据是否只读
+	/// @brief 静态常量，表示当前视图指向的数据是否只读
 	static inline constexpr bool is_const = bIsConst;
 
 	/// @brief 通用构造函数（适用于const与非const的情况）
-	/// @tparam T 要引用的数据类型
-	/// @param value 要引用的数据对象的引用
+	/// @tparam T 要指向的数据类型
+	/// @param value 要指向的数据对象的引用
 	/// @note 要求类型T必须是NBT_Type类型列表中的任意一个，且不是NBT_Node类型
-	/// @note 传入的引用对象必须在使用期间保持有效，否则行为未定义
+	/// @note 传入的对象必须在使用期间保持有效，否则行为未定义
 	template <typename T>
-	requires(!std::is_same_v<std::decay_t<T>, NBT_Node>)//此构造任何时候都生效，const的情况下可以引用非const对象的指针
+	requires(!std::is_same_v<std::decay_t<T>, NBT_Node>)//此构造任何时候都生效，const的情况下可以指向非const对象的指针
 	NBT_Node_View(T &value) : data(&value)
 	{
 		static_assert(NBT_Type::IsValidType_V<std::decay_t<T>>, "Invalid type for NBT node view");
 	}
 
 	/// @brief 通用构造函数（仅适用于const）
-	/// @tparam T 要引用的数据类型
-	/// @param value 要引用的数据对象的常量引用
+	/// @tparam T 要指向的数据类型
+	/// @param value 要指向的数据对象的常量引用
 	/// @note 要求类型T必须是NBT_Type类型列表中的任意一个，且不是NBT_Node类型
-	/// @warning 传入的引用对象必须在使用期间保持有效，否则行为未定义
+	/// @warning 传入的对象必须在使用期间保持有效，否则行为未定义
 	template <typename T>
 	requires(!std::is_same_v<std::decay_t<T>, NBT_Node> && bIsConst)//此构造只在const的情况下生效，因为非const的情况下不能通过const对象初始化非const指针
 	NBT_Node_View(const T &value) : data(&value)
@@ -141,20 +141,20 @@ public:
 
 	/// @brief 拷贝构造函数
 	/// @param _Copy 要拷贝的源视图对象
-	/// @note 拷贝构造会创建指向相同数据对象的新视图，这可以让多个视图引用同一段数据
+	/// @note 拷贝构造会创建指向相同数据对象的新视图，这可以让多个视图指向同一段数据
 	NBT_Node_View(const NBT_Node_View &_Copy) : data(_Copy.data)
 	{}
 
 	/// @brief 移动构造函数
 	/// @param _Move 要移动的源视图对象
-	/// @note 移动构造会转移指针引用，原视图将变为无效状态
+	/// @note 移动构造会转移指针，原视图将变为无效状态
 	NBT_Node_View(NBT_Node_View &&_Move) noexcept : data(std::move(_Move.data))
 	{}
 
 	/// @brief 拷贝赋值运算符
 	/// @param _Copy 要拷贝的源视图对象
-	/// @return 当前视图对象的引用
-	/// @note 赋值操作会使当前视图指向与源视图相同的数据对象，这可以让多个视图引用同一段数据
+	/// @return 当前视图对象指向的数据的引用
+	/// @note 赋值操作会使当前视图指向与源视图相同的数据对象，这可以让多个视图指向同一段数据
 	NBT_Node_View &operator=(const NBT_Node_View &_Copy)
 	{
 		data = _Copy.data;
@@ -163,8 +163,8 @@ public:
 
 	/// @brief 移动赋值运算符
 	/// @param _Move 要移动的源视图对象
-	/// @return 当前视图对象的引用
-	/// @note 移动赋值会转移指针引用，原视图将变为无效状态
+	/// @return 当前视图对象指向的数据的引用
+	/// @note 移动赋值会转移指针，原视图将变为无效状态
 	NBT_Node_View &operator=(NBT_Node_View &&_Move) noexcept
 	{
 		data = std::move(_Move.data);
@@ -175,7 +175,7 @@ public:
 	/// @param _Right 要比较的右操作数
 	/// @return 是否相等
 	/// @note 比较两个视图指向的数据内容是否相等，如果两个视图存储的类型不同则直接返回false，
-	/// 否则会返回引用的对象的比较结果
+	/// 否则会返回指向的对象的比较结果
 	bool operator==(const NBT_Node_View &_Right) const noexcept
 	{
 		if (GetTag() != _Right.GetTag())
@@ -194,7 +194,7 @@ public:
 	/// @param _Right 要比较的右操作数
 	/// @return 是否不相等
 	/// @note 比较两个视图指向的数据内容是否不相等，如果两个视图存储的类型不同则直接返回false，
-	/// 否则会返回引用的对象的比较结果
+	/// 否则会返回指向的对象的比较结果
 	bool operator!=(const NBT_Node_View &_Right) const noexcept
 	{
 		if (GetTag() != _Right.GetTag())
@@ -213,7 +213,7 @@ public:
 	/// @param _Right 要比较的右操作数
 	/// @return 比较结果，通过std::partial_ordering返回
 	/// @note 比较两个视图指向的数据内容，如果两个视图存储的类型不同则直接返回unordered，
-	/// 否则会返回引用的对象的比较结果
+	/// 否则会返回指向的对象的比较结果
 	std::partial_ordering operator<=>(const NBT_Node_View &_Right) const noexcept
 	{
 		if (GetTag() != _Right.GetTag())
@@ -269,11 +269,21 @@ public:
 //通过宏定义批量生成
 
 #define TYPE_GET_FUNC(type)\
+/**\
+ * @brief 获取当前视图指向的 type 类型的数据\
+ * @return 对指定类型数据的常量引用\
+ * @note 如果类型不存在或当前指向的不是 type 类型，则抛出标准库异常，具体请参考std::get的说明\
+ */\
 const NBT_Type::type &Get##type() const\
 {\
 	return *std::get<PtrType<NBT_Type::type>>(data);\
 }\
 \
+/**\
+ * @brief 获取当前视图指向的 type 类型的数据（仅适用于非const视图）\
+ * @return 对指定类型数据的引用\
+ * @note 如果类型不存在或当前指向的不是 type 类型，则抛出标准库异常，具体请参考std::get的说明\
+ */\
 template <typename = void>\
 requires(!bIsConst)\
 NBT_Type::type &Get##type()\
@@ -281,19 +291,41 @@ NBT_Type::type &Get##type()\
 	return *std::get<PtrType<NBT_Type::type>>(data);\
 }\
 \
+/**\
+ * @brief 检查当前视图是否指向 type 类型的数据\
+ * @return 是否指向 type 类型\
+ */\
 bool Is##type() const\
 {\
 	return std::holds_alternative<PtrType<NBT_Type::type>>(data);\
 }\
+/**\
+ * @brief 友元函数：从NBT_Node_View对象中获取 type 类型的数据\
+ * @param node 要从中获取类型的NBT_Node_View对象\
+ * @return 对 type 类型数据的引用（根据视图的const属性决定返回常量引用或非常量引用）\
+ * @note 如果类型不存在或当前指向的不是 type 类型，则抛出标准库异常，具体请参考std::get的说明\
+ */\
 friend std::conditional_t<bIsConst, const NBT_Type::type &, NBT_Type::type &> Get##type(NBT_Node_View & node)\
 {\
 	return node.Get##type();\
 }\
 \
-friend const NBT_Type::type &Get##type(const NBT_Node_View & node)\
+/**\
+ * @brief 友元函数：从NBT_Node_View对象中获取 type 类型的数据\
+ * @param node 要从中获取类型的NBT_Node_View对象\
+ * @return 对 type 类型数据的引用（根据视图的const属性决定返回常量引用或非常量引用）\
+ * @note 如果类型不存在或当前指向的不是 type 类型，则抛出标准库异常，具体请参考std::get的说明\
+ */\
+friend std::conditional_t<bIsConst, const NBT_Type::type &, NBT_Type::type &> &Get##type(const NBT_Node_View & node)\
 {\
 	return node.Get##type();\
 }
+
+	/// @name 针对每种类型提供一个方便使用的函数，由宏批量生成
+	/// @brief 具体作用说明：
+	/// - Get开头+类型名的函数：直接获取此类型，不做任何检查，由标准库std::get具体实现决定
+	/// - Is开头 + 类型名的函数：判断当前NBT_Node_View是否指向此类型
+	/// @{
 
 	TYPE_GET_FUNC(End);
 	TYPE_GET_FUNC(Byte);
@@ -308,6 +340,8 @@ friend const NBT_Type::type &Get##type(const NBT_Node_View & node)\
 	TYPE_GET_FUNC(String);
 	TYPE_GET_FUNC(List);
 	TYPE_GET_FUNC(Compound);
+
+	/// @}
 
 #undef TYPE_GET_FUNC
 };
