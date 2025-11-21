@@ -238,7 +238,7 @@ public:
 	/// @brief 通过指定类型获取当前视图指向的数据对象
 	/// @tparam T 要访问的数据类型
 	/// @return 对指向数据的常量引用
-	/// @note 如果类型不存在或当前存储的不是指定类型的指针，则抛出标准库异常，具体请参考std::get的说明
+	/// @note 如果类型不存在或当前存储的不是指定类型的指针，则抛出异常，具体请参考std::get的说明
 	template<typename T>
 	const T &GetData() const
 	{
@@ -248,7 +248,7 @@ public:
 	/// @brief 通过指定类型获取当前视图指向的数据对象（仅适用于非const视图）
 	/// @tparam T 要访问的数据类型
 	/// @return 对指向数据的引用
-	/// @note 如果类型不存在或当前存储的不是指定类型的指针，则抛出标准库异常，具体请参考std::get的说明
+	/// @note 如果类型不存在或当前存储的不是指定类型的指针，则抛出异常，具体请参考std::get的说明
 	template<typename T>
 	requires(!bIsConst)//仅在非const的情况下可用
 	T &GetData()
@@ -272,7 +272,7 @@ public:
 /**\
  * @brief 获取当前视图指向的 type 类型的数据\
  * @return 对指定类型数据的常量引用\
- * @note 如果类型不存在或当前指向的不是 type 类型，则抛出标准库异常，具体请参考std::get的说明\
+ * @note 如果类型不存在或当前指向的不是 type 类型，则抛出异常，具体请参考std::get的说明\
  */\
 const NBT_Type::type &Get##type() const\
 {\
@@ -282,7 +282,7 @@ const NBT_Type::type &Get##type() const\
 /**\
  * @brief 获取当前视图指向的 type 类型的数据（仅适用于非const视图）\
  * @return 对指定类型数据的引用\
- * @note 如果类型不存在或当前指向的不是 type 类型，则抛出标准库异常，具体请参考std::get的说明\
+ * @note 如果类型不存在或当前指向的不是 type 类型，则抛出异常，具体请参考std::get的说明\
  */\
 template <typename = void>\
 requires(!bIsConst)\
@@ -303,7 +303,7 @@ bool Is##type() const\
  * @brief 友元函数：从NBT_Node_View对象中获取 type 类型的数据\
  * @param node 要从中获取类型的NBT_Node_View对象\
  * @return 对 type 类型数据的引用（根据视图的const属性决定返回常量引用或非常量引用）\
- * @note 如果类型不存在或当前指向的不是 type 类型，则抛出标准库异常，具体请参考std::get的说明\
+ * @note 如果类型不存在或当前指向的不是 type 类型，则抛出异常，具体请参考std::get的说明\
  */\
 friend std::conditional_t<bIsConst, const NBT_Type::type &, NBT_Type::type &> Get##type(NBT_Node_View & node)\
 {\
@@ -314,7 +314,7 @@ friend std::conditional_t<bIsConst, const NBT_Type::type &, NBT_Type::type &> Ge
  * @brief 友元函数：从NBT_Node_View对象中获取 type 类型的数据\
  * @param node 要从中获取类型的NBT_Node_View对象\
  * @return 对 type 类型数据的引用（根据视图的const属性决定返回常量引用或非常量引用）\
- * @note 如果类型不存在或当前指向的不是 type 类型，则抛出标准库异常，具体请参考std::get的说明\
+ * @note 如果类型不存在或当前指向的不是 type 类型，则抛出异常，具体请参考std::get的说明\
  */\
 friend std::conditional_t<bIsConst, const NBT_Type::type &, NBT_Type::type &> &Get##type(const NBT_Node_View & node)\
 {\
@@ -333,7 +333,7 @@ friend bool Is##type(const NBT_Node_View &node)\
 
 	/// @name 针对每种类型提供一个方便使用的函数，由宏批量生成
 	/// @brief 具体作用说明：
-	/// - Get开头+类型名的函数：直接获取此类型，不做任何检查，由标准库std::get具体实现决定
+	/// - Get开头+类型名的函数：直接获取此类型，不做任何检查，由std::get具体实现决定
 	/// - Is开头 + 类型名的函数：判断当前NBT_Node_View是否指向此类型
 	/// @{
 

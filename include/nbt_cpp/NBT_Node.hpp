@@ -53,7 +53,7 @@ private:
 	//数据对象（要求必须持有数据）
 	VariantData data;
 public:
-	/// @brief 显式构造函数（通过in_place_type_t指定目标类型）
+	/// @brief 显式类型构造函数（通过in_place_type_t指定目标类型）
 	/// @tparam T 要构造的数据类型
 	/// @tparam Args 变参模板，接受任意个可构造T类型的参数
 	/// @param args 用于构造类型T的参数列表
@@ -65,7 +65,7 @@ public:
 		static_assert(std::is_constructible_v<VariantData, Args&&...>, "Invalid constructor arguments for NBT_Node");
 	}
 
-	/// @brief 显式列表构造函数（通过in_place_type_t指定目标类型）
+	/// @brief 显式类型列表构造函数（通过in_place_type_t指定目标类型）
 	/// @tparam T 要构造的数据类型
 	/// @tparam U 用于构造T的初始化列表的元素类型，一般情况下可自动推导
 	/// @param init_list 用于构造类型T的初始化列表
@@ -77,7 +77,7 @@ public:
 		static_assert(std::is_constructible_v<VariantData, std::initializer_list<U>>, "Invalid constructor arguments for NBT_Node");
 	}
 
-	/// @brief 通用构造函数，可以拷贝或移动元素到对象内
+	/// @brief 通用类型构造函数，可以拷贝或移动元素到对象内
 	/// @tparam T 用于构造的数据类型
 	/// @param value 用于构造的数据值
 	/// @note 要求类型T必须是NBT_Type类型列表中的任意一个，且不是当前NBT_Node类型，同时参数必须要能构造目标类型
@@ -103,9 +103,10 @@ public:
 		return data.emplace<T>(std::forward<Args>(args)...);
 	}
 
-	/// @brief 通用赋值函数，替换当前对象，可以拷贝或移动元素到对象内
+	/// @brief 通用赋值运算符，可以拷贝或移动元素
 	/// @tparam T 要替换当前变体的数据类型
 	/// @param value 要替换当前变体的数据的值
+	/// @return 当前对象的引用
 	/// @note 要求类型T必须是NBT_Type类型列表中的任意一个，且不是当前NBT_Node类型，同时参数必须要能构造目标类型
 	template<typename T>
 	requires(!std::is_same_v<std::decay_t<T>, NBT_Node> && NBT_Type::IsValidType_V <std::decay_t<T>>)
@@ -193,7 +194,7 @@ public:
 	/// @brief 通过指定类型获取当前存储的数据对象
 	/// @tparam T 要访问的数据类型
 	/// @return 对存储数据的常量引用
-	/// @note 如果类型不存在或当前存储的不是指定类型的指针，则抛出标准库异常，具体请参考std::get的说明
+	/// @note 如果类型不存在或当前存储的不是指定类型的指针，则抛出异常，具体请参考std::get的说明
 	template<typename T>
 	const T &GetData() const
 	{
@@ -203,7 +204,7 @@ public:
 	/// @brief 通过指定类型获取当前存储的数据对象
 	/// @tparam T 要访问的数据类型
 	/// @return 对存储数据的引用
-	/// @note 如果类型不存在或当前存储的不是指定类型的指针，则抛出标准库异常，具体请参考std::get的说明
+	/// @note 如果类型不存在或当前存储的不是指定类型的指针，则抛出异常，具体请参考std::get的说明
 	template<typename T>
 	T &GetData()
 	{
@@ -226,7 +227,7 @@ public:
 /**\
  * @brief 获取当前对象中存储的 type 类型的数据\
  * @return 对指定类型数据的常量引用\
- * @note 如果类型不存在或当前存储的不是 type 类型，则抛出标准库异常，具体请参考std::get的说明\
+ * @note 如果类型不存在或当前存储的不是 type 类型，则抛出异常，具体请参考std::get的说明\
  */\
 const NBT_Type::type &Get##type() const\
 {\
@@ -236,7 +237,7 @@ const NBT_Type::type &Get##type() const\
 /**\
  * @brief 获取当前对象中存储的 type 类型的数据\
  * @return 对指定类型数据的引用\
- * @note 如果类型不存在或当前存储的不是 type 类型，则抛出标准库异常，具体请参考std::get的说明\
+ * @note 如果类型不存在或当前存储的不是 type 类型，则抛出异常，具体请参考std::get的说明\
  */\
 NBT_Type::type &Get##type()\
 {\
@@ -256,7 +257,7 @@ bool Is##type() const\
  * @brief 友元函数：从NBT_Node对象中获取 type 类型的数据\
  * @param node 要从中获取类型的NBT_Node对象\
  * @return 对 type 类型数据的引用\
- * @note 如果类型不存在或当前存储的不是 type 类型，则抛出标准库异常，具体请参考std::get的说明\
+ * @note 如果类型不存在或当前存储的不是 type 类型，则抛出异常，具体请参考std::get的说明\
  */\
 friend NBT_Type::type &Get##type(NBT_Node & node)\
 {\
@@ -267,7 +268,7 @@ friend NBT_Type::type &Get##type(NBT_Node & node)\
  * @brief 友元函数：从NBT_Node对象中获取 type 类型的数据\
  * @param node 要从中获取类型的NBT_Node对象\
  * @return 对 type 类型数据的常量引用\
- * @note 如果类型不存在或当前存储的不是 type 类型，则抛出标准库异常，具体请参考std::get的说明\
+ * @note 如果类型不存在或当前存储的不是 type 类型，则抛出异常，具体请参考std::get的说明\
  */\
 friend const NBT_Type::type &Get##type(const NBT_Node & node)\
 {\
@@ -286,7 +287,7 @@ friend bool Is##type(const NBT_Node &node)\
 
 	/// @name 针对每种类型提供一个方便使用的函数，由宏批量生成
 	/// @brief 具体作用说明：
-	/// - Get开头+类型名的函数：直接获取此类型，不做任何检查，由标准库std::get具体实现决定
+	/// - Get开头+类型名的函数：直接获取此类型，异常由std::get具体实现决定
 	/// - Is开头 + 类型名的函数：判断当前NBT_Node是否为此类型
 	/// @{
 
