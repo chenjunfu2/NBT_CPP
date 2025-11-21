@@ -382,11 +382,11 @@ public:
 
 #define TYPE_GET_FUNC(type)\
 /**
- * @brief 获取指定标签名的 type 类型数据
- * @param sTagName 标签名
- * @return type 类型数据的常量引用
- * @note 如果标签不存在或类型不匹配则抛出异常，
- * 具体请参考std::unordered_map关于at的说明与std::get的说明
+ @brief 获取指定标签名的 type 类型数据
+ @param sTagName 标签名
+ @return type 类型数据的常量引用
+ @note 如果标签不存在或类型不匹配则抛出异常，
+ 具体请参考std::unordered_map关于at的说明与std::get的说明
  */\
 const typename NBT_Type::type &Get##type(const typename Compound::key_type & sTagName) const\
 {\
@@ -394,11 +394,11 @@ const typename NBT_Type::type &Get##type(const typename Compound::key_type & sTa
 }\
 \
 /**
- * @brief 获取指定标签名的 type 类型数据
- * @param sTagName 标签名
- * @return type 类型数据的引用
- * @note 如果标签不存在或类型不匹配则抛出异常，
- * 具体请参考std::unordered_map关于at的说明与std::get的说明
+ @brief 获取指定标签名的 type 类型数据
+ @param sTagName 标签名
+ @return type 类型数据的引用
+ @note 如果标签不存在或类型不匹配则抛出异常，
+ 具体请参考std::unordered_map关于at的说明与std::get的说明
  */\
 typename NBT_Type::type &Get##type(const typename Compound::key_type & sTagName)\
 {\
@@ -406,10 +406,10 @@ typename NBT_Type::type &Get##type(const typename Compound::key_type & sTagName)
 }\
 \
 /**
- * @brief 安全检查并获取指定标签名的 type 类型数据
- * @param sTagName 标签名
- * @return 如果存在且对应值的类型为 type 则返回指向数据的常量指针，否则返回NULL
- * @note 标签不存在或类型不为 type 时不会抛出异常，适用于检查性访问
+ @brief 安全检查并获取指定标签名的 type 类型数据
+ @param sTagName 标签名
+ @return 如果存在且对应值的类型为 type 则返回指向数据的常量指针，否则返回NULL
+ @note 标签不存在或类型不为 type 时不会抛出异常，适用于检查性访问
  */\
 const typename NBT_Type::type *Has##type(const typename Compound::key_type & sTagName) const noexcept\
 {\
@@ -418,10 +418,10 @@ const typename NBT_Type::type *Has##type(const typename Compound::key_type & sTa
 }\
 \
 /**
- * @brief 安全检查并获取指定标签名的 type 类型数据
- * @param sTagName 标签名
- * @return 如果存在且对应值的类型为 type 则返回指向数据的指针，否则返回NULL
- * @note 标签不存在或类型不为 type 时不会抛出异常，适用于检查性访问
+ @brief 安全检查并获取指定标签名的 type 类型数据
+ @param sTagName 标签名
+ @return 如果存在且对应值的类型为 type 则返回指向数据的指针，否则返回NULL
+ @note 标签不存在或类型不为 type 时不会抛出异常，适用于检查性访问
  */\
 typename NBT_Type::type *Has##type(const typename Compound::key_type & sTagName) noexcept\
 {\
@@ -455,14 +455,14 @@ typename NBT_Type::type *Has##type(const typename Compound::key_type & sTagName)
 
 #define TYPE_PUT_FUNC(type)\
 /**
- * @brief 插入 type 类型的键值对（拷贝）
- * @tparam K 标签名类型，必须可构造为key_type
- * @param sTagName 标签名
- * @param vTagVal 要插入的 type 类型值
- * @return 包含迭代器和bool值的pair，指示插入是否成功及插入位置
- * @note 如果键已存在则插入失败
- * @note 允许插入End类型的值，这样设计的目的在于允许处理过程出现特殊值，
- * 请确保输出前处理完毕所有End类型，否则通过NBT_Write输出时会忽略这些值并生成警告
+ @brief 插入 type 类型的键值对（拷贝）
+ @tparam K 标签名类型，必须可构造为key_type
+ @param sTagName 标签名
+ @param vTagVal 要插入的 type 类型值
+ @return 包含迭代器和bool值的pair，指示插入是否成功及插入位置
+ @note 如果键已存在则插入失败
+ @note 允许插入End类型的值，这样设计的目的在于允许处理过程出现特殊值，
+ 请确保输出前处理完毕所有End类型，否则通过NBT_Write输出时会忽略这些值并生成警告
  */\
 template <typename K>\
 requires std::constructible_from<typename Compound::key_type, K &&>\
@@ -472,14 +472,14 @@ std::pair<typename Compound::iterator, bool> Put##type(K &&sTagName, const typen
 }\
 \
 /**
- * @brief 插入 type 类型的键值对（移动）
- * @tparam K 标签名类型，必须可构造为key_type
- * @param sTagName 标签名
- * @param vTagVal 要插入的 type 类型值
- * @return 包含迭代器和bool值的pair，指示插入是否成功及插入位置
- * @note 如果键已存在则插入失败
- * @note 允许插入End类型的值，这样设计的目的在于允许处理过程出现特殊值，
- * 请确保输出前处理完毕所有End类型，否则通过NBT_Write输出时会忽略这些值并生成警告
+ @brief 插入 type 类型的键值对（移动）
+ @tparam K 标签名类型，必须可构造为key_type
+ @param sTagName 标签名
+ @param vTagVal 要插入的 type 类型值
+ @return 包含迭代器和bool值的pair，指示插入是否成功及插入位置
+ @note 如果键已存在则插入失败
+ @note 允许插入End类型的值，这样设计的目的在于允许处理过程出现特殊值，
+ 请确保输出前处理完毕所有End类型，否则通过NBT_Write输出时会忽略这些值并生成警告
  */\
 template <typename K>\
 requires std::constructible_from<typename Compound::key_type, K &&>\
