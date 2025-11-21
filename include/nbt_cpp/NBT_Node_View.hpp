@@ -269,20 +269,20 @@ public:
 //通过宏定义批量生成
 
 #define TYPE_GET_FUNC(type)\
-/**\
- * @brief 获取当前视图指向的 type 类型的数据\
- * @return 对指定类型数据的常量引用\
- * @note 如果类型不存在或当前指向的不是 type 类型，则抛出异常，具体请参考std::get的说明\
+/**
+ * @brief 获取当前视图指向的 type 类型的数据
+ * @return 对指定类型数据的常量引用
+ * @note 如果类型不存在或当前指向的不是 type 类型，则抛出异常，具体请参考std::get的说明
  */\
 const NBT_Type::type &Get##type() const\
 {\
 	return *std::get<PtrType<NBT_Type::type>>(data);\
 }\
 \
-/**\
- * @brief 获取当前视图指向的 type 类型的数据（仅适用于非const视图）\
- * @return 对指定类型数据的引用\
- * @note 如果类型不存在或当前指向的不是 type 类型，则抛出异常，具体请参考std::get的说明\
+/**
+ * @brief 获取当前视图指向的 type 类型的数据（仅适用于非const视图）
+ * @return 对指定类型数据的引用
+ * @note 如果类型不存在或当前指向的不是 type 类型，则抛出异常，具体请参考std::get的说明
  */\
 template <typename = void>\
 requires(!bIsConst)\
@@ -291,40 +291,40 @@ NBT_Type::type &Get##type()\
 	return *std::get<PtrType<NBT_Type::type>>(data);\
 }\
 \
-/**\
- * @brief 检查当前视图是否指向 type 类型的数据\
- * @return 是否指向 type 类型\
+/**
+ * @brief 检查当前视图是否指向 type 类型的数据
+ * @return 是否指向 type 类型
  */\
 bool Is##type() const\
 {\
 	return std::holds_alternative<PtrType<NBT_Type::type>>(data);\
 }\
-/**\
- * @brief 友元函数：从NBT_Node_View对象中获取 type 类型的数据\
- * @param node 要从中获取类型的NBT_Node_View对象\
- * @return 对 type 类型数据的引用（根据视图的const属性决定返回常量引用或非常量引用）\
- * @note 如果类型不存在或当前指向的不是 type 类型，则抛出异常，具体请参考std::get的说明\
+/**
+ * @brief 友元函数：从NBT_Node_View对象中获取 type 类型的数据
+ * @param node 要从中获取类型的NBT_Node_View对象
+ * @return 对 type 类型数据的引用（根据视图的const属性决定返回常量引用或非常量引用）
+ * @note 如果类型不存在或当前指向的不是 type 类型，则抛出异常，具体请参考std::get的说明
  */\
 friend std::conditional_t<bIsConst, const NBT_Type::type &, NBT_Type::type &> Get##type(NBT_Node_View & node)\
 {\
 	return node.Get##type();\
 }\
 \
-/**\
- * @brief 友元函数：从NBT_Node_View对象中获取 type 类型的数据\
- * @param node 要从中获取类型的NBT_Node_View对象\
- * @return 对 type 类型数据的引用（根据视图的const属性决定返回常量引用或非常量引用）\
- * @note 如果类型不存在或当前指向的不是 type 类型，则抛出异常，具体请参考std::get的说明\
+/**
+ * @brief 友元函数：从NBT_Node_View对象中获取 type 类型的数据
+ * @param node 要从中获取类型的NBT_Node_View对象
+ * @return 对 type 类型数据的引用（根据视图的const属性决定返回常量引用或非常量引用）
+ * @note 如果类型不存在或当前指向的不是 type 类型，则抛出异常，具体请参考std::get的说明
  */\
 friend std::conditional_t<bIsConst, const NBT_Type::type &, NBT_Type::type &> &Get##type(const NBT_Node_View & node)\
 {\
 	return node.Get##type();\
 }\
 \
-/**\
-* @brief 友元函数：检查目标对象中是否指向 type 类型的数据\
-* @param node 要检查的对象\
-* @return 对象中是否指向 type 类型\
+/**
+* @brief 友元函数：检查目标对象中是否指向 type 类型的数据
+* @param node 要检查的对象
+* @return 对象中是否指向 type 类型
 */\
 friend bool Is##type(const NBT_Node_View &node)\
 {\

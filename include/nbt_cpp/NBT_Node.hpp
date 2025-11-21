@@ -224,61 +224,61 @@ public:
 //通过宏定义批量生成
 
 #define TYPE_GET_FUNC(type)\
-/**\
- * @brief 获取当前对象中存储的 type 类型的数据\
- * @return 对指定类型数据的常量引用\
- * @note 如果类型不存在或当前存储的不是 type 类型，则抛出异常，具体请参考std::get的说明\
+/**
+ * @brief 获取当前对象中存储的 type 类型的数据
+ * @return 对指定类型数据的常量引用
+ * @note 如果类型不存在或当前存储的不是 type 类型，则抛出异常，具体请参考std::get的说明
  */\
 const NBT_Type::type &Get##type() const\
 {\
 	return std::get<NBT_Type::type>(data);\
 }\
 \
-/**\
- * @brief 获取当前对象中存储的 type 类型的数据\
- * @return 对指定类型数据的引用\
- * @note 如果类型不存在或当前存储的不是 type 类型，则抛出异常，具体请参考std::get的说明\
+/**
+ * @brief 获取当前对象中存储的 type 类型的数据
+ * @return 对指定类型数据的引用
+ * @note 如果类型不存在或当前存储的不是 type 类型，则抛出异常，具体请参考std::get的说明
  */\
 NBT_Type::type &Get##type()\
 {\
 	return std::get<NBT_Type::type>(data);\
 }\
 \
-/**\
- * @brief 检查当前对象中是否存储 type 类型的数据\
- * @return 是否存储 type 类型\
+/**
+ * @brief 检查当前对象中是否存储 type 类型的数据
+ * @return 是否存储 type 类型
  */\
 bool Is##type() const\
 {\
 	return std::holds_alternative<NBT_Type::type>(data);\
 }\
 \
-/**\
- * @brief 友元函数：从NBT_Node对象中获取 type 类型的数据\
- * @param node 要从中获取类型的NBT_Node对象\
- * @return 对 type 类型数据的引用\
- * @note 如果类型不存在或当前存储的不是 type 类型，则抛出异常，具体请参考std::get的说明\
+/**
+ * @brief 友元函数：从NBT_Node对象中获取 type 类型的数据
+ * @param node 要从中获取类型的NBT_Node对象
+ * @return 对 type 类型数据的引用
+ * @note 如果类型不存在或当前存储的不是 type 类型，则抛出异常，具体请参考std::get的说明
  */\
 friend NBT_Type::type &Get##type(NBT_Node & node)\
 {\
 	return node.Get##type();\
 }\
 \
-/**\
- * @brief 友元函数：从NBT_Node对象中获取 type 类型的数据\
- * @param node 要从中获取类型的NBT_Node对象\
- * @return 对 type 类型数据的常量引用\
- * @note 如果类型不存在或当前存储的不是 type 类型，则抛出异常，具体请参考std::get的说明\
+/**
+ * @brief 友元函数：从NBT_Node对象中获取 type 类型的数据
+ * @param node 要从中获取类型的NBT_Node对象
+ * @return 对 type 类型数据的常量引用
+ * @note 如果类型不存在或当前存储的不是 type 类型，则抛出异常，具体请参考std::get的说明
  */\
 friend const NBT_Type::type &Get##type(const NBT_Node & node)\
 {\
 	return node.Get##type();\
 }\
 \
-/**\
-* @brief 友元函数：检查目标对象中是否存储 type 类型的数据\
-* @param node 要检查的对象\
-* @return 对象中是否存储 type 类型\
+/**
+* @brief 友元函数：检查目标对象中是否存储 type 类型的数据
+* @param node 要检查的对象
+* @return 对象中是否存储 type 类型
 */\
 friend bool Is##type(const NBT_Node &node)\
 {\
