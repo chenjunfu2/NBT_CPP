@@ -177,13 +177,17 @@ public:
 		}
 	}
 
-	//暴露父类接口
+	/// @name 暴露父类迭代器接口
+	/// @brief 继承底层容器的迭代器和访问接口
+	/// @{
+
 	using Compound::begin;
 	using Compound::end;
 	using Compound::cbegin;
 	using Compound::cend;
 	using Compound::operator[];
 
+	//因为父类不总是有下面内容，所以使用requires检查并暴露或舍弃
 	//using Compound::rbegin;
 	//using Compound::rend;
 	//using Compound::crbegin;
@@ -191,14 +195,15 @@ public:
 	
 	//存在则映射
 	//-------------------- rbegin --------------------
-	auto rbegin() requires NBT_Compound_Concept::HasRBegin<Compound> {return Compound::rbegin();}/// < 如果底层容器有rbegin则转发调用
-	auto rbegin() const requires NBT_Compound_Concept::HasRBegin<Compound> {return Compound::rbegin();}/// < 如果底层容器有rbegin则转发调用（const版本）
-	auto crbegin() const noexcept requires NBT_Compound_Concept::HasCRBegin<Compound> {return Compound::crbegin();}/// < 如果底层容器有crbegin则转发调用
+	auto rbegin() requires NBT_Compound_Concept::HasRBegin<Compound> {return Compound::rbegin();}					/// < 如果底层容器有rbegin则转发调用
+	auto rbegin() const requires NBT_Compound_Concept::HasRBegin<Compound> {return Compound::rbegin();}				/// < 如果底层容器有rbegin则转发调用（const版本）
+	auto crbegin() const noexcept requires NBT_Compound_Concept::HasCRBegin<Compound> {return Compound::crbegin();}	/// < 如果底层容器有crbegin则转发调用
 	//-------------------- rend --------------------
-	auto rend() requires NBT_Compound_Concept::HasREnd<Compound> {return Compound::rend();}/// < 如果底层容器有rend则转发调用
-	auto rend() const requires NBT_Compound_Concept::HasREnd<Compound> {return Compound::rend();}/// < 如果底层容器有rend则转发调用（const版本）
-	auto crend() const noexcept requires NBT_Compound_Concept::HasCREnd<Compound> {return Compound::crend();}/// < 如果底层容器有crend则转发调用
+	auto rend() requires NBT_Compound_Concept::HasREnd<Compound> {return Compound::rend();}						/// < 如果底层容器有rend则转发调用
+	auto rend() const requires NBT_Compound_Concept::HasREnd<Compound> {return Compound::rend();}				/// < 如果底层容器有rend则转发调用（const版本）
+	auto crend() const noexcept requires NBT_Compound_Concept::HasCREnd<Compound> {return Compound::crend();}	/// < 如果底层容器有crend则转发调用
 	
+	/// @}
 
 	//简化map查询
 
