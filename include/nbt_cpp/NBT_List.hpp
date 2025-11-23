@@ -639,26 +639,60 @@ public:
 	}
 
 #define TYPE_GET_FUNC(type)\
+/**
+ @brief 获取指定位置的 type 类型数据
+ @param szPos 位置索引
+ @return type 类型数据的常量引用
+ @note 如果位置不存在或类型不匹配则抛出异常，
+ 具体请参考std::vector关于at的说明与std::get的说明
+ */\
 const typename NBT_Type::type &Get##type(const typename List::size_type &szPos) const\
 {\
 	return List::at(szPos).Get##type();\
 }\
 \
+/**
+ @brief 获取指定位置的 type 类型数据
+ @param szPos 位置索引
+ @return type 类型数据的引用
+ @note 如果位置不存在或类型不匹配则抛出异常，
+ 具体请参考std::vector关于at的说明与std::get的说明
+ */\
 typename NBT_Type::type &Get##type(const typename List::size_type &szPos)\
 {\
 	return List::at(szPos).Get##type();\
 }\
 \
+/**
+ @brief 获取列表最后一个 type 类型数据
+ @return type 类型数据的常量引用
+ @note 如果列表为空或类型不匹配则抛出异常，
+ 具体请参考std::vector关于back的说明与std::get的说明
+ */\
 const typename NBT_Type::type &Back##type(void) const\
 {\
 	return List::back().Get##type();\
 }\
 \
+/**
+ @brief 获取列表最后一个 type 类型数据
+ @return type 类型数据的引用
+ @note 如果列表为空或类型不匹配则抛出异常，
+ 具体请参考std::vector关于back的说明与std::get的说明
+ */\
 typename NBT_Type::type &Back##type(void)\
 {\
 	return List::back().Get##type();\
 }
 
+ /// @name 针对每种类型提供一个方便使用的函数，由宏批量生成
+ /// @brief 具体作用说明：
+ /// - Get开头+类型名的函数：直接获取指定位置且对应类型的引用，异常由std::vector的at与std::get具体实现决定
+ /// - Back开头+类型名的函数：获取列表最后一个对应类型的元素引用
+ /// @note 请不要使用这些API修改list内部对象的类型（注意是类型而非值），
+ /// 这些接口无法简单的进行封装并检查用户对类型的操作
+ /// @{
+ 
 	TYPE_GET_FUNC(End);
 	TYPE_GET_FUNC(Byte);
 	TYPE_GET_FUNC(Short);
@@ -673,45 +707,100 @@ typename NBT_Type::type &Back##type(void)\
 	TYPE_GET_FUNC(List);
 	TYPE_GET_FUNC(Compound);
 
+	/// @}
+
 #undef TYPE_GET_FUNC
 
 #define TYPE_PUT_FUNC(type)\
+/**
+ @brief 在指定位置插入 type 类型数据（拷贝）
+ @tparam bNoCheck 是否跳过类型检查，作用与NoCheck_T相同
+ @param szPos 插入位置
+ @param vTagVal 要插入的 type 类型值
+ @return 如果bNoCheck为false，返回包含迭代器和bool值的pair；否则返回迭代器
+ @note 通用类型函数Add的代理，具体行为参考Add函数的说明
+ */\
 template <bool bNoCheck = false>\
 std::conditional_t<bNoCheck, typename List::iterator, std::pair<typename List::iterator, bool>> Add##type(size_t szPos, const typename NBT_Type::type &vTagVal)\
 {\
 	return Add<bNoCheck>(szPos, vTagVal);\
 }\
 \
+/**
+ @brief 在指定位置插入 type 类型数据（移动）
+ @tparam bNoCheck 是否跳过类型检查，作用与NoCheck_T相同
+ @param szPos 插入位置
+ @param vTagVal 要插入的 type 类型值
+ @return 如果bNoCheck为false，返回包含迭代器和bool值的pair；否则返回迭代器
+ @note 通用类型函数Add的代理，具体行为参考Add函数的说明
+ */\
 template <bool bNoCheck = false>\
 std::conditional_t<bNoCheck, typename List::iterator, std::pair<typename List::iterator, bool>> Add##type(size_t szPos, typename NBT_Type::type &&vTagVal)\
 {\
 	return Add<bNoCheck>(szPos, std::move(vTagVal));\
 }\
 \
+/**
+ @brief 在列表末尾插入 type 类型数据（拷贝）
+ @tparam bNoCheck 是否跳过类型检查，作用与NoCheck_T相同
+ @param vTagVal 要插入的 type 类型值
+ @return 如果bNoCheck为false，返回包含迭代器和bool值的pair；否则返回迭代器
+ @note 通用类型函数AddBack的代理，具体行为参考AddBack函数的说明
+ */\
 template <bool bNoCheck = false>\
 std::conditional_t<bNoCheck, typename List::iterator, std::pair<typename List::iterator, bool>> AddBack##type(const typename NBT_Type::type &vTagVal)\
 {\
 	return AddBack<bNoCheck>(vTagVal);\
 }\
 \
+/**
+ @brief 在列表末尾插入 type 类型数据（移动）
+ @tparam bNoCheck 是否跳过类型检查，作用与NoCheck_T相同
+ @param vTagVal 要插入的 type 类型值
+ @return 如果bNoCheck为false，返回包含迭代器和bool值的pair；否则返回迭代器
+ @note 通用类型函数AddBack的代理，具体行为参考AddBack函数的说明
+ */\
 template <bool bNoCheck = false>\
 std::conditional_t<bNoCheck, typename List::iterator, std::pair<typename List::iterator, bool>> AddBack##type(typename NBT_Type::type &&vTagVal)\
 {\
 	return AddBack<bNoCheck>(std::move(vTagVal));\
 }\
 \
+/**
+ @brief 设置指定位置的 type 类型数据（拷贝）
+ @tparam bNoCheck 是否跳过类型检查，作用与NoCheck_T相同
+ @param szPos 要设置的位置
+ @param vTagVal 要设置的 type 类型值
+ @return 如果bNoCheck为false，返回包含迭代器和bool值的pair；否则返回迭代器
+ @note 通用类型函数Set的代理，具体行为参考Set函数的说明
+ */\
 template <bool bNoCheck = false>\
 std::conditional_t<bNoCheck, typename List::iterator, std::pair<typename List::iterator, bool>> Set##type(size_t szPos, const typename NBT_Type::type &vTagVal)\
 {\
 	return Set<bNoCheck>(szPos, vTagVal);\
 }\
 \
+/**
+ @brief 设置指定位置的 type 类型数据（移动）
+ @tparam bNoCheck 是否跳过类型检查，作用与NoCheck_T相同
+ @param szPos 要设置的位置
+ @param vTagVal 要设置的 type 类型值
+ @return 如果bNoCheck为false，返回包含迭代器和bool值的pair；否则返回迭代器
+ @note 通用类型函数Set的代理，具体行为参考Set函数的说明
+ */\
 template <bool bNoCheck = false>\
 std::conditional_t<bNoCheck, typename List::iterator, std::pair<typename List::iterator, bool>> Set##type(size_t szPos, typename NBT_Type::type &&vTagVal)\
 {\
 	return Set<bNoCheck>(szPos, std::move(vTagVal));\
 }
 
+	/// @name 针对每种类型提供插入和设置函数，由宏批量生成
+	/// @brief 具体作用说明：
+	/// - Add开头+类型名的函数：在指定位置插入指定类型的数据
+	/// - AddBack开头+类型名的函数：在列表末尾插入指定类型的数据  
+	/// - Set开头+类型名的函数：设置指定位置的指定类型数据
+	/// @{
+	
 	TYPE_PUT_FUNC(End);
 	TYPE_PUT_FUNC(Byte);
 	TYPE_PUT_FUNC(Short);
@@ -725,6 +814,8 @@ std::conditional_t<bNoCheck, typename List::iterator, std::pair<typename List::i
 	TYPE_PUT_FUNC(String);
 	TYPE_PUT_FUNC(List);
 	TYPE_PUT_FUNC(Compound);
+
+	/// @}
 
 #undef TYPE_PUT_FUNC
 };
