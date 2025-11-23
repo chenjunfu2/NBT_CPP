@@ -9,6 +9,9 @@
 /// - CJF2_NBT_CPP_COMPILER_CLANG  (Clang编译器标识) 
 /// - CJF2_NBT_CPP_COMPILER_NAME   (编译器名称字符串)
 
+
+/// @cond
+
 //先预定义所有可能的编译器宏
 #define CJF2_NBT_CPP_COMPILER_MSVC 0
 #define CJF2_NBT_CPP_COMPILER_GCC 0
@@ -30,3 +33,5 @@
 #else
 	#define CJF2_NBT_CPP_COMPILER_NAME "Unknown"
 #endif
+
+/// @endcond

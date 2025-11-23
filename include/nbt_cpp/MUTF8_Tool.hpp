@@ -75,8 +75,11 @@ class MUTF8_Tool
 	static inline constexpr U8T u8FailChar[3]{ (U8T)0xEF, (U8T)0xBF, (U8T)0xBD };
 
 public:
+	/// @brief 模板M-UTF-8字符类型的代理
 	using MU8_T = MU8T;
+	/// @brief 模板UTF-16字符类型的代理
 	using U16_T = U16T;
+	/// @brief 模板UTF-8字符类型的代理
 	using U8_T = U8T;
 
 private:

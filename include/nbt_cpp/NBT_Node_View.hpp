@@ -265,9 +265,12 @@ public:
 		return std::holds_alternative<PtrType<T>>(data);
 	}
 
-//针对每种类型重载一个方便的函数
+//针对每种类型生成一个方便的函数
 //通过宏定义批量生成
 
+/// @def TYPE_GET_FUNC(type)
+/// @brief 不同类型名接口生成宏
+/// @note 用户不应该使用此宏（实际上宏已在使用后取消定义），标注仅为消除doxygen警告
 #define TYPE_GET_FUNC(type)\
 /**
  @brief 获取当前视图指向的 type 类型的数据

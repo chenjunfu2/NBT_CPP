@@ -87,7 +87,6 @@ public:
 		explicit constexpr NoCheck_T() noexcept = default;
 	};
 
-	/// @brief 方便用户传入的参数
 	/// @copydoc NoCheck_T
 	constexpr static inline const NoCheck_T NoCheck{};
 
@@ -107,12 +106,12 @@ public:
 
 	/// @brief 构造函数
 	/// @tparam Args 变长构造参数类型包
-	/// @param NoCheck_T 取消检查标记
+	/// @param _NoCheck 取消检查标记
 	/// @param _enElementTag 列表元素类型标签
 	/// @param args 变长构造参数列表
 	/// @note 不进行类型检查
 	template<typename... Args>
-	NBT_List(NoCheck_T, NBT_TAG _enElementTag, Args&&... args) : List(std::forward<Args>(args)...), enElementTag(_enElementTag)
+	NBT_List(NoCheck_T /*_NoCheck*/, NBT_TAG _enElementTag, Args&&... args) : List(std::forward<Args>(args)...), enElementTag(_enElementTag)
 	{}
 
 	/// @brief 构造函数
@@ -128,11 +127,11 @@ public:
 
 	/// @brief 构造函数
 	/// @tparam Args 变长构造参数类型包
-	/// @param NoCheck_T 取消检查标记
+	/// @param _NoCheck 取消检查标记
 	/// @param args 变长构造参数列表
 	/// @note 不进行类型检查
 	template<typename... Args>
-	NBT_List(NoCheck_T, Args&&... args) : List(std::forward<Args>(args)...), enElementTag(List::empty() ? NBT_TAG::End : List::front().GetTag())
+	NBT_List(NoCheck_T /*_NoCheck*/, Args&&... args) : List(std::forward<Args>(args)...), enElementTag(List::empty() ? NBT_TAG::End : List::front().GetTag())
 	{}
 
 	/// @brief 初始化列表构造函数
@@ -146,11 +145,11 @@ public:
 	}
 
 	/// @brief 初始化列表构造函数
-	/// @param NoCheck_T 取消检查标记
+	/// @param _NoCheck 取消检查标记
 	/// @param _enElementTag 列表元素类型标签
 	/// @param init 初始化列表
 	/// @note 不进行类型检查
-	NBT_List(NoCheck_T, NBT_TAG _enElementTag, std::initializer_list<typename List::value_type> init) : List(init), enElementTag(_enElementTag)
+	NBT_List(NoCheck_T /*_NoCheck*/, NBT_TAG _enElementTag, std::initializer_list<typename List::value_type> init) : List(init), enElementTag(_enElementTag)
 	{}
 
 	/// @brief 初始化列表构造函数
@@ -163,10 +162,10 @@ public:
 	}
 
 	/// @brief 初始化列表构造函数
-	/// @param NoCheck_T 取消检查标记
+	/// @param _NoCheck 取消检查标记
 	/// @param init 初始化列表
 	/// @note 不进行类型检查
-	NBT_List(NoCheck_T, std::initializer_list<typename List::value_type> init) : List(init), enElementTag(List::empty() ? NBT_TAG::End : List::front().GetTag())
+	NBT_List(NoCheck_T /*_NoCheck*/, std::initializer_list<typename List::value_type> init) : List(init), enElementTag(List::empty() ? NBT_TAG::End : List::front().GetTag())
 	{}
 
 	/// @brief 默认构造函数
@@ -301,6 +300,8 @@ public:
 		}
 	}
 
+	/// @brief 获取列表存储的元素类型
+	/// @return 当前列表存储的元素类型
 	NBT_TAG GetTag(void)
 	{
 		return enElementTag;
@@ -638,6 +639,9 @@ public:
 		return std::find_if(List::begin(), List::end(), pred) != List::end();
 	}
 
+/// @def TYPE_GET_FUNC(type)
+/// @brief 不同类型名接口生成宏
+/// @note 用户不应该使用此宏（实际上宏已在使用后取消定义），标注仅为消除doxygen警告
 #define TYPE_GET_FUNC(type)\
 /**
  @brief 获取指定位置的 type 类型数据
@@ -711,6 +715,9 @@ typename NBT_Type::type &Back##type(void)\
 
 #undef TYPE_GET_FUNC
 
+/// @def TYPE_PUT_FUNC(type)
+/// @brief 不同类型名接口生成宏
+/// @note 用户不应该使用此宏（实际上宏已在使用后取消定义），标注仅为消除doxygen警告
 #define TYPE_PUT_FUNC(type)\
 /**
  @brief 在指定位置插入 type 类型数据（拷贝）

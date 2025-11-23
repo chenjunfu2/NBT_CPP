@@ -179,6 +179,7 @@ public:
 
 	/// @name 暴露父类迭代器接口
 	/// @brief 继承底层容器的迭代器和访问接口
+	/// @note 部分api如果父类不存在，则自动隐藏
 	/// @{
 
 	using Compound::begin;
@@ -195,13 +196,13 @@ public:
 	
 	//存在则映射
 	//-------------------- rbegin --------------------
-	auto rbegin() requires NBT_Compound_Concept::HasRBegin<Compound> {return Compound::rbegin();}					/// < 如果底层容器有rbegin则转发调用
-	auto rbegin() const requires NBT_Compound_Concept::HasRBegin<Compound> {return Compound::rbegin();}				/// < 如果底层容器有rbegin则转发调用（const版本）
-	auto crbegin() const noexcept requires NBT_Compound_Concept::HasCRBegin<Compound> {return Compound::crbegin();}	/// < 如果底层容器有crbegin则转发调用
+	auto rbegin() requires NBT_Compound_Concept::HasRBegin<Compound> {return Compound::rbegin();}
+	auto rbegin() const requires NBT_Compound_Concept::HasRBegin<Compound> {return Compound::rbegin();}
+	auto crbegin() const noexcept requires NBT_Compound_Concept::HasCRBegin<Compound> {return Compound::crbegin();}
 	//-------------------- rend --------------------
-	auto rend() requires NBT_Compound_Concept::HasREnd<Compound> {return Compound::rend();}						/// < 如果底层容器有rend则转发调用
-	auto rend() const requires NBT_Compound_Concept::HasREnd<Compound> {return Compound::rend();}				/// < 如果底层容器有rend则转发调用（const版本）
-	auto crend() const noexcept requires NBT_Compound_Concept::HasCREnd<Compound> {return Compound::crend();}	/// < 如果底层容器有crend则转发调用
+	auto rend() requires NBT_Compound_Concept::HasREnd<Compound> {return Compound::rend();}
+	auto rend() const requires NBT_Compound_Concept::HasREnd<Compound> {return Compound::rend();}
+	auto crend() const noexcept requires NBT_Compound_Concept::HasCREnd<Compound> {return Compound::crend();}
 	
 	/// @}
 
@@ -382,9 +383,12 @@ public:
 	}
 
 
-//针对每种类型重载一个方便的函数
+//针对每种类型生成一个方便的函数
 //通过宏定义批量生成
 
+/// @def TYPE_GET_FUNC(type)
+/// @brief 不同类型名接口生成宏
+/// @note 用户不应该使用此宏（实际上宏已在使用后取消定义），标注仅为消除doxygen警告
 #define TYPE_GET_FUNC(type)\
 /**
  @brief 获取指定标签名的 type 类型数据
@@ -458,6 +462,9 @@ typename NBT_Type::type *Has##type(const typename Compound::key_type & sTagName)
 
 #undef TYPE_GET_FUNC
 
+/// @def TYPE_PUT_FUNC(type)
+/// @brief 不同类型名接口生成宏
+/// @note 用户不应该使用此宏（实际上宏已在使用后取消定义），标注仅为消除doxygen警告
 #define TYPE_PUT_FUNC(type)\
 /**
  @brief 插入 type 类型的键值对（拷贝）
