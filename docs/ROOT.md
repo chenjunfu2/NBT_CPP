@@ -1,47 +1,47 @@
 ﻿# 使用方式
-一般情况下，直接使用\"#include<nbt_cpp\/NBT_All.hpp>\"即可包含所有有头文件</br>
-具体使用示例请参见项目根目录下的\"usage\"文件夹内的项目</br>
+一般情况下，直接使用\"\#include<nbt_cpp/NBT_All.hpp>\"即可包含所有有头文件  
+具体使用示例请参见项目根目录下的\"usage\"文件夹内的项目  
 
 # 注意事项
-本库仅头文件，无源文件</br>
-本库仅针对nbt对象处理与nbt二进制文件处理，不涉及snbt转换与处理，不提供snbt相关功能</br>
-本库仅单线程，请不要多线程同时访问同一个NBT对象，需要多线程请加锁，或每个线程访问独立的NBT对象</br>
+本库仅头文件，无源文件  
+本库仅针对nbt对象处理与nbt二进制文件处理，不涉及snbt转换与处理，不提供snbt相关功能  
+本库仅单线程，请不要多线程同时访问同一个NBT对象，需要多线程请加锁，或每个线程访问独立的NBT对象  
 
 # 可选依赖
 - xxhash（解锁NBT_Helper中的Hash功能）
 - zlib（解锁NBT_IO中的压缩解压相关功能）
 
 ## 可选依赖激活方式
-**如果你是通过vcpkg安装的，会自动激活依赖，请直接忽略下面内容，同时也请不要编辑vcpkg_config.h**</br>
-</br>
-**如果你不是通过vcpkg安装的，那么在头文件vcpkg_config.h中：**</br>
+**如果你是通过vcpkg安装的，会自动激活依赖，请直接忽略下面内容，同时也请不要编辑vcpkg_config.h**  
+  
+**如果你不是通过vcpkg安装的，那么在头文件vcpkg_config.h中：**  
 ### zlib配置
-安装zlib库则存在下面内容，否则删除下面内容</br>
+安装zlib库则存在下面内容，否则删除下面内容  
 ```cpp
 //use zlib
 #define CJF2_NBT_CPP_USE_ZLIB
 ```
 ### xxhash配置
-安装xxhash库则存在下面内容，否则删除下面内容</br>
+安装xxhash库则存在下面内容，否则删除下面内容  
 ```cpp
 //use xxhash
 #define CJF2_NBT_CPP_USE_XXHASH
 ```
 
 # 库内容主要内容介绍
-正常情况下，所有单独的可用模块都只在**NBT_All.hpp**中包含，</br>
-你只需要include这一个头文件，即可使用全部NBT库的功能。</br>
-如果你需要单独的模块而非要求全部模块，可以在**NBT_All.hpp**中查找。</br>
-</br>
-任何时候，其它的头文件都有可能存在额外的依赖或互相依赖，</br>
-比如**NBT_Node.hpp**中就包含了其它的NBT_xxx类型，而这些类型又和NBT_Node存在相互依赖。</br>
-同时，你不应该去包含那些不在**NBT_All.hpp**中的头文件，除非你知道你在干什么。</br>
-比如其它的NBT_xxx类型在看到NBT_Node之前只存在前向声明，包含它们则会导致问题。</br>
-又或者**NBT_Hash.hpp**仅在安装xxhash库后才可用，未安装情况下直接包含则会带来错误。</br>
-你应当在包含**NBT_All.hpp**中的某个模块后，使用它带来的额外依赖，而不是自己去单独包含和使用其它头文件。</br>
+正常情况下，所有单独的可用模块都只在**NBT_All.hpp**中包含，  
+你只需要include这一个头文件，即可使用全部NBT库的功能。  
+如果你需要单独的模块而非要求全部模块，可以在**NBT_All.hpp**中查找。  
+  
+任何时候，其它的头文件都有可能存在额外的依赖或互相依赖，  
+比如**NBT_Node.hpp**中就包含了其它的NBT_xxx类型，而这些类型又和NBT_Node存在相互依赖。  
+同时，你不应该去包含那些不在**NBT_All.hpp**中的头文件，除非你知道你在干什么。  
+比如其它的NBT_xxx类型在看到NBT_Node之前只存在前向声明，包含它们则会导致问题。  
+又或者**NBT_Hash.hpp**仅在安装xxhash库后才可用，未安装情况下直接包含则会带来错误。  
+你应当在包含**NBT_All.hpp**中的某个模块后，使用它带来的额外依赖，而不是自己去单独包含和使用其它头文件。  
 
-</br>
-下面的说明，解释了**NBT_All.hpp**中的头文件中的额外依赖关系，以便更好的使用此库。</br>
+  
+下面的说明，解释了**NBT_All.hpp**中的头文件中的额外依赖关系，以便更好的使用此库。  
 
 ### NBT_Node.hpp
 - NBT_TAG.hpp
@@ -69,7 +69,7 @@
 - NBT_Print.hpp
 - NBT_Node.hpp
 - NBT_Node_View.hpp
-- NBT_Hash.hpp（仅在安装xxhash库的情况下）
+- NBT_Hash.hpp （仅在安装xxhash库的情况下）
 
 这个头文件基本上是处理nbt对象打印、序列化、哈希的帮助函数，
 不使用重载而是单独提供的原因是，cpp不方便去包装任何builtin类型并给这些类型提供各种重载，
@@ -94,37 +94,15 @@
 这个头文件基本上是完成从文件中读写NBT字节流与压缩解压功能的，
 是否提供压缩解压功能取决于是否安装zlib库。
 基本上不存在额外的NBT库依赖，它只处理文件与字节流。
-</br>
-</br>
+  
+  
 #### 以上内容为各主要模块的说明，具体用法可以参考项目里的usage
 一般情况下的处理流程是这样的（这里省略报错处理流程且默认你安装了zlib库）：
 
 1. 使用NBT_IO从NBT文件中读取数据到数据流
-1. 使用NBT_IO尝试解压数据流，因为可能存在未经压缩的NBT数据，所以解压失败则直接使用数据，否则使用解压过的数据（兼容性）
-1. 使用NBT_Reader通过已经解压的数据或可能未经压缩的数据中读取
-1. 通过读取出来的容器处理NBT数据，这里不做具体说明
-1. 使用NBT_Writer在完成处理后写出NBT数据到数据流
-1. 使用NBT_IO压缩数据流，一般情况下都要求要压缩，也可根据之前的解压成功与否选择是否保留未压缩文件状态
-1. 使用NBT_IO从压缩或未经压缩的数据流写出到文件
-
-
-# 头文件详细信息
-- [Compiler_Define.h](Compiler_Define.md)
-- [MUTF8_Tool.hpp](MUTF8_Tool.md)
-- [NBT_All.hpp](NBT_All.md)
-- [NBT_Array.hpp](NBT_Array.md)
-- [NBT_Compound.hpp](NBT_Compound.md)
-- [NBT_Endian.hpp](NBT_Endian.md)
-- [NBT_Hash.hpp](NBT_Hash.md)
-- [NBT_Helper.hpp](NBT_Helper.md)
-- [NBT_IO.hpp](NBT_IO.md)
-- [NBT_List.hpp](NBT_List.md)
-- [NBT_Node.hpp](NBT_Node.md)
-- [NBT_Node_View.hpp](NBT_Node_View.md)
-- [NBT_Print.hpp](NBT_Print.md)
-- [NBT_Reader.hpp](NBT_Reader.md)
-- [NBT_String.hpp](NBT_String.md)
-- [NBT_TAG.hpp](NBT_TAG.md)
-- [NBT_Type.hpp](NBT_Type.md)
-- [NBT_Writer.hpp](NBT_Writer.md)
-- [vcpkg_config.h](vcpkg_config.md)
+2. 使用NBT_IO尝试解压数据流，因为可能存在未经压缩的NBT数据，所以解压失败则直接使用数据，否则使用解压过的数据（兼容性）
+3. 使用NBT_Reader通过已经解压的数据或可能未经压缩的数据中读取
+4. 通过读取出来的容器处理NBT数据，这里不做具体说明
+5. 使用NBT_Writer在完成处理后写出NBT数据到数据流
+6. 使用NBT_IO压缩数据流，一般情况下都要求要压缩，也可根据之前的解压成功与否选择是否保留未压缩文件状态
+7. 使用NBT_IO从压缩或未经压缩的数据流写出到文件
