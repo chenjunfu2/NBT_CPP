@@ -165,11 +165,6 @@ public:
 	constexpr static inline Long Long_Min = INT64_MIN;		///< 长整数类型最小值
 	/// @}
 
-
-	/// @name 类型存在检查
-	/// @brief 用于编译期检查一个给定类型是否为NBT中的类型
-	/// @{
-
 	/// @cond
 	template <typename T, typename List>
 	struct IsValidType;
@@ -179,18 +174,11 @@ public:
 	{};
 	/// @endcond
 
-	/// @brief 检查接口
+	/// @brief 类型存在检查：用于编译期检查一个给定类型是否为NBT中的类型
 	/// @tparam T 需要检查的类型
 	/// @note 如果类型存在于NBT类型列表中，则返回true，否则返回false
 	template <typename T>
 	static constexpr bool IsValidType_V = IsValidType<T, TypeList>::value;
-
-	/// @}
-
-	/// @name 类型枚举值查询
-	/// @brief 用于在编译期，通过类型查询它在NBT_TAG中对应的enum值
-	/// @note 类似于一种静态反射
-	/// @{
 
 	/// @cond
 	template <typename T, typename... Ts>
@@ -211,17 +199,12 @@ public:
 	};
 	/// @endcond
 
-	/// @brief 检查接口
+	/// @brief 类型枚举值查询：用于在编译期，通过类型查询它在NBT_TAG中对应的enum值
 	/// @tparam T 需要检查的类型
 	/// @note 如果类型存在于NBT类型列表中，则返回它在NBT_TAG中对应的Enum值，否则返回-1
+	/// @note 类似于一种静态反射
 	template <typename T>
 	static constexpr NBT_TAG TypeTag_V = (NBT_TAG)TypeTagImpl<T, TypeList>::value;
-
-	/// @}
-
-	/// @name 类型列表大小
-	/// @brief 编译期获取NBT类型的个数
-	/// @{
 
 	/// @cond
 	template <typename List>
@@ -234,19 +217,12 @@ public:
 	};
 	/// @endcond
 
-	/// @brief 类型列表大小的具体值
+	/// @brief 类型列表大小：获取NBT类型的个数
 	/// @note 它的值代表一共存在多少种NBT类型
 	static constexpr size_t TypeListSize_V = TypeListSize<TypeList>::value;
 
 	//静态断言：确保枚举值与类型数量匹配
 	static_assert(TypeListSize_V == NBT_TAG::ENUM_END, "Enumeration does not match the number of types in the mutator");
-
-	/// @}
-
-	/// @name 从NBT_TAG获取类型
-	/// @brief 用于在编译期，从NBT_TAG的enum值获取类型
-	/// @note 类似于一种静态反射
-	/// @{
 
 	/// @cond
 	template <NBT_TAG_RAW_TYPE I, typename List> struct TypeAt;
@@ -268,20 +244,12 @@ public:
 	};
 	/// @endcond
 
-	/// @brief 用户查询接口
+	/// @brief 从NBT_TAG获取对应的类型：编译期从NBT_TAG的enum值获取类型
 	/// @tparam Tag 用于查询类型的NBT_TAG中的enum值
 	/// @note 返回NBT_TAG中的enum对应的类型，如果enum值非法，则静态断言失败，编译错误
+	/// @note 类似于一种静态反射
 	template <NBT_TAG Tag>
 	using TagToType_T = typename TagToType<Tag>::type;
-
-	/// @}
-
-
-	/// @name 映射内建类型到方便读写的raw类型
-	/// @brief 编译期获得内建类型到可以进行二进制读写的原始类型
-	/// @note 浮点数会被映射到对应大小的无符号整数类型，其它内建类型保持不变，
-	/// 部分平台对浮点数支持不完整的情况下，映射类型可能与原始类型相同，因为原始类型被声明为映射类型
-	/// @{
 
 	/// @cond
 	template<typename T>
@@ -292,13 +260,13 @@ public:
 	};
 	/// @endcond
 
-	/// @brief 用户查询接口
+	/// @brief 映射内建类型到方便读写的raw类型：编译期获得内建类型到可以进行二进制读写的原始类型
 	/// @tparam T 需要映射的类型
 	/// @note 返回对应类型的原始Raw类型，如果类型不存在于类型列表中或不是内建类型，则静态断言失败，编译错误
+	/// @note 浮点数会被映射到对应大小的无符号整数类型，其它内建类型保持不变，
+	/// 部分平台对浮点数支持不完整的情况下，映射类型可能与原始类型相同，因为原始类型被声明为映射类型
 	template<typename T>
 	using BuiltinRawType_T = typename BuiltinRawType<T>::Type;
-
-	/// @}
 };
 
 //显示特化
