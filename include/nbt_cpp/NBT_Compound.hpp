@@ -195,6 +195,7 @@ public:
 	//using Compound::crend;
 	
 	//存在则映射
+	/// @cond
 	//-------------------- rbegin --------------------
 	auto rbegin() requires NBT_Compound_Concept::HasRBegin<Compound> {return Compound::rbegin();}
 	auto rbegin() const requires NBT_Compound_Concept::HasRBegin<Compound> {return Compound::rbegin();}
@@ -203,7 +204,8 @@ public:
 	auto rend() requires NBT_Compound_Concept::HasREnd<Compound> {return Compound::rend();}
 	auto rend() const requires NBT_Compound_Concept::HasREnd<Compound> {return Compound::rend();}
 	auto crend() const noexcept requires NBT_Compound_Concept::HasCREnd<Compound> {return Compound::crend();}
-	
+	/// @endcond
+
 	/// @}
 
 	//简化map查询
