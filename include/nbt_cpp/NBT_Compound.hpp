@@ -57,7 +57,7 @@ namespace NBT_Compound_Concept
 
 /// @brief 继承自标准库std::unordered_map的代理类，用于存储和管理NBT键值对
 /// @tparam Compound 继承的父类，也就是std::unordered_map
-/// @note 用户不应自行实例化此类，请使用NBT_Type::Compound来访问此类实例化类型。
+/// @note 用户不应自行实例化此类，请使用NBT_Type::Compound来访问此类实例化类型
 template<typename Compound>
 class NBT_Compound :protected Compound//Compound is Map
 {

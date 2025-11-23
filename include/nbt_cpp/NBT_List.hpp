@@ -14,6 +14,9 @@ class NBT_Reader;
 class NBT_Writer;
 class NBT_Helper;
 
+/// @brief 继承自标准库容器的代理类，用于存储和管理NBT列表
+/// @tparam List 继承的父类，也就是std::vector
+/// @note 用户不应自行实例化此类，请使用NBT_Type::List来访问此类实例化类型
 template <typename List>
 class NBT_List :protected List
 {
@@ -22,9 +25,10 @@ class NBT_List :protected List
 	friend class NBT_Helper;
 
 private:
-	//列表元素类型（只能一种元素）
-	NBT_TAG enElementTag = NBT_TAG::End;
+	//列表元素类型（同一时间list内只能存储一种类型的多个元素）
 	//此变量仅用于规约列表元素类型，无需参与比较与hash，但是需要参与构造与移动
+	NBT_TAG enElementTag = NBT_TAG::End;
+	
 private:
 	bool TestTagAndSetType(NBT_TAG enTargetTag)
 	{
@@ -76,90 +80,146 @@ private:
 		}
 	}
 public:
-	//提示性标签，用于取消构造函数的检测
+	/// @brief 提示性标签，用于取消构造函数对类型符合性的检测，类型检查要求列表中所有元素类型一致
+	/// @note 仅用于性能敏感场景，用户需保证类型一致性，否则在NBT_Write进行写出时将产生错误
 	struct NoCheck_T
 	{
 		explicit constexpr NoCheck_T() noexcept = default;
 	};
-	//方便用户传入的参数
+
+	/// @brief 方便用户传入的参数
+	/// @copydoc NoCheck_T
 	constexpr static inline const NoCheck_T NoCheck{};
 
 	//完美转发、初始化列表代理构造
+
+	/// @brief 构造函数
+	/// @tparam Args 变长构造参数类型包
+	/// @param _enElementTag 列表元素类型标签
+	/// @param args 变长构造参数列表
+	/// @note 列表元素类型设置为_enElementTag代表的类型，并进行类型检查，
+	/// 如果构造的类型不匹配，则抛出std::invalid_argument异常
 	template<typename... Args>
 	NBT_List(NBT_TAG _enElementTag, Args&&... args) :List(std::forward<Args>(args)...), enElementTag(_enElementTag)
 	{
 		TestInit();
 	}
 
+	/// @brief 构造函数
+	/// @tparam Args 变长构造参数类型包
+	/// @param NoCheck_T 取消检查标记
+	/// @param _enElementTag 列表元素类型标签
+	/// @param args 变长构造参数列表
+	/// @note 不进行类型检查
 	template<typename... Args>
 	NBT_List(NoCheck_T, NBT_TAG _enElementTag, Args&&... args) : List(std::forward<Args>(args)...), enElementTag(_enElementTag)
 	{}
 
+	/// @brief 构造函数
+	/// @tparam Args 变长构造参数类型包
+	/// @param args 变长构造参数列表
+	/// @note 根据第一个元素的类型作为列表元素类型，并进行类型检查，
+	/// 如果构造的类型不匹配，则抛出std::invalid_argument异常
 	template<typename... Args>
 	NBT_List(Args&&... args) : List(std::forward<Args>(args)...), enElementTag(List::empty() ? NBT_TAG::End : List::front().GetTag())
 	{
 		TestInit();
 	}
 
+	/// @brief 构造函数
+	/// @tparam Args 变长构造参数类型包
+	/// @param NoCheck_T 取消检查标记
+	/// @param args 变长构造参数列表
+	/// @note 不进行类型检查
 	template<typename... Args>
 	NBT_List(NoCheck_T, Args&&... args) : List(std::forward<Args>(args)...), enElementTag(List::empty() ? NBT_TAG::End : List::front().GetTag())
 	{}
 
+	/// @brief 初始化列表构造函数
+	/// @param _enElementTag 列表元素类型标签
+	/// @param init 初始化列表
+	/// @note 列表元素类型设置为_enElementTag代表的类型，并对进行类型检查，
+	/// 如果构造的任一类型不匹配，则抛出std::invalid_argument异常
 	NBT_List(NBT_TAG _enElementTag, std::initializer_list<typename List::value_type> init) : List(init), enElementTag(_enElementTag)
 	{
 		TestInit();
 	}
 
+	/// @brief 初始化列表构造函数
+	/// @param NoCheck_T 取消检查标记
+	/// @param _enElementTag 列表元素类型标签
+	/// @param init 初始化列表
+	/// @note 不进行类型检查
 	NBT_List(NoCheck_T, NBT_TAG _enElementTag, std::initializer_list<typename List::value_type> init) : List(init), enElementTag(_enElementTag)
 	{}
 
+	/// @brief 初始化列表构造函数
+	/// @param init 初始化列表
+	/// @note 根据第一个元素的类型作为列表元素类型，并进行类型检查，
+	/// 如果构造的类型不匹配，则抛出std::invalid_argument异常
 	NBT_List(std::initializer_list<typename List::value_type> init) : List(init), enElementTag(List::empty() ? NBT_TAG::End : List::front().GetTag())
 	{
 		TestInit();
 	}
 
+	/// @brief 初始化列表构造函数
+	/// @param NoCheck_T 取消检查标记
+	/// @param init 初始化列表
+	/// @note 不进行类型检查
 	NBT_List(NoCheck_T, std::initializer_list<typename List::value_type> init) : List(init), enElementTag(List::empty() ? NBT_TAG::End : List::front().GetTag())
 	{}
 
-	//无参构造析构
+	/// @brief 默认构造函数
 	NBT_List(void) = default;
+	/// @brief 析构函数
 	~NBT_List(void)
 	{
 		Clear();
 	}
 
-	//移动拷贝构造
+	/// @brief 移动构造函数
+	/// @param _Move 要移动的源对象
 	NBT_List(NBT_List &&_Move) noexcept
 		:List(std::move(_Move)),
 		 enElementTag(std::move(_Move.enElementTag))
 	{
 		_Move.enElementTag = NBT_TAG::End;
 	}
+
+	/// @brief 拷贝构造函数
+	/// @param _Copy 要拷贝的源对象
 	NBT_List(const NBT_List &_Copy)
 		:List(_Copy),
 		enElementTag(_Copy.enElementTag)
 	{}
 
-	//赋值
+	/// @brief 移动赋值运算符
+	/// @param _Move 要移动的源对象
+	/// @return 当前对象的引用
 	NBT_List &operator=(NBT_List &&_Move) noexcept
 	{
 		List::operator=(std::move(_Move));
-		enElementTag = std::move(_Move.enElementTag);
 
+		enElementTag = std::move(_Move.enElementTag);
 		_Move.enElementTag = NBT_TAG::End;
 
 		return *this;
 	}
 
+	/// @brief 拷贝赋值运算符
+	/// @param _Copy 要拷贝的源对象
+	/// @return 当前对象的引用
 	NBT_List &operator=(const NBT_List &_Copy)
 	{
 		List::operator=(_Copy);
+
 		enElementTag = _Copy.enElementTag;
 
 		return *this;
 	}
 
-	//返回内部数据（父类）
+	/// @brief 获取底层容器数据的常量引用
+	/// @return 底层容器数据的常量引用
 	const List &GetData(void) const noexcept
 	{
 		return *this;
