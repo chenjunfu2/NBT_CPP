@@ -1,26 +1,37 @@
+#从项目目录启动cmd
+
+#git运行目录在vcpkg_fork\vcpkg\下
+cd vcpkg_fork\vcpkg\
+
 # 更新fork仓库
 git fetch upstream
 git checkout master
 git merge upstream/master
+#可选，更新到fork远程
+git push origin master
 
 #新建分支
 git checkout -b update-chenjunfu2-nbt-cpp-x.x.x
 
+#回到项目目录
+cd ..
+cd ..
 # 更新配置到vcpkg文件夹
 rmdir /s /q "vcpkg_fork\vcpkg\ports\chenjunfu2-nbt-cpp\"
 mkdir "vcpkg_fork\vcpkg\ports\chenjunfu2-nbt-cpp\"
 xcopy "ports\chenjunfu2-nbt-cpp\" "vcpkg_fork\vcpkg\ports\chenjunfu2-nbt-cpp\" /Q
 
+#回到git目录
+cd vcpkg_fork\vcpkg\
+
 # 首次提交版本文件更改
 git add .
 git commit -m "Update chenjunfu2-nbt-cpp to version x.x.x"
-pause
 
 # 自动更新baseline文件并再次提交更改
 vcpkg x-add-version chenjunfu2-nbt-cpp
 git add .
 git commit -m "Update chenjunfu2-nbt-cpp version database to x.x.x"
-pause
 
 # 查看git状态然后提交到远程
 git status
