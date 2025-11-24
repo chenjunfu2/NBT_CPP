@@ -1,0 +1,591 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.15.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>chenjunfu2-nbt-cpp: NBT_String&lt; String, StringView &gt; 模板类 参考</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">chenjunfu2-nbt-cpp<span id="projectnumber">&#160;v1.0.1</span>
+   </div>
+   <div id="projectbrief">一个基于CPP20的NBT(Named Binary Tag)库</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.15.0 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','搜索',true);
+  $(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(function(){initNavTree('classNBT__String.html','','classNBT__String-members'); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">NBT_String&lt; String, StringView &gt; 模板类 参考</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>继承自标准库std::basic_string的代理类，用于存储、处理与转换Modified-UTF-8字符串  
+ <a href="#details">更多...</a></p>
+
+<p><code>#include &lt;<a class="el" href="NBT__String_8hpp_source.html">NBT_String.hpp</a>&gt;</code></p>
+<div class="dynheader">
+类 NBT_String&lt; String, StringView &gt; 继承关系图:</div>
+<div class="dyncontent">
+ <div class="center">
+  <img src="classNBT__String.png" alt=""/>
+ </div></div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-types" class="groupheader"><a id="pub-types" name="pub-types"></a>
+Public 类型</h2></td></tr>
+<tr class="memitem:a0b6037dd11409fde0d48bf501863cc57" id="r_a0b6037dd11409fde0d48bf501863cc57"><td class="memItemLeft" align="right" valign="top"><a id="a0b6037dd11409fde0d48bf501863cc57" name="a0b6037dd11409fde0d48bf501863cc57"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><b>View</b> = <a class="el" href="classNBT__StringView.html">NBT_StringView</a>&lt;String, StringView&gt;</td></tr>
+<tr class="memdesc:a0b6037dd11409fde0d48bf501863cc57"><td class="mdescLeft">&#160;</td><td class="mdescRight">当前String对应的视图View类型 <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Public 成员函数</h2></td></tr>
+<tr class="memitem:a5ae26f9e910e98c7c39dc805d15b14f4" id="r_a5ae26f9e910e98c7c39dc805d15b14f4"><td class="memTemplParams" colspan="2">template&lt;size_t N&gt; </td></tr>
+<tr class="memitem:a5ae26f9e910e98c7c39dc805d15b14f4 template"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5ae26f9e910e98c7c39dc805d15b14f4">NBT_String</a> (const typename String::value_type(&amp;ltrStr)[N])</td></tr>
+<tr class="memdesc:a5ae26f9e910e98c7c39dc805d15b14f4"><td class="mdescLeft">&#160;</td><td class="mdescRight">通过c风格字符串或字符数组初始化  <br /></td></tr>
+<tr class="memitem:aa3044923d907391e22e95566ccec46bf" id="r_aa3044923d907391e22e95566ccec46bf"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa3044923d907391e22e95566ccec46bf">NBT_String</a> (const <a class="el" href="#a0b6037dd11409fde0d48bf501863cc57">View</a> &amp;view)</td></tr>
+<tr class="memdesc:aa3044923d907391e22e95566ccec46bf"><td class="mdescLeft">&#160;</td><td class="mdescRight">从对应的视图类型View中构造String  <br /></td></tr>
+<tr class="memitem:ac4f128e129e485bf789df2d0e29c9eec" id="r_ac4f128e129e485bf789df2d0e29c9eec"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac4f128e129e485bf789df2d0e29c9eec">NBT_String</a> (const StringView &amp;_View)</td></tr>
+<tr class="memdesc:ac4f128e129e485bf789df2d0e29c9eec"><td class="mdescLeft">&#160;</td><td class="mdescRight">从对应的视图类型View的父类构造String  <br /></td></tr>
+<tr class="memitem:a5eb1495a67fa3d068a96d6a3244d0552" id="r_a5eb1495a67fa3d068a96d6a3244d0552"><td class="memItemLeft" align="right" valign="top">std::basic_string_view&lt; char &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5eb1495a67fa3d068a96d6a3244d0552">GetCharTypeView</a> (void) const noexcept</td></tr>
+<tr class="memdesc:a5eb1495a67fa3d068a96d6a3244d0552"><td class="mdescLeft">&#160;</td><td class="mdescRight">直接从当前对象获取char类型的视图  <br /></td></tr>
+<tr class="memitem:acc98daa94965d8684d0c0115dfb14a15" id="r_acc98daa94965d8684d0c0115dfb14a15"><td class="memItemLeft" align="right" valign="top">auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acc98daa94965d8684d0c0115dfb14a15">ToCharTypeUTF8</a> (void) const</td></tr>
+<tr class="memdesc:acc98daa94965d8684d0c0115dfb14a15"><td class="mdescLeft">&#160;</td><td class="mdescRight">转换到UTF-8字符编码，但是返回为char类型而非char8_t类型  <br /></td></tr>
+<tr class="memitem:a51aa60b3affb42e25e4ea5dd69a829d7" id="r_a51aa60b3affb42e25e4ea5dd69a829d7"><td class="memItemLeft" align="right" valign="top">auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a51aa60b3affb42e25e4ea5dd69a829d7">ToUTF8</a> (void) const</td></tr>
+<tr class="memdesc:a51aa60b3affb42e25e4ea5dd69a829d7"><td class="mdescLeft">&#160;</td><td class="mdescRight">转换到UTF-8字符编码  <br /></td></tr>
+<tr class="memitem:aebe58dd269534d405c1aa73d7cfb442a" id="r_aebe58dd269534d405c1aa73d7cfb442a"><td class="memItemLeft" align="right" valign="top">auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aebe58dd269534d405c1aa73d7cfb442a">ToWchartTypeUTF16</a> (void) const</td></tr>
+<tr class="memdesc:aebe58dd269534d405c1aa73d7cfb442a"><td class="mdescLeft">&#160;</td><td class="mdescRight">转换到UTF-16字符编码，但是返回为wchar_t类型而非char16_t类型  <br /></td></tr>
+<tr class="memitem:a145584faa1178b6cf83165d8b3e6ba6b" id="r_a145584faa1178b6cf83165d8b3e6ba6b"><td class="memItemLeft" align="right" valign="top">auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a145584faa1178b6cf83165d8b3e6ba6b">ToUTF16</a> (void) const</td></tr>
+<tr class="memdesc:a145584faa1178b6cf83165d8b3e6ba6b"><td class="mdescLeft">&#160;</td><td class="mdescRight">转换到UTF-16字符编码  <br /></td></tr>
+<tr class="memitem:af2ad502b233edc1b61502b15ca1e7ceb" id="r_af2ad502b233edc1b61502b15ca1e7ceb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af2ad502b233edc1b61502b15ca1e7ceb">FromCharTypeUTF8</a> (std::basic_string_view&lt; char &gt; u8String)</td></tr>
+<tr class="memdesc:af2ad502b233edc1b61502b15ca1e7ceb"><td class="mdescLeft">&#160;</td><td class="mdescRight">从char类型的UTF-8编码字符串替换当前对象内容  <br /></td></tr>
+<tr class="memitem:af43948eaa86118187466dd82c6770347" id="r_af43948eaa86118187466dd82c6770347"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af43948eaa86118187466dd82c6770347">FromUTF8</a> (std::basic_string_view&lt; char8_t &gt; u8String)</td></tr>
+<tr class="memdesc:af43948eaa86118187466dd82c6770347"><td class="mdescLeft">&#160;</td><td class="mdescRight">从UTF-8编码字符串替换当前对象内容  <br /></td></tr>
+<tr class="memitem:a37d4315533e5d1a18a5194cd17e76760" id="r_a37d4315533e5d1a18a5194cd17e76760"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a37d4315533e5d1a18a5194cd17e76760">FromWchartTypeUTF16</a> (std::basic_string_view&lt; wchar_t &gt; u16String)</td></tr>
+<tr class="memdesc:a37d4315533e5d1a18a5194cd17e76760"><td class="mdescLeft">&#160;</td><td class="mdescRight">从wchar_t类型的UTF-16编码字符串替换当前对象内容  <br /></td></tr>
+<tr class="memitem:a192c951f3e8810dd8a8be3a23395ce09" id="r_a192c951f3e8810dd8a8be3a23395ce09"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a192c951f3e8810dd8a8be3a23395ce09">FromUTF16</a> (std::basic_string_view&lt; char16_t &gt; u16String)</td></tr>
+<tr class="memdesc:a192c951f3e8810dd8a8be3a23395ce09"><td class="mdescLeft">&#160;</td><td class="mdescRight">从UTF-16编码字符串替换当前对象内容  <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-friends" class="groupheader"><a id="friends" name="friends"></a>
+友元</h2></td></tr>
+<tr class="memitem:a7bc260970fa83d84a5f90ce08fb18bad" id="r_a7bc260970fa83d84a5f90ce08fb18bad"><td class="memItemLeft" align="right" valign="top"><a id="a7bc260970fa83d84a5f90ce08fb18bad" name="a7bc260970fa83d84a5f90ce08fb18bad"></a>
+class&#160;</td><td class="memItemRight" valign="bottom"><b>NBT_Reader</b></td></tr>
+<tr class="memitem:a228bee3eab89fadd3a563856e2983ec7" id="r_a228bee3eab89fadd3a563856e2983ec7"><td class="memItemLeft" align="right" valign="top"><a id="a228bee3eab89fadd3a563856e2983ec7" name="a228bee3eab89fadd3a563856e2983ec7"></a>
+class&#160;</td><td class="memItemRight" valign="bottom"><b>NBT_Writer</b></td></tr>
+<tr class="memitem:a01c82892359b4eea5e23efb59810eb29" id="r_a01c82892359b4eea5e23efb59810eb29"><td class="memItemLeft" align="right" valign="top"><a id="a01c82892359b4eea5e23efb59810eb29" name="a01c82892359b4eea5e23efb59810eb29"></a>
+class&#160;</td><td class="memItemRight" valign="bottom"><b>NBT_Helper</b></td></tr>
+</table>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">详细描述</h2>
+<div class="textblock"><div class="compoundTemplParams">template&lt;typename String, typename StringView&gt;<br />
+class NBT_String&lt; String, StringView &gt;</div><p>继承自标准库std::basic_string的代理类，用于存储、处理与转换Modified-UTF-8字符串 </p>
+<dl class="tparams"><dt>模板参数</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">String</td><td>继承的父类，也就是std::basic_string </td></tr>
+    <tr><td class="paramname">StringView</td><td>与此类绑定的std::basic_string_view类型，用于提供互相转换功能 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>注解</dt><dd>用户不应自行实例化此类，请使用NBT_Type::String来访问此类实例化类型。 </dd></dl>
+</div><a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">构造及析构函数说明</h2>
+<a id="a5ae26f9e910e98c7c39dc805d15b14f4" name="a5ae26f9e910e98c7c39dc805d15b14f4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5ae26f9e910e98c7c39dc805d15b14f4">&#9670;&#160;</a></span>NBT_String() <span class="overload">[1/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename String, typename StringView&gt; </div>
+<div class="memtemplate">
+template&lt;size_t N&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classNBT__String.html">NBT_String</a>&lt; String, StringView &gt;::NBT_String </td>
+          <td>(</td>
+          <td class="paramtype">const typename String::value_type(&amp;)</td>          <td class="paramname"><span class="paramname"><em>ltrStr</em></span>[N]</td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>通过c风格字符串或字符数组初始化 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ltrStr</td><td>数组的引用 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>注解</dt><dd>如果字符串或字符数组以c风格字符串的\0或mutf8的0x80 0xc0结尾，则裁切多余结尾，因为string数据中不应包含字符串结束符， 这里的裁切仅缩小拷贝字符串长度，而非修改原始对象进行修改。 </dd></dl>
+
+</div>
+</div>
+<a id="aa3044923d907391e22e95566ccec46bf" name="aa3044923d907391e22e95566ccec46bf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa3044923d907391e22e95566ccec46bf">&#9670;&#160;</a></span>NBT_String() <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename String, typename StringView&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classNBT__String.html">NBT_String</a>&lt; String, StringView &gt;::NBT_String </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="#a0b6037dd11409fde0d48bf501863cc57">View</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>view</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>从对应的视图类型View中构造String </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">view</td><td>视图类型View的引用 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ac4f128e129e485bf789df2d0e29c9eec" name="ac4f128e129e485bf789df2d0e29c9eec"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac4f128e129e485bf789df2d0e29c9eec">&#9670;&#160;</a></span>NBT_String() <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename String, typename StringView&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classNBT__String.html">NBT_String</a>&lt; String, StringView &gt;::NBT_String </td>
+          <td>(</td>
+          <td class="paramtype">const StringView &amp;</td>          <td class="paramname"><span class="paramname"><em>_View</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>从对应的视图类型View的父类构造String </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">_View</td><td>视图类型View的父类的引用 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">成员函数说明</h2>
+<a id="af2ad502b233edc1b61502b15ca1e7ceb" name="af2ad502b233edc1b61502b15ca1e7ceb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af2ad502b233edc1b61502b15ca1e7ceb">&#9670;&#160;</a></span>FromCharTypeUTF8()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename String, typename StringView&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classNBT__String.html">NBT_String</a>&lt; String, StringView &gt;::FromCharTypeUTF8 </td>
+          <td>(</td>
+          <td class="paramtype">std::basic_string_view&lt; char &gt;</td>          <td class="paramname"><span class="paramname"><em>u8String</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>从char类型的UTF-8编码字符串替换当前对象内容 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">u8String</td><td>char类型的视图view，实际编码应为UTF-8 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>注解</dt><dd>从视图中的字符串转换为Modified-UTF-8后替换当前对象。 </dd></dl>
+
+</div>
+</div>
+<a id="a192c951f3e8810dd8a8be3a23395ce09" name="a192c951f3e8810dd8a8be3a23395ce09"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a192c951f3e8810dd8a8be3a23395ce09">&#9670;&#160;</a></span>FromUTF16()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename String, typename StringView&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classNBT__String.html">NBT_String</a>&lt; String, StringView &gt;::FromUTF16 </td>
+          <td>(</td>
+          <td class="paramtype">std::basic_string_view&lt; char16_t &gt;</td>          <td class="paramname"><span class="paramname"><em>u16String</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>从UTF-16编码字符串替换当前对象内容 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">u16String</td><td>char16_t类型的视图view </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>注解</dt><dd>从视图中的字符串转换为Modified-UTF-8后替换当前对象。 </dd></dl>
+
+</div>
+</div>
+<a id="af43948eaa86118187466dd82c6770347" name="af43948eaa86118187466dd82c6770347"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af43948eaa86118187466dd82c6770347">&#9670;&#160;</a></span>FromUTF8()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename String, typename StringView&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classNBT__String.html">NBT_String</a>&lt; String, StringView &gt;::FromUTF8 </td>
+          <td>(</td>
+          <td class="paramtype">std::basic_string_view&lt; char8_t &gt;</td>          <td class="paramname"><span class="paramname"><em>u8String</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>从UTF-8编码字符串替换当前对象内容 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">u8String</td><td>char8_t类型的视图view </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>注解</dt><dd>从视图中的字符串转换为Modified-UTF-8后替换当前对象。 </dd></dl>
+
+</div>
+</div>
+<a id="a37d4315533e5d1a18a5194cd17e76760" name="a37d4315533e5d1a18a5194cd17e76760"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a37d4315533e5d1a18a5194cd17e76760">&#9670;&#160;</a></span>FromWchartTypeUTF16()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename String, typename StringView&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classNBT__String.html">NBT_String</a>&lt; String, StringView &gt;::FromWchartTypeUTF16 </td>
+          <td>(</td>
+          <td class="paramtype">std::basic_string_view&lt; wchar_t &gt;</td>          <td class="paramname"><span class="paramname"><em>u16String</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>从wchar_t类型的UTF-16编码字符串替换当前对象内容 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">u16String</td><td>wchar_t类型的视图view，实际编码应为UTF-16 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>注解</dt><dd>从视图中的字符串转换为Modified-UTF-8后替换当前对象。 </dd></dl>
+
+</div>
+</div>
+<a id="a5eb1495a67fa3d068a96d6a3244d0552" name="a5eb1495a67fa3d068a96d6a3244d0552"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5eb1495a67fa3d068a96d6a3244d0552">&#9670;&#160;</a></span>GetCharTypeView()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename String, typename StringView&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::basic_string_view&lt; char &gt; <a class="el" href="classNBT__String.html">NBT_String</a>&lt; String, StringView &gt;::GetCharTypeView </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>直接从当前对象获取char类型的视图 </p>
+<dl class="section return"><dt>返回</dt><dd>char类型的视图View </dd></dl>
+<dl class="section note"><dt>注解</dt><dd>仅用于方便部分只支持char类型字符串的库使用，如果需要转换到其它字符编码，请调用本类的转换API。 在修改本对象，或离开作用域后，不应该再使用此函数原先返回的view类型。 </dd></dl>
+
+</div>
+</div>
+<a id="acc98daa94965d8684d0c0115dfb14a15" name="acc98daa94965d8684d0c0115dfb14a15"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acc98daa94965d8684d0c0115dfb14a15">&#9670;&#160;</a></span>ToCharTypeUTF8()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename String, typename StringView&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">auto <a class="el" href="classNBT__String.html">NBT_String</a>&lt; String, StringView &gt;::ToCharTypeUTF8 </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>转换到UTF-8字符编码，但是返回为char类型而非char8_t类型 </p>
+<dl class="section return"><dt>返回</dt><dd>自动推导，应为char类型的std::basic_string </dd></dl>
+<dl class="section note"><dt>注解</dt><dd>返回为char类型仅用于方便部分只支持char类型的库使用，实际编码仍为UTF-8。 转换后的字符串与当前字符串对象与当前字符串对象独立，互不影响。 </dd></dl>
+
+</div>
+</div>
+<a id="a145584faa1178b6cf83165d8b3e6ba6b" name="a145584faa1178b6cf83165d8b3e6ba6b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a145584faa1178b6cf83165d8b3e6ba6b">&#9670;&#160;</a></span>ToUTF16()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename String, typename StringView&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">auto <a class="el" href="classNBT__String.html">NBT_String</a>&lt; String, StringView &gt;::ToUTF16 </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>转换到UTF-16字符编码 </p>
+<dl class="section return"><dt>返回</dt><dd>自动推导，应为char16_t类型的std::basic_string </dd></dl>
+<dl class="section note"><dt>注解</dt><dd>转换后的字符串与当前字符串对象与当前字符串对象独立，互不影响。 </dd></dl>
+
+</div>
+</div>
+<a id="a51aa60b3affb42e25e4ea5dd69a829d7" name="a51aa60b3affb42e25e4ea5dd69a829d7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a51aa60b3affb42e25e4ea5dd69a829d7">&#9670;&#160;</a></span>ToUTF8()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename String, typename StringView&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">auto <a class="el" href="classNBT__String.html">NBT_String</a>&lt; String, StringView &gt;::ToUTF8 </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>转换到UTF-8字符编码 </p>
+<dl class="section return"><dt>返回</dt><dd>自动推导，应为char8_t类型的std::basic_string </dd></dl>
+<dl class="section note"><dt>注解</dt><dd>转换后的字符串与当前字符串对象与当前字符串对象独立，互不影响。 </dd></dl>
+
+</div>
+</div>
+<a id="aebe58dd269534d405c1aa73d7cfb442a" name="aebe58dd269534d405c1aa73d7cfb442a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aebe58dd269534d405c1aa73d7cfb442a">&#9670;&#160;</a></span>ToWchartTypeUTF16()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename String, typename StringView&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">auto <a class="el" href="classNBT__String.html">NBT_String</a>&lt; String, StringView &gt;::ToWchartTypeUTF16 </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>转换到UTF-16字符编码，但是返回为wchar_t类型而非char16_t类型 </p>
+<dl class="section return"><dt>返回</dt><dd>自动推导，应为wchar_t类型的std::basic_string </dd></dl>
+<dl class="section note"><dt>注解</dt><dd>返回为wchar_t类型仅用于方便部分只支持wchar_t类型的库使用，实际编码仍为UTF-16。 转换后的字符串与当前字符串对象与当前字符串对象独立，互不影响。 </dd></dl>
+
+</div>
+</div>
+<hr/>该类的文档由以下文件生成:<ul>
+<li><a class="el" href="NBT__String_8hpp_source.html">NBT_String.hpp</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="classNBT__String.html">NBT_String</a></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.15.0 </li>
+  </ul>
+</div>
+</body>
+</html>

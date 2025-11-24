@@ -1,0 +1,643 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.15.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>chenjunfu2-nbt-cpp: NBT_IO类 参考</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">chenjunfu2-nbt-cpp<span id="projectnumber">&#160;v1.0.1</span>
+   </div>
+   <div id="projectbrief">一个基于CPP20的NBT(Named Binary Tag)库</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.15.0 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','搜索',true);
+  $(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(function(){initNavTree('classNBT__IO.html','','classNBT__IO-members'); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">NBT_IO类 参考</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>用于提供nbt文件读写，解压与压缩功能  
+ <a href="#details">更多...</a></p>
+
+<p><code>#include &lt;<a class="el" href="NBT__IO_8hpp_source.html">NBT_IO.hpp</a>&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-static-methods" class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
+静态 Public 成员函数</h2></td></tr>
+<tr class="memitem:a712cfa63160ad4a35656443fa7a174dc" id="r_a712cfa63160ad4a35656443fa7a174dc"><td class="memTemplParams" colspan="2">template&lt;typename T = std::vector&lt;uint8_t&gt;&gt; <br />
+requires (sizeof(typename T::value_type) == 1 &amp;&amp; std::is_trivially_copyable_v&lt;typename T::value_type&gt;)</td></tr>
+<tr class="memitem:a712cfa63160ad4a35656443fa7a174dc template"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a712cfa63160ad4a35656443fa7a174dc">WriteFile</a> (const std::string &amp;strFileName, const T &amp;tData)</td></tr>
+<tr class="memdesc:a712cfa63160ad4a35656443fa7a174dc"><td class="mdescLeft">&#160;</td><td class="mdescRight">从任意顺序容器写出字节流数据到指定文件名的文件中  <br /></td></tr>
+<tr class="memitem:a4f91a054c824b54a2bac9cff9cba7f3f" id="r_a4f91a054c824b54a2bac9cff9cba7f3f"><td class="memTemplParams" colspan="2">template&lt;typename T = std::vector&lt;uint8_t&gt;&gt; <br />
+requires (sizeof(typename T::value_type) == 1 &amp;&amp; std::is_trivially_copyable_v&lt;typename T::value_type&gt;)</td></tr>
+<tr class="memitem:a4f91a054c824b54a2bac9cff9cba7f3f template"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4f91a054c824b54a2bac9cff9cba7f3f">ReadFile</a> (const std::string &amp;strFileName, T &amp;tData)</td></tr>
+<tr class="memdesc:a4f91a054c824b54a2bac9cff9cba7f3f"><td class="mdescLeft">&#160;</td><td class="mdescRight">从指定文件名的文件中读取字节流数据到任意顺序容器中  <br /></td></tr>
+<tr class="memitem:a66b69f2bb051ada7b7506fbc233ed8fc" id="r_a66b69f2bb051ada7b7506fbc233ed8fc"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a66b69f2bb051ada7b7506fbc233ed8fc">IsFileExist</a> (const std::string &amp;sFileName)</td></tr>
+<tr class="memdesc:a66b69f2bb051ada7b7506fbc233ed8fc"><td class="mdescLeft">&#160;</td><td class="mdescRight">判断指定文件名的文件是否存在  <br /></td></tr>
+<tr class="memitem:aac207e7431c4130f085b4e650b9e458c" id="r_aac207e7431c4130f085b4e650b9e458c"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aac207e7431c4130f085b4e650b9e458c">IsZlib</a> (uint8_t u8DataFirst, uint8_t u8DataSecond)</td></tr>
+<tr class="memdesc:aac207e7431c4130f085b4e650b9e458c"><td class="mdescLeft">&#160;</td><td class="mdescRight">通过字节流开始的两个字节判断是否可能是Zlib压缩  <br /></td></tr>
+<tr class="memitem:a77dedf7083ac20c6e328323f3475f540" id="r_a77dedf7083ac20c6e328323f3475f540"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a77dedf7083ac20c6e328323f3475f540">IsGzip</a> (uint8_t u8DataFirst, uint8_t u8DataSecond)</td></tr>
+<tr class="memdesc:a77dedf7083ac20c6e328323f3475f540"><td class="mdescLeft">&#160;</td><td class="mdescRight">通过字节流开始的两个字节判断是否可能是Gzip压缩  <br /></td></tr>
+<tr class="memitem:a4676a6e6a44e7e52f408073675d555e3" id="r_a4676a6e6a44e7e52f408073675d555e3"><td class="memTemplParams" colspan="2">template&lt;typename T&gt; <br />
+requires (sizeof(typename T::value_type) == 1 &amp;&amp; std::is_trivially_copyable_v&lt;typename T::value_type&gt;)</td></tr>
+<tr class="memitem:a4676a6e6a44e7e52f408073675d555e3 template"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4676a6e6a44e7e52f408073675d555e3">IsDataZipped</a> (const T &amp;tData)</td></tr>
+<tr class="memdesc:a4676a6e6a44e7e52f408073675d555e3"><td class="mdescLeft">&#160;</td><td class="mdescRight">判断一个顺序容器存储的字节流是否可能存在压缩  <br /></td></tr>
+<tr class="memitem:a6b020f152629eeb57e30a8617dd82117" id="r_a6b020f152629eeb57e30a8617dd82117"><td class="memTemplParams" colspan="2">template&lt;typename I, typename O&gt; <br />
+requires (sizeof(typename I::value_type) == 1 &amp;&amp; std::is_trivially_copyable_v&lt;typename I::value_type&gt; &amp;&amp; sizeof(typename O::value_type) == 1 &amp;&amp; std::is_trivially_copyable_v&lt;typename O::value_type&gt;)</td></tr>
+<tr class="memitem:a6b020f152629eeb57e30a8617dd82117 template"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6b020f152629eeb57e30a8617dd82117">DecompressData</a> (O &amp;oData, const I &amp;iData)</td></tr>
+<tr class="memdesc:a6b020f152629eeb57e30a8617dd82117"><td class="mdescLeft">&#160;</td><td class="mdescRight">解压数据，自动判断Zlib或Gzip并解压，如果失败则抛出异常  <br /></td></tr>
+<tr class="memitem:ae07925a74f5db70c16c6bbe76ba81b31" id="r_ae07925a74f5db70c16c6bbe76ba81b31"><td class="memTemplParams" colspan="2">template&lt;typename I, typename O&gt; <br />
+requires (sizeof(typename I::value_type) == 1 &amp;&amp; std::is_trivially_copyable_v&lt;typename I::value_type&gt; &amp;&amp; sizeof(typename O::value_type) == 1 &amp;&amp; std::is_trivially_copyable_v&lt;typename O::value_type&gt;)</td></tr>
+<tr class="memitem:ae07925a74f5db70c16c6bbe76ba81b31 template"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae07925a74f5db70c16c6bbe76ba81b31">CompressData</a> (O &amp;oData, const I &amp;iData, int iLevel=Z_DEFAULT_COMPRESSION)</td></tr>
+<tr class="memdesc:ae07925a74f5db70c16c6bbe76ba81b31"><td class="mdescLeft">&#160;</td><td class="mdescRight">压缩数据，默认压缩为Gzip，也就是NBT格式的标准压缩类型，如果失败则抛出异常  <br /></td></tr>
+<tr class="memitem:a00f26bdf9522ddaa9a6e2df1cadab594" id="r_a00f26bdf9522ddaa9a6e2df1cadab594"><td class="memTemplParams" colspan="2">template&lt;typename I, typename O, typename ErrInfoFunc = NBT_Print&gt; <br />
+requires (sizeof(typename I::value_type) == 1 &amp;&amp; std::is_trivially_copyable_v&lt;typename I::value_type&gt; &amp;&amp; sizeof(typename O::value_type) == 1 &amp;&amp; std::is_trivially_copyable_v&lt;typename O::value_type&gt;)</td></tr>
+<tr class="memitem:a00f26bdf9522ddaa9a6e2df1cadab594 template"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a00f26bdf9522ddaa9a6e2df1cadab594">DecompressDataNoThrow</a> (O &amp;oData, const I &amp;iData, ErrInfoFunc funcErrInfo=<a class="el" href="classNBT__Print.html">NBT_Print</a>{ stderr }) noexcept</td></tr>
+<tr class="memdesc:a00f26bdf9522ddaa9a6e2df1cadab594"><td class="mdescLeft">&#160;</td><td class="mdescRight">压缩数据，但是不抛出异常，而是通过funcErrInfo打印异常信息并返回成功与否  <br /></td></tr>
+<tr class="memitem:a31eb936874d1af59ea5da53162a024ea" id="r_a31eb936874d1af59ea5da53162a024ea"><td class="memTemplParams" colspan="2">template&lt;typename I, typename O, typename ErrInfoFunc = NBT_Print&gt; <br />
+requires (sizeof(typename I::value_type) == 1 &amp;&amp; std::is_trivially_copyable_v&lt;typename I::value_type&gt; &amp;&amp; sizeof(typename O::value_type) == 1 &amp;&amp; std::is_trivially_copyable_v&lt;typename O::value_type&gt;)</td></tr>
+<tr class="memitem:a31eb936874d1af59ea5da53162a024ea template"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a31eb936874d1af59ea5da53162a024ea">CompressDataNoThrow</a> (O &amp;oData, const I &amp;iData, int iLevel=Z_DEFAULT_COMPRESSION, ErrInfoFunc funcErrInfo=<a class="el" href="classNBT__Print.html">NBT_Print</a>{ stderr }) noexcept</td></tr>
+<tr class="memdesc:a31eb936874d1af59ea5da53162a024ea"><td class="mdescLeft">&#160;</td><td class="mdescRight">解压数据，但是不抛出异常，而是通过funcErrInfo打印异常信息并返回成功与否  <br /></td></tr>
+</table>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">详细描述</h2>
+<div class="textblock"><p>用于提供nbt文件读写，解压与压缩功能 </p>
+</div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">成员函数说明</h2>
+<a id="ae07925a74f5db70c16c6bbe76ba81b31" name="ae07925a74f5db70c16c6bbe76ba81b31"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae07925a74f5db70c16c6bbe76ba81b31">&#9670;&#160;</a></span>CompressData()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename I, typename O&gt; <br />
+requires (sizeof(typename I::value_type) == 1 &amp;&amp; std::is_trivially_copyable_v&lt;typename I::value_type&gt; &amp;&amp; sizeof(typename O::value_type) == 1 &amp;&amp; std::is_trivially_copyable_v&lt;typename O::value_type&gt;)</div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void NBT_IO::CompressData </td>
+          <td>(</td>
+          <td class="paramtype">O &amp;</td>          <td class="paramname"><span class="paramname"><em>oData</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const I &amp;</td>          <td class="paramname"><span class="paramname"><em>iData</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>iLevel</em></span><span class="paramdefsep"> = </span><span class="paramdefval">Z_DEFAULT_COMPRESSION</span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>压缩数据，默认压缩为Gzip，也就是NBT格式的标准压缩类型，如果失败则抛出异常 </p>
+<dl class="tparams"><dt>模板参数</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">I</td><td>输入的顺序容器类型 </td></tr>
+    <tr><td class="paramname">O</td><td>输出的顺序容器类型 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[out]</td><td class="paramname">oData</td><td>输入的顺序容器引用 </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">iData</td><td>输出的顺序容器引用 </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">iLevel</td><td>压缩等级 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>注解</dt><dd>oData和iData不能引用相同对象，否则错误。如果输入为空，则输出也为空。 顺序容器必须存储字节流，内部的值类型大小必须为1，且必须可平凡拷贝。 </dd></dl>
+
+</div>
+</div>
+<a id="a31eb936874d1af59ea5da53162a024ea" name="a31eb936874d1af59ea5da53162a024ea"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a31eb936874d1af59ea5da53162a024ea">&#9670;&#160;</a></span>CompressDataNoThrow()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename I, typename O, typename ErrInfoFunc = NBT_Print&gt; <br />
+requires (sizeof(typename I::value_type) == 1 &amp;&amp; std::is_trivially_copyable_v&lt;typename I::value_type&gt; &amp;&amp; sizeof(typename O::value_type) == 1 &amp;&amp; std::is_trivially_copyable_v&lt;typename O::value_type&gt;)</div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool NBT_IO::CompressDataNoThrow </td>
+          <td>(</td>
+          <td class="paramtype">O &amp;</td>          <td class="paramname"><span class="paramname"><em>oData</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const I &amp;</td>          <td class="paramname"><span class="paramname"><em>iData</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>iLevel</em></span><span class="paramdefsep"> = </span><span class="paramdefval">Z_DEFAULT_COMPRESSION</span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">ErrInfoFunc</td>          <td class="paramname"><span class="paramname"><em>funcErrInfo</em></span><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="classNBT__Print.html">NBT_Print</a>{&#160;stderr&#160;}</span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>解压数据，但是不抛出异常，而是通过funcErrInfo打印异常信息并返回成功与否 </p>
+<dl class="tparams"><dt>模板参数</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">I</td><td>输入的顺序容器类型 </td></tr>
+    <tr><td class="paramname">O</td><td>输出的顺序容器类型 </td></tr>
+    <tr><td class="paramname">ErrInfoFunc</td><td>打印异常信息的仿函数类型 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[out]</td><td class="paramname">oData</td><td>输入的顺序容器引用 </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">iData</td><td>输出的顺序容器引用 </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">iLevel</td><td>压缩等级 </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">funcErrInfo</td><td>打印异常信息的仿函数 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>操作是否成功 </dd></dl>
+<dl class="section note"><dt>注解</dt><dd>funcErrInfo默认实现为NBT_Print并输出到标准异常stderr，用户可以自定义。 类似于NBT_Print的仿函数类型并替换输出例程，具体情况请参照NBT_Print类的说明。 顺序容器必须存储字节流，内部的值类型大小必须为1，且必须可平凡拷贝。 </dd></dl>
+
+</div>
+</div>
+<a id="a6b020f152629eeb57e30a8617dd82117" name="a6b020f152629eeb57e30a8617dd82117"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6b020f152629eeb57e30a8617dd82117">&#9670;&#160;</a></span>DecompressData()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename I, typename O&gt; <br />
+requires (sizeof(typename I::value_type) == 1 &amp;&amp; std::is_trivially_copyable_v&lt;typename I::value_type&gt; &amp;&amp; sizeof(typename O::value_type) == 1 &amp;&amp; std::is_trivially_copyable_v&lt;typename O::value_type&gt;)</div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void NBT_IO::DecompressData </td>
+          <td>(</td>
+          <td class="paramtype">O &amp;</td>          <td class="paramname"><span class="paramname"><em>oData</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const I &amp;</td>          <td class="paramname"><span class="paramname"><em>iData</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>解压数据，自动判断Zlib或Gzip并解压，如果失败则抛出异常 </p>
+<dl class="tparams"><dt>模板参数</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">I</td><td>输入的顺序容器类型 </td></tr>
+    <tr><td class="paramname">O</td><td>输出的顺序容器类型 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[out]</td><td class="paramname">oData</td><td>输入的顺序容器引用 </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">iData</td><td>输出的顺序容器引用 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>注解</dt><dd>oData和iData不能引用相同对象，否则错误。如果输入为空，则输出也为空。 顺序容器必须存储字节流，内部的值类型大小必须为1，且必须可平凡拷贝。 </dd></dl>
+
+</div>
+</div>
+<a id="a00f26bdf9522ddaa9a6e2df1cadab594" name="a00f26bdf9522ddaa9a6e2df1cadab594"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a00f26bdf9522ddaa9a6e2df1cadab594">&#9670;&#160;</a></span>DecompressDataNoThrow()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename I, typename O, typename ErrInfoFunc = NBT_Print&gt; <br />
+requires (sizeof(typename I::value_type) == 1 &amp;&amp; std::is_trivially_copyable_v&lt;typename I::value_type&gt; &amp;&amp; sizeof(typename O::value_type) == 1 &amp;&amp; std::is_trivially_copyable_v&lt;typename O::value_type&gt;)</div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool NBT_IO::DecompressDataNoThrow </td>
+          <td>(</td>
+          <td class="paramtype">O &amp;</td>          <td class="paramname"><span class="paramname"><em>oData</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const I &amp;</td>          <td class="paramname"><span class="paramname"><em>iData</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">ErrInfoFunc</td>          <td class="paramname"><span class="paramname"><em>funcErrInfo</em></span><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="classNBT__Print.html">NBT_Print</a>{&#160;stderr&#160;}</span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>压缩数据，但是不抛出异常，而是通过funcErrInfo打印异常信息并返回成功与否 </p>
+<dl class="tparams"><dt>模板参数</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">I</td><td>输入的顺序容器类型 </td></tr>
+    <tr><td class="paramname">O</td><td>输出的顺序容器类型 </td></tr>
+    <tr><td class="paramname">ErrInfoFunc</td><td>打印异常信息的仿函数类型 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[out]</td><td class="paramname">oData</td><td>输入的顺序容器引用 </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">iData</td><td>输出的顺序容器引用 </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">funcErrInfo</td><td>打印异常信息的仿函数 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>操作是否成功 </dd></dl>
+<dl class="section note"><dt>注解</dt><dd>funcErrInfo默认实现为NBT_Print并输出到标准异常stderr，用户可以自定义。 类似于NBT_Print的仿函数类型并替换输出例程，具体情况请参照NBT_Print类的说明。 顺序容器必须存储字节流，内部的值类型大小必须为1，且必须可平凡拷贝。 </dd></dl>
+
+</div>
+</div>
+<a id="a4676a6e6a44e7e52f408073675d555e3" name="a4676a6e6a44e7e52f408073675d555e3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4676a6e6a44e7e52f408073675d555e3">&#9670;&#160;</a></span>IsDataZipped()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T&gt; <br />
+requires (sizeof(typename T::value_type) == 1 &amp;&amp; std::is_trivially_copyable_v&lt;typename T::value_type&gt;)</div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool NBT_IO::IsDataZipped </td>
+          <td>(</td>
+          <td class="paramtype">const T &amp;</td>          <td class="paramname"><span class="paramname"><em>tData</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>判断一个顺序容器存储的字节流是否可能存在压缩 </p>
+<dl class="tparams"><dt>模板参数</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T</td><td>任意顺序容器类型 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">tData</td><td>顺序容器类型的引用 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>是否可能存在压缩 </dd></dl>
+<dl class="section note"><dt>注解</dt><dd>仅用于可能性判断，具体是否压缩需要靠解压例程决定，仅作为快速判断的辅助函数。 顺序容器必须存储字节流，内部的值类型大小必须为1，且必须可平凡拷贝。 </dd></dl>
+
+</div>
+</div>
+<a id="a66b69f2bb051ada7b7506fbc233ed8fc" name="a66b69f2bb051ada7b7506fbc233ed8fc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a66b69f2bb051ada7b7506fbc233ed8fc">&#9670;&#160;</a></span>IsFileExist()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool NBT_IO::IsFileExist </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>sFileName</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>判断指定文件名的文件是否存在 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sFileName</td><td>目标文件名 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>文件是否存在 </dd></dl>
+<dl class="section note"><dt>注解</dt><dd>如果判断出现错误，也返回不存在。只有明确返回存在的文件存在， 否则文件可能不存在，也可能存在但是因为其它原因无法获取。 </dd></dl>
+
+</div>
+</div>
+<a id="a77dedf7083ac20c6e328323f3475f540" name="a77dedf7083ac20c6e328323f3475f540"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a77dedf7083ac20c6e328323f3475f540">&#9670;&#160;</a></span>IsGzip()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool NBT_IO::IsGzip </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>u8DataFirst</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>u8DataSecond</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>通过字节流开始的两个字节判断是否可能是Gzip压缩 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">u8DataFirst</td><td>字节流的第一个字节 </td></tr>
+    <tr><td class="paramname">u8DataSecond</td><td>字节流的第二个字节 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>是否可能是Gzip压缩 </dd></dl>
+<dl class="section note"><dt>注解</dt><dd>仅用于可能性判断，具体是否Gzip压缩需要靠解压例程决定，仅作为快速判断的辅助函数。 </dd></dl>
+
+</div>
+</div>
+<a id="aac207e7431c4130f085b4e650b9e458c" name="aac207e7431c4130f085b4e650b9e458c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aac207e7431c4130f085b4e650b9e458c">&#9670;&#160;</a></span>IsZlib()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool NBT_IO::IsZlib </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>u8DataFirst</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>u8DataSecond</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>通过字节流开始的两个字节判断是否可能是Zlib压缩 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">u8DataFirst</td><td>字节流的第一个字节 </td></tr>
+    <tr><td class="paramname">u8DataSecond</td><td>字节流的第二个字节 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>是否可能是Zlib压缩 </dd></dl>
+<dl class="section note"><dt>注解</dt><dd>仅用于可能性判断，具体是否Zlib压缩需要靠解压例程决定，仅作为快速判断的辅助函数。 </dd></dl>
+
+</div>
+</div>
+<a id="a4f91a054c824b54a2bac9cff9cba7f3f" name="a4f91a054c824b54a2bac9cff9cba7f3f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4f91a054c824b54a2bac9cff9cba7f3f">&#9670;&#160;</a></span>ReadFile()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T = std::vector&lt;uint8_t&gt;&gt; <br />
+requires (sizeof(typename T::value_type) == 1 &amp;&amp; std::is_trivially_copyable_v&lt;typename T::value_type&gt;)</div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool NBT_IO::ReadFile </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>strFileName</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T &amp;</td>          <td class="paramname"><span class="paramname"><em>tData</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>从指定文件名的文件中读取字节流数据到任意顺序容器中 </p>
+<dl class="tparams"><dt>模板参数</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T</td><td>任意顺序容器类型 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir"></td><td class="paramname">strFileName</td><td>目标文件名 </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">tData</td><td>顺序容器的引用 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>读取是否成功 </dd></dl>
+<dl class="section note"><dt>注解</dt><dd>如果文件不存在，则失败。 顺序容器必须存储字节流，内部的值类型大小必须为1，且必须可平凡拷贝。 </dd></dl>
+
+</div>
+</div>
+<a id="a712cfa63160ad4a35656443fa7a174dc" name="a712cfa63160ad4a35656443fa7a174dc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a712cfa63160ad4a35656443fa7a174dc">&#9670;&#160;</a></span>WriteFile()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T = std::vector&lt;uint8_t&gt;&gt; <br />
+requires (sizeof(typename T::value_type) == 1 &amp;&amp; std::is_trivially_copyable_v&lt;typename T::value_type&gt;)</div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool NBT_IO::WriteFile </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>strFileName</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const T &amp;</td>          <td class="paramname"><span class="paramname"><em>tData</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>从任意顺序容器写出字节流数据到指定文件名的文件中 </p>
+<dl class="tparams"><dt>模板参数</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T</td><td>任意顺序容器类型 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">strFileName</td><td>目标文件名 </td></tr>
+    <tr><td class="paramname">tData</td><td>顺序容器的引用 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>写出是否成功 </dd></dl>
+<dl class="section note"><dt>注解</dt><dd>如果文件已存在则直接清空并覆盖，未存在则创建文件。 顺序容器必须存储字节流，内部的值类型大小必须为1，且必须可平凡拷贝。 </dd></dl>
+
+</div>
+</div>
+<hr/>该类的文档由以下文件生成:<ul>
+<li><a class="el" href="NBT__IO_8hpp_source.html">NBT_IO.hpp</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="classNBT__IO.html">NBT_IO</a></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.15.0 </li>
+  </ul>
+</div>
+</body>
+</html>

@@ -61,9 +61,9 @@ var NAVTREE =
 
 var NAVTREEINDEX =
 [
-"_compiler___define_8h.html",
-"class_n_b_t___list.html#a3cc82fba3592f11d3f296563408616a3",
-"class_n_b_t___node___view.html#a275b57481d1bfc4b258dea2fd58f414b",
+"Compiler__Define_8h.html",
+"classNBT__List.html#a3cc82fba3592f11d3f296563408616a3",
+"classNBT__Node__View.html#a275b57481d1bfc4b258dea2fd58f414b",
 "namespacemembers_func.html"
 ];
 

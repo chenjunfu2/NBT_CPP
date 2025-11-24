@@ -1,0 +1,344 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.15.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>chenjunfu2-nbt-cpp: NBT_Helper类 参考</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">chenjunfu2-nbt-cpp<span id="projectnumber">&#160;v1.0.1</span>
+   </div>
+   <div id="projectbrief">一个基于CPP20的NBT(Named Binary Tag)库</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.15.0 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','搜索',true);
+  $(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(function(){initNavTree('classNBT__Helper.html','','classNBT__Helper-members'); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">NBT_Helper类 参考</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>用于格式化打印、序列化、计算哈希等功能  
+ <a href="#details">更多...</a></p>
+
+<p><code>#include &lt;<a class="el" href="NBT__Helper_8hpp_source.html">NBT_Helper.hpp</a>&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-types" class="groupheader"><a id="pub-types" name="pub-types"></a>
+Public 类型</h2></td></tr>
+<tr class="memitem:af4533b1cf78febd8ad41bdbeb6bc0736" id="r_af4533b1cf78febd8ad41bdbeb6bc0736"><td class="memItemLeft" align="right" valign="top"><a id="af4533b1cf78febd8ad41bdbeb6bc0736" name="af4533b1cf78febd8ad41bdbeb6bc0736"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><b>DefaultFuncType</b> = std::decay_t&lt;decltype(<a class="el" href="#a6a920351c9ea2ff47a592541ddd3e39d">DefaultFunc</a>)&gt;</td></tr>
+<tr class="memdesc:af4533b1cf78febd8ad41bdbeb6bc0736"><td class="mdescLeft">&#160;</td><td class="mdescRight">函数的类型，用于模板默认值 <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-static-methods" class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
+静态 Public 成员函数</h2></td></tr>
+<tr class="memitem:a522654d8dc2bfda5ea68fe451557fc5d" id="r_a522654d8dc2bfda5ea68fe451557fc5d"><td class="memTemplParams" colspan="2">template&lt;bool bSortCompound = true, typename PrintFunc = NBT_Print&gt; </td></tr>
+<tr class="memitem:a522654d8dc2bfda5ea68fe451557fc5d template"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a522654d8dc2bfda5ea68fe451557fc5d">Print</a> (const <a class="el" href="classNBT__Node__View.html">NBT_Node_View</a>&lt; true &gt; nRoot, PrintFunc funcPrint=<a class="el" href="classNBT__Print.html">NBT_Print</a>{ stdout }, bool bPadding=true, bool bNewLine=true)</td></tr>
+<tr class="memdesc:a522654d8dc2bfda5ea68fe451557fc5d"><td class="mdescLeft">&#160;</td><td class="mdescRight">格式化对齐打印NBT对象  <br /></td></tr>
+<tr class="memitem:aa6005372325201bef3ea80001bfb8b08" id="r_aa6005372325201bef3ea80001bfb8b08"><td class="memTemplParams" colspan="2">template&lt;bool bSortCompound = true&gt; </td></tr>
+<tr class="memitem:aa6005372325201bef3ea80001bfb8b08 template"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa6005372325201bef3ea80001bfb8b08">Serialize</a> (const <a class="el" href="classNBT__Node__View.html">NBT_Node_View</a>&lt; true &gt; nRoot)</td></tr>
+<tr class="memdesc:aa6005372325201bef3ea80001bfb8b08"><td class="mdescLeft">&#160;</td><td class="mdescRight">直接序列化，按照一定规则输出为String并返回  <br /></td></tr>
+<tr class="memitem:a6a920351c9ea2ff47a592541ddd3e39d" id="r_a6a920351c9ea2ff47a592541ddd3e39d"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6a920351c9ea2ff47a592541ddd3e39d">DefaultFunc</a> (<a class="el" href="classNBT__Hash.html">NBT_Hash</a> &amp;nbtHash)</td></tr>
+<tr class="memdesc:a6a920351c9ea2ff47a592541ddd3e39d"><td class="mdescLeft">&#160;</td><td class="mdescRight">用于插入哈希的示例函数  <br /></td></tr>
+<tr class="memitem:a1225907dae22576697be39c8129a2a04" id="r_a1225907dae22576697be39c8129a2a04"><td class="memTemplParams" colspan="2">template&lt;bool bSortCompound = true, typename TB = DefaultFuncType, typename TA = DefaultFuncType&gt; </td></tr>
+<tr class="memitem:a1225907dae22576697be39c8129a2a04 template"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classNBT__Hash.html#a28f6cc5c1f29c0448a33f192a1455501">NBT_Hash::HASH_T</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1225907dae22576697be39c8129a2a04">Hash</a> (const <a class="el" href="classNBT__Node__View.html">NBT_Node_View</a>&lt; true &gt; nRoot, <a class="el" href="classNBT__Hash.html">NBT_Hash</a> nbtHash, TB funBefore=<a class="el" href="#a6a920351c9ea2ff47a592541ddd3e39d">DefaultFunc</a>, TA funAfter=<a class="el" href="#a6a920351c9ea2ff47a592541ddd3e39d">DefaultFunc</a>)</td></tr>
+<tr class="memdesc:a1225907dae22576697be39c8129a2a04"><td class="mdescLeft">&#160;</td><td class="mdescRight">对NBT对象进行递归计算哈希  <br /></td></tr>
+</table>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">详细描述</h2>
+<div class="textblock"><p>用于格式化打印、序列化、计算哈希等功能 </p>
+<dl class="section note"><dt>注解</dt><dd>计算哈希需要安装xxhash库 </dd></dl>
+</div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">成员函数说明</h2>
+<a id="a6a920351c9ea2ff47a592541ddd3e39d" name="a6a920351c9ea2ff47a592541ddd3e39d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6a920351c9ea2ff47a592541ddd3e39d">&#9670;&#160;</a></span>DefaultFunc()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void NBT_Helper::DefaultFunc </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classNBT__Hash.html">NBT_Hash</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>nbtHash</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>用于插入哈希的示例函数 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">nbtHash</td><td>哈希对象，可以向内部添加数据，具体请参考NBT_Hash </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>注解</dt><dd>此函数为默认实现，请根据需要替换 </dd></dl>
+
+</div>
+</div>
+<a id="a1225907dae22576697be39c8129a2a04" name="a1225907dae22576697be39c8129a2a04"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1225907dae22576697be39c8129a2a04">&#9670;&#160;</a></span>Hash()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;bool bSortCompound = true, typename TB = DefaultFuncType, typename TA = DefaultFuncType&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classNBT__Hash.html#a28f6cc5c1f29c0448a33f192a1455501">NBT_Hash::HASH_T</a> NBT_Helper::Hash </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classNBT__Node__View.html">NBT_Node_View</a>&lt; true &gt;</td>          <td class="paramname"><span class="paramname"><em>nRoot</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classNBT__Hash.html">NBT_Hash</a></td>          <td class="paramname"><span class="paramname"><em>nbtHash</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">TB</td>          <td class="paramname"><span class="paramname"><em>funBefore</em></span><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="#a6a920351c9ea2ff47a592541ddd3e39d">DefaultFunc</a></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">TA</td>          <td class="paramname"><span class="paramname"><em>funAfter</em></span><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="#a6a920351c9ea2ff47a592541ddd3e39d">DefaultFunc</a></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>对NBT对象进行递归计算哈希 </p>
+<dl class="tparams"><dt>模板参数</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">bSortCompound</td><td>是否对Compound进行排序，以获得一致性哈希结果 </td></tr>
+    <tr><td class="paramname">TB</td><td>开始NBT哈希之前调用的仿函数类型 </td></tr>
+    <tr><td class="paramname">TA</td><td>结束NBT哈希之后调用的仿函数类型 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">nRoot</td><td>任意NBT_Type中的类型，仅初始化为视图 </td></tr>
+    <tr><td class="paramname">nbtHash</td><td>哈希对象，使用一个哈希种子初始化，具体请参考NBT_Hash </td></tr>
+    <tr><td class="paramname">funBefore</td><td>开始NBT哈希之前调用的仿函数 </td></tr>
+    <tr><td class="paramname">funAfter</td><td>结束NBT哈希之后调用的仿函数 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>计算的哈希值，可以用于哈希表或比较NBT对象等 </dd></dl>
+<dl class="section note"><dt>注解</dt><dd>注意，递归层数在此函数内没有限制，请注意不要将过深的NBT对象传入导致栈溢出！ </dd></dl>
+
+</div>
+</div>
+<a id="a522654d8dc2bfda5ea68fe451557fc5d" name="a522654d8dc2bfda5ea68fe451557fc5d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a522654d8dc2bfda5ea68fe451557fc5d">&#9670;&#160;</a></span>Print()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;bool bSortCompound = true, typename PrintFunc = NBT_Print&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void NBT_Helper::Print </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classNBT__Node__View.html">NBT_Node_View</a>&lt; true &gt;</td>          <td class="paramname"><span class="paramname"><em>nRoot</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">PrintFunc</td>          <td class="paramname"><span class="paramname"><em>funcPrint</em></span><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="classNBT__Print.html">NBT_Print</a>{&#160;stdout&#160;}</span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>bPadding</em></span><span class="paramdefsep"> = </span><span class="paramdefval">true</span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>bNewLine</em></span><span class="paramdefsep"> = </span><span class="paramdefval">true</span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>格式化对齐打印NBT对象 </p>
+<dl class="tparams"><dt>模板参数</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">bSortCompound</td><td>是否对Compound进行排序 </td></tr>
+    <tr><td class="paramname">PrintFunc</td><td>用于输出的仿函数类型，具体格式请参考NBT_Print说明 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">nRoot</td><td>任意NBT_Type中的类型，仅初始化为视图 </td></tr>
+    <tr><td class="paramname">funcPrint</td><td>用于输出的仿函数 </td></tr>
+    <tr><td class="paramname">bPadding</td><td>是否打印缩进补白 </td></tr>
+    <tr><td class="paramname">bNewLine</td><td>是否在所有打印完成后的末尾换行 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="aa6005372325201bef3ea80001bfb8b08" name="aa6005372325201bef3ea80001bfb8b08"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa6005372325201bef3ea80001bfb8b08">&#9670;&#160;</a></span>Serialize()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;bool bSortCompound = true&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string NBT_Helper::Serialize </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classNBT__Node__View.html">NBT_Node_View</a>&lt; true &gt;</td>          <td class="paramname"><span class="paramname"><em>nRoot</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>直接序列化，按照一定规则输出为String并返回 </p>
+<dl class="tparams"><dt>模板参数</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">bSortCompound</td><td>是否对Compound进行排序 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">nRoot</td><td>任意NBT_Type中的类型，仅初始化为视图 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>返回序列化的结果 </dd></dl>
+<dl class="section note"><dt>注解</dt><dd>注意并非序列化为snbt，一般用于小NBT对象的附加信息输出 </dd></dl>
+
+</div>
+</div>
+<hr/>该类的文档由以下文件生成:<ul>
+<li><a class="el" href="NBT__Helper_8hpp_source.html">NBT_Helper.hpp</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="classNBT__Helper.html">NBT_Helper</a></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.15.0 </li>
+  </ul>
+</div>
+</body>
+</html>
