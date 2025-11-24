@@ -375,6 +375,6 @@ build/
 *.csv
 *.exe
 *.lnk
-vcpkg_fork/
 other/
-docs/doxygen/
+vcpkg_fork/
+doxygen_temp/
