@@ -1,3 +1,3 @@
-rmdir /s /q "./doxygen_temp/html/"
+rmdir /s /q "doxygen_temp\html\"
 doxygen DoxyConfig.cfg
 pause
