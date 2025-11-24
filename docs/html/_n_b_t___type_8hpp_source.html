@@ -1,0 +1,394 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.15.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>chenjunfu2-nbt-cpp: include/nbt_cpp/NBT_Type.hpp 源文件</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">chenjunfu2-nbt-cpp<span id="projectnumber">&#160;v1.0.1</span>
+   </div>
+   <div id="projectbrief">一个基于CPP20的NBT(Named Binary Tag)库</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.15.0 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','搜索',true);
+  $(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(function(){initNavTree('_n_b_t___type_8hpp_source.html','',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">NBT_Type.hpp</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="_n_b_t___type_8hpp.html">浏览该文件的文档.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &lt;stdint.h&gt;</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;stddef.h&gt;</span><span class="comment">//size_t</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &lt;variant&gt;</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &lt;vector&gt;</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &lt;unordered_map&gt;</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &lt;type_traits&gt;</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &quot;<a class="code" href="_n_b_t___t_a_g_8hpp.html">NBT_TAG.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="keyword">class </span><a class="code hl_class" href="class_n_b_t___node.html">NBT_Node</a>;</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> Array&gt;</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="keyword">class </span><a class="code hl_class" href="class_n_b_t___array.html">NBT_Array</a>;</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> String, <span class="keyword">typename</span> StringView&gt;</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="keyword">class </span><a class="code hl_class" href="class_n_b_t___string.html">NBT_String</a>;</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> List&gt;</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="keyword">class </span><a class="code hl_class" href="class_n_b_t___list.html">NBT_List</a>;</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> Compound&gt;</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="keyword">class </span><a class="code hl_class" href="class_n_b_t___compound.html">NBT_Compound</a>;</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span></div>
+<div class="foldopen" id="foldopen00026" data-start="{" data-end="};">
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno"><a class="line" href="class_n_b_t___type.html">   26</a></span><span class="keyword">class </span>NBT_Type</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>{</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    NBT_Type(<span class="keywordtype">void</span>) = <span class="keyword">delete</span>;</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    ~NBT_Type(<span class="keywordtype">void</span>) = <span class="keyword">delete</span>;</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> </div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span></div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno"><a class="line" href="class_n_b_t___type.html#a73915a2cbf5ce87cbecf9ec86d555d3b">   37</a></span>    <span class="keyword">using </span><a class="code hl_typedef" href="class_n_b_t___type.html#a73915a2cbf5ce87cbecf9ec86d555d3b">Float_Raw</a> = uint32_t;</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno"><a class="line" href="class_n_b_t___type.html#a5d1bfcc689df36f2cd569066b9316f73">   38</a></span>    <span class="keyword">using </span><a class="code hl_typedef" href="class_n_b_t___type.html#a5d1bfcc689df36f2cd569066b9316f73">Double_Raw</a> = uint64_t;</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span></div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    <span class="comment">//内建类型</span></div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    <span class="comment">//默认为无状态，与std::variant兼容</span></div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno"><a class="line" href="class_n_b_t___type.html#a16ac41e6cfe61a603407221527b6b16c">   46</a></span>    <span class="keyword">using </span><a class="code hl_typedef" href="class_n_b_t___type.html#a16ac41e6cfe61a603407221527b6b16c">End</a>           = std::monostate;   </div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno"><a class="line" href="class_n_b_t___type.html#a09b5ce48dffc429ad8a7d05d007741c1">   47</a></span>    <span class="keyword">using </span><a class="code hl_typedef" href="class_n_b_t___type.html#a09b5ce48dffc429ad8a7d05d007741c1">Byte</a>          = int8_t;           </div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno"><a class="line" href="class_n_b_t___type.html#a3e47d05c36743947da966f4223237262">   48</a></span>    <span class="keyword">using </span><a class="code hl_typedef" href="class_n_b_t___type.html#a3e47d05c36743947da966f4223237262">Short</a>         = int16_t;          </div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno"><a class="line" href="class_n_b_t___type.html#afee0233d7f58b90cc9ce2b903da2da22">   49</a></span>    <span class="keyword">using </span><a class="code hl_typedef" href="class_n_b_t___type.html#afee0233d7f58b90cc9ce2b903da2da22">Int</a>           = int32_t;          </div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno"><a class="line" href="class_n_b_t___type.html#a7f8ae2e6e2f87445d1e72f7e922ba053">   50</a></span>    <span class="keyword">using </span><a class="code hl_typedef" href="class_n_b_t___type.html#a7f8ae2e6e2f87445d1e72f7e922ba053">Long</a>          = int64_t;          </div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span> </div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    <span class="comment">//浮点类型</span></div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    <span class="comment">//通过编译期确认类型大小来选择正确的类型，优先浮点类型，如果失败则替换为对应的可用类型</span></div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno"><a class="line" href="class_n_b_t___type.html#a8a7ac779b8e8a7fdccb3456844abe5cf">   54</a></span>    <span class="keyword">using </span><a class="code hl_typedef" href="class_n_b_t___type.html#a8a7ac779b8e8a7fdccb3456844abe5cf">Float</a>         = std::conditional_t&lt;(<span class="keyword">sizeof</span>(float) == <span class="keyword">sizeof</span>(<a class="code hl_typedef" href="class_n_b_t___type.html#a73915a2cbf5ce87cbecf9ec86d555d3b">Float_Raw</a>)), <span class="keywordtype">float</span>, <a class="code hl_typedef" href="class_n_b_t___type.html#a73915a2cbf5ce87cbecf9ec86d555d3b">Float_Raw</a>&gt;;       </div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno"><a class="line" href="class_n_b_t___type.html#aaea549797088fb63987679367bc9d39a">   55</a></span>    <span class="keyword">using </span><a class="code hl_typedef" href="class_n_b_t___type.html#aaea549797088fb63987679367bc9d39a">Double</a>        = std::conditional_t&lt;(<span class="keyword">sizeof</span>(double) == <span class="keyword">sizeof</span>(<a class="code hl_typedef" href="class_n_b_t___type.html#a5d1bfcc689df36f2cd569066b9316f73">Double_Raw</a>)), <span class="keywordtype">double</span>, <a class="code hl_typedef" href="class_n_b_t___type.html#a5d1bfcc689df36f2cd569066b9316f73">Double_Raw</a>&gt;;   </div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span> </div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    <span class="comment">//数组类型，不存在SortArray，由于NBT标准不提供，所以此处也不提供</span></div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno"><a class="line" href="class_n_b_t___type.html#a953bc9e67e1b5d82c0786b5992f00ed8">   58</a></span>    <span class="keyword">using </span><a class="code hl_typedef" href="class_n_b_t___type.html#a953bc9e67e1b5d82c0786b5992f00ed8">ByteArray</a>     = <a class="code hl_class" href="class_n_b_t___array.html">NBT_Array&lt;std::vector&lt;Byte&gt;</a>&gt;; </div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno"><a class="line" href="class_n_b_t___type.html#a9c4ad0b2bcd4b5cafb0c9a3f083f9406">   59</a></span>    <span class="keyword">using </span><a class="code hl_typedef" href="class_n_b_t___type.html#a9c4ad0b2bcd4b5cafb0c9a3f083f9406">IntArray</a>      = <a class="code hl_class" href="class_n_b_t___array.html">NBT_Array&lt;std::vector&lt;Int&gt;</a>&gt;;  </div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno"><a class="line" href="class_n_b_t___type.html#aa2c61028536166272869c3bbc91d3197">   60</a></span>    <span class="keyword">using </span><a class="code hl_typedef" href="class_n_b_t___type.html#aa2c61028536166272869c3bbc91d3197">LongArray</a>     = <a class="code hl_class" href="class_n_b_t___array.html">NBT_Array&lt;std::vector&lt;Long&gt;</a>&gt;; </div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span> </div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    <span class="comment">//字符串类型</span></div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno"><a class="line" href="class_n_b_t___type.html#a8580dcb2a4494cd9bc52526d43f61865">   63</a></span>    <span class="keyword">using </span><a class="code hl_typedef" href="class_n_b_t___type.html#a8580dcb2a4494cd9bc52526d43f61865">String</a>        = <a class="code hl_class" href="class_n_b_t___string.html">NBT_String&lt;std::basic_string&lt;uint8_t&gt;</a>, std::basic_string_view&lt;uint8_t&gt;&gt;;  </div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span> </div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>    <span class="comment">//列表类型</span></div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>    <span class="comment">//存储一系列同类型标签的有效负载（无标签 ID 或名称），原先为list，因为mc内list也通过下标访问，所以改为vector模拟</span></div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno"><a class="line" href="class_n_b_t___type.html#a87b4d71087e5c0ab1111a4999dace42f">   67</a></span>    <span class="keyword">using </span><a class="code hl_typedef" href="class_n_b_t___type.html#a87b4d71087e5c0ab1111a4999dace42f">List</a>          = <a class="code hl_class" href="class_n_b_t___list.html">NBT_List&lt;std::vector&lt;NBT_Node&gt;</a>&gt;;  </div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span> </div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>    <span class="comment">//集合类型</span></div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>    <span class="comment">//挂在序列下的内容都通过map绑定名称</span></div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno"><a class="line" href="class_n_b_t___type.html#a9dcd5050b96a10161f18d7ae4a22e7b3">   71</a></span>    <span class="keyword">using </span><a class="code hl_typedef" href="class_n_b_t___type.html#a9dcd5050b96a10161f18d7ae4a22e7b3">Compound</a>      = <a class="code hl_class" href="class_n_b_t___compound.html">NBT_Compound&lt;std::unordered_map&lt;String, NBT_Node&gt;</a>&gt;;   </div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span></div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span></div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>    <span class="keyword">template</span>&lt;<span class="keyword">typename</span>... Ts&gt;</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno"><a class="line" href="struct_n_b_t___type_1_1___type_list.html">   78</a></span>    <span class="keyword">struct </span><a class="code hl_struct" href="struct_n_b_t___type_1_1___type_list.html">_TypeList</a>{};</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span></div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno"><a class="line" href="class_n_b_t___type.html#a3e6b28d3639afce0227285776d2f4c66">   81</a></span>    <span class="keyword">using </span><a class="code hl_typedef" href="class_n_b_t___type.html#a3e6b28d3639afce0227285776d2f4c66">TypeList</a> = <a class="code hl_struct" href="struct_n_b_t___type_1_1___type_list.html">_TypeList</a></div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>    &lt;</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>        <a class="code hl_typedef" href="class_n_b_t___type.html#a16ac41e6cfe61a603407221527b6b16c">End</a>,</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>        <a class="code hl_typedef" href="class_n_b_t___type.html#a09b5ce48dffc429ad8a7d05d007741c1">Byte</a>,</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>        <a class="code hl_typedef" href="class_n_b_t___type.html#a3e47d05c36743947da966f4223237262">Short</a>,</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>        <a class="code hl_typedef" href="class_n_b_t___type.html#afee0233d7f58b90cc9ce2b903da2da22">Int</a>,</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>        <a class="code hl_typedef" href="class_n_b_t___type.html#a7f8ae2e6e2f87445d1e72f7e922ba053">Long</a>,</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>        <a class="code hl_typedef" href="class_n_b_t___type.html#a8a7ac779b8e8a7fdccb3456844abe5cf">Float</a>,</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>        <a class="code hl_typedef" href="class_n_b_t___type.html#aaea549797088fb63987679367bc9d39a">Double</a>,</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>        <a class="code hl_typedef" href="class_n_b_t___type.html#a953bc9e67e1b5d82c0786b5992f00ed8">ByteArray</a>,</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>        <a class="code hl_typedef" href="class_n_b_t___type.html#a8580dcb2a4494cd9bc52526d43f61865">String</a>,</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>        <a class="code hl_typedef" href="class_n_b_t___type.html#a87b4d71087e5c0ab1111a4999dace42f">List</a>,</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>        <a class="code hl_typedef" href="class_n_b_t___type.html#a9dcd5050b96a10161f18d7ae4a22e7b3">Compound</a>,</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>        <a class="code hl_typedef" href="class_n_b_t___type.html#a9c4ad0b2bcd4b5cafb0c9a3f083f9406">IntArray</a>,</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>        <a class="code hl_typedef" href="class_n_b_t___type.html#aa2c61028536166272869c3bbc91d3197">LongArray</a></div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>    &gt;;</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span> </div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>    <span class="comment">//通过类型Tag映射到字符串指针数组</span></div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>    <span class="keyword">constexpr</span> <span class="keyword">static</span> <span class="keyword">inline</span> <span class="keyword">const</span> <span class="keywordtype">char</span> *<span class="keyword">const</span> cstrTypeName[] =</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>    {</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>        <span class="stringliteral">&quot;End&quot;</span>,</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>        <span class="stringliteral">&quot;Byte&quot;</span>,</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>        <span class="stringliteral">&quot;Short&quot;</span>,</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>        <span class="stringliteral">&quot;Int&quot;</span>,</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>        <span class="stringliteral">&quot;Long&quot;</span>,</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>        <span class="stringliteral">&quot;Float&quot;</span>,</div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>        <span class="stringliteral">&quot;Double&quot;</span>,</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>        <span class="stringliteral">&quot;ByteArray&quot;</span>,</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>        <span class="stringliteral">&quot;String&quot;</span>,</div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>        <span class="stringliteral">&quot;List&quot;</span>,</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>        <span class="stringliteral">&quot;Compound&quot;</span>,</div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>        <span class="stringliteral">&quot;IntArray&quot;</span>,</div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>        <span class="stringliteral">&quot;LongArray&quot;</span>,</div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>    };</div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span> </div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span><span class="keyword">public</span>:</div>
+<div class="foldopen" id="foldopen00122" data-start="{" data-end="}">
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno"><a class="line" href="class_n_b_t___type.html#aee5bc4a2ad015e10f57f1f5b02a41418">  122</a></span>    <span class="keyword">constexpr</span> <span class="keyword">static</span> <span class="keyword">inline</span> <span class="keyword">const</span> <span class="keywordtype">char</span> *<a class="code hl_function" href="class_n_b_t___type.html#aee5bc4a2ad015e10f57f1f5b02a41418">GetTypeName</a>(<a class="code hl_enumeration" href="_n_b_t___t_a_g_8hpp.html#ada3a2766daa185b5461d684c766b4a2e">NBT_TAG</a> tag) <span class="keyword">noexcept</span><span class="comment">//运行时类型判断，允许静态</span></div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>    {</div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>        <span class="keywordflow">if</span> (tag &gt;= <a class="code hl_enumvalue" href="_n_b_t___t_a_g_8hpp.html#ada3a2766daa185b5461d684c766b4a2ead927000fd863b08d2426cbf3fc66bd56">NBT_TAG::ENUM_END</a>)</div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>        {</div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>            <span class="keywordflow">return</span> <span class="stringliteral">&quot;Unknown&quot;</span>;</div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>        }</div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span> </div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>        <a class="code hl_typedef" href="_n_b_t___t_a_g_8hpp.html#acd49bdf6bc79b8f3a1f351faec46ea6c">NBT_TAG_RAW_TYPE</a> tagRaw = (<a class="code hl_typedef" href="_n_b_t___t_a_g_8hpp.html#acd49bdf6bc79b8f3a1f351faec46ea6c">NBT_TAG_RAW_TYPE</a>)tag;</div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>        <span class="keywordflow">return</span> cstrTypeName[tagRaw];</div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>    }</div>
+</div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span></div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno"><a class="line" href="class_n_b_t___type.html#a38f9e5a21f8d2e8217fcdf65c47039a4">  135</a></span>    <span class="keyword">using </span><a class="code hl_typedef" href="class_n_b_t___type.html#a38f9e5a21f8d2e8217fcdf65c47039a4">ArrayLength</a> = int32_t;    </div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno"><a class="line" href="class_n_b_t___type.html#aae1d0d45649a20866a3b95d9323a768a">  136</a></span>    <span class="keyword">using </span><a class="code hl_typedef" href="class_n_b_t___type.html#aae1d0d45649a20866a3b95d9323a768a">StringLength</a> = uint16_t;  </div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno"><a class="line" href="class_n_b_t___type.html#aada1dd1babf26819e3a18944032eceb4">  137</a></span>    <span class="keyword">using </span><a class="code hl_typedef" href="class_n_b_t___type.html#aada1dd1babf26819e3a18944032eceb4">ListLength</a> = int32_t;     </div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span></div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno"><a class="line" href="class_n_b_t___type.html#ac12e0beaccb23ad2b11620a503b8b0c7">  142</a></span>    <span class="keyword">constexpr</span> <span class="keyword">static</span> <span class="keyword">inline</span> <a class="code hl_typedef" href="class_n_b_t___type.html#a38f9e5a21f8d2e8217fcdf65c47039a4">ArrayLength</a> <a class="code hl_variable" href="class_n_b_t___type.html#ac12e0beaccb23ad2b11620a503b8b0c7">ArrayLength_Max</a> = INT32_MAX;    </div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno"><a class="line" href="class_n_b_t___type.html#a61c44fff74188bb26d53106f53a71709">  143</a></span>    <span class="keyword">constexpr</span> <span class="keyword">static</span> <span class="keyword">inline</span> <a class="code hl_typedef" href="class_n_b_t___type.html#a38f9e5a21f8d2e8217fcdf65c47039a4">ArrayLength</a> <a class="code hl_variable" href="class_n_b_t___type.html#a61c44fff74188bb26d53106f53a71709">ArrayLength_Min</a> = INT32_MIN;    </div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span> </div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno"><a class="line" href="class_n_b_t___type.html#a46c6f23bc65828e79fd08579780ddc47">  145</a></span>    <span class="keyword">constexpr</span> <span class="keyword">static</span> <span class="keyword">inline</span> <a class="code hl_typedef" href="class_n_b_t___type.html#aae1d0d45649a20866a3b95d9323a768a">StringLength</a> <a class="code hl_variable" href="class_n_b_t___type.html#a46c6f23bc65828e79fd08579780ddc47">StringLength_Max</a> = UINT16_MAX; </div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno"><a class="line" href="class_n_b_t___type.html#a028c43de1fb5a063bc1087d350e20199">  146</a></span>    <span class="keyword">constexpr</span> <span class="keyword">static</span> <span class="keyword">inline</span> <a class="code hl_typedef" href="class_n_b_t___type.html#aae1d0d45649a20866a3b95d9323a768a">StringLength</a> <a class="code hl_variable" href="class_n_b_t___type.html#a028c43de1fb5a063bc1087d350e20199">StringLength_Min</a> = 0;          </div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span> </div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno"><a class="line" href="class_n_b_t___type.html#ab5fc25f906a932636a99402f56090ff7">  148</a></span>    <span class="keyword">constexpr</span> <span class="keyword">static</span> <span class="keyword">inline</span> <a class="code hl_typedef" href="class_n_b_t___type.html#aada1dd1babf26819e3a18944032eceb4">ListLength</a> <a class="code hl_variable" href="class_n_b_t___type.html#ab5fc25f906a932636a99402f56090ff7">ListLength_Max</a> = INT32_MAX;      </div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno"><a class="line" href="class_n_b_t___type.html#af765ad3b48be748556f296d6fd4037ac">  149</a></span>    <span class="keyword">constexpr</span> <span class="keyword">static</span> <span class="keyword">inline</span> <a class="code hl_typedef" href="class_n_b_t___type.html#aada1dd1babf26819e3a18944032eceb4">ListLength</a> <a class="code hl_variable" href="class_n_b_t___type.html#af765ad3b48be748556f296d6fd4037ac">ListLength_Min</a> = INT32_MIN;      </div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span> </div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span></div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno"><a class="line" href="class_n_b_t___type.html#a4914c541bb3d92c6f9160cef0423e303">  155</a></span>    <span class="keyword">constexpr</span> <span class="keyword">static</span> <span class="keyword">inline</span> <a class="code hl_typedef" href="class_n_b_t___type.html#a09b5ce48dffc429ad8a7d05d007741c1">Byte</a> <a class="code hl_variable" href="class_n_b_t___type.html#a4914c541bb3d92c6f9160cef0423e303">Byte_Max</a> = INT8_MAX;       </div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno"><a class="line" href="class_n_b_t___type.html#a23f7fc5765282207d0a5a43fc29b85c5">  156</a></span>    <span class="keyword">constexpr</span> <span class="keyword">static</span> <span class="keyword">inline</span> <a class="code hl_typedef" href="class_n_b_t___type.html#a09b5ce48dffc429ad8a7d05d007741c1">Byte</a> <a class="code hl_variable" href="class_n_b_t___type.html#a23f7fc5765282207d0a5a43fc29b85c5">Byte_Min</a> = INT8_MIN;       </div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span> </div>
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno"><a class="line" href="class_n_b_t___type.html#ad1a7dd51afa76e4edae90cba103cae15">  158</a></span>    <span class="keyword">constexpr</span> <span class="keyword">static</span> <span class="keyword">inline</span> <a class="code hl_typedef" href="class_n_b_t___type.html#a3e47d05c36743947da966f4223237262">Short</a> <a class="code hl_variable" href="class_n_b_t___type.html#ad1a7dd51afa76e4edae90cba103cae15">Short_Max</a> = INT16_MAX;    </div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno"><a class="line" href="class_n_b_t___type.html#a2ab0fcd64529b22fe3f67f3e6ec2997f">  159</a></span>    <span class="keyword">constexpr</span> <span class="keyword">static</span> <span class="keyword">inline</span> <a class="code hl_typedef" href="class_n_b_t___type.html#a3e47d05c36743947da966f4223237262">Short</a> <a class="code hl_variable" href="class_n_b_t___type.html#a2ab0fcd64529b22fe3f67f3e6ec2997f">Short_Min</a> = INT16_MIN;    </div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span> </div>
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno"><a class="line" href="class_n_b_t___type.html#ab2f0236ee213ade1c96676827f254663">  161</a></span>    <span class="keyword">constexpr</span> <span class="keyword">static</span> <span class="keyword">inline</span> <a class="code hl_typedef" href="class_n_b_t___type.html#afee0233d7f58b90cc9ce2b903da2da22">Int</a> <a class="code hl_variable" href="class_n_b_t___type.html#ab2f0236ee213ade1c96676827f254663">Int_Max</a> = INT32_MAX;        </div>
+<div class="line"><a id="l00162" name="l00162"></a><span class="lineno"><a class="line" href="class_n_b_t___type.html#a0fa60f16ae2ba4a6e16ea767f9cffc9c">  162</a></span>    <span class="keyword">constexpr</span> <span class="keyword">static</span> <span class="keyword">inline</span> <a class="code hl_typedef" href="class_n_b_t___type.html#afee0233d7f58b90cc9ce2b903da2da22">Int</a> <a class="code hl_variable" href="class_n_b_t___type.html#a0fa60f16ae2ba4a6e16ea767f9cffc9c">Int_Min</a> = INT32_MIN;        </div>
+<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span> </div>
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno"><a class="line" href="class_n_b_t___type.html#a90e7b887fc9d0fc605caac20c30c4f4c">  164</a></span>    <span class="keyword">constexpr</span> <span class="keyword">static</span> <span class="keyword">inline</span> <a class="code hl_typedef" href="class_n_b_t___type.html#a7f8ae2e6e2f87445d1e72f7e922ba053">Long</a> <a class="code hl_variable" href="class_n_b_t___type.html#a90e7b887fc9d0fc605caac20c30c4f4c">Long_Max</a> = INT64_MAX;      </div>
+<div class="line"><a id="l00165" name="l00165"></a><span class="lineno"><a class="line" href="class_n_b_t___type.html#af4de3bfa5483cc0c6eb0963afda375ef">  165</a></span>    <span class="keyword">constexpr</span> <span class="keyword">static</span> <span class="keyword">inline</span> <a class="code hl_typedef" href="class_n_b_t___type.html#a7f8ae2e6e2f87445d1e72f7e922ba053">Long</a> <a class="code hl_variable" href="class_n_b_t___type.html#af4de3bfa5483cc0c6eb0963afda375ef">Long_Min</a> = INT64_MIN;      </div>
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span></div>
+<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span>    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, <span class="keyword">typename</span> List&gt;</div>
+<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span>    <span class="keyword">struct </span>IsValidType;</div>
+<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span> </div>
+<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span>    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, <span class="keyword">typename</span>... Ts&gt;</div>
+<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span>    <span class="keyword">struct </span>IsValidType&lt;T, <a class="code hl_struct" href="struct_n_b_t___type_1_1___type_list.html">_TypeList</a>&lt;Ts...&gt;&gt; : std::bool_constant&lt;(std::is_same_v&lt;T, Ts&gt; || ...)&gt;</div>
+<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span>    {};</div>
+<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span></div>
+<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span>    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="line"><a id="l00181" name="l00181"></a><span class="lineno"><a class="line" href="class_n_b_t___type.html#a71dfa77059d0a3bd9a6190295ad400ca">  181</a></span>    <span class="keyword">static</span> <span class="keyword">constexpr</span> <span class="keywordtype">bool</span> <a class="code hl_variable" href="class_n_b_t___type.html#a71dfa77059d0a3bd9a6190295ad400ca">IsValidType_V</a> = IsValidType&lt;T, TypeList&gt;::value;</div>
+<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span></div>
+<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span>    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, <span class="keyword">typename</span>... Ts&gt;</div>
+<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span>    <span class="keyword">static</span> <span class="keyword">consteval</span> <a class="code hl_typedef" href="_n_b_t___t_a_g_8hpp.html#acd49bdf6bc79b8f3a1f351faec46ea6c">NBT_TAG_RAW_TYPE</a> TypeTagHelper()<span class="comment">//consteval必须编译期求值</span></div>
+<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span>    {</div>
+<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span>        <a class="code hl_typedef" href="_n_b_t___t_a_g_8hpp.html#acd49bdf6bc79b8f3a1f351faec46ea6c">NBT_TAG_RAW_TYPE</a> tagIndex = 0;</div>
+<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span>        <span class="keywordtype">bool</span> bFound = ((std::is_same_v&lt;T, Ts&gt; ? true : (++tagIndex, <span class="keyword">false</span>)) || ...);</div>
+<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span>        <span class="keywordflow">return</span> bFound ? tagIndex : (<a class="code hl_typedef" href="_n_b_t___t_a_g_8hpp.html#acd49bdf6bc79b8f3a1f351faec46ea6c">NBT_TAG_RAW_TYPE</a>)-1;</div>
+<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span>    }</div>
+<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span> </div>
+<div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span>    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, <span class="keyword">typename</span> List&gt;</div>
+<div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span>    <span class="keyword">struct </span>TypeTagImpl;</div>
+<div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span> </div>
+<div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span>    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, <span class="keyword">typename</span>... Ts&gt;</div>
+<div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span>    <span class="keyword">struct </span>TypeTagImpl&lt;T, _TypeList&lt;Ts...&gt;&gt;</div>
+<div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span>    {</div>
+<div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span>        <span class="keyword">static</span> <span class="keyword">constexpr</span> <a class="code hl_typedef" href="_n_b_t___t_a_g_8hpp.html#acd49bdf6bc79b8f3a1f351faec46ea6c">NBT_TAG_RAW_TYPE</a> value = TypeTagHelper&lt;T, Ts...&gt;();</div>
+<div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span>    };</div>
+<div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span></div>
+<div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span>    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="line"><a id="l00207" name="l00207"></a><span class="lineno"><a class="line" href="class_n_b_t___type.html#acb680b0e9ddce79f7b5386024e12462f">  207</a></span>    <span class="keyword">static</span> <span class="keyword">constexpr</span> <a class="code hl_enumeration" href="_n_b_t___t_a_g_8hpp.html#ada3a2766daa185b5461d684c766b4a2e">NBT_TAG</a> <a class="code hl_variable" href="class_n_b_t___type.html#acb680b0e9ddce79f7b5386024e12462f">TypeTag_V</a> = (<a class="code hl_enumeration" href="_n_b_t___t_a_g_8hpp.html#ada3a2766daa185b5461d684c766b4a2e">NBT_TAG</a>)TypeTagImpl&lt;T, TypeList&gt;::value;</div>
+<div class="line"><a id="l00208" name="l00208"></a><span class="lineno">  208</span></div>
+<div class="line"><a id="l00210" name="l00210"></a><span class="lineno">  210</span>    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> List&gt;</div>
+<div class="line"><a id="l00211" name="l00211"></a><span class="lineno">  211</span>    <span class="keyword">struct </span>TypeListSize;</div>
+<div class="line"><a id="l00212" name="l00212"></a><span class="lineno">  212</span> </div>
+<div class="line"><a id="l00213" name="l00213"></a><span class="lineno">  213</span>    <span class="keyword">template</span> &lt;<span class="keyword">typename</span>... Ts&gt;</div>
+<div class="line"><a id="l00214" name="l00214"></a><span class="lineno">  214</span>    <span class="keyword">struct </span>TypeListSize&lt;<a class="code hl_struct" href="struct_n_b_t___type_1_1___type_list.html">_TypeList</a>&lt;Ts...&gt;&gt;</div>
+<div class="line"><a id="l00215" name="l00215"></a><span class="lineno">  215</span>    {</div>
+<div class="line"><a id="l00216" name="l00216"></a><span class="lineno">  216</span>        <span class="keyword">static</span> <span class="keyword">constexpr</span> <span class="keywordtype">size_t</span> value = <span class="keyword">sizeof</span>...(Ts);</div>
+<div class="line"><a id="l00217" name="l00217"></a><span class="lineno">  217</span>    };</div>
+<div class="line"><a id="l00219" name="l00219"></a><span class="lineno">  219</span></div>
+<div class="line"><a id="l00222" name="l00222"></a><span class="lineno"><a class="line" href="class_n_b_t___type.html#a4626b45e682f561d3c25fd749ad4145b">  222</a></span>    <span class="keyword">static</span> <span class="keyword">constexpr</span> <span class="keywordtype">size_t</span> <a class="code hl_variable" href="class_n_b_t___type.html#a4626b45e682f561d3c25fd749ad4145b">TypeListSize_V</a> = TypeListSize&lt;TypeList&gt;::value;</div>
+<div class="line"><a id="l00223" name="l00223"></a><span class="lineno">  223</span> </div>
+<div class="line"><a id="l00224" name="l00224"></a><span class="lineno">  224</span>    <span class="comment">//静态断言：确保枚举值与类型数量匹配</span></div>
+<div class="line"><a id="l00225" name="l00225"></a><span class="lineno">  225</span>    <span class="keyword">static_assert</span>(<a class="code hl_variable" href="class_n_b_t___type.html#a4626b45e682f561d3c25fd749ad4145b">TypeListSize_V</a> == <a class="code hl_enumvalue" href="_n_b_t___t_a_g_8hpp.html#ada3a2766daa185b5461d684c766b4a2ead927000fd863b08d2426cbf3fc66bd56">NBT_TAG::ENUM_END</a>, <span class="stringliteral">&quot;Enumeration does not match the number of types in the mutator&quot;</span>);</div>
+<div class="line"><a id="l00226" name="l00226"></a><span class="lineno">  226</span></div>
+<div class="line"><a id="l00228" name="l00228"></a><span class="lineno">  228</span>    <span class="keyword">template</span> &lt;NBT_TAG_RAW_TYPE I, <span class="keyword">typename</span> List&gt; <span class="keyword">struct </span>TypeAt;</div>
+<div class="line"><a id="l00229" name="l00229"></a><span class="lineno">  229</span> </div>
+<div class="line"><a id="l00230" name="l00230"></a><span class="lineno">  230</span>    <span class="keyword">template</span> &lt;<a class="code hl_typedef" href="_n_b_t___t_a_g_8hpp.html#acd49bdf6bc79b8f3a1f351faec46ea6c">NBT_TAG_RAW_TYPE</a> I, <span class="keyword">typename</span>... Ts&gt;</div>
+<div class="line"><a id="l00231" name="l00231"></a><span class="lineno">  231</span>    <span class="keyword">struct </span>TypeAt&lt;I, <a class="code hl_struct" href="struct_n_b_t___type_1_1___type_list.html">_TypeList</a>&lt;Ts...&gt;&gt;</div>
+<div class="line"><a id="l00232" name="l00232"></a><span class="lineno">  232</span>    {</div>
+<div class="line"><a id="l00233" name="l00233"></a><span class="lineno">  233</span>        <span class="keyword">using </span>type = std::tuple_element_t&lt;I, std::tuple&lt;Ts...&gt;&gt;;</div>
+<div class="line"><a id="l00234" name="l00234"></a><span class="lineno">  234</span>    };</div>
+<div class="line"><a id="l00235" name="l00235"></a><span class="lineno">  235</span> </div>
+<div class="line"><a id="l00236" name="l00236"></a><span class="lineno">  236</span>    <span class="keyword">template</span> &lt;NBT_TAG Tag&gt;</div>
+<div class="line"><a id="l00237" name="l00237"></a><span class="lineno">  237</span>    <span class="keyword">struct </span>TagToType;</div>
+<div class="line"><a id="l00238" name="l00238"></a><span class="lineno">  238</span> </div>
+<div class="line"><a id="l00239" name="l00239"></a><span class="lineno">  239</span>    <span class="keyword">template</span> &lt;NBT_TAG Tag&gt;</div>
+<div class="line"><a id="l00240" name="l00240"></a><span class="lineno">  240</span>    <span class="keyword">struct </span>TagToType</div>
+<div class="line"><a id="l00241" name="l00241"></a><span class="lineno">  241</span>    {</div>
+<div class="line"><a id="l00242" name="l00242"></a><span class="lineno">  242</span>        <span class="keyword">static_assert</span>((<a class="code hl_typedef" href="_n_b_t___t_a_g_8hpp.html#acd49bdf6bc79b8f3a1f351faec46ea6c">NBT_TAG_RAW_TYPE</a>)Tag &lt; TypeListSize_V, <span class="stringliteral">&quot;Invalid NBT_TAG&quot;</span>);</div>
+<div class="line"><a id="l00243" name="l00243"></a><span class="lineno">  243</span>        <span class="keyword">using </span>type = <span class="keyword">typename</span> TypeAt&lt;(<a class="code hl_typedef" href="_n_b_t___t_a_g_8hpp.html#acd49bdf6bc79b8f3a1f351faec46ea6c">NBT_TAG_RAW_TYPE</a>)Tag, TypeList&gt;::type;</div>
+<div class="line"><a id="l00244" name="l00244"></a><span class="lineno">  244</span>    };</div>
+<div class="line"><a id="l00246" name="l00246"></a><span class="lineno">  246</span></div>
+<div class="line"><a id="l00251" name="l00251"></a><span class="lineno">  251</span>    <span class="keyword">template</span> &lt;NBT_TAG Tag&gt;</div>
+<div class="line"><a id="l00252" name="l00252"></a><span class="lineno"><a class="line" href="class_n_b_t___type.html#a121fc72b4ada6455470aa0b635f3c763">  252</a></span>    <span class="keyword">using </span><a class="code hl_typedef" href="class_n_b_t___type.html#a121fc72b4ada6455470aa0b635f3c763">TagToType_T</a> = <span class="keyword">typename</span> TagToType&lt;Tag&gt;::type;</div>
+<div class="line"><a id="l00253" name="l00253"></a><span class="lineno">  253</span></div>
+<div class="line"><a id="l00255" name="l00255"></a><span class="lineno">  255</span>    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="line"><a id="l00256" name="l00256"></a><span class="lineno">  256</span>    <span class="keyword">struct </span>BuiltinRawType</div>
+<div class="line"><a id="l00257" name="l00257"></a><span class="lineno">  257</span>    {</div>
+<div class="line"><a id="l00258" name="l00258"></a><span class="lineno">  258</span>        <span class="keyword">using </span>Type = T;</div>
+<div class="line"><a id="l00259" name="l00259"></a><span class="lineno">  259</span>        <span class="keyword">static_assert</span>(<a class="code hl_variable" href="class_n_b_t___type.html#a71dfa77059d0a3bd9a6190295ad400ca">IsValidType_V&lt;T&gt;</a> &amp;&amp; std::is_integral_v&lt;T&gt;, <span class="stringliteral">&quot;Not a legal type!&quot;</span>);<span class="comment">//抛出编译错误</span></div>
+<div class="line"><a id="l00260" name="l00260"></a><span class="lineno">  260</span>    };</div>
+<div class="line"><a id="l00262" name="l00262"></a><span class="lineno">  262</span></div>
+<div class="line"><a id="l00268" name="l00268"></a><span class="lineno">  268</span>    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="line"><a id="l00269" name="l00269"></a><span class="lineno"><a class="line" href="class_n_b_t___type.html#aa937376fd94d8a9abe0fb6e16107009d">  269</a></span>    <span class="keyword">using </span><a class="code hl_typedef" href="class_n_b_t___type.html#aa937376fd94d8a9abe0fb6e16107009d">BuiltinRawType_T</a> = <span class="keyword">typename</span> BuiltinRawType&lt;T&gt;::Type;</div>
+<div class="line"><a id="l00270" name="l00270"></a><span class="lineno">  270</span>};</div>
+</div>
+<div class="line"><a id="l00271" name="l00271"></a><span class="lineno">  271</span> </div>
+<div class="line"><a id="l00272" name="l00272"></a><span class="lineno">  272</span><span class="comment">//显示特化</span></div>
+<div class="line"><a id="l00273" name="l00273"></a><span class="lineno">  273</span></div>
+<div class="line"><a id="l00275" name="l00275"></a><span class="lineno">  275</span><span class="keyword">template</span>&lt;&gt;</div>
+<div class="line"><a id="l00276" name="l00276"></a><span class="lineno">  276</span><span class="keyword">struct </span>NBT_Type::BuiltinRawType&lt;<a class="code hl_class" href="class_n_b_t___type.html">NBT_Type</a>::<a class="code hl_enumvalue" href="_n_b_t___t_a_g_8hpp.html#ada3a2766daa185b5461d684c766b4a2ea22ae0e2b89e5e3d477f988cc36d3272b">Float</a>&gt;<span class="comment">//浮点数映射</span></div>
+<div class="line"><a id="l00277" name="l00277"></a><span class="lineno">  277</span>{</div>
+<div class="line"><a id="l00278" name="l00278"></a><span class="lineno">  278</span>    <span class="keyword">using </span>Type = Float_Raw;</div>
+<div class="line"><a id="l00279" name="l00279"></a><span class="lineno">  279</span>    <span class="keyword">static_assert</span>(<span class="keyword">sizeof</span>(Type) == <span class="keyword">sizeof</span>(<a class="code hl_enumvalue" href="_n_b_t___t_a_g_8hpp.html#ada3a2766daa185b5461d684c766b4a2ea22ae0e2b89e5e3d477f988cc36d3272b">Float</a>), <span class="stringliteral">&quot;Type size does not match!&quot;</span>);</div>
+<div class="line"><a id="l00280" name="l00280"></a><span class="lineno">  280</span>};</div>
+<div class="line"><a id="l00281" name="l00281"></a><span class="lineno">  281</span> </div>
+<div class="line"><a id="l00282" name="l00282"></a><span class="lineno">  282</span><span class="keyword">template</span>&lt;&gt;</div>
+<div class="line"><a id="l00283" name="l00283"></a><span class="lineno">  283</span><span class="keyword">struct </span>NBT_Type::BuiltinRawType&lt;<a class="code hl_class" href="class_n_b_t___type.html">NBT_Type</a>::<a class="code hl_enumvalue" href="_n_b_t___t_a_g_8hpp.html#ada3a2766daa185b5461d684c766b4a2ead909d38d705ce75386dd86e611a82f5b">Double</a>&gt;<span class="comment">//浮点数映射</span></div>
+<div class="line"><a id="l00284" name="l00284"></a><span class="lineno">  284</span>{</div>
+<div class="line"><a id="l00285" name="l00285"></a><span class="lineno">  285</span>    <span class="keyword">using </span>Type = Double_Raw;</div>
+<div class="line"><a id="l00286" name="l00286"></a><span class="lineno">  286</span>    <span class="keyword">static_assert</span>(<span class="keyword">sizeof</span>(Type) == <span class="keyword">sizeof</span>(<a class="code hl_enumvalue" href="_n_b_t___t_a_g_8hpp.html#ada3a2766daa185b5461d684c766b4a2ead909d38d705ce75386dd86e611a82f5b">Double</a>), <span class="stringliteral">&quot;Type size does not match!&quot;</span>);</div>
+<div class="line"><a id="l00287" name="l00287"></a><span class="lineno">  287</span>};</div>
+<div class="ttc" id="a_n_b_t___t_a_g_8hpp_html"><div class="ttname"><a href="_n_b_t___t_a_g_8hpp.html">NBT_TAG.hpp</a></div></div>
+<div class="ttc" id="a_n_b_t___t_a_g_8hpp_html_acd49bdf6bc79b8f3a1f351faec46ea6c"><div class="ttname"><a href="_n_b_t___t_a_g_8hpp.html#acd49bdf6bc79b8f3a1f351faec46ea6c">NBT_TAG_RAW_TYPE</a></div><div class="ttdeci">uint8_t NBT_TAG_RAW_TYPE</div><div class="ttdoc">NBT_TAG的原始类型，用于二进制读写或判断等</div><div class="ttdef"><b>定义</b> NBT_TAG.hpp:11</div></div>
+<div class="ttc" id="a_n_b_t___t_a_g_8hpp_html_ada3a2766daa185b5461d684c766b4a2e"><div class="ttname"><a href="_n_b_t___t_a_g_8hpp.html#ada3a2766daa185b5461d684c766b4a2e">NBT_TAG</a></div><div class="ttdeci">NBT_TAG</div><div class="ttdoc">枚举NBT类型对应的类型标签值</div><div class="ttdef"><b>定义</b> NBT_TAG.hpp:16</div></div>
+<div class="ttc" id="a_n_b_t___t_a_g_8hpp_html_ada3a2766daa185b5461d684c766b4a2ea22ae0e2b89e5e3d477f988cc36d3272b"><div class="ttname"><a href="_n_b_t___t_a_g_8hpp.html#ada3a2766daa185b5461d684c766b4a2ea22ae0e2b89e5e3d477f988cc36d3272b">NBT_TAG::Float</a></div><div class="ttdeci">@ Float</div><div class="ttdoc">对应NBT_Type::Float</div><div class="ttdef"><b>定义</b> NBT_TAG.hpp:22</div></div>
+<div class="ttc" id="a_n_b_t___t_a_g_8hpp_html_ada3a2766daa185b5461d684c766b4a2ead909d38d705ce75386dd86e611a82f5b"><div class="ttname"><a href="_n_b_t___t_a_g_8hpp.html#ada3a2766daa185b5461d684c766b4a2ead909d38d705ce75386dd86e611a82f5b">NBT_TAG::Double</a></div><div class="ttdeci">@ Double</div><div class="ttdoc">对应NBT_Type::Double</div><div class="ttdef"><b>定义</b> NBT_TAG.hpp:23</div></div>
+<div class="ttc" id="a_n_b_t___t_a_g_8hpp_html_ada3a2766daa185b5461d684c766b4a2ead927000fd863b08d2426cbf3fc66bd56"><div class="ttname"><a href="_n_b_t___t_a_g_8hpp.html#ada3a2766daa185b5461d684c766b4a2ead927000fd863b08d2426cbf3fc66bd56">NBT_TAG::ENUM_END</a></div><div class="ttdeci">@ ENUM_END</div><div class="ttdoc">枚举结束标记，用于计算enum元素个数，范围判断等</div><div class="ttdef"><b>定义</b> NBT_TAG.hpp:30</div></div>
+<div class="ttc" id="aclass_n_b_t___array_html"><div class="ttname"><a href="class_n_b_t___array.html">NBT_Array</a></div><div class="ttdoc">继承自标准库std::vector的代理类。 无特殊成员，构造与使用方式与标准库std::vector一致。</div><div class="ttdef"><b>定义</b> NBT_Array.hpp:17</div></div>
+<div class="ttc" id="aclass_n_b_t___compound_html"><div class="ttname"><a href="class_n_b_t___compound.html">NBT_Compound</a></div><div class="ttdoc">继承自标准库std::unordered_map的代理类，用于存储和管理NBT键值对</div><div class="ttdef"><b>定义</b> NBT_Compound.hpp:63</div></div>
+<div class="ttc" id="aclass_n_b_t___list_html"><div class="ttname"><a href="class_n_b_t___list.html">NBT_List</a></div><div class="ttdoc">继承自标准库容器的代理类，用于存储和管理NBT列表</div><div class="ttdef"><b>定义</b> NBT_List.hpp:22</div></div>
+<div class="ttc" id="aclass_n_b_t___node_html"><div class="ttname"><a href="class_n_b_t___node.html">NBT_Node</a></div><div class="ttdoc">NBT节点，用于存储NBT格式的各种数据类型</div><div class="ttdef"><b>定义</b> NBT_Node.hpp:36</div></div>
+<div class="ttc" id="aclass_n_b_t___string_html"><div class="ttname"><a href="class_n_b_t___string.html">NBT_String</a></div><div class="ttdoc">继承自标准库std::basic_string的代理类，用于存储、处理与转换Modified-UTF-8字符串</div><div class="ttdef"><b>定义</b> NBT_String.hpp:109</div></div>
+<div class="ttc" id="aclass_n_b_t___type_html"><div class="ttname"><a href="class_n_b_t___type.html">NBT_Type</a></div><div class="ttdoc">提供NBT类型定义，包括NBT格式中的所有数据类型，以及部分辅助功能，比如静态类型与Tag映射，类型存在查询，类型列表大小，类型最大小值等</div><div class="ttdef"><b>定义</b> NBT_Type.hpp:27</div></div>
+<div class="ttc" id="aclass_n_b_t___type_html_a028c43de1fb5a063bc1087d350e20199"><div class="ttname"><a href="class_n_b_t___type.html#a028c43de1fb5a063bc1087d350e20199">NBT_Type::StringLength_Min</a></div><div class="ttdeci">static constexpr StringLength StringLength_Min</div><div class="ttdoc">字符串长度类型最小值</div><div class="ttdef"><b>定义</b> NBT_Type.hpp:146</div></div>
+<div class="ttc" id="aclass_n_b_t___type_html_a09b5ce48dffc429ad8a7d05d007741c1"><div class="ttname"><a href="class_n_b_t___type.html#a09b5ce48dffc429ad8a7d05d007741c1">NBT_Type::Byte</a></div><div class="ttdeci">int8_t Byte</div><div class="ttdoc">8位有符号整数</div><div class="ttdef"><b>定义</b> NBT_Type.hpp:47</div></div>
+<div class="ttc" id="aclass_n_b_t___type_html_a0fa60f16ae2ba4a6e16ea767f9cffc9c"><div class="ttname"><a href="class_n_b_t___type.html#a0fa60f16ae2ba4a6e16ea767f9cffc9c">NBT_Type::Int_Min</a></div><div class="ttdeci">static constexpr Int Int_Min</div><div class="ttdoc">整数类型最小值</div><div class="ttdef"><b>定义</b> NBT_Type.hpp:162</div></div>
+<div class="ttc" id="aclass_n_b_t___type_html_a121fc72b4ada6455470aa0b635f3c763"><div class="ttname"><a href="class_n_b_t___type.html#a121fc72b4ada6455470aa0b635f3c763">NBT_Type::TagToType_T</a></div><div class="ttdeci">typename TagToType&lt; Tag &gt;::type TagToType_T</div><div class="ttdoc">从NBT_TAG获取对应的类型：编译期从NBT_TAG的enum值获取类型</div><div class="ttdef"><b>定义</b> NBT_Type.hpp:252</div></div>
+<div class="ttc" id="aclass_n_b_t___type_html_a16ac41e6cfe61a603407221527b6b16c"><div class="ttname"><a href="class_n_b_t___type.html#a16ac41e6cfe61a603407221527b6b16c">NBT_Type::End</a></div><div class="ttdeci">std::monostate End</div><div class="ttdoc">结束标记类型，无数据</div><div class="ttdef"><b>定义</b> NBT_Type.hpp:46</div></div>
+<div class="ttc" id="aclass_n_b_t___type_html_a23f7fc5765282207d0a5a43fc29b85c5"><div class="ttname"><a href="class_n_b_t___type.html#a23f7fc5765282207d0a5a43fc29b85c5">NBT_Type::Byte_Min</a></div><div class="ttdeci">static constexpr Byte Byte_Min</div><div class="ttdoc">字节类型最小值</div><div class="ttdef"><b>定义</b> NBT_Type.hpp:156</div></div>
+<div class="ttc" id="aclass_n_b_t___type_html_a2ab0fcd64529b22fe3f67f3e6ec2997f"><div class="ttname"><a href="class_n_b_t___type.html#a2ab0fcd64529b22fe3f67f3e6ec2997f">NBT_Type::Short_Min</a></div><div class="ttdeci">static constexpr Short Short_Min</div><div class="ttdoc">短整数类型形最小值</div><div class="ttdef"><b>定义</b> NBT_Type.hpp:159</div></div>
+<div class="ttc" id="aclass_n_b_t___type_html_a38f9e5a21f8d2e8217fcdf65c47039a4"><div class="ttname"><a href="class_n_b_t___type.html#a38f9e5a21f8d2e8217fcdf65c47039a4">NBT_Type::ArrayLength</a></div><div class="ttdeci">int32_t ArrayLength</div><div class="ttdoc">数组长度类型</div><div class="ttdef"><b>定义</b> NBT_Type.hpp:135</div></div>
+<div class="ttc" id="aclass_n_b_t___type_html_a3e47d05c36743947da966f4223237262"><div class="ttname"><a href="class_n_b_t___type.html#a3e47d05c36743947da966f4223237262">NBT_Type::Short</a></div><div class="ttdeci">int16_t Short</div><div class="ttdoc">16位有符号整数</div><div class="ttdef"><b>定义</b> NBT_Type.hpp:48</div></div>
+<div class="ttc" id="aclass_n_b_t___type_html_a3e6b28d3639afce0227285776d2f4c66"><div class="ttname"><a href="class_n_b_t___type.html#a3e6b28d3639afce0227285776d2f4c66">NBT_Type::TypeList</a></div><div class="ttdeci">_TypeList&lt; End, Byte, Short, Int, Long, Float, Double, ByteArray, String, List, Compound, IntArray, LongArray &gt; TypeList</div><div class="ttdoc">完整的NBT类型列表定义</div><div class="ttdef"><b>定义</b> NBT_Type.hpp:81</div></div>
+<div class="ttc" id="aclass_n_b_t___type_html_a4626b45e682f561d3c25fd749ad4145b"><div class="ttname"><a href="class_n_b_t___type.html#a4626b45e682f561d3c25fd749ad4145b">NBT_Type::TypeListSize_V</a></div><div class="ttdeci">static constexpr size_t TypeListSize_V</div><div class="ttdoc">类型列表大小：获取NBT类型的个数</div><div class="ttdef"><b>定义</b> NBT_Type.hpp:222</div></div>
+<div class="ttc" id="aclass_n_b_t___type_html_a46c6f23bc65828e79fd08579780ddc47"><div class="ttname"><a href="class_n_b_t___type.html#a46c6f23bc65828e79fd08579780ddc47">NBT_Type::StringLength_Max</a></div><div class="ttdeci">static constexpr StringLength StringLength_Max</div><div class="ttdoc">字符串长度类型最大值</div><div class="ttdef"><b>定义</b> NBT_Type.hpp:145</div></div>
+<div class="ttc" id="aclass_n_b_t___type_html_a4914c541bb3d92c6f9160cef0423e303"><div class="ttname"><a href="class_n_b_t___type.html#a4914c541bb3d92c6f9160cef0423e303">NBT_Type::Byte_Max</a></div><div class="ttdeci">static constexpr Byte Byte_Max</div><div class="ttdoc">字节类型最大值</div><div class="ttdef"><b>定义</b> NBT_Type.hpp:155</div></div>
+<div class="ttc" id="aclass_n_b_t___type_html_a5d1bfcc689df36f2cd569066b9316f73"><div class="ttname"><a href="class_n_b_t___type.html#a5d1bfcc689df36f2cd569066b9316f73">NBT_Type::Double_Raw</a></div><div class="ttdeci">uint64_t Double_Raw</div><div class="ttdoc">Double 类型的原始表示，用于在平台不支持或需要二进制读写时使用</div><div class="ttdef"><b>定义</b> NBT_Type.hpp:38</div></div>
+<div class="ttc" id="aclass_n_b_t___type_html_a61c44fff74188bb26d53106f53a71709"><div class="ttname"><a href="class_n_b_t___type.html#a61c44fff74188bb26d53106f53a71709">NBT_Type::ArrayLength_Min</a></div><div class="ttdeci">static constexpr ArrayLength ArrayLength_Min</div><div class="ttdoc">数组长度类型最小值</div><div class="ttdef"><b>定义</b> NBT_Type.hpp:143</div></div>
+<div class="ttc" id="aclass_n_b_t___type_html_a71dfa77059d0a3bd9a6190295ad400ca"><div class="ttname"><a href="class_n_b_t___type.html#a71dfa77059d0a3bd9a6190295ad400ca">NBT_Type::IsValidType_V</a></div><div class="ttdeci">static constexpr bool IsValidType_V</div><div class="ttdoc">类型存在检查：用于编译期检查一个给定类型是否为NBT中的类型</div><div class="ttdef"><b>定义</b> NBT_Type.hpp:181</div></div>
+<div class="ttc" id="aclass_n_b_t___type_html_a73915a2cbf5ce87cbecf9ec86d555d3b"><div class="ttname"><a href="class_n_b_t___type.html#a73915a2cbf5ce87cbecf9ec86d555d3b">NBT_Type::Float_Raw</a></div><div class="ttdeci">uint32_t Float_Raw</div><div class="ttdoc">Float 类型的原始表示，用于在平台不支持或需要二进制读写时使用</div><div class="ttdef"><b>定义</b> NBT_Type.hpp:37</div></div>
+<div class="ttc" id="aclass_n_b_t___type_html_a7f8ae2e6e2f87445d1e72f7e922ba053"><div class="ttname"><a href="class_n_b_t___type.html#a7f8ae2e6e2f87445d1e72f7e922ba053">NBT_Type::Long</a></div><div class="ttdeci">int64_t Long</div><div class="ttdoc">64位有符号整数</div><div class="ttdef"><b>定义</b> NBT_Type.hpp:50</div></div>
+<div class="ttc" id="aclass_n_b_t___type_html_a8580dcb2a4494cd9bc52526d43f61865"><div class="ttname"><a href="class_n_b_t___type.html#a8580dcb2a4494cd9bc52526d43f61865">NBT_Type::String</a></div><div class="ttdeci">NBT_String&lt; std::basic_string&lt; uint8_t &gt;, std::basic_string_view&lt; uint8_t &gt; &gt; String</div><div class="ttdoc">字符串类型，存储Java M-UTF-8字符串</div><div class="ttdef"><b>定义</b> NBT_Type.hpp:63</div></div>
+<div class="ttc" id="aclass_n_b_t___type_html_a87b4d71087e5c0ab1111a4999dace42f"><div class="ttname"><a href="class_n_b_t___type.html#a87b4d71087e5c0ab1111a4999dace42f">NBT_Type::List</a></div><div class="ttdeci">NBT_List&lt; std::vector&lt; NBT_Node &gt; &gt; List</div><div class="ttdoc">列表类型，可顺序存储任意相同的NBT类型</div><div class="ttdef"><b>定义</b> NBT_Type.hpp:67</div></div>
+<div class="ttc" id="aclass_n_b_t___type_html_a8a7ac779b8e8a7fdccb3456844abe5cf"><div class="ttname"><a href="class_n_b_t___type.html#a8a7ac779b8e8a7fdccb3456844abe5cf">NBT_Type::Float</a></div><div class="ttdeci">std::conditional_t&lt;(sizeof(float)==sizeof(Float_Raw)), float, Float_Raw &gt; Float</div><div class="ttdoc">单精度浮点类型</div><div class="ttdef"><b>定义</b> NBT_Type.hpp:54</div></div>
+<div class="ttc" id="aclass_n_b_t___type_html_a90e7b887fc9d0fc605caac20c30c4f4c"><div class="ttname"><a href="class_n_b_t___type.html#a90e7b887fc9d0fc605caac20c30c4f4c">NBT_Type::Long_Max</a></div><div class="ttdeci">static constexpr Long Long_Max</div><div class="ttdoc">长整数类型最大值</div><div class="ttdef"><b>定义</b> NBT_Type.hpp:164</div></div>
+<div class="ttc" id="aclass_n_b_t___type_html_a953bc9e67e1b5d82c0786b5992f00ed8"><div class="ttname"><a href="class_n_b_t___type.html#a953bc9e67e1b5d82c0786b5992f00ed8">NBT_Type::ByteArray</a></div><div class="ttdeci">NBT_Array&lt; std::vector&lt; Byte &gt; &gt; ByteArray</div><div class="ttdoc">存储 8位有符号整数的数组类型</div><div class="ttdef"><b>定义</b> NBT_Type.hpp:58</div></div>
+<div class="ttc" id="aclass_n_b_t___type_html_a9c4ad0b2bcd4b5cafb0c9a3f083f9406"><div class="ttname"><a href="class_n_b_t___type.html#a9c4ad0b2bcd4b5cafb0c9a3f083f9406">NBT_Type::IntArray</a></div><div class="ttdeci">NBT_Array&lt; std::vector&lt; Int &gt; &gt; IntArray</div><div class="ttdoc">存储32位有符号整数的数组类型</div><div class="ttdef"><b>定义</b> NBT_Type.hpp:59</div></div>
+<div class="ttc" id="aclass_n_b_t___type_html_a9dcd5050b96a10161f18d7ae4a22e7b3"><div class="ttname"><a href="class_n_b_t___type.html#a9dcd5050b96a10161f18d7ae4a22e7b3">NBT_Type::Compound</a></div><div class="ttdeci">NBT_Compound&lt; std::unordered_map&lt; String, NBT_Node &gt; &gt; Compound</div><div class="ttdoc">集合类型，可存储任意不同的NBT类型，通过名称映射值</div><div class="ttdef"><b>定义</b> NBT_Type.hpp:71</div></div>
+<div class="ttc" id="aclass_n_b_t___type_html_aa2c61028536166272869c3bbc91d3197"><div class="ttname"><a href="class_n_b_t___type.html#aa2c61028536166272869c3bbc91d3197">NBT_Type::LongArray</a></div><div class="ttdeci">NBT_Array&lt; std::vector&lt; Long &gt; &gt; LongArray</div><div class="ttdoc">存储64位有符号整数的数组类型</div><div class="ttdef"><b>定义</b> NBT_Type.hpp:60</div></div>
+<div class="ttc" id="aclass_n_b_t___type_html_aa937376fd94d8a9abe0fb6e16107009d"><div class="ttname"><a href="class_n_b_t___type.html#aa937376fd94d8a9abe0fb6e16107009d">NBT_Type::BuiltinRawType_T</a></div><div class="ttdeci">typename BuiltinRawType&lt; T &gt;::Type BuiltinRawType_T</div><div class="ttdoc">映射内建类型到方便读写的raw类型：编译期获得内建类型到可以进行二进制读写的原始类型</div><div class="ttdef"><b>定义</b> NBT_Type.hpp:269</div></div>
+<div class="ttc" id="aclass_n_b_t___type_html_aada1dd1babf26819e3a18944032eceb4"><div class="ttname"><a href="class_n_b_t___type.html#aada1dd1babf26819e3a18944032eceb4">NBT_Type::ListLength</a></div><div class="ttdeci">int32_t ListLength</div><div class="ttdoc">列表长度类型</div><div class="ttdef"><b>定义</b> NBT_Type.hpp:137</div></div>
+<div class="ttc" id="aclass_n_b_t___type_html_aae1d0d45649a20866a3b95d9323a768a"><div class="ttname"><a href="class_n_b_t___type.html#aae1d0d45649a20866a3b95d9323a768a">NBT_Type::StringLength</a></div><div class="ttdeci">uint16_t StringLength</div><div class="ttdoc">字符串长度类型</div><div class="ttdef"><b>定义</b> NBT_Type.hpp:136</div></div>
+<div class="ttc" id="aclass_n_b_t___type_html_aaea549797088fb63987679367bc9d39a"><div class="ttname"><a href="class_n_b_t___type.html#aaea549797088fb63987679367bc9d39a">NBT_Type::Double</a></div><div class="ttdeci">std::conditional_t&lt;(sizeof(double)==sizeof(Double_Raw)), double, Double_Raw &gt; Double</div><div class="ttdoc">双精度浮点类型</div><div class="ttdef"><b>定义</b> NBT_Type.hpp:55</div></div>
+<div class="ttc" id="aclass_n_b_t___type_html_ab2f0236ee213ade1c96676827f254663"><div class="ttname"><a href="class_n_b_t___type.html#ab2f0236ee213ade1c96676827f254663">NBT_Type::Int_Max</a></div><div class="ttdeci">static constexpr Int Int_Max</div><div class="ttdoc">整数类型最大值</div><div class="ttdef"><b>定义</b> NBT_Type.hpp:161</div></div>
+<div class="ttc" id="aclass_n_b_t___type_html_ab5fc25f906a932636a99402f56090ff7"><div class="ttname"><a href="class_n_b_t___type.html#ab5fc25f906a932636a99402f56090ff7">NBT_Type::ListLength_Max</a></div><div class="ttdeci">static constexpr ListLength ListLength_Max</div><div class="ttdoc">列表长度类型最大值</div><div class="ttdef"><b>定义</b> NBT_Type.hpp:148</div></div>
+<div class="ttc" id="aclass_n_b_t___type_html_ac12e0beaccb23ad2b11620a503b8b0c7"><div class="ttname"><a href="class_n_b_t___type.html#ac12e0beaccb23ad2b11620a503b8b0c7">NBT_Type::ArrayLength_Max</a></div><div class="ttdeci">static constexpr ArrayLength ArrayLength_Max</div><div class="ttdoc">数组长度类型最大值</div><div class="ttdef"><b>定义</b> NBT_Type.hpp:142</div></div>
+<div class="ttc" id="aclass_n_b_t___type_html_acb680b0e9ddce79f7b5386024e12462f"><div class="ttname"><a href="class_n_b_t___type.html#acb680b0e9ddce79f7b5386024e12462f">NBT_Type::TypeTag_V</a></div><div class="ttdeci">static constexpr NBT_TAG TypeTag_V</div><div class="ttdoc">类型枚举值查询：用于在编译期，通过类型查询它在NBT_TAG中对应的enum值</div><div class="ttdef"><b>定义</b> NBT_Type.hpp:207</div></div>
+<div class="ttc" id="aclass_n_b_t___type_html_ad1a7dd51afa76e4edae90cba103cae15"><div class="ttname"><a href="class_n_b_t___type.html#ad1a7dd51afa76e4edae90cba103cae15">NBT_Type::Short_Max</a></div><div class="ttdeci">static constexpr Short Short_Max</div><div class="ttdoc">短整数类型形最大值</div><div class="ttdef"><b>定义</b> NBT_Type.hpp:158</div></div>
+<div class="ttc" id="aclass_n_b_t___type_html_aee5bc4a2ad015e10f57f1f5b02a41418"><div class="ttname"><a href="class_n_b_t___type.html#aee5bc4a2ad015e10f57f1f5b02a41418">NBT_Type::GetTypeName</a></div><div class="ttdeci">static constexpr const char * GetTypeName(NBT_TAG tag) noexcept</div><div class="ttdoc">通过类型标签获取类型名称</div><div class="ttdef"><b>定义</b> NBT_Type.hpp:122</div></div>
+<div class="ttc" id="aclass_n_b_t___type_html_af4de3bfa5483cc0c6eb0963afda375ef"><div class="ttname"><a href="class_n_b_t___type.html#af4de3bfa5483cc0c6eb0963afda375ef">NBT_Type::Long_Min</a></div><div class="ttdeci">static constexpr Long Long_Min</div><div class="ttdoc">长整数类型最小值</div><div class="ttdef"><b>定义</b> NBT_Type.hpp:165</div></div>
+<div class="ttc" id="aclass_n_b_t___type_html_af765ad3b48be748556f296d6fd4037ac"><div class="ttname"><a href="class_n_b_t___type.html#af765ad3b48be748556f296d6fd4037ac">NBT_Type::ListLength_Min</a></div><div class="ttdeci">static constexpr ListLength ListLength_Min</div><div class="ttdoc">列表长度类型最小值</div><div class="ttdef"><b>定义</b> NBT_Type.hpp:149</div></div>
+<div class="ttc" id="aclass_n_b_t___type_html_afee0233d7f58b90cc9ce2b903da2da22"><div class="ttname"><a href="class_n_b_t___type.html#afee0233d7f58b90cc9ce2b903da2da22">NBT_Type::Int</a></div><div class="ttdeci">int32_t Int</div><div class="ttdoc">32位有符号整数</div><div class="ttdef"><b>定义</b> NBT_Type.hpp:49</div></div>
+<div class="ttc" id="astruct_n_b_t___type_1_1___type_list_html"><div class="ttname"><a href="struct_n_b_t___type_1_1___type_list.html">NBT_Type::_TypeList</a></div><div class="ttdoc">类型列表模板</div><div class="ttdef"><b>定义</b> NBT_Type.hpp:78</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><b>include</b></li><li class="navelem"><b>nbt_cpp</b></li><li class="navelem"><a href="_n_b_t___type_8hpp.html">NBT_Type.hpp</a></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.15.0 </li>
+  </ul>
+</div>
+</body>
+</html>
