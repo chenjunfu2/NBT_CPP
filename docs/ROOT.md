@@ -40,7 +40,7 @@
 你应当在包含NBT_All.hpp中的某个模块后，使用它带来的额外依赖，而不是自己去单独包含和使用其它头文件。  
 
 # 包含关系图
-![包含关系图](IncludeDependencyGraph.png)
+![包含关系图](images/IncludeDependencyGraph.png)
   
 # 库主要头文件依赖关系
 下面的说明，解释了NBT_All.hpp中的头文件的部分额外依赖关系，以便更好的使用此库。  
