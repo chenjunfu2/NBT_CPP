@@ -1,0 +1,592 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.15.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>chenjunfu2-nbt-cpp: NBT_Type类 参考</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">chenjunfu2-nbt-cpp<span id="projectnumber">&#160;v1.0.1</span>
+   </div>
+   <div id="projectbrief">一个基于CPP20的NBT(Named Binary Tag)库</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.15.0 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','搜索',true);
+  $(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(function(){initNavTree('class_n_b_t___type.html','','class_n_b_t___type-members'); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">NBT_Type类 参考</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>提供NBT类型定义，包括NBT格式中的所有数据类型，以及部分辅助功能，比如静态类型与Tag映射，类型存在查询，类型列表大小，类型最大小值等  
+ <a href="#details">更多...</a></p>
+
+<p><code>#include &lt;<a class="el" href="_n_b_t___type_8hpp_source.html">NBT_Type.hpp</a>&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+类</h2></td></tr>
+<tr class="memitem:_5FTypeList" id="r__5FTypeList"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_n_b_t___type_1_1___type_list.html">_TypeList</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">类型列表模板  <a href="struct_n_b_t___type_1_1___type_list.html#details">更多...</a><br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-types" class="groupheader"><a id="pub-types" name="pub-types"></a>
+Public 类型</h2></td></tr>
+<tr class="memitem:a3e6b28d3639afce0227285776d2f4c66" id="r_a3e6b28d3639afce0227285776d2f4c66"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3e6b28d3639afce0227285776d2f4c66">TypeList</a></td></tr>
+<tr class="memdesc:a3e6b28d3639afce0227285776d2f4c66"><td class="mdescLeft">&#160;</td><td class="mdescRight">完整的NBT类型列表定义  <br /></td></tr>
+<tr class="memitem:a121fc72b4ada6455470aa0b635f3c763" id="r_a121fc72b4ada6455470aa0b635f3c763"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="_n_b_t___t_a_g_8hpp.html#ada3a2766daa185b5461d684c766b4a2e">NBT_TAG</a> Tag&gt; </td></tr>
+<tr class="memitem:a121fc72b4ada6455470aa0b635f3c763 template"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a121fc72b4ada6455470aa0b635f3c763">TagToType_T</a> = typename TagToType&lt;Tag&gt;::type</td></tr>
+<tr class="memdesc:a121fc72b4ada6455470aa0b635f3c763"><td class="mdescLeft">&#160;</td><td class="mdescRight">从NBT_TAG获取对应的类型：编译期从NBT_TAG的enum值获取类型  <br /></td></tr>
+<tr class="memitem:aa937376fd94d8a9abe0fb6e16107009d" id="r_aa937376fd94d8a9abe0fb6e16107009d"><td class="memTemplParams" colspan="2">template&lt;typename T&gt; </td></tr>
+<tr class="memitem:aa937376fd94d8a9abe0fb6e16107009d template"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa937376fd94d8a9abe0fb6e16107009d">BuiltinRawType_T</a> = typename BuiltinRawType&lt;T&gt;::Type</td></tr>
+<tr class="memdesc:aa937376fd94d8a9abe0fb6e16107009d"><td class="mdescLeft">&#160;</td><td class="mdescRight">映射内建类型到方便读写的raw类型：编译期获得内建类型到可以进行二进制读写的原始类型  <br /></td></tr>
+<tr id="pub-types-0" class="groupHeader"><td colspan="2"><div class="groupHeader">原始数据类型定义</div></td></tr>
+<tr class="memitem:a73915a2cbf5ce87cbecf9ec86d555d3b" id="r_a73915a2cbf5ce87cbecf9ec86d555d3b"><td class="memItemLeft" align="right" valign="top"><a id="a73915a2cbf5ce87cbecf9ec86d555d3b" name="a73915a2cbf5ce87cbecf9ec86d555d3b"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><b>Float_Raw</b> = uint32_t</td></tr>
+<tr class="memdesc:a73915a2cbf5ce87cbecf9ec86d555d3b"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="#a8a7ac779b8e8a7fdccb3456844abe5cf" title="单精度浮点类型">Float</a> 类型的原始表示，用于在平台不支持或需要二进制读写时使用 <br /></td></tr>
+<tr class="memitem:a5d1bfcc689df36f2cd569066b9316f73" id="r_a5d1bfcc689df36f2cd569066b9316f73"><td class="memItemLeft" align="right" valign="top"><a id="a5d1bfcc689df36f2cd569066b9316f73" name="a5d1bfcc689df36f2cd569066b9316f73"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><b>Double_Raw</b> = uint64_t</td></tr>
+<tr class="memdesc:a5d1bfcc689df36f2cd569066b9316f73"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="#aaea549797088fb63987679367bc9d39a" title="双精度浮点类型">Double</a> 类型的原始表示，用于在平台不支持或需要二进制读写时使用 <br /></td></tr>
+<tr id="pub-types-1" class="groupHeader"><td colspan="2"><div class="groupHeader">NBT数据类型定义</div></td></tr>
+<tr class="memitem:a16ac41e6cfe61a603407221527b6b16c" id="r_a16ac41e6cfe61a603407221527b6b16c"><td class="memItemLeft" align="right" valign="top"><a id="a16ac41e6cfe61a603407221527b6b16c" name="a16ac41e6cfe61a603407221527b6b16c"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><b>End</b> = std::monostate</td></tr>
+<tr class="memdesc:a16ac41e6cfe61a603407221527b6b16c"><td class="mdescLeft">&#160;</td><td class="mdescRight">结束标记类型，无数据 <br /></td></tr>
+<tr class="memitem:a09b5ce48dffc429ad8a7d05d007741c1" id="r_a09b5ce48dffc429ad8a7d05d007741c1"><td class="memItemLeft" align="right" valign="top"><a id="a09b5ce48dffc429ad8a7d05d007741c1" name="a09b5ce48dffc429ad8a7d05d007741c1"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><b>Byte</b> = int8_t</td></tr>
+<tr class="memdesc:a09b5ce48dffc429ad8a7d05d007741c1"><td class="mdescLeft">&#160;</td><td class="mdescRight">8位有符号整数 <br /></td></tr>
+<tr class="memitem:a3e47d05c36743947da966f4223237262" id="r_a3e47d05c36743947da966f4223237262"><td class="memItemLeft" align="right" valign="top"><a id="a3e47d05c36743947da966f4223237262" name="a3e47d05c36743947da966f4223237262"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><b>Short</b> = int16_t</td></tr>
+<tr class="memdesc:a3e47d05c36743947da966f4223237262"><td class="mdescLeft">&#160;</td><td class="mdescRight">16位有符号整数 <br /></td></tr>
+<tr class="memitem:afee0233d7f58b90cc9ce2b903da2da22" id="r_afee0233d7f58b90cc9ce2b903da2da22"><td class="memItemLeft" align="right" valign="top"><a id="afee0233d7f58b90cc9ce2b903da2da22" name="afee0233d7f58b90cc9ce2b903da2da22"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><b>Int</b> = int32_t</td></tr>
+<tr class="memdesc:afee0233d7f58b90cc9ce2b903da2da22"><td class="mdescLeft">&#160;</td><td class="mdescRight">32位有符号整数 <br /></td></tr>
+<tr class="memitem:a7f8ae2e6e2f87445d1e72f7e922ba053" id="r_a7f8ae2e6e2f87445d1e72f7e922ba053"><td class="memItemLeft" align="right" valign="top"><a id="a7f8ae2e6e2f87445d1e72f7e922ba053" name="a7f8ae2e6e2f87445d1e72f7e922ba053"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><b>Long</b> = int64_t</td></tr>
+<tr class="memdesc:a7f8ae2e6e2f87445d1e72f7e922ba053"><td class="mdescLeft">&#160;</td><td class="mdescRight">64位有符号整数 <br /></td></tr>
+<tr class="memitem:a8a7ac779b8e8a7fdccb3456844abe5cf" id="r_a8a7ac779b8e8a7fdccb3456844abe5cf"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8a7ac779b8e8a7fdccb3456844abe5cf">Float</a> = std::conditional_t&lt;(sizeof(float) == sizeof(<a class="el" href="#a73915a2cbf5ce87cbecf9ec86d555d3b">Float_Raw</a>)), float, <a class="el" href="#a73915a2cbf5ce87cbecf9ec86d555d3b">Float_Raw</a>&gt;</td></tr>
+<tr class="memdesc:a8a7ac779b8e8a7fdccb3456844abe5cf"><td class="mdescLeft">&#160;</td><td class="mdescRight">单精度浮点类型  <br /></td></tr>
+<tr class="memitem:aaea549797088fb63987679367bc9d39a" id="r_aaea549797088fb63987679367bc9d39a"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aaea549797088fb63987679367bc9d39a">Double</a> = std::conditional_t&lt;(sizeof(double) == sizeof(<a class="el" href="#a5d1bfcc689df36f2cd569066b9316f73">Double_Raw</a>)), double, <a class="el" href="#a5d1bfcc689df36f2cd569066b9316f73">Double_Raw</a>&gt;</td></tr>
+<tr class="memdesc:aaea549797088fb63987679367bc9d39a"><td class="mdescLeft">&#160;</td><td class="mdescRight">双精度浮点类型  <br /></td></tr>
+<tr class="memitem:a953bc9e67e1b5d82c0786b5992f00ed8" id="r_a953bc9e67e1b5d82c0786b5992f00ed8"><td class="memItemLeft" align="right" valign="top"><a id="a953bc9e67e1b5d82c0786b5992f00ed8" name="a953bc9e67e1b5d82c0786b5992f00ed8"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><b>ByteArray</b> = <a class="el" href="class_n_b_t___array.html">NBT_Array</a>&lt;std::vector&lt;<a class="el" href="#a09b5ce48dffc429ad8a7d05d007741c1">Byte</a>&gt;&gt;</td></tr>
+<tr class="memdesc:a953bc9e67e1b5d82c0786b5992f00ed8"><td class="mdescLeft">&#160;</td><td class="mdescRight">存储 8位有符号整数的数组类型 <br /></td></tr>
+<tr class="memitem:a9c4ad0b2bcd4b5cafb0c9a3f083f9406" id="r_a9c4ad0b2bcd4b5cafb0c9a3f083f9406"><td class="memItemLeft" align="right" valign="top"><a id="a9c4ad0b2bcd4b5cafb0c9a3f083f9406" name="a9c4ad0b2bcd4b5cafb0c9a3f083f9406"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><b>IntArray</b> = <a class="el" href="class_n_b_t___array.html">NBT_Array</a>&lt;std::vector&lt;<a class="el" href="#afee0233d7f58b90cc9ce2b903da2da22">Int</a>&gt;&gt;</td></tr>
+<tr class="memdesc:a9c4ad0b2bcd4b5cafb0c9a3f083f9406"><td class="mdescLeft">&#160;</td><td class="mdescRight">存储32位有符号整数的数组类型 <br /></td></tr>
+<tr class="memitem:aa2c61028536166272869c3bbc91d3197" id="r_aa2c61028536166272869c3bbc91d3197"><td class="memItemLeft" align="right" valign="top"><a id="aa2c61028536166272869c3bbc91d3197" name="aa2c61028536166272869c3bbc91d3197"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><b>LongArray</b> = <a class="el" href="class_n_b_t___array.html">NBT_Array</a>&lt;std::vector&lt;<a class="el" href="#a7f8ae2e6e2f87445d1e72f7e922ba053">Long</a>&gt;&gt;</td></tr>
+<tr class="memdesc:aa2c61028536166272869c3bbc91d3197"><td class="mdescLeft">&#160;</td><td class="mdescRight">存储64位有符号整数的数组类型 <br /></td></tr>
+<tr class="memitem:a8580dcb2a4494cd9bc52526d43f61865" id="r_a8580dcb2a4494cd9bc52526d43f61865"><td class="memItemLeft" align="right" valign="top"><a id="a8580dcb2a4494cd9bc52526d43f61865" name="a8580dcb2a4494cd9bc52526d43f61865"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><b>String</b> = <a class="el" href="class_n_b_t___string.html">NBT_String</a>&lt;std::basic_string&lt;uint8_t&gt;, std::basic_string_view&lt;uint8_t&gt;&gt;</td></tr>
+<tr class="memdesc:a8580dcb2a4494cd9bc52526d43f61865"><td class="mdescLeft">&#160;</td><td class="mdescRight">字符串类型，存储Java M-UTF-8字符串 <br /></td></tr>
+<tr class="memitem:a87b4d71087e5c0ab1111a4999dace42f" id="r_a87b4d71087e5c0ab1111a4999dace42f"><td class="memItemLeft" align="right" valign="top"><a id="a87b4d71087e5c0ab1111a4999dace42f" name="a87b4d71087e5c0ab1111a4999dace42f"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><b>List</b> = <a class="el" href="class_n_b_t___list.html">NBT_List</a>&lt;std::vector&lt;<a class="el" href="class_n_b_t___node.html">NBT_Node</a>&gt;&gt;</td></tr>
+<tr class="memdesc:a87b4d71087e5c0ab1111a4999dace42f"><td class="mdescLeft">&#160;</td><td class="mdescRight">列表类型，可顺序存储任意相同的NBT类型 <br /></td></tr>
+<tr class="memitem:a9dcd5050b96a10161f18d7ae4a22e7b3" id="r_a9dcd5050b96a10161f18d7ae4a22e7b3"><td class="memItemLeft" align="right" valign="top"><a id="a9dcd5050b96a10161f18d7ae4a22e7b3" name="a9dcd5050b96a10161f18d7ae4a22e7b3"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><b>Compound</b> = <a class="el" href="class_n_b_t___compound.html">NBT_Compound</a>&lt;std::unordered_map&lt;<a class="el" href="#a8580dcb2a4494cd9bc52526d43f61865">String</a>, <a class="el" href="class_n_b_t___node.html">NBT_Node</a>&gt;&gt;</td></tr>
+<tr class="memdesc:a9dcd5050b96a10161f18d7ae4a22e7b3"><td class="mdescLeft">&#160;</td><td class="mdescRight">集合类型，可存储任意不同的NBT类型，通过名称映射值 <br /></td></tr>
+<tr id="pub-types-2" class="groupHeader"><td colspan="2"><div class="groupHeader">部分结构的长度类型</div></td></tr>
+<tr class="memitem:a38f9e5a21f8d2e8217fcdf65c47039a4" id="r_a38f9e5a21f8d2e8217fcdf65c47039a4"><td class="memItemLeft" align="right" valign="top"><a id="a38f9e5a21f8d2e8217fcdf65c47039a4" name="a38f9e5a21f8d2e8217fcdf65c47039a4"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><b>ArrayLength</b> = int32_t</td></tr>
+<tr class="memdesc:a38f9e5a21f8d2e8217fcdf65c47039a4"><td class="mdescLeft">&#160;</td><td class="mdescRight">数组长度类型 <br /></td></tr>
+<tr class="memitem:aae1d0d45649a20866a3b95d9323a768a" id="r_aae1d0d45649a20866a3b95d9323a768a"><td class="memItemLeft" align="right" valign="top"><a id="aae1d0d45649a20866a3b95d9323a768a" name="aae1d0d45649a20866a3b95d9323a768a"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><b>StringLength</b> = uint16_t</td></tr>
+<tr class="memdesc:aae1d0d45649a20866a3b95d9323a768a"><td class="mdescLeft">&#160;</td><td class="mdescRight">字符串长度类型 <br /></td></tr>
+<tr class="memitem:aada1dd1babf26819e3a18944032eceb4" id="r_aada1dd1babf26819e3a18944032eceb4"><td class="memItemLeft" align="right" valign="top"><a id="aada1dd1babf26819e3a18944032eceb4" name="aada1dd1babf26819e3a18944032eceb4"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><b>ListLength</b> = int32_t</td></tr>
+<tr class="memdesc:aada1dd1babf26819e3a18944032eceb4"><td class="mdescLeft">&#160;</td><td class="mdescRight">列表长度类型 <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-static-methods" class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
+静态 Public 成员函数</h2></td></tr>
+<tr class="memitem:aee5bc4a2ad015e10f57f1f5b02a41418" id="r_aee5bc4a2ad015e10f57f1f5b02a41418"><td class="memItemLeft" align="right" valign="top">static constexpr const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aee5bc4a2ad015e10f57f1f5b02a41418">GetTypeName</a> (<a class="el" href="_n_b_t___t_a_g_8hpp.html#ada3a2766daa185b5461d684c766b4a2e">NBT_TAG</a> tag) noexcept</td></tr>
+<tr class="memdesc:aee5bc4a2ad015e10f57f1f5b02a41418"><td class="mdescLeft">&#160;</td><td class="mdescRight">通过类型标签获取类型名称  <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-static-attribs" class="groupheader"><a id="pub-static-attribs" name="pub-static-attribs"></a>
+静态 Public 属性</h2></td></tr>
+<tr class="memitem:a71dfa77059d0a3bd9a6190295ad400ca" id="r_a71dfa77059d0a3bd9a6190295ad400ca"><td class="memTemplParams" colspan="2">template&lt;typename T&gt; </td></tr>
+<tr class="memitem:a71dfa77059d0a3bd9a6190295ad400ca template"><td class="memItemLeft" align="right" valign="top">static constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a71dfa77059d0a3bd9a6190295ad400ca">IsValidType_V</a> = IsValidType&lt;T, <a class="el" href="#a3e6b28d3639afce0227285776d2f4c66">TypeList</a>&gt;::value</td></tr>
+<tr class="memdesc:a71dfa77059d0a3bd9a6190295ad400ca"><td class="mdescLeft">&#160;</td><td class="mdescRight">类型存在检查：用于编译期检查一个给定类型是否为NBT中的类型  <br /></td></tr>
+<tr class="memitem:acb680b0e9ddce79f7b5386024e12462f" id="r_acb680b0e9ddce79f7b5386024e12462f"><td class="memTemplParams" colspan="2">template&lt;typename T&gt; </td></tr>
+<tr class="memitem:acb680b0e9ddce79f7b5386024e12462f template"><td class="memItemLeft" align="right" valign="top">static constexpr <a class="el" href="_n_b_t___t_a_g_8hpp.html#ada3a2766daa185b5461d684c766b4a2e">NBT_TAG</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acb680b0e9ddce79f7b5386024e12462f">TypeTag_V</a> = (<a class="el" href="_n_b_t___t_a_g_8hpp.html#ada3a2766daa185b5461d684c766b4a2e">NBT_TAG</a>)TypeTagImpl&lt;T, <a class="el" href="#a3e6b28d3639afce0227285776d2f4c66">TypeList</a>&gt;::value</td></tr>
+<tr class="memdesc:acb680b0e9ddce79f7b5386024e12462f"><td class="mdescLeft">&#160;</td><td class="mdescRight">类型枚举值查询：用于在编译期，通过类型查询它在NBT_TAG中对应的enum值  <br /></td></tr>
+<tr class="memitem:a4626b45e682f561d3c25fd749ad4145b" id="r_a4626b45e682f561d3c25fd749ad4145b"><td class="memItemLeft" align="right" valign="top">static constexpr size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4626b45e682f561d3c25fd749ad4145b">TypeListSize_V</a> = TypeListSize&lt;<a class="el" href="#a3e6b28d3639afce0227285776d2f4c66">TypeList</a>&gt;::value</td></tr>
+<tr class="memdesc:a4626b45e682f561d3c25fd749ad4145b"><td class="mdescLeft">&#160;</td><td class="mdescRight">类型列表大小：获取NBT类型的个数  <br /></td></tr>
+<tr id="pub-static-attribs-0" class="groupHeader"><td colspan="2"><div class="groupHeader">部分结构的长度类型的极值定义</div></td></tr>
+<tr class="memitem:ac12e0beaccb23ad2b11620a503b8b0c7" id="r_ac12e0beaccb23ad2b11620a503b8b0c7"><td class="memItemLeft" align="right" valign="top"><a id="ac12e0beaccb23ad2b11620a503b8b0c7" name="ac12e0beaccb23ad2b11620a503b8b0c7"></a>
+static constexpr <a class="el" href="#a38f9e5a21f8d2e8217fcdf65c47039a4">ArrayLength</a>&#160;</td><td class="memItemRight" valign="bottom"><b>ArrayLength_Max</b> = INT32_MAX</td></tr>
+<tr class="memdesc:ac12e0beaccb23ad2b11620a503b8b0c7"><td class="mdescLeft">&#160;</td><td class="mdescRight">数组长度类型最大值 <br /></td></tr>
+<tr class="memitem:a61c44fff74188bb26d53106f53a71709" id="r_a61c44fff74188bb26d53106f53a71709"><td class="memItemLeft" align="right" valign="top">static constexpr <a class="el" href="#a38f9e5a21f8d2e8217fcdf65c47039a4">ArrayLength</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a61c44fff74188bb26d53106f53a71709">ArrayLength_Min</a> = INT32_MIN</td></tr>
+<tr class="memdesc:a61c44fff74188bb26d53106f53a71709"><td class="mdescLeft">&#160;</td><td class="mdescRight">数组长度类型最小值  <br /></td></tr>
+<tr class="memitem:a46c6f23bc65828e79fd08579780ddc47" id="r_a46c6f23bc65828e79fd08579780ddc47"><td class="memItemLeft" align="right" valign="top"><a id="a46c6f23bc65828e79fd08579780ddc47" name="a46c6f23bc65828e79fd08579780ddc47"></a>
+static constexpr <a class="el" href="#aae1d0d45649a20866a3b95d9323a768a">StringLength</a>&#160;</td><td class="memItemRight" valign="bottom"><b>StringLength_Max</b> = UINT16_MAX</td></tr>
+<tr class="memdesc:a46c6f23bc65828e79fd08579780ddc47"><td class="mdescLeft">&#160;</td><td class="mdescRight">字符串长度类型最大值 <br /></td></tr>
+<tr class="memitem:a028c43de1fb5a063bc1087d350e20199" id="r_a028c43de1fb5a063bc1087d350e20199"><td class="memItemLeft" align="right" valign="top">static constexpr <a class="el" href="#aae1d0d45649a20866a3b95d9323a768a">StringLength</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a028c43de1fb5a063bc1087d350e20199">StringLength_Min</a> = 0</td></tr>
+<tr class="memdesc:a028c43de1fb5a063bc1087d350e20199"><td class="mdescLeft">&#160;</td><td class="mdescRight">字符串长度类型最小值  <br /></td></tr>
+<tr class="memitem:ab5fc25f906a932636a99402f56090ff7" id="r_ab5fc25f906a932636a99402f56090ff7"><td class="memItemLeft" align="right" valign="top"><a id="ab5fc25f906a932636a99402f56090ff7" name="ab5fc25f906a932636a99402f56090ff7"></a>
+static constexpr <a class="el" href="#aada1dd1babf26819e3a18944032eceb4">ListLength</a>&#160;</td><td class="memItemRight" valign="bottom"><b>ListLength_Max</b> = INT32_MAX</td></tr>
+<tr class="memdesc:ab5fc25f906a932636a99402f56090ff7"><td class="mdescLeft">&#160;</td><td class="mdescRight">列表长度类型最大值 <br /></td></tr>
+<tr class="memitem:af765ad3b48be748556f296d6fd4037ac" id="r_af765ad3b48be748556f296d6fd4037ac"><td class="memItemLeft" align="right" valign="top">static constexpr <a class="el" href="#aada1dd1babf26819e3a18944032eceb4">ListLength</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af765ad3b48be748556f296d6fd4037ac">ListLength_Min</a> = INT32_MIN</td></tr>
+<tr class="memdesc:af765ad3b48be748556f296d6fd4037ac"><td class="mdescLeft">&#160;</td><td class="mdescRight">列表长度类型最小值  <br /></td></tr>
+<tr id="pub-static-attribs-1" class="groupHeader"><td colspan="2"><div class="groupHeader">内置类型的极值定义</div></td></tr>
+<tr class="memitem:a4914c541bb3d92c6f9160cef0423e303" id="r_a4914c541bb3d92c6f9160cef0423e303"><td class="memItemLeft" align="right" valign="top"><a id="a4914c541bb3d92c6f9160cef0423e303" name="a4914c541bb3d92c6f9160cef0423e303"></a>
+static constexpr <a class="el" href="#a09b5ce48dffc429ad8a7d05d007741c1">Byte</a>&#160;</td><td class="memItemRight" valign="bottom"><b>Byte_Max</b> = INT8_MAX</td></tr>
+<tr class="memdesc:a4914c541bb3d92c6f9160cef0423e303"><td class="mdescLeft">&#160;</td><td class="mdescRight">字节类型最大值 <br /></td></tr>
+<tr class="memitem:a23f7fc5765282207d0a5a43fc29b85c5" id="r_a23f7fc5765282207d0a5a43fc29b85c5"><td class="memItemLeft" align="right" valign="top"><a id="a23f7fc5765282207d0a5a43fc29b85c5" name="a23f7fc5765282207d0a5a43fc29b85c5"></a>
+static constexpr <a class="el" href="#a09b5ce48dffc429ad8a7d05d007741c1">Byte</a>&#160;</td><td class="memItemRight" valign="bottom"><b>Byte_Min</b> = INT8_MIN</td></tr>
+<tr class="memdesc:a23f7fc5765282207d0a5a43fc29b85c5"><td class="mdescLeft">&#160;</td><td class="mdescRight">字节类型最小值 <br /></td></tr>
+<tr class="memitem:ad1a7dd51afa76e4edae90cba103cae15" id="r_ad1a7dd51afa76e4edae90cba103cae15"><td class="memItemLeft" align="right" valign="top"><a id="ad1a7dd51afa76e4edae90cba103cae15" name="ad1a7dd51afa76e4edae90cba103cae15"></a>
+static constexpr <a class="el" href="#a3e47d05c36743947da966f4223237262">Short</a>&#160;</td><td class="memItemRight" valign="bottom"><b>Short_Max</b> = INT16_MAX</td></tr>
+<tr class="memdesc:ad1a7dd51afa76e4edae90cba103cae15"><td class="mdescLeft">&#160;</td><td class="mdescRight">短整数类型形最大值 <br /></td></tr>
+<tr class="memitem:a2ab0fcd64529b22fe3f67f3e6ec2997f" id="r_a2ab0fcd64529b22fe3f67f3e6ec2997f"><td class="memItemLeft" align="right" valign="top"><a id="a2ab0fcd64529b22fe3f67f3e6ec2997f" name="a2ab0fcd64529b22fe3f67f3e6ec2997f"></a>
+static constexpr <a class="el" href="#a3e47d05c36743947da966f4223237262">Short</a>&#160;</td><td class="memItemRight" valign="bottom"><b>Short_Min</b> = INT16_MIN</td></tr>
+<tr class="memdesc:a2ab0fcd64529b22fe3f67f3e6ec2997f"><td class="mdescLeft">&#160;</td><td class="mdescRight">短整数类型形最小值 <br /></td></tr>
+<tr class="memitem:ab2f0236ee213ade1c96676827f254663" id="r_ab2f0236ee213ade1c96676827f254663"><td class="memItemLeft" align="right" valign="top"><a id="ab2f0236ee213ade1c96676827f254663" name="ab2f0236ee213ade1c96676827f254663"></a>
+static constexpr <a class="el" href="#afee0233d7f58b90cc9ce2b903da2da22">Int</a>&#160;</td><td class="memItemRight" valign="bottom"><b>Int_Max</b> = INT32_MAX</td></tr>
+<tr class="memdesc:ab2f0236ee213ade1c96676827f254663"><td class="mdescLeft">&#160;</td><td class="mdescRight">整数类型最大值 <br /></td></tr>
+<tr class="memitem:a0fa60f16ae2ba4a6e16ea767f9cffc9c" id="r_a0fa60f16ae2ba4a6e16ea767f9cffc9c"><td class="memItemLeft" align="right" valign="top"><a id="a0fa60f16ae2ba4a6e16ea767f9cffc9c" name="a0fa60f16ae2ba4a6e16ea767f9cffc9c"></a>
+static constexpr <a class="el" href="#afee0233d7f58b90cc9ce2b903da2da22">Int</a>&#160;</td><td class="memItemRight" valign="bottom"><b>Int_Min</b> = INT32_MIN</td></tr>
+<tr class="memdesc:a0fa60f16ae2ba4a6e16ea767f9cffc9c"><td class="mdescLeft">&#160;</td><td class="mdescRight">整数类型最小值 <br /></td></tr>
+<tr class="memitem:a90e7b887fc9d0fc605caac20c30c4f4c" id="r_a90e7b887fc9d0fc605caac20c30c4f4c"><td class="memItemLeft" align="right" valign="top"><a id="a90e7b887fc9d0fc605caac20c30c4f4c" name="a90e7b887fc9d0fc605caac20c30c4f4c"></a>
+static constexpr <a class="el" href="#a7f8ae2e6e2f87445d1e72f7e922ba053">Long</a>&#160;</td><td class="memItemRight" valign="bottom"><b>Long_Max</b> = INT64_MAX</td></tr>
+<tr class="memdesc:a90e7b887fc9d0fc605caac20c30c4f4c"><td class="mdescLeft">&#160;</td><td class="mdescRight">长整数类型最大值 <br /></td></tr>
+<tr class="memitem:af4de3bfa5483cc0c6eb0963afda375ef" id="r_af4de3bfa5483cc0c6eb0963afda375ef"><td class="memItemLeft" align="right" valign="top"><a id="af4de3bfa5483cc0c6eb0963afda375ef" name="af4de3bfa5483cc0c6eb0963afda375ef"></a>
+static constexpr <a class="el" href="#a7f8ae2e6e2f87445d1e72f7e922ba053">Long</a>&#160;</td><td class="memItemRight" valign="bottom"><b>Long_Min</b> = INT64_MIN</td></tr>
+<tr class="memdesc:af4de3bfa5483cc0c6eb0963afda375ef"><td class="mdescLeft">&#160;</td><td class="mdescRight">长整数类型最小值 <br /></td></tr>
+</table>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">详细描述</h2>
+<div class="textblock"><p>提供NBT类型定义，包括NBT格式中的所有数据类型，以及部分辅助功能，比如静态类型与Tag映射，类型存在查询，类型列表大小，类型最大小值等 </p>
+</div><a name="doc-typedef-members" id="doc-typedef-members"></a><h2 id="header-doc-typedef-members" class="groupheader">成员类型定义说明</h2>
+<a id="aa937376fd94d8a9abe0fb6e16107009d" name="aa937376fd94d8a9abe0fb6e16107009d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa937376fd94d8a9abe0fb6e16107009d">&#9670;&#160;</a></span>BuiltinRawType_T</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="#aa937376fd94d8a9abe0fb6e16107009d">NBT_Type::BuiltinRawType_T</a> = typename BuiltinRawType&lt;T&gt;::Type</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>映射内建类型到方便读写的raw类型：编译期获得内建类型到可以进行二进制读写的原始类型 </p>
+<dl class="tparams"><dt>模板参数</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T</td><td>需要映射的类型 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>注解</dt><dd>返回对应类型的原始Raw类型，如果类型不存在于类型列表中或不是内建类型，则静态断言失败，编译错误 </dd>
+<dd>
+浮点数会被映射到对应大小的无符号整数类型，其它内建类型保持不变， 部分平台对浮点数支持不完整的情况下，映射类型可能与原始类型相同，因为原始类型被声明为映射类型 </dd></dl>
+
+</div>
+</div>
+<a id="aaea549797088fb63987679367bc9d39a" name="aaea549797088fb63987679367bc9d39a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaea549797088fb63987679367bc9d39a">&#9670;&#160;</a></span>Double</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="#aaea549797088fb63987679367bc9d39a">NBT_Type::Double</a> = std::conditional_t&lt;(sizeof(double) == sizeof(<a class="el" href="#a5d1bfcc689df36f2cd569066b9316f73">Double_Raw</a>)), double, <a class="el" href="#a5d1bfcc689df36f2cd569066b9316f73">Double_Raw</a>&gt;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>双精度浮点类型 </p>
+<dl class="section note"><dt>注解</dt><dd>如果平台不支持，则替换为同等大小的原始数据类型 </dd></dl>
+
+</div>
+</div>
+<a id="a8a7ac779b8e8a7fdccb3456844abe5cf" name="a8a7ac779b8e8a7fdccb3456844abe5cf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8a7ac779b8e8a7fdccb3456844abe5cf">&#9670;&#160;</a></span>Float</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="#a8a7ac779b8e8a7fdccb3456844abe5cf">NBT_Type::Float</a> = std::conditional_t&lt;(sizeof(float) == sizeof(<a class="el" href="#a73915a2cbf5ce87cbecf9ec86d555d3b">Float_Raw</a>)), float, <a class="el" href="#a73915a2cbf5ce87cbecf9ec86d555d3b">Float_Raw</a>&gt;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>单精度浮点类型 </p>
+<dl class="section note"><dt>注解</dt><dd>如果平台不支持，则替换为同等大小的原始数据类型 </dd></dl>
+
+</div>
+</div>
+<a id="a121fc72b4ada6455470aa0b635f3c763" name="a121fc72b4ada6455470aa0b635f3c763"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a121fc72b4ada6455470aa0b635f3c763">&#9670;&#160;</a></span>TagToType_T</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;<a class="el" href="_n_b_t___t_a_g_8hpp.html#ada3a2766daa185b5461d684c766b4a2e">NBT_TAG</a> Tag&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="#a121fc72b4ada6455470aa0b635f3c763">NBT_Type::TagToType_T</a> = typename TagToType&lt;Tag&gt;::type</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>从NBT_TAG获取对应的类型：编译期从NBT_TAG的enum值获取类型 </p>
+<dl class="tparams"><dt>模板参数</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">Tag</td><td>用于查询类型的NBT_TAG中的enum值 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>注解</dt><dd>返回NBT_TAG中的enum对应的类型，如果enum值非法，则静态断言失败，编译错误 </dd>
+<dd>
+类似于一种静态反射 </dd></dl>
+
+</div>
+</div>
+<a id="a3e6b28d3639afce0227285776d2f4c66" name="a3e6b28d3639afce0227285776d2f4c66"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3e6b28d3639afce0227285776d2f4c66">&#9670;&#160;</a></span>TypeList</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="#a3e6b28d3639afce0227285776d2f4c66">NBT_Type::TypeList</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>初始值:</b><div class="fragment"><div class="line"> <a class="code hl_struct" href="struct_n_b_t___type_1_1___type_list.html">_TypeList</a></div>
+<div class="line">    &lt;</div>
+<div class="line">        <a class="code hl_typedef" href="#a16ac41e6cfe61a603407221527b6b16c">End</a>,</div>
+<div class="line">        <a class="code hl_typedef" href="#a09b5ce48dffc429ad8a7d05d007741c1">Byte</a>,</div>
+<div class="line">        <a class="code hl_typedef" href="#a3e47d05c36743947da966f4223237262">Short</a>,</div>
+<div class="line">        <a class="code hl_typedef" href="#afee0233d7f58b90cc9ce2b903da2da22">Int</a>,</div>
+<div class="line">        <a class="code hl_typedef" href="#a7f8ae2e6e2f87445d1e72f7e922ba053">Long</a>,</div>
+<div class="line">        <a class="code hl_typedef" href="#a8a7ac779b8e8a7fdccb3456844abe5cf">Float</a>,</div>
+<div class="line">        <a class="code hl_typedef" href="#aaea549797088fb63987679367bc9d39a">Double</a>,</div>
+<div class="line">        <a class="code hl_typedef" href="#a953bc9e67e1b5d82c0786b5992f00ed8">ByteArray</a>,</div>
+<div class="line">        <a class="code hl_typedef" href="#a8580dcb2a4494cd9bc52526d43f61865">String</a>,</div>
+<div class="line">        <a class="code hl_typedef" href="#a87b4d71087e5c0ab1111a4999dace42f">List</a>,</div>
+<div class="line">        <a class="code hl_typedef" href="#a9dcd5050b96a10161f18d7ae4a22e7b3">Compound</a>,</div>
+<div class="line">        <a class="code hl_typedef" href="#a9c4ad0b2bcd4b5cafb0c9a3f083f9406">IntArray</a>,</div>
+<div class="line">        <a class="code hl_typedef" href="#aa2c61028536166272869c3bbc91d3197">LongArray</a></div>
+<div class="line">    &gt;</div>
+<div class="ttc" id="aclass_n_b_t___type_html_a09b5ce48dffc429ad8a7d05d007741c1"><div class="ttname"><a href="#a09b5ce48dffc429ad8a7d05d007741c1">NBT_Type::Byte</a></div><div class="ttdeci">int8_t Byte</div><div class="ttdoc">8位有符号整数</div><div class="ttdef"><b>定义</b> NBT_Type.hpp:48</div></div>
+<div class="ttc" id="aclass_n_b_t___type_html_a16ac41e6cfe61a603407221527b6b16c"><div class="ttname"><a href="#a16ac41e6cfe61a603407221527b6b16c">NBT_Type::End</a></div><div class="ttdeci">std::monostate End</div><div class="ttdoc">结束标记类型，无数据</div><div class="ttdef"><b>定义</b> NBT_Type.hpp:47</div></div>
+<div class="ttc" id="aclass_n_b_t___type_html_a3e47d05c36743947da966f4223237262"><div class="ttname"><a href="#a3e47d05c36743947da966f4223237262">NBT_Type::Short</a></div><div class="ttdeci">int16_t Short</div><div class="ttdoc">16位有符号整数</div><div class="ttdef"><b>定义</b> NBT_Type.hpp:49</div></div>
+<div class="ttc" id="aclass_n_b_t___type_html_a7f8ae2e6e2f87445d1e72f7e922ba053"><div class="ttname"><a href="#a7f8ae2e6e2f87445d1e72f7e922ba053">NBT_Type::Long</a></div><div class="ttdeci">int64_t Long</div><div class="ttdoc">64位有符号整数</div><div class="ttdef"><b>定义</b> NBT_Type.hpp:51</div></div>
+<div class="ttc" id="aclass_n_b_t___type_html_a8580dcb2a4494cd9bc52526d43f61865"><div class="ttname"><a href="#a8580dcb2a4494cd9bc52526d43f61865">NBT_Type::String</a></div><div class="ttdeci">NBT_String&lt; std::basic_string&lt; uint8_t &gt;, std::basic_string_view&lt; uint8_t &gt; &gt; String</div><div class="ttdoc">字符串类型，存储Java M-UTF-8字符串</div><div class="ttdef"><b>定义</b> NBT_Type.hpp:64</div></div>
+<div class="ttc" id="aclass_n_b_t___type_html_a87b4d71087e5c0ab1111a4999dace42f"><div class="ttname"><a href="#a87b4d71087e5c0ab1111a4999dace42f">NBT_Type::List</a></div><div class="ttdeci">NBT_List&lt; std::vector&lt; NBT_Node &gt; &gt; List</div><div class="ttdoc">列表类型，可顺序存储任意相同的NBT类型</div><div class="ttdef"><b>定义</b> NBT_Type.hpp:68</div></div>
+<div class="ttc" id="aclass_n_b_t___type_html_a8a7ac779b8e8a7fdccb3456844abe5cf"><div class="ttname"><a href="#a8a7ac779b8e8a7fdccb3456844abe5cf">NBT_Type::Float</a></div><div class="ttdeci">std::conditional_t&lt;(sizeof(float)==sizeof(Float_Raw)), float, Float_Raw &gt; Float</div><div class="ttdoc">单精度浮点类型</div><div class="ttdef"><b>定义</b> NBT_Type.hpp:55</div></div>
+<div class="ttc" id="aclass_n_b_t___type_html_a953bc9e67e1b5d82c0786b5992f00ed8"><div class="ttname"><a href="#a953bc9e67e1b5d82c0786b5992f00ed8">NBT_Type::ByteArray</a></div><div class="ttdeci">NBT_Array&lt; std::vector&lt; Byte &gt; &gt; ByteArray</div><div class="ttdoc">存储 8位有符号整数的数组类型</div><div class="ttdef"><b>定义</b> NBT_Type.hpp:59</div></div>
+<div class="ttc" id="aclass_n_b_t___type_html_a9c4ad0b2bcd4b5cafb0c9a3f083f9406"><div class="ttname"><a href="#a9c4ad0b2bcd4b5cafb0c9a3f083f9406">NBT_Type::IntArray</a></div><div class="ttdeci">NBT_Array&lt; std::vector&lt; Int &gt; &gt; IntArray</div><div class="ttdoc">存储32位有符号整数的数组类型</div><div class="ttdef"><b>定义</b> NBT_Type.hpp:60</div></div>
+<div class="ttc" id="aclass_n_b_t___type_html_a9dcd5050b96a10161f18d7ae4a22e7b3"><div class="ttname"><a href="#a9dcd5050b96a10161f18d7ae4a22e7b3">NBT_Type::Compound</a></div><div class="ttdeci">NBT_Compound&lt; std::unordered_map&lt; String, NBT_Node &gt; &gt; Compound</div><div class="ttdoc">集合类型，可存储任意不同的NBT类型，通过名称映射值</div><div class="ttdef"><b>定义</b> NBT_Type.hpp:72</div></div>
+<div class="ttc" id="aclass_n_b_t___type_html_aa2c61028536166272869c3bbc91d3197"><div class="ttname"><a href="#aa2c61028536166272869c3bbc91d3197">NBT_Type::LongArray</a></div><div class="ttdeci">NBT_Array&lt; std::vector&lt; Long &gt; &gt; LongArray</div><div class="ttdoc">存储64位有符号整数的数组类型</div><div class="ttdef"><b>定义</b> NBT_Type.hpp:61</div></div>
+<div class="ttc" id="aclass_n_b_t___type_html_aaea549797088fb63987679367bc9d39a"><div class="ttname"><a href="#aaea549797088fb63987679367bc9d39a">NBT_Type::Double</a></div><div class="ttdeci">std::conditional_t&lt;(sizeof(double)==sizeof(Double_Raw)), double, Double_Raw &gt; Double</div><div class="ttdoc">双精度浮点类型</div><div class="ttdef"><b>定义</b> NBT_Type.hpp:56</div></div>
+<div class="ttc" id="aclass_n_b_t___type_html_afee0233d7f58b90cc9ce2b903da2da22"><div class="ttname"><a href="#afee0233d7f58b90cc9ce2b903da2da22">NBT_Type::Int</a></div><div class="ttdeci">int32_t Int</div><div class="ttdoc">32位有符号整数</div><div class="ttdef"><b>定义</b> NBT_Type.hpp:50</div></div>
+<div class="ttc" id="astruct_n_b_t___type_1_1___type_list_html"><div class="ttname"><a href="struct_n_b_t___type_1_1___type_list.html">NBT_Type::_TypeList</a></div><div class="ttdoc">类型列表模板</div><div class="ttdef"><b>定义</b> NBT_Type.hpp:79</div></div>
+</div><!-- fragment -->
+<p>完整的NBT类型列表定义 </p>
+
+</div>
+</div>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">成员函数说明</h2>
+<a id="aee5bc4a2ad015e10f57f1f5b02a41418" name="aee5bc4a2ad015e10f57f1f5b02a41418"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aee5bc4a2ad015e10f57f1f5b02a41418">&#9670;&#160;</a></span>GetTypeName()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr const char * NBT_Type::GetTypeName </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="_n_b_t___t_a_g_8hpp.html#ada3a2766daa185b5461d684c766b4a2e">NBT_TAG</a></td>          <td class="paramname"><span class="paramname"><em>tag</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span><span class="mlabel constexpr">constexpr</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>通过类型标签获取类型名称 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">tag</td><td>NBT_TAG枚举的类型标签 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>类型标签对应的名称的以0结尾的C风格字符串地址，如果类型标签不存在，则返回"Unknown" </dd></dl>
+<dl class="section note"><dt>注解</dt><dd>返回的是全局静态字符串地址，请不要直接修改，需要修改请拷贝 </dd></dl>
+
+</div>
+</div>
+<a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">类成员变量说明</h2>
+<a id="a61c44fff74188bb26d53106f53a71709" name="a61c44fff74188bb26d53106f53a71709"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a61c44fff74188bb26d53106f53a71709">&#9670;&#160;</a></span>ArrayLength_Min</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#a38f9e5a21f8d2e8217fcdf65c47039a4">ArrayLength</a> NBT_Type::ArrayLength_Min = INT32_MIN</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span><span class="mlabel constexpr">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>数组长度类型最小值 </p>
+<dl class="section note"><dt>注解</dt><dd>实际数组长度最小值为0，这里是长度类型的最小值 </dd></dl>
+
+</div>
+</div>
+<a id="a71dfa77059d0a3bd9a6190295ad400ca" name="a71dfa77059d0a3bd9a6190295ad400ca"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a71dfa77059d0a3bd9a6190295ad400ca">&#9670;&#160;</a></span>IsValidType_V</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool NBT_Type::IsValidType_V = IsValidType&lt;T, <a class="el" href="#a3e6b28d3639afce0227285776d2f4c66">TypeList</a>&gt;::value</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span><span class="mlabel constexpr">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>类型存在检查：用于编译期检查一个给定类型是否为NBT中的类型 </p>
+<dl class="tparams"><dt>模板参数</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T</td><td>需要检查的类型 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>注解</dt><dd>如果类型存在于NBT类型列表中，则返回true，否则返回false </dd></dl>
+
+</div>
+</div>
+<a id="af765ad3b48be748556f296d6fd4037ac" name="af765ad3b48be748556f296d6fd4037ac"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af765ad3b48be748556f296d6fd4037ac">&#9670;&#160;</a></span>ListLength_Min</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#aada1dd1babf26819e3a18944032eceb4">ListLength</a> NBT_Type::ListLength_Min = INT32_MIN</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span><span class="mlabel constexpr">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>列表长度类型最小值 </p>
+<dl class="section note"><dt>注解</dt><dd>实际列表长度最小值为0，这里是长度类型的最小值 </dd></dl>
+
+</div>
+</div>
+<a id="a028c43de1fb5a063bc1087d350e20199" name="a028c43de1fb5a063bc1087d350e20199"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a028c43de1fb5a063bc1087d350e20199">&#9670;&#160;</a></span>StringLength_Min</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#aae1d0d45649a20866a3b95d9323a768a">StringLength</a> NBT_Type::StringLength_Min = 0</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span><span class="mlabel constexpr">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>字符串长度类型最小值 </p>
+<dl class="section note"><dt>注解</dt><dd>实际字符串长度最小值为0，这里与长度类型的最小值相同 </dd></dl>
+
+</div>
+</div>
+<a id="a4626b45e682f561d3c25fd749ad4145b" name="a4626b45e682f561d3c25fd749ad4145b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4626b45e682f561d3c25fd749ad4145b">&#9670;&#160;</a></span>TypeListSize_V</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t NBT_Type::TypeListSize_V = TypeListSize&lt;<a class="el" href="#a3e6b28d3639afce0227285776d2f4c66">TypeList</a>&gt;::value</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span><span class="mlabel constexpr">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>类型列表大小：获取NBT类型的个数 </p>
+<dl class="section note"><dt>注解</dt><dd>它的值代表一共存在多少种NBT类型 </dd></dl>
+
+</div>
+</div>
+<a id="acb680b0e9ddce79f7b5386024e12462f" name="acb680b0e9ddce79f7b5386024e12462f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acb680b0e9ddce79f7b5386024e12462f">&#9670;&#160;</a></span>TypeTag_V</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_n_b_t___t_a_g_8hpp.html#ada3a2766daa185b5461d684c766b4a2e">NBT_TAG</a> NBT_Type::TypeTag_V = (<a class="el" href="_n_b_t___t_a_g_8hpp.html#ada3a2766daa185b5461d684c766b4a2e">NBT_TAG</a>)TypeTagImpl&lt;T, <a class="el" href="#a3e6b28d3639afce0227285776d2f4c66">TypeList</a>&gt;::value</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span><span class="mlabel constexpr">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>类型枚举值查询：用于在编译期，通过类型查询它在NBT_TAG中对应的enum值 </p>
+<dl class="tparams"><dt>模板参数</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T</td><td>需要检查的类型 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>注解</dt><dd>如果类型存在于NBT类型列表中，则返回它在NBT_TAG中对应的Enum值，否则返回-1 </dd>
+<dd>
+类似于一种静态反射 </dd></dl>
+
+</div>
+</div>
+<hr/>该类的文档由以下文件生成:<ul>
+<li><a class="el" href="_n_b_t___type_8hpp_source.html">NBT_Type.hpp</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="class_n_b_t___type.html">NBT_Type</a></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.15.0 </li>
+  </ul>
+</div>
+</body>
+</html>

@@ -1,0 +1,946 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.15.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>chenjunfu2-nbt-cpp: MUTF8_Tool&lt; MU8T, U16T, U8T &gt; 模板类 参考</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">chenjunfu2-nbt-cpp<span id="projectnumber">&#160;v1.0.1</span>
+   </div>
+   <div id="projectbrief">一个基于CPP20的NBT(Named Binary Tag)库</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.15.0 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','搜索',true);
+  $(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(function(){initNavTree('class_m_u_t_f8___tool.html','','class_m_u_t_f8___tool-members'); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">MUTF8_Tool&lt; MU8T, U16T, U8T &gt; 模板类 参考</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>用于处理Java的Modified-UTF-8（以下简称M-UTF-8）字符串与UTF-8或UTF-16的静态或动态转换  
+ <a href="#details">更多...</a></p>
+
+<p><code>#include &lt;<a class="el" href="_m_u_t_f8___tool_8hpp_source.html">MUTF8_Tool.hpp</a>&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-types" class="groupheader"><a id="pub-types" name="pub-types"></a>
+Public 类型</h2></td></tr>
+<tr class="memitem:a7bfe05740c7386dc60b28826940b4d7d" id="r_a7bfe05740c7386dc60b28826940b4d7d"><td class="memItemLeft" align="right" valign="top"><a id="a7bfe05740c7386dc60b28826940b4d7d" name="a7bfe05740c7386dc60b28826940b4d7d"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><b>MU8_T</b> = MU8T</td></tr>
+<tr class="memdesc:a7bfe05740c7386dc60b28826940b4d7d"><td class="mdescLeft">&#160;</td><td class="mdescRight">模板M-UTF-8字符类型的代理 <br /></td></tr>
+<tr class="memitem:a96876d6b9151c1edebc4103dd4410d66" id="r_a96876d6b9151c1edebc4103dd4410d66"><td class="memItemLeft" align="right" valign="top"><a id="a96876d6b9151c1edebc4103dd4410d66" name="a96876d6b9151c1edebc4103dd4410d66"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><b>U16_T</b> = U16T</td></tr>
+<tr class="memdesc:a96876d6b9151c1edebc4103dd4410d66"><td class="mdescLeft">&#160;</td><td class="mdescRight">模板UTF-16字符类型的代理 <br /></td></tr>
+<tr class="memitem:a33599911f9b1f160aa84731b7d1d97e5" id="r_a33599911f9b1f160aa84731b7d1d97e5"><td class="memItemLeft" align="right" valign="top"><a id="a33599911f9b1f160aa84731b7d1d97e5" name="a33599911f9b1f160aa84731b7d1d97e5"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><b>U8_T</b> = U8T</td></tr>
+<tr class="memdesc:a33599911f9b1f160aa84731b7d1d97e5"><td class="mdescLeft">&#160;</td><td class="mdescRight">模板UTF-8字符类型的代理 <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-static-methods" class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
+静态 Public 成员函数</h2></td></tr>
+<tr class="memitem:a40e9e75f114aa46a154a2cc4c1cf570d" id="r_a40e9e75f114aa46a154a2cc4c1cf570d"><td class="memItemLeft" align="right" valign="top">static constexpr size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a40e9e75f114aa46a154a2cc4c1cf570d">U16ToMU8Length</a> (const std::basic_string_view&lt; U16T &gt; &amp;u16String)</td></tr>
+<tr class="memdesc:a40e9e75f114aa46a154a2cc4c1cf570d"><td class="mdescLeft">&#160;</td><td class="mdescRight">精确计算UTF-16转换到M-UTF-8所需的M-UTF-8字符串的长度  <br /></td></tr>
+<tr class="memitem:a81b5feba3affc78b24045a21047bcaca" id="r_a81b5feba3affc78b24045a21047bcaca"><td class="memItemLeft" align="right" valign="top">static constexpr size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a81b5feba3affc78b24045a21047bcaca">U16ToMU8Length</a> (const U16T *u16String, size_t szStringLength)</td></tr>
+<tr class="memdesc:a81b5feba3affc78b24045a21047bcaca"><td class="mdescLeft">&#160;</td><td class="mdescRight">精确计算UTF-16转换到M-UTF-8所需的M-UTF-8字符串的长度  <br /></td></tr>
+<tr class="memitem:a5288095d186d549c1d3488d75e2dab22" id="r_a5288095d186d549c1d3488d75e2dab22"><td class="memItemLeft" align="right" valign="top">static std::basic_string&lt; MU8T &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5288095d186d549c1d3488d75e2dab22">U16ToMU8</a> (const std::basic_string_view&lt; U16T &gt; &amp;u16String, size_t szReserve=0)</td></tr>
+<tr class="memdesc:a5288095d186d549c1d3488d75e2dab22"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取UTF-16转换到M-UTF-8的字符串  <br /></td></tr>
+<tr class="memitem:aec32110945c6e8a10403cb8fa091f6a5" id="r_aec32110945c6e8a10403cb8fa091f6a5"><td class="memItemLeft" align="right" valign="top">static std::basic_string&lt; MU8T &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aec32110945c6e8a10403cb8fa091f6a5">U16ToMU8</a> (const U16T *u16String, size_t szStringLength, size_t szReserve=0)</td></tr>
+<tr class="memdesc:aec32110945c6e8a10403cb8fa091f6a5"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取UTF-16转换到M-UTF-8的字符串  <br /></td></tr>
+<tr class="memitem:aa2c1d2056b79b48b009f7d11b896dc46" id="r_aa2c1d2056b79b48b009f7d11b896dc46"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="class_m_u_t_f8___tool___internal_1_1_string_literal.html">MUTF8_Tool_Internal::StringLiteral</a> u16String&gt; <br />
+requires std::is_same_v&lt;typename decltype(u16String)::value_type, U16T&gt;</td></tr>
+<tr class="memitem:aa2c1d2056b79b48b009f7d11b896dc46 template"><td class="memItemLeft" align="right" valign="top">static consteval std::basic_string_view&lt; MU8T &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa2c1d2056b79b48b009f7d11b896dc46">U16ToMU8</a> (void)</td></tr>
+<tr class="memdesc:aa2c1d2056b79b48b009f7d11b896dc46"><td class="mdescLeft">&#160;</td><td class="mdescRight">通过UTF-16字符串字面量，直接获得编译期的M-UTF-8静态字符串  <br /></td></tr>
+<tr class="memitem:a629e6f6a83603f41fb7d1b836a14d902" id="r_a629e6f6a83603f41fb7d1b836a14d902"><td class="memItemLeft" align="right" valign="top">static constexpr size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a629e6f6a83603f41fb7d1b836a14d902">U8ToMU8Length</a> (const std::basic_string_view&lt; U8T &gt; &amp;u8String)</td></tr>
+<tr class="memdesc:a629e6f6a83603f41fb7d1b836a14d902"><td class="mdescLeft">&#160;</td><td class="mdescRight">精确计算UTF-8转换到M-UTF-8所需的M-UTF-8字符串的长度  <br /></td></tr>
+<tr class="memitem:aa7c73ff27bbad8d0356ea0c41d2aa03b" id="r_aa7c73ff27bbad8d0356ea0c41d2aa03b"><td class="memItemLeft" align="right" valign="top">static constexpr size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa7c73ff27bbad8d0356ea0c41d2aa03b">U8ToMU8Length</a> (const U8T *u8String, size_t szStringLength)</td></tr>
+<tr class="memdesc:aa7c73ff27bbad8d0356ea0c41d2aa03b"><td class="mdescLeft">&#160;</td><td class="mdescRight">精确计算UTF-8转换到M-UTF-8所需的M-UTF-8字符串的长度  <br /></td></tr>
+<tr class="memitem:a00f339fe87c64d3648507c6a7e53cd94" id="r_a00f339fe87c64d3648507c6a7e53cd94"><td class="memItemLeft" align="right" valign="top">static std::basic_string&lt; MU8T &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a00f339fe87c64d3648507c6a7e53cd94">U8ToMU8</a> (const std::basic_string_view&lt; U8T &gt; &amp;u8String, size_t szReserve=0)</td></tr>
+<tr class="memdesc:a00f339fe87c64d3648507c6a7e53cd94"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取UTF-8转换到M-UTF-8的字符串  <br /></td></tr>
+<tr class="memitem:add05a906de04250a214f75d47a418746" id="r_add05a906de04250a214f75d47a418746"><td class="memItemLeft" align="right" valign="top">static std::basic_string&lt; MU8T &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#add05a906de04250a214f75d47a418746">U8ToMU8</a> (const U8T *u8String, size_t szStringLength, size_t szReserve=0)</td></tr>
+<tr class="memdesc:add05a906de04250a214f75d47a418746"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取UTF-8转换到M-UTF-8的字符串  <br /></td></tr>
+<tr class="memitem:a50d6907fb42e59fa652c9987da42dc58" id="r_a50d6907fb42e59fa652c9987da42dc58"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="class_m_u_t_f8___tool___internal_1_1_string_literal.html">MUTF8_Tool_Internal::StringLiteral</a> u8String&gt; <br />
+requires std::is_same_v&lt;typename decltype(u8String)::value_type, U8T&gt;</td></tr>
+<tr class="memitem:a50d6907fb42e59fa652c9987da42dc58 template"><td class="memItemLeft" align="right" valign="top">static consteval std::basic_string_view&lt; MU8T &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a50d6907fb42e59fa652c9987da42dc58">U8ToMU8</a> (void)</td></tr>
+<tr class="memdesc:a50d6907fb42e59fa652c9987da42dc58"><td class="mdescLeft">&#160;</td><td class="mdescRight">通过UTF-8字符串字面量，直接获得编译期的M-UTF-8静态字符串  <br /></td></tr>
+<tr class="memitem:ac4d0d1102a3876986dde6ccb74a88531" id="r_ac4d0d1102a3876986dde6ccb74a88531"><td class="memItemLeft" align="right" valign="top">static constexpr size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac4d0d1102a3876986dde6ccb74a88531">MU8ToU16Length</a> (const std::basic_string_view&lt; MU8T &gt; &amp;mu8String)</td></tr>
+<tr class="memdesc:ac4d0d1102a3876986dde6ccb74a88531"><td class="mdescLeft">&#160;</td><td class="mdescRight">精确计算M-UTF-8转换到UTF-16所需的UTF-16字符串的长度  <br /></td></tr>
+<tr class="memitem:a9ff6132c90ac32f82e9203fae7e1c23c" id="r_a9ff6132c90ac32f82e9203fae7e1c23c"><td class="memItemLeft" align="right" valign="top">static constexpr size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9ff6132c90ac32f82e9203fae7e1c23c">MU8ToU16Length</a> (const MU8T *mu8String, size_t szStringLength)</td></tr>
+<tr class="memdesc:a9ff6132c90ac32f82e9203fae7e1c23c"><td class="mdescLeft">&#160;</td><td class="mdescRight">精确计算M-UTF-8转换到UTF-16所需的UTF-16字符串的长度  <br /></td></tr>
+<tr class="memitem:a3d653d37813603c6ce48b550f2802187" id="r_a3d653d37813603c6ce48b550f2802187"><td class="memItemLeft" align="right" valign="top">static std::basic_string&lt; U16T &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3d653d37813603c6ce48b550f2802187">MU8ToU16</a> (const std::basic_string_view&lt; MU8T &gt; &amp;mu8String, size_t szReserve=0)</td></tr>
+<tr class="memdesc:a3d653d37813603c6ce48b550f2802187"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取M-UTF-8转换到UTF-16的字符串  <br /></td></tr>
+<tr class="memitem:aabad56af401b0fe31381274c9f449dbd" id="r_aabad56af401b0fe31381274c9f449dbd"><td class="memItemLeft" align="right" valign="top">static std::basic_string&lt; U16T &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aabad56af401b0fe31381274c9f449dbd">MU8ToU16</a> (const MU8T *mu8String, size_t szStringLength, size_t szReserve=0)</td></tr>
+<tr class="memdesc:aabad56af401b0fe31381274c9f449dbd"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取M-UTF-8转换到UTF-16的字符串  <br /></td></tr>
+<tr class="memitem:a4aff282fd4b017beea0dbacbe5d1ca9d" id="r_a4aff282fd4b017beea0dbacbe5d1ca9d"><td class="memItemLeft" align="right" valign="top">static constexpr size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4aff282fd4b017beea0dbacbe5d1ca9d">MU8ToU8Length</a> (const std::basic_string_view&lt; MU8T &gt; &amp;mu8String)</td></tr>
+<tr class="memdesc:a4aff282fd4b017beea0dbacbe5d1ca9d"><td class="mdescLeft">&#160;</td><td class="mdescRight">精确计算M-UTF-8转换到UTF-8所需的UTF-8字符串的长度  <br /></td></tr>
+<tr class="memitem:a4591deea110b80a87a08e8569f57e7e0" id="r_a4591deea110b80a87a08e8569f57e7e0"><td class="memItemLeft" align="right" valign="top">static constexpr size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4591deea110b80a87a08e8569f57e7e0">MU8ToU8Length</a> (const MU8T *mu8String, size_t szStringLength)</td></tr>
+<tr class="memdesc:a4591deea110b80a87a08e8569f57e7e0"><td class="mdescLeft">&#160;</td><td class="mdescRight">精确计算M-UTF-8转换到UTF-8所需的UTF-8字符串的长度  <br /></td></tr>
+<tr class="memitem:a2cb9551c046c873cf4c50e9302735b47" id="r_a2cb9551c046c873cf4c50e9302735b47"><td class="memItemLeft" align="right" valign="top">static std::basic_string&lt; U8T &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2cb9551c046c873cf4c50e9302735b47">MU8ToU8</a> (const std::basic_string_view&lt; MU8T &gt; &amp;mu8String, size_t szReserve=0)</td></tr>
+<tr class="memdesc:a2cb9551c046c873cf4c50e9302735b47"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取M-UTF-8转换到UTF-8的字符串  <br /></td></tr>
+<tr class="memitem:a0819b9b1d84a60684c551c5076320bd2" id="r_a0819b9b1d84a60684c551c5076320bd2"><td class="memItemLeft" align="right" valign="top">static std::basic_string&lt; U8T &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0819b9b1d84a60684c551c5076320bd2">MU8ToU8</a> (const MU8T *mu8String, size_t szStringLength, size_t szReserve=0)</td></tr>
+<tr class="memdesc:a0819b9b1d84a60684c551c5076320bd2"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取M-UTF-8转换到UTF-8的字符串  <br /></td></tr>
+</table>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">详细描述</h2>
+<div class="textblock"><div class="compoundTemplParams">template&lt;typename MU8T = uint8_t, typename U16T = char16_t, typename U8T = char8_t&gt;<br />
+class MUTF8_Tool&lt; MU8T, U16T, U8T &gt;</div><p>用于处理Java的Modified-UTF-8（以下简称M-UTF-8）字符串与UTF-8或UTF-16的静态或动态转换 </p>
+<dl class="tparams"><dt>模板参数</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">MU8T</td><td>M-UTF-8对应的字符类型，简写为MU8 </td></tr>
+    <tr><td class="paramname">U16T</td><td>UTF-16对应的字符类型 </td></tr>
+    <tr><td class="paramname">U8T</td><td>UTF-8对应的字符类型 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>注解</dt><dd>类仅提供M-UTF-8的静态生成方式，因为UTF-8或UTF-16可以由编译器支持，而M-UTF-8不存在支持 </dd></dl>
+</div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">成员函数说明</h2>
+<a id="aabad56af401b0fe31381274c9f449dbd" name="aabad56af401b0fe31381274c9f449dbd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aabad56af401b0fe31381274c9f449dbd">&#9670;&#160;</a></span>MU8ToU16() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename MU8T = uint8_t, typename U16T = char16_t, typename U8T = char8_t&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::basic_string&lt; U16T &gt; <a class="el" href="class_m_u_t_f8___tool.html">MUTF8_Tool</a>&lt; MU8T, U16T, U8T &gt;::MU8ToU16 </td>
+          <td>(</td>
+          <td class="paramtype">const MU8T *</td>          <td class="paramname"><span class="paramname"><em>mu8String</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>szStringLength</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>szReserve</em></span><span class="paramdefsep"> = </span><span class="paramdefval">0</span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>获取M-UTF-8转换到UTF-16的字符串 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">mu8String</td><td>M-UTF-8字符串的指针 </td></tr>
+    <tr><td class="paramname">szStringLength</td><td>M-UTF-8字符串的长度 </td></tr>
+    <tr><td class="paramname">szReserve</td><td>转换后的字符串长度（此项用于一定程度避免动态扩容开销，值可以从MU8ToU16Length调用获得） </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>转换后的字符串 </dd></dl>
+<dl class="section note"><dt>注解</dt><dd>请注意：是长度而非字节数 </dd></dl>
+
+</div>
+</div>
+<a id="a3d653d37813603c6ce48b550f2802187" name="a3d653d37813603c6ce48b550f2802187"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3d653d37813603c6ce48b550f2802187">&#9670;&#160;</a></span>MU8ToU16() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename MU8T = uint8_t, typename U16T = char16_t, typename U8T = char8_t&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::basic_string&lt; U16T &gt; <a class="el" href="class_m_u_t_f8___tool.html">MUTF8_Tool</a>&lt; MU8T, U16T, U8T &gt;::MU8ToU16 </td>
+          <td>(</td>
+          <td class="paramtype">const std::basic_string_view&lt; MU8T &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>mu8String</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>szReserve</em></span><span class="paramdefsep"> = </span><span class="paramdefval">0</span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>获取M-UTF-8转换到UTF-16的字符串 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">mu8String</td><td>M-UTF-8字符串的视图 </td></tr>
+    <tr><td class="paramname">szReserve</td><td>转换后的字符串长度（此项用于一定程度避免动态扩容开销，值可以从MU8ToU16Length调用获得） </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>转换后的字符串 </dd></dl>
+<dl class="section note"><dt>注解</dt><dd>请注意：是长度而非字节数 </dd></dl>
+
+</div>
+</div>
+<a id="a9ff6132c90ac32f82e9203fae7e1c23c" name="a9ff6132c90ac32f82e9203fae7e1c23c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9ff6132c90ac32f82e9203fae7e1c23c">&#9670;&#160;</a></span>MU8ToU16Length() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename MU8T = uint8_t, typename U16T = char16_t, typename U8T = char8_t&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr size_t <a class="el" href="class_m_u_t_f8___tool.html">MUTF8_Tool</a>&lt; MU8T, U16T, U8T &gt;::MU8ToU16Length </td>
+          <td>(</td>
+          <td class="paramtype">const MU8T *</td>          <td class="paramname"><span class="paramname"><em>mu8String</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>szStringLength</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span><span class="mlabel constexpr">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>精确计算M-UTF-8转换到UTF-16所需的UTF-16字符串的长度 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">mu8String</td><td>M-UTF-8字符串的指针 </td></tr>
+    <tr><td class="paramname">szStringLength</td><td>M-UTF-8字符串的长度 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>计算的长度 </dd></dl>
+<dl class="section note"><dt>注解</dt><dd>请注意：是长度而非字节数 </dd></dl>
+
+</div>
+</div>
+<a id="ac4d0d1102a3876986dde6ccb74a88531" name="ac4d0d1102a3876986dde6ccb74a88531"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac4d0d1102a3876986dde6ccb74a88531">&#9670;&#160;</a></span>MU8ToU16Length() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename MU8T = uint8_t, typename U16T = char16_t, typename U8T = char8_t&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr size_t <a class="el" href="class_m_u_t_f8___tool.html">MUTF8_Tool</a>&lt; MU8T, U16T, U8T &gt;::MU8ToU16Length </td>
+          <td>(</td>
+          <td class="paramtype">const std::basic_string_view&lt; MU8T &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>mu8String</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span><span class="mlabel constexpr">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>精确计算M-UTF-8转换到UTF-16所需的UTF-16字符串的长度 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">mu8String</td><td>M-UTF-8字符串的视图 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>计算的长度 </dd></dl>
+<dl class="section note"><dt>注解</dt><dd>请注意：是长度而非字节数 </dd></dl>
+
+</div>
+</div>
+<a id="a0819b9b1d84a60684c551c5076320bd2" name="a0819b9b1d84a60684c551c5076320bd2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0819b9b1d84a60684c551c5076320bd2">&#9670;&#160;</a></span>MU8ToU8() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename MU8T = uint8_t, typename U16T = char16_t, typename U8T = char8_t&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::basic_string&lt; U8T &gt; <a class="el" href="class_m_u_t_f8___tool.html">MUTF8_Tool</a>&lt; MU8T, U16T, U8T &gt;::MU8ToU8 </td>
+          <td>(</td>
+          <td class="paramtype">const MU8T *</td>          <td class="paramname"><span class="paramname"><em>mu8String</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>szStringLength</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>szReserve</em></span><span class="paramdefsep"> = </span><span class="paramdefval">0</span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>获取M-UTF-8转换到UTF-8的字符串 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">mu8String</td><td>M-UTF-8字符串的指针 </td></tr>
+    <tr><td class="paramname">szStringLength</td><td>M-UTF-8字符串的长度 </td></tr>
+    <tr><td class="paramname">szReserve</td><td>转换后的字符串长度（此项用于一定程度避免动态扩容开销，值可以从MU8ToU8Length调用获得） </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>转换后的字符串 </dd></dl>
+<dl class="section note"><dt>注解</dt><dd>请注意：是长度而非字节数 </dd></dl>
+
+</div>
+</div>
+<a id="a2cb9551c046c873cf4c50e9302735b47" name="a2cb9551c046c873cf4c50e9302735b47"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2cb9551c046c873cf4c50e9302735b47">&#9670;&#160;</a></span>MU8ToU8() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename MU8T = uint8_t, typename U16T = char16_t, typename U8T = char8_t&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::basic_string&lt; U8T &gt; <a class="el" href="class_m_u_t_f8___tool.html">MUTF8_Tool</a>&lt; MU8T, U16T, U8T &gt;::MU8ToU8 </td>
+          <td>(</td>
+          <td class="paramtype">const std::basic_string_view&lt; MU8T &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>mu8String</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>szReserve</em></span><span class="paramdefsep"> = </span><span class="paramdefval">0</span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>获取M-UTF-8转换到UTF-8的字符串 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">mu8String</td><td>M-UTF-8字符串的视图 </td></tr>
+    <tr><td class="paramname">szReserve</td><td>转换后的字符串长度（此项用于一定程度避免动态扩容开销，值可以从MU8ToU8Length调用获得） </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>转换后的字符串 </dd></dl>
+<dl class="section note"><dt>注解</dt><dd>请注意：是长度而非字节数 </dd></dl>
+
+</div>
+</div>
+<a id="a4591deea110b80a87a08e8569f57e7e0" name="a4591deea110b80a87a08e8569f57e7e0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4591deea110b80a87a08e8569f57e7e0">&#9670;&#160;</a></span>MU8ToU8Length() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename MU8T = uint8_t, typename U16T = char16_t, typename U8T = char8_t&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr size_t <a class="el" href="class_m_u_t_f8___tool.html">MUTF8_Tool</a>&lt; MU8T, U16T, U8T &gt;::MU8ToU8Length </td>
+          <td>(</td>
+          <td class="paramtype">const MU8T *</td>          <td class="paramname"><span class="paramname"><em>mu8String</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>szStringLength</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span><span class="mlabel constexpr">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>精确计算M-UTF-8转换到UTF-8所需的UTF-8字符串的长度 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">mu8String</td><td>M-UTF-8字符串的指针 </td></tr>
+    <tr><td class="paramname">szStringLength</td><td>M-UTF-8字符串的长度 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>计算的长度 </dd></dl>
+<dl class="section note"><dt>注解</dt><dd>请注意：是长度而非字节数 </dd></dl>
+
+</div>
+</div>
+<a id="a4aff282fd4b017beea0dbacbe5d1ca9d" name="a4aff282fd4b017beea0dbacbe5d1ca9d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4aff282fd4b017beea0dbacbe5d1ca9d">&#9670;&#160;</a></span>MU8ToU8Length() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename MU8T = uint8_t, typename U16T = char16_t, typename U8T = char8_t&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr size_t <a class="el" href="class_m_u_t_f8___tool.html">MUTF8_Tool</a>&lt; MU8T, U16T, U8T &gt;::MU8ToU8Length </td>
+          <td>(</td>
+          <td class="paramtype">const std::basic_string_view&lt; MU8T &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>mu8String</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span><span class="mlabel constexpr">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>精确计算M-UTF-8转换到UTF-8所需的UTF-8字符串的长度 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">mu8String</td><td>M-UTF-8字符串的视图 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>计算的长度 </dd></dl>
+<dl class="section note"><dt>注解</dt><dd>请注意：是长度而非字节数 </dd></dl>
+
+</div>
+</div>
+<a id="a5288095d186d549c1d3488d75e2dab22" name="a5288095d186d549c1d3488d75e2dab22"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5288095d186d549c1d3488d75e2dab22">&#9670;&#160;</a></span>U16ToMU8() <span class="overload">[1/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename MU8T = uint8_t, typename U16T = char16_t, typename U8T = char8_t&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::basic_string&lt; MU8T &gt; <a class="el" href="class_m_u_t_f8___tool.html">MUTF8_Tool</a>&lt; MU8T, U16T, U8T &gt;::U16ToMU8 </td>
+          <td>(</td>
+          <td class="paramtype">const std::basic_string_view&lt; U16T &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>u16String</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>szReserve</em></span><span class="paramdefsep"> = </span><span class="paramdefval">0</span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>获取UTF-16转换到M-UTF-8的字符串 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">u16String</td><td>UTF-16字符串的视图 </td></tr>
+    <tr><td class="paramname">szReserve</td><td>转换后的字符串长度（此项用于一定程度避免动态扩容开销，值可以从U16ToMU8Length调用获得） </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>转换后的字符串 </dd></dl>
+<dl class="section note"><dt>注解</dt><dd>请注意：是长度而非字节数 </dd></dl>
+
+</div>
+</div>
+<a id="aec32110945c6e8a10403cb8fa091f6a5" name="aec32110945c6e8a10403cb8fa091f6a5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aec32110945c6e8a10403cb8fa091f6a5">&#9670;&#160;</a></span>U16ToMU8() <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename MU8T = uint8_t, typename U16T = char16_t, typename U8T = char8_t&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::basic_string&lt; MU8T &gt; <a class="el" href="class_m_u_t_f8___tool.html">MUTF8_Tool</a>&lt; MU8T, U16T, U8T &gt;::U16ToMU8 </td>
+          <td>(</td>
+          <td class="paramtype">const U16T *</td>          <td class="paramname"><span class="paramname"><em>u16String</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>szStringLength</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>szReserve</em></span><span class="paramdefsep"> = </span><span class="paramdefval">0</span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>获取UTF-16转换到M-UTF-8的字符串 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">u16String</td><td>UTF-16字符串的指针 </td></tr>
+    <tr><td class="paramname">szStringLength</td><td>UTF-16字符串的长度 </td></tr>
+    <tr><td class="paramname">szReserve</td><td>转换后的字符串长度（此项用于一定程度避免动态扩容开销，值可以从U16ToMU8Length调用获得） </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>转换后的字符串 </dd></dl>
+<dl class="section note"><dt>注解</dt><dd>请注意：是长度而非字节数 </dd></dl>
+
+</div>
+</div>
+<a id="aa2c1d2056b79b48b009f7d11b896dc46" name="aa2c1d2056b79b48b009f7d11b896dc46"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa2c1d2056b79b48b009f7d11b896dc46">&#9670;&#160;</a></span>U16ToMU8() <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename MU8T = uint8_t, typename U16T = char16_t, typename U8T = char8_t&gt; </div>
+<div class="memtemplate">
+template&lt;<a class="el" href="class_m_u_t_f8___tool___internal_1_1_string_literal.html">MUTF8_Tool_Internal::StringLiteral</a> u16String&gt; <br />
+requires std::is_same_v&lt;typename decltype(u16String)::value_type, U16T&gt;</div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">consteval std::basic_string_view&lt; MU8T &gt; <a class="el" href="class_m_u_t_f8___tool.html">MUTF8_Tool</a>&lt; MU8T, U16T, U8T &gt;::U16ToMU8 </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span><span class="mlabel consteval">consteval</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>通过UTF-16字符串字面量，直接获得编译期的M-UTF-8静态字符串 </p>
+<dl class="tparams"><dt>模板参数</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">u16String</td><td>UTF-16字符串字面量，用于构造MUTF8_Tool_Internal::StringLiteral </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>一个由std::basic_string_view存储的静态字符串数组，可用于构造NBT_Type::String或进行比较等 </dd></dl>
+<dl class="section note"><dt>注解</dt><dd>此函数仅能在编译期使用，内部会先生成临时std::array对象然后通过ToStringView模板进行固化， 以生成编译期常量（类似字符串字面量），这样就能只存储它的指针与大小，并在任何地方使用而不会导致生命周期提前结束 </dd></dl>
+
+</div>
+</div>
+<a id="a40e9e75f114aa46a154a2cc4c1cf570d" name="a40e9e75f114aa46a154a2cc4c1cf570d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a40e9e75f114aa46a154a2cc4c1cf570d">&#9670;&#160;</a></span>U16ToMU8Length() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename MU8T = uint8_t, typename U16T = char16_t, typename U8T = char8_t&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr size_t <a class="el" href="class_m_u_t_f8___tool.html">MUTF8_Tool</a>&lt; MU8T, U16T, U8T &gt;::U16ToMU8Length </td>
+          <td>(</td>
+          <td class="paramtype">const std::basic_string_view&lt; U16T &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>u16String</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span><span class="mlabel constexpr">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>精确计算UTF-16转换到M-UTF-8所需的M-UTF-8字符串的长度 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">u16String</td><td>UTF-16字符串的视图 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>计算的长度 </dd></dl>
+<dl class="section note"><dt>注解</dt><dd>请注意：是长度而非字节数 </dd></dl>
+
+</div>
+</div>
+<a id="a81b5feba3affc78b24045a21047bcaca" name="a81b5feba3affc78b24045a21047bcaca"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a81b5feba3affc78b24045a21047bcaca">&#9670;&#160;</a></span>U16ToMU8Length() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename MU8T = uint8_t, typename U16T = char16_t, typename U8T = char8_t&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr size_t <a class="el" href="class_m_u_t_f8___tool.html">MUTF8_Tool</a>&lt; MU8T, U16T, U8T &gt;::U16ToMU8Length </td>
+          <td>(</td>
+          <td class="paramtype">const U16T *</td>          <td class="paramname"><span class="paramname"><em>u16String</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>szStringLength</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span><span class="mlabel constexpr">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>精确计算UTF-16转换到M-UTF-8所需的M-UTF-8字符串的长度 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">u16String</td><td>UTF-16字符串的指针 </td></tr>
+    <tr><td class="paramname">szStringLength</td><td>UTF-16字符串的长度 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>计算的长度 </dd></dl>
+<dl class="section note"><dt>注解</dt><dd>请注意：是长度而非字节数 </dd></dl>
+
+</div>
+</div>
+<a id="a00f339fe87c64d3648507c6a7e53cd94" name="a00f339fe87c64d3648507c6a7e53cd94"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a00f339fe87c64d3648507c6a7e53cd94">&#9670;&#160;</a></span>U8ToMU8() <span class="overload">[1/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename MU8T = uint8_t, typename U16T = char16_t, typename U8T = char8_t&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::basic_string&lt; MU8T &gt; <a class="el" href="class_m_u_t_f8___tool.html">MUTF8_Tool</a>&lt; MU8T, U16T, U8T &gt;::U8ToMU8 </td>
+          <td>(</td>
+          <td class="paramtype">const std::basic_string_view&lt; U8T &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>u8String</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>szReserve</em></span><span class="paramdefsep"> = </span><span class="paramdefval">0</span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>获取UTF-8转换到M-UTF-8的字符串 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">u8String</td><td>UTF-8字符串的视图 </td></tr>
+    <tr><td class="paramname">szReserve</td><td>转换后的字符串长度（此项用于一定程度避免动态扩容开销，值可以从U8ToMU8Length调用获得） </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>转换后的字符串 </dd></dl>
+<dl class="section note"><dt>注解</dt><dd>请注意：是长度而非字节数 </dd></dl>
+
+</div>
+</div>
+<a id="add05a906de04250a214f75d47a418746" name="add05a906de04250a214f75d47a418746"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#add05a906de04250a214f75d47a418746">&#9670;&#160;</a></span>U8ToMU8() <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename MU8T = uint8_t, typename U16T = char16_t, typename U8T = char8_t&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::basic_string&lt; MU8T &gt; <a class="el" href="class_m_u_t_f8___tool.html">MUTF8_Tool</a>&lt; MU8T, U16T, U8T &gt;::U8ToMU8 </td>
+          <td>(</td>
+          <td class="paramtype">const U8T *</td>          <td class="paramname"><span class="paramname"><em>u8String</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>szStringLength</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>szReserve</em></span><span class="paramdefsep"> = </span><span class="paramdefval">0</span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>获取UTF-8转换到M-UTF-8的字符串 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">u8String</td><td>UTF-8字符串的指针 </td></tr>
+    <tr><td class="paramname">szStringLength</td><td>UTF-8字符串的长度 </td></tr>
+    <tr><td class="paramname">szReserve</td><td>转换后的字符串长度（此项用于一定程度避免动态扩容开销，值可以从U8ToMU8Length调用获得） </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>转换后的字符串 </dd></dl>
+<dl class="section note"><dt>注解</dt><dd>请注意：是长度而非字节数 </dd></dl>
+
+</div>
+</div>
+<a id="a50d6907fb42e59fa652c9987da42dc58" name="a50d6907fb42e59fa652c9987da42dc58"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a50d6907fb42e59fa652c9987da42dc58">&#9670;&#160;</a></span>U8ToMU8() <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename MU8T = uint8_t, typename U16T = char16_t, typename U8T = char8_t&gt; </div>
+<div class="memtemplate">
+template&lt;<a class="el" href="class_m_u_t_f8___tool___internal_1_1_string_literal.html">MUTF8_Tool_Internal::StringLiteral</a> u8String&gt; <br />
+requires std::is_same_v&lt;typename decltype(u8String)::value_type, U8T&gt;</div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">consteval std::basic_string_view&lt; MU8T &gt; <a class="el" href="class_m_u_t_f8___tool.html">MUTF8_Tool</a>&lt; MU8T, U16T, U8T &gt;::U8ToMU8 </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span><span class="mlabel consteval">consteval</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>通过UTF-8字符串字面量，直接获得编译期的M-UTF-8静态字符串 </p>
+<dl class="tparams"><dt>模板参数</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">u8String</td><td>UTF-8字符串字面量，用于构造MUTF8_Tool_Internal::StringLiteral </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>一个由std::string_view存储的静态字符串数组，可用于构造NBT_Type::String或进行比较等 </dd></dl>
+<dl class="section note"><dt>注解</dt><dd>此函数仅能在编译期使用，内部会先生成临时std::array对象然后通过ToStringView模板进行固化， 以生成编译期常量（类似字符串字面量），这样就能只存储它的指针与大小，并在任何地方使用而不会导致生命周期提前结束 </dd></dl>
+
+</div>
+</div>
+<a id="a629e6f6a83603f41fb7d1b836a14d902" name="a629e6f6a83603f41fb7d1b836a14d902"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a629e6f6a83603f41fb7d1b836a14d902">&#9670;&#160;</a></span>U8ToMU8Length() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename MU8T = uint8_t, typename U16T = char16_t, typename U8T = char8_t&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr size_t <a class="el" href="class_m_u_t_f8___tool.html">MUTF8_Tool</a>&lt; MU8T, U16T, U8T &gt;::U8ToMU8Length </td>
+          <td>(</td>
+          <td class="paramtype">const std::basic_string_view&lt; U8T &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>u8String</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span><span class="mlabel constexpr">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>精确计算UTF-8转换到M-UTF-8所需的M-UTF-8字符串的长度 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">u8String</td><td>UTF-8字符串的视图 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>计算的长度 </dd></dl>
+<dl class="section note"><dt>注解</dt><dd>请注意：是长度而非字节数 </dd></dl>
+
+</div>
+</div>
+<a id="aa7c73ff27bbad8d0356ea0c41d2aa03b" name="aa7c73ff27bbad8d0356ea0c41d2aa03b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa7c73ff27bbad8d0356ea0c41d2aa03b">&#9670;&#160;</a></span>U8ToMU8Length() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename MU8T = uint8_t, typename U16T = char16_t, typename U8T = char8_t&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr size_t <a class="el" href="class_m_u_t_f8___tool.html">MUTF8_Tool</a>&lt; MU8T, U16T, U8T &gt;::U8ToMU8Length </td>
+          <td>(</td>
+          <td class="paramtype">const U8T *</td>          <td class="paramname"><span class="paramname"><em>u8String</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>szStringLength</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span><span class="mlabel constexpr">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>精确计算UTF-8转换到M-UTF-8所需的M-UTF-8字符串的长度 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">u8String</td><td>UTF-8字符串的指针 </td></tr>
+    <tr><td class="paramname">szStringLength</td><td>UTF-8字符串的长度 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>计算的长度 </dd></dl>
+<dl class="section note"><dt>注解</dt><dd>请注意：是长度而非字节数 </dd></dl>
+
+</div>
+</div>
+<hr/>该类的文档由以下文件生成:<ul>
+<li><a class="el" href="_m_u_t_f8___tool_8hpp_source.html">MUTF8_Tool.hpp</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="class_m_u_t_f8___tool.html">MUTF8_Tool</a></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.15.0 </li>
+  </ul>
+</div>
+</body>
+</html>
