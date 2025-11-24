@@ -15,6 +15,7 @@
 #include "NBT_Endian.hpp"//字节序
 
 /// @file
+/// @brief NBT类型二进制反序列化工具
 
 /// @brief 这个类用于提供从NBT二进制流读取到NBT_Type::Compound对象的反序列化功能
 class NBT_Reader

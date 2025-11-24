@@ -8,6 +8,7 @@
 #include "NBT_Type.hpp"
 
 /// @file
+/// @brief NBT集合基础类型
 
 class NBT_Reader;
 class NBT_Writer;

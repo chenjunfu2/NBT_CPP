@@ -9,7 +9,7 @@
 #include <algorithm>
 
 /// @file
-/// @brief 用于处理Java的Modified-UTF-8的工具集
+/// @brief Java Modified-UTF-8工具集
 
 //来个static string包装类，使得模板能接受字符串字面量
 //必须放在外面，否则NTTP推导主类模板会失败，

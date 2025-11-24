@@ -16,16 +16,18 @@
   
 **如果你不是通过vcpkg安装的，那么在头文件vcpkg_config.h中：**  
   
-配置zlib：安装zlib库则存在下面内容，否则删除下面内容  
+配置zlib：安装zlib库则存在下面内容，否则注释下面定义  
 ```cpp
 //use zlib
 #define CJF2_NBT_CPP_USE_ZLIB
 ```
-配置xxhash：安装xxhash库则存在下面内容，否则删除下面内容  
+配置xxhash：安装xxhash库则存在下面内容，否则注释下面定义  
 ```cpp
 //use xxhash
 #define CJF2_NBT_CPP_USE_XXHASH
 ```
+
+**在文件 vcpkg_config.h 也有相关说明**
 
 # 库内容主要内容介绍
 正常情况下，所有单独的可用模块都只在NBT_All.hpp中包含，  

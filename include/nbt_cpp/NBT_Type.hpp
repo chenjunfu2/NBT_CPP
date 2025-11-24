@@ -11,6 +11,7 @@
 #include "NBT_TAG.hpp"
 
 /// @file
+/// @brief NBT所有类型定义与类型处理工具集
 
 class NBT_Node;
 template <typename Array>

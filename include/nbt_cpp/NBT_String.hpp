@@ -6,8 +6,7 @@
 #include "MUTF8_Tool.hpp"
 
 /// @file
-/// @brief 本文件包含的类用于存储、处理与转换Java的Modified-UTF-8字符串。
-/// 在NBT格式里，字符串全部使用Java的Modified-UTF-8。
+/// @brief NBT字符串类型
 
 class NBT_Reader;
 class NBT_Writer;

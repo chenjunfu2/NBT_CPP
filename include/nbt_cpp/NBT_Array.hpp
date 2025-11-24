@@ -3,6 +3,7 @@
 #include <vector>
 
 /// @file
+/// @brief NBT数组基础类型
 
 class NBT_Reader;
 class NBT_Writer;

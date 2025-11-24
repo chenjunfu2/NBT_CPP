@@ -1,7 +1,7 @@
 ﻿#pragma once
 
 /// @file 
-/// @brief 编译器检测支持
+/// @brief 编译器检测支持宏
 /// 
 /// 本文件定义了编译器检测宏，用于识别当前编译环境：
 /// - CJF2_NBT_CPP_COMPILER_MSVC   (MSVC编译器标识)

@@ -10,6 +10,7 @@
 #include "NBT_Compound.hpp"
 
 /// @file
+/// @brief NBT节点类型，支持存储所有NBT类型的变体
 
 //在这里，所有依赖的定义都已完备，给出方便调用获取字符串字面量的的宏定义
 

@@ -16,6 +16,7 @@
 #include "NBT_Endian.hpp"//字节序
 
 /// @file
+/// @brief NBT类型二进制序列化工具
 
 /// @brief 这个类用于提供从NBT_Type::Compound对象写出到NBT二进制流的序列化功能
 class NBT_Writer
