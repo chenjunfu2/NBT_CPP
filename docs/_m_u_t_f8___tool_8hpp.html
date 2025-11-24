@@ -1,0 +1,330 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.15.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>chenjunfu2-nbt-cpp: MUTF8_Tool.hpp 文件参考</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">chenjunfu2-nbt-cpp<span id="projectnumber">&#160;v1.0.1</span>
+   </div>
+   <div id="projectbrief">一个基于CPP20的NBT(Named Binary Tag)库</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.15.0 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','搜索',true);
+  $(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(function(){initNavTree('_m_u_t_f8___tool_8hpp.html','',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">MUTF8_Tool.hpp 文件参考</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>用于处理Java的Modified-UTF-8的工具集  
+<a href="#details">更多...</a></p>
+<div class="textblock"><code>#include &lt;string&gt;</code><br />
+<code>#include &lt;type_traits&gt;</code><br />
+<code>#include &lt;assert.h&gt;</code><br />
+<code>#include &lt;stdint.h&gt;</code><br />
+<code>#include &lt;stddef.h&gt;</code><br />
+<code>#include &lt;array&gt;</code><br />
+<code>#include &lt;algorithm&gt;</code><br />
+</div>
+<p><a href="_m_u_t_f8___tool_8hpp_source.html">浏览该文件的源代码.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+类</h2></td></tr>
+<tr class="memitem:MUTF8_5FTool_5FInternal_3A_3AStringLiteral_3C_20T_2C_20N_20_3E" id="r_MUTF8_5FTool_5FInternal_3A_3AStringLiteral_3C_20T_2C_20N_20_3E"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_u_t_f8___tool___internal_1_1_string_literal.html">MUTF8_Tool_Internal::StringLiteral&lt; T, N &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">用于编译期构造静态字符串字面量为字符数组，作为模板参数，使得模板能接受字符串的辅助类  <a href="class_m_u_t_f8___tool___internal_1_1_string_literal.html#details">更多...</a><br /></td></tr>
+<tr class="memitem:MUTF8_5FTool_3C_20MU8T_2C_20U16T_2C_20U8T_20_3E" id="r_MUTF8_5FTool_3C_20MU8T_2C_20U16T_2C_20U8T_20_3E"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_u_t_f8___tool.html">MUTF8_Tool&lt; MU8T, U16T, U8T &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">用于处理Java的Modified-UTF-8（以下简称M-UTF-8）字符串与UTF-8或UTF-16的静态或动态转换  <a href="class_m_u_t_f8___tool.html#details">更多...</a><br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-namespaces" class="groupheader"><a id="namespaces" name="namespaces"></a>
+命名空间</h2></td></tr>
+<tr class="memitem:MUTF8_5FTool_5FInternal" id="r_MUTF8_5FTool_5FInternal"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_m_u_t_f8___tool___internal.html">MUTF8_Tool_Internal</a></td></tr>
+<tr class="memdesc:namespace_m_u_t_f8___tool___internal"><td class="mdescLeft">&#160;</td><td class="mdescRight">用于存放MUTF8_Tool使用的，无法存在于类内的辅助类 <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-define-members" class="groupheader"><a id="define-members" name="define-members"></a>
+宏定义</h2></td></tr>
+<tr class="memitem:a1ed06b942a205575f1c922a5b15dc64a" id="r_a1ed06b942a205575f1c922a5b15dc64a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1ed06b942a205575f1c922a5b15dc64a">U16CV2MU8</a>(u16String)</td></tr>
+<tr class="memdesc:a1ed06b942a205575f1c922a5b15dc64a"><td class="mdescLeft">&#160;</td><td class="mdescRight">UTF-16到M-UTF-8字符串转换的便捷宏  <br /></td></tr>
+<tr class="memitem:a39f90331bcda0f60cd03464db28bf2b5" id="r_a39f90331bcda0f60cd03464db28bf2b5"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a39f90331bcda0f60cd03464db28bf2b5">MU8CV2U16</a>(mu8String)</td></tr>
+<tr class="memdesc:a39f90331bcda0f60cd03464db28bf2b5"><td class="mdescLeft">&#160;</td><td class="mdescRight">M-UTF-8到UTF-16字符串转换的便捷宏  <br /></td></tr>
+<tr class="memitem:a52277046c0a3d27c244d4d240b98bc6a" id="r_a52277046c0a3d27c244d4d240b98bc6a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a52277046c0a3d27c244d4d240b98bc6a">U8CV2MU8</a>(u8String)</td></tr>
+<tr class="memdesc:a52277046c0a3d27c244d4d240b98bc6a"><td class="mdescLeft">&#160;</td><td class="mdescRight">UTF-8到M-UTF-8字符串转换的便捷宏  <br /></td></tr>
+<tr class="memitem:a604eb79d9d199f3b6f9e6437e6bd1527" id="r_a604eb79d9d199f3b6f9e6437e6bd1527"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a604eb79d9d199f3b6f9e6437e6bd1527">MU8CV2U8</a>(mu8String)</td></tr>
+<tr class="memdesc:a604eb79d9d199f3b6f9e6437e6bd1527"><td class="mdescLeft">&#160;</td><td class="mdescRight">M-UTF-8到UTF-8字符串转换的便捷宏  <br /></td></tr>
+<tr class="memitem:a963f306b17432d42646c95fd09171fca" id="r_a963f306b17432d42646c95fd09171fca"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a963f306b17432d42646c95fd09171fca">U16TOMU8STR</a>(u16LiteralString)</td></tr>
+<tr class="memdesc:a963f306b17432d42646c95fd09171fca"><td class="mdescLeft">&#160;</td><td class="mdescRight">UTF-16字符串字面量到M-UTF-8静态字符串数组的编译期转换宏  <br /></td></tr>
+<tr class="memitem:acab5b758ea4be7512271d1100917a846" id="r_acab5b758ea4be7512271d1100917a846"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acab5b758ea4be7512271d1100917a846">U8TOMU8STR</a>(u8LiteralString)</td></tr>
+<tr class="memdesc:acab5b758ea4be7512271d1100917a846"><td class="mdescLeft">&#160;</td><td class="mdescRight">UTF-8字符串字面量到M-UTF-8静态字符串数组的编译期转换宏  <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
+函数</h2></td></tr>
+<tr class="memitem:a88e572a96e3736b5821cf29a1076ec7a" id="r_a88e572a96e3736b5821cf29a1076ec7a"><td class="memTemplParams" colspan="2">template&lt;auto ArrayData, typename View_Type&gt; </td></tr>
+<tr class="memitem:a88e572a96e3736b5821cf29a1076ec7a template"><td class="memItemLeft" align="right" valign="top">consteval View_Type&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_m_u_t_f8___tool___internal.html#a88e572a96e3736b5821cf29a1076ec7a">MUTF8_Tool_Internal::ToStringView</a> (void) noexcept</td></tr>
+<tr class="memdesc:a88e572a96e3736b5821cf29a1076ec7a"><td class="mdescLeft">&#160;</td><td class="mdescRight">利用模板固化编译期求值函数返回的数组临时量  <br /></td></tr>
+</table>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">详细描述</h2>
+<div class="textblock"><p>用于处理Java的Modified-UTF-8的工具集 </p>
+</div><a name="doc-define-members" id="doc-define-members"></a><h2 id="header-doc-define-members" class="groupheader">宏定义说明</h2>
+<a id="a39f90331bcda0f60cd03464db28bf2b5" name="a39f90331bcda0f60cd03464db28bf2b5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a39f90331bcda0f60cd03464db28bf2b5">&#9670;&#160;</a></span>MU8CV2U16</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define MU8CV2U16</td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>mu8String</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>值:</b><div class="fragment"><div class="line"><a class="code hl_function" href="class_m_u_t_f8___tool.html#a3d653d37813603c6ce48b550f2802187">MUTF8_Tool&lt;&gt;::MU8ToU16</a>(mu8String)</div>
+<div class="ttc" id="aclass_m_u_t_f8___tool_html_a3d653d37813603c6ce48b550f2802187"><div class="ttname"><a href="class_m_u_t_f8___tool.html#a3d653d37813603c6ce48b550f2802187">MUTF8_Tool::MU8ToU16</a></div><div class="ttdeci">static std::basic_string&lt; U16T &gt; MU8ToU16(const std::basic_string_view&lt; MU8T &gt; &amp;mu8String, size_t szReserve=0)</div><div class="ttdoc">获取M-UTF-8转换到UTF-16的字符串</div><div class="ttdef"><b>定义</b> MUTF8_Tool.hpp:1014</div></div>
+</div><!-- fragment -->
+<p>M-UTF-8到UTF-16字符串转换的便捷宏 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">mu8String</td><td>M-UTF-8字符串视图 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>转换后的UTF-16字符串 </dd></dl>
+
+</div>
+</div>
+<a id="a604eb79d9d199f3b6f9e6437e6bd1527" name="a604eb79d9d199f3b6f9e6437e6bd1527"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a604eb79d9d199f3b6f9e6437e6bd1527">&#9670;&#160;</a></span>MU8CV2U8</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define MU8CV2U8</td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>mu8String</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>值:</b><div class="fragment"><div class="line"><a class="code hl_function" href="class_m_u_t_f8___tool.html#a2cb9551c046c873cf4c50e9302735b47">MUTF8_Tool&lt;&gt;::MU8ToU8</a>(mu8String)</div>
+<div class="ttc" id="aclass_m_u_t_f8___tool_html_a2cb9551c046c873cf4c50e9302735b47"><div class="ttname"><a href="class_m_u_t_f8___tool.html#a2cb9551c046c873cf4c50e9302735b47">MUTF8_Tool::MU8ToU8</a></div><div class="ttdeci">static std::basic_string&lt; U8T &gt; MU8ToU8(const std::basic_string_view&lt; MU8T &gt; &amp;mu8String, size_t szReserve=0)</div><div class="ttdoc">获取M-UTF-8转换到UTF-8的字符串</div><div class="ttdef"><b>定义</b> MUTF8_Tool.hpp:1056</div></div>
+</div><!-- fragment -->
+<p>M-UTF-8到UTF-8字符串转换的便捷宏 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">mu8String</td><td>M-UTF-8字符串视图 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>转换后的UTF-8字符串 </dd></dl>
+
+</div>
+</div>
+<a id="a1ed06b942a205575f1c922a5b15dc64a" name="a1ed06b942a205575f1c922a5b15dc64a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1ed06b942a205575f1c922a5b15dc64a">&#9670;&#160;</a></span>U16CV2MU8</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define U16CV2MU8</td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>u16String</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>值:</b><div class="fragment"><div class="line"><a class="code hl_function" href="class_m_u_t_f8___tool.html#aa2c1d2056b79b48b009f7d11b896dc46">MUTF8_Tool&lt;&gt;::U16ToMU8</a>(u16String)</div>
+<div class="ttc" id="aclass_m_u_t_f8___tool_html_aa2c1d2056b79b48b009f7d11b896dc46"><div class="ttname"><a href="class_m_u_t_f8___tool.html#aa2c1d2056b79b48b009f7d11b896dc46">MUTF8_Tool::U16ToMU8</a></div><div class="ttdeci">static consteval std::basic_string_view&lt; MU8T &gt; U16ToMU8(void)</div><div class="ttdoc">通过UTF-16字符串字面量，直接获得编译期的M-UTF-8静态字符串</div><div class="ttdef"><b>定义</b> MUTF8_Tool.hpp:914</div></div>
+</div><!-- fragment -->
+<p>UTF-16到M-UTF-8字符串转换的便捷宏 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">u16String</td><td>UTF-16字符串视图 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>转换后的M-UTF-8字符串 </dd></dl>
+
+</div>
+</div>
+<a id="a963f306b17432d42646c95fd09171fca" name="a963f306b17432d42646c95fd09171fca"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a963f306b17432d42646c95fd09171fca">&#9670;&#160;</a></span>U16TOMU8STR</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define U16TOMU8STR</td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>u16LiteralString</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>值:</b><div class="fragment"><div class="line">(<a class="code hl_function" href="class_m_u_t_f8___tool.html#aa2c1d2056b79b48b009f7d11b896dc46">MUTF8_Tool&lt;&gt;::U16ToMU8&lt;u16LiteralString&gt;</a>())</div>
+</div><!-- fragment -->
+<p>UTF-16字符串字面量到M-UTF-8静态字符串数组的编译期转换宏 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">u16LiteralString</td><td>UTF-16字符串字面量 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>编译期生成的std::array存储的静态字符串数组 </dd></dl>
+<dl class="section note"><dt>注解</dt><dd>在M-UTF-8中，任何字符串结尾\0都会被映射成0xC0 0x80，且保证串中不包含\0，所以一定程度上可以和C字符串（以\0结尾）兼容 </dd></dl>
+
+</div>
+</div>
+<a id="a52277046c0a3d27c244d4d240b98bc6a" name="a52277046c0a3d27c244d4d240b98bc6a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a52277046c0a3d27c244d4d240b98bc6a">&#9670;&#160;</a></span>U8CV2MU8</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define U8CV2MU8</td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>u8String</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>值:</b><div class="fragment"><div class="line"><a class="code hl_function" href="class_m_u_t_f8___tool.html#a50d6907fb42e59fa652c9987da42dc58">MUTF8_Tool&lt;&gt;::U8ToMU8</a>(u8String)</div>
+<div class="ttc" id="aclass_m_u_t_f8___tool_html_a50d6907fb42e59fa652c9987da42dc58"><div class="ttname"><a href="class_m_u_t_f8___tool.html#a50d6907fb42e59fa652c9987da42dc58">MUTF8_Tool::U8ToMU8</a></div><div class="ttdeci">static consteval std::basic_string_view&lt; MU8T &gt; U8ToMU8(void)</div><div class="ttdoc">通过UTF-8字符串字面量，直接获得编译期的M-UTF-8静态字符串</div><div class="ttdef"><b>定义</b> MUTF8_Tool.hpp:975</div></div>
+</div><!-- fragment -->
+<p>UTF-8到M-UTF-8字符串转换的便捷宏 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">u8String</td><td>UTF-8字符串视图 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>转换后的M-UTF-8字符串 </dd></dl>
+
+</div>
+</div>
+<a id="acab5b758ea4be7512271d1100917a846" name="acab5b758ea4be7512271d1100917a846"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acab5b758ea4be7512271d1100917a846">&#9670;&#160;</a></span>U8TOMU8STR</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define U8TOMU8STR</td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>u8LiteralString</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>值:</b><div class="fragment"><div class="line">(<a class="code hl_function" href="class_m_u_t_f8___tool.html#a50d6907fb42e59fa652c9987da42dc58">MUTF8_Tool&lt;&gt;::U8ToMU8&lt;u8LiteralString&gt;</a>())</div>
+</div><!-- fragment -->
+<p>UTF-8字符串字面量到M-UTF-8静态字符串数组的编译期转换宏 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">u8LiteralString</td><td>UTF-8字符串字面量 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>编译期生成的std::array存储的静态字符串数组 </dd></dl>
+<dl class="section note"><dt>注解</dt><dd>在M-UTF-8中，任何字符串结尾\0都会被映射成0xC0 0x80，且保证串中不包含\0，所以一定程度上可以和C字符串（以\0结尾）兼容 </dd></dl>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><b>include</b></li><li class="navelem"><b>nbt_cpp</b></li><li class="navelem"><a href="_m_u_t_f8___tool_8hpp.html">MUTF8_Tool.hpp</a></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.15.0 </li>
+  </ul>
+</div>
+</body>
+</html>

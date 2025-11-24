@@ -1,0 +1,51 @@
+var indexSectionsWithContent =
+{
+  0: "_abcdefghilmnoprstuvw~与以使包可库注",
+  1: "_dhmns",
+  2: "mns",
+  3: "cmn",
+  4: "abcdefghilmnoprstuw~",
+  5: "abilnst",
+  6: "abcdefhilmnstuv",
+  7: "n",
+  8: "bcdefils",
+  9: "gi",
+  10: "fmtu",
+  11: "hn与以使包可库注",
+  12: "h"
+};
+
+var indexSectionNames =
+{
+  0: "all",
+  1: "classes",
+  2: "namespaces",
+  3: "files",
+  4: "functions",
+  5: "variables",
+  6: "typedefs",
+  7: "enums",
+  8: "enumvalues",
+  9: "related",
+  10: "defines",
+  11: "pages",
+  12: "concepts"
+};
+
+var indexSectionLabels =
+{
+  0: "全部",
+  1: "类",
+  2: "命名空间",
+  3: "文件",
+  4: "函数",
+  5: "变量",
+  6: "类型定义",
+  7: "枚举",
+  8: "枚举值",
+  9: "友元",
+  10: "宏定义",
+  11: "页",
+  12: "概念"
+};
+
