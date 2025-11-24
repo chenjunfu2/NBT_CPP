@@ -97,128 +97,128 @@ $(function(){initNavTree('_n_b_t___hash_8hpp_source.html','',''); });
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &lt;xxhash.h&gt;</span></div>
 <div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;type_traits&gt;</span></div>
 <div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span></div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span></div>
-<div class="foldopen" id="foldopen00010" data-start="{" data-end="};">
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno"><a class="line" href="class_n_b_t___hash.html">   10</a></span><span class="keyword">class </span><a class="code hl_function" href="class_n_b_t___hash.html#aea35d872a776813fb963d44789d37f32">NBT_Hash</a></div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>{</div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno"><a class="line" href="class_n_b_t___hash.html#a28f6cc5c1f29c0448a33f192a1455501">   14</a></span>    <span class="keyword">using </span><a class="code hl_typedef" href="class_n_b_t___hash.html#a28f6cc5c1f29c0448a33f192a1455501">HASH_T</a> = XXH64_hash_t;</div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    <span class="keyword">static_assert</span>(std::is_same_v&lt;HASH_T, uint64_t&gt;, <span class="stringliteral">&quot;Hash type does not match the required type.&quot;</span>);</div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="keyword">private</span>:</div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    <span class="keyword">using </span>STATE_T = XXH64_state_t;</div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    STATE_T *pHashState = <span class="keyword">nullptr</span>;</div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="keyword">public</span>:</div>
-<div class="foldopen" id="foldopen00024" data-start="{" data-end="}">
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno"><a class="line" href="class_n_b_t___hash.html#aea35d872a776813fb963d44789d37f32">   24</a></span>    <a class="code hl_function" href="class_n_b_t___hash.html#aea35d872a776813fb963d44789d37f32">NBT_Hash</a>(<span class="keyword">const</span> <a class="code hl_typedef" href="class_n_b_t___hash.html#a28f6cc5c1f29c0448a33f192a1455501">HASH_T</a> &amp;tHashSeed) :pHashState(XXH64_createState())</div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    {</div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>        XXH64_reset(pHashState, tHashSeed);</div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    }</div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span></div>
+<div class="foldopen" id="foldopen00011" data-start="{" data-end="};">
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno"><a class="line" href="class_n_b_t___hash.html">   11</a></span><span class="keyword">class </span><a class="code hl_function" href="class_n_b_t___hash.html#aea35d872a776813fb963d44789d37f32">NBT_Hash</a></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>{</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno"><a class="line" href="class_n_b_t___hash.html#a28f6cc5c1f29c0448a33f192a1455501">   15</a></span>    <span class="keyword">using </span><a class="code hl_typedef" href="class_n_b_t___hash.html#a28f6cc5c1f29c0448a33f192a1455501">HASH_T</a> = XXH64_hash_t;</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    <span class="keyword">static_assert</span>(std::is_same_v&lt;HASH_T, uint64_t&gt;, <span class="stringliteral">&quot;Hash type does not match the required type.&quot;</span>);</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    <span class="keyword">using </span>STATE_T = XXH64_state_t;</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    STATE_T *pHashState = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="keyword">public</span>:</div>
+<div class="foldopen" id="foldopen00025" data-start="{" data-end="}">
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno"><a class="line" href="class_n_b_t___hash.html#aea35d872a776813fb963d44789d37f32">   25</a></span>    <a class="code hl_function" href="class_n_b_t___hash.html#aea35d872a776813fb963d44789d37f32">NBT_Hash</a>(<span class="keyword">const</span> <a class="code hl_typedef" href="class_n_b_t___hash.html#a28f6cc5c1f29c0448a33f192a1455501">HASH_T</a> &amp;tHashSeed) :pHashState(XXH64_createState())</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    {</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>        XXH64_reset(pHashState, tHashSeed);</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    }</div>
 </div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span></div>
-<div class="foldopen" id="foldopen00030" data-start="{" data-end="}">
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno"><a class="line" href="class_n_b_t___hash.html#a4b760cc312eb58bf85314fce904b8b7a">   30</a></span>    <a class="code hl_function" href="class_n_b_t___hash.html#a4b760cc312eb58bf85314fce904b8b7a">~NBT_Hash</a>(<span class="keywordtype">void</span>)</div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    {</div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>        <span class="keywordflow">if</span> (pHashState != <span class="keyword">nullptr</span>)</div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>        {</div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>            XXH64_freeState(pHashState);</div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>            pHashState = <span class="keyword">nullptr</span>;</div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>        }</div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    }</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span></div>
+<div class="foldopen" id="foldopen00031" data-start="{" data-end="}">
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno"><a class="line" href="class_n_b_t___hash.html#a4b760cc312eb58bf85314fce904b8b7a">   31</a></span>    <a class="code hl_function" href="class_n_b_t___hash.html#a4b760cc312eb58bf85314fce904b8b7a">~NBT_Hash</a>(<span class="keywordtype">void</span>)</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    {</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>        <span class="keywordflow">if</span> (pHashState != <span class="keyword">nullptr</span>)</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>        {</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>            XXH64_freeState(pHashState);</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>            pHashState = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>        }</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    }</div>
 </div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span></div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno"><a class="line" href="class_n_b_t___hash.html#a1474aebab95de140f1109377cea75c58">   40</a></span>    <a class="code hl_function" href="class_n_b_t___hash.html#a1474aebab95de140f1109377cea75c58">NBT_Hash</a>(<span class="keyword">const</span> <a class="code hl_function" href="class_n_b_t___hash.html#aea35d872a776813fb963d44789d37f32">NBT_Hash</a> &amp;_Copy) = <span class="keyword">delete</span>;</div>
-<div class="foldopen" id="foldopen00043" data-start="{" data-end="}">
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno"><a class="line" href="class_n_b_t___hash.html#a1cf7c36d56a3fb0f687a5ee0a46f52b7">   43</a></span>    <a class="code hl_function" href="class_n_b_t___hash.html#a1cf7c36d56a3fb0f687a5ee0a46f52b7">NBT_Hash</a>(<a class="code hl_function" href="class_n_b_t___hash.html#aea35d872a776813fb963d44789d37f32">NBT_Hash</a> &amp;&amp;_Move) noexcept :pHashState(_Move.pHashState)</div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    {</div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>        _Move.pHashState = <span class="keyword">nullptr</span>;</div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    }</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span></div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno"><a class="line" href="class_n_b_t___hash.html#a1474aebab95de140f1109377cea75c58">   41</a></span>    <a class="code hl_function" href="class_n_b_t___hash.html#a1474aebab95de140f1109377cea75c58">NBT_Hash</a>(<span class="keyword">const</span> <a class="code hl_function" href="class_n_b_t___hash.html#aea35d872a776813fb963d44789d37f32">NBT_Hash</a> &amp;_Copy) = <span class="keyword">delete</span>;</div>
+<div class="foldopen" id="foldopen00044" data-start="{" data-end="}">
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno"><a class="line" href="class_n_b_t___hash.html#a1cf7c36d56a3fb0f687a5ee0a46f52b7">   44</a></span>    <a class="code hl_function" href="class_n_b_t___hash.html#a1cf7c36d56a3fb0f687a5ee0a46f52b7">NBT_Hash</a>(<a class="code hl_function" href="class_n_b_t___hash.html#aea35d872a776813fb963d44789d37f32">NBT_Hash</a> &amp;&amp;_Move) noexcept :pHashState(_Move.pHashState)</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    {</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>        _Move.pHashState = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    }</div>
 </div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span></div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno"><a class="line" href="class_n_b_t___hash.html#a5a3d8b7591347184a597918440d43f52">   49</a></span>    <a class="code hl_function" href="class_n_b_t___hash.html#aea35d872a776813fb963d44789d37f32">NBT_Hash</a> &amp;<a class="code hl_function" href="class_n_b_t___hash.html#a5a3d8b7591347184a597918440d43f52">operator=</a>(<span class="keyword">const</span> <a class="code hl_function" href="class_n_b_t___hash.html#aea35d872a776813fb963d44789d37f32">NBT_Hash</a> &amp;) = <span class="keyword">delete</span>;</div>
-<div class="foldopen" id="foldopen00053" data-start="{" data-end="}">
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno"><a class="line" href="class_n_b_t___hash.html#ad648b94a7d1df47d63e4718f78c3d72f">   53</a></span>    <a class="code hl_function" href="class_n_b_t___hash.html#aea35d872a776813fb963d44789d37f32">NBT_Hash</a> &amp;<a class="code hl_function" href="class_n_b_t___hash.html#ad648b94a7d1df47d63e4718f78c3d72f">operator=</a>(<a class="code hl_function" href="class_n_b_t___hash.html#aea35d872a776813fb963d44789d37f32">NBT_Hash</a> &amp;&amp;_Move) <span class="keyword">noexcept</span></div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    {</div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>        pHashState = _Move.pHashState;</div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>        _Move.pHashState = <span class="keyword">nullptr</span>;</div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>        <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    }</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span></div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno"><a class="line" href="class_n_b_t___hash.html#a5a3d8b7591347184a597918440d43f52">   50</a></span>    <a class="code hl_function" href="class_n_b_t___hash.html#aea35d872a776813fb963d44789d37f32">NBT_Hash</a> &amp;<a class="code hl_function" href="class_n_b_t___hash.html#a5a3d8b7591347184a597918440d43f52">operator=</a>(<span class="keyword">const</span> <a class="code hl_function" href="class_n_b_t___hash.html#aea35d872a776813fb963d44789d37f32">NBT_Hash</a> &amp;) = <span class="keyword">delete</span>;</div>
+<div class="foldopen" id="foldopen00054" data-start="{" data-end="}">
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno"><a class="line" href="class_n_b_t___hash.html#ad648b94a7d1df47d63e4718f78c3d72f">   54</a></span>    <a class="code hl_function" href="class_n_b_t___hash.html#aea35d872a776813fb963d44789d37f32">NBT_Hash</a> &amp;<a class="code hl_function" href="class_n_b_t___hash.html#ad648b94a7d1df47d63e4718f78c3d72f">operator=</a>(<a class="code hl_function" href="class_n_b_t___hash.html#aea35d872a776813fb963d44789d37f32">NBT_Hash</a> &amp;&amp;_Move) <span class="keyword">noexcept</span></div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    {</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>        pHashState = _Move.pHashState;</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>        _Move.pHashState = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>        <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    }</div>
 </div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span></div>
-<div class="foldopen" id="foldopen00062" data-start="{" data-end="}">
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno"><a class="line" href="class_n_b_t___hash.html#a40231b887824c74f4063cab6d6a2d707">   62</a></span>    <a class="code hl_typedef" href="class_n_b_t___hash.html#a28f6cc5c1f29c0448a33f192a1455501">HASH_T</a> <a class="code hl_function" href="class_n_b_t___hash.html#a40231b887824c74f4063cab6d6a2d707">Digest</a>(<span class="keywordtype">void</span>)</div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>    {</div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>        <span class="keywordflow">return</span> XXH64_digest(pHashState);</div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>    }</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span></div>
+<div class="foldopen" id="foldopen00063" data-start="{" data-end="}">
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno"><a class="line" href="class_n_b_t___hash.html#a40231b887824c74f4063cab6d6a2d707">   63</a></span>    <a class="code hl_typedef" href="class_n_b_t___hash.html#a28f6cc5c1f29c0448a33f192a1455501">HASH_T</a> <a class="code hl_function" href="class_n_b_t___hash.html#a40231b887824c74f4063cab6d6a2d707">Digest</a>(<span class="keywordtype">void</span>)</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>    {</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>        <span class="keywordflow">return</span> XXH64_digest(pHashState);</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>    }</div>
 </div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span></div>
-<div class="foldopen" id="foldopen00071" data-start="{" data-end="}">
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno"><a class="line" href="class_n_b_t___hash.html#a6987754dc7090fd11e145928b8d53901">   71</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_n_b_t___hash.html#a6987754dc7090fd11e145928b8d53901">Update</a>(<span class="keyword">const</span> <span class="keywordtype">void</span> *pData, <span class="keywordtype">size_t</span> szSize)</div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>    {</div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>        XXH64_update(pHashState, pData, szSize);</div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>    }</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span></div>
+<div class="foldopen" id="foldopen00072" data-start="{" data-end="}">
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno"><a class="line" href="class_n_b_t___hash.html#a6987754dc7090fd11e145928b8d53901">   72</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_n_b_t___hash.html#a6987754dc7090fd11e145928b8d53901">Update</a>(<span class="keyword">const</span> <span class="keywordtype">void</span> *pData, <span class="keywordtype">size_t</span> szSize)</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>    {</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>        XXH64_update(pHashState, pData, szSize);</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>    }</div>
 </div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span></div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>    <span class="keyword">requires</span>(std::is_trivially_copyable_v&lt;T&gt;)</div>
-<div class="foldopen" id="foldopen00082" data-start="{" data-end="}">
-<div class="line"><a id="l00082" name="l00082"></a><span class="lineno"><a class="line" href="class_n_b_t___hash.html#a6e8fe64e062dd879357cbb6ad922e0ee">   82</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_n_b_t___hash.html#a6e8fe64e062dd879357cbb6ad922e0ee">Update</a>(<span class="keyword">const</span> T &amp;tData)</div>
-<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>    {</div>
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>        <a class="code hl_function" href="class_n_b_t___hash.html#a6987754dc7090fd11e145928b8d53901">Update</a>(&amp;tData, <span class="keyword">sizeof</span>(tData));</div>
-<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>    }</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span></div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>    <span class="keyword">requires</span>(std::is_trivially_copyable_v&lt;T&gt;)</div>
+<div class="foldopen" id="foldopen00083" data-start="{" data-end="}">
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno"><a class="line" href="class_n_b_t___hash.html#a6e8fe64e062dd879357cbb6ad922e0ee">   83</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_n_b_t___hash.html#a6e8fe64e062dd879357cbb6ad922e0ee">Update</a>(<span class="keyword">const</span> T &amp;tData)</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>    {</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>        <a class="code hl_function" href="class_n_b_t___hash.html#a6987754dc7090fd11e145928b8d53901">Update</a>(&amp;tData, <span class="keyword">sizeof</span>(tData));</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>    }</div>
 </div>
-<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span></div>
-<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T, <span class="keywordtype">size_t</span> N&gt;</div>
-<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>    <span class="keyword">requires</span>(std::is_trivially_copyable_v&lt;T&gt;)</div>
-<div class="foldopen" id="foldopen00093" data-start="{" data-end="}">
-<div class="line"><a id="l00093" name="l00093"></a><span class="lineno"><a class="line" href="class_n_b_t___hash.html#a610a1ad0b35394c2b221b9562f5f2fde">   93</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_n_b_t___hash.html#a610a1ad0b35394c2b221b9562f5f2fde">Update</a>(<span class="keyword">const</span> T(&amp;tDataArr)[N])</div>
-<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>    {</div>
-<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>        <a class="code hl_function" href="class_n_b_t___hash.html#a6987754dc7090fd11e145928b8d53901">Update</a>(&amp;tDataArr, <span class="keyword">sizeof</span>(tDataArr));</div>
-<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>    }</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span></div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T, <span class="keywordtype">size_t</span> N&gt;</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>    <span class="keyword">requires</span>(std::is_trivially_copyable_v&lt;T&gt;)</div>
+<div class="foldopen" id="foldopen00094" data-start="{" data-end="}">
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno"><a class="line" href="class_n_b_t___hash.html#a610a1ad0b35394c2b221b9562f5f2fde">   94</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_n_b_t___hash.html#a610a1ad0b35394c2b221b9562f5f2fde">Update</a>(<span class="keyword">const</span> T(&amp;tDataArr)[N])</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>    {</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>        <a class="code hl_function" href="class_n_b_t___hash.html#a6987754dc7090fd11e145928b8d53901">Update</a>(&amp;tDataArr, <span class="keyword">sizeof</span>(tDataArr));</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>    }</div>
 </div>
-<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span> </div>
-<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span><span class="keyword">public</span>:</div>
-<div class="foldopen" id="foldopen00105" data-start="{" data-end="}">
-<div class="line"><a id="l00105" name="l00105"></a><span class="lineno"><a class="line" href="class_n_b_t___hash.html#a9942a8869c636a2425ad6d194ca9c109">  105</a></span>    <span class="keyword">static</span> <a class="code hl_typedef" href="class_n_b_t___hash.html#a28f6cc5c1f29c0448a33f192a1455501">HASH_T</a> <a class="code hl_function" href="class_n_b_t___hash.html#a9942a8869c636a2425ad6d194ca9c109">Hash</a>(<span class="keyword">const</span> <span class="keywordtype">void</span> *pData, <span class="keywordtype">size_t</span> szSize, <a class="code hl_typedef" href="class_n_b_t___hash.html#a28f6cc5c1f29c0448a33f192a1455501">HASH_T</a> tHashSeed)</div>
-<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>    {</div>
-<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>        <span class="keywordflow">return</span> XXH64(pData, szSize, tHashSeed);</div>
-<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>    }</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span> </div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span><span class="keyword">public</span>:</div>
+<div class="foldopen" id="foldopen00106" data-start="{" data-end="}">
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno"><a class="line" href="class_n_b_t___hash.html#a9942a8869c636a2425ad6d194ca9c109">  106</a></span>    <span class="keyword">static</span> <a class="code hl_typedef" href="class_n_b_t___hash.html#a28f6cc5c1f29c0448a33f192a1455501">HASH_T</a> <a class="code hl_function" href="class_n_b_t___hash.html#a9942a8869c636a2425ad6d194ca9c109">Hash</a>(<span class="keyword">const</span> <span class="keywordtype">void</span> *pData, <span class="keywordtype">size_t</span> szSize, <a class="code hl_typedef" href="class_n_b_t___hash.html#a28f6cc5c1f29c0448a33f192a1455501">HASH_T</a> tHashSeed)</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>    {</div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>        <span class="keywordflow">return</span> XXH64(pData, szSize, tHashSeed);</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>    }</div>
 </div>
-<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span></div>
-<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>    <span class="keyword">requires</span>(std::is_trivially_copyable_v&lt;T&gt;)</div>
-<div class="foldopen" id="foldopen00118" data-start="{" data-end="}">
-<div class="line"><a id="l00118" name="l00118"></a><span class="lineno"><a class="line" href="class_n_b_t___hash.html#a1daeba5cf9baeee0495adac1741f2796">  118</a></span>    <span class="keyword">static</span> <a class="code hl_typedef" href="class_n_b_t___hash.html#a28f6cc5c1f29c0448a33f192a1455501">HASH_T</a> <a class="code hl_function" href="class_n_b_t___hash.html#a1daeba5cf9baeee0495adac1741f2796">Hash</a>(<span class="keyword">const</span> T &amp;tData, <a class="code hl_typedef" href="class_n_b_t___hash.html#a28f6cc5c1f29c0448a33f192a1455501">HASH_T</a> tHashSeed)</div>
-<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>    {</div>
-<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>        <span class="keywordflow">return</span> <a class="code hl_function" href="class_n_b_t___hash.html#a9942a8869c636a2425ad6d194ca9c109">Hash</a>(&amp;tData, <span class="keyword">sizeof</span>(tData), tHashSeed);</div>
-<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>    }</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span></div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>    <span class="keyword">requires</span>(std::is_trivially_copyable_v&lt;T&gt;)</div>
+<div class="foldopen" id="foldopen00119" data-start="{" data-end="}">
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno"><a class="line" href="class_n_b_t___hash.html#a1daeba5cf9baeee0495adac1741f2796">  119</a></span>    <span class="keyword">static</span> <a class="code hl_typedef" href="class_n_b_t___hash.html#a28f6cc5c1f29c0448a33f192a1455501">HASH_T</a> <a class="code hl_function" href="class_n_b_t___hash.html#a1daeba5cf9baeee0495adac1741f2796">Hash</a>(<span class="keyword">const</span> T &amp;tData, <a class="code hl_typedef" href="class_n_b_t___hash.html#a28f6cc5c1f29c0448a33f192a1455501">HASH_T</a> tHashSeed)</div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>    {</div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>        <span class="keywordflow">return</span> <a class="code hl_function" href="class_n_b_t___hash.html#a9942a8869c636a2425ad6d194ca9c109">Hash</a>(&amp;tData, <span class="keyword">sizeof</span>(tData), tHashSeed);</div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>    }</div>
 </div>
-<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span></div>
-<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T, <span class="keywordtype">size_t</span> N&gt;</div>
-<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>    <span class="keyword">requires</span>(std::is_trivially_copyable_v&lt;T&gt;)</div>
-<div class="foldopen" id="foldopen00131" data-start="{" data-end="}">
-<div class="line"><a id="l00131" name="l00131"></a><span class="lineno"><a class="line" href="class_n_b_t___hash.html#ae68f5c9d8a604512871668db77d126ed">  131</a></span>    <span class="keyword">static</span> <a class="code hl_typedef" href="class_n_b_t___hash.html#a28f6cc5c1f29c0448a33f192a1455501">HASH_T</a> <a class="code hl_function" href="class_n_b_t___hash.html#ae68f5c9d8a604512871668db77d126ed">Hash</a>(<span class="keyword">const</span> T(&amp;tDataArr)[N], <a class="code hl_typedef" href="class_n_b_t___hash.html#a28f6cc5c1f29c0448a33f192a1455501">HASH_T</a> tHashSeed)</div>
-<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>    {</div>
-<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>        <span class="keywordflow">return</span> <a class="code hl_function" href="class_n_b_t___hash.html#a9942a8869c636a2425ad6d194ca9c109">Hash</a>(&amp;tDataArr, <span class="keyword">sizeof</span>(tDataArr), tHashSeed);</div>
-<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>    }</div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span></div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T, <span class="keywordtype">size_t</span> N&gt;</div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>    <span class="keyword">requires</span>(std::is_trivially_copyable_v&lt;T&gt;)</div>
+<div class="foldopen" id="foldopen00132" data-start="{" data-end="}">
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno"><a class="line" href="class_n_b_t___hash.html#ae68f5c9d8a604512871668db77d126ed">  132</a></span>    <span class="keyword">static</span> <a class="code hl_typedef" href="class_n_b_t___hash.html#a28f6cc5c1f29c0448a33f192a1455501">HASH_T</a> <a class="code hl_function" href="class_n_b_t___hash.html#ae68f5c9d8a604512871668db77d126ed">Hash</a>(<span class="keyword">const</span> T(&amp;tDataArr)[N], <a class="code hl_typedef" href="class_n_b_t___hash.html#a28f6cc5c1f29c0448a33f192a1455501">HASH_T</a> tHashSeed)</div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>    {</div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>        <span class="keywordflow">return</span> <a class="code hl_function" href="class_n_b_t___hash.html#a9942a8869c636a2425ad6d194ca9c109">Hash</a>(&amp;tDataArr, <span class="keyword">sizeof</span>(tDataArr), tHashSeed);</div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>    }</div>
 </div>
-<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>};</div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>};</div>
 </div>
 <div class="ttc" id="aclass_n_b_t___hash_html_a1474aebab95de140f1109377cea75c58"><div class="ttname"><a href="class_n_b_t___hash.html#a1474aebab95de140f1109377cea75c58">NBT_Hash::NBT_Hash</a></div><div class="ttdeci">NBT_Hash(const NBT_Hash &amp;_Copy)=delete</div><div class="ttdoc">禁止拷贝构造</div></div>
-<div class="ttc" id="aclass_n_b_t___hash_html_a1cf7c36d56a3fb0f687a5ee0a46f52b7"><div class="ttname"><a href="class_n_b_t___hash.html#a1cf7c36d56a3fb0f687a5ee0a46f52b7">NBT_Hash::NBT_Hash</a></div><div class="ttdeci">NBT_Hash(NBT_Hash &amp;&amp;_Move) noexcept</div><div class="ttdoc">移动构造</div><div class="ttdef"><b>定义</b> NBT_Hash.hpp:43</div></div>
-<div class="ttc" id="aclass_n_b_t___hash_html_a1daeba5cf9baeee0495adac1741f2796"><div class="ttname"><a href="class_n_b_t___hash.html#a1daeba5cf9baeee0495adac1741f2796">NBT_Hash::Hash</a></div><div class="ttdeci">static HASH_T Hash(const T &amp;tData, HASH_T tHashSeed)</div><div class="ttdoc">直接通过可平凡复制类型获取哈希</div><div class="ttdef"><b>定义</b> NBT_Hash.hpp:118</div></div>
-<div class="ttc" id="aclass_n_b_t___hash_html_a28f6cc5c1f29c0448a33f192a1455501"><div class="ttname"><a href="class_n_b_t___hash.html#a28f6cc5c1f29c0448a33f192a1455501">NBT_Hash::HASH_T</a></div><div class="ttdeci">XXH64_hash_t HASH_T</div><div class="ttdoc">类型别名，xxhash类型封装，类型必须是uint64_t</div><div class="ttdef"><b>定义</b> NBT_Hash.hpp:14</div></div>
-<div class="ttc" id="aclass_n_b_t___hash_html_a40231b887824c74f4063cab6d6a2d707"><div class="ttname"><a href="class_n_b_t___hash.html#a40231b887824c74f4063cab6d6a2d707">NBT_Hash::Digest</a></div><div class="ttdeci">HASH_T Digest(void)</div><div class="ttdoc">根据之前已添加的数据，获取当前的哈希值</div><div class="ttdef"><b>定义</b> NBT_Hash.hpp:62</div></div>
-<div class="ttc" id="aclass_n_b_t___hash_html_a4b760cc312eb58bf85314fce904b8b7a"><div class="ttname"><a href="class_n_b_t___hash.html#a4b760cc312eb58bf85314fce904b8b7a">NBT_Hash::~NBT_Hash</a></div><div class="ttdeci">~NBT_Hash(void)</div><div class="ttdoc">析构并释放xxhash对象，然后置空</div><div class="ttdef"><b>定义</b> NBT_Hash.hpp:30</div></div>
+<div class="ttc" id="aclass_n_b_t___hash_html_a1cf7c36d56a3fb0f687a5ee0a46f52b7"><div class="ttname"><a href="class_n_b_t___hash.html#a1cf7c36d56a3fb0f687a5ee0a46f52b7">NBT_Hash::NBT_Hash</a></div><div class="ttdeci">NBT_Hash(NBT_Hash &amp;&amp;_Move) noexcept</div><div class="ttdoc">移动构造</div><div class="ttdef"><b>定义</b> NBT_Hash.hpp:44</div></div>
+<div class="ttc" id="aclass_n_b_t___hash_html_a1daeba5cf9baeee0495adac1741f2796"><div class="ttname"><a href="class_n_b_t___hash.html#a1daeba5cf9baeee0495adac1741f2796">NBT_Hash::Hash</a></div><div class="ttdeci">static HASH_T Hash(const T &amp;tData, HASH_T tHashSeed)</div><div class="ttdoc">直接通过可平凡复制类型获取哈希</div><div class="ttdef"><b>定义</b> NBT_Hash.hpp:119</div></div>
+<div class="ttc" id="aclass_n_b_t___hash_html_a28f6cc5c1f29c0448a33f192a1455501"><div class="ttname"><a href="class_n_b_t___hash.html#a28f6cc5c1f29c0448a33f192a1455501">NBT_Hash::HASH_T</a></div><div class="ttdeci">XXH64_hash_t HASH_T</div><div class="ttdoc">类型别名，xxhash类型封装，类型必须是uint64_t</div><div class="ttdef"><b>定义</b> NBT_Hash.hpp:15</div></div>
+<div class="ttc" id="aclass_n_b_t___hash_html_a40231b887824c74f4063cab6d6a2d707"><div class="ttname"><a href="class_n_b_t___hash.html#a40231b887824c74f4063cab6d6a2d707">NBT_Hash::Digest</a></div><div class="ttdeci">HASH_T Digest(void)</div><div class="ttdoc">根据之前已添加的数据，获取当前的哈希值</div><div class="ttdef"><b>定义</b> NBT_Hash.hpp:63</div></div>
+<div class="ttc" id="aclass_n_b_t___hash_html_a4b760cc312eb58bf85314fce904b8b7a"><div class="ttname"><a href="class_n_b_t___hash.html#a4b760cc312eb58bf85314fce904b8b7a">NBT_Hash::~NBT_Hash</a></div><div class="ttdeci">~NBT_Hash(void)</div><div class="ttdoc">析构并释放xxhash对象，然后置空</div><div class="ttdef"><b>定义</b> NBT_Hash.hpp:31</div></div>
 <div class="ttc" id="aclass_n_b_t___hash_html_a5a3d8b7591347184a597918440d43f52"><div class="ttname"><a href="class_n_b_t___hash.html#a5a3d8b7591347184a597918440d43f52">NBT_Hash::operator=</a></div><div class="ttdeci">NBT_Hash &amp; operator=(const NBT_Hash &amp;)=delete</div><div class="ttdoc">禁止拷贝赋值</div></div>
-<div class="ttc" id="aclass_n_b_t___hash_html_a610a1ad0b35394c2b221b9562f5f2fde"><div class="ttname"><a href="class_n_b_t___hash.html#a610a1ad0b35394c2b221b9562f5f2fde">NBT_Hash::Update</a></div><div class="ttdeci">void Update(const T(&amp;tDataArr)[N])</div><div class="ttdoc">通过可平凡复制类型的数组更新哈希</div><div class="ttdef"><b>定义</b> NBT_Hash.hpp:93</div></div>
-<div class="ttc" id="aclass_n_b_t___hash_html_a6987754dc7090fd11e145928b8d53901"><div class="ttname"><a href="class_n_b_t___hash.html#a6987754dc7090fd11e145928b8d53901">NBT_Hash::Update</a></div><div class="ttdeci">void Update(const void *pData, size_t szSize)</div><div class="ttdoc">添加指针指向的数据更新哈希</div><div class="ttdef"><b>定义</b> NBT_Hash.hpp:71</div></div>
-<div class="ttc" id="aclass_n_b_t___hash_html_a6e8fe64e062dd879357cbb6ad922e0ee"><div class="ttname"><a href="class_n_b_t___hash.html#a6e8fe64e062dd879357cbb6ad922e0ee">NBT_Hash::Update</a></div><div class="ttdeci">void Update(const T &amp;tData)</div><div class="ttdoc">通过可平凡复制类型更新哈希</div><div class="ttdef"><b>定义</b> NBT_Hash.hpp:82</div></div>
-<div class="ttc" id="aclass_n_b_t___hash_html_a9942a8869c636a2425ad6d194ca9c109"><div class="ttname"><a href="class_n_b_t___hash.html#a9942a8869c636a2425ad6d194ca9c109">NBT_Hash::Hash</a></div><div class="ttdeci">static HASH_T Hash(const void *pData, size_t szSize, HASH_T tHashSeed)</div><div class="ttdoc">直接通过指针指向的数据获取哈希</div><div class="ttdef"><b>定义</b> NBT_Hash.hpp:105</div></div>
-<div class="ttc" id="aclass_n_b_t___hash_html_ad648b94a7d1df47d63e4718f78c3d72f"><div class="ttname"><a href="class_n_b_t___hash.html#ad648b94a7d1df47d63e4718f78c3d72f">NBT_Hash::operator=</a></div><div class="ttdeci">NBT_Hash &amp; operator=(NBT_Hash &amp;&amp;_Move) noexcept</div><div class="ttdoc">移动赋值</div><div class="ttdef"><b>定义</b> NBT_Hash.hpp:53</div></div>
-<div class="ttc" id="aclass_n_b_t___hash_html_ae68f5c9d8a604512871668db77d126ed"><div class="ttname"><a href="class_n_b_t___hash.html#ae68f5c9d8a604512871668db77d126ed">NBT_Hash::Hash</a></div><div class="ttdeci">static HASH_T Hash(const T(&amp;tDataArr)[N], HASH_T tHashSeed)</div><div class="ttdoc">直接通过可平凡复制类型的数组获取哈希</div><div class="ttdef"><b>定义</b> NBT_Hash.hpp:131</div></div>
-<div class="ttc" id="aclass_n_b_t___hash_html_aea35d872a776813fb963d44789d37f32"><div class="ttname"><a href="class_n_b_t___hash.html#aea35d872a776813fb963d44789d37f32">NBT_Hash::NBT_Hash</a></div><div class="ttdeci">NBT_Hash(const HASH_T &amp;tHashSeed)</div><div class="ttdoc">通过哈希种子构造并初始化xxhash对象</div><div class="ttdef"><b>定义</b> NBT_Hash.hpp:24</div></div>
+<div class="ttc" id="aclass_n_b_t___hash_html_a610a1ad0b35394c2b221b9562f5f2fde"><div class="ttname"><a href="class_n_b_t___hash.html#a610a1ad0b35394c2b221b9562f5f2fde">NBT_Hash::Update</a></div><div class="ttdeci">void Update(const T(&amp;tDataArr)[N])</div><div class="ttdoc">通过可平凡复制类型的数组更新哈希</div><div class="ttdef"><b>定义</b> NBT_Hash.hpp:94</div></div>
+<div class="ttc" id="aclass_n_b_t___hash_html_a6987754dc7090fd11e145928b8d53901"><div class="ttname"><a href="class_n_b_t___hash.html#a6987754dc7090fd11e145928b8d53901">NBT_Hash::Update</a></div><div class="ttdeci">void Update(const void *pData, size_t szSize)</div><div class="ttdoc">添加指针指向的数据更新哈希</div><div class="ttdef"><b>定义</b> NBT_Hash.hpp:72</div></div>
+<div class="ttc" id="aclass_n_b_t___hash_html_a6e8fe64e062dd879357cbb6ad922e0ee"><div class="ttname"><a href="class_n_b_t___hash.html#a6e8fe64e062dd879357cbb6ad922e0ee">NBT_Hash::Update</a></div><div class="ttdeci">void Update(const T &amp;tData)</div><div class="ttdoc">通过可平凡复制类型更新哈希</div><div class="ttdef"><b>定义</b> NBT_Hash.hpp:83</div></div>
+<div class="ttc" id="aclass_n_b_t___hash_html_a9942a8869c636a2425ad6d194ca9c109"><div class="ttname"><a href="class_n_b_t___hash.html#a9942a8869c636a2425ad6d194ca9c109">NBT_Hash::Hash</a></div><div class="ttdeci">static HASH_T Hash(const void *pData, size_t szSize, HASH_T tHashSeed)</div><div class="ttdoc">直接通过指针指向的数据获取哈希</div><div class="ttdef"><b>定义</b> NBT_Hash.hpp:106</div></div>
+<div class="ttc" id="aclass_n_b_t___hash_html_ad648b94a7d1df47d63e4718f78c3d72f"><div class="ttname"><a href="class_n_b_t___hash.html#ad648b94a7d1df47d63e4718f78c3d72f">NBT_Hash::operator=</a></div><div class="ttdeci">NBT_Hash &amp; operator=(NBT_Hash &amp;&amp;_Move) noexcept</div><div class="ttdoc">移动赋值</div><div class="ttdef"><b>定义</b> NBT_Hash.hpp:54</div></div>
+<div class="ttc" id="aclass_n_b_t___hash_html_ae68f5c9d8a604512871668db77d126ed"><div class="ttname"><a href="class_n_b_t___hash.html#ae68f5c9d8a604512871668db77d126ed">NBT_Hash::Hash</a></div><div class="ttdeci">static HASH_T Hash(const T(&amp;tDataArr)[N], HASH_T tHashSeed)</div><div class="ttdoc">直接通过可平凡复制类型的数组获取哈希</div><div class="ttdef"><b>定义</b> NBT_Hash.hpp:132</div></div>
+<div class="ttc" id="aclass_n_b_t___hash_html_aea35d872a776813fb963d44789d37f32"><div class="ttname"><a href="class_n_b_t___hash.html#aea35d872a776813fb963d44789d37f32">NBT_Hash::NBT_Hash</a></div><div class="ttdeci">NBT_Hash(const HASH_T &amp;tHashSeed)</div><div class="ttdoc">通过哈希种子构造并初始化xxhash对象</div><div class="ttdef"><b>定义</b> NBT_Hash.hpp:25</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 </div><!-- container -->

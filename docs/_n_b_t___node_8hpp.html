@@ -92,6 +92,9 @@ $(function(){initNavTree('_n_b_t___node_8hpp.html','',''); });
   <div class="headertitle"><div class="title">NBT_Node.hpp 文件参考</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>NBT节点类型，支持存储所有NBT类型的变体  
+<a href="#details">更多...</a></p>
 <div class="textblock"><code>#include &lt;compare&gt;</code><br />
 <code>#include &quot;<a class="el" href="_n_b_t___type_8hpp_source.html">NBT_Type.hpp</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_n_b_t___array_8hpp_source.html">NBT_Array.hpp</a>&quot;</code><br />
@@ -115,7 +118,9 @@ $(function(){initNavTree('_n_b_t___node_8hpp.html','',''); });
 <tr class="memitem:ad96dcd6a7375a0bff7225ea70579c1ed" id="r_ad96dcd6a7375a0bff7225ea70579c1ed"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad96dcd6a7375a0bff7225ea70579c1ed">TYPE_GET_FUNC</a>(type)</td></tr>
 <tr class="memdesc:ad96dcd6a7375a0bff7225ea70579c1ed"><td class="mdescLeft">&#160;</td><td class="mdescRight">不同类型名接口生成宏  <br /></td></tr>
 </table>
-<a name="doc-define-members" id="doc-define-members"></a><h2 id="header-doc-define-members" class="groupheader">宏定义说明</h2>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">详细描述</h2>
+<div class="textblock"><p>NBT节点类型，支持存储所有NBT类型的变体 </p>
+</div><a name="doc-define-members" id="doc-define-members"></a><h2 id="header-doc-define-members" class="groupheader">宏定义说明</h2>
 <a id="ac625b0c6c73f0f64396917d442c84e0d" name="ac625b0c6c73f0f64396917d442c84e0d"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ac625b0c6c73f0f64396917d442c84e0d">&#9670;&#160;</a></span>MU8STR</h2>
 
@@ -132,7 +137,7 @@ $(function(){initNavTree('_n_b_t___node_8hpp.html','',''); });
 </div><div class="memdoc">
 <b>值:</b><div class="fragment"><div class="line">(<a class="code hl_typedef" href="class_n_b_t___type.html#a8580dcb2a4494cd9bc52526d43f61865">NBT_Type::String</a>(<a class="code hl_define" href="_m_u_t_f8___tool_8hpp.html#acab5b758ea4be7512271d1100917a846">U8TOMU8STR</a>(u8##charLiteralString)))</div>
 <div class="ttc" id="a_m_u_t_f8___tool_8hpp_html_acab5b758ea4be7512271d1100917a846"><div class="ttname"><a href="_m_u_t_f8___tool_8hpp.html#acab5b758ea4be7512271d1100917a846">U8TOMU8STR</a></div><div class="ttdeci">#define U8TOMU8STR(u8LiteralString)</div><div class="ttdoc">UTF-8字符串字面量到M-UTF-8静态字符串数组的编译期转换宏</div><div class="ttdef"><b>定义</b> MUTF8_Tool.hpp:1112</div></div>
-<div class="ttc" id="aclass_n_b_t___type_html_a8580dcb2a4494cd9bc52526d43f61865"><div class="ttname"><a href="class_n_b_t___type.html#a8580dcb2a4494cd9bc52526d43f61865">NBT_Type::String</a></div><div class="ttdeci">NBT_String&lt; std::basic_string&lt; uint8_t &gt;, std::basic_string_view&lt; uint8_t &gt; &gt; String</div><div class="ttdoc">字符串类型，存储Java M-UTF-8字符串</div><div class="ttdef"><b>定义</b> NBT_Type.hpp:63</div></div>
+<div class="ttc" id="aclass_n_b_t___type_html_a8580dcb2a4494cd9bc52526d43f61865"><div class="ttname"><a href="class_n_b_t___type.html#a8580dcb2a4494cd9bc52526d43f61865">NBT_Type::String</a></div><div class="ttdeci">NBT_String&lt; std::basic_string&lt; uint8_t &gt;, std::basic_string_view&lt; uint8_t &gt; &gt; String</div><div class="ttdoc">字符串类型，存储Java M-UTF-8字符串</div><div class="ttdef"><b>定义</b> NBT_Type.hpp:64</div></div>
 </div><!-- fragment -->
 <p>从C风格字符串获取M-UTF-8的字符串 </p>
 <dl class="params"><dt>参数</dt><dd>
@@ -160,7 +165,7 @@ $(function(){initNavTree('_n_b_t___node_8hpp.html','',''); });
       </table>
 </div><div class="memdoc">
 <b>值:</b><div class="fragment"><div class="line">(<a class="code hl_typedef" href="class_n_b_t___string.html#a0b6037dd11409fde0d48bf501863cc57">NBT_Type::String::View</a>(<a class="code hl_define" href="_m_u_t_f8___tool_8hpp.html#acab5b758ea4be7512271d1100917a846">U8TOMU8STR</a>(u8##charLiteralString)))</div>
-<div class="ttc" id="aclass_n_b_t___string_html_a0b6037dd11409fde0d48bf501863cc57"><div class="ttname"><a href="class_n_b_t___string.html#a0b6037dd11409fde0d48bf501863cc57">NBT_String&lt; std::basic_string&lt; uint8_t &gt;, std::basic_string_view&lt; uint8_t &gt; &gt;::View</a></div><div class="ttdeci">NBT_StringView&lt; std::basic_string&lt; uint8_t &gt;, std::basic_string_view&lt; uint8_t &gt; &gt; View</div><div class="ttdef"><b>定义</b> NBT_String.hpp:140</div></div>
+<div class="ttc" id="aclass_n_b_t___string_html_a0b6037dd11409fde0d48bf501863cc57"><div class="ttname"><a href="class_n_b_t___string.html#a0b6037dd11409fde0d48bf501863cc57">NBT_String&lt; std::basic_string&lt; uint8_t &gt;, std::basic_string_view&lt; uint8_t &gt; &gt;::View</a></div><div class="ttdeci">NBT_StringView&lt; std::basic_string&lt; uint8_t &gt;, std::basic_string_view&lt; uint8_t &gt; &gt; View</div><div class="ttdef"><b>定义</b> NBT_String.hpp:139</div></div>
 </div><!-- fragment -->
 <p>从C风格字符串获取M-UTF-8的字符串视图 </p>
 <dl class="params"><dt>参数</dt><dd>
