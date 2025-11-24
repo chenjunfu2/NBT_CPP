@@ -34,12 +34,12 @@ namespace MUTF8_Tool_Internal
 
 		/// @brief 从字符串数组的引用拷贝构造
 		/// @param _tStr 字符串数组的引用
-		/// @note 编译期构造
+		/// @note 可编译期构造
 		constexpr StringLiteral(const T(&_tStr)[N]) noexcept : Super(std::to_array(_tStr))
 		{}
 
-		/// @brief 默认构造
-		/// @note 编译期构造
+		/// @brief 默认析构
+		/// @note 可编译期析构
 		constexpr ~StringLiteral(void) = default;
 	};
 
