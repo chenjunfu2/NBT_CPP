@@ -4,7 +4,7 @@
 
 **使用vcpkg安装：**  
 ```bat
-vcpkg install vcpkg install chenjunfu2-nbt-cpp[zlib,xxhash]
+vcpkg install chenjunfu2-nbt-cpp[zlib,xxhash]
 ```
 
 # 使用方式
