@@ -18,5 +18,5 @@ var dir_31f767c73704db5ac2840b94bdd64c51 =
     [ "NBT_TAG.hpp", "_n_b_t___t_a_g_8hpp.html", "_n_b_t___t_a_g_8hpp" ],
     [ "NBT_Type.hpp", "_n_b_t___type_8hpp.html", "_n_b_t___type_8hpp" ],
     [ "NBT_Writer.hpp", "_n_b_t___writer_8hpp.html", "_n_b_t___writer_8hpp" ],
-    [ "vcpkg_config.h", "vcpkg__config_8h_source.html", null ]
+    [ "vcpkg_config.h", "vcpkg__config_8h.html", "vcpkg__config_8h" ]
 ];
