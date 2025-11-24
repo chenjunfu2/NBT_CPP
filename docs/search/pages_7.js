@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['库主要头文件依赖关系_0',['库主要头文件依赖关系',['../index.html#autotoc_md6',1,'']]],
-  ['库内容主要内容介绍_1',['库内容主要内容介绍',['../index.html#autotoc_md4',1,'']]]
+  ['可选依赖激活方式_0',['可选依赖激活方式',['../index.html#autotoc_md4',1,'']]],
+  ['可选依赖_1',['可选依赖',['../index.html#autotoc_md3',1,'']]]
 ];

@@ -23,6 +23,6 @@ var searchData=
   ['hasshort_20',['HasShort',['../classNBT__Compound.html#a147b560514e009feed6817e8a5482dea',1,'NBT_Compound::HasShort(const typename Compound::key_type &amp;sTagName) const noexcept'],['../classNBT__Compound.html#af657c9b622ef53d17696b37db132d63f',1,'NBT_Compound::HasShort(const typename Compound::key_type &amp;sTagName) noexcept']]],
   ['hasspaceship_21',['HasSpaceship',['../conceptNBT__Compound__Concept_1_1HasSpaceship.html',1,'NBT_Compound_Concept']]],
   ['hasstring_22',['HasString',['../classNBT__Compound.html#a67ba8e12d8455a86cd98a73392eb67bd',1,'NBT_Compound::HasString(const typename Compound::key_type &amp;sTagName) const noexcept'],['../classNBT__Compound.html#ada9902fea1e06ef14f54c993edf17486',1,'NBT_Compound::HasString(const typename Compound::key_type &amp;sTagName) noexcept']]],
-  ['hpp_23',['hpp',['../index.html#autotoc_md9',1,'NBT_Helper.hpp'],['../index.html#autotoc_md11',1,'NBT_IO.hpp'],['../index.html#autotoc_md7',1,'NBT_Node.hpp'],['../index.html#autotoc_md8',1,'NBT_Node_View.hpp'],['../index.html#autotoc_md10',1,'NBT_Reader.hpp 与 NBT_Writer.hpp']]],
-  ['hpp_20与_20nbt_5fwriter_20hpp_24',['NBT_Reader.hpp 与 NBT_Writer.hpp',['../index.html#autotoc_md10',1,'']]]
+  ['hpp_23',['hpp',['../index.html#autotoc_md10',1,'NBT_Helper.hpp'],['../index.html#autotoc_md12',1,'NBT_IO.hpp'],['../index.html#autotoc_md8',1,'NBT_Node.hpp'],['../index.html#autotoc_md9',1,'NBT_Node_View.hpp'],['../index.html#autotoc_md11',1,'NBT_Reader.hpp 与 NBT_Writer.hpp']]],
+  ['hpp_20与_20nbt_5fwriter_20hpp_24',['NBT_Reader.hpp 与 NBT_Writer.hpp',['../index.html#autotoc_md11',1,'']]]
 ];

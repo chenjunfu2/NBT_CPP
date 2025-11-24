@@ -1,4 +1,14 @@
-﻿# 使用方式
+﻿# chenjunfu2-nbt-cpp
+[开源库链接(Github)](https://github.com/chenjunfu2/NBT_CPP/)  
+
+**使用vcpkg安装：**  
+```bat
+vcpkg install vcpkg install chenjunfu2-nbt-cpp[zlib,xxhash]
+```
+
+**最新版本上线vcpkg可能存在延迟，如果需要最新内容，请通过git仓库内的include文件夹安装**
+
+# 使用方式
 一般情况下，直接使用\"\#include<nbt_cpp/NBT_All.hpp>\"即可包含所有有头文件  
 具体使用示例请参见项目根目录下的\"usage\"文件夹内的项目  
 
