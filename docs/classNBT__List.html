@@ -180,7 +180,10 @@ Public 成员函数</h2></td></tr>
 </div></td></tr>
 <tr class="memitem:aba7d982ab17670afeebe1d37f9c106bd" id="r_aba7d982ab17670afeebe1d37f9c106bd"><td class="memTemplParams" colspan="2">template&lt;bool bNoCheck = false, typename V&gt; </td></tr>
 <tr class="memitem:aba7d982ab17670afeebe1d37f9c106bd template"><td class="memItemLeft" align="right" valign="top">std::conditional_t&lt; bNoCheck, typename List::iterator, std::pair&lt; typename List::iterator, bool &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aba7d982ab17670afeebe1d37f9c106bd">Add</a> (size_t szPos, V &amp;&amp;vTagVal)</td></tr>
-<tr class="memdesc:aba7d982ab17670afeebe1d37f9c106bd"><td class="mdescLeft">&#160;</td><td class="mdescRight">在指定位置插入元素  <br /></td></tr>
+<tr class="memdesc:aba7d982ab17670afeebe1d37f9c106bd"><td class="mdescLeft">&#160;</td><td class="mdescRight">在指定位置的前面插入元素  <br /></td></tr>
+<tr class="memitem:ad8554eee64f0aadec16906e67e1ab2ee" id="r_ad8554eee64f0aadec16906e67e1ab2ee"><td class="memTemplParams" colspan="2">template&lt;bool bNoCheck = false, typename V&gt; </td></tr>
+<tr class="memitem:ad8554eee64f0aadec16906e67e1ab2ee template"><td class="memItemLeft" align="right" valign="top">std::conditional_t&lt; bNoCheck, typename List::iterator, std::pair&lt; typename List::iterator, bool &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad8554eee64f0aadec16906e67e1ab2ee">AddFront</a> (V &amp;&amp;vTagVal)</td></tr>
+<tr class="memdesc:ad8554eee64f0aadec16906e67e1ab2ee"><td class="mdescLeft">&#160;</td><td class="mdescRight">在列表头部插入元素  <br /></td></tr>
 <tr class="memitem:af2cd15f196a11789f17c1660c592d5dd" id="r_af2cd15f196a11789f17c1660c592d5dd"><td class="memTemplParams" colspan="2">template&lt;bool bNoCheck = false, typename V&gt; </td></tr>
 <tr class="memitem:af2cd15f196a11789f17c1660c592d5dd template"><td class="memItemLeft" align="right" valign="top">std::conditional_t&lt; bNoCheck, typename List::iterator, std::pair&lt; typename List::iterator, bool &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af2cd15f196a11789f17c1660c592d5dd">AddBack</a> (V &amp;&amp;vTagVal)</td></tr>
 <tr class="memdesc:af2cd15f196a11789f17c1660c592d5dd"><td class="mdescLeft">&#160;</td><td class="mdescRight">在列表末尾插入元素  <br /></td></tr>
@@ -218,6 +221,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>ShrinkToFit</b> (void
 <tr><td colspan="2" class="ititle"><div class="groupText"><p>具体作用说明：</p>
 <ul>
 <li>Get开头+类型名的函数：直接获取指定位置且对应类型的引用，异常由std::vector的at与std::get具体实现决定</li>
+<li>Front开头+类型名的函数：获取列表第一个对应类型的元素引用</li>
 <li>Back开头+类型名的函数：获取列表最后一个对应类型的元素引用 <dl class="section note"><dt>注解</dt><dd>请不要使用这些API修改list内部对象的类型（注意是类型而非值）， 这些接口无法简单的进行封装并检查用户对类型的操作 </dd></dl>
 </li>
 </ul>
@@ -226,6 +230,10 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>ShrinkToFit</b> (void
 <tr class="memdesc:a786560be056be2304e56157027bd5b9b"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取指定位置的 End 类型数据  <br /></td></tr>
 <tr class="memitem:a9233fc78a51841aa441dfb7cb4053b05" id="r_a9233fc78a51841aa441dfb7cb4053b05"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classNBT__Type.html#a16ac41e6cfe61a603407221527b6b16c">NBT_Type::End</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9233fc78a51841aa441dfb7cb4053b05">GetEnd</a> (const typename List::size_type &amp;szPos)</td></tr>
 <tr class="memdesc:a9233fc78a51841aa441dfb7cb4053b05"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取指定位置的 End 类型数据  <br /></td></tr>
+<tr class="memitem:a3b2c6ffc6a3a7929cf6d592779e9ab6e" id="r_a3b2c6ffc6a3a7929cf6d592779e9ab6e"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classNBT__Type.html#a16ac41e6cfe61a603407221527b6b16c">NBT_Type::End</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3b2c6ffc6a3a7929cf6d592779e9ab6e">FrontEnd</a> (void) const</td></tr>
+<tr class="memdesc:a3b2c6ffc6a3a7929cf6d592779e9ab6e"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取列表第一个 End 类型数据  <br /></td></tr>
+<tr class="memitem:a80508b785fb2702300a153e56772e374" id="r_a80508b785fb2702300a153e56772e374"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classNBT__Type.html#a16ac41e6cfe61a603407221527b6b16c">NBT_Type::End</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a80508b785fb2702300a153e56772e374">FrontEnd</a> (void)</td></tr>
+<tr class="memdesc:a80508b785fb2702300a153e56772e374"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取列表第一个 End 类型数据  <br /></td></tr>
 <tr class="memitem:a738bdbf24c60e1ab72a84d0da6b284a7" id="r_a738bdbf24c60e1ab72a84d0da6b284a7"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classNBT__Type.html#a16ac41e6cfe61a603407221527b6b16c">NBT_Type::End</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a738bdbf24c60e1ab72a84d0da6b284a7">BackEnd</a> (void) const</td></tr>
 <tr class="memdesc:a738bdbf24c60e1ab72a84d0da6b284a7"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取列表最后一个 End 类型数据  <br /></td></tr>
 <tr class="memitem:a1b96bfcfdef5e380c4886f6b18ff4de0" id="r_a1b96bfcfdef5e380c4886f6b18ff4de0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classNBT__Type.html#a16ac41e6cfe61a603407221527b6b16c">NBT_Type::End</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1b96bfcfdef5e380c4886f6b18ff4de0">BackEnd</a> (void)</td></tr>
@@ -234,6 +242,10 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>ShrinkToFit</b> (void
 <tr class="memdesc:a18a22e21bdfd72af85763149cd3dad4c"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取指定位置的 Byte 类型数据  <br /></td></tr>
 <tr class="memitem:a5612154508f7f97e25f811ac77b2f8f3" id="r_a5612154508f7f97e25f811ac77b2f8f3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classNBT__Type.html#a09b5ce48dffc429ad8a7d05d007741c1">NBT_Type::Byte</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5612154508f7f97e25f811ac77b2f8f3">GetByte</a> (const typename List::size_type &amp;szPos)</td></tr>
 <tr class="memdesc:a5612154508f7f97e25f811ac77b2f8f3"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取指定位置的 Byte 类型数据  <br /></td></tr>
+<tr class="memitem:ab5d0c57d7a9e30dd4fdc008c5a73b9d4" id="r_ab5d0c57d7a9e30dd4fdc008c5a73b9d4"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classNBT__Type.html#a09b5ce48dffc429ad8a7d05d007741c1">NBT_Type::Byte</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab5d0c57d7a9e30dd4fdc008c5a73b9d4">FrontByte</a> (void) const</td></tr>
+<tr class="memdesc:ab5d0c57d7a9e30dd4fdc008c5a73b9d4"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取列表第一个 Byte 类型数据  <br /></td></tr>
+<tr class="memitem:a42997c41c8530a37777406a2d1a3b2aa" id="r_a42997c41c8530a37777406a2d1a3b2aa"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classNBT__Type.html#a09b5ce48dffc429ad8a7d05d007741c1">NBT_Type::Byte</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a42997c41c8530a37777406a2d1a3b2aa">FrontByte</a> (void)</td></tr>
+<tr class="memdesc:a42997c41c8530a37777406a2d1a3b2aa"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取列表第一个 Byte 类型数据  <br /></td></tr>
 <tr class="memitem:adfbb3fd24f2c105bc69e9d241b2773dc" id="r_adfbb3fd24f2c105bc69e9d241b2773dc"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classNBT__Type.html#a09b5ce48dffc429ad8a7d05d007741c1">NBT_Type::Byte</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#adfbb3fd24f2c105bc69e9d241b2773dc">BackByte</a> (void) const</td></tr>
 <tr class="memdesc:adfbb3fd24f2c105bc69e9d241b2773dc"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取列表最后一个 Byte 类型数据  <br /></td></tr>
 <tr class="memitem:aa4741feb1fb63d461b48d4f54ea2d76e" id="r_aa4741feb1fb63d461b48d4f54ea2d76e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classNBT__Type.html#a09b5ce48dffc429ad8a7d05d007741c1">NBT_Type::Byte</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa4741feb1fb63d461b48d4f54ea2d76e">BackByte</a> (void)</td></tr>
@@ -242,6 +254,10 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>ShrinkToFit</b> (void
 <tr class="memdesc:addfe7c457d40de475e6a20fb4b40b779"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取指定位置的 Short 类型数据  <br /></td></tr>
 <tr class="memitem:ad6d645db1759d193fd318905a78f90f2" id="r_ad6d645db1759d193fd318905a78f90f2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classNBT__Type.html#a3e47d05c36743947da966f4223237262">NBT_Type::Short</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad6d645db1759d193fd318905a78f90f2">GetShort</a> (const typename List::size_type &amp;szPos)</td></tr>
 <tr class="memdesc:ad6d645db1759d193fd318905a78f90f2"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取指定位置的 Short 类型数据  <br /></td></tr>
+<tr class="memitem:a2f44a296b497922e210e4330df802444" id="r_a2f44a296b497922e210e4330df802444"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classNBT__Type.html#a3e47d05c36743947da966f4223237262">NBT_Type::Short</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2f44a296b497922e210e4330df802444">FrontShort</a> (void) const</td></tr>
+<tr class="memdesc:a2f44a296b497922e210e4330df802444"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取列表第一个 Short 类型数据  <br /></td></tr>
+<tr class="memitem:a372700f778f2515d09bf92d386ae0eea" id="r_a372700f778f2515d09bf92d386ae0eea"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classNBT__Type.html#a3e47d05c36743947da966f4223237262">NBT_Type::Short</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a372700f778f2515d09bf92d386ae0eea">FrontShort</a> (void)</td></tr>
+<tr class="memdesc:a372700f778f2515d09bf92d386ae0eea"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取列表第一个 Short 类型数据  <br /></td></tr>
 <tr class="memitem:aac36fac7dc70f865f142008a1d2f60ec" id="r_aac36fac7dc70f865f142008a1d2f60ec"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classNBT__Type.html#a3e47d05c36743947da966f4223237262">NBT_Type::Short</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aac36fac7dc70f865f142008a1d2f60ec">BackShort</a> (void) const</td></tr>
 <tr class="memdesc:aac36fac7dc70f865f142008a1d2f60ec"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取列表最后一个 Short 类型数据  <br /></td></tr>
 <tr class="memitem:a762e4d37d2cf357de4dbec6cc8cc6d31" id="r_a762e4d37d2cf357de4dbec6cc8cc6d31"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classNBT__Type.html#a3e47d05c36743947da966f4223237262">NBT_Type::Short</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a762e4d37d2cf357de4dbec6cc8cc6d31">BackShort</a> (void)</td></tr>
@@ -250,6 +266,10 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>ShrinkToFit</b> (void
 <tr class="memdesc:a7361c8851911c9db2fc38a819de77cd8"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取指定位置的 Int 类型数据  <br /></td></tr>
 <tr class="memitem:a6ca48f901e3b389bd5bd0a5b3db90816" id="r_a6ca48f901e3b389bd5bd0a5b3db90816"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classNBT__Type.html#afee0233d7f58b90cc9ce2b903da2da22">NBT_Type::Int</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6ca48f901e3b389bd5bd0a5b3db90816">GetInt</a> (const typename List::size_type &amp;szPos)</td></tr>
 <tr class="memdesc:a6ca48f901e3b389bd5bd0a5b3db90816"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取指定位置的 Int 类型数据  <br /></td></tr>
+<tr class="memitem:a7e67e5cd91784e348a57038eb365b1ad" id="r_a7e67e5cd91784e348a57038eb365b1ad"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classNBT__Type.html#afee0233d7f58b90cc9ce2b903da2da22">NBT_Type::Int</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7e67e5cd91784e348a57038eb365b1ad">FrontInt</a> (void) const</td></tr>
+<tr class="memdesc:a7e67e5cd91784e348a57038eb365b1ad"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取列表第一个 Int 类型数据  <br /></td></tr>
+<tr class="memitem:a3ced3d12eacd744ccee23aa12f85c28d" id="r_a3ced3d12eacd744ccee23aa12f85c28d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classNBT__Type.html#afee0233d7f58b90cc9ce2b903da2da22">NBT_Type::Int</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3ced3d12eacd744ccee23aa12f85c28d">FrontInt</a> (void)</td></tr>
+<tr class="memdesc:a3ced3d12eacd744ccee23aa12f85c28d"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取列表第一个 Int 类型数据  <br /></td></tr>
 <tr class="memitem:a734599a4a05b95cdf4d96b8c72946b22" id="r_a734599a4a05b95cdf4d96b8c72946b22"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classNBT__Type.html#afee0233d7f58b90cc9ce2b903da2da22">NBT_Type::Int</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a734599a4a05b95cdf4d96b8c72946b22">BackInt</a> (void) const</td></tr>
 <tr class="memdesc:a734599a4a05b95cdf4d96b8c72946b22"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取列表最后一个 Int 类型数据  <br /></td></tr>
 <tr class="memitem:aaafef9953442e883ce3a898040401018" id="r_aaafef9953442e883ce3a898040401018"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classNBT__Type.html#afee0233d7f58b90cc9ce2b903da2da22">NBT_Type::Int</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aaafef9953442e883ce3a898040401018">BackInt</a> (void)</td></tr>
@@ -258,6 +278,10 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>ShrinkToFit</b> (void
 <tr class="memdesc:ae034ae01360e74bd983868ac340eba13"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取指定位置的 Long 类型数据  <br /></td></tr>
 <tr class="memitem:a2a18666ca33e3a1f495233edf16cfc4b" id="r_a2a18666ca33e3a1f495233edf16cfc4b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classNBT__Type.html#a7f8ae2e6e2f87445d1e72f7e922ba053">NBT_Type::Long</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2a18666ca33e3a1f495233edf16cfc4b">GetLong</a> (const typename List::size_type &amp;szPos)</td></tr>
 <tr class="memdesc:a2a18666ca33e3a1f495233edf16cfc4b"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取指定位置的 Long 类型数据  <br /></td></tr>
+<tr class="memitem:a24811a2f88874bfbd6de17bd6f584937" id="r_a24811a2f88874bfbd6de17bd6f584937"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classNBT__Type.html#a7f8ae2e6e2f87445d1e72f7e922ba053">NBT_Type::Long</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a24811a2f88874bfbd6de17bd6f584937">FrontLong</a> (void) const</td></tr>
+<tr class="memdesc:a24811a2f88874bfbd6de17bd6f584937"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取列表第一个 Long 类型数据  <br /></td></tr>
+<tr class="memitem:ac68d606bb44101413218c4c2093cbfa1" id="r_ac68d606bb44101413218c4c2093cbfa1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classNBT__Type.html#a7f8ae2e6e2f87445d1e72f7e922ba053">NBT_Type::Long</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac68d606bb44101413218c4c2093cbfa1">FrontLong</a> (void)</td></tr>
+<tr class="memdesc:ac68d606bb44101413218c4c2093cbfa1"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取列表第一个 Long 类型数据  <br /></td></tr>
 <tr class="memitem:a04f4e190b5da30d35656846b91bf2bfe" id="r_a04f4e190b5da30d35656846b91bf2bfe"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classNBT__Type.html#a7f8ae2e6e2f87445d1e72f7e922ba053">NBT_Type::Long</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a04f4e190b5da30d35656846b91bf2bfe">BackLong</a> (void) const</td></tr>
 <tr class="memdesc:a04f4e190b5da30d35656846b91bf2bfe"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取列表最后一个 Long 类型数据  <br /></td></tr>
 <tr class="memitem:a2ec95f92f2a8bd0410eefe5bdde6d9a8" id="r_a2ec95f92f2a8bd0410eefe5bdde6d9a8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classNBT__Type.html#a7f8ae2e6e2f87445d1e72f7e922ba053">NBT_Type::Long</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2ec95f92f2a8bd0410eefe5bdde6d9a8">BackLong</a> (void)</td></tr>
@@ -266,6 +290,10 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>ShrinkToFit</b> (void
 <tr class="memdesc:a2739186fa374e41e5e472c77b2f05e80"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取指定位置的 Float 类型数据  <br /></td></tr>
 <tr class="memitem:a507dbde600395082315d9a8265be9eb7" id="r_a507dbde600395082315d9a8265be9eb7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classNBT__Type.html#a8a7ac779b8e8a7fdccb3456844abe5cf">NBT_Type::Float</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a507dbde600395082315d9a8265be9eb7">GetFloat</a> (const typename List::size_type &amp;szPos)</td></tr>
 <tr class="memdesc:a507dbde600395082315d9a8265be9eb7"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取指定位置的 Float 类型数据  <br /></td></tr>
+<tr class="memitem:a78ef7b5ea688936da07a76f8f70f3e95" id="r_a78ef7b5ea688936da07a76f8f70f3e95"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classNBT__Type.html#a8a7ac779b8e8a7fdccb3456844abe5cf">NBT_Type::Float</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a78ef7b5ea688936da07a76f8f70f3e95">FrontFloat</a> (void) const</td></tr>
+<tr class="memdesc:a78ef7b5ea688936da07a76f8f70f3e95"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取列表第一个 Float 类型数据  <br /></td></tr>
+<tr class="memitem:a279536fa8442390f61773802ca9e3c33" id="r_a279536fa8442390f61773802ca9e3c33"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classNBT__Type.html#a8a7ac779b8e8a7fdccb3456844abe5cf">NBT_Type::Float</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a279536fa8442390f61773802ca9e3c33">FrontFloat</a> (void)</td></tr>
+<tr class="memdesc:a279536fa8442390f61773802ca9e3c33"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取列表第一个 Float 类型数据  <br /></td></tr>
 <tr class="memitem:a7bb1ac7dbafa4023dcb32e6ab46f64e4" id="r_a7bb1ac7dbafa4023dcb32e6ab46f64e4"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classNBT__Type.html#a8a7ac779b8e8a7fdccb3456844abe5cf">NBT_Type::Float</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7bb1ac7dbafa4023dcb32e6ab46f64e4">BackFloat</a> (void) const</td></tr>
 <tr class="memdesc:a7bb1ac7dbafa4023dcb32e6ab46f64e4"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取列表最后一个 Float 类型数据  <br /></td></tr>
 <tr class="memitem:a8bbd027166ecd724dbd2001aaeb2218a" id="r_a8bbd027166ecd724dbd2001aaeb2218a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classNBT__Type.html#a8a7ac779b8e8a7fdccb3456844abe5cf">NBT_Type::Float</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8bbd027166ecd724dbd2001aaeb2218a">BackFloat</a> (void)</td></tr>
@@ -274,6 +302,10 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>ShrinkToFit</b> (void
 <tr class="memdesc:ab7fb4dba81f97182f262aa7195068a23"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取指定位置的 Double 类型数据  <br /></td></tr>
 <tr class="memitem:aea609b3edea68f5e06952ce030e60c31" id="r_aea609b3edea68f5e06952ce030e60c31"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classNBT__Type.html#aaea549797088fb63987679367bc9d39a">NBT_Type::Double</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aea609b3edea68f5e06952ce030e60c31">GetDouble</a> (const typename List::size_type &amp;szPos)</td></tr>
 <tr class="memdesc:aea609b3edea68f5e06952ce030e60c31"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取指定位置的 Double 类型数据  <br /></td></tr>
+<tr class="memitem:a53c4584fbaf427c862a2bd8709797df2" id="r_a53c4584fbaf427c862a2bd8709797df2"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classNBT__Type.html#aaea549797088fb63987679367bc9d39a">NBT_Type::Double</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a53c4584fbaf427c862a2bd8709797df2">FrontDouble</a> (void) const</td></tr>
+<tr class="memdesc:a53c4584fbaf427c862a2bd8709797df2"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取列表第一个 Double 类型数据  <br /></td></tr>
+<tr class="memitem:a10b1c68fb2c9a71a8aa0649110f595ba" id="r_a10b1c68fb2c9a71a8aa0649110f595ba"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classNBT__Type.html#aaea549797088fb63987679367bc9d39a">NBT_Type::Double</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a10b1c68fb2c9a71a8aa0649110f595ba">FrontDouble</a> (void)</td></tr>
+<tr class="memdesc:a10b1c68fb2c9a71a8aa0649110f595ba"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取列表第一个 Double 类型数据  <br /></td></tr>
 <tr class="memitem:a6ce2e43b13e77cfe11553adf80e0c679" id="r_a6ce2e43b13e77cfe11553adf80e0c679"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classNBT__Type.html#aaea549797088fb63987679367bc9d39a">NBT_Type::Double</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6ce2e43b13e77cfe11553adf80e0c679">BackDouble</a> (void) const</td></tr>
 <tr class="memdesc:a6ce2e43b13e77cfe11553adf80e0c679"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取列表最后一个 Double 类型数据  <br /></td></tr>
 <tr class="memitem:ae421ede17891982b0a802ae61a559093" id="r_ae421ede17891982b0a802ae61a559093"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classNBT__Type.html#aaea549797088fb63987679367bc9d39a">NBT_Type::Double</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae421ede17891982b0a802ae61a559093">BackDouble</a> (void)</td></tr>
@@ -282,6 +314,10 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>ShrinkToFit</b> (void
 <tr class="memdesc:a054086d23ad47e960d31bb45426b05c3"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取指定位置的 ByteArray 类型数据  <br /></td></tr>
 <tr class="memitem:ade469517baffb5656d30dd736e7d7680" id="r_ade469517baffb5656d30dd736e7d7680"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classNBT__Type.html#a953bc9e67e1b5d82c0786b5992f00ed8">NBT_Type::ByteArray</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ade469517baffb5656d30dd736e7d7680">GetByteArray</a> (const typename List::size_type &amp;szPos)</td></tr>
 <tr class="memdesc:ade469517baffb5656d30dd736e7d7680"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取指定位置的 ByteArray 类型数据  <br /></td></tr>
+<tr class="memitem:a6c3a0bc37533c7962ab34ae01c696b7d" id="r_a6c3a0bc37533c7962ab34ae01c696b7d"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classNBT__Type.html#a953bc9e67e1b5d82c0786b5992f00ed8">NBT_Type::ByteArray</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6c3a0bc37533c7962ab34ae01c696b7d">FrontByteArray</a> (void) const</td></tr>
+<tr class="memdesc:a6c3a0bc37533c7962ab34ae01c696b7d"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取列表第一个 ByteArray 类型数据  <br /></td></tr>
+<tr class="memitem:ae9ae8598dd714f21cb246eff6a3bde23" id="r_ae9ae8598dd714f21cb246eff6a3bde23"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classNBT__Type.html#a953bc9e67e1b5d82c0786b5992f00ed8">NBT_Type::ByteArray</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae9ae8598dd714f21cb246eff6a3bde23">FrontByteArray</a> (void)</td></tr>
+<tr class="memdesc:ae9ae8598dd714f21cb246eff6a3bde23"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取列表第一个 ByteArray 类型数据  <br /></td></tr>
 <tr class="memitem:a2f25fbfd543caa08e8285e28f1c63b67" id="r_a2f25fbfd543caa08e8285e28f1c63b67"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classNBT__Type.html#a953bc9e67e1b5d82c0786b5992f00ed8">NBT_Type::ByteArray</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2f25fbfd543caa08e8285e28f1c63b67">BackByteArray</a> (void) const</td></tr>
 <tr class="memdesc:a2f25fbfd543caa08e8285e28f1c63b67"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取列表最后一个 ByteArray 类型数据  <br /></td></tr>
 <tr class="memitem:a1d73d014ec6efd2191820e6cb88feef5" id="r_a1d73d014ec6efd2191820e6cb88feef5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classNBT__Type.html#a953bc9e67e1b5d82c0786b5992f00ed8">NBT_Type::ByteArray</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1d73d014ec6efd2191820e6cb88feef5">BackByteArray</a> (void)</td></tr>
@@ -290,6 +326,10 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>ShrinkToFit</b> (void
 <tr class="memdesc:a75b438d38a78a2628bc543a3a5a076c6"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取指定位置的 IntArray 类型数据  <br /></td></tr>
 <tr class="memitem:a2499e845602b75380e1c4dab8d1bf123" id="r_a2499e845602b75380e1c4dab8d1bf123"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classNBT__Type.html#a9c4ad0b2bcd4b5cafb0c9a3f083f9406">NBT_Type::IntArray</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2499e845602b75380e1c4dab8d1bf123">GetIntArray</a> (const typename List::size_type &amp;szPos)</td></tr>
 <tr class="memdesc:a2499e845602b75380e1c4dab8d1bf123"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取指定位置的 IntArray 类型数据  <br /></td></tr>
+<tr class="memitem:a513f1685f2807c31062248ca20d3bab8" id="r_a513f1685f2807c31062248ca20d3bab8"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classNBT__Type.html#a9c4ad0b2bcd4b5cafb0c9a3f083f9406">NBT_Type::IntArray</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a513f1685f2807c31062248ca20d3bab8">FrontIntArray</a> (void) const</td></tr>
+<tr class="memdesc:a513f1685f2807c31062248ca20d3bab8"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取列表第一个 IntArray 类型数据  <br /></td></tr>
+<tr class="memitem:ae657d5365d88c1adad6576a3a17e875a" id="r_ae657d5365d88c1adad6576a3a17e875a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classNBT__Type.html#a9c4ad0b2bcd4b5cafb0c9a3f083f9406">NBT_Type::IntArray</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae657d5365d88c1adad6576a3a17e875a">FrontIntArray</a> (void)</td></tr>
+<tr class="memdesc:ae657d5365d88c1adad6576a3a17e875a"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取列表第一个 IntArray 类型数据  <br /></td></tr>
 <tr class="memitem:a783bf0891343e5fd3fe43bfc19a7c84d" id="r_a783bf0891343e5fd3fe43bfc19a7c84d"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classNBT__Type.html#a9c4ad0b2bcd4b5cafb0c9a3f083f9406">NBT_Type::IntArray</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a783bf0891343e5fd3fe43bfc19a7c84d">BackIntArray</a> (void) const</td></tr>
 <tr class="memdesc:a783bf0891343e5fd3fe43bfc19a7c84d"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取列表最后一个 IntArray 类型数据  <br /></td></tr>
 <tr class="memitem:ad79dbba6510361a6af9fef2467b3c8b1" id="r_ad79dbba6510361a6af9fef2467b3c8b1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classNBT__Type.html#a9c4ad0b2bcd4b5cafb0c9a3f083f9406">NBT_Type::IntArray</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad79dbba6510361a6af9fef2467b3c8b1">BackIntArray</a> (void)</td></tr>
@@ -298,6 +338,10 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>ShrinkToFit</b> (void
 <tr class="memdesc:af41afd1296f60af65a371322223302e5"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取指定位置的 LongArray 类型数据  <br /></td></tr>
 <tr class="memitem:a66425e8dd69f523fbdf29def1c999b8e" id="r_a66425e8dd69f523fbdf29def1c999b8e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classNBT__Type.html#aa2c61028536166272869c3bbc91d3197">NBT_Type::LongArray</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a66425e8dd69f523fbdf29def1c999b8e">GetLongArray</a> (const typename List::size_type &amp;szPos)</td></tr>
 <tr class="memdesc:a66425e8dd69f523fbdf29def1c999b8e"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取指定位置的 LongArray 类型数据  <br /></td></tr>
+<tr class="memitem:adcf1a6b30ba3d7c65bc4284ba58494f1" id="r_adcf1a6b30ba3d7c65bc4284ba58494f1"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classNBT__Type.html#aa2c61028536166272869c3bbc91d3197">NBT_Type::LongArray</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#adcf1a6b30ba3d7c65bc4284ba58494f1">FrontLongArray</a> (void) const</td></tr>
+<tr class="memdesc:adcf1a6b30ba3d7c65bc4284ba58494f1"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取列表第一个 LongArray 类型数据  <br /></td></tr>
+<tr class="memitem:a639720276cd5188385f5c007cced97b0" id="r_a639720276cd5188385f5c007cced97b0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classNBT__Type.html#aa2c61028536166272869c3bbc91d3197">NBT_Type::LongArray</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a639720276cd5188385f5c007cced97b0">FrontLongArray</a> (void)</td></tr>
+<tr class="memdesc:a639720276cd5188385f5c007cced97b0"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取列表第一个 LongArray 类型数据  <br /></td></tr>
 <tr class="memitem:ad9ae79518d8d70bbecd81b18e2a11252" id="r_ad9ae79518d8d70bbecd81b18e2a11252"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classNBT__Type.html#aa2c61028536166272869c3bbc91d3197">NBT_Type::LongArray</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad9ae79518d8d70bbecd81b18e2a11252">BackLongArray</a> (void) const</td></tr>
 <tr class="memdesc:ad9ae79518d8d70bbecd81b18e2a11252"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取列表最后一个 LongArray 类型数据  <br /></td></tr>
 <tr class="memitem:a607f2066a7e198d87044d4f539874da4" id="r_a607f2066a7e198d87044d4f539874da4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classNBT__Type.html#aa2c61028536166272869c3bbc91d3197">NBT_Type::LongArray</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a607f2066a7e198d87044d4f539874da4">BackLongArray</a> (void)</td></tr>
@@ -306,6 +350,10 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>ShrinkToFit</b> (void
 <tr class="memdesc:a5d5d29783e19906cec144c8cd1bdc366"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取指定位置的 String 类型数据  <br /></td></tr>
 <tr class="memitem:a344e70687c926836000ce737edcd0026" id="r_a344e70687c926836000ce737edcd0026"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classNBT__Type.html#a8580dcb2a4494cd9bc52526d43f61865">NBT_Type::String</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a344e70687c926836000ce737edcd0026">GetString</a> (const typename List::size_type &amp;szPos)</td></tr>
 <tr class="memdesc:a344e70687c926836000ce737edcd0026"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取指定位置的 String 类型数据  <br /></td></tr>
+<tr class="memitem:aa88006d80991ab9ec7998f0f2d25eb25" id="r_aa88006d80991ab9ec7998f0f2d25eb25"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classNBT__Type.html#a8580dcb2a4494cd9bc52526d43f61865">NBT_Type::String</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa88006d80991ab9ec7998f0f2d25eb25">FrontString</a> (void) const</td></tr>
+<tr class="memdesc:aa88006d80991ab9ec7998f0f2d25eb25"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取列表第一个 String 类型数据  <br /></td></tr>
+<tr class="memitem:ada5c71f83095374e718e576a7324048e" id="r_ada5c71f83095374e718e576a7324048e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classNBT__Type.html#a8580dcb2a4494cd9bc52526d43f61865">NBT_Type::String</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ada5c71f83095374e718e576a7324048e">FrontString</a> (void)</td></tr>
+<tr class="memdesc:ada5c71f83095374e718e576a7324048e"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取列表第一个 String 类型数据  <br /></td></tr>
 <tr class="memitem:a7482809de9d8d5e02078230018f450b6" id="r_a7482809de9d8d5e02078230018f450b6"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classNBT__Type.html#a8580dcb2a4494cd9bc52526d43f61865">NBT_Type::String</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7482809de9d8d5e02078230018f450b6">BackString</a> (void) const</td></tr>
 <tr class="memdesc:a7482809de9d8d5e02078230018f450b6"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取列表最后一个 String 类型数据  <br /></td></tr>
 <tr class="memitem:affd46b6a866f1e29d5d68cebf96ff392" id="r_affd46b6a866f1e29d5d68cebf96ff392"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classNBT__Type.html#a8580dcb2a4494cd9bc52526d43f61865">NBT_Type::String</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#affd46b6a866f1e29d5d68cebf96ff392">BackString</a> (void)</td></tr>
@@ -314,6 +362,10 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>ShrinkToFit</b> (void
 <tr class="memdesc:a9d0200e874f1a892e6beb8176c9f51fa"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取指定位置的 List 类型数据  <br /></td></tr>
 <tr class="memitem:a8b198553f931211b046d668f542810d1" id="r_a8b198553f931211b046d668f542810d1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classNBT__Type.html#a87b4d71087e5c0ab1111a4999dace42f">NBT_Type::List</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8b198553f931211b046d668f542810d1">GetList</a> (const typename List::size_type &amp;szPos)</td></tr>
 <tr class="memdesc:a8b198553f931211b046d668f542810d1"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取指定位置的 List 类型数据  <br /></td></tr>
+<tr class="memitem:a8ee5eceed2bd5f49541efc91c1c21bf3" id="r_a8ee5eceed2bd5f49541efc91c1c21bf3"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classNBT__Type.html#a87b4d71087e5c0ab1111a4999dace42f">NBT_Type::List</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8ee5eceed2bd5f49541efc91c1c21bf3">FrontList</a> (void) const</td></tr>
+<tr class="memdesc:a8ee5eceed2bd5f49541efc91c1c21bf3"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取列表第一个 List 类型数据  <br /></td></tr>
+<tr class="memitem:a601850a5e99fb85915db0f687f813668" id="r_a601850a5e99fb85915db0f687f813668"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classNBT__Type.html#a87b4d71087e5c0ab1111a4999dace42f">NBT_Type::List</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a601850a5e99fb85915db0f687f813668">FrontList</a> (void)</td></tr>
+<tr class="memdesc:a601850a5e99fb85915db0f687f813668"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取列表第一个 List 类型数据  <br /></td></tr>
 <tr class="memitem:a86108f837132723b207401fbb68ee643" id="r_a86108f837132723b207401fbb68ee643"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classNBT__Type.html#a87b4d71087e5c0ab1111a4999dace42f">NBT_Type::List</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a86108f837132723b207401fbb68ee643">BackList</a> (void) const</td></tr>
 <tr class="memdesc:a86108f837132723b207401fbb68ee643"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取列表最后一个 List 类型数据  <br /></td></tr>
 <tr class="memitem:afb41e3311127d23ccd5005301609bbdf" id="r_afb41e3311127d23ccd5005301609bbdf"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classNBT__Type.html#a87b4d71087e5c0ab1111a4999dace42f">NBT_Type::List</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afb41e3311127d23ccd5005301609bbdf">BackList</a> (void)</td></tr>
@@ -322,6 +374,10 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>ShrinkToFit</b> (void
 <tr class="memdesc:a33e2acdb1d5b309a59995f956072a9ce"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取指定位置的 Compound 类型数据  <br /></td></tr>
 <tr class="memitem:affbd47cfb0a9f7df632f5df56e1f6204" id="r_affbd47cfb0a9f7df632f5df56e1f6204"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classNBT__Type.html#a9dcd5050b96a10161f18d7ae4a22e7b3">NBT_Type::Compound</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#affbd47cfb0a9f7df632f5df56e1f6204">GetCompound</a> (const typename List::size_type &amp;szPos)</td></tr>
 <tr class="memdesc:affbd47cfb0a9f7df632f5df56e1f6204"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取指定位置的 Compound 类型数据  <br /></td></tr>
+<tr class="memitem:a025ab42547a78b0493667afc8c86bc73" id="r_a025ab42547a78b0493667afc8c86bc73"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classNBT__Type.html#a9dcd5050b96a10161f18d7ae4a22e7b3">NBT_Type::Compound</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a025ab42547a78b0493667afc8c86bc73">FrontCompound</a> (void) const</td></tr>
+<tr class="memdesc:a025ab42547a78b0493667afc8c86bc73"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取列表第一个 Compound 类型数据  <br /></td></tr>
+<tr class="memitem:ae13f10a6eeabb8700de84cd8d3df3b99" id="r_ae13f10a6eeabb8700de84cd8d3df3b99"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classNBT__Type.html#a9dcd5050b96a10161f18d7ae4a22e7b3">NBT_Type::Compound</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae13f10a6eeabb8700de84cd8d3df3b99">FrontCompound</a> (void)</td></tr>
+<tr class="memdesc:ae13f10a6eeabb8700de84cd8d3df3b99"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取列表第一个 Compound 类型数据  <br /></td></tr>
 <tr class="memitem:a09068d3a8b8875cd12ccfaa5db82cf88" id="r_a09068d3a8b8875cd12ccfaa5db82cf88"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classNBT__Type.html#a9dcd5050b96a10161f18d7ae4a22e7b3">NBT_Type::Compound</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a09068d3a8b8875cd12ccfaa5db82cf88">BackCompound</a> (void) const</td></tr>
 <tr class="memdesc:a09068d3a8b8875cd12ccfaa5db82cf88"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取列表最后一个 Compound 类型数据  <br /></td></tr>
 <tr class="memitem:a9aa75768fee5124f5fb0f92346f3f383" id="r_a9aa75768fee5124f5fb0f92346f3f383"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classNBT__Type.html#a9dcd5050b96a10161f18d7ae4a22e7b3">NBT_Type::Compound</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9aa75768fee5124f5fb0f92346f3f383">BackCompound</a> (void)</td></tr>
@@ -330,8 +386,8 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>ShrinkToFit</b> (void
 <tr><td colspan="2" class="ititle"><div class="groupText"><p>具体作用说明：</p>
 <ul>
 <li>Add开头+类型名的函数：在指定位置插入指定类型的数据</li>
-<li>AddBack开头+类型名的函数：在列表末尾插入指定类型的数据 <br  />
-</li>
+<li>AddFront开头+类型名的函数：在列表末尾插入指定类型的数据</li>
+<li>AddBack开头+类型名的函数：在列表末尾插入指定类型的数据</li>
 <li>Set开头+类型名的函数：设置指定位置的指定类型数据 </li>
 </ul>
 </div></td></tr>
@@ -341,6 +397,12 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>ShrinkToFit</b> (void
 <tr class="memitem:ae45d0b0c8d81ee7b8539190fa3f18d70" id="r_ae45d0b0c8d81ee7b8539190fa3f18d70"><td class="memTemplParams" colspan="2">template&lt;bool bNoCheck = false&gt; </td></tr>
 <tr class="memitem:ae45d0b0c8d81ee7b8539190fa3f18d70 template"><td class="memItemLeft" align="right" valign="top">std::conditional_t&lt; bNoCheck, typename List::iterator, std::pair&lt; typename List::iterator, bool &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae45d0b0c8d81ee7b8539190fa3f18d70">AddEnd</a> (size_t szPos, typename <a class="el" href="classNBT__Type.html#a16ac41e6cfe61a603407221527b6b16c">NBT_Type::End</a> &amp;&amp;vTagVal)</td></tr>
 <tr class="memdesc:ae45d0b0c8d81ee7b8539190fa3f18d70"><td class="mdescLeft">&#160;</td><td class="mdescRight">在指定位置插入 End 类型数据（移动）  <br /></td></tr>
+<tr class="memitem:aebea6c67b50c0af1a893fd7ce9f7e1e8" id="r_aebea6c67b50c0af1a893fd7ce9f7e1e8"><td class="memTemplParams" colspan="2">template&lt;bool bNoCheck = false&gt; </td></tr>
+<tr class="memitem:aebea6c67b50c0af1a893fd7ce9f7e1e8 template"><td class="memItemLeft" align="right" valign="top">std::conditional_t&lt; bNoCheck, typename List::iterator, std::pair&lt; typename List::iterator, bool &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aebea6c67b50c0af1a893fd7ce9f7e1e8">AddFrontEnd</a> (const typename <a class="el" href="classNBT__Type.html#a16ac41e6cfe61a603407221527b6b16c">NBT_Type::End</a> &amp;vTagVal)</td></tr>
+<tr class="memdesc:aebea6c67b50c0af1a893fd7ce9f7e1e8"><td class="mdescLeft">&#160;</td><td class="mdescRight">在列表头部插入 End 类型数据（拷贝）  <br /></td></tr>
+<tr class="memitem:aa1daa840857d32ad24b2f9dc55766dc9" id="r_aa1daa840857d32ad24b2f9dc55766dc9"><td class="memTemplParams" colspan="2">template&lt;bool bNoCheck = false&gt; </td></tr>
+<tr class="memitem:aa1daa840857d32ad24b2f9dc55766dc9 template"><td class="memItemLeft" align="right" valign="top">std::conditional_t&lt; bNoCheck, typename List::iterator, std::pair&lt; typename List::iterator, bool &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa1daa840857d32ad24b2f9dc55766dc9">AddFrontEnd</a> (typename <a class="el" href="classNBT__Type.html#a16ac41e6cfe61a603407221527b6b16c">NBT_Type::End</a> &amp;&amp;vTagVal)</td></tr>
+<tr class="memdesc:aa1daa840857d32ad24b2f9dc55766dc9"><td class="mdescLeft">&#160;</td><td class="mdescRight">在列表头部插入 End 类型数据（移动）  <br /></td></tr>
 <tr class="memitem:af6b875f5662863b0de911e6a66b00712" id="r_af6b875f5662863b0de911e6a66b00712"><td class="memTemplParams" colspan="2">template&lt;bool bNoCheck = false&gt; </td></tr>
 <tr class="memitem:af6b875f5662863b0de911e6a66b00712 template"><td class="memItemLeft" align="right" valign="top">std::conditional_t&lt; bNoCheck, typename List::iterator, std::pair&lt; typename List::iterator, bool &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af6b875f5662863b0de911e6a66b00712">AddBackEnd</a> (const typename <a class="el" href="classNBT__Type.html#a16ac41e6cfe61a603407221527b6b16c">NBT_Type::End</a> &amp;vTagVal)</td></tr>
 <tr class="memdesc:af6b875f5662863b0de911e6a66b00712"><td class="mdescLeft">&#160;</td><td class="mdescRight">在列表末尾插入 End 类型数据（拷贝）  <br /></td></tr>
@@ -359,6 +421,12 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>ShrinkToFit</b> (void
 <tr class="memitem:aaaa2766198b1a61b0d3dd4682478c6e5" id="r_aaaa2766198b1a61b0d3dd4682478c6e5"><td class="memTemplParams" colspan="2">template&lt;bool bNoCheck = false&gt; </td></tr>
 <tr class="memitem:aaaa2766198b1a61b0d3dd4682478c6e5 template"><td class="memItemLeft" align="right" valign="top">std::conditional_t&lt; bNoCheck, typename List::iterator, std::pair&lt; typename List::iterator, bool &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aaaa2766198b1a61b0d3dd4682478c6e5">AddByte</a> (size_t szPos, typename <a class="el" href="classNBT__Type.html#a09b5ce48dffc429ad8a7d05d007741c1">NBT_Type::Byte</a> &amp;&amp;vTagVal)</td></tr>
 <tr class="memdesc:aaaa2766198b1a61b0d3dd4682478c6e5"><td class="mdescLeft">&#160;</td><td class="mdescRight">在指定位置插入 Byte 类型数据（移动）  <br /></td></tr>
+<tr class="memitem:a99185401ccff9c434da8841f5fd1c756" id="r_a99185401ccff9c434da8841f5fd1c756"><td class="memTemplParams" colspan="2">template&lt;bool bNoCheck = false&gt; </td></tr>
+<tr class="memitem:a99185401ccff9c434da8841f5fd1c756 template"><td class="memItemLeft" align="right" valign="top">std::conditional_t&lt; bNoCheck, typename List::iterator, std::pair&lt; typename List::iterator, bool &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a99185401ccff9c434da8841f5fd1c756">AddFrontByte</a> (const typename <a class="el" href="classNBT__Type.html#a09b5ce48dffc429ad8a7d05d007741c1">NBT_Type::Byte</a> &amp;vTagVal)</td></tr>
+<tr class="memdesc:a99185401ccff9c434da8841f5fd1c756"><td class="mdescLeft">&#160;</td><td class="mdescRight">在列表头部插入 Byte 类型数据（拷贝）  <br /></td></tr>
+<tr class="memitem:a8fdec2871bb9e230ba7ed1b531cf1924" id="r_a8fdec2871bb9e230ba7ed1b531cf1924"><td class="memTemplParams" colspan="2">template&lt;bool bNoCheck = false&gt; </td></tr>
+<tr class="memitem:a8fdec2871bb9e230ba7ed1b531cf1924 template"><td class="memItemLeft" align="right" valign="top">std::conditional_t&lt; bNoCheck, typename List::iterator, std::pair&lt; typename List::iterator, bool &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8fdec2871bb9e230ba7ed1b531cf1924">AddFrontByte</a> (typename <a class="el" href="classNBT__Type.html#a09b5ce48dffc429ad8a7d05d007741c1">NBT_Type::Byte</a> &amp;&amp;vTagVal)</td></tr>
+<tr class="memdesc:a8fdec2871bb9e230ba7ed1b531cf1924"><td class="mdescLeft">&#160;</td><td class="mdescRight">在列表头部插入 Byte 类型数据（移动）  <br /></td></tr>
 <tr class="memitem:abcde763caf1ece013cd4193b2f8dc8b0" id="r_abcde763caf1ece013cd4193b2f8dc8b0"><td class="memTemplParams" colspan="2">template&lt;bool bNoCheck = false&gt; </td></tr>
 <tr class="memitem:abcde763caf1ece013cd4193b2f8dc8b0 template"><td class="memItemLeft" align="right" valign="top">std::conditional_t&lt; bNoCheck, typename List::iterator, std::pair&lt; typename List::iterator, bool &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abcde763caf1ece013cd4193b2f8dc8b0">AddBackByte</a> (const typename <a class="el" href="classNBT__Type.html#a09b5ce48dffc429ad8a7d05d007741c1">NBT_Type::Byte</a> &amp;vTagVal)</td></tr>
 <tr class="memdesc:abcde763caf1ece013cd4193b2f8dc8b0"><td class="mdescLeft">&#160;</td><td class="mdescRight">在列表末尾插入 Byte 类型数据（拷贝）  <br /></td></tr>
@@ -377,6 +445,12 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>ShrinkToFit</b> (void
 <tr class="memitem:af22104927321d29d082fcf5f6e060049" id="r_af22104927321d29d082fcf5f6e060049"><td class="memTemplParams" colspan="2">template&lt;bool bNoCheck = false&gt; </td></tr>
 <tr class="memitem:af22104927321d29d082fcf5f6e060049 template"><td class="memItemLeft" align="right" valign="top">std::conditional_t&lt; bNoCheck, typename List::iterator, std::pair&lt; typename List::iterator, bool &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af22104927321d29d082fcf5f6e060049">AddShort</a> (size_t szPos, typename <a class="el" href="classNBT__Type.html#a3e47d05c36743947da966f4223237262">NBT_Type::Short</a> &amp;&amp;vTagVal)</td></tr>
 <tr class="memdesc:af22104927321d29d082fcf5f6e060049"><td class="mdescLeft">&#160;</td><td class="mdescRight">在指定位置插入 Short 类型数据（移动）  <br /></td></tr>
+<tr class="memitem:ad576e7aa0fb373058790fddf341fb036" id="r_ad576e7aa0fb373058790fddf341fb036"><td class="memTemplParams" colspan="2">template&lt;bool bNoCheck = false&gt; </td></tr>
+<tr class="memitem:ad576e7aa0fb373058790fddf341fb036 template"><td class="memItemLeft" align="right" valign="top">std::conditional_t&lt; bNoCheck, typename List::iterator, std::pair&lt; typename List::iterator, bool &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad576e7aa0fb373058790fddf341fb036">AddFrontShort</a> (const typename <a class="el" href="classNBT__Type.html#a3e47d05c36743947da966f4223237262">NBT_Type::Short</a> &amp;vTagVal)</td></tr>
+<tr class="memdesc:ad576e7aa0fb373058790fddf341fb036"><td class="mdescLeft">&#160;</td><td class="mdescRight">在列表头部插入 Short 类型数据（拷贝）  <br /></td></tr>
+<tr class="memitem:adf9c09a2a93d88cb37ddd685a839a623" id="r_adf9c09a2a93d88cb37ddd685a839a623"><td class="memTemplParams" colspan="2">template&lt;bool bNoCheck = false&gt; </td></tr>
+<tr class="memitem:adf9c09a2a93d88cb37ddd685a839a623 template"><td class="memItemLeft" align="right" valign="top">std::conditional_t&lt; bNoCheck, typename List::iterator, std::pair&lt; typename List::iterator, bool &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#adf9c09a2a93d88cb37ddd685a839a623">AddFrontShort</a> (typename <a class="el" href="classNBT__Type.html#a3e47d05c36743947da966f4223237262">NBT_Type::Short</a> &amp;&amp;vTagVal)</td></tr>
+<tr class="memdesc:adf9c09a2a93d88cb37ddd685a839a623"><td class="mdescLeft">&#160;</td><td class="mdescRight">在列表头部插入 Short 类型数据（移动）  <br /></td></tr>
 <tr class="memitem:a5ebc31a41875556dda82020c2690bc31" id="r_a5ebc31a41875556dda82020c2690bc31"><td class="memTemplParams" colspan="2">template&lt;bool bNoCheck = false&gt; </td></tr>
 <tr class="memitem:a5ebc31a41875556dda82020c2690bc31 template"><td class="memItemLeft" align="right" valign="top">std::conditional_t&lt; bNoCheck, typename List::iterator, std::pair&lt; typename List::iterator, bool &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5ebc31a41875556dda82020c2690bc31">AddBackShort</a> (const typename <a class="el" href="classNBT__Type.html#a3e47d05c36743947da966f4223237262">NBT_Type::Short</a> &amp;vTagVal)</td></tr>
 <tr class="memdesc:a5ebc31a41875556dda82020c2690bc31"><td class="mdescLeft">&#160;</td><td class="mdescRight">在列表末尾插入 Short 类型数据（拷贝）  <br /></td></tr>
@@ -395,6 +469,12 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>ShrinkToFit</b> (void
 <tr class="memitem:a5d786087774ef1c03835d9be8a0b59d3" id="r_a5d786087774ef1c03835d9be8a0b59d3"><td class="memTemplParams" colspan="2">template&lt;bool bNoCheck = false&gt; </td></tr>
 <tr class="memitem:a5d786087774ef1c03835d9be8a0b59d3 template"><td class="memItemLeft" align="right" valign="top">std::conditional_t&lt; bNoCheck, typename List::iterator, std::pair&lt; typename List::iterator, bool &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5d786087774ef1c03835d9be8a0b59d3">AddInt</a> (size_t szPos, typename <a class="el" href="classNBT__Type.html#afee0233d7f58b90cc9ce2b903da2da22">NBT_Type::Int</a> &amp;&amp;vTagVal)</td></tr>
 <tr class="memdesc:a5d786087774ef1c03835d9be8a0b59d3"><td class="mdescLeft">&#160;</td><td class="mdescRight">在指定位置插入 Int 类型数据（移动）  <br /></td></tr>
+<tr class="memitem:a8388bc89bb80bcad3d91a02743f0daf4" id="r_a8388bc89bb80bcad3d91a02743f0daf4"><td class="memTemplParams" colspan="2">template&lt;bool bNoCheck = false&gt; </td></tr>
+<tr class="memitem:a8388bc89bb80bcad3d91a02743f0daf4 template"><td class="memItemLeft" align="right" valign="top">std::conditional_t&lt; bNoCheck, typename List::iterator, std::pair&lt; typename List::iterator, bool &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8388bc89bb80bcad3d91a02743f0daf4">AddFrontInt</a> (const typename <a class="el" href="classNBT__Type.html#afee0233d7f58b90cc9ce2b903da2da22">NBT_Type::Int</a> &amp;vTagVal)</td></tr>
+<tr class="memdesc:a8388bc89bb80bcad3d91a02743f0daf4"><td class="mdescLeft">&#160;</td><td class="mdescRight">在列表头部插入 Int 类型数据（拷贝）  <br /></td></tr>
+<tr class="memitem:a70bd82293e2d465a71b4a03ef0c0fbd5" id="r_a70bd82293e2d465a71b4a03ef0c0fbd5"><td class="memTemplParams" colspan="2">template&lt;bool bNoCheck = false&gt; </td></tr>
+<tr class="memitem:a70bd82293e2d465a71b4a03ef0c0fbd5 template"><td class="memItemLeft" align="right" valign="top">std::conditional_t&lt; bNoCheck, typename List::iterator, std::pair&lt; typename List::iterator, bool &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a70bd82293e2d465a71b4a03ef0c0fbd5">AddFrontInt</a> (typename <a class="el" href="classNBT__Type.html#afee0233d7f58b90cc9ce2b903da2da22">NBT_Type::Int</a> &amp;&amp;vTagVal)</td></tr>
+<tr class="memdesc:a70bd82293e2d465a71b4a03ef0c0fbd5"><td class="mdescLeft">&#160;</td><td class="mdescRight">在列表头部插入 Int 类型数据（移动）  <br /></td></tr>
 <tr class="memitem:ac46d564e8cac04dba1fb8005d15e297a" id="r_ac46d564e8cac04dba1fb8005d15e297a"><td class="memTemplParams" colspan="2">template&lt;bool bNoCheck = false&gt; </td></tr>
 <tr class="memitem:ac46d564e8cac04dba1fb8005d15e297a template"><td class="memItemLeft" align="right" valign="top">std::conditional_t&lt; bNoCheck, typename List::iterator, std::pair&lt; typename List::iterator, bool &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac46d564e8cac04dba1fb8005d15e297a">AddBackInt</a> (const typename <a class="el" href="classNBT__Type.html#afee0233d7f58b90cc9ce2b903da2da22">NBT_Type::Int</a> &amp;vTagVal)</td></tr>
 <tr class="memdesc:ac46d564e8cac04dba1fb8005d15e297a"><td class="mdescLeft">&#160;</td><td class="mdescRight">在列表末尾插入 Int 类型数据（拷贝）  <br /></td></tr>
@@ -413,6 +493,12 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>ShrinkToFit</b> (void
 <tr class="memitem:a30269b398a932d3ab64e938cef72561f" id="r_a30269b398a932d3ab64e938cef72561f"><td class="memTemplParams" colspan="2">template&lt;bool bNoCheck = false&gt; </td></tr>
 <tr class="memitem:a30269b398a932d3ab64e938cef72561f template"><td class="memItemLeft" align="right" valign="top">std::conditional_t&lt; bNoCheck, typename List::iterator, std::pair&lt; typename List::iterator, bool &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a30269b398a932d3ab64e938cef72561f">AddLong</a> (size_t szPos, typename <a class="el" href="classNBT__Type.html#a7f8ae2e6e2f87445d1e72f7e922ba053">NBT_Type::Long</a> &amp;&amp;vTagVal)</td></tr>
 <tr class="memdesc:a30269b398a932d3ab64e938cef72561f"><td class="mdescLeft">&#160;</td><td class="mdescRight">在指定位置插入 Long 类型数据（移动）  <br /></td></tr>
+<tr class="memitem:aaa1274e21fe96bc8817c2c40c1f8d897" id="r_aaa1274e21fe96bc8817c2c40c1f8d897"><td class="memTemplParams" colspan="2">template&lt;bool bNoCheck = false&gt; </td></tr>
+<tr class="memitem:aaa1274e21fe96bc8817c2c40c1f8d897 template"><td class="memItemLeft" align="right" valign="top">std::conditional_t&lt; bNoCheck, typename List::iterator, std::pair&lt; typename List::iterator, bool &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aaa1274e21fe96bc8817c2c40c1f8d897">AddFrontLong</a> (const typename <a class="el" href="classNBT__Type.html#a7f8ae2e6e2f87445d1e72f7e922ba053">NBT_Type::Long</a> &amp;vTagVal)</td></tr>
+<tr class="memdesc:aaa1274e21fe96bc8817c2c40c1f8d897"><td class="mdescLeft">&#160;</td><td class="mdescRight">在列表头部插入 Long 类型数据（拷贝）  <br /></td></tr>
+<tr class="memitem:ac55f01d4c13e073e8345318c4d6d4ea8" id="r_ac55f01d4c13e073e8345318c4d6d4ea8"><td class="memTemplParams" colspan="2">template&lt;bool bNoCheck = false&gt; </td></tr>
+<tr class="memitem:ac55f01d4c13e073e8345318c4d6d4ea8 template"><td class="memItemLeft" align="right" valign="top">std::conditional_t&lt; bNoCheck, typename List::iterator, std::pair&lt; typename List::iterator, bool &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac55f01d4c13e073e8345318c4d6d4ea8">AddFrontLong</a> (typename <a class="el" href="classNBT__Type.html#a7f8ae2e6e2f87445d1e72f7e922ba053">NBT_Type::Long</a> &amp;&amp;vTagVal)</td></tr>
+<tr class="memdesc:ac55f01d4c13e073e8345318c4d6d4ea8"><td class="mdescLeft">&#160;</td><td class="mdescRight">在列表头部插入 Long 类型数据（移动）  <br /></td></tr>
 <tr class="memitem:a2c439d7bea4fc13eca0cf15a83904802" id="r_a2c439d7bea4fc13eca0cf15a83904802"><td class="memTemplParams" colspan="2">template&lt;bool bNoCheck = false&gt; </td></tr>
 <tr class="memitem:a2c439d7bea4fc13eca0cf15a83904802 template"><td class="memItemLeft" align="right" valign="top">std::conditional_t&lt; bNoCheck, typename List::iterator, std::pair&lt; typename List::iterator, bool &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2c439d7bea4fc13eca0cf15a83904802">AddBackLong</a> (const typename <a class="el" href="classNBT__Type.html#a7f8ae2e6e2f87445d1e72f7e922ba053">NBT_Type::Long</a> &amp;vTagVal)</td></tr>
 <tr class="memdesc:a2c439d7bea4fc13eca0cf15a83904802"><td class="mdescLeft">&#160;</td><td class="mdescRight">在列表末尾插入 Long 类型数据（拷贝）  <br /></td></tr>
@@ -431,6 +517,12 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>ShrinkToFit</b> (void
 <tr class="memitem:a513c4665da324b2392ac4899c71f6b32" id="r_a513c4665da324b2392ac4899c71f6b32"><td class="memTemplParams" colspan="2">template&lt;bool bNoCheck = false&gt; </td></tr>
 <tr class="memitem:a513c4665da324b2392ac4899c71f6b32 template"><td class="memItemLeft" align="right" valign="top">std::conditional_t&lt; bNoCheck, typename List::iterator, std::pair&lt; typename List::iterator, bool &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a513c4665da324b2392ac4899c71f6b32">AddFloat</a> (size_t szPos, typename <a class="el" href="classNBT__Type.html#a8a7ac779b8e8a7fdccb3456844abe5cf">NBT_Type::Float</a> &amp;&amp;vTagVal)</td></tr>
 <tr class="memdesc:a513c4665da324b2392ac4899c71f6b32"><td class="mdescLeft">&#160;</td><td class="mdescRight">在指定位置插入 Float 类型数据（移动）  <br /></td></tr>
+<tr class="memitem:a16712e50ffd34b4fdab297d82b021da1" id="r_a16712e50ffd34b4fdab297d82b021da1"><td class="memTemplParams" colspan="2">template&lt;bool bNoCheck = false&gt; </td></tr>
+<tr class="memitem:a16712e50ffd34b4fdab297d82b021da1 template"><td class="memItemLeft" align="right" valign="top">std::conditional_t&lt; bNoCheck, typename List::iterator, std::pair&lt; typename List::iterator, bool &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a16712e50ffd34b4fdab297d82b021da1">AddFrontFloat</a> (const typename <a class="el" href="classNBT__Type.html#a8a7ac779b8e8a7fdccb3456844abe5cf">NBT_Type::Float</a> &amp;vTagVal)</td></tr>
+<tr class="memdesc:a16712e50ffd34b4fdab297d82b021da1"><td class="mdescLeft">&#160;</td><td class="mdescRight">在列表头部插入 Float 类型数据（拷贝）  <br /></td></tr>
+<tr class="memitem:a8b697273d483c624bfa7f04cec6cca9b" id="r_a8b697273d483c624bfa7f04cec6cca9b"><td class="memTemplParams" colspan="2">template&lt;bool bNoCheck = false&gt; </td></tr>
+<tr class="memitem:a8b697273d483c624bfa7f04cec6cca9b template"><td class="memItemLeft" align="right" valign="top">std::conditional_t&lt; bNoCheck, typename List::iterator, std::pair&lt; typename List::iterator, bool &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8b697273d483c624bfa7f04cec6cca9b">AddFrontFloat</a> (typename <a class="el" href="classNBT__Type.html#a8a7ac779b8e8a7fdccb3456844abe5cf">NBT_Type::Float</a> &amp;&amp;vTagVal)</td></tr>
+<tr class="memdesc:a8b697273d483c624bfa7f04cec6cca9b"><td class="mdescLeft">&#160;</td><td class="mdescRight">在列表头部插入 Float 类型数据（移动）  <br /></td></tr>
 <tr class="memitem:a725b90c186e6fa616e07fd0e634737b3" id="r_a725b90c186e6fa616e07fd0e634737b3"><td class="memTemplParams" colspan="2">template&lt;bool bNoCheck = false&gt; </td></tr>
 <tr class="memitem:a725b90c186e6fa616e07fd0e634737b3 template"><td class="memItemLeft" align="right" valign="top">std::conditional_t&lt; bNoCheck, typename List::iterator, std::pair&lt; typename List::iterator, bool &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a725b90c186e6fa616e07fd0e634737b3">AddBackFloat</a> (const typename <a class="el" href="classNBT__Type.html#a8a7ac779b8e8a7fdccb3456844abe5cf">NBT_Type::Float</a> &amp;vTagVal)</td></tr>
 <tr class="memdesc:a725b90c186e6fa616e07fd0e634737b3"><td class="mdescLeft">&#160;</td><td class="mdescRight">在列表末尾插入 Float 类型数据（拷贝）  <br /></td></tr>
@@ -449,6 +541,12 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>ShrinkToFit</b> (void
 <tr class="memitem:a48980d31466133f9a5874a622f3b6f37" id="r_a48980d31466133f9a5874a622f3b6f37"><td class="memTemplParams" colspan="2">template&lt;bool bNoCheck = false&gt; </td></tr>
 <tr class="memitem:a48980d31466133f9a5874a622f3b6f37 template"><td class="memItemLeft" align="right" valign="top">std::conditional_t&lt; bNoCheck, typename List::iterator, std::pair&lt; typename List::iterator, bool &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a48980d31466133f9a5874a622f3b6f37">AddDouble</a> (size_t szPos, typename <a class="el" href="classNBT__Type.html#aaea549797088fb63987679367bc9d39a">NBT_Type::Double</a> &amp;&amp;vTagVal)</td></tr>
 <tr class="memdesc:a48980d31466133f9a5874a622f3b6f37"><td class="mdescLeft">&#160;</td><td class="mdescRight">在指定位置插入 Double 类型数据（移动）  <br /></td></tr>
+<tr class="memitem:aa77865f7b93585ba89a0d84516279967" id="r_aa77865f7b93585ba89a0d84516279967"><td class="memTemplParams" colspan="2">template&lt;bool bNoCheck = false&gt; </td></tr>
+<tr class="memitem:aa77865f7b93585ba89a0d84516279967 template"><td class="memItemLeft" align="right" valign="top">std::conditional_t&lt; bNoCheck, typename List::iterator, std::pair&lt; typename List::iterator, bool &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa77865f7b93585ba89a0d84516279967">AddFrontDouble</a> (const typename <a class="el" href="classNBT__Type.html#aaea549797088fb63987679367bc9d39a">NBT_Type::Double</a> &amp;vTagVal)</td></tr>
+<tr class="memdesc:aa77865f7b93585ba89a0d84516279967"><td class="mdescLeft">&#160;</td><td class="mdescRight">在列表头部插入 Double 类型数据（拷贝）  <br /></td></tr>
+<tr class="memitem:a26620df77fb6fb93f5504ed310b1b62a" id="r_a26620df77fb6fb93f5504ed310b1b62a"><td class="memTemplParams" colspan="2">template&lt;bool bNoCheck = false&gt; </td></tr>
+<tr class="memitem:a26620df77fb6fb93f5504ed310b1b62a template"><td class="memItemLeft" align="right" valign="top">std::conditional_t&lt; bNoCheck, typename List::iterator, std::pair&lt; typename List::iterator, bool &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a26620df77fb6fb93f5504ed310b1b62a">AddFrontDouble</a> (typename <a class="el" href="classNBT__Type.html#aaea549797088fb63987679367bc9d39a">NBT_Type::Double</a> &amp;&amp;vTagVal)</td></tr>
+<tr class="memdesc:a26620df77fb6fb93f5504ed310b1b62a"><td class="mdescLeft">&#160;</td><td class="mdescRight">在列表头部插入 Double 类型数据（移动）  <br /></td></tr>
 <tr class="memitem:ad1245cef733f65ee93d9e0c6c22bf397" id="r_ad1245cef733f65ee93d9e0c6c22bf397"><td class="memTemplParams" colspan="2">template&lt;bool bNoCheck = false&gt; </td></tr>
 <tr class="memitem:ad1245cef733f65ee93d9e0c6c22bf397 template"><td class="memItemLeft" align="right" valign="top">std::conditional_t&lt; bNoCheck, typename List::iterator, std::pair&lt; typename List::iterator, bool &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad1245cef733f65ee93d9e0c6c22bf397">AddBackDouble</a> (const typename <a class="el" href="classNBT__Type.html#aaea549797088fb63987679367bc9d39a">NBT_Type::Double</a> &amp;vTagVal)</td></tr>
 <tr class="memdesc:ad1245cef733f65ee93d9e0c6c22bf397"><td class="mdescLeft">&#160;</td><td class="mdescRight">在列表末尾插入 Double 类型数据（拷贝）  <br /></td></tr>
@@ -467,6 +565,12 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>ShrinkToFit</b> (void
 <tr class="memitem:a008e1c27cf09102a42808e62fba9fdbf" id="r_a008e1c27cf09102a42808e62fba9fdbf"><td class="memTemplParams" colspan="2">template&lt;bool bNoCheck = false&gt; </td></tr>
 <tr class="memitem:a008e1c27cf09102a42808e62fba9fdbf template"><td class="memItemLeft" align="right" valign="top">std::conditional_t&lt; bNoCheck, typename List::iterator, std::pair&lt; typename List::iterator, bool &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a008e1c27cf09102a42808e62fba9fdbf">AddByteArray</a> (size_t szPos, typename <a class="el" href="classNBT__Type.html#a953bc9e67e1b5d82c0786b5992f00ed8">NBT_Type::ByteArray</a> &amp;&amp;vTagVal)</td></tr>
 <tr class="memdesc:a008e1c27cf09102a42808e62fba9fdbf"><td class="mdescLeft">&#160;</td><td class="mdescRight">在指定位置插入 ByteArray 类型数据（移动）  <br /></td></tr>
+<tr class="memitem:add7134c3868d78303a4cfb1b2f90da4e" id="r_add7134c3868d78303a4cfb1b2f90da4e"><td class="memTemplParams" colspan="2">template&lt;bool bNoCheck = false&gt; </td></tr>
+<tr class="memitem:add7134c3868d78303a4cfb1b2f90da4e template"><td class="memItemLeft" align="right" valign="top">std::conditional_t&lt; bNoCheck, typename List::iterator, std::pair&lt; typename List::iterator, bool &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#add7134c3868d78303a4cfb1b2f90da4e">AddFrontByteArray</a> (const typename <a class="el" href="classNBT__Type.html#a953bc9e67e1b5d82c0786b5992f00ed8">NBT_Type::ByteArray</a> &amp;vTagVal)</td></tr>
+<tr class="memdesc:add7134c3868d78303a4cfb1b2f90da4e"><td class="mdescLeft">&#160;</td><td class="mdescRight">在列表头部插入 ByteArray 类型数据（拷贝）  <br /></td></tr>
+<tr class="memitem:a16281e45c397853ae7d23ed00ab145a8" id="r_a16281e45c397853ae7d23ed00ab145a8"><td class="memTemplParams" colspan="2">template&lt;bool bNoCheck = false&gt; </td></tr>
+<tr class="memitem:a16281e45c397853ae7d23ed00ab145a8 template"><td class="memItemLeft" align="right" valign="top">std::conditional_t&lt; bNoCheck, typename List::iterator, std::pair&lt; typename List::iterator, bool &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a16281e45c397853ae7d23ed00ab145a8">AddFrontByteArray</a> (typename <a class="el" href="classNBT__Type.html#a953bc9e67e1b5d82c0786b5992f00ed8">NBT_Type::ByteArray</a> &amp;&amp;vTagVal)</td></tr>
+<tr class="memdesc:a16281e45c397853ae7d23ed00ab145a8"><td class="mdescLeft">&#160;</td><td class="mdescRight">在列表头部插入 ByteArray 类型数据（移动）  <br /></td></tr>
 <tr class="memitem:a76e677cdf773090cb8b1f1c66d5b37b8" id="r_a76e677cdf773090cb8b1f1c66d5b37b8"><td class="memTemplParams" colspan="2">template&lt;bool bNoCheck = false&gt; </td></tr>
 <tr class="memitem:a76e677cdf773090cb8b1f1c66d5b37b8 template"><td class="memItemLeft" align="right" valign="top">std::conditional_t&lt; bNoCheck, typename List::iterator, std::pair&lt; typename List::iterator, bool &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a76e677cdf773090cb8b1f1c66d5b37b8">AddBackByteArray</a> (const typename <a class="el" href="classNBT__Type.html#a953bc9e67e1b5d82c0786b5992f00ed8">NBT_Type::ByteArray</a> &amp;vTagVal)</td></tr>
 <tr class="memdesc:a76e677cdf773090cb8b1f1c66d5b37b8"><td class="mdescLeft">&#160;</td><td class="mdescRight">在列表末尾插入 ByteArray 类型数据（拷贝）  <br /></td></tr>
@@ -485,6 +589,12 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>ShrinkToFit</b> (void
 <tr class="memitem:a433152c97b29de197e5e78b498359f22" id="r_a433152c97b29de197e5e78b498359f22"><td class="memTemplParams" colspan="2">template&lt;bool bNoCheck = false&gt; </td></tr>
 <tr class="memitem:a433152c97b29de197e5e78b498359f22 template"><td class="memItemLeft" align="right" valign="top">std::conditional_t&lt; bNoCheck, typename List::iterator, std::pair&lt; typename List::iterator, bool &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a433152c97b29de197e5e78b498359f22">AddIntArray</a> (size_t szPos, typename <a class="el" href="classNBT__Type.html#a9c4ad0b2bcd4b5cafb0c9a3f083f9406">NBT_Type::IntArray</a> &amp;&amp;vTagVal)</td></tr>
 <tr class="memdesc:a433152c97b29de197e5e78b498359f22"><td class="mdescLeft">&#160;</td><td class="mdescRight">在指定位置插入 IntArray 类型数据（移动）  <br /></td></tr>
+<tr class="memitem:a1057b95f4373e41e6513d72901ef6a9f" id="r_a1057b95f4373e41e6513d72901ef6a9f"><td class="memTemplParams" colspan="2">template&lt;bool bNoCheck = false&gt; </td></tr>
+<tr class="memitem:a1057b95f4373e41e6513d72901ef6a9f template"><td class="memItemLeft" align="right" valign="top">std::conditional_t&lt; bNoCheck, typename List::iterator, std::pair&lt; typename List::iterator, bool &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1057b95f4373e41e6513d72901ef6a9f">AddFrontIntArray</a> (const typename <a class="el" href="classNBT__Type.html#a9c4ad0b2bcd4b5cafb0c9a3f083f9406">NBT_Type::IntArray</a> &amp;vTagVal)</td></tr>
+<tr class="memdesc:a1057b95f4373e41e6513d72901ef6a9f"><td class="mdescLeft">&#160;</td><td class="mdescRight">在列表头部插入 IntArray 类型数据（拷贝）  <br /></td></tr>
+<tr class="memitem:ab2ac42024aeb9a42e9564748f631b4bb" id="r_ab2ac42024aeb9a42e9564748f631b4bb"><td class="memTemplParams" colspan="2">template&lt;bool bNoCheck = false&gt; </td></tr>
+<tr class="memitem:ab2ac42024aeb9a42e9564748f631b4bb template"><td class="memItemLeft" align="right" valign="top">std::conditional_t&lt; bNoCheck, typename List::iterator, std::pair&lt; typename List::iterator, bool &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab2ac42024aeb9a42e9564748f631b4bb">AddFrontIntArray</a> (typename <a class="el" href="classNBT__Type.html#a9c4ad0b2bcd4b5cafb0c9a3f083f9406">NBT_Type::IntArray</a> &amp;&amp;vTagVal)</td></tr>
+<tr class="memdesc:ab2ac42024aeb9a42e9564748f631b4bb"><td class="mdescLeft">&#160;</td><td class="mdescRight">在列表头部插入 IntArray 类型数据（移动）  <br /></td></tr>
 <tr class="memitem:a679a5a4457f55388aaa9fe613028e3d4" id="r_a679a5a4457f55388aaa9fe613028e3d4"><td class="memTemplParams" colspan="2">template&lt;bool bNoCheck = false&gt; </td></tr>
 <tr class="memitem:a679a5a4457f55388aaa9fe613028e3d4 template"><td class="memItemLeft" align="right" valign="top">std::conditional_t&lt; bNoCheck, typename List::iterator, std::pair&lt; typename List::iterator, bool &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a679a5a4457f55388aaa9fe613028e3d4">AddBackIntArray</a> (const typename <a class="el" href="classNBT__Type.html#a9c4ad0b2bcd4b5cafb0c9a3f083f9406">NBT_Type::IntArray</a> &amp;vTagVal)</td></tr>
 <tr class="memdesc:a679a5a4457f55388aaa9fe613028e3d4"><td class="mdescLeft">&#160;</td><td class="mdescRight">在列表末尾插入 IntArray 类型数据（拷贝）  <br /></td></tr>
@@ -503,6 +613,12 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>ShrinkToFit</b> (void
 <tr class="memitem:ac1b1bd1345afe3b0a5c010e012e86303" id="r_ac1b1bd1345afe3b0a5c010e012e86303"><td class="memTemplParams" colspan="2">template&lt;bool bNoCheck = false&gt; </td></tr>
 <tr class="memitem:ac1b1bd1345afe3b0a5c010e012e86303 template"><td class="memItemLeft" align="right" valign="top">std::conditional_t&lt; bNoCheck, typename List::iterator, std::pair&lt; typename List::iterator, bool &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac1b1bd1345afe3b0a5c010e012e86303">AddLongArray</a> (size_t szPos, typename <a class="el" href="classNBT__Type.html#aa2c61028536166272869c3bbc91d3197">NBT_Type::LongArray</a> &amp;&amp;vTagVal)</td></tr>
 <tr class="memdesc:ac1b1bd1345afe3b0a5c010e012e86303"><td class="mdescLeft">&#160;</td><td class="mdescRight">在指定位置插入 LongArray 类型数据（移动）  <br /></td></tr>
+<tr class="memitem:a2726475a3dfec27ef2c27d44825c1592" id="r_a2726475a3dfec27ef2c27d44825c1592"><td class="memTemplParams" colspan="2">template&lt;bool bNoCheck = false&gt; </td></tr>
+<tr class="memitem:a2726475a3dfec27ef2c27d44825c1592 template"><td class="memItemLeft" align="right" valign="top">std::conditional_t&lt; bNoCheck, typename List::iterator, std::pair&lt; typename List::iterator, bool &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2726475a3dfec27ef2c27d44825c1592">AddFrontLongArray</a> (const typename <a class="el" href="classNBT__Type.html#aa2c61028536166272869c3bbc91d3197">NBT_Type::LongArray</a> &amp;vTagVal)</td></tr>
+<tr class="memdesc:a2726475a3dfec27ef2c27d44825c1592"><td class="mdescLeft">&#160;</td><td class="mdescRight">在列表头部插入 LongArray 类型数据（拷贝）  <br /></td></tr>
+<tr class="memitem:aca7b2002c540e479bd9dd4446030798d" id="r_aca7b2002c540e479bd9dd4446030798d"><td class="memTemplParams" colspan="2">template&lt;bool bNoCheck = false&gt; </td></tr>
+<tr class="memitem:aca7b2002c540e479bd9dd4446030798d template"><td class="memItemLeft" align="right" valign="top">std::conditional_t&lt; bNoCheck, typename List::iterator, std::pair&lt; typename List::iterator, bool &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aca7b2002c540e479bd9dd4446030798d">AddFrontLongArray</a> (typename <a class="el" href="classNBT__Type.html#aa2c61028536166272869c3bbc91d3197">NBT_Type::LongArray</a> &amp;&amp;vTagVal)</td></tr>
+<tr class="memdesc:aca7b2002c540e479bd9dd4446030798d"><td class="mdescLeft">&#160;</td><td class="mdescRight">在列表头部插入 LongArray 类型数据（移动）  <br /></td></tr>
 <tr class="memitem:ab386ac3785e69dcd154ff45f2409f8d1" id="r_ab386ac3785e69dcd154ff45f2409f8d1"><td class="memTemplParams" colspan="2">template&lt;bool bNoCheck = false&gt; </td></tr>
 <tr class="memitem:ab386ac3785e69dcd154ff45f2409f8d1 template"><td class="memItemLeft" align="right" valign="top">std::conditional_t&lt; bNoCheck, typename List::iterator, std::pair&lt; typename List::iterator, bool &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab386ac3785e69dcd154ff45f2409f8d1">AddBackLongArray</a> (const typename <a class="el" href="classNBT__Type.html#aa2c61028536166272869c3bbc91d3197">NBT_Type::LongArray</a> &amp;vTagVal)</td></tr>
 <tr class="memdesc:ab386ac3785e69dcd154ff45f2409f8d1"><td class="mdescLeft">&#160;</td><td class="mdescRight">在列表末尾插入 LongArray 类型数据（拷贝）  <br /></td></tr>
@@ -521,6 +637,12 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>ShrinkToFit</b> (void
 <tr class="memitem:a2848abd925d8eef2408617ae186a51ef" id="r_a2848abd925d8eef2408617ae186a51ef"><td class="memTemplParams" colspan="2">template&lt;bool bNoCheck = false&gt; </td></tr>
 <tr class="memitem:a2848abd925d8eef2408617ae186a51ef template"><td class="memItemLeft" align="right" valign="top">std::conditional_t&lt; bNoCheck, typename List::iterator, std::pair&lt; typename List::iterator, bool &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2848abd925d8eef2408617ae186a51ef">AddString</a> (size_t szPos, typename <a class="el" href="classNBT__Type.html#a8580dcb2a4494cd9bc52526d43f61865">NBT_Type::String</a> &amp;&amp;vTagVal)</td></tr>
 <tr class="memdesc:a2848abd925d8eef2408617ae186a51ef"><td class="mdescLeft">&#160;</td><td class="mdescRight">在指定位置插入 String 类型数据（移动）  <br /></td></tr>
+<tr class="memitem:a94812566be41a9865de994c296763a3f" id="r_a94812566be41a9865de994c296763a3f"><td class="memTemplParams" colspan="2">template&lt;bool bNoCheck = false&gt; </td></tr>
+<tr class="memitem:a94812566be41a9865de994c296763a3f template"><td class="memItemLeft" align="right" valign="top">std::conditional_t&lt; bNoCheck, typename List::iterator, std::pair&lt; typename List::iterator, bool &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a94812566be41a9865de994c296763a3f">AddFrontString</a> (const typename <a class="el" href="classNBT__Type.html#a8580dcb2a4494cd9bc52526d43f61865">NBT_Type::String</a> &amp;vTagVal)</td></tr>
+<tr class="memdesc:a94812566be41a9865de994c296763a3f"><td class="mdescLeft">&#160;</td><td class="mdescRight">在列表头部插入 String 类型数据（拷贝）  <br /></td></tr>
+<tr class="memitem:a3e8f6be8206b1a19a0d8938064919353" id="r_a3e8f6be8206b1a19a0d8938064919353"><td class="memTemplParams" colspan="2">template&lt;bool bNoCheck = false&gt; </td></tr>
+<tr class="memitem:a3e8f6be8206b1a19a0d8938064919353 template"><td class="memItemLeft" align="right" valign="top">std::conditional_t&lt; bNoCheck, typename List::iterator, std::pair&lt; typename List::iterator, bool &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3e8f6be8206b1a19a0d8938064919353">AddFrontString</a> (typename <a class="el" href="classNBT__Type.html#a8580dcb2a4494cd9bc52526d43f61865">NBT_Type::String</a> &amp;&amp;vTagVal)</td></tr>
+<tr class="memdesc:a3e8f6be8206b1a19a0d8938064919353"><td class="mdescLeft">&#160;</td><td class="mdescRight">在列表头部插入 String 类型数据（移动）  <br /></td></tr>
 <tr class="memitem:a45b963430c0e304daec8d7d390cd07cc" id="r_a45b963430c0e304daec8d7d390cd07cc"><td class="memTemplParams" colspan="2">template&lt;bool bNoCheck = false&gt; </td></tr>
 <tr class="memitem:a45b963430c0e304daec8d7d390cd07cc template"><td class="memItemLeft" align="right" valign="top">std::conditional_t&lt; bNoCheck, typename List::iterator, std::pair&lt; typename List::iterator, bool &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a45b963430c0e304daec8d7d390cd07cc">AddBackString</a> (const typename <a class="el" href="classNBT__Type.html#a8580dcb2a4494cd9bc52526d43f61865">NBT_Type::String</a> &amp;vTagVal)</td></tr>
 <tr class="memdesc:a45b963430c0e304daec8d7d390cd07cc"><td class="mdescLeft">&#160;</td><td class="mdescRight">在列表末尾插入 String 类型数据（拷贝）  <br /></td></tr>
@@ -539,6 +661,12 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>ShrinkToFit</b> (void
 <tr class="memitem:abc0738f3ed1db9b0098a6c6e711b7ba1" id="r_abc0738f3ed1db9b0098a6c6e711b7ba1"><td class="memTemplParams" colspan="2">template&lt;bool bNoCheck = false&gt; </td></tr>
 <tr class="memitem:abc0738f3ed1db9b0098a6c6e711b7ba1 template"><td class="memItemLeft" align="right" valign="top">std::conditional_t&lt; bNoCheck, typename List::iterator, std::pair&lt; typename List::iterator, bool &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abc0738f3ed1db9b0098a6c6e711b7ba1">AddList</a> (size_t szPos, typename <a class="el" href="classNBT__Type.html#a87b4d71087e5c0ab1111a4999dace42f">NBT_Type::List</a> &amp;&amp;vTagVal)</td></tr>
 <tr class="memdesc:abc0738f3ed1db9b0098a6c6e711b7ba1"><td class="mdescLeft">&#160;</td><td class="mdescRight">在指定位置插入 List 类型数据（移动）  <br /></td></tr>
+<tr class="memitem:a286582ccd239379f88df82d05b4f4e99" id="r_a286582ccd239379f88df82d05b4f4e99"><td class="memTemplParams" colspan="2">template&lt;bool bNoCheck = false&gt; </td></tr>
+<tr class="memitem:a286582ccd239379f88df82d05b4f4e99 template"><td class="memItemLeft" align="right" valign="top">std::conditional_t&lt; bNoCheck, typename List::iterator, std::pair&lt; typename List::iterator, bool &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a286582ccd239379f88df82d05b4f4e99">AddFrontList</a> (const typename <a class="el" href="classNBT__Type.html#a87b4d71087e5c0ab1111a4999dace42f">NBT_Type::List</a> &amp;vTagVal)</td></tr>
+<tr class="memdesc:a286582ccd239379f88df82d05b4f4e99"><td class="mdescLeft">&#160;</td><td class="mdescRight">在列表头部插入 List 类型数据（拷贝）  <br /></td></tr>
+<tr class="memitem:a4d796ee72470bf5c58bfd1d6e801eae7" id="r_a4d796ee72470bf5c58bfd1d6e801eae7"><td class="memTemplParams" colspan="2">template&lt;bool bNoCheck = false&gt; </td></tr>
+<tr class="memitem:a4d796ee72470bf5c58bfd1d6e801eae7 template"><td class="memItemLeft" align="right" valign="top">std::conditional_t&lt; bNoCheck, typename List::iterator, std::pair&lt; typename List::iterator, bool &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4d796ee72470bf5c58bfd1d6e801eae7">AddFrontList</a> (typename <a class="el" href="classNBT__Type.html#a87b4d71087e5c0ab1111a4999dace42f">NBT_Type::List</a> &amp;&amp;vTagVal)</td></tr>
+<tr class="memdesc:a4d796ee72470bf5c58bfd1d6e801eae7"><td class="mdescLeft">&#160;</td><td class="mdescRight">在列表头部插入 List 类型数据（移动）  <br /></td></tr>
 <tr class="memitem:a79538f1b60b1340372961b3e4638dbe5" id="r_a79538f1b60b1340372961b3e4638dbe5"><td class="memTemplParams" colspan="2">template&lt;bool bNoCheck = false&gt; </td></tr>
 <tr class="memitem:a79538f1b60b1340372961b3e4638dbe5 template"><td class="memItemLeft" align="right" valign="top">std::conditional_t&lt; bNoCheck, typename List::iterator, std::pair&lt; typename List::iterator, bool &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a79538f1b60b1340372961b3e4638dbe5">AddBackList</a> (const typename <a class="el" href="classNBT__Type.html#a87b4d71087e5c0ab1111a4999dace42f">NBT_Type::List</a> &amp;vTagVal)</td></tr>
 <tr class="memdesc:a79538f1b60b1340372961b3e4638dbe5"><td class="mdescLeft">&#160;</td><td class="mdescRight">在列表末尾插入 List 类型数据（拷贝）  <br /></td></tr>
@@ -557,6 +685,12 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>ShrinkToFit</b> (void
 <tr class="memitem:a759de28b1aadede39edaa85708c29de7" id="r_a759de28b1aadede39edaa85708c29de7"><td class="memTemplParams" colspan="2">template&lt;bool bNoCheck = false&gt; </td></tr>
 <tr class="memitem:a759de28b1aadede39edaa85708c29de7 template"><td class="memItemLeft" align="right" valign="top">std::conditional_t&lt; bNoCheck, typename List::iterator, std::pair&lt; typename List::iterator, bool &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a759de28b1aadede39edaa85708c29de7">AddCompound</a> (size_t szPos, typename <a class="el" href="classNBT__Type.html#a9dcd5050b96a10161f18d7ae4a22e7b3">NBT_Type::Compound</a> &amp;&amp;vTagVal)</td></tr>
 <tr class="memdesc:a759de28b1aadede39edaa85708c29de7"><td class="mdescLeft">&#160;</td><td class="mdescRight">在指定位置插入 Compound 类型数据（移动）  <br /></td></tr>
+<tr class="memitem:a2df73d202bcb02a744996471660ac985" id="r_a2df73d202bcb02a744996471660ac985"><td class="memTemplParams" colspan="2">template&lt;bool bNoCheck = false&gt; </td></tr>
+<tr class="memitem:a2df73d202bcb02a744996471660ac985 template"><td class="memItemLeft" align="right" valign="top">std::conditional_t&lt; bNoCheck, typename List::iterator, std::pair&lt; typename List::iterator, bool &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2df73d202bcb02a744996471660ac985">AddFrontCompound</a> (const typename <a class="el" href="classNBT__Type.html#a9dcd5050b96a10161f18d7ae4a22e7b3">NBT_Type::Compound</a> &amp;vTagVal)</td></tr>
+<tr class="memdesc:a2df73d202bcb02a744996471660ac985"><td class="mdescLeft">&#160;</td><td class="mdescRight">在列表头部插入 Compound 类型数据（拷贝）  <br /></td></tr>
+<tr class="memitem:abbdce0869d99cb120642f4b117923c6a" id="r_abbdce0869d99cb120642f4b117923c6a"><td class="memTemplParams" colspan="2">template&lt;bool bNoCheck = false&gt; </td></tr>
+<tr class="memitem:abbdce0869d99cb120642f4b117923c6a template"><td class="memItemLeft" align="right" valign="top">std::conditional_t&lt; bNoCheck, typename List::iterator, std::pair&lt; typename List::iterator, bool &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abbdce0869d99cb120642f4b117923c6a">AddFrontCompound</a> (typename <a class="el" href="classNBT__Type.html#a9dcd5050b96a10161f18d7ae4a22e7b3">NBT_Type::Compound</a> &amp;&amp;vTagVal)</td></tr>
+<tr class="memdesc:abbdce0869d99cb120642f4b117923c6a"><td class="mdescLeft">&#160;</td><td class="mdescRight">在列表头部插入 Compound 类型数据（移动）  <br /></td></tr>
 <tr class="memitem:ae8cb58fd9a5b03b5f35c09dc2c6aac05" id="r_ae8cb58fd9a5b03b5f35c09dc2c6aac05"><td class="memTemplParams" colspan="2">template&lt;bool bNoCheck = false&gt; </td></tr>
 <tr class="memitem:ae8cb58fd9a5b03b5f35c09dc2c6aac05 template"><td class="memItemLeft" align="right" valign="top">std::conditional_t&lt; bNoCheck, typename List::iterator, std::pair&lt; typename List::iterator, bool &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae8cb58fd9a5b03b5f35c09dc2c6aac05">AddBackCompound</a> (const typename <a class="el" href="classNBT__Type.html#a9dcd5050b96a10161f18d7ae4a22e7b3">NBT_Type::Compound</a> &amp;vTagVal)</td></tr>
 <tr class="memdesc:ae8cb58fd9a5b03b5f35c09dc2c6aac05"><td class="mdescLeft">&#160;</td><td class="mdescRight">在列表末尾插入 Compound 类型数据（拷贝）  <br /></td></tr>
@@ -1059,7 +1193,7 @@ template&lt;bool bNoCheck = false, typename V&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>在指定位置插入元素 </p>
+<p>在指定位置的前面插入元素 </p>
 <dl class="tparams"><dt>模板参数</dt><dd>
   <table class="tparams">
     <tr><td class="paramname">bNoCheck</td><td>是否跳过类型检查，作用与NoCheck_T相同 </td></tr>
@@ -1075,9 +1209,9 @@ template&lt;bool bNoCheck = false, typename V&gt; </div>
   </dd>
 </dl>
 <dl class="section return"><dt>返回</dt><dd>如果bNoCheck为false，返回包含插入元素所在位置的迭代器和是否操作成功的bool值的pair，否则仅返回迭代器 </dd></dl>
-<dl class="section note"><dt>注解</dt><dd>在bNoCheck为false的情况下，当且仅当插入的类型与当前列表存储的类型一致同时szPos在合法范围内，函数成功，否则失败， 如果bNoCheck为true则必然成功，所以函数仅返回迭代器 </dd>
+<dl class="section note"><dt>注解</dt><dd>在bNoCheck为false的情况下，当且仅当插入的类型与当前列表存储的类型一致，同时szPos在合法范围内，函数成功，否则失败， 如果bNoCheck为true则必然成功，所以函数仅返回迭代器 </dd>
 <dd>
-在bNoCheck为false的情况下，如果当前列表标签为空，，则列表存储的类型自动变为当前元素类型， 如果bNoCheck为true，则列表不会设置当前元素类型，请使用SetTag来变更元素类型或放弃维护元素类型 </dd></dl>
+在bNoCheck为false的情况下，如果当前列表标签为空，则列表存储的类型自动变为当前元素类型， 如果bNoCheck为true，则列表不会设置当前元素类型，请使用SetTag来变更元素类型或放弃维护元素类型 </dd></dl>
 
 </div>
 </div>
@@ -1123,9 +1257,9 @@ template&lt;bool bNoCheck = false, typename V&gt; </div>
   </dd>
 </dl>
 <dl class="section return"><dt>返回</dt><dd>如果bNoCheck为false，返回包含插入元素所在位置的迭代器和是否操作成功的bool值的pair，否则仅返回迭代器 </dd></dl>
-<dl class="section note"><dt>注解</dt><dd>在bNoCheck为false的情况下，当且仅当插入的类型与当前列表存储的类型一致同时szPos在合法范围内，函数成功，否则失败， 如果bNoCheck为true则必然成功，所以函数仅返回迭代器 </dd>
+<dl class="section note"><dt>注解</dt><dd>在bNoCheck为false的情况下，当且仅当插入的类型与当前列表存储的类型一致，同时szPos在合法范围内，函数成功，否则失败， 如果bNoCheck为true则必然成功，所以函数仅返回迭代器 </dd>
 <dd>
-在bNoCheck为false的情况下，如果当前列表标签为空，，则列表存储的类型自动变为当前元素类型， 如果bNoCheck为true，则列表不会设置当前元素类型，请使用SetTag来变更元素类型或放弃维护元素类型 </dd></dl>
+在bNoCheck为false的情况下，如果当前列表标签为空，则列表存储的类型自动变为当前元素类型， 如果bNoCheck为true，则列表不会设置当前元素类型，请使用SetTag来变更元素类型或放弃维护元素类型 </dd></dl>
 
 </div>
 </div>
@@ -2899,6 +3033,1224 @@ template&lt;bool bNoCheck = false&gt; </div>
 
 </div>
 </div>
+<a id="ad8554eee64f0aadec16906e67e1ab2ee" name="ad8554eee64f0aadec16906e67e1ab2ee"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad8554eee64f0aadec16906e67e1ab2ee">&#9670;&#160;</a></span>AddFront()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename List&gt; </div>
+<div class="memtemplate">
+template&lt;bool bNoCheck = false, typename V&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::conditional_t&lt; bNoCheck, typename List::iterator, std::pair&lt; typename List::iterator, bool &gt; &gt; <a class="el" href="classNBT__List.html">NBT_List</a>&lt; List &gt;::AddFront </td>
+          <td>(</td>
+          <td class="paramtype">V &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>vTagVal</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>在列表头部插入元素 </p>
+<dl class="tparams"><dt>模板参数</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">bNoCheck</td><td>是否跳过类型检查，作用与NoCheck_T相同 </td></tr>
+    <tr><td class="paramname">V</td><td>元素值类型 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">vTagVal</td><td>要插入的值 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>如果bNoCheck为false，返回包含插入元素所在位置的迭代器和是否操作成功的bool值的pair，否则仅返回迭代器 </dd></dl>
+<dl class="section note"><dt>注解</dt><dd>在bNoCheck为false的情况下，当且仅当插入的类型与当前列表存储的类型一致，同时szPos在合法范围内，函数成功，否则失败， 如果bNoCheck为true则必然成功，所以函数仅返回迭代器 </dd>
+<dd>
+在bNoCheck为false的情况下，如果当前列表标签为空，则列表存储的类型自动变为当前元素类型， 如果bNoCheck为true，则列表不会设置当前元素类型，请使用SetTag来变更元素类型或放弃维护元素类型 </dd></dl>
+
+</div>
+</div>
+<a id="a99185401ccff9c434da8841f5fd1c756" name="a99185401ccff9c434da8841f5fd1c756"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a99185401ccff9c434da8841f5fd1c756">&#9670;&#160;</a></span>AddFrontByte() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename List&gt; </div>
+<div class="memtemplate">
+template&lt;bool bNoCheck = false&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::conditional_t&lt; bNoCheck, typename List::iterator, std::pair&lt; typename List::iterator, bool &gt; &gt; <a class="el" href="classNBT__List.html">NBT_List</a>&lt; List &gt;::AddFrontByte </td>
+          <td>(</td>
+          <td class="paramtype">const typename <a class="el" href="classNBT__Type.html#a09b5ce48dffc429ad8a7d05d007741c1">NBT_Type::Byte</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>vTagVal</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>在列表头部插入 Byte 类型数据（拷贝） </p>
+<dl class="tparams"><dt>模板参数</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">bNoCheck</td><td>是否跳过类型检查，作用与NoCheck_T相同</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">vTagVal</td><td>要插入的 Byte 类型值 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>如果bNoCheck为false，返回包含迭代器和bool值的pair；否则返回迭代器 </dd></dl>
+<dl class="section note"><dt>注解</dt><dd>通用类型函数AddFront的代理，具体行为参考AddFront函数的说明 </dd></dl>
+
+</div>
+</div>
+<a id="a8fdec2871bb9e230ba7ed1b531cf1924" name="a8fdec2871bb9e230ba7ed1b531cf1924"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8fdec2871bb9e230ba7ed1b531cf1924">&#9670;&#160;</a></span>AddFrontByte() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename List&gt; </div>
+<div class="memtemplate">
+template&lt;bool bNoCheck = false&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::conditional_t&lt; bNoCheck, typename List::iterator, std::pair&lt; typename List::iterator, bool &gt; &gt; <a class="el" href="classNBT__List.html">NBT_List</a>&lt; List &gt;::AddFrontByte </td>
+          <td>(</td>
+          <td class="paramtype">typename <a class="el" href="classNBT__Type.html#a09b5ce48dffc429ad8a7d05d007741c1">NBT_Type::Byte</a> &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>vTagVal</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>在列表头部插入 Byte 类型数据（移动） </p>
+<dl class="tparams"><dt>模板参数</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">bNoCheck</td><td>是否跳过类型检查，作用与NoCheck_T相同</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">vTagVal</td><td>要插入的 Byte 类型值 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>如果bNoCheck为false，返回包含迭代器和bool值的pair；否则返回迭代器 </dd></dl>
+<dl class="section note"><dt>注解</dt><dd>通用类型函数AddFront的代理，具体行为参考AddFront函数的说明 </dd></dl>
+
+</div>
+</div>
+<a id="add7134c3868d78303a4cfb1b2f90da4e" name="add7134c3868d78303a4cfb1b2f90da4e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#add7134c3868d78303a4cfb1b2f90da4e">&#9670;&#160;</a></span>AddFrontByteArray() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename List&gt; </div>
+<div class="memtemplate">
+template&lt;bool bNoCheck = false&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::conditional_t&lt; bNoCheck, typename List::iterator, std::pair&lt; typename List::iterator, bool &gt; &gt; <a class="el" href="classNBT__List.html">NBT_List</a>&lt; List &gt;::AddFrontByteArray </td>
+          <td>(</td>
+          <td class="paramtype">const typename <a class="el" href="classNBT__Type.html#a953bc9e67e1b5d82c0786b5992f00ed8">NBT_Type::ByteArray</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>vTagVal</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>在列表头部插入 ByteArray 类型数据（拷贝） </p>
+<dl class="tparams"><dt>模板参数</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">bNoCheck</td><td>是否跳过类型检查，作用与NoCheck_T相同</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">vTagVal</td><td>要插入的 ByteArray 类型值 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>如果bNoCheck为false，返回包含迭代器和bool值的pair；否则返回迭代器 </dd></dl>
+<dl class="section note"><dt>注解</dt><dd>通用类型函数AddFront的代理，具体行为参考AddFront函数的说明 </dd></dl>
+
+</div>
+</div>
+<a id="a16281e45c397853ae7d23ed00ab145a8" name="a16281e45c397853ae7d23ed00ab145a8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a16281e45c397853ae7d23ed00ab145a8">&#9670;&#160;</a></span>AddFrontByteArray() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename List&gt; </div>
+<div class="memtemplate">
+template&lt;bool bNoCheck = false&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::conditional_t&lt; bNoCheck, typename List::iterator, std::pair&lt; typename List::iterator, bool &gt; &gt; <a class="el" href="classNBT__List.html">NBT_List</a>&lt; List &gt;::AddFrontByteArray </td>
+          <td>(</td>
+          <td class="paramtype">typename <a class="el" href="classNBT__Type.html#a953bc9e67e1b5d82c0786b5992f00ed8">NBT_Type::ByteArray</a> &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>vTagVal</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>在列表头部插入 ByteArray 类型数据（移动） </p>
+<dl class="tparams"><dt>模板参数</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">bNoCheck</td><td>是否跳过类型检查，作用与NoCheck_T相同</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">vTagVal</td><td>要插入的 ByteArray 类型值 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>如果bNoCheck为false，返回包含迭代器和bool值的pair；否则返回迭代器 </dd></dl>
+<dl class="section note"><dt>注解</dt><dd>通用类型函数AddFront的代理，具体行为参考AddFront函数的说明 </dd></dl>
+
+</div>
+</div>
+<a id="a2df73d202bcb02a744996471660ac985" name="a2df73d202bcb02a744996471660ac985"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2df73d202bcb02a744996471660ac985">&#9670;&#160;</a></span>AddFrontCompound() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename List&gt; </div>
+<div class="memtemplate">
+template&lt;bool bNoCheck = false&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::conditional_t&lt; bNoCheck, typename List::iterator, std::pair&lt; typename List::iterator, bool &gt; &gt; <a class="el" href="classNBT__List.html">NBT_List</a>&lt; List &gt;::AddFrontCompound </td>
+          <td>(</td>
+          <td class="paramtype">const typename <a class="el" href="classNBT__Type.html#a9dcd5050b96a10161f18d7ae4a22e7b3">NBT_Type::Compound</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>vTagVal</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>在列表头部插入 Compound 类型数据（拷贝） </p>
+<dl class="tparams"><dt>模板参数</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">bNoCheck</td><td>是否跳过类型检查，作用与NoCheck_T相同</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">vTagVal</td><td>要插入的 Compound 类型值 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>如果bNoCheck为false，返回包含迭代器和bool值的pair；否则返回迭代器 </dd></dl>
+<dl class="section note"><dt>注解</dt><dd>通用类型函数AddFront的代理，具体行为参考AddFront函数的说明 </dd></dl>
+
+</div>
+</div>
+<a id="abbdce0869d99cb120642f4b117923c6a" name="abbdce0869d99cb120642f4b117923c6a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abbdce0869d99cb120642f4b117923c6a">&#9670;&#160;</a></span>AddFrontCompound() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename List&gt; </div>
+<div class="memtemplate">
+template&lt;bool bNoCheck = false&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::conditional_t&lt; bNoCheck, typename List::iterator, std::pair&lt; typename List::iterator, bool &gt; &gt; <a class="el" href="classNBT__List.html">NBT_List</a>&lt; List &gt;::AddFrontCompound </td>
+          <td>(</td>
+          <td class="paramtype">typename <a class="el" href="classNBT__Type.html#a9dcd5050b96a10161f18d7ae4a22e7b3">NBT_Type::Compound</a> &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>vTagVal</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>在列表头部插入 Compound 类型数据（移动） </p>
+<dl class="tparams"><dt>模板参数</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">bNoCheck</td><td>是否跳过类型检查，作用与NoCheck_T相同</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">vTagVal</td><td>要插入的 Compound 类型值 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>如果bNoCheck为false，返回包含迭代器和bool值的pair；否则返回迭代器 </dd></dl>
+<dl class="section note"><dt>注解</dt><dd>通用类型函数AddFront的代理，具体行为参考AddFront函数的说明 </dd></dl>
+
+</div>
+</div>
+<a id="aa77865f7b93585ba89a0d84516279967" name="aa77865f7b93585ba89a0d84516279967"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa77865f7b93585ba89a0d84516279967">&#9670;&#160;</a></span>AddFrontDouble() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename List&gt; </div>
+<div class="memtemplate">
+template&lt;bool bNoCheck = false&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::conditional_t&lt; bNoCheck, typename List::iterator, std::pair&lt; typename List::iterator, bool &gt; &gt; <a class="el" href="classNBT__List.html">NBT_List</a>&lt; List &gt;::AddFrontDouble </td>
+          <td>(</td>
+          <td class="paramtype">const typename <a class="el" href="classNBT__Type.html#aaea549797088fb63987679367bc9d39a">NBT_Type::Double</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>vTagVal</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>在列表头部插入 Double 类型数据（拷贝） </p>
+<dl class="tparams"><dt>模板参数</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">bNoCheck</td><td>是否跳过类型检查，作用与NoCheck_T相同</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">vTagVal</td><td>要插入的 Double 类型值 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>如果bNoCheck为false，返回包含迭代器和bool值的pair；否则返回迭代器 </dd></dl>
+<dl class="section note"><dt>注解</dt><dd>通用类型函数AddFront的代理，具体行为参考AddFront函数的说明 </dd></dl>
+
+</div>
+</div>
+<a id="a26620df77fb6fb93f5504ed310b1b62a" name="a26620df77fb6fb93f5504ed310b1b62a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a26620df77fb6fb93f5504ed310b1b62a">&#9670;&#160;</a></span>AddFrontDouble() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename List&gt; </div>
+<div class="memtemplate">
+template&lt;bool bNoCheck = false&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::conditional_t&lt; bNoCheck, typename List::iterator, std::pair&lt; typename List::iterator, bool &gt; &gt; <a class="el" href="classNBT__List.html">NBT_List</a>&lt; List &gt;::AddFrontDouble </td>
+          <td>(</td>
+          <td class="paramtype">typename <a class="el" href="classNBT__Type.html#aaea549797088fb63987679367bc9d39a">NBT_Type::Double</a> &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>vTagVal</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>在列表头部插入 Double 类型数据（移动） </p>
+<dl class="tparams"><dt>模板参数</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">bNoCheck</td><td>是否跳过类型检查，作用与NoCheck_T相同</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">vTagVal</td><td>要插入的 Double 类型值 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>如果bNoCheck为false，返回包含迭代器和bool值的pair；否则返回迭代器 </dd></dl>
+<dl class="section note"><dt>注解</dt><dd>通用类型函数AddFront的代理，具体行为参考AddFront函数的说明 </dd></dl>
+
+</div>
+</div>
+<a id="aebea6c67b50c0af1a893fd7ce9f7e1e8" name="aebea6c67b50c0af1a893fd7ce9f7e1e8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aebea6c67b50c0af1a893fd7ce9f7e1e8">&#9670;&#160;</a></span>AddFrontEnd() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename List&gt; </div>
+<div class="memtemplate">
+template&lt;bool bNoCheck = false&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::conditional_t&lt; bNoCheck, typename List::iterator, std::pair&lt; typename List::iterator, bool &gt; &gt; <a class="el" href="classNBT__List.html">NBT_List</a>&lt; List &gt;::AddFrontEnd </td>
+          <td>(</td>
+          <td class="paramtype">const typename <a class="el" href="classNBT__Type.html#a16ac41e6cfe61a603407221527b6b16c">NBT_Type::End</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>vTagVal</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>在列表头部插入 End 类型数据（拷贝） </p>
+<dl class="tparams"><dt>模板参数</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">bNoCheck</td><td>是否跳过类型检查，作用与NoCheck_T相同</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">vTagVal</td><td>要插入的 End 类型值 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>如果bNoCheck为false，返回包含迭代器和bool值的pair；否则返回迭代器 </dd></dl>
+<dl class="section note"><dt>注解</dt><dd>通用类型函数AddFront的代理，具体行为参考AddFront函数的说明 </dd></dl>
+
+</div>
+</div>
+<a id="aa1daa840857d32ad24b2f9dc55766dc9" name="aa1daa840857d32ad24b2f9dc55766dc9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa1daa840857d32ad24b2f9dc55766dc9">&#9670;&#160;</a></span>AddFrontEnd() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename List&gt; </div>
+<div class="memtemplate">
+template&lt;bool bNoCheck = false&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::conditional_t&lt; bNoCheck, typename List::iterator, std::pair&lt; typename List::iterator, bool &gt; &gt; <a class="el" href="classNBT__List.html">NBT_List</a>&lt; List &gt;::AddFrontEnd </td>
+          <td>(</td>
+          <td class="paramtype">typename <a class="el" href="classNBT__Type.html#a16ac41e6cfe61a603407221527b6b16c">NBT_Type::End</a> &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>vTagVal</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>在列表头部插入 End 类型数据（移动） </p>
+<dl class="tparams"><dt>模板参数</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">bNoCheck</td><td>是否跳过类型检查，作用与NoCheck_T相同</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">vTagVal</td><td>要插入的 End 类型值 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>如果bNoCheck为false，返回包含迭代器和bool值的pair；否则返回迭代器 </dd></dl>
+<dl class="section note"><dt>注解</dt><dd>通用类型函数AddFront的代理，具体行为参考AddFront函数的说明 </dd></dl>
+
+</div>
+</div>
+<a id="a16712e50ffd34b4fdab297d82b021da1" name="a16712e50ffd34b4fdab297d82b021da1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a16712e50ffd34b4fdab297d82b021da1">&#9670;&#160;</a></span>AddFrontFloat() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename List&gt; </div>
+<div class="memtemplate">
+template&lt;bool bNoCheck = false&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::conditional_t&lt; bNoCheck, typename List::iterator, std::pair&lt; typename List::iterator, bool &gt; &gt; <a class="el" href="classNBT__List.html">NBT_List</a>&lt; List &gt;::AddFrontFloat </td>
+          <td>(</td>
+          <td class="paramtype">const typename <a class="el" href="classNBT__Type.html#a8a7ac779b8e8a7fdccb3456844abe5cf">NBT_Type::Float</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>vTagVal</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>在列表头部插入 Float 类型数据（拷贝） </p>
+<dl class="tparams"><dt>模板参数</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">bNoCheck</td><td>是否跳过类型检查，作用与NoCheck_T相同</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">vTagVal</td><td>要插入的 Float 类型值 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>如果bNoCheck为false，返回包含迭代器和bool值的pair；否则返回迭代器 </dd></dl>
+<dl class="section note"><dt>注解</dt><dd>通用类型函数AddFront的代理，具体行为参考AddFront函数的说明 </dd></dl>
+
+</div>
+</div>
+<a id="a8b697273d483c624bfa7f04cec6cca9b" name="a8b697273d483c624bfa7f04cec6cca9b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8b697273d483c624bfa7f04cec6cca9b">&#9670;&#160;</a></span>AddFrontFloat() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename List&gt; </div>
+<div class="memtemplate">
+template&lt;bool bNoCheck = false&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::conditional_t&lt; bNoCheck, typename List::iterator, std::pair&lt; typename List::iterator, bool &gt; &gt; <a class="el" href="classNBT__List.html">NBT_List</a>&lt; List &gt;::AddFrontFloat </td>
+          <td>(</td>
+          <td class="paramtype">typename <a class="el" href="classNBT__Type.html#a8a7ac779b8e8a7fdccb3456844abe5cf">NBT_Type::Float</a> &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>vTagVal</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>在列表头部插入 Float 类型数据（移动） </p>
+<dl class="tparams"><dt>模板参数</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">bNoCheck</td><td>是否跳过类型检查，作用与NoCheck_T相同</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">vTagVal</td><td>要插入的 Float 类型值 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>如果bNoCheck为false，返回包含迭代器和bool值的pair；否则返回迭代器 </dd></dl>
+<dl class="section note"><dt>注解</dt><dd>通用类型函数AddFront的代理，具体行为参考AddFront函数的说明 </dd></dl>
+
+</div>
+</div>
+<a id="a8388bc89bb80bcad3d91a02743f0daf4" name="a8388bc89bb80bcad3d91a02743f0daf4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8388bc89bb80bcad3d91a02743f0daf4">&#9670;&#160;</a></span>AddFrontInt() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename List&gt; </div>
+<div class="memtemplate">
+template&lt;bool bNoCheck = false&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::conditional_t&lt; bNoCheck, typename List::iterator, std::pair&lt; typename List::iterator, bool &gt; &gt; <a class="el" href="classNBT__List.html">NBT_List</a>&lt; List &gt;::AddFrontInt </td>
+          <td>(</td>
+          <td class="paramtype">const typename <a class="el" href="classNBT__Type.html#afee0233d7f58b90cc9ce2b903da2da22">NBT_Type::Int</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>vTagVal</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>在列表头部插入 Int 类型数据（拷贝） </p>
+<dl class="tparams"><dt>模板参数</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">bNoCheck</td><td>是否跳过类型检查，作用与NoCheck_T相同</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">vTagVal</td><td>要插入的 Int 类型值 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>如果bNoCheck为false，返回包含迭代器和bool值的pair；否则返回迭代器 </dd></dl>
+<dl class="section note"><dt>注解</dt><dd>通用类型函数AddFront的代理，具体行为参考AddFront函数的说明 </dd></dl>
+
+</div>
+</div>
+<a id="a70bd82293e2d465a71b4a03ef0c0fbd5" name="a70bd82293e2d465a71b4a03ef0c0fbd5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a70bd82293e2d465a71b4a03ef0c0fbd5">&#9670;&#160;</a></span>AddFrontInt() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename List&gt; </div>
+<div class="memtemplate">
+template&lt;bool bNoCheck = false&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::conditional_t&lt; bNoCheck, typename List::iterator, std::pair&lt; typename List::iterator, bool &gt; &gt; <a class="el" href="classNBT__List.html">NBT_List</a>&lt; List &gt;::AddFrontInt </td>
+          <td>(</td>
+          <td class="paramtype">typename <a class="el" href="classNBT__Type.html#afee0233d7f58b90cc9ce2b903da2da22">NBT_Type::Int</a> &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>vTagVal</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>在列表头部插入 Int 类型数据（移动） </p>
+<dl class="tparams"><dt>模板参数</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">bNoCheck</td><td>是否跳过类型检查，作用与NoCheck_T相同</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">vTagVal</td><td>要插入的 Int 类型值 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>如果bNoCheck为false，返回包含迭代器和bool值的pair；否则返回迭代器 </dd></dl>
+<dl class="section note"><dt>注解</dt><dd>通用类型函数AddFront的代理，具体行为参考AddFront函数的说明 </dd></dl>
+
+</div>
+</div>
+<a id="a1057b95f4373e41e6513d72901ef6a9f" name="a1057b95f4373e41e6513d72901ef6a9f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1057b95f4373e41e6513d72901ef6a9f">&#9670;&#160;</a></span>AddFrontIntArray() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename List&gt; </div>
+<div class="memtemplate">
+template&lt;bool bNoCheck = false&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::conditional_t&lt; bNoCheck, typename List::iterator, std::pair&lt; typename List::iterator, bool &gt; &gt; <a class="el" href="classNBT__List.html">NBT_List</a>&lt; List &gt;::AddFrontIntArray </td>
+          <td>(</td>
+          <td class="paramtype">const typename <a class="el" href="classNBT__Type.html#a9c4ad0b2bcd4b5cafb0c9a3f083f9406">NBT_Type::IntArray</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>vTagVal</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>在列表头部插入 IntArray 类型数据（拷贝） </p>
+<dl class="tparams"><dt>模板参数</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">bNoCheck</td><td>是否跳过类型检查，作用与NoCheck_T相同</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">vTagVal</td><td>要插入的 IntArray 类型值 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>如果bNoCheck为false，返回包含迭代器和bool值的pair；否则返回迭代器 </dd></dl>
+<dl class="section note"><dt>注解</dt><dd>通用类型函数AddFront的代理，具体行为参考AddFront函数的说明 </dd></dl>
+
+</div>
+</div>
+<a id="ab2ac42024aeb9a42e9564748f631b4bb" name="ab2ac42024aeb9a42e9564748f631b4bb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab2ac42024aeb9a42e9564748f631b4bb">&#9670;&#160;</a></span>AddFrontIntArray() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename List&gt; </div>
+<div class="memtemplate">
+template&lt;bool bNoCheck = false&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::conditional_t&lt; bNoCheck, typename List::iterator, std::pair&lt; typename List::iterator, bool &gt; &gt; <a class="el" href="classNBT__List.html">NBT_List</a>&lt; List &gt;::AddFrontIntArray </td>
+          <td>(</td>
+          <td class="paramtype">typename <a class="el" href="classNBT__Type.html#a9c4ad0b2bcd4b5cafb0c9a3f083f9406">NBT_Type::IntArray</a> &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>vTagVal</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>在列表头部插入 IntArray 类型数据（移动） </p>
+<dl class="tparams"><dt>模板参数</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">bNoCheck</td><td>是否跳过类型检查，作用与NoCheck_T相同</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">vTagVal</td><td>要插入的 IntArray 类型值 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>如果bNoCheck为false，返回包含迭代器和bool值的pair；否则返回迭代器 </dd></dl>
+<dl class="section note"><dt>注解</dt><dd>通用类型函数AddFront的代理，具体行为参考AddFront函数的说明 </dd></dl>
+
+</div>
+</div>
+<a id="a286582ccd239379f88df82d05b4f4e99" name="a286582ccd239379f88df82d05b4f4e99"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a286582ccd239379f88df82d05b4f4e99">&#9670;&#160;</a></span>AddFrontList() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename List&gt; </div>
+<div class="memtemplate">
+template&lt;bool bNoCheck = false&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::conditional_t&lt; bNoCheck, typename List::iterator, std::pair&lt; typename List::iterator, bool &gt; &gt; <a class="el" href="classNBT__List.html">NBT_List</a>&lt; List &gt;::AddFrontList </td>
+          <td>(</td>
+          <td class="paramtype">const typename <a class="el" href="classNBT__Type.html#a87b4d71087e5c0ab1111a4999dace42f">NBT_Type::List</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>vTagVal</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>在列表头部插入 List 类型数据（拷贝） </p>
+<dl class="tparams"><dt>模板参数</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">bNoCheck</td><td>是否跳过类型检查，作用与NoCheck_T相同</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">vTagVal</td><td>要插入的 List 类型值 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>如果bNoCheck为false，返回包含迭代器和bool值的pair；否则返回迭代器 </dd></dl>
+<dl class="section note"><dt>注解</dt><dd>通用类型函数AddFront的代理，具体行为参考AddFront函数的说明 </dd></dl>
+
+</div>
+</div>
+<a id="a4d796ee72470bf5c58bfd1d6e801eae7" name="a4d796ee72470bf5c58bfd1d6e801eae7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4d796ee72470bf5c58bfd1d6e801eae7">&#9670;&#160;</a></span>AddFrontList() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename List&gt; </div>
+<div class="memtemplate">
+template&lt;bool bNoCheck = false&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::conditional_t&lt; bNoCheck, typename List::iterator, std::pair&lt; typename List::iterator, bool &gt; &gt; <a class="el" href="classNBT__List.html">NBT_List</a>&lt; List &gt;::AddFrontList </td>
+          <td>(</td>
+          <td class="paramtype">typename <a class="el" href="classNBT__Type.html#a87b4d71087e5c0ab1111a4999dace42f">NBT_Type::List</a> &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>vTagVal</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>在列表头部插入 List 类型数据（移动） </p>
+<dl class="tparams"><dt>模板参数</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">bNoCheck</td><td>是否跳过类型检查，作用与NoCheck_T相同</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">vTagVal</td><td>要插入的 List 类型值 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>如果bNoCheck为false，返回包含迭代器和bool值的pair；否则返回迭代器 </dd></dl>
+<dl class="section note"><dt>注解</dt><dd>通用类型函数AddFront的代理，具体行为参考AddFront函数的说明 </dd></dl>
+
+</div>
+</div>
+<a id="aaa1274e21fe96bc8817c2c40c1f8d897" name="aaa1274e21fe96bc8817c2c40c1f8d897"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaa1274e21fe96bc8817c2c40c1f8d897">&#9670;&#160;</a></span>AddFrontLong() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename List&gt; </div>
+<div class="memtemplate">
+template&lt;bool bNoCheck = false&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::conditional_t&lt; bNoCheck, typename List::iterator, std::pair&lt; typename List::iterator, bool &gt; &gt; <a class="el" href="classNBT__List.html">NBT_List</a>&lt; List &gt;::AddFrontLong </td>
+          <td>(</td>
+          <td class="paramtype">const typename <a class="el" href="classNBT__Type.html#a7f8ae2e6e2f87445d1e72f7e922ba053">NBT_Type::Long</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>vTagVal</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>在列表头部插入 Long 类型数据（拷贝） </p>
+<dl class="tparams"><dt>模板参数</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">bNoCheck</td><td>是否跳过类型检查，作用与NoCheck_T相同</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">vTagVal</td><td>要插入的 Long 类型值 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>如果bNoCheck为false，返回包含迭代器和bool值的pair；否则返回迭代器 </dd></dl>
+<dl class="section note"><dt>注解</dt><dd>通用类型函数AddFront的代理，具体行为参考AddFront函数的说明 </dd></dl>
+
+</div>
+</div>
+<a id="ac55f01d4c13e073e8345318c4d6d4ea8" name="ac55f01d4c13e073e8345318c4d6d4ea8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac55f01d4c13e073e8345318c4d6d4ea8">&#9670;&#160;</a></span>AddFrontLong() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename List&gt; </div>
+<div class="memtemplate">
+template&lt;bool bNoCheck = false&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::conditional_t&lt; bNoCheck, typename List::iterator, std::pair&lt; typename List::iterator, bool &gt; &gt; <a class="el" href="classNBT__List.html">NBT_List</a>&lt; List &gt;::AddFrontLong </td>
+          <td>(</td>
+          <td class="paramtype">typename <a class="el" href="classNBT__Type.html#a7f8ae2e6e2f87445d1e72f7e922ba053">NBT_Type::Long</a> &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>vTagVal</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>在列表头部插入 Long 类型数据（移动） </p>
+<dl class="tparams"><dt>模板参数</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">bNoCheck</td><td>是否跳过类型检查，作用与NoCheck_T相同</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">vTagVal</td><td>要插入的 Long 类型值 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>如果bNoCheck为false，返回包含迭代器和bool值的pair；否则返回迭代器 </dd></dl>
+<dl class="section note"><dt>注解</dt><dd>通用类型函数AddFront的代理，具体行为参考AddFront函数的说明 </dd></dl>
+
+</div>
+</div>
+<a id="a2726475a3dfec27ef2c27d44825c1592" name="a2726475a3dfec27ef2c27d44825c1592"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2726475a3dfec27ef2c27d44825c1592">&#9670;&#160;</a></span>AddFrontLongArray() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename List&gt; </div>
+<div class="memtemplate">
+template&lt;bool bNoCheck = false&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::conditional_t&lt; bNoCheck, typename List::iterator, std::pair&lt; typename List::iterator, bool &gt; &gt; <a class="el" href="classNBT__List.html">NBT_List</a>&lt; List &gt;::AddFrontLongArray </td>
+          <td>(</td>
+          <td class="paramtype">const typename <a class="el" href="classNBT__Type.html#aa2c61028536166272869c3bbc91d3197">NBT_Type::LongArray</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>vTagVal</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>在列表头部插入 LongArray 类型数据（拷贝） </p>
+<dl class="tparams"><dt>模板参数</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">bNoCheck</td><td>是否跳过类型检查，作用与NoCheck_T相同</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">vTagVal</td><td>要插入的 LongArray 类型值 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>如果bNoCheck为false，返回包含迭代器和bool值的pair；否则返回迭代器 </dd></dl>
+<dl class="section note"><dt>注解</dt><dd>通用类型函数AddFront的代理，具体行为参考AddFront函数的说明 </dd></dl>
+
+</div>
+</div>
+<a id="aca7b2002c540e479bd9dd4446030798d" name="aca7b2002c540e479bd9dd4446030798d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aca7b2002c540e479bd9dd4446030798d">&#9670;&#160;</a></span>AddFrontLongArray() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename List&gt; </div>
+<div class="memtemplate">
+template&lt;bool bNoCheck = false&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::conditional_t&lt; bNoCheck, typename List::iterator, std::pair&lt; typename List::iterator, bool &gt; &gt; <a class="el" href="classNBT__List.html">NBT_List</a>&lt; List &gt;::AddFrontLongArray </td>
+          <td>(</td>
+          <td class="paramtype">typename <a class="el" href="classNBT__Type.html#aa2c61028536166272869c3bbc91d3197">NBT_Type::LongArray</a> &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>vTagVal</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>在列表头部插入 LongArray 类型数据（移动） </p>
+<dl class="tparams"><dt>模板参数</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">bNoCheck</td><td>是否跳过类型检查，作用与NoCheck_T相同</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">vTagVal</td><td>要插入的 LongArray 类型值 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>如果bNoCheck为false，返回包含迭代器和bool值的pair；否则返回迭代器 </dd></dl>
+<dl class="section note"><dt>注解</dt><dd>通用类型函数AddFront的代理，具体行为参考AddFront函数的说明 </dd></dl>
+
+</div>
+</div>
+<a id="ad576e7aa0fb373058790fddf341fb036" name="ad576e7aa0fb373058790fddf341fb036"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad576e7aa0fb373058790fddf341fb036">&#9670;&#160;</a></span>AddFrontShort() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename List&gt; </div>
+<div class="memtemplate">
+template&lt;bool bNoCheck = false&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::conditional_t&lt; bNoCheck, typename List::iterator, std::pair&lt; typename List::iterator, bool &gt; &gt; <a class="el" href="classNBT__List.html">NBT_List</a>&lt; List &gt;::AddFrontShort </td>
+          <td>(</td>
+          <td class="paramtype">const typename <a class="el" href="classNBT__Type.html#a3e47d05c36743947da966f4223237262">NBT_Type::Short</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>vTagVal</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>在列表头部插入 Short 类型数据（拷贝） </p>
+<dl class="tparams"><dt>模板参数</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">bNoCheck</td><td>是否跳过类型检查，作用与NoCheck_T相同</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">vTagVal</td><td>要插入的 Short 类型值 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>如果bNoCheck为false，返回包含迭代器和bool值的pair；否则返回迭代器 </dd></dl>
+<dl class="section note"><dt>注解</dt><dd>通用类型函数AddFront的代理，具体行为参考AddFront函数的说明 </dd></dl>
+
+</div>
+</div>
+<a id="adf9c09a2a93d88cb37ddd685a839a623" name="adf9c09a2a93d88cb37ddd685a839a623"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adf9c09a2a93d88cb37ddd685a839a623">&#9670;&#160;</a></span>AddFrontShort() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename List&gt; </div>
+<div class="memtemplate">
+template&lt;bool bNoCheck = false&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::conditional_t&lt; bNoCheck, typename List::iterator, std::pair&lt; typename List::iterator, bool &gt; &gt; <a class="el" href="classNBT__List.html">NBT_List</a>&lt; List &gt;::AddFrontShort </td>
+          <td>(</td>
+          <td class="paramtype">typename <a class="el" href="classNBT__Type.html#a3e47d05c36743947da966f4223237262">NBT_Type::Short</a> &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>vTagVal</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>在列表头部插入 Short 类型数据（移动） </p>
+<dl class="tparams"><dt>模板参数</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">bNoCheck</td><td>是否跳过类型检查，作用与NoCheck_T相同</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">vTagVal</td><td>要插入的 Short 类型值 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>如果bNoCheck为false，返回包含迭代器和bool值的pair；否则返回迭代器 </dd></dl>
+<dl class="section note"><dt>注解</dt><dd>通用类型函数AddFront的代理，具体行为参考AddFront函数的说明 </dd></dl>
+
+</div>
+</div>
+<a id="a94812566be41a9865de994c296763a3f" name="a94812566be41a9865de994c296763a3f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a94812566be41a9865de994c296763a3f">&#9670;&#160;</a></span>AddFrontString() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename List&gt; </div>
+<div class="memtemplate">
+template&lt;bool bNoCheck = false&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::conditional_t&lt; bNoCheck, typename List::iterator, std::pair&lt; typename List::iterator, bool &gt; &gt; <a class="el" href="classNBT__List.html">NBT_List</a>&lt; List &gt;::AddFrontString </td>
+          <td>(</td>
+          <td class="paramtype">const typename <a class="el" href="classNBT__Type.html#a8580dcb2a4494cd9bc52526d43f61865">NBT_Type::String</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>vTagVal</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>在列表头部插入 String 类型数据（拷贝） </p>
+<dl class="tparams"><dt>模板参数</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">bNoCheck</td><td>是否跳过类型检查，作用与NoCheck_T相同</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">vTagVal</td><td>要插入的 String 类型值 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>如果bNoCheck为false，返回包含迭代器和bool值的pair；否则返回迭代器 </dd></dl>
+<dl class="section note"><dt>注解</dt><dd>通用类型函数AddFront的代理，具体行为参考AddFront函数的说明 </dd></dl>
+
+</div>
+</div>
+<a id="a3e8f6be8206b1a19a0d8938064919353" name="a3e8f6be8206b1a19a0d8938064919353"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3e8f6be8206b1a19a0d8938064919353">&#9670;&#160;</a></span>AddFrontString() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename List&gt; </div>
+<div class="memtemplate">
+template&lt;bool bNoCheck = false&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::conditional_t&lt; bNoCheck, typename List::iterator, std::pair&lt; typename List::iterator, bool &gt; &gt; <a class="el" href="classNBT__List.html">NBT_List</a>&lt; List &gt;::AddFrontString </td>
+          <td>(</td>
+          <td class="paramtype">typename <a class="el" href="classNBT__Type.html#a8580dcb2a4494cd9bc52526d43f61865">NBT_Type::String</a> &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>vTagVal</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>在列表头部插入 String 类型数据（移动） </p>
+<dl class="tparams"><dt>模板参数</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">bNoCheck</td><td>是否跳过类型检查，作用与NoCheck_T相同</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">vTagVal</td><td>要插入的 String 类型值 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>如果bNoCheck为false，返回包含迭代器和bool值的pair；否则返回迭代器 </dd></dl>
+<dl class="section note"><dt>注解</dt><dd>通用类型函数AddFront的代理，具体行为参考AddFront函数的说明 </dd></dl>
+
+</div>
+</div>
 <a id="ae7373d98040308c69326a8672df9ec8b" name="ae7373d98040308c69326a8672df9ec8b"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ae7373d98040308c69326a8672df9ec8b">&#9670;&#160;</a></span>AddInt() <span class="overload">[1/2]</span></h2>
 
@@ -4668,6 +6020,812 @@ template&lt;typename List&gt; </div>
 <p>获取列表开头的元素 </p>
 <dl class="section return"><dt>返回</dt><dd>开头的元素的引用 </dd></dl>
 <dl class="section note"><dt>注解</dt><dd>如果当前列表为空，行为未定义，请参考std::vector对于front的描述 </dd></dl>
+
+</div>
+</div>
+<a id="a42997c41c8530a37777406a2d1a3b2aa" name="a42997c41c8530a37777406a2d1a3b2aa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a42997c41c8530a37777406a2d1a3b2aa">&#9670;&#160;</a></span>FrontByte() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename List&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classNBT__Type.html#a09b5ce48dffc429ad8a7d05d007741c1">NBT_Type::Byte</a> &amp; <a class="el" href="classNBT__List.html">NBT_List</a>&lt; List &gt;::FrontByte </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>获取列表第一个 Byte 类型数据 </p>
+<dl class="section return"><dt>返回</dt><dd>Byte 类型数据的引用 </dd></dl>
+<dl class="section note"><dt>注解</dt><dd>如果列表为空或类型不匹配则抛出异常， 具体请参考std::vector关于front的说明与std::get的说明 </dd></dl>
+
+</div>
+</div>
+<a id="ab5d0c57d7a9e30dd4fdc008c5a73b9d4" name="ab5d0c57d7a9e30dd4fdc008c5a73b9d4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab5d0c57d7a9e30dd4fdc008c5a73b9d4">&#9670;&#160;</a></span>FrontByte() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename List&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="classNBT__Type.html#a09b5ce48dffc429ad8a7d05d007741c1">NBT_Type::Byte</a> &amp; <a class="el" href="classNBT__List.html">NBT_List</a>&lt; List &gt;::FrontByte </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>获取列表第一个 Byte 类型数据 </p>
+<dl class="section return"><dt>返回</dt><dd>Byte 类型数据的常量引用 </dd></dl>
+<dl class="section note"><dt>注解</dt><dd>如果列表为空或类型不匹配则抛出异常， 具体请参考std::vector关于front的说明与std::get的说明 </dd></dl>
+
+</div>
+</div>
+<a id="ae9ae8598dd714f21cb246eff6a3bde23" name="ae9ae8598dd714f21cb246eff6a3bde23"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae9ae8598dd714f21cb246eff6a3bde23">&#9670;&#160;</a></span>FrontByteArray() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename List&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classNBT__Type.html#a953bc9e67e1b5d82c0786b5992f00ed8">NBT_Type::ByteArray</a> &amp; <a class="el" href="classNBT__List.html">NBT_List</a>&lt; List &gt;::FrontByteArray </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>获取列表第一个 ByteArray 类型数据 </p>
+<dl class="section return"><dt>返回</dt><dd>ByteArray 类型数据的引用 </dd></dl>
+<dl class="section note"><dt>注解</dt><dd>如果列表为空或类型不匹配则抛出异常， 具体请参考std::vector关于front的说明与std::get的说明 </dd></dl>
+
+</div>
+</div>
+<a id="a6c3a0bc37533c7962ab34ae01c696b7d" name="a6c3a0bc37533c7962ab34ae01c696b7d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6c3a0bc37533c7962ab34ae01c696b7d">&#9670;&#160;</a></span>FrontByteArray() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename List&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="classNBT__Type.html#a953bc9e67e1b5d82c0786b5992f00ed8">NBT_Type::ByteArray</a> &amp; <a class="el" href="classNBT__List.html">NBT_List</a>&lt; List &gt;::FrontByteArray </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>获取列表第一个 ByteArray 类型数据 </p>
+<dl class="section return"><dt>返回</dt><dd>ByteArray 类型数据的常量引用 </dd></dl>
+<dl class="section note"><dt>注解</dt><dd>如果列表为空或类型不匹配则抛出异常， 具体请参考std::vector关于front的说明与std::get的说明 </dd></dl>
+
+</div>
+</div>
+<a id="ae13f10a6eeabb8700de84cd8d3df3b99" name="ae13f10a6eeabb8700de84cd8d3df3b99"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae13f10a6eeabb8700de84cd8d3df3b99">&#9670;&#160;</a></span>FrontCompound() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename List&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classNBT__Type.html#a9dcd5050b96a10161f18d7ae4a22e7b3">NBT_Type::Compound</a> &amp; <a class="el" href="classNBT__List.html">NBT_List</a>&lt; List &gt;::FrontCompound </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>获取列表第一个 Compound 类型数据 </p>
+<dl class="section return"><dt>返回</dt><dd>Compound 类型数据的引用 </dd></dl>
+<dl class="section note"><dt>注解</dt><dd>如果列表为空或类型不匹配则抛出异常， 具体请参考std::vector关于front的说明与std::get的说明 </dd></dl>
+
+</div>
+</div>
+<a id="a025ab42547a78b0493667afc8c86bc73" name="a025ab42547a78b0493667afc8c86bc73"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a025ab42547a78b0493667afc8c86bc73">&#9670;&#160;</a></span>FrontCompound() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename List&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="classNBT__Type.html#a9dcd5050b96a10161f18d7ae4a22e7b3">NBT_Type::Compound</a> &amp; <a class="el" href="classNBT__List.html">NBT_List</a>&lt; List &gt;::FrontCompound </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>获取列表第一个 Compound 类型数据 </p>
+<dl class="section return"><dt>返回</dt><dd>Compound 类型数据的常量引用 </dd></dl>
+<dl class="section note"><dt>注解</dt><dd>如果列表为空或类型不匹配则抛出异常， 具体请参考std::vector关于front的说明与std::get的说明 </dd></dl>
+
+</div>
+</div>
+<a id="a10b1c68fb2c9a71a8aa0649110f595ba" name="a10b1c68fb2c9a71a8aa0649110f595ba"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a10b1c68fb2c9a71a8aa0649110f595ba">&#9670;&#160;</a></span>FrontDouble() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename List&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classNBT__Type.html#aaea549797088fb63987679367bc9d39a">NBT_Type::Double</a> &amp; <a class="el" href="classNBT__List.html">NBT_List</a>&lt; List &gt;::FrontDouble </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>获取列表第一个 Double 类型数据 </p>
+<dl class="section return"><dt>返回</dt><dd>Double 类型数据的引用 </dd></dl>
+<dl class="section note"><dt>注解</dt><dd>如果列表为空或类型不匹配则抛出异常， 具体请参考std::vector关于front的说明与std::get的说明 </dd></dl>
+
+</div>
+</div>
+<a id="a53c4584fbaf427c862a2bd8709797df2" name="a53c4584fbaf427c862a2bd8709797df2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a53c4584fbaf427c862a2bd8709797df2">&#9670;&#160;</a></span>FrontDouble() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename List&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="classNBT__Type.html#aaea549797088fb63987679367bc9d39a">NBT_Type::Double</a> &amp; <a class="el" href="classNBT__List.html">NBT_List</a>&lt; List &gt;::FrontDouble </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>获取列表第一个 Double 类型数据 </p>
+<dl class="section return"><dt>返回</dt><dd>Double 类型数据的常量引用 </dd></dl>
+<dl class="section note"><dt>注解</dt><dd>如果列表为空或类型不匹配则抛出异常， 具体请参考std::vector关于front的说明与std::get的说明 </dd></dl>
+
+</div>
+</div>
+<a id="a80508b785fb2702300a153e56772e374" name="a80508b785fb2702300a153e56772e374"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a80508b785fb2702300a153e56772e374">&#9670;&#160;</a></span>FrontEnd() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename List&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classNBT__Type.html#a16ac41e6cfe61a603407221527b6b16c">NBT_Type::End</a> &amp; <a class="el" href="classNBT__List.html">NBT_List</a>&lt; List &gt;::FrontEnd </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>获取列表第一个 End 类型数据 </p>
+<dl class="section return"><dt>返回</dt><dd>End 类型数据的引用 </dd></dl>
+<dl class="section note"><dt>注解</dt><dd>如果列表为空或类型不匹配则抛出异常， 具体请参考std::vector关于front的说明与std::get的说明 </dd></dl>
+
+</div>
+</div>
+<a id="a3b2c6ffc6a3a7929cf6d592779e9ab6e" name="a3b2c6ffc6a3a7929cf6d592779e9ab6e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3b2c6ffc6a3a7929cf6d592779e9ab6e">&#9670;&#160;</a></span>FrontEnd() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename List&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="classNBT__Type.html#a16ac41e6cfe61a603407221527b6b16c">NBT_Type::End</a> &amp; <a class="el" href="classNBT__List.html">NBT_List</a>&lt; List &gt;::FrontEnd </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>获取列表第一个 End 类型数据 </p>
+<dl class="section return"><dt>返回</dt><dd>End 类型数据的常量引用 </dd></dl>
+<dl class="section note"><dt>注解</dt><dd>如果列表为空或类型不匹配则抛出异常， 具体请参考std::vector关于front的说明与std::get的说明 </dd></dl>
+
+</div>
+</div>
+<a id="a279536fa8442390f61773802ca9e3c33" name="a279536fa8442390f61773802ca9e3c33"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a279536fa8442390f61773802ca9e3c33">&#9670;&#160;</a></span>FrontFloat() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename List&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classNBT__Type.html#a8a7ac779b8e8a7fdccb3456844abe5cf">NBT_Type::Float</a> &amp; <a class="el" href="classNBT__List.html">NBT_List</a>&lt; List &gt;::FrontFloat </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>获取列表第一个 Float 类型数据 </p>
+<dl class="section return"><dt>返回</dt><dd>Float 类型数据的引用 </dd></dl>
+<dl class="section note"><dt>注解</dt><dd>如果列表为空或类型不匹配则抛出异常， 具体请参考std::vector关于front的说明与std::get的说明 </dd></dl>
+
+</div>
+</div>
+<a id="a78ef7b5ea688936da07a76f8f70f3e95" name="a78ef7b5ea688936da07a76f8f70f3e95"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a78ef7b5ea688936da07a76f8f70f3e95">&#9670;&#160;</a></span>FrontFloat() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename List&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="classNBT__Type.html#a8a7ac779b8e8a7fdccb3456844abe5cf">NBT_Type::Float</a> &amp; <a class="el" href="classNBT__List.html">NBT_List</a>&lt; List &gt;::FrontFloat </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>获取列表第一个 Float 类型数据 </p>
+<dl class="section return"><dt>返回</dt><dd>Float 类型数据的常量引用 </dd></dl>
+<dl class="section note"><dt>注解</dt><dd>如果列表为空或类型不匹配则抛出异常， 具体请参考std::vector关于front的说明与std::get的说明 </dd></dl>
+
+</div>
+</div>
+<a id="a3ced3d12eacd744ccee23aa12f85c28d" name="a3ced3d12eacd744ccee23aa12f85c28d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3ced3d12eacd744ccee23aa12f85c28d">&#9670;&#160;</a></span>FrontInt() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename List&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classNBT__Type.html#afee0233d7f58b90cc9ce2b903da2da22">NBT_Type::Int</a> &amp; <a class="el" href="classNBT__List.html">NBT_List</a>&lt; List &gt;::FrontInt </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>获取列表第一个 Int 类型数据 </p>
+<dl class="section return"><dt>返回</dt><dd>Int 类型数据的引用 </dd></dl>
+<dl class="section note"><dt>注解</dt><dd>如果列表为空或类型不匹配则抛出异常， 具体请参考std::vector关于front的说明与std::get的说明 </dd></dl>
+
+</div>
+</div>
+<a id="a7e67e5cd91784e348a57038eb365b1ad" name="a7e67e5cd91784e348a57038eb365b1ad"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7e67e5cd91784e348a57038eb365b1ad">&#9670;&#160;</a></span>FrontInt() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename List&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="classNBT__Type.html#afee0233d7f58b90cc9ce2b903da2da22">NBT_Type::Int</a> &amp; <a class="el" href="classNBT__List.html">NBT_List</a>&lt; List &gt;::FrontInt </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>获取列表第一个 Int 类型数据 </p>
+<dl class="section return"><dt>返回</dt><dd>Int 类型数据的常量引用 </dd></dl>
+<dl class="section note"><dt>注解</dt><dd>如果列表为空或类型不匹配则抛出异常， 具体请参考std::vector关于front的说明与std::get的说明 </dd></dl>
+
+</div>
+</div>
+<a id="ae657d5365d88c1adad6576a3a17e875a" name="ae657d5365d88c1adad6576a3a17e875a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae657d5365d88c1adad6576a3a17e875a">&#9670;&#160;</a></span>FrontIntArray() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename List&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classNBT__Type.html#a9c4ad0b2bcd4b5cafb0c9a3f083f9406">NBT_Type::IntArray</a> &amp; <a class="el" href="classNBT__List.html">NBT_List</a>&lt; List &gt;::FrontIntArray </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>获取列表第一个 IntArray 类型数据 </p>
+<dl class="section return"><dt>返回</dt><dd>IntArray 类型数据的引用 </dd></dl>
+<dl class="section note"><dt>注解</dt><dd>如果列表为空或类型不匹配则抛出异常， 具体请参考std::vector关于front的说明与std::get的说明 </dd></dl>
+
+</div>
+</div>
+<a id="a513f1685f2807c31062248ca20d3bab8" name="a513f1685f2807c31062248ca20d3bab8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a513f1685f2807c31062248ca20d3bab8">&#9670;&#160;</a></span>FrontIntArray() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename List&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="classNBT__Type.html#a9c4ad0b2bcd4b5cafb0c9a3f083f9406">NBT_Type::IntArray</a> &amp; <a class="el" href="classNBT__List.html">NBT_List</a>&lt; List &gt;::FrontIntArray </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>获取列表第一个 IntArray 类型数据 </p>
+<dl class="section return"><dt>返回</dt><dd>IntArray 类型数据的常量引用 </dd></dl>
+<dl class="section note"><dt>注解</dt><dd>如果列表为空或类型不匹配则抛出异常， 具体请参考std::vector关于front的说明与std::get的说明 </dd></dl>
+
+</div>
+</div>
+<a id="a601850a5e99fb85915db0f687f813668" name="a601850a5e99fb85915db0f687f813668"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a601850a5e99fb85915db0f687f813668">&#9670;&#160;</a></span>FrontList() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename List&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classNBT__Type.html#a87b4d71087e5c0ab1111a4999dace42f">NBT_Type::List</a> &amp; <a class="el" href="classNBT__List.html">NBT_List</a>&lt; List &gt;::FrontList </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>获取列表第一个 List 类型数据 </p>
+<dl class="section return"><dt>返回</dt><dd>List 类型数据的引用 </dd></dl>
+<dl class="section note"><dt>注解</dt><dd>如果列表为空或类型不匹配则抛出异常， 具体请参考std::vector关于front的说明与std::get的说明 </dd></dl>
+
+</div>
+</div>
+<a id="a8ee5eceed2bd5f49541efc91c1c21bf3" name="a8ee5eceed2bd5f49541efc91c1c21bf3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8ee5eceed2bd5f49541efc91c1c21bf3">&#9670;&#160;</a></span>FrontList() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename List&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="classNBT__Type.html#a87b4d71087e5c0ab1111a4999dace42f">NBT_Type::List</a> &amp; <a class="el" href="classNBT__List.html">NBT_List</a>&lt; List &gt;::FrontList </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>获取列表第一个 List 类型数据 </p>
+<dl class="section return"><dt>返回</dt><dd>List 类型数据的常量引用 </dd></dl>
+<dl class="section note"><dt>注解</dt><dd>如果列表为空或类型不匹配则抛出异常， 具体请参考std::vector关于front的说明与std::get的说明 </dd></dl>
+
+</div>
+</div>
+<a id="ac68d606bb44101413218c4c2093cbfa1" name="ac68d606bb44101413218c4c2093cbfa1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac68d606bb44101413218c4c2093cbfa1">&#9670;&#160;</a></span>FrontLong() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename List&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classNBT__Type.html#a7f8ae2e6e2f87445d1e72f7e922ba053">NBT_Type::Long</a> &amp; <a class="el" href="classNBT__List.html">NBT_List</a>&lt; List &gt;::FrontLong </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>获取列表第一个 Long 类型数据 </p>
+<dl class="section return"><dt>返回</dt><dd>Long 类型数据的引用 </dd></dl>
+<dl class="section note"><dt>注解</dt><dd>如果列表为空或类型不匹配则抛出异常， 具体请参考std::vector关于front的说明与std::get的说明 </dd></dl>
+
+</div>
+</div>
+<a id="a24811a2f88874bfbd6de17bd6f584937" name="a24811a2f88874bfbd6de17bd6f584937"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a24811a2f88874bfbd6de17bd6f584937">&#9670;&#160;</a></span>FrontLong() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename List&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="classNBT__Type.html#a7f8ae2e6e2f87445d1e72f7e922ba053">NBT_Type::Long</a> &amp; <a class="el" href="classNBT__List.html">NBT_List</a>&lt; List &gt;::FrontLong </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>获取列表第一个 Long 类型数据 </p>
+<dl class="section return"><dt>返回</dt><dd>Long 类型数据的常量引用 </dd></dl>
+<dl class="section note"><dt>注解</dt><dd>如果列表为空或类型不匹配则抛出异常， 具体请参考std::vector关于front的说明与std::get的说明 </dd></dl>
+
+</div>
+</div>
+<a id="a639720276cd5188385f5c007cced97b0" name="a639720276cd5188385f5c007cced97b0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a639720276cd5188385f5c007cced97b0">&#9670;&#160;</a></span>FrontLongArray() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename List&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classNBT__Type.html#aa2c61028536166272869c3bbc91d3197">NBT_Type::LongArray</a> &amp; <a class="el" href="classNBT__List.html">NBT_List</a>&lt; List &gt;::FrontLongArray </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>获取列表第一个 LongArray 类型数据 </p>
+<dl class="section return"><dt>返回</dt><dd>LongArray 类型数据的引用 </dd></dl>
+<dl class="section note"><dt>注解</dt><dd>如果列表为空或类型不匹配则抛出异常， 具体请参考std::vector关于front的说明与std::get的说明 </dd></dl>
+
+</div>
+</div>
+<a id="adcf1a6b30ba3d7c65bc4284ba58494f1" name="adcf1a6b30ba3d7c65bc4284ba58494f1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adcf1a6b30ba3d7c65bc4284ba58494f1">&#9670;&#160;</a></span>FrontLongArray() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename List&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="classNBT__Type.html#aa2c61028536166272869c3bbc91d3197">NBT_Type::LongArray</a> &amp; <a class="el" href="classNBT__List.html">NBT_List</a>&lt; List &gt;::FrontLongArray </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>获取列表第一个 LongArray 类型数据 </p>
+<dl class="section return"><dt>返回</dt><dd>LongArray 类型数据的常量引用 </dd></dl>
+<dl class="section note"><dt>注解</dt><dd>如果列表为空或类型不匹配则抛出异常， 具体请参考std::vector关于front的说明与std::get的说明 </dd></dl>
+
+</div>
+</div>
+<a id="a372700f778f2515d09bf92d386ae0eea" name="a372700f778f2515d09bf92d386ae0eea"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a372700f778f2515d09bf92d386ae0eea">&#9670;&#160;</a></span>FrontShort() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename List&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classNBT__Type.html#a3e47d05c36743947da966f4223237262">NBT_Type::Short</a> &amp; <a class="el" href="classNBT__List.html">NBT_List</a>&lt; List &gt;::FrontShort </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>获取列表第一个 Short 类型数据 </p>
+<dl class="section return"><dt>返回</dt><dd>Short 类型数据的引用 </dd></dl>
+<dl class="section note"><dt>注解</dt><dd>如果列表为空或类型不匹配则抛出异常， 具体请参考std::vector关于front的说明与std::get的说明 </dd></dl>
+
+</div>
+</div>
+<a id="a2f44a296b497922e210e4330df802444" name="a2f44a296b497922e210e4330df802444"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2f44a296b497922e210e4330df802444">&#9670;&#160;</a></span>FrontShort() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename List&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="classNBT__Type.html#a3e47d05c36743947da966f4223237262">NBT_Type::Short</a> &amp; <a class="el" href="classNBT__List.html">NBT_List</a>&lt; List &gt;::FrontShort </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>获取列表第一个 Short 类型数据 </p>
+<dl class="section return"><dt>返回</dt><dd>Short 类型数据的常量引用 </dd></dl>
+<dl class="section note"><dt>注解</dt><dd>如果列表为空或类型不匹配则抛出异常， 具体请参考std::vector关于front的说明与std::get的说明 </dd></dl>
+
+</div>
+</div>
+<a id="ada5c71f83095374e718e576a7324048e" name="ada5c71f83095374e718e576a7324048e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ada5c71f83095374e718e576a7324048e">&#9670;&#160;</a></span>FrontString() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename List&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classNBT__Type.html#a8580dcb2a4494cd9bc52526d43f61865">NBT_Type::String</a> &amp; <a class="el" href="classNBT__List.html">NBT_List</a>&lt; List &gt;::FrontString </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>获取列表第一个 String 类型数据 </p>
+<dl class="section return"><dt>返回</dt><dd>String 类型数据的引用 </dd></dl>
+<dl class="section note"><dt>注解</dt><dd>如果列表为空或类型不匹配则抛出异常， 具体请参考std::vector关于front的说明与std::get的说明 </dd></dl>
+
+</div>
+</div>
+<a id="aa88006d80991ab9ec7998f0f2d25eb25" name="aa88006d80991ab9ec7998f0f2d25eb25"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa88006d80991ab9ec7998f0f2d25eb25">&#9670;&#160;</a></span>FrontString() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename List&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="classNBT__Type.html#a8580dcb2a4494cd9bc52526d43f61865">NBT_Type::String</a> &amp; <a class="el" href="classNBT__List.html">NBT_List</a>&lt; List &gt;::FrontString </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>获取列表第一个 String 类型数据 </p>
+<dl class="section return"><dt>返回</dt><dd>String 类型数据的常量引用 </dd></dl>
+<dl class="section note"><dt>注解</dt><dd>如果列表为空或类型不匹配则抛出异常， 具体请参考std::vector关于front的说明与std::get的说明 </dd></dl>
 
 </div>
 </div>
