@@ -55,6 +55,9 @@ public:
 	/// @brief 使用基类赋值
 	using StringView::operator=;
 
+	/// @brief 使用基类下标
+	using StringView::operator[];
+
 	/// @brief 提供从父类拷贝构造此类的途径
 	/// @param _Copy 需要拷贝构造的对象
 	constexpr NBT_StringView(const StringView &_Copy) :StringView(_Copy)
@@ -146,6 +149,9 @@ public:
 
 	/// @brief 使用基类赋值
 	using String::operator=;
+
+	/// @brief 使用基类下标
+	using String::operator[];
 
 	/// @brief 通过c风格字符串或字符数组初始化
 	/// @param ltrStr 数组的引用
