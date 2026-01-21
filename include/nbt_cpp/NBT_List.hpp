@@ -283,7 +283,7 @@ public:
 	/// @note 在bNoCheck为false的情况下，当且仅当list为空函数才能成功，否则修改失败，
 	/// 如果bNoCheck为true则必然成功，所以函数返回void，则用于强制修改列表元素类型
 	template <bool bNoCheck = false>
-	std::conditional_t<bNoCheck, void, bool> SetTag(NBT_TAG tagNewValue)
+	std::conditional_t<bNoCheck, void, bool> SetTag(NBT_TAG tagNewValue) noexcept
 	{
 		if (!bNoCheck)
 		{
@@ -303,7 +303,7 @@ public:
 
 	/// @brief 获取列表存储的元素类型
 	/// @return 当前列表存储的元素类型
-	NBT_TAG GetTag(void)
+	NBT_TAG GetTag(void) const noexcept
 	{
 		return enElementTag;
 	}
