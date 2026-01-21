@@ -16,7 +16,7 @@ var searchData=
   ['setlongarray_13',['SetLongArray',['../classNBT__List.html#ac00114875cb9e475f8115f86c0ce1e6e',1,'NBT_List::SetLongArray(size_t szPos, const typename NBT_Type::LongArray &amp;vTagVal)'],['../classNBT__List.html#a01866555ed433df3e6f2ba0fbc11cce1',1,'NBT_List::SetLongArray(size_t szPos, typename NBT_Type::LongArray &amp;&amp;vTagVal)']]],
   ['setshort_14',['SetShort',['../classNBT__List.html#ab168d3ecc4365e69d977ec2918ef9c24',1,'NBT_List::SetShort(size_t szPos, const typename NBT_Type::Short &amp;vTagVal)'],['../classNBT__List.html#a4d93cacb64cc5deca37966986307eb2a',1,'NBT_List::SetShort(size_t szPos, typename NBT_Type::Short &amp;&amp;vTagVal)']]],
   ['setstring_15',['SetString',['../classNBT__List.html#a1e0413a1dfbd45c6eb9a1e9ac495a970',1,'NBT_List::SetString(size_t szPos, const typename NBT_Type::String &amp;vTagVal)'],['../classNBT__List.html#a0e47127c0714c1154d1eed9eb7f2e5aa',1,'NBT_List::SetString(size_t szPos, typename NBT_Type::String &amp;&amp;vTagVal)']]],
-  ['settag_16',['SetTag',['../classNBT__List.html#ab5123fa432cd153039e9b0fdf5374134',1,'NBT_List']]],
+  ['settag_16',['SetTag',['../classNBT__List.html#a00a65dd7575931753fc8a88b8dff34ad',1,'NBT_List']]],
   ['short_17',['Short',['../classNBT__Type.html#a3e47d05c36743947da966f4223237262',1,'NBT_Type::Short'],['../NBT__TAG_8hpp.html#ada3a2766daa185b5461d684c766b4a2ea30bb747c98bccdd11b3f89e644c4d0ad',1,'Short:&#160;NBT_TAG.hpp']]],
   ['short_5fmax_18',['Short_Max',['../classNBT__Type.html#ad1a7dd51afa76e4edae90cba103cae15',1,'NBT_Type']]],
   ['short_5fmin_19',['Short_Min',['../classNBT__Type.html#a2ab0fcd64529b22fe3f67f3e6ec2997f',1,'NBT_Type']]],

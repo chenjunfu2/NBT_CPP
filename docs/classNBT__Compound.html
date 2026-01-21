@@ -133,8 +133,8 @@ Public 成员函数</h2></td></tr>
 <tr class="memdesc:a14298a425fd7d608cb5dfdc7af8f7964"><td class="mdescLeft">&#160;</td><td class="mdescRight">不等比较运算符  <br /></td></tr>
 <tr class="memitem:a0fa486d01bcc56c5688fa1ec04b80088" id="r_a0fa486d01bcc56c5688fa1ec04b80088"><td class="memItemLeft" align="right" valign="top">std::partial_ordering&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0fa486d01bcc56c5688fa1ec04b80088">operator&lt;=&gt;</a> (const <a class="el" href="classNBT__Compound.html">NBT_Compound</a> &amp;_Right) const noexcept</td></tr>
 <tr class="memdesc:a0fa486d01bcc56c5688fa1ec04b80088"><td class="mdescLeft">&#160;</td><td class="mdescRight">三路比较运算符  <br /></td></tr>
-<tr class="memitem:a3d5ecf8fcdc474f3daef41aeb131ccef" id="r_a3d5ecf8fcdc474f3daef41aeb131ccef"><td class="memItemLeft" align="right" valign="top">Compound::mapped_type &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3d5ecf8fcdc474f3daef41aeb131ccef">Get</a> (const typename Compound::key_type &amp;sTagName)</td></tr>
-<tr class="memdesc:a3d5ecf8fcdc474f3daef41aeb131ccef"><td class="mdescLeft">&#160;</td><td class="mdescRight">根据标签名获取对应的NBT值  <br /></td></tr>
+<tr class="memitem:a9af8af0c4cbc7df9702ba7272e42915c" id="r_a9af8af0c4cbc7df9702ba7272e42915c"><td class="memItemLeft" align="right" valign="top">Compound::mapped_type &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9af8af0c4cbc7df9702ba7272e42915c">Get</a> (const typename Compound::key_type &amp;sTagName) const</td></tr>
+<tr class="memdesc:a9af8af0c4cbc7df9702ba7272e42915c"><td class="mdescLeft">&#160;</td><td class="mdescRight">根据标签名获取对应的NBT值  <br /></td></tr>
 <tr class="memitem:a6b1029565d717d63724dccb698721703" id="r_a6b1029565d717d63724dccb698721703"><td class="memItemLeft" align="right" valign="top">const Compound::mapped_type &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6b1029565d717d63724dccb698721703">Get</a> (const typename Compound::key_type &amp;sTagName) const</td></tr>
 <tr class="memdesc:a6b1029565d717d63724dccb698721703"><td class="mdescLeft">&#160;</td><td class="mdescRight">根据标签名获取对应的NBT值（常量版本）  <br /></td></tr>
 <tr class="memitem:a2ffbc581fe62f8bf210e9da27feba380" id="r_a2ffbc581fe62f8bf210e9da27feba380"><td class="memItemLeft" align="right" valign="top">Compound::mapped_type *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2ffbc581fe62f8bf210e9da27feba380">Search</a> (const typename Compound::key_type &amp;sTagName) noexcept</td></tr>
@@ -744,45 +744,8 @@ template&lt;typename Compound&gt; </div>
 
 </div>
 </div>
-<a id="a3d5ecf8fcdc474f3daef41aeb131ccef" name="a3d5ecf8fcdc474f3daef41aeb131ccef"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3d5ecf8fcdc474f3daef41aeb131ccef">&#9670;&#160;</a></span>Get() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename Compound&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">Compound::mapped_type &amp; <a class="el" href="classNBT__Compound.html">NBT_Compound</a>&lt; Compound &gt;::Get </td>
-          <td>(</td>
-          <td class="paramtype">const typename Compound::key_type &amp;</td>          <td class="paramname"><span class="paramname"><em>sTagName</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>根据标签名获取对应的NBT值 </p>
-<dl class="params"><dt>参数</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">sTagName</td><td>要查找的标签名 </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>返回</dt><dd>标签名对应的值的引用 </dd></dl>
-<dl class="section note"><dt>注解</dt><dd>如果标签不存在则抛出异常，具体请参考std::unordered_map关于at的说明 </dd></dl>
-
-</div>
-</div>
 <a id="a6b1029565d717d63724dccb698721703" name="a6b1029565d717d63724dccb698721703"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6b1029565d717d63724dccb698721703">&#9670;&#160;</a></span>Get() <span class="overload">[2/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a6b1029565d717d63724dccb698721703">&#9670;&#160;</a></span>Get() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -814,6 +777,43 @@ template&lt;typename Compound&gt; </div>
   </dd>
 </dl>
 <dl class="section return"><dt>返回</dt><dd>标签名对应的值的常量引用 </dd></dl>
+<dl class="section note"><dt>注解</dt><dd>如果标签不存在则抛出异常，具体请参考std::unordered_map关于at的说明 </dd></dl>
+
+</div>
+</div>
+<a id="a9af8af0c4cbc7df9702ba7272e42915c" name="a9af8af0c4cbc7df9702ba7272e42915c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9af8af0c4cbc7df9702ba7272e42915c">&#9670;&#160;</a></span>Get() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Compound&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Compound::mapped_type &amp; <a class="el" href="classNBT__Compound.html">NBT_Compound</a>&lt; Compound &gt;::Get </td>
+          <td>(</td>
+          <td class="paramtype">const typename Compound::key_type &amp;</td>          <td class="paramname"><span class="paramname"><em>sTagName</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>根据标签名获取对应的NBT值 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sTagName</td><td>要查找的标签名 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>标签名对应的值的引用 </dd></dl>
 <dl class="section note"><dt>注解</dt><dd>如果标签不存在则抛出异常，具体请参考std::unordered_map关于at的说明 </dd></dl>
 
 </div>

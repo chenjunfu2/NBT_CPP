@@ -153,17 +153,17 @@ Public 成员函数</h2></td></tr>
 <tr class="memdesc:acf5a296aea4f101b24807d7a351f3474"><td class="mdescLeft">&#160;</td><td class="mdescRight">不等比较运算符  <br /></td></tr>
 <tr class="memitem:a6a52ad85258d584cbdf392ddf039d177" id="r_a6a52ad85258d584cbdf392ddf039d177"><td class="memItemLeft" align="right" valign="top">std::partial_ordering&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6a52ad85258d584cbdf392ddf039d177">operator&lt;=&gt;</a> (const <a class="el" href="classNBT__List.html">NBT_List</a> &amp;_Right) const noexcept</td></tr>
 <tr class="memdesc:a6a52ad85258d584cbdf392ddf039d177"><td class="mdescLeft">&#160;</td><td class="mdescRight">三路比较运算符  <br /></td></tr>
-<tr class="memitem:ab5123fa432cd153039e9b0fdf5374134" id="r_ab5123fa432cd153039e9b0fdf5374134"><td class="memTemplParams" colspan="2">template&lt;bool bNoCheck = false&gt; </td></tr>
-<tr class="memitem:ab5123fa432cd153039e9b0fdf5374134 template"><td class="memItemLeft" align="right" valign="top">std::conditional_t&lt; bNoCheck, void, bool &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab5123fa432cd153039e9b0fdf5374134">SetTag</a> (<a class="el" href="NBT__TAG_8hpp.html#ada3a2766daa185b5461d684c766b4a2e">NBT_TAG</a> tagNewValue)</td></tr>
-<tr class="memdesc:ab5123fa432cd153039e9b0fdf5374134"><td class="mdescLeft">&#160;</td><td class="mdescRight">设置列表元素类型  <br /></td></tr>
-<tr class="memitem:a30655a399d44d7d1871ae633380def29" id="r_a30655a399d44d7d1871ae633380def29"><td class="memItemLeft" align="right" valign="top"><a class="el" href="NBT__TAG_8hpp.html#ada3a2766daa185b5461d684c766b4a2e">NBT_TAG</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a30655a399d44d7d1871ae633380def29">GetTag</a> (void)</td></tr>
-<tr class="memdesc:a30655a399d44d7d1871ae633380def29"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取列表存储的元素类型  <br /></td></tr>
+<tr class="memitem:a00a65dd7575931753fc8a88b8dff34ad" id="r_a00a65dd7575931753fc8a88b8dff34ad"><td class="memTemplParams" colspan="2">template&lt;bool bNoCheck = false&gt; </td></tr>
+<tr class="memitem:a00a65dd7575931753fc8a88b8dff34ad template"><td class="memItemLeft" align="right" valign="top">std::conditional_t&lt; bNoCheck, void, bool &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a00a65dd7575931753fc8a88b8dff34ad">SetTag</a> (<a class="el" href="NBT__TAG_8hpp.html#ada3a2766daa185b5461d684c766b4a2e">NBT_TAG</a> tagNewValue) noexcept</td></tr>
+<tr class="memdesc:a00a65dd7575931753fc8a88b8dff34ad"><td class="mdescLeft">&#160;</td><td class="mdescRight">设置列表元素类型  <br /></td></tr>
+<tr class="memitem:af281716463eaf9a843a8b2ec4932747b" id="r_af281716463eaf9a843a8b2ec4932747b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="NBT__TAG_8hpp.html#ada3a2766daa185b5461d684c766b4a2e">NBT_TAG</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af281716463eaf9a843a8b2ec4932747b">GetTag</a> (void) const noexcept</td></tr>
+<tr class="memdesc:af281716463eaf9a843a8b2ec4932747b"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取列表存储的元素类型  <br /></td></tr>
 <tr id="pub-methods-0" class="groupHeader"><td colspan="2"><div class="groupHeader">查询接口</div></td></tr>
 <tr><td colspan="2" class="ititle"><div class="groupText"><p>提供一组接口用于对list不同元素的访问</p>
 <dl class="section note"><dt>注解</dt><dd>请不要使用这些API修改list内部对象的类型（注意是类型而非值）， 这些接口无法简单的进行封装并检查用户对类型的操作 </dd></dl>
 </div></td></tr>
-<tr class="memitem:a3501ef3c21061818d95ad6e95d367bb7" id="r_a3501ef3c21061818d95ad6e95d367bb7"><td class="memItemLeft" align="right" valign="top">List::value_type &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3501ef3c21061818d95ad6e95d367bb7">Get</a> (const typename List::size_type &amp;szPos)</td></tr>
-<tr class="memdesc:a3501ef3c21061818d95ad6e95d367bb7"><td class="mdescLeft">&#160;</td><td class="mdescRight">根据位置获取值  <br /></td></tr>
+<tr class="memitem:a4f3d54ad615b8c5d77d78611e23f158a" id="r_a4f3d54ad615b8c5d77d78611e23f158a"><td class="memItemLeft" align="right" valign="top">List::value_type &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4f3d54ad615b8c5d77d78611e23f158a">Get</a> (const typename List::size_type &amp;szPos) const</td></tr>
+<tr class="memdesc:a4f3d54ad615b8c5d77d78611e23f158a"><td class="mdescLeft">&#160;</td><td class="mdescRight">根据位置获取值  <br /></td></tr>
 <tr class="memitem:aeb7ec88c2ad30e87f6a848beaeb7f16d" id="r_aeb7ec88c2ad30e87f6a848beaeb7f16d"><td class="memItemLeft" align="right" valign="top">const List::value_type &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aeb7ec88c2ad30e87f6a848beaeb7f16d">Get</a> (const typename List::size_type &amp;szPos) const</td></tr>
 <tr class="memdesc:aeb7ec88c2ad30e87f6a848beaeb7f16d"><td class="mdescLeft">&#160;</td><td class="mdescRight">根据位置获取值  <br /></td></tr>
 <tr class="memitem:aa9374edc7e1d1460f8a3bfbf80534315" id="r_aa9374edc7e1d1460f8a3bfbf80534315"><td class="memItemLeft" align="right" valign="top">List::value_type &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa9374edc7e1d1460f8a3bfbf80534315">Front</a> (void) noexcept</td></tr>
@@ -6829,45 +6829,8 @@ template&lt;typename List&gt; </div>
 
 </div>
 </div>
-<a id="a3501ef3c21061818d95ad6e95d367bb7" name="a3501ef3c21061818d95ad6e95d367bb7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3501ef3c21061818d95ad6e95d367bb7">&#9670;&#160;</a></span>Get() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename List&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">List::value_type &amp; <a class="el" href="classNBT__List.html">NBT_List</a>&lt; List &gt;::Get </td>
-          <td>(</td>
-          <td class="paramtype">const typename List::size_type &amp;</td>          <td class="paramname"><span class="paramname"><em>szPos</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>根据位置获取值 </p>
-<dl class="params"><dt>参数</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">szPos</td><td>要查找的位置 </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>返回</dt><dd>位置对应的值的引用 </dd></dl>
-<dl class="section note"><dt>注解</dt><dd>如果位置不存在则抛出异常，请参考std::vector对于at的描述 </dd></dl>
-
-</div>
-</div>
 <a id="aeb7ec88c2ad30e87f6a848beaeb7f16d" name="aeb7ec88c2ad30e87f6a848beaeb7f16d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aeb7ec88c2ad30e87f6a848beaeb7f16d">&#9670;&#160;</a></span>Get() <span class="overload">[2/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#aeb7ec88c2ad30e87f6a848beaeb7f16d">&#9670;&#160;</a></span>Get() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -6899,6 +6862,43 @@ template&lt;typename List&gt; </div>
   </dd>
 </dl>
 <dl class="section return"><dt>返回</dt><dd>位置对应的值的常量引用 </dd></dl>
+<dl class="section note"><dt>注解</dt><dd>如果位置不存在则抛出异常，请参考std::vector对于at的描述 </dd></dl>
+
+</div>
+</div>
+<a id="a4f3d54ad615b8c5d77d78611e23f158a" name="a4f3d54ad615b8c5d77d78611e23f158a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4f3d54ad615b8c5d77d78611e23f158a">&#9670;&#160;</a></span>Get() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename List&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">List::value_type &amp; <a class="el" href="classNBT__List.html">NBT_List</a>&lt; List &gt;::Get </td>
+          <td>(</td>
+          <td class="paramtype">const typename List::size_type &amp;</td>          <td class="paramname"><span class="paramname"><em>szPos</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>根据位置获取值 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">szPos</td><td>要查找的位置 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>位置对应的值的引用 </dd></dl>
 <dl class="section note"><dt>注解</dt><dd>如果位置不存在则抛出异常，请参考std::vector对于at的描述 </dd></dl>
 
 </div>
@@ -7895,8 +7895,8 @@ template&lt;typename List&gt; </div>
 
 </div>
 </div>
-<a id="a30655a399d44d7d1871ae633380def29" name="a30655a399d44d7d1871ae633380def29"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a30655a399d44d7d1871ae633380def29">&#9670;&#160;</a></span>GetTag()</h2>
+<a id="af281716463eaf9a843a8b2ec4932747b" name="af281716463eaf9a843a8b2ec4932747b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af281716463eaf9a843a8b2ec4932747b">&#9670;&#160;</a></span>GetTag()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -7910,12 +7910,12 @@ template&lt;typename List&gt; </div>
           <td class="memname"><a class="el" href="NBT__TAG_8hpp.html#ada3a2766daa185b5461d684c766b4a2e">NBT_TAG</a> <a class="el" href="classNBT__List.html">NBT_List</a>&lt; List &gt;::GetTag </td>
           <td>(</td>
           <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
+          <td> const</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -9670,8 +9670,8 @@ template&lt;bool bNoCheck = false&gt; </div>
 
 </div>
 </div>
-<a id="ab5123fa432cd153039e9b0fdf5374134" name="ab5123fa432cd153039e9b0fdf5374134"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab5123fa432cd153039e9b0fdf5374134">&#9670;&#160;</a></span>SetTag()</h2>
+<a id="a00a65dd7575931753fc8a88b8dff34ad" name="a00a65dd7575931753fc8a88b8dff34ad"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a00a65dd7575931753fc8a88b8dff34ad">&#9670;&#160;</a></span>SetTag()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -9692,7 +9692,7 @@ template&lt;bool bNoCheck = false&gt; </div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">

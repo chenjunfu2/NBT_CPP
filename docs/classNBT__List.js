@@ -154,8 +154,8 @@ var classNBT__List =
     [ "FrontShort", "classNBT__List.html#a2f44a296b497922e210e4330df802444", null ],
     [ "FrontString", "classNBT__List.html#ada5c71f83095374e718e576a7324048e", null ],
     [ "FrontString", "classNBT__List.html#aa88006d80991ab9ec7998f0f2d25eb25", null ],
-    [ "Get", "classNBT__List.html#a3501ef3c21061818d95ad6e95d367bb7", null ],
     [ "Get", "classNBT__List.html#aeb7ec88c2ad30e87f6a848beaeb7f16d", null ],
+    [ "Get", "classNBT__List.html#a4f3d54ad615b8c5d77d78611e23f158a", null ],
     [ "GetByte", "classNBT__List.html#a5612154508f7f97e25f811ac77b2f8f3", null ],
     [ "GetByte", "classNBT__List.html#a18a22e21bdfd72af85763149cd3dad4c", null ],
     [ "GetByteArray", "classNBT__List.html#ade469517baffb5656d30dd736e7d7680", null ],
@@ -183,7 +183,7 @@ var classNBT__List =
     [ "GetShort", "classNBT__List.html#addfe7c457d40de475e6a20fb4b40b779", null ],
     [ "GetString", "classNBT__List.html#a344e70687c926836000ce737edcd0026", null ],
     [ "GetString", "classNBT__List.html#a5d5d29783e19906cec144c8cd1bdc366", null ],
-    [ "GetTag", "classNBT__List.html#a30655a399d44d7d1871ae633380def29", null ],
+    [ "GetTag", "classNBT__List.html#af281716463eaf9a843a8b2ec4932747b", null ],
     [ "Merge", "classNBT__List.html#a44139650112584d40a6aba71ec9fe2e7", null ],
     [ "Merge", "classNBT__List.html#a059fe5bd8f1b608e3cd95f715c9ed06c", null ],
     [ "operator!=", "classNBT__List.html#acf5a296aea4f101b24807d7a351f3474", null ],
@@ -221,7 +221,7 @@ var classNBT__List =
     [ "SetShort", "classNBT__List.html#a4d93cacb64cc5deca37966986307eb2a", null ],
     [ "SetString", "classNBT__List.html#a1e0413a1dfbd45c6eb9a1e9ac495a970", null ],
     [ "SetString", "classNBT__List.html#a0e47127c0714c1154d1eed9eb7f2e5aa", null ],
-    [ "SetTag", "classNBT__List.html#ab5123fa432cd153039e9b0fdf5374134", null ],
+    [ "SetTag", "classNBT__List.html#a00a65dd7575931753fc8a88b8dff34ad", null ],
     [ "ShrinkToFit", "classNBT__List.html#a469e207915a47db951d1a497e9a536ea", null ],
     [ "Size", "classNBT__List.html#a23c3ca65d44c65a8d4d08b70ad07248a", null ]
 ];
