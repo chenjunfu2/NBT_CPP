@@ -16,6 +16,7 @@ git checkout -b update-chenjunfu2-nbt-cpp-x.x.x
 #回到项目目录
 cd ..
 cd ..
+
 # 更新配置到vcpkg文件夹
 rmdir /s /q "vcpkg_fork\vcpkg\ports\chenjunfu2-nbt-cpp\"
 mkdir "vcpkg_fork\vcpkg\ports\chenjunfu2-nbt-cpp\"
