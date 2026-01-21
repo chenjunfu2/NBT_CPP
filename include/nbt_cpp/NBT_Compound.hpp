@@ -215,7 +215,7 @@ public:
 	/// @param sTagName 要查找的标签名
 	/// @return 标签名对应的值的引用
 	/// @note 如果标签不存在则抛出异常，具体请参考std::unordered_map关于at的说明
-	typename Compound::mapped_type &Get(const typename Compound::key_type &sTagName) const
+	typename Compound::mapped_type &Get(const typename Compound::key_type &sTagName)
 	{
 		return Compound::at(sTagName);
 	}
