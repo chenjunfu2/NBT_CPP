@@ -318,7 +318,7 @@ public:
 	/// @param szPos 要查找的位置
 	/// @return 位置对应的值的引用
 	/// @note 如果位置不存在则抛出异常，请参考std::vector对于at的描述
-	typename List::value_type &Get(const typename List::size_type &szPos)
+	typename List::value_type &Get(const typename List::size_type &szPos) const
 	{
 		return List::at(szPos);
 	}
