@@ -133,7 +133,7 @@ public:
 	requires(!std::is_same_v<std::decay_t<T>, NBT_Node> && NBT_Type::IsValidType_V<std::decay_t<T>> && !bIsConst)
 	T &Set(T &value)
 	{
-		data.emplace<PtrType<T>>(&value);
+		data.template emplace<PtrType<T>>(&value);
 		return value;
 	}
 
@@ -147,7 +147,7 @@ public:
 	requires(!std::is_same_v<std::decay_t<T>, NBT_Node> && NBT_Type::IsValidType_V<std::decay_t<T>> && bIsConst)
 	const T &Set(const T &value)
 	{
-		data.emplace<PtrType<T>>(&value);
+		data.template emplace<PtrType<T>>(&value);
 		return value;
 	}
 
@@ -412,7 +412,7 @@ public:
 	/// @brief 设置为空
 	void SetEmpty()
 	{
-		data.emplace<PtrType<NBT_Type::End>>(PtrType<NBT_Type::End>{});
+		data.template emplace<PtrType<NBT_Type::End>>(PtrType<NBT_Type::End>{});
 	}
 
 //针对每种类型生成一个方便的函数
