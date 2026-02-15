@@ -379,13 +379,13 @@ public:
  @return 如果包含指定标签名，且对应的值的类型匹配，则返回true，否则返回false
  @note 同时检查标签存在性和值类型
  */\
-bool Contains##type(const typename Compound::key_type &sTagName)\
+bool Contains##type(const typename Compound::key_type &sTagName) const\
 {\
 	auto *p = Has(sTagName);\
 	return p != NULL && p->GetTag() == NBT_TAG::type;\
 }\
 /**
- @brief 获取指定标签名的 type 类型数据
+ @brief 获取指定标签名的 type 类型数据（常量版本）
  @param sTagName 标签名
  @return type 类型数据的常量引用
  @note 如果标签不存在或类型不匹配则抛出异常，
@@ -409,7 +409,7 @@ std::optional<typename NBT_Type::type &> Get##type(const typename Compound::key_
 }\
 \
 /**
- @brief 安全检查并获取指定标签名的 type 类型数据
+ @brief 安全检查并获取指定标签名的 type 类型数据（常量版本）
  @param sTagName 标签名
  @return 如果存在且对应值的类型为 type 则返回指向数据的常量指针，否则返回NULL
  @note 标签不存在或类型不为 type 时不会抛出异常，适用于检查性访问
