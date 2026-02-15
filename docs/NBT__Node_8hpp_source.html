@@ -165,7 +165,7 @@ $(function(){initNavTree('NBT__Node_8hpp_source.html','',''); });
 <div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, <span class="keyword">typename</span>... Args&gt;</div>
 <div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>    <span class="keyword">requires</span>(!std::is_same_v&lt;std::decay_t&lt;T&gt;, <a class="code hl_class" href="classNBT__Node.html">NBT_Node</a>&gt; &amp;&amp; <a class="code hl_variable" href="classNBT__Type.html#a71dfa77059d0a3bd9a6190295ad400ca">NBT_Type::IsValidType_V&lt;std::decay_t&lt;T&gt;</a>&gt;)</div>
 <div class="foldopen" id="foldopen00100" data-start="{" data-end="}">
-<div class="line"><a id="l00100" name="l00100"></a><span class="lineno"><a class="line" href="classNBT__Node.html#aa01c14b7373ecedb7e4ce842d2a3073a">  100</a></span>    T &amp;<a class="code hl_function" href="classNBT__Node.html#aa01c14b7373ecedb7e4ce842d2a3073a">emplace</a>(Args&amp;&amp;... args)</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno"><a class="line" href="classNBT__Node.html#a708a593a53e2b94a1656850bd0278ecb">  100</a></span>    T &amp;<a class="code hl_function" href="classNBT__Node.html#a708a593a53e2b94a1656850bd0278ecb">Set</a>(Args&amp;&amp;... args)</div>
 <div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>    {</div>
 <div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>        <span class="keyword">static_assert</span>(std::is_constructible_v&lt;VariantData, Args&amp;&amp;...&gt;, <span class="stringliteral">&quot;Invalid constructor arguments for NBT_Node&quot;</span>);</div>
 <div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span> </div>
@@ -319,8 +319,11 @@ $(function(){initNavTree('NBT__Node_8hpp_source.html','',''); });
 <div class="line"><a id="l00288" name="l00288"></a><span class="lineno">  288</span><span class="preprocessor">{\</span></div>
 <div class="line"><a id="l00289" name="l00289"></a><span class="lineno">  289</span><span class="preprocessor">    return node.Is##type();\</span></div>
 <div class="line"><a id="l00290" name="l00290"></a><span class="lineno">  290</span><span class="preprocessor">}</span></div>
-</div>
 <div class="line"><a id="l00291" name="l00291"></a><span class="lineno">  291</span></div>
+<div class="foldopen" id="foldopen00294" data-start="" data-end="">
+<div class="line"><a id="l00294" name="l00294"></a><span class="lineno"><a class="line" href="NBT__Node_8hpp.html#a8b970b74ecd9bae3d74ac0c6fe1db49f">  294</a></span><span class="comment">    /// - Get开头+类型名的函数：直接获取此类型，异常由std::get具体实现决定</span></div>
+<div class="line"><a id="l00295" name="l00295"></a><span class="lineno">  295</span><span class="comment">    /// - Is开头 + 类型名的函数：判断当前NBT_Node是否为此类型</span></div>
+<div class="line"><a id="l00296" name="l00296"></a><span class="lineno">  296</span><span class="comment">    /// @{</span></div>
 <div class="line"><a id="l00297" name="l00297"></a><span class="lineno">  297</span> </div>
 <div class="line"><a id="l00298" name="l00298"></a><span class="lineno">  298</span>    <a class="code hl_define" href="NBT__Node_8hpp.html#ad96dcd6a7375a0bff7225ea70579c1ed">TYPE_GET_FUNC</a>(<a class="code hl_enumvalue" href="NBT__TAG_8hpp.html#ada3a2766daa185b5461d684c766b4a2ea87557f11575c0ad78e4e28abedc13b6e">End</a>);</div>
 <div class="line"><a id="l00299" name="l00299"></a><span class="lineno">  299</span>    <a class="code hl_define" href="NBT__Node_8hpp.html#ad96dcd6a7375a0bff7225ea70579c1ed">TYPE_GET_FUNC</a>(<a class="code hl_enumvalue" href="NBT__TAG_8hpp.html#ada3a2766daa185b5461d684c766b4a2eaa245c3230debe5c956484ecc6fa93877">Byte</a>);</div>
@@ -336,22 +339,63 @@ $(function(){initNavTree('NBT__Node_8hpp_source.html','',''); });
 <div class="line"><a id="l00309" name="l00309"></a><span class="lineno">  309</span>    <a class="code hl_define" href="NBT__Node_8hpp.html#ad96dcd6a7375a0bff7225ea70579c1ed">TYPE_GET_FUNC</a>(List);</div>
 <div class="line"><a id="l00310" name="l00310"></a><span class="lineno">  310</span>    <a class="code hl_define" href="NBT__Node_8hpp.html#ad96dcd6a7375a0bff7225ea70579c1ed">TYPE_GET_FUNC</a>(Compound);</div>
 <div class="line"><a id="l00311" name="l00311"></a><span class="lineno">  311</span></div>
+</div>
+<div class="line"><a id="l00312" name="l00312"></a><span class="lineno">  312</span></div>
 <div class="line"><a id="l00313" name="l00313"></a><span class="lineno">  313</span> </div>
 <div class="line"><a id="l00314" name="l00314"></a><span class="lineno">  314</span><span class="preprocessor">#undef TYPE_GET_FUNC</span></div>
-<div class="line"><a id="l00315" name="l00315"></a><span class="lineno">  315</span>};</div>
-<div class="line"><a id="l00316" name="l00316"></a><span class="lineno">  316</span> </div>
-<div class="line"><a id="l00317" name="l00317"></a><span class="lineno">  317</span><span class="comment">/*</span></div>
-<div class="line"><a id="l00318" name="l00318"></a><span class="lineno">  318</span><span class="comment">TODO:</span></div>
-<div class="line"><a id="l00319" name="l00319"></a><span class="lineno">  319</span><span class="comment">给NBTList与NBTCompound添加一个附加字段</span></div>
-<div class="line"><a id="l00320" name="l00320"></a><span class="lineno">  320</span><span class="comment">往里面插入数据的时候，会根据数据的大小计算</span></div>
-<div class="line"><a id="l00321" name="l00321"></a><span class="lineno">  321</span><span class="comment">出nbt的大小合并到自身，删除的时候去掉</span></div>
-<div class="line"><a id="l00322" name="l00322"></a><span class="lineno">  322</span><span class="comment">这样在写出的时候可以预分配，而不是被动的触发</span></div>
-<div class="line"><a id="l00323" name="l00323"></a><span class="lineno">  323</span><span class="comment">容器的扩容拷贝，增加写出性能</span></div>
-<div class="line"><a id="l00324" name="l00324"></a><span class="lineno">  324</span><span class="comment">*/</span></div>
+<div class="line"><a id="l00315" name="l00315"></a><span class="lineno">  315</span></div>
+<div class="line"><a id="l00319" name="l00319"></a><span class="lineno"><a class="line" href="classNBT__Node.html#a88a44c8539ecbab16589e59a4f3f791e">  319</a></span><span class="preprocessor">#define TYPE_SET_FUNC(type)\</span></div>
+<div class="line"><a id="l00320" name="l00320"></a><span class="lineno"><a class="line" href="classNBT__Node.html#adcbde2fc57919d04af1918aa6e60bc3d">  320</a></span><span class="preprocessor"></span><span class="preprocessor">\</span></div>
+<div class="line"><a id="l00325" name="l00325"></a><span class="lineno"><a class="line" href="classNBT__Node.html#af70a0488721b475a116ada4df113c534">  325</a></span><span class="preprocessor">NBT_Type::type &amp;Set##type(const NBT_Type::type &amp;value)\</span></div>
+<div class="line"><a id="l00326" name="l00326"></a><span class="lineno"><a class="line" href="classNBT__Node.html#aeb169df43d982bdbba93cb56cea7bc03">  326</a></span><span class="preprocessor">{\</span></div>
+<div class="line"><a id="l00327" name="l00327"></a><span class="lineno"><a class="line" href="classNBT__Node.html#af083179371f0b0aeef8bc1a6a7daec9e">  327</a></span><span class="preprocessor">    return Set&lt;NBT_Type::type&gt;(value);\</span></div>
+<div class="line"><a id="l00328" name="l00328"></a><span class="lineno"><a class="line" href="classNBT__Node.html#a8b71055ee25ebf0290c7a39d37bc5743">  328</a></span><span class="preprocessor">}\</span></div>
+<div class="line"><a id="l00329" name="l00329"></a><span class="lineno"><a class="line" href="classNBT__Node.html#af26da0c38190d7d12ccf0a9fdf53676a">  329</a></span><span class="preprocessor">\</span></div>
+<div class="line"><a id="l00330" name="l00330"></a><span class="lineno"><a class="line" href="classNBT__Node.html#adf6f138cdb0027b6363faecd085ea1b1">  330</a></span><span class="preprocessor"></span><span class="preprocessor">\</span></div>
+<div class="line"><a id="l00335" name="l00335"></a><span class="lineno">  335</span><span class="preprocessor">NBT_Type::type &amp;Set##type(NBT_Type::type &amp;&amp;value)\</span></div>
+</div>
+<div class="line"><a id="l00336" name="l00336"></a><span class="lineno">  336</span><span class="preprocessor">{\</span></div>
+<div class="line"><a id="l00337" name="l00337"></a><span class="lineno">  337</span><span class="preprocessor">    return Set&lt;NBT_Type::type&gt;(std::move(value));\</span></div>
+<div class="line"><a id="l00338" name="l00338"></a><span class="lineno">  338</span><span class="preprocessor">}\</span></div>
+<div class="line"><a id="l00339" name="l00339"></a><span class="lineno">  339</span><span class="preprocessor">\</span></div>
+<div class="line"><a id="l00340" name="l00340"></a><span class="lineno">  340</span><span class="preprocessor"></span><span class="preprocessor">\</span></div>
+<div class="line"><a id="l00344" name="l00344"></a><span class="lineno">  344</span><span class="preprocessor">NBT_Type::type &amp;Set##type(void)\</span></div>
+<div class="line"><a id="l00345" name="l00345"></a><span class="lineno">  345</span><span class="preprocessor">{\</span></div>
+<div class="line"><a id="l00346" name="l00346"></a><span class="lineno">  346</span><span class="preprocessor">    return Set&lt;NBT_Type::type&gt;();\</span></div>
+<div class="line"><a id="l00347" name="l00347"></a><span class="lineno">  347</span><span class="preprocessor">}</span></div>
+<div class="line"><a id="l00348" name="l00348"></a><span class="lineno">  348</span></div>
+<div class="line"><a id="l00353" name="l00353"></a><span class="lineno">  353</span>    </div>
+<div class="line"><a id="l00354" name="l00354"></a><span class="lineno">  354</span>    <a class="code hl_define" href="NBT__Node_8hpp.html#a8b970b74ecd9bae3d74ac0c6fe1db49f">TYPE_SET_FUNC</a>(<a class="code hl_enumvalue" href="NBT__TAG_8hpp.html#ada3a2766daa185b5461d684c766b4a2ea87557f11575c0ad78e4e28abedc13b6e">End</a>);</div>
+<div class="line"><a id="l00355" name="l00355"></a><span class="lineno">  355</span>    <a class="code hl_define" href="NBT__Node_8hpp.html#a8b970b74ecd9bae3d74ac0c6fe1db49f">TYPE_SET_FUNC</a>(<a class="code hl_enumvalue" href="NBT__TAG_8hpp.html#ada3a2766daa185b5461d684c766b4a2eaa245c3230debe5c956484ecc6fa93877">Byte</a>);</div>
+<div class="line"><a id="l00356" name="l00356"></a><span class="lineno">  356</span>    <a class="code hl_define" href="NBT__Node_8hpp.html#a8b970b74ecd9bae3d74ac0c6fe1db49f">TYPE_SET_FUNC</a>(<a class="code hl_enumvalue" href="NBT__TAG_8hpp.html#ada3a2766daa185b5461d684c766b4a2ea30bb747c98bccdd11b3f89e644c4d0ad">Short</a>);</div>
+<div class="line"><a id="l00357" name="l00357"></a><span class="lineno">  357</span>    <a class="code hl_define" href="NBT__Node_8hpp.html#a8b970b74ecd9bae3d74ac0c6fe1db49f">TYPE_SET_FUNC</a>(<a class="code hl_enumvalue" href="NBT__TAG_8hpp.html#ada3a2766daa185b5461d684c766b4a2ea1686a6c336b71b36d77354cea19a8b52">Int</a>);</div>
+<div class="line"><a id="l00358" name="l00358"></a><span class="lineno">  358</span>    <a class="code hl_define" href="NBT__Node_8hpp.html#a8b970b74ecd9bae3d74ac0c6fe1db49f">TYPE_SET_FUNC</a>(<a class="code hl_enumvalue" href="NBT__TAG_8hpp.html#ada3a2766daa185b5461d684c766b4a2ea8394f0347c184cf156ac5924dccb773b">Long</a>);</div>
+<div class="line"><a id="l00359" name="l00359"></a><span class="lineno">  359</span>    <a class="code hl_define" href="NBT__Node_8hpp.html#a8b970b74ecd9bae3d74ac0c6fe1db49f">TYPE_SET_FUNC</a>(<a class="code hl_enumvalue" href="NBT__TAG_8hpp.html#ada3a2766daa185b5461d684c766b4a2ea22ae0e2b89e5e3d477f988cc36d3272b">Float</a>);</div>
+<div class="line"><a id="l00360" name="l00360"></a><span class="lineno">  360</span>    <a class="code hl_define" href="NBT__Node_8hpp.html#a8b970b74ecd9bae3d74ac0c6fe1db49f">TYPE_SET_FUNC</a>(<a class="code hl_enumvalue" href="NBT__TAG_8hpp.html#ada3a2766daa185b5461d684c766b4a2ead909d38d705ce75386dd86e611a82f5b">Double</a>);</div>
+<div class="line"><a id="l00361" name="l00361"></a><span class="lineno">  361</span>    <a class="code hl_define" href="NBT__Node_8hpp.html#a8b970b74ecd9bae3d74ac0c6fe1db49f">TYPE_SET_FUNC</a>(<a class="code hl_enumvalue" href="NBT__TAG_8hpp.html#ada3a2766daa185b5461d684c766b4a2ea29d83f0080e24c1f4b3975dc9ff9e868">ByteArray</a>);</div>
+<div class="line"><a id="l00362" name="l00362"></a><span class="lineno">  362</span>    <a class="code hl_define" href="NBT__Node_8hpp.html#a8b970b74ecd9bae3d74ac0c6fe1db49f">TYPE_SET_FUNC</a>(<a class="code hl_enumvalue" href="NBT__TAG_8hpp.html#ada3a2766daa185b5461d684c766b4a2eaa4cf98abdafab708d30b8d2ae8d57be8">IntArray</a>);</div>
+<div class="line"><a id="l00363" name="l00363"></a><span class="lineno">  363</span>    <a class="code hl_define" href="NBT__Node_8hpp.html#a8b970b74ecd9bae3d74ac0c6fe1db49f">TYPE_SET_FUNC</a>(<a class="code hl_enumvalue" href="NBT__TAG_8hpp.html#ada3a2766daa185b5461d684c766b4a2ea8bbd125334fd7be70adc8c8819241053">LongArray</a>);</div>
+<div class="line"><a id="l00364" name="l00364"></a><span class="lineno">  364</span>    <a class="code hl_define" href="NBT__Node_8hpp.html#a8b970b74ecd9bae3d74ac0c6fe1db49f">TYPE_SET_FUNC</a>(String);</div>
+<div class="line"><a id="l00365" name="l00365"></a><span class="lineno">  365</span>    <a class="code hl_define" href="NBT__Node_8hpp.html#a8b970b74ecd9bae3d74ac0c6fe1db49f">TYPE_SET_FUNC</a>(List);</div>
+<div class="line"><a id="l00366" name="l00366"></a><span class="lineno">  366</span>    <a class="code hl_define" href="NBT__Node_8hpp.html#a8b970b74ecd9bae3d74ac0c6fe1db49f">TYPE_SET_FUNC</a>(Compound);</div>
+<div class="line"><a id="l00367" name="l00367"></a><span class="lineno">  367</span></div>
+<div class="line"><a id="l00369" name="l00369"></a><span class="lineno">  369</span> </div>
+<div class="line"><a id="l00370" name="l00370"></a><span class="lineno">  370</span><span class="preprocessor">#undef TYPE_SET_FUNC</span></div>
+<div class="line"><a id="l00371" name="l00371"></a><span class="lineno">  371</span>};</div>
+<div class="line"><a id="l00372" name="l00372"></a><span class="lineno">  372</span> </div>
+<div class="line"><a id="l00373" name="l00373"></a><span class="lineno">  373</span><span class="comment">/*</span></div>
+<div class="line"><a id="l00374" name="l00374"></a><span class="lineno">  374</span><span class="comment">TODO:</span></div>
+<div class="line"><a id="l00375" name="l00375"></a><span class="lineno">  375</span><span class="comment">给NBTList与NBTCompound添加一个附加字段</span></div>
+<div class="line"><a id="l00376" name="l00376"></a><span class="lineno">  376</span><span class="comment">往里面插入数据的时候，会根据数据的大小计算</span></div>
+<div class="line"><a id="l00377" name="l00377"></a><span class="lineno">  377</span><span class="comment">出nbt的大小合并到自身，删除的时候去掉</span></div>
+<div class="line"><a id="l00378" name="l00378"></a><span class="lineno">  378</span><span class="comment">这样在写出的时候可以预分配，而不是被动的触发</span></div>
+<div class="line"><a id="l00379" name="l00379"></a><span class="lineno">  379</span><span class="comment">容器的扩容拷贝，增加写出性能</span></div>
+<div class="line"><a id="l00380" name="l00380"></a><span class="lineno">  380</span><span class="comment">*/</span></div>
 <div class="ttc" id="aNBT__Array_8hpp_html"><div class="ttname"><a href="NBT__Array_8hpp.html">NBT_Array.hpp</a></div><div class="ttdoc">NBT数组基础类型</div></div>
 <div class="ttc" id="aNBT__Compound_8hpp_html"><div class="ttname"><a href="NBT__Compound_8hpp.html">NBT_Compound.hpp</a></div><div class="ttdoc">NBT集合基础类型</div></div>
 <div class="ttc" id="aNBT__List_8hpp_html"><div class="ttname"><a href="NBT__List_8hpp.html">NBT_List.hpp</a></div><div class="ttdoc">NBT列表类型</div></div>
-<div class="ttc" id="aNBT__Node_8hpp_html_ad96dcd6a7375a0bff7225ea70579c1ed"><div class="ttname"><a href="NBT__Node_8hpp.html#ad96dcd6a7375a0bff7225ea70579c1ed">TYPE_GET_FUNC</a></div><div class="ttdeci">#define TYPE_GET_FUNC(type)</div><div class="ttdoc">不同类型名接口生成宏</div><div class="ttdef"><b>定义</b> NBT_Node.hpp:230</div></div>
+<div class="ttc" id="aNBT__Node_8hpp_html_a8b970b74ecd9bae3d74ac0c6fe1db49f"><div class="ttname"><a href="NBT__Node_8hpp.html#a8b970b74ecd9bae3d74ac0c6fe1db49f">TYPE_SET_FUNC</a></div><div class="ttdeci">#define TYPE_SET_FUNC(type)</div><div class="ttdoc">不同类型名接口生成宏</div><div class="ttdef"><b>定义</b> NBT_Node.hpp:294</div></div>
+<div class="ttc" id="aNBT__Node_8hpp_html_ad96dcd6a7375a0bff7225ea70579c1ed"><div class="ttname"><a href="NBT__Node_8hpp.html#ad96dcd6a7375a0bff7225ea70579c1ed">TYPE_GET_FUNC</a></div><div class="ttdeci">#define TYPE_GET_FUNC(type)</div><div class="ttdoc">不同类型名获取接口生成宏</div><div class="ttdef"><b>定义</b> NBT_Node.hpp:230</div></div>
 <div class="ttc" id="aNBT__String_8hpp_html"><div class="ttname"><a href="NBT__String_8hpp.html">NBT_String.hpp</a></div><div class="ttdoc">NBT字符串类型</div></div>
 <div class="ttc" id="aNBT__TAG_8hpp_html_acd49bdf6bc79b8f3a1f351faec46ea6c"><div class="ttname"><a href="NBT__TAG_8hpp.html#acd49bdf6bc79b8f3a1f351faec46ea6c">NBT_TAG_RAW_TYPE</a></div><div class="ttdeci">uint8_t NBT_TAG_RAW_TYPE</div><div class="ttdoc">NBT_TAG的原始类型，用于二进制读写或判断等</div><div class="ttdef"><b>定义</b> NBT_TAG.hpp:12</div></div>
 <div class="ttc" id="aNBT__TAG_8hpp_html_ada3a2766daa185b5461d684c766b4a2e"><div class="ttname"><a href="NBT__TAG_8hpp.html#ada3a2766daa185b5461d684c766b4a2e">NBT_TAG</a></div><div class="ttdeci">NBT_TAG</div><div class="ttdoc">枚举NBT类型对应的类型标签值</div><div class="ttdef"><b>定义</b> NBT_TAG.hpp:17</div></div>
@@ -375,11 +419,11 @@ $(function(){initNavTree('NBT__Node_8hpp_source.html','',''); });
 <div class="ttc" id="aclassNBT__Node_html_a42fca56de173ac946cbd1590c82442bf"><div class="ttname"><a href="classNBT__Node.html#a42fca56de173ac946cbd1590c82442bf">NBT_Node::operator!=</a></div><div class="ttdeci">bool operator!=(const NBT_Node &amp;_Right) const noexcept</div><div class="ttdoc">不等比较运算符</div><div class="ttdef"><b>定义</b> NBT_Node.hpp:168</div></div>
 <div class="ttc" id="aclassNBT__Node_html_a563191b4f4ce4e18c4933aa0b901cca0"><div class="ttname"><a href="classNBT__Node.html#a563191b4f4ce4e18c4933aa0b901cca0">NBT_Node::NBT_Node</a></div><div class="ttdeci">NBT_Node()</div><div class="ttdoc">默认构造函数（构造为TAG_End类型）</div><div class="ttdef"><b>定义</b> NBT_Node.hpp:123</div></div>
 <div class="ttc" id="aclassNBT__Node_html_a5f97f665c3babadf9fb71eed0c630a7c"><div class="ttname"><a href="classNBT__Node.html#a5f97f665c3babadf9fb71eed0c630a7c">NBT_Node::operator=</a></div><div class="ttdeci">NBT_Node &amp; operator=(const NBT_Node &amp;_NBT_Node)</div><div class="ttdoc">拷贝赋值运算符</div><div class="ttdef"><b>定义</b> NBT_Node.hpp:142</div></div>
+<div class="ttc" id="aclassNBT__Node_html_a708a593a53e2b94a1656850bd0278ecb"><div class="ttname"><a href="classNBT__Node.html#a708a593a53e2b94a1656850bd0278ecb">NBT_Node::Set</a></div><div class="ttdeci">T &amp; Set(Args &amp;&amp;... args)</div><div class="ttdoc">原位放置新对象并替换当前对象</div><div class="ttdef"><b>定义</b> NBT_Node.hpp:100</div></div>
 <div class="ttc" id="aclassNBT__Node_html_a75fc393abbdf7a7b407a4b65ddc62128"><div class="ttname"><a href="classNBT__Node.html#a75fc393abbdf7a7b407a4b65ddc62128">NBT_Node::~NBT_Node</a></div><div class="ttdeci">~NBT_Node()=default</div><div class="ttdoc">默认析构函数</div></div>
 <div class="ttc" id="aclassNBT__Node_html_a7893d87f3e41b17db8afd96dfa851f94"><div class="ttname"><a href="classNBT__Node.html#a7893d87f3e41b17db8afd96dfa851f94">NBT_Node::NBT_Node</a></div><div class="ttdeci">NBT_Node(NBT_Node &amp;&amp;_NBT_Node) noexcept</div><div class="ttdoc">移动构造函数</div><div class="ttdef"><b>定义</b> NBT_Node.hpp:136</div></div>
 <div class="ttc" id="aclassNBT__Node_html_a7a5f6ba8d259e139dee76fa7dd4710ac"><div class="ttname"><a href="classNBT__Node.html#a7a5f6ba8d259e139dee76fa7dd4710ac">NBT_Node::NBT_Node</a></div><div class="ttdeci">NBT_Node(T &amp;&amp;value) noexcept</div><div class="ttdoc">通用类型构造函数，可以拷贝或移动元素到对象内</div><div class="ttdef"><b>定义</b> NBT_Node.hpp:87</div></div>
 <div class="ttc" id="aclassNBT__Node_html_a98133df60dd97b77adfe5c4da0fbbc58"><div class="ttname"><a href="classNBT__Node.html#a98133df60dd97b77adfe5c4da0fbbc58">NBT_Node::NBT_Node</a></div><div class="ttdeci">NBT_Node(std::in_place_type_t&lt; T &gt;, std::initializer_list&lt; U &gt; init_list)</div><div class="ttdoc">显式类型列表构造函数（通过in_place_type_t指定目标类型）</div><div class="ttdef"><b>定义</b> NBT_Node.hpp:76</div></div>
-<div class="ttc" id="aclassNBT__Node_html_aa01c14b7373ecedb7e4ce842d2a3073a"><div class="ttname"><a href="classNBT__Node.html#aa01c14b7373ecedb7e4ce842d2a3073a">NBT_Node::emplace</a></div><div class="ttdeci">T &amp; emplace(Args &amp;&amp;... args)</div><div class="ttdoc">原位放置新对象并替换当前对象</div><div class="ttdef"><b>定义</b> NBT_Node.hpp:100</div></div>
 <div class="ttc" id="aclassNBT__Node_html_ac0049147897c4c059f42323045f73e61"><div class="ttname"><a href="classNBT__Node.html#ac0049147897c4c059f42323045f73e61">NBT_Node::operator=</a></div><div class="ttdeci">NBT_Node &amp; operator=(NBT_Node &amp;&amp;_NBT_Node) noexcept</div><div class="ttdoc">移动赋值运算符</div><div class="ttdef"><b>定义</b> NBT_Node.hpp:151</div></div>
 <div class="ttc" id="aclassNBT__Node_html_ac7f46830b4c5f9c8d439dee43893840d"><div class="ttname"><a href="classNBT__Node.html#ac7f46830b4c5f9c8d439dee43893840d">NBT_Node::TypeHolds</a></div><div class="ttdeci">bool TypeHolds() const</div><div class="ttdoc">类型判断</div><div class="ttdef"><b>定义</b> NBT_Node.hpp:219</div></div>
 <div class="ttc" id="aclassNBT__Node_html_ad7464704bf05359553847fcbff07d842"><div class="ttname"><a href="classNBT__Node.html#ad7464704bf05359553847fcbff07d842">NBT_Node::operator&lt;=&gt;</a></div><div class="ttdeci">std::partial_ordering operator&lt;=&gt;(const NBT_Node &amp;_Right) const noexcept</div><div class="ttdoc">三路比较运算符</div><div class="ttdef"><b>定义</b> NBT_Node.hpp:176</div></div>

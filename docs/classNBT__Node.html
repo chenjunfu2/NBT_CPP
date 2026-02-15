@@ -112,10 +112,10 @@ requires (!std::is_same_v&lt;std::decay_t&lt;T&gt;, <a class="el" href="classNBT
 requires (!std::is_same_v&lt;std::decay_t&lt;T&gt;, <a class="el" href="classNBT__Node.html">NBT_Node</a>&gt; &amp;&amp; <a class="el" href="classNBT__Type.html#a71dfa77059d0a3bd9a6190295ad400ca">NBT_Type::IsValidType_V</a>&lt;std::decay_t&lt;T&gt;&gt;)</td></tr>
 <tr class="memitem:a7a5f6ba8d259e139dee76fa7dd4710ac template"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7a5f6ba8d259e139dee76fa7dd4710ac">NBT_Node</a> (T &amp;&amp;value) noexcept</td></tr>
 <tr class="memdesc:a7a5f6ba8d259e139dee76fa7dd4710ac"><td class="mdescLeft">&#160;</td><td class="mdescRight">通用类型构造函数，可以拷贝或移动元素到对象内  <br /></td></tr>
-<tr class="memitem:aa01c14b7373ecedb7e4ce842d2a3073a" id="r_aa01c14b7373ecedb7e4ce842d2a3073a"><td class="memTemplParams" colspan="2">template&lt;typename T, typename... Args&gt; <br />
+<tr class="memitem:a708a593a53e2b94a1656850bd0278ecb" id="r_a708a593a53e2b94a1656850bd0278ecb"><td class="memTemplParams" colspan="2">template&lt;typename T, typename... Args&gt; <br />
 requires (!std::is_same_v&lt;std::decay_t&lt;T&gt;, <a class="el" href="classNBT__Node.html">NBT_Node</a>&gt; &amp;&amp; <a class="el" href="classNBT__Type.html#a71dfa77059d0a3bd9a6190295ad400ca">NBT_Type::IsValidType_V</a>&lt;std::decay_t&lt;T&gt;&gt;)</td></tr>
-<tr class="memitem:aa01c14b7373ecedb7e4ce842d2a3073a template"><td class="memItemLeft" align="right" valign="top">T &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa01c14b7373ecedb7e4ce842d2a3073a">emplace</a> (Args &amp;&amp;... args)</td></tr>
-<tr class="memdesc:aa01c14b7373ecedb7e4ce842d2a3073a"><td class="mdescLeft">&#160;</td><td class="mdescRight">原位放置新对象并替换当前对象  <br /></td></tr>
+<tr class="memitem:a708a593a53e2b94a1656850bd0278ecb template"><td class="memItemLeft" align="right" valign="top">T &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a708a593a53e2b94a1656850bd0278ecb">Set</a> (Args &amp;&amp;... args)</td></tr>
+<tr class="memdesc:a708a593a53e2b94a1656850bd0278ecb"><td class="mdescLeft">&#160;</td><td class="mdescRight">原位放置新对象并替换当前对象  <br /></td></tr>
 <tr class="memitem:ac64032605ac28f69498a75f651187b06" id="r_ac64032605ac28f69498a75f651187b06"><td class="memTemplParams" colspan="2">template&lt;typename T&gt; <br />
 requires (!std::is_same_v&lt;std::decay_t&lt;T&gt;, <a class="el" href="classNBT__Node.html">NBT_Node</a>&gt; &amp;&amp; <a class="el" href="classNBT__Type.html#a71dfa77059d0a3bd9a6190295ad400ca">NBT_Type::IsValidType_V</a> &lt;std::decay_t&lt;T&gt;&gt;)</td></tr>
 <tr class="memitem:ac64032605ac28f69498a75f651187b06 template"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classNBT__Node.html">NBT_Node</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac64032605ac28f69498a75f651187b06">operator=</a> (T &amp;&amp;value) noexcept</td></tr>
@@ -165,8 +165,7 @@ template&lt;bool bIsConst&gt; </td></tr>
 针对每种类型提供一个方便使用的函数，由宏批量生成</h2></td></tr>
 <tr><td class="ititle" colspan="2"><p>具体作用说明：</p>
 <ul>
-<li>Get开头+类型名的函数：直接获取此类型，异常由std::get具体实现决定</li>
-<li>Is开头 + 类型名的函数：判断当前NBT_Node是否为此类型 </li>
+<li>Set开头+类型名的函数：设置node为此类型，从值或默认值设置 </li>
 </ul>
 </td></tr>
 <tr class="memitem:a60e8d32342eb4a2c1bb1f6a786dea136" id="r_a60e8d32342eb4a2c1bb1f6a786dea136"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classNBT__Type.html#a16ac41e6cfe61a603407221527b6b16c">NBT_Type::End</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a60e8d32342eb4a2c1bb1f6a786dea136">GetEnd</a> (<a class="el" href="classNBT__Node.html">NBT_Node</a> &amp;node)</td></tr>
@@ -325,6 +324,84 @@ template&lt;bool bIsConst&gt; </td></tr>
 <tr class="memdesc:a527ad4d7d355c88badf49c0f227d583a"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取当前对象中存储的 Compound 类型的数据  <br /></td></tr>
 <tr class="memitem:a82a7f0fb669369250a09cb49aa3887bb" id="r_a82a7f0fb669369250a09cb49aa3887bb"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a82a7f0fb669369250a09cb49aa3887bb">IsCompound</a> () const</td></tr>
 <tr class="memdesc:a82a7f0fb669369250a09cb49aa3887bb"><td class="mdescLeft">&#160;</td><td class="mdescRight">检查当前对象中是否存储 Compound 类型的数据  <br /></td></tr>
+<tr class="memitem:a7a306d33cc65684a603846f0d1e60478" id="r_a7a306d33cc65684a603846f0d1e60478"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classNBT__Type.html#a16ac41e6cfe61a603407221527b6b16c">NBT_Type::End</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7a306d33cc65684a603846f0d1e60478">SetEnd</a> (const <a class="el" href="classNBT__Type.html#a16ac41e6cfe61a603407221527b6b16c">NBT_Type::End</a> &amp;value)</td></tr>
+<tr class="memdesc:a7a306d33cc65684a603846f0d1e60478"><td class="mdescLeft">&#160;</td><td class="mdescRight">从value设置node为 End 类型的值（拷贝）  <br /></td></tr>
+<tr class="memitem:a2f971c986274b7942c9f157ea79d5578" id="r_a2f971c986274b7942c9f157ea79d5578"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classNBT__Type.html#a16ac41e6cfe61a603407221527b6b16c">NBT_Type::End</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2f971c986274b7942c9f157ea79d5578">SetEnd</a> (<a class="el" href="classNBT__Type.html#a16ac41e6cfe61a603407221527b6b16c">NBT_Type::End</a> &amp;&amp;value)</td></tr>
+<tr class="memdesc:a2f971c986274b7942c9f157ea79d5578"><td class="mdescLeft">&#160;</td><td class="mdescRight">从value设置node为 End 类型的值（移动）  <br /></td></tr>
+<tr class="memitem:ae85605005b888a180d0fdce7e52720bc" id="r_ae85605005b888a180d0fdce7e52720bc"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classNBT__Type.html#a16ac41e6cfe61a603407221527b6b16c">NBT_Type::End</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae85605005b888a180d0fdce7e52720bc">SetEnd</a> (void)</td></tr>
+<tr class="memdesc:ae85605005b888a180d0fdce7e52720bc"><td class="mdescLeft">&#160;</td><td class="mdescRight">设置设置node为 End 类型的默认值（拷贝）  <br /></td></tr>
+<tr class="memitem:a88a44c8539ecbab16589e59a4f3f791e" id="r_a88a44c8539ecbab16589e59a4f3f791e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classNBT__Type.html#a09b5ce48dffc429ad8a7d05d007741c1">NBT_Type::Byte</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a88a44c8539ecbab16589e59a4f3f791e">SetByte</a> (const <a class="el" href="classNBT__Type.html#a09b5ce48dffc429ad8a7d05d007741c1">NBT_Type::Byte</a> &amp;value)</td></tr>
+<tr class="memdesc:a88a44c8539ecbab16589e59a4f3f791e"><td class="mdescLeft">&#160;</td><td class="mdescRight">从value设置node为 Byte 类型的值（拷贝）  <br /></td></tr>
+<tr class="memitem:a5c1a8b9e50456b9edba9c5b015c35c5b" id="r_a5c1a8b9e50456b9edba9c5b015c35c5b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classNBT__Type.html#a09b5ce48dffc429ad8a7d05d007741c1">NBT_Type::Byte</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5c1a8b9e50456b9edba9c5b015c35c5b">SetByte</a> (<a class="el" href="classNBT__Type.html#a09b5ce48dffc429ad8a7d05d007741c1">NBT_Type::Byte</a> &amp;&amp;value)</td></tr>
+<tr class="memdesc:a5c1a8b9e50456b9edba9c5b015c35c5b"><td class="mdescLeft">&#160;</td><td class="mdescRight">从value设置node为 Byte 类型的值（移动）  <br /></td></tr>
+<tr class="memitem:a9d002f4b79b4c26632460a5b0bef84d6" id="r_a9d002f4b79b4c26632460a5b0bef84d6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classNBT__Type.html#a09b5ce48dffc429ad8a7d05d007741c1">NBT_Type::Byte</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9d002f4b79b4c26632460a5b0bef84d6">SetByte</a> (void)</td></tr>
+<tr class="memdesc:a9d002f4b79b4c26632460a5b0bef84d6"><td class="mdescLeft">&#160;</td><td class="mdescRight">设置设置node为 Byte 类型的默认值（拷贝）  <br /></td></tr>
+<tr class="memitem:adcbde2fc57919d04af1918aa6e60bc3d" id="r_adcbde2fc57919d04af1918aa6e60bc3d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classNBT__Type.html#a3e47d05c36743947da966f4223237262">NBT_Type::Short</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#adcbde2fc57919d04af1918aa6e60bc3d">SetShort</a> (const <a class="el" href="classNBT__Type.html#a3e47d05c36743947da966f4223237262">NBT_Type::Short</a> &amp;value)</td></tr>
+<tr class="memdesc:adcbde2fc57919d04af1918aa6e60bc3d"><td class="mdescLeft">&#160;</td><td class="mdescRight">从value设置node为 Short 类型的值（拷贝）  <br /></td></tr>
+<tr class="memitem:a113af106e6a22336d681b5eef4c59dfb" id="r_a113af106e6a22336d681b5eef4c59dfb"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classNBT__Type.html#a3e47d05c36743947da966f4223237262">NBT_Type::Short</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a113af106e6a22336d681b5eef4c59dfb">SetShort</a> (<a class="el" href="classNBT__Type.html#a3e47d05c36743947da966f4223237262">NBT_Type::Short</a> &amp;&amp;value)</td></tr>
+<tr class="memdesc:a113af106e6a22336d681b5eef4c59dfb"><td class="mdescLeft">&#160;</td><td class="mdescRight">从value设置node为 Short 类型的值（移动）  <br /></td></tr>
+<tr class="memitem:a3b501fb849acda0d754d3b806fc1435f" id="r_a3b501fb849acda0d754d3b806fc1435f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classNBT__Type.html#a3e47d05c36743947da966f4223237262">NBT_Type::Short</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3b501fb849acda0d754d3b806fc1435f">SetShort</a> (void)</td></tr>
+<tr class="memdesc:a3b501fb849acda0d754d3b806fc1435f"><td class="mdescLeft">&#160;</td><td class="mdescRight">设置设置node为 Short 类型的默认值（拷贝）  <br /></td></tr>
+<tr class="memitem:a664df1670300ae161941fd996e798bc3" id="r_a664df1670300ae161941fd996e798bc3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classNBT__Type.html#afee0233d7f58b90cc9ce2b903da2da22">NBT_Type::Int</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a664df1670300ae161941fd996e798bc3">SetInt</a> (const <a class="el" href="classNBT__Type.html#afee0233d7f58b90cc9ce2b903da2da22">NBT_Type::Int</a> &amp;value)</td></tr>
+<tr class="memdesc:a664df1670300ae161941fd996e798bc3"><td class="mdescLeft">&#160;</td><td class="mdescRight">从value设置node为 Int 类型的值（拷贝）  <br /></td></tr>
+<tr class="memitem:ae0998fcfdb73cac921037e1cd5560be1" id="r_ae0998fcfdb73cac921037e1cd5560be1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classNBT__Type.html#afee0233d7f58b90cc9ce2b903da2da22">NBT_Type::Int</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae0998fcfdb73cac921037e1cd5560be1">SetInt</a> (<a class="el" href="classNBT__Type.html#afee0233d7f58b90cc9ce2b903da2da22">NBT_Type::Int</a> &amp;&amp;value)</td></tr>
+<tr class="memdesc:ae0998fcfdb73cac921037e1cd5560be1"><td class="mdescLeft">&#160;</td><td class="mdescRight">从value设置node为 Int 类型的值（移动）  <br /></td></tr>
+<tr class="memitem:ad8be5c73b87793fd9d0397b9f3a98654" id="r_ad8be5c73b87793fd9d0397b9f3a98654"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classNBT__Type.html#afee0233d7f58b90cc9ce2b903da2da22">NBT_Type::Int</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad8be5c73b87793fd9d0397b9f3a98654">SetInt</a> (void)</td></tr>
+<tr class="memdesc:ad8be5c73b87793fd9d0397b9f3a98654"><td class="mdescLeft">&#160;</td><td class="mdescRight">设置设置node为 Int 类型的默认值（拷贝）  <br /></td></tr>
+<tr class="memitem:a1ccb70cd6674f66e4aba6be46cf13503" id="r_a1ccb70cd6674f66e4aba6be46cf13503"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classNBT__Type.html#a7f8ae2e6e2f87445d1e72f7e922ba053">NBT_Type::Long</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1ccb70cd6674f66e4aba6be46cf13503">SetLong</a> (const <a class="el" href="classNBT__Type.html#a7f8ae2e6e2f87445d1e72f7e922ba053">NBT_Type::Long</a> &amp;value)</td></tr>
+<tr class="memdesc:a1ccb70cd6674f66e4aba6be46cf13503"><td class="mdescLeft">&#160;</td><td class="mdescRight">从value设置node为 Long 类型的值（拷贝）  <br /></td></tr>
+<tr class="memitem:a161585ffa74268277a996fc4a83a2290" id="r_a161585ffa74268277a996fc4a83a2290"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classNBT__Type.html#a7f8ae2e6e2f87445d1e72f7e922ba053">NBT_Type::Long</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a161585ffa74268277a996fc4a83a2290">SetLong</a> (<a class="el" href="classNBT__Type.html#a7f8ae2e6e2f87445d1e72f7e922ba053">NBT_Type::Long</a> &amp;&amp;value)</td></tr>
+<tr class="memdesc:a161585ffa74268277a996fc4a83a2290"><td class="mdescLeft">&#160;</td><td class="mdescRight">从value设置node为 Long 类型的值（移动）  <br /></td></tr>
+<tr class="memitem:a448bcd4720d32e38ff86962a35aca1e3" id="r_a448bcd4720d32e38ff86962a35aca1e3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classNBT__Type.html#a7f8ae2e6e2f87445d1e72f7e922ba053">NBT_Type::Long</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a448bcd4720d32e38ff86962a35aca1e3">SetLong</a> (void)</td></tr>
+<tr class="memdesc:a448bcd4720d32e38ff86962a35aca1e3"><td class="mdescLeft">&#160;</td><td class="mdescRight">设置设置node为 Long 类型的默认值（拷贝）  <br /></td></tr>
+<tr class="memitem:a84bcc7ca55506fb6b5796f83a73e7d1c" id="r_a84bcc7ca55506fb6b5796f83a73e7d1c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classNBT__Type.html#a8a7ac779b8e8a7fdccb3456844abe5cf">NBT_Type::Float</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a84bcc7ca55506fb6b5796f83a73e7d1c">SetFloat</a> (const <a class="el" href="classNBT__Type.html#a8a7ac779b8e8a7fdccb3456844abe5cf">NBT_Type::Float</a> &amp;value)</td></tr>
+<tr class="memdesc:a84bcc7ca55506fb6b5796f83a73e7d1c"><td class="mdescLeft">&#160;</td><td class="mdescRight">从value设置node为 Float 类型的值（拷贝）  <br /></td></tr>
+<tr class="memitem:a670a78b359030c4813df2de870426ed4" id="r_a670a78b359030c4813df2de870426ed4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classNBT__Type.html#a8a7ac779b8e8a7fdccb3456844abe5cf">NBT_Type::Float</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a670a78b359030c4813df2de870426ed4">SetFloat</a> (<a class="el" href="classNBT__Type.html#a8a7ac779b8e8a7fdccb3456844abe5cf">NBT_Type::Float</a> &amp;&amp;value)</td></tr>
+<tr class="memdesc:a670a78b359030c4813df2de870426ed4"><td class="mdescLeft">&#160;</td><td class="mdescRight">从value设置node为 Float 类型的值（移动）  <br /></td></tr>
+<tr class="memitem:a0292eb34424680c3d863dc79fff4da5f" id="r_a0292eb34424680c3d863dc79fff4da5f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classNBT__Type.html#a8a7ac779b8e8a7fdccb3456844abe5cf">NBT_Type::Float</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0292eb34424680c3d863dc79fff4da5f">SetFloat</a> (void)</td></tr>
+<tr class="memdesc:a0292eb34424680c3d863dc79fff4da5f"><td class="mdescLeft">&#160;</td><td class="mdescRight">设置设置node为 Float 类型的默认值（拷贝）  <br /></td></tr>
+<tr class="memitem:ab238d788b51f918136d0a17191cc9dd6" id="r_ab238d788b51f918136d0a17191cc9dd6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classNBT__Type.html#aaea549797088fb63987679367bc9d39a">NBT_Type::Double</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab238d788b51f918136d0a17191cc9dd6">SetDouble</a> (const <a class="el" href="classNBT__Type.html#aaea549797088fb63987679367bc9d39a">NBT_Type::Double</a> &amp;value)</td></tr>
+<tr class="memdesc:ab238d788b51f918136d0a17191cc9dd6"><td class="mdescLeft">&#160;</td><td class="mdescRight">从value设置node为 Double 类型的值（拷贝）  <br /></td></tr>
+<tr class="memitem:a32dde13b07baa662d386ddbf7b963d52" id="r_a32dde13b07baa662d386ddbf7b963d52"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classNBT__Type.html#aaea549797088fb63987679367bc9d39a">NBT_Type::Double</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a32dde13b07baa662d386ddbf7b963d52">SetDouble</a> (<a class="el" href="classNBT__Type.html#aaea549797088fb63987679367bc9d39a">NBT_Type::Double</a> &amp;&amp;value)</td></tr>
+<tr class="memdesc:a32dde13b07baa662d386ddbf7b963d52"><td class="mdescLeft">&#160;</td><td class="mdescRight">从value设置node为 Double 类型的值（移动）  <br /></td></tr>
+<tr class="memitem:a45ff99425409951b112c814c9b8939dc" id="r_a45ff99425409951b112c814c9b8939dc"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classNBT__Type.html#aaea549797088fb63987679367bc9d39a">NBT_Type::Double</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a45ff99425409951b112c814c9b8939dc">SetDouble</a> (void)</td></tr>
+<tr class="memdesc:a45ff99425409951b112c814c9b8939dc"><td class="mdescLeft">&#160;</td><td class="mdescRight">设置设置node为 Double 类型的默认值（拷贝）  <br /></td></tr>
+<tr class="memitem:af70a0488721b475a116ada4df113c534" id="r_af70a0488721b475a116ada4df113c534"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classNBT__Type.html#a953bc9e67e1b5d82c0786b5992f00ed8">NBT_Type::ByteArray</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af70a0488721b475a116ada4df113c534">SetByteArray</a> (const <a class="el" href="classNBT__Type.html#a953bc9e67e1b5d82c0786b5992f00ed8">NBT_Type::ByteArray</a> &amp;value)</td></tr>
+<tr class="memdesc:af70a0488721b475a116ada4df113c534"><td class="mdescLeft">&#160;</td><td class="mdescRight">从value设置node为 ByteArray 类型的值（拷贝）  <br /></td></tr>
+<tr class="memitem:a5183e5df15c4def05dd86b85234866be" id="r_a5183e5df15c4def05dd86b85234866be"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classNBT__Type.html#a953bc9e67e1b5d82c0786b5992f00ed8">NBT_Type::ByteArray</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5183e5df15c4def05dd86b85234866be">SetByteArray</a> (<a class="el" href="classNBT__Type.html#a953bc9e67e1b5d82c0786b5992f00ed8">NBT_Type::ByteArray</a> &amp;&amp;value)</td></tr>
+<tr class="memdesc:a5183e5df15c4def05dd86b85234866be"><td class="mdescLeft">&#160;</td><td class="mdescRight">从value设置node为 ByteArray 类型的值（移动）  <br /></td></tr>
+<tr class="memitem:a94a3d7f9fb1e81efbe2b7c130ab9f178" id="r_a94a3d7f9fb1e81efbe2b7c130ab9f178"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classNBT__Type.html#a953bc9e67e1b5d82c0786b5992f00ed8">NBT_Type::ByteArray</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a94a3d7f9fb1e81efbe2b7c130ab9f178">SetByteArray</a> (void)</td></tr>
+<tr class="memdesc:a94a3d7f9fb1e81efbe2b7c130ab9f178"><td class="mdescLeft">&#160;</td><td class="mdescRight">设置设置node为 ByteArray 类型的默认值（拷贝）  <br /></td></tr>
+<tr class="memitem:aeb169df43d982bdbba93cb56cea7bc03" id="r_aeb169df43d982bdbba93cb56cea7bc03"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classNBT__Type.html#a9c4ad0b2bcd4b5cafb0c9a3f083f9406">NBT_Type::IntArray</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aeb169df43d982bdbba93cb56cea7bc03">SetIntArray</a> (const <a class="el" href="classNBT__Type.html#a9c4ad0b2bcd4b5cafb0c9a3f083f9406">NBT_Type::IntArray</a> &amp;value)</td></tr>
+<tr class="memdesc:aeb169df43d982bdbba93cb56cea7bc03"><td class="mdescLeft">&#160;</td><td class="mdescRight">从value设置node为 IntArray 类型的值（拷贝）  <br /></td></tr>
+<tr class="memitem:a806716a74f67e3f61feec293069c7db5" id="r_a806716a74f67e3f61feec293069c7db5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classNBT__Type.html#a9c4ad0b2bcd4b5cafb0c9a3f083f9406">NBT_Type::IntArray</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a806716a74f67e3f61feec293069c7db5">SetIntArray</a> (<a class="el" href="classNBT__Type.html#a9c4ad0b2bcd4b5cafb0c9a3f083f9406">NBT_Type::IntArray</a> &amp;&amp;value)</td></tr>
+<tr class="memdesc:a806716a74f67e3f61feec293069c7db5"><td class="mdescLeft">&#160;</td><td class="mdescRight">从value设置node为 IntArray 类型的值（移动）  <br /></td></tr>
+<tr class="memitem:af672d8294daf1c9e7c2392b25d28ade9" id="r_af672d8294daf1c9e7c2392b25d28ade9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classNBT__Type.html#a9c4ad0b2bcd4b5cafb0c9a3f083f9406">NBT_Type::IntArray</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af672d8294daf1c9e7c2392b25d28ade9">SetIntArray</a> (void)</td></tr>
+<tr class="memdesc:af672d8294daf1c9e7c2392b25d28ade9"><td class="mdescLeft">&#160;</td><td class="mdescRight">设置设置node为 IntArray 类型的默认值（拷贝）  <br /></td></tr>
+<tr class="memitem:af083179371f0b0aeef8bc1a6a7daec9e" id="r_af083179371f0b0aeef8bc1a6a7daec9e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classNBT__Type.html#aa2c61028536166272869c3bbc91d3197">NBT_Type::LongArray</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af083179371f0b0aeef8bc1a6a7daec9e">SetLongArray</a> (const <a class="el" href="classNBT__Type.html#aa2c61028536166272869c3bbc91d3197">NBT_Type::LongArray</a> &amp;value)</td></tr>
+<tr class="memdesc:af083179371f0b0aeef8bc1a6a7daec9e"><td class="mdescLeft">&#160;</td><td class="mdescRight">从value设置node为 LongArray 类型的值（拷贝）  <br /></td></tr>
+<tr class="memitem:a2f4c90db630a53f343c3890cbd27b9a4" id="r_a2f4c90db630a53f343c3890cbd27b9a4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classNBT__Type.html#aa2c61028536166272869c3bbc91d3197">NBT_Type::LongArray</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2f4c90db630a53f343c3890cbd27b9a4">SetLongArray</a> (<a class="el" href="classNBT__Type.html#aa2c61028536166272869c3bbc91d3197">NBT_Type::LongArray</a> &amp;&amp;value)</td></tr>
+<tr class="memdesc:a2f4c90db630a53f343c3890cbd27b9a4"><td class="mdescLeft">&#160;</td><td class="mdescRight">从value设置node为 LongArray 类型的值（移动）  <br /></td></tr>
+<tr class="memitem:a17324bce7338e1f8cbc48d38801b8a33" id="r_a17324bce7338e1f8cbc48d38801b8a33"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classNBT__Type.html#aa2c61028536166272869c3bbc91d3197">NBT_Type::LongArray</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a17324bce7338e1f8cbc48d38801b8a33">SetLongArray</a> (void)</td></tr>
+<tr class="memdesc:a17324bce7338e1f8cbc48d38801b8a33"><td class="mdescLeft">&#160;</td><td class="mdescRight">设置设置node为 LongArray 类型的默认值（拷贝）  <br /></td></tr>
+<tr class="memitem:a8b71055ee25ebf0290c7a39d37bc5743" id="r_a8b71055ee25ebf0290c7a39d37bc5743"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classNBT__Type.html#a8580dcb2a4494cd9bc52526d43f61865">NBT_Type::String</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8b71055ee25ebf0290c7a39d37bc5743">SetString</a> (const <a class="el" href="classNBT__Type.html#a8580dcb2a4494cd9bc52526d43f61865">NBT_Type::String</a> &amp;value)</td></tr>
+<tr class="memdesc:a8b71055ee25ebf0290c7a39d37bc5743"><td class="mdescLeft">&#160;</td><td class="mdescRight">从value设置node为 String 类型的值（拷贝）  <br /></td></tr>
+<tr class="memitem:a88caab968ab34741c4504a5d4e83c949" id="r_a88caab968ab34741c4504a5d4e83c949"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classNBT__Type.html#a8580dcb2a4494cd9bc52526d43f61865">NBT_Type::String</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a88caab968ab34741c4504a5d4e83c949">SetString</a> (<a class="el" href="classNBT__Type.html#a8580dcb2a4494cd9bc52526d43f61865">NBT_Type::String</a> &amp;&amp;value)</td></tr>
+<tr class="memdesc:a88caab968ab34741c4504a5d4e83c949"><td class="mdescLeft">&#160;</td><td class="mdescRight">从value设置node为 String 类型的值（移动）  <br /></td></tr>
+<tr class="memitem:a6c27385fe6d0bf9854dd419ca5dcf0d8" id="r_a6c27385fe6d0bf9854dd419ca5dcf0d8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classNBT__Type.html#a8580dcb2a4494cd9bc52526d43f61865">NBT_Type::String</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6c27385fe6d0bf9854dd419ca5dcf0d8">SetString</a> (void)</td></tr>
+<tr class="memdesc:a6c27385fe6d0bf9854dd419ca5dcf0d8"><td class="mdescLeft">&#160;</td><td class="mdescRight">设置设置node为 String 类型的默认值（拷贝）  <br /></td></tr>
+<tr class="memitem:af26da0c38190d7d12ccf0a9fdf53676a" id="r_af26da0c38190d7d12ccf0a9fdf53676a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classNBT__Type.html#a87b4d71087e5c0ab1111a4999dace42f">NBT_Type::List</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af26da0c38190d7d12ccf0a9fdf53676a">SetList</a> (const <a class="el" href="classNBT__Type.html#a87b4d71087e5c0ab1111a4999dace42f">NBT_Type::List</a> &amp;value)</td></tr>
+<tr class="memdesc:af26da0c38190d7d12ccf0a9fdf53676a"><td class="mdescLeft">&#160;</td><td class="mdescRight">从value设置node为 List 类型的值（拷贝）  <br /></td></tr>
+<tr class="memitem:a7e608b764c67e141e54c6fc406ac65e7" id="r_a7e608b764c67e141e54c6fc406ac65e7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classNBT__Type.html#a87b4d71087e5c0ab1111a4999dace42f">NBT_Type::List</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7e608b764c67e141e54c6fc406ac65e7">SetList</a> (<a class="el" href="classNBT__Type.html#a87b4d71087e5c0ab1111a4999dace42f">NBT_Type::List</a> &amp;&amp;value)</td></tr>
+<tr class="memdesc:a7e608b764c67e141e54c6fc406ac65e7"><td class="mdescLeft">&#160;</td><td class="mdescRight">从value设置node为 List 类型的值（移动）  <br /></td></tr>
+<tr class="memitem:a72bd51a4859b30085a198a257a6eb8b5" id="r_a72bd51a4859b30085a198a257a6eb8b5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classNBT__Type.html#a87b4d71087e5c0ab1111a4999dace42f">NBT_Type::List</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a72bd51a4859b30085a198a257a6eb8b5">SetList</a> (void)</td></tr>
+<tr class="memdesc:a72bd51a4859b30085a198a257a6eb8b5"><td class="mdescLeft">&#160;</td><td class="mdescRight">设置设置node为 List 类型的默认值（拷贝）  <br /></td></tr>
+<tr class="memitem:adf6f138cdb0027b6363faecd085ea1b1" id="r_adf6f138cdb0027b6363faecd085ea1b1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classNBT__Type.html#a9dcd5050b96a10161f18d7ae4a22e7b3">NBT_Type::Compound</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#adf6f138cdb0027b6363faecd085ea1b1">SetCompound</a> (const <a class="el" href="classNBT__Type.html#a9dcd5050b96a10161f18d7ae4a22e7b3">NBT_Type::Compound</a> &amp;value)</td></tr>
+<tr class="memdesc:adf6f138cdb0027b6363faecd085ea1b1"><td class="mdescLeft">&#160;</td><td class="mdescRight">从value设置node为 Compound 类型的值（拷贝）  <br /></td></tr>
+<tr class="memitem:aa21634b245bb84bc3f7295fd5860deaa" id="r_aa21634b245bb84bc3f7295fd5860deaa"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classNBT__Type.html#a9dcd5050b96a10161f18d7ae4a22e7b3">NBT_Type::Compound</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa21634b245bb84bc3f7295fd5860deaa">SetCompound</a> (<a class="el" href="classNBT__Type.html#a9dcd5050b96a10161f18d7ae4a22e7b3">NBT_Type::Compound</a> &amp;&amp;value)</td></tr>
+<tr class="memdesc:aa21634b245bb84bc3f7295fd5860deaa"><td class="mdescLeft">&#160;</td><td class="mdescRight">从value设置node为 Compound 类型的值（移动）  <br /></td></tr>
+<tr class="memitem:a3d7818cf43b21e27050d60a42e8ca7c0" id="r_a3d7818cf43b21e27050d60a42e8ca7c0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classNBT__Type.html#a9dcd5050b96a10161f18d7ae4a22e7b3">NBT_Type::Compound</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3d7818cf43b21e27050d60a42e8ca7c0">SetCompound</a> (void)</td></tr>
+<tr class="memdesc:a3d7818cf43b21e27050d60a42e8ca7c0"><td class="mdescLeft">&#160;</td><td class="mdescRight">设置设置node为 Compound 类型的默认值（拷贝）  <br /></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">详细描述</h2>
 <div class="textblock"><p>NBT节点，用于存储NBT格式的各种数据类型 </p>
@@ -536,51 +613,6 @@ requires (!std::is_same_v&lt;std::decay_t&lt;T&gt;, <a class="el" href="classNBT
 </div>
 </div>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">成员函数说明</h2>
-<a id="aa01c14b7373ecedb7e4ce842d2a3073a" name="aa01c14b7373ecedb7e4ce842d2a3073a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa01c14b7373ecedb7e4ce842d2a3073a">&#9670;&#160;</a></span>emplace()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T, typename... Args&gt; <br />
-requires (!std::is_same_v&lt;std::decay_t&lt;T&gt;, <a class="el" href="classNBT__Node.html">NBT_Node</a>&gt; &amp;&amp; <a class="el" href="classNBT__Type.html#a71dfa77059d0a3bd9a6190295ad400ca">NBT_Type::IsValidType_V</a>&lt;std::decay_t&lt;T&gt;&gt;)</div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">T &amp; NBT_Node::emplace </td>
-          <td>(</td>
-          <td class="paramtype">Args &amp;&amp;...</td>          <td class="paramname"><span class="paramname"><em>args</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>原位放置新对象并替换当前对象 </p>
-<dl class="tparams"><dt>模板参数</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">T</td><td>要替换当前变体的数据类型 </td></tr>
-    <tr><td class="paramname">Args</td><td>变参模板，接受任意个可构造T类型的参数 </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="params"><dt>参数</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">args</td><td>用于构造类型T的参数列表 </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>返回</dt><dd>对新构造对象的引用 </dd></dl>
-<dl class="section note"><dt>注解</dt><dd>要求类型T必须是NBT_Type类型列表中的任意一个，且不是当前NBT_Node类型，同时参数必须要能构造目标类型 </dd></dl>
-
-</div>
-</div>
 <a id="a101ad25fefbba5823e7ea734890d4007" name="a101ad25fefbba5823e7ea734890d4007"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a101ad25fefbba5823e7ea734890d4007">&#9670;&#160;</a></span>Get() <span class="overload">[1/2]</span></h2>
 
@@ -2012,6 +2044,1299 @@ requires (!std::is_same_v&lt;std::decay_t&lt;T&gt;, <a class="el" href="classNBT
   </dd>
 </dl>
 <dl class="section return"><dt>返回</dt><dd>是否相等 </dd></dl>
+
+</div>
+</div>
+<a id="a708a593a53e2b94a1656850bd0278ecb" name="a708a593a53e2b94a1656850bd0278ecb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a708a593a53e2b94a1656850bd0278ecb">&#9670;&#160;</a></span>Set()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T, typename... Args&gt; <br />
+requires (!std::is_same_v&lt;std::decay_t&lt;T&gt;, <a class="el" href="classNBT__Node.html">NBT_Node</a>&gt; &amp;&amp; <a class="el" href="classNBT__Type.html#a71dfa77059d0a3bd9a6190295ad400ca">NBT_Type::IsValidType_V</a>&lt;std::decay_t&lt;T&gt;&gt;)</div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">T &amp; NBT_Node::Set </td>
+          <td>(</td>
+          <td class="paramtype">Args &amp;&amp;...</td>          <td class="paramname"><span class="paramname"><em>args</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>原位放置新对象并替换当前对象 </p>
+<dl class="tparams"><dt>模板参数</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T</td><td>要替换当前变体的数据类型 </td></tr>
+    <tr><td class="paramname">Args</td><td>变参模板，接受任意个可构造T类型的参数 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">args</td><td>用于构造类型T的参数列表 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>对新构造对象的引用 </dd></dl>
+<dl class="section note"><dt>注解</dt><dd>要求类型T必须是NBT_Type类型列表中的任意一个，且不是当前NBT_Node类型，同时参数必须要能构造目标类型 </dd></dl>
+
+</div>
+</div>
+<a id="a88a44c8539ecbab16589e59a4f3f791e" name="a88a44c8539ecbab16589e59a4f3f791e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a88a44c8539ecbab16589e59a4f3f791e">&#9670;&#160;</a></span>SetByte() <span class="overload">[1/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classNBT__Type.html#a09b5ce48dffc429ad8a7d05d007741c1">NBT_Type::Byte</a> &amp; NBT_Node::SetByte </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classNBT__Type.html#a09b5ce48dffc429ad8a7d05d007741c1">NBT_Type::Byte</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>value</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>从value设置node为 Byte 类型的值（拷贝） </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">value</td><td>要设置的值 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>设置的值的引用 </dd></dl>
+
+</div>
+</div>
+<a id="a5c1a8b9e50456b9edba9c5b015c35c5b" name="a5c1a8b9e50456b9edba9c5b015c35c5b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5c1a8b9e50456b9edba9c5b015c35c5b">&#9670;&#160;</a></span>SetByte() <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classNBT__Type.html#a09b5ce48dffc429ad8a7d05d007741c1">NBT_Type::Byte</a> &amp; NBT_Node::SetByte </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classNBT__Type.html#a09b5ce48dffc429ad8a7d05d007741c1">NBT_Type::Byte</a> &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>value</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>从value设置node为 Byte 类型的值（移动） </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">value</td><td>要设置的值 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>设置的值的引用 </dd></dl>
+
+</div>
+</div>
+<a id="a9d002f4b79b4c26632460a5b0bef84d6" name="a9d002f4b79b4c26632460a5b0bef84d6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9d002f4b79b4c26632460a5b0bef84d6">&#9670;&#160;</a></span>SetByte() <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classNBT__Type.html#a09b5ce48dffc429ad8a7d05d007741c1">NBT_Type::Byte</a> &amp; NBT_Node::SetByte </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>设置设置node为 Byte 类型的默认值（拷贝） </p>
+<dl class="section return"><dt>返回</dt><dd>设置的值的引用 </dd></dl>
+
+</div>
+</div>
+<a id="af70a0488721b475a116ada4df113c534" name="af70a0488721b475a116ada4df113c534"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af70a0488721b475a116ada4df113c534">&#9670;&#160;</a></span>SetByteArray() <span class="overload">[1/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classNBT__Type.html#a953bc9e67e1b5d82c0786b5992f00ed8">NBT_Type::ByteArray</a> &amp; NBT_Node::SetByteArray </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classNBT__Type.html#a953bc9e67e1b5d82c0786b5992f00ed8">NBT_Type::ByteArray</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>value</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>从value设置node为 ByteArray 类型的值（拷贝） </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">value</td><td>要设置的值 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>设置的值的引用 </dd></dl>
+
+</div>
+</div>
+<a id="a5183e5df15c4def05dd86b85234866be" name="a5183e5df15c4def05dd86b85234866be"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5183e5df15c4def05dd86b85234866be">&#9670;&#160;</a></span>SetByteArray() <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classNBT__Type.html#a953bc9e67e1b5d82c0786b5992f00ed8">NBT_Type::ByteArray</a> &amp; NBT_Node::SetByteArray </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classNBT__Type.html#a953bc9e67e1b5d82c0786b5992f00ed8">NBT_Type::ByteArray</a> &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>value</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>从value设置node为 ByteArray 类型的值（移动） </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">value</td><td>要设置的值 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>设置的值的引用 </dd></dl>
+
+</div>
+</div>
+<a id="a94a3d7f9fb1e81efbe2b7c130ab9f178" name="a94a3d7f9fb1e81efbe2b7c130ab9f178"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a94a3d7f9fb1e81efbe2b7c130ab9f178">&#9670;&#160;</a></span>SetByteArray() <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classNBT__Type.html#a953bc9e67e1b5d82c0786b5992f00ed8">NBT_Type::ByteArray</a> &amp; NBT_Node::SetByteArray </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>设置设置node为 ByteArray 类型的默认值（拷贝） </p>
+<dl class="section return"><dt>返回</dt><dd>设置的值的引用 </dd></dl>
+
+</div>
+</div>
+<a id="adf6f138cdb0027b6363faecd085ea1b1" name="adf6f138cdb0027b6363faecd085ea1b1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adf6f138cdb0027b6363faecd085ea1b1">&#9670;&#160;</a></span>SetCompound() <span class="overload">[1/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classNBT__Type.html#a9dcd5050b96a10161f18d7ae4a22e7b3">NBT_Type::Compound</a> &amp; NBT_Node::SetCompound </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classNBT__Type.html#a9dcd5050b96a10161f18d7ae4a22e7b3">NBT_Type::Compound</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>value</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>从value设置node为 Compound 类型的值（拷贝） </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">value</td><td>要设置的值 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>设置的值的引用 </dd></dl>
+
+</div>
+</div>
+<a id="aa21634b245bb84bc3f7295fd5860deaa" name="aa21634b245bb84bc3f7295fd5860deaa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa21634b245bb84bc3f7295fd5860deaa">&#9670;&#160;</a></span>SetCompound() <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classNBT__Type.html#a9dcd5050b96a10161f18d7ae4a22e7b3">NBT_Type::Compound</a> &amp; NBT_Node::SetCompound </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classNBT__Type.html#a9dcd5050b96a10161f18d7ae4a22e7b3">NBT_Type::Compound</a> &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>value</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>从value设置node为 Compound 类型的值（移动） </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">value</td><td>要设置的值 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>设置的值的引用 </dd></dl>
+
+</div>
+</div>
+<a id="a3d7818cf43b21e27050d60a42e8ca7c0" name="a3d7818cf43b21e27050d60a42e8ca7c0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3d7818cf43b21e27050d60a42e8ca7c0">&#9670;&#160;</a></span>SetCompound() <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classNBT__Type.html#a9dcd5050b96a10161f18d7ae4a22e7b3">NBT_Type::Compound</a> &amp; NBT_Node::SetCompound </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>设置设置node为 Compound 类型的默认值（拷贝） </p>
+<dl class="section return"><dt>返回</dt><dd>设置的值的引用 </dd></dl>
+
+</div>
+</div>
+<a id="ab238d788b51f918136d0a17191cc9dd6" name="ab238d788b51f918136d0a17191cc9dd6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab238d788b51f918136d0a17191cc9dd6">&#9670;&#160;</a></span>SetDouble() <span class="overload">[1/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classNBT__Type.html#aaea549797088fb63987679367bc9d39a">NBT_Type::Double</a> &amp; NBT_Node::SetDouble </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classNBT__Type.html#aaea549797088fb63987679367bc9d39a">NBT_Type::Double</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>value</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>从value设置node为 Double 类型的值（拷贝） </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">value</td><td>要设置的值 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>设置的值的引用 </dd></dl>
+
+</div>
+</div>
+<a id="a32dde13b07baa662d386ddbf7b963d52" name="a32dde13b07baa662d386ddbf7b963d52"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a32dde13b07baa662d386ddbf7b963d52">&#9670;&#160;</a></span>SetDouble() <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classNBT__Type.html#aaea549797088fb63987679367bc9d39a">NBT_Type::Double</a> &amp; NBT_Node::SetDouble </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classNBT__Type.html#aaea549797088fb63987679367bc9d39a">NBT_Type::Double</a> &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>value</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>从value设置node为 Double 类型的值（移动） </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">value</td><td>要设置的值 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>设置的值的引用 </dd></dl>
+
+</div>
+</div>
+<a id="a45ff99425409951b112c814c9b8939dc" name="a45ff99425409951b112c814c9b8939dc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a45ff99425409951b112c814c9b8939dc">&#9670;&#160;</a></span>SetDouble() <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classNBT__Type.html#aaea549797088fb63987679367bc9d39a">NBT_Type::Double</a> &amp; NBT_Node::SetDouble </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>设置设置node为 Double 类型的默认值（拷贝） </p>
+<dl class="section return"><dt>返回</dt><dd>设置的值的引用 </dd></dl>
+
+</div>
+</div>
+<a id="a7a306d33cc65684a603846f0d1e60478" name="a7a306d33cc65684a603846f0d1e60478"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7a306d33cc65684a603846f0d1e60478">&#9670;&#160;</a></span>SetEnd() <span class="overload">[1/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classNBT__Type.html#a16ac41e6cfe61a603407221527b6b16c">NBT_Type::End</a> &amp; NBT_Node::SetEnd </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classNBT__Type.html#a16ac41e6cfe61a603407221527b6b16c">NBT_Type::End</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>value</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>从value设置node为 End 类型的值（拷贝） </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">value</td><td>要设置的值 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>设置的值的引用 </dd></dl>
+
+</div>
+</div>
+<a id="a2f971c986274b7942c9f157ea79d5578" name="a2f971c986274b7942c9f157ea79d5578"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2f971c986274b7942c9f157ea79d5578">&#9670;&#160;</a></span>SetEnd() <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classNBT__Type.html#a16ac41e6cfe61a603407221527b6b16c">NBT_Type::End</a> &amp; NBT_Node::SetEnd </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classNBT__Type.html#a16ac41e6cfe61a603407221527b6b16c">NBT_Type::End</a> &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>value</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>从value设置node为 End 类型的值（移动） </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">value</td><td>要设置的值 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>设置的值的引用 </dd></dl>
+
+</div>
+</div>
+<a id="ae85605005b888a180d0fdce7e52720bc" name="ae85605005b888a180d0fdce7e52720bc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae85605005b888a180d0fdce7e52720bc">&#9670;&#160;</a></span>SetEnd() <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classNBT__Type.html#a16ac41e6cfe61a603407221527b6b16c">NBT_Type::End</a> &amp; NBT_Node::SetEnd </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>设置设置node为 End 类型的默认值（拷贝） </p>
+<dl class="section return"><dt>返回</dt><dd>设置的值的引用 </dd></dl>
+
+</div>
+</div>
+<a id="a84bcc7ca55506fb6b5796f83a73e7d1c" name="a84bcc7ca55506fb6b5796f83a73e7d1c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a84bcc7ca55506fb6b5796f83a73e7d1c">&#9670;&#160;</a></span>SetFloat() <span class="overload">[1/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classNBT__Type.html#a8a7ac779b8e8a7fdccb3456844abe5cf">NBT_Type::Float</a> &amp; NBT_Node::SetFloat </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classNBT__Type.html#a8a7ac779b8e8a7fdccb3456844abe5cf">NBT_Type::Float</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>value</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>从value设置node为 Float 类型的值（拷贝） </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">value</td><td>要设置的值 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>设置的值的引用 </dd></dl>
+
+</div>
+</div>
+<a id="a670a78b359030c4813df2de870426ed4" name="a670a78b359030c4813df2de870426ed4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a670a78b359030c4813df2de870426ed4">&#9670;&#160;</a></span>SetFloat() <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classNBT__Type.html#a8a7ac779b8e8a7fdccb3456844abe5cf">NBT_Type::Float</a> &amp; NBT_Node::SetFloat </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classNBT__Type.html#a8a7ac779b8e8a7fdccb3456844abe5cf">NBT_Type::Float</a> &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>value</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>从value设置node为 Float 类型的值（移动） </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">value</td><td>要设置的值 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>设置的值的引用 </dd></dl>
+
+</div>
+</div>
+<a id="a0292eb34424680c3d863dc79fff4da5f" name="a0292eb34424680c3d863dc79fff4da5f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0292eb34424680c3d863dc79fff4da5f">&#9670;&#160;</a></span>SetFloat() <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classNBT__Type.html#a8a7ac779b8e8a7fdccb3456844abe5cf">NBT_Type::Float</a> &amp; NBT_Node::SetFloat </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>设置设置node为 Float 类型的默认值（拷贝） </p>
+<dl class="section return"><dt>返回</dt><dd>设置的值的引用 </dd></dl>
+
+</div>
+</div>
+<a id="a664df1670300ae161941fd996e798bc3" name="a664df1670300ae161941fd996e798bc3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a664df1670300ae161941fd996e798bc3">&#9670;&#160;</a></span>SetInt() <span class="overload">[1/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classNBT__Type.html#afee0233d7f58b90cc9ce2b903da2da22">NBT_Type::Int</a> &amp; NBT_Node::SetInt </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classNBT__Type.html#afee0233d7f58b90cc9ce2b903da2da22">NBT_Type::Int</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>value</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>从value设置node为 Int 类型的值（拷贝） </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">value</td><td>要设置的值 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>设置的值的引用 </dd></dl>
+
+</div>
+</div>
+<a id="ae0998fcfdb73cac921037e1cd5560be1" name="ae0998fcfdb73cac921037e1cd5560be1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae0998fcfdb73cac921037e1cd5560be1">&#9670;&#160;</a></span>SetInt() <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classNBT__Type.html#afee0233d7f58b90cc9ce2b903da2da22">NBT_Type::Int</a> &amp; NBT_Node::SetInt </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classNBT__Type.html#afee0233d7f58b90cc9ce2b903da2da22">NBT_Type::Int</a> &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>value</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>从value设置node为 Int 类型的值（移动） </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">value</td><td>要设置的值 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>设置的值的引用 </dd></dl>
+
+</div>
+</div>
+<a id="ad8be5c73b87793fd9d0397b9f3a98654" name="ad8be5c73b87793fd9d0397b9f3a98654"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad8be5c73b87793fd9d0397b9f3a98654">&#9670;&#160;</a></span>SetInt() <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classNBT__Type.html#afee0233d7f58b90cc9ce2b903da2da22">NBT_Type::Int</a> &amp; NBT_Node::SetInt </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>设置设置node为 Int 类型的默认值（拷贝） </p>
+<dl class="section return"><dt>返回</dt><dd>设置的值的引用 </dd></dl>
+
+</div>
+</div>
+<a id="aeb169df43d982bdbba93cb56cea7bc03" name="aeb169df43d982bdbba93cb56cea7bc03"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeb169df43d982bdbba93cb56cea7bc03">&#9670;&#160;</a></span>SetIntArray() <span class="overload">[1/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classNBT__Type.html#a9c4ad0b2bcd4b5cafb0c9a3f083f9406">NBT_Type::IntArray</a> &amp; NBT_Node::SetIntArray </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classNBT__Type.html#a9c4ad0b2bcd4b5cafb0c9a3f083f9406">NBT_Type::IntArray</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>value</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>从value设置node为 IntArray 类型的值（拷贝） </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">value</td><td>要设置的值 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>设置的值的引用 </dd></dl>
+
+</div>
+</div>
+<a id="a806716a74f67e3f61feec293069c7db5" name="a806716a74f67e3f61feec293069c7db5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a806716a74f67e3f61feec293069c7db5">&#9670;&#160;</a></span>SetIntArray() <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classNBT__Type.html#a9c4ad0b2bcd4b5cafb0c9a3f083f9406">NBT_Type::IntArray</a> &amp; NBT_Node::SetIntArray </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classNBT__Type.html#a9c4ad0b2bcd4b5cafb0c9a3f083f9406">NBT_Type::IntArray</a> &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>value</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>从value设置node为 IntArray 类型的值（移动） </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">value</td><td>要设置的值 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>设置的值的引用 </dd></dl>
+
+</div>
+</div>
+<a id="af672d8294daf1c9e7c2392b25d28ade9" name="af672d8294daf1c9e7c2392b25d28ade9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af672d8294daf1c9e7c2392b25d28ade9">&#9670;&#160;</a></span>SetIntArray() <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classNBT__Type.html#a9c4ad0b2bcd4b5cafb0c9a3f083f9406">NBT_Type::IntArray</a> &amp; NBT_Node::SetIntArray </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>设置设置node为 IntArray 类型的默认值（拷贝） </p>
+<dl class="section return"><dt>返回</dt><dd>设置的值的引用 </dd></dl>
+
+</div>
+</div>
+<a id="af26da0c38190d7d12ccf0a9fdf53676a" name="af26da0c38190d7d12ccf0a9fdf53676a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af26da0c38190d7d12ccf0a9fdf53676a">&#9670;&#160;</a></span>SetList() <span class="overload">[1/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classNBT__Type.html#a87b4d71087e5c0ab1111a4999dace42f">NBT_Type::List</a> &amp; NBT_Node::SetList </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classNBT__Type.html#a87b4d71087e5c0ab1111a4999dace42f">NBT_Type::List</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>value</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>从value设置node为 List 类型的值（拷贝） </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">value</td><td>要设置的值 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>设置的值的引用 </dd></dl>
+
+</div>
+</div>
+<a id="a7e608b764c67e141e54c6fc406ac65e7" name="a7e608b764c67e141e54c6fc406ac65e7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7e608b764c67e141e54c6fc406ac65e7">&#9670;&#160;</a></span>SetList() <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classNBT__Type.html#a87b4d71087e5c0ab1111a4999dace42f">NBT_Type::List</a> &amp; NBT_Node::SetList </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classNBT__Type.html#a87b4d71087e5c0ab1111a4999dace42f">NBT_Type::List</a> &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>value</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>从value设置node为 List 类型的值（移动） </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">value</td><td>要设置的值 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>设置的值的引用 </dd></dl>
+
+</div>
+</div>
+<a id="a72bd51a4859b30085a198a257a6eb8b5" name="a72bd51a4859b30085a198a257a6eb8b5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a72bd51a4859b30085a198a257a6eb8b5">&#9670;&#160;</a></span>SetList() <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classNBT__Type.html#a87b4d71087e5c0ab1111a4999dace42f">NBT_Type::List</a> &amp; NBT_Node::SetList </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>设置设置node为 List 类型的默认值（拷贝） </p>
+<dl class="section return"><dt>返回</dt><dd>设置的值的引用 </dd></dl>
+
+</div>
+</div>
+<a id="a1ccb70cd6674f66e4aba6be46cf13503" name="a1ccb70cd6674f66e4aba6be46cf13503"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1ccb70cd6674f66e4aba6be46cf13503">&#9670;&#160;</a></span>SetLong() <span class="overload">[1/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classNBT__Type.html#a7f8ae2e6e2f87445d1e72f7e922ba053">NBT_Type::Long</a> &amp; NBT_Node::SetLong </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classNBT__Type.html#a7f8ae2e6e2f87445d1e72f7e922ba053">NBT_Type::Long</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>value</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>从value设置node为 Long 类型的值（拷贝） </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">value</td><td>要设置的值 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>设置的值的引用 </dd></dl>
+
+</div>
+</div>
+<a id="a161585ffa74268277a996fc4a83a2290" name="a161585ffa74268277a996fc4a83a2290"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a161585ffa74268277a996fc4a83a2290">&#9670;&#160;</a></span>SetLong() <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classNBT__Type.html#a7f8ae2e6e2f87445d1e72f7e922ba053">NBT_Type::Long</a> &amp; NBT_Node::SetLong </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classNBT__Type.html#a7f8ae2e6e2f87445d1e72f7e922ba053">NBT_Type::Long</a> &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>value</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>从value设置node为 Long 类型的值（移动） </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">value</td><td>要设置的值 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>设置的值的引用 </dd></dl>
+
+</div>
+</div>
+<a id="a448bcd4720d32e38ff86962a35aca1e3" name="a448bcd4720d32e38ff86962a35aca1e3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a448bcd4720d32e38ff86962a35aca1e3">&#9670;&#160;</a></span>SetLong() <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classNBT__Type.html#a7f8ae2e6e2f87445d1e72f7e922ba053">NBT_Type::Long</a> &amp; NBT_Node::SetLong </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>设置设置node为 Long 类型的默认值（拷贝） </p>
+<dl class="section return"><dt>返回</dt><dd>设置的值的引用 </dd></dl>
+
+</div>
+</div>
+<a id="af083179371f0b0aeef8bc1a6a7daec9e" name="af083179371f0b0aeef8bc1a6a7daec9e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af083179371f0b0aeef8bc1a6a7daec9e">&#9670;&#160;</a></span>SetLongArray() <span class="overload">[1/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classNBT__Type.html#aa2c61028536166272869c3bbc91d3197">NBT_Type::LongArray</a> &amp; NBT_Node::SetLongArray </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classNBT__Type.html#aa2c61028536166272869c3bbc91d3197">NBT_Type::LongArray</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>value</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>从value设置node为 LongArray 类型的值（拷贝） </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">value</td><td>要设置的值 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>设置的值的引用 </dd></dl>
+
+</div>
+</div>
+<a id="a2f4c90db630a53f343c3890cbd27b9a4" name="a2f4c90db630a53f343c3890cbd27b9a4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2f4c90db630a53f343c3890cbd27b9a4">&#9670;&#160;</a></span>SetLongArray() <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classNBT__Type.html#aa2c61028536166272869c3bbc91d3197">NBT_Type::LongArray</a> &amp; NBT_Node::SetLongArray </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classNBT__Type.html#aa2c61028536166272869c3bbc91d3197">NBT_Type::LongArray</a> &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>value</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>从value设置node为 LongArray 类型的值（移动） </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">value</td><td>要设置的值 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>设置的值的引用 </dd></dl>
+
+</div>
+</div>
+<a id="a17324bce7338e1f8cbc48d38801b8a33" name="a17324bce7338e1f8cbc48d38801b8a33"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a17324bce7338e1f8cbc48d38801b8a33">&#9670;&#160;</a></span>SetLongArray() <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classNBT__Type.html#aa2c61028536166272869c3bbc91d3197">NBT_Type::LongArray</a> &amp; NBT_Node::SetLongArray </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>设置设置node为 LongArray 类型的默认值（拷贝） </p>
+<dl class="section return"><dt>返回</dt><dd>设置的值的引用 </dd></dl>
+
+</div>
+</div>
+<a id="adcbde2fc57919d04af1918aa6e60bc3d" name="adcbde2fc57919d04af1918aa6e60bc3d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adcbde2fc57919d04af1918aa6e60bc3d">&#9670;&#160;</a></span>SetShort() <span class="overload">[1/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classNBT__Type.html#a3e47d05c36743947da966f4223237262">NBT_Type::Short</a> &amp; NBT_Node::SetShort </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classNBT__Type.html#a3e47d05c36743947da966f4223237262">NBT_Type::Short</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>value</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>从value设置node为 Short 类型的值（拷贝） </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">value</td><td>要设置的值 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>设置的值的引用 </dd></dl>
+
+</div>
+</div>
+<a id="a113af106e6a22336d681b5eef4c59dfb" name="a113af106e6a22336d681b5eef4c59dfb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a113af106e6a22336d681b5eef4c59dfb">&#9670;&#160;</a></span>SetShort() <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classNBT__Type.html#a3e47d05c36743947da966f4223237262">NBT_Type::Short</a> &amp; NBT_Node::SetShort </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classNBT__Type.html#a3e47d05c36743947da966f4223237262">NBT_Type::Short</a> &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>value</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>从value设置node为 Short 类型的值（移动） </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">value</td><td>要设置的值 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>设置的值的引用 </dd></dl>
+
+</div>
+</div>
+<a id="a3b501fb849acda0d754d3b806fc1435f" name="a3b501fb849acda0d754d3b806fc1435f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3b501fb849acda0d754d3b806fc1435f">&#9670;&#160;</a></span>SetShort() <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classNBT__Type.html#a3e47d05c36743947da966f4223237262">NBT_Type::Short</a> &amp; NBT_Node::SetShort </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>设置设置node为 Short 类型的默认值（拷贝） </p>
+<dl class="section return"><dt>返回</dt><dd>设置的值的引用 </dd></dl>
+
+</div>
+</div>
+<a id="a8b71055ee25ebf0290c7a39d37bc5743" name="a8b71055ee25ebf0290c7a39d37bc5743"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8b71055ee25ebf0290c7a39d37bc5743">&#9670;&#160;</a></span>SetString() <span class="overload">[1/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classNBT__Type.html#a8580dcb2a4494cd9bc52526d43f61865">NBT_Type::String</a> &amp; NBT_Node::SetString </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classNBT__Type.html#a8580dcb2a4494cd9bc52526d43f61865">NBT_Type::String</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>value</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>从value设置node为 String 类型的值（拷贝） </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">value</td><td>要设置的值 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>设置的值的引用 </dd></dl>
+
+</div>
+</div>
+<a id="a88caab968ab34741c4504a5d4e83c949" name="a88caab968ab34741c4504a5d4e83c949"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a88caab968ab34741c4504a5d4e83c949">&#9670;&#160;</a></span>SetString() <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classNBT__Type.html#a8580dcb2a4494cd9bc52526d43f61865">NBT_Type::String</a> &amp; NBT_Node::SetString </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classNBT__Type.html#a8580dcb2a4494cd9bc52526d43f61865">NBT_Type::String</a> &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>value</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>从value设置node为 String 类型的值（移动） </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">value</td><td>要设置的值 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>设置的值的引用 </dd></dl>
+
+</div>
+</div>
+<a id="a6c27385fe6d0bf9854dd419ca5dcf0d8" name="a6c27385fe6d0bf9854dd419ca5dcf0d8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6c27385fe6d0bf9854dd419ca5dcf0d8">&#9670;&#160;</a></span>SetString() <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classNBT__Type.html#a8580dcb2a4494cd9bc52526d43f61865">NBT_Type::String</a> &amp; NBT_Node::SetString </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>设置设置node为 String 类型的默认值（拷贝） </p>
+<dl class="section return"><dt>返回</dt><dd>设置的值的引用 </dd></dl>
 
 </div>
 </div>

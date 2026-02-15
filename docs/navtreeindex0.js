@@ -31,11 +31,13 @@ var NAVTREEINDEX0 =
 "NBT__List_8hpp.html#ad96dcd6a7375a0bff7225ea70579c1ed":[9,0,0,0,9,2],
 "NBT__List_8hpp_source.html":[9,0,0,0,9],
 "NBT__Node_8hpp.html":[9,0,0,0,10],
+"NBT__Node_8hpp.html#a8b970b74ecd9bae3d74ac0c6fe1db49f":[9,0,0,0,10,4],
 "NBT__Node_8hpp.html#abd6aab1538577f5315c3ec235371c548":[9,0,0,0,10,2],
 "NBT__Node_8hpp.html#ac625b0c6c73f0f64396917d442c84e0d":[9,0,0,0,10,1],
 "NBT__Node_8hpp.html#ad96dcd6a7375a0bff7225ea70579c1ed":[9,0,0,0,10,3],
 "NBT__Node_8hpp_source.html":[9,0,0,0,10],
 "NBT__Node__View_8hpp.html":[9,0,0,0,11],
+"NBT__Node__View_8hpp.html#a8b970b74ecd9bae3d74ac0c6fe1db49f":[9,0,0,0,11,2],
 "NBT__Node__View_8hpp.html#ad96dcd6a7375a0bff7225ea70579c1ed":[9,0,0,0,11,1],
 "NBT__Node__View_8hpp_source.html":[9,0,0,0,11],
 "NBT__Print_8hpp.html":[9,0,0,0,12],
@@ -247,7 +249,5 @@ var NAVTREEINDEX0 =
 "classNBT__Hash.html#a6e8fe64e062dd879357cbb6ad922e0ee":[8,0,6,8],
 "classNBT__Hash.html#ad648b94a7d1df47d63e4718f78c3d72f":[8,0,6,7],
 "classNBT__Hash.html#aea35d872a776813fb963d44789d37f32":[8,0,6,1],
-"classNBT__Helper.html":[8,0,7],
-"classNBT__Helper.html#af4533b1cf78febd8ad41bdbeb6bc0736":[8,0,7,0],
-"classNBT__IO.html":[8,0,8]
+"classNBT__Helper.html":[8,0,7]
 };

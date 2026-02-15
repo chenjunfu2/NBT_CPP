@@ -22,8 +22,9 @@ var searchData=
   ['tryputstring_19',['TryPutString',['../classNBT__Compound.html#aa63e7ce495c39ac232b34048f3793b53',1,'NBT_Compound::TryPutString(K &amp;&amp;sTagName, const typename NBT_Type::String &amp;vTagVal)'],['../classNBT__Compound.html#ae982961528a1f3d222fd6bcedced6860',1,'NBT_Compound::TryPutString(K &amp;&amp;sTagName, typename NBT_Type::String &amp;&amp;vTagVal)']]],
   ['type_5fget_5ffunc_20',['TYPE_GET_FUNC',['../NBT__Compound_8hpp.html#ad96dcd6a7375a0bff7225ea70579c1ed',1,'TYPE_GET_FUNC:&#160;NBT_Compound.hpp'],['../NBT__List_8hpp.html#ad96dcd6a7375a0bff7225ea70579c1ed',1,'TYPE_GET_FUNC:&#160;NBT_List.hpp'],['../NBT__Node_8hpp.html#ad96dcd6a7375a0bff7225ea70579c1ed',1,'TYPE_GET_FUNC:&#160;NBT_Node.hpp'],['../NBT__Node__View_8hpp.html#ad96dcd6a7375a0bff7225ea70579c1ed',1,'TYPE_GET_FUNC:&#160;NBT_Node_View.hpp']]],
   ['type_5fput_5ffunc_21',['TYPE_PUT_FUNC',['../NBT__Compound_8hpp.html#a4e3830e5c76bfd46aa912c3ffda8488c',1,'TYPE_PUT_FUNC:&#160;NBT_Compound.hpp'],['../NBT__List_8hpp.html#a4e3830e5c76bfd46aa912c3ffda8488c',1,'TYPE_PUT_FUNC:&#160;NBT_List.hpp']]],
-  ['typeholds_22',['TypeHolds',['../classNBT__Node.html#ac7f46830b4c5f9c8d439dee43893840d',1,'NBT_Node::TypeHolds()'],['../classNBT__Node__View.html#aded092c3500fc6190a62cee486196de3',1,'NBT_Node_View::TypeHolds()']]],
-  ['typelist_23',['TypeList',['../classNBT__Type.html#a3e6b28d3639afce0227285776d2f4c66',1,'NBT_Type']]],
-  ['typelistsize_5fv_24',['TypeListSize_V',['../classNBT__Type.html#a4626b45e682f561d3c25fd749ad4145b',1,'NBT_Type']]],
-  ['typetag_5fv_25',['TypeTag_V',['../classNBT__Type.html#acb680b0e9ddce79f7b5386024e12462f',1,'NBT_Type']]]
+  ['type_5fset_5ffunc_22',['TYPE_SET_FUNC',['../NBT__Node_8hpp.html#a8b970b74ecd9bae3d74ac0c6fe1db49f',1,'TYPE_SET_FUNC:&#160;NBT_Node.hpp'],['../NBT__Node__View_8hpp.html#a8b970b74ecd9bae3d74ac0c6fe1db49f',1,'TYPE_SET_FUNC:&#160;NBT_Node_View.hpp']]],
+  ['typeholds_23',['TypeHolds',['../classNBT__Node.html#ac7f46830b4c5f9c8d439dee43893840d',1,'NBT_Node::TypeHolds()'],['../classNBT__Node__View.html#aded092c3500fc6190a62cee486196de3',1,'NBT_Node_View::TypeHolds()']]],
+  ['typelist_24',['TypeList',['../classNBT__Type.html#a3e6b28d3639afce0227285776d2f4c66',1,'NBT_Type']]],
+  ['typelistsize_5fv_25',['TypeListSize_V',['../classNBT__Type.html#a4626b45e682f561d3c25fd749ad4145b',1,'NBT_Type']]],
+  ['typetag_5fv_26',['TypeTag_V',['../classNBT__Type.html#acb680b0e9ddce79f7b5386024e12462f',1,'NBT_Type']]]
 ];

@@ -100,30 +100,70 @@ $(function(){initNavTree('classNBT__Node__View.html','','classNBT__Node__View-me
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public 成员函数</h2></td></tr>
-<tr class="memitem:aea88ebea7579b088612318612822b405" id="r_aea88ebea7579b088612318612822b405"><td class="memTemplParams" colspan="2">template&lt;typename T&gt; <br />
-requires (!std::is_same_v&lt;std::decay_t&lt;T&gt;, <a class="el" href="classNBT__Node.html">NBT_Node</a>&gt;)</td></tr>
-<tr class="memitem:aea88ebea7579b088612318612822b405 template"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aea88ebea7579b088612318612822b405">NBT_Node_View</a> (T &amp;value)</td></tr>
-<tr class="memdesc:aea88ebea7579b088612318612822b405"><td class="mdescLeft">&#160;</td><td class="mdescRight">通用构造函数（适用于const与非const的情况）  <br /></td></tr>
-<tr class="memitem:a2676c4c284344c0ff476e441728175d3" id="r_a2676c4c284344c0ff476e441728175d3"><td class="memTemplParams" colspan="2">template&lt;typename T&gt; <br />
-requires (!std::is_same_v&lt;std::decay_t&lt;T&gt;, <a class="el" href="classNBT__Node.html">NBT_Node</a>&gt; &amp;&amp; bIsConst)</td></tr>
-<tr class="memitem:a2676c4c284344c0ff476e441728175d3 template"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2676c4c284344c0ff476e441728175d3">NBT_Node_View</a> (const T &amp;value)</td></tr>
-<tr class="memdesc:a2676c4c284344c0ff476e441728175d3"><td class="mdescLeft">&#160;</td><td class="mdescRight">通用构造函数（仅适用于const）  <br /></td></tr>
-<tr class="memitem:a38f303bd1a6bb93ed5bc0e367c052a9a" id="r_a38f303bd1a6bb93ed5bc0e367c052a9a"><td class="memTemplParams" colspan="2">template&lt;typename T&gt; <br />
-requires (!std::is_same_v&lt;std::decay_t&lt;T&gt;, <a class="el" href="classNBT__Node.html">NBT_Node</a>&gt;)</td></tr>
-<tr class="memitem:a38f303bd1a6bb93ed5bc0e367c052a9a template"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a38f303bd1a6bb93ed5bc0e367c052a9a">NBT_Node_View</a> (T &amp;&amp;_Temp)=delete</td></tr>
-<tr class="memdesc:a38f303bd1a6bb93ed5bc0e367c052a9a"><td class="mdescLeft">&#160;</td><td class="mdescRight">删除临时对象构造方式，防止从临时对象构造导致悬空指针  <br /></td></tr>
+<tr class="memitem:a7501618a38a01bb7c3cd9fe808637237" id="r_a7501618a38a01bb7c3cd9fe808637237"><td class="memTemplParams" colspan="2">template&lt;typename T&gt; <br />
+requires (!std::is_same_v&lt;std::decay_t&lt;T&gt;, <a class="el" href="classNBT__Node.html">NBT_Node</a>&gt; &amp;&amp;<a class="el" href="classNBT__Type.html#a71dfa77059d0a3bd9a6190295ad400ca">NBT_Type::IsValidType_V</a>&lt;std::decay_t&lt;T&gt;&gt; &amp;&amp; !bIsConst)</td></tr>
+<tr class="memitem:a7501618a38a01bb7c3cd9fe808637237 template"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7501618a38a01bb7c3cd9fe808637237">NBT_Node_View</a> (T &amp;value)</td></tr>
+<tr class="memdesc:a7501618a38a01bb7c3cd9fe808637237"><td class="mdescLeft">&#160;</td><td class="mdescRight">通用构造函数（仅适用于非const）  <br /></td></tr>
+<tr class="memitem:a6138cbcd4af8368865b74adaa8edf49d" id="r_a6138cbcd4af8368865b74adaa8edf49d"><td class="memTemplParams" colspan="2">template&lt;typename T&gt; <br />
+requires (!std::is_same_v&lt;std::decay_t&lt;T&gt;, <a class="el" href="classNBT__Node.html">NBT_Node</a>&gt; &amp;&amp; <a class="el" href="classNBT__Type.html#a71dfa77059d0a3bd9a6190295ad400ca">NBT_Type::IsValidType_V</a>&lt;std::decay_t&lt;T&gt;&gt; &amp;&amp; bIsConst)</td></tr>
+<tr class="memitem:a6138cbcd4af8368865b74adaa8edf49d template"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6138cbcd4af8368865b74adaa8edf49d">NBT_Node_View</a> (const T &amp;value)</td></tr>
+<tr class="memdesc:a6138cbcd4af8368865b74adaa8edf49d"><td class="mdescLeft">&#160;</td><td class="mdescRight">通用构造函数（仅适用于const）  <br /></td></tr>
 <tr class="memitem:aa4cb7b3cac8cd88cd03fa1b5385b1350" id="r_aa4cb7b3cac8cd88cd03fa1b5385b1350"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa4cb7b3cac8cd88cd03fa1b5385b1350">NBT_Node_View</a> (<a class="el" href="classNBT__Node.html">NBT_Node</a> &amp;node)</td></tr>
-<tr class="memdesc:aa4cb7b3cac8cd88cd03fa1b5385b1350"><td class="mdescLeft">&#160;</td><td class="mdescRight">从NBT_Node构造视图（适用于const与非const的情况）  <br /></td></tr>
+<tr class="memdesc:aa4cb7b3cac8cd88cd03fa1b5385b1350"><td class="mdescLeft">&#160;</td><td class="mdescRight">从NBT_Node构造视图（仅适用于非const）  <br /></td></tr>
 <tr class="memitem:a9f162eab7bf975a99675bb5d1ad079e3" id="r_a9f162eab7bf975a99675bb5d1ad079e3"><td class="memTemplParams" colspan="2">template&lt;typename = void&gt; <br />
 requires (bIsConst)</td></tr>
 <tr class="memitem:a9f162eab7bf975a99675bb5d1ad079e3 template"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9f162eab7bf975a99675bb5d1ad079e3">NBT_Node_View</a> (const <a class="el" href="classNBT__Node.html">NBT_Node</a> &amp;node)</td></tr>
 <tr class="memdesc:a9f162eab7bf975a99675bb5d1ad079e3"><td class="mdescLeft">&#160;</td><td class="mdescRight">从NBT_Node构造视图（仅适用于const）  <br /></td></tr>
-<tr class="memitem:a4c3e005e59ad16c2411a35a728435136" id="r_a4c3e005e59ad16c2411a35a728435136"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4c3e005e59ad16c2411a35a728435136">NBT_Node_View</a> (<a class="el" href="classNBT__Node.html">NBT_Node</a> &amp;&amp;_Temp)=delete</td></tr>
-<tr class="memdesc:a4c3e005e59ad16c2411a35a728435136"><td class="mdescLeft">&#160;</td><td class="mdescRight">删除临时对象构造方式，防止从临时对象构造导致悬空指针  <br /></td></tr>
 <tr class="memitem:aa1bc9c8f2cfd6976439317e9303ae37a" id="r_aa1bc9c8f2cfd6976439317e9303ae37a"><td class="memTemplParams" colspan="2">template&lt;typename = void&gt; <br />
 requires (bIsConst)</td></tr>
 <tr class="memitem:aa1bc9c8f2cfd6976439317e9303ae37a template"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa1bc9c8f2cfd6976439317e9303ae37a">NBT_Node_View</a> (const <a class="el" href="classNBT__Node__View.html">NBT_Node_View</a>&lt; false &gt; &amp;_Other)</td></tr>
 <tr class="memdesc:aa1bc9c8f2cfd6976439317e9303ae37a"><td class="mdescLeft">&#160;</td><td class="mdescRight">从非const视图隐式构造const视图  <br /></td></tr>
+<tr class="memitem:a33341bdbc0964157e60841fd0e499056" id="r_a33341bdbc0964157e60841fd0e499056"><td class="memTemplParams" colspan="2">template&lt;typename T&gt; <br />
+requires (!std::is_lvalue_reference_v&lt;T&gt;)</td></tr>
+<tr class="memitem:a33341bdbc0964157e60841fd0e499056 template"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a33341bdbc0964157e60841fd0e499056">NBT_Node_View</a> (T &amp;&amp;_Temp)=delete</td></tr>
+<tr class="memdesc:a33341bdbc0964157e60841fd0e499056"><td class="mdescLeft">&#160;</td><td class="mdescRight">删除临时对象构造方式，防止从临时对象构造导致悬空指针  <br /></td></tr>
+<tr class="memitem:a8fe08b4179b290c69183597078f2b846" id="r_a8fe08b4179b290c69183597078f2b846"><td class="memTemplParams" colspan="2">template&lt;typename T&gt; <br />
+requires (!std::is_same_v&lt;std::decay_t&lt;T&gt;, <a class="el" href="classNBT__Node.html">NBT_Node</a>&gt; &amp;&amp; <a class="el" href="classNBT__Type.html#a71dfa77059d0a3bd9a6190295ad400ca">NBT_Type::IsValidType_V</a>&lt;std::decay_t&lt;T&gt;&gt; &amp;&amp; !bIsConst)</td></tr>
+<tr class="memitem:a8fe08b4179b290c69183597078f2b846 template"><td class="memItemLeft" align="right" valign="top">T &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8fe08b4179b290c69183597078f2b846">Set</a> (T &amp;value)</td></tr>
+<tr class="memdesc:a8fe08b4179b290c69183597078f2b846"><td class="mdescLeft">&#160;</td><td class="mdescRight">通用设置函数（仅适用于非const）  <br /></td></tr>
+<tr class="memitem:ae740aa2f860ecc697362de194d4e6033" id="r_ae740aa2f860ecc697362de194d4e6033"><td class="memTemplParams" colspan="2">template&lt;typename T&gt; <br />
+requires (!std::is_same_v&lt;std::decay_t&lt;T&gt;, <a class="el" href="classNBT__Node.html">NBT_Node</a>&gt; &amp;&amp; <a class="el" href="classNBT__Type.html#a71dfa77059d0a3bd9a6190295ad400ca">NBT_Type::IsValidType_V</a>&lt;std::decay_t&lt;T&gt;&gt; &amp;&amp; bIsConst)</td></tr>
+<tr class="memitem:ae740aa2f860ecc697362de194d4e6033 template"><td class="memItemLeft" align="right" valign="top">const T &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae740aa2f860ecc697362de194d4e6033">Set</a> (const T &amp;value)</td></tr>
+<tr class="memdesc:ae740aa2f860ecc697362de194d4e6033"><td class="mdescLeft">&#160;</td><td class="mdescRight">通用设置函数（仅适用于const）  <br /></td></tr>
+<tr class="memitem:a530b794ca148305a3ff1a064bf40bef1" id="r_a530b794ca148305a3ff1a064bf40bef1"><td class="memTemplParams" colspan="2">template&lt;typename = void&gt; <br />
+requires (!bIsConst)</td></tr>
+<tr class="memitem:a530b794ca148305a3ff1a064bf40bef1 template"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classNBT__Node.html">NBT_Node</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a530b794ca148305a3ff1a064bf40bef1">Set</a> (<a class="el" href="classNBT__Node.html">NBT_Node</a> &amp;node)</td></tr>
+<tr class="memdesc:a530b794ca148305a3ff1a064bf40bef1"><td class="mdescLeft">&#160;</td><td class="mdescRight">从NBT_Node重设视图（仅适用于非const）  <br /></td></tr>
+<tr class="memitem:a446fa601d26e822fd63184cc644141eb" id="r_a446fa601d26e822fd63184cc644141eb"><td class="memTemplParams" colspan="2">template&lt;typename = void&gt; <br />
+requires (bIsConst)</td></tr>
+<tr class="memitem:a446fa601d26e822fd63184cc644141eb template"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classNBT__Node.html">NBT_Node</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a446fa601d26e822fd63184cc644141eb">Set</a> (const <a class="el" href="classNBT__Node.html">NBT_Node</a> &amp;node)</td></tr>
+<tr class="memdesc:a446fa601d26e822fd63184cc644141eb"><td class="mdescLeft">&#160;</td><td class="mdescRight">从NBT_Node重设视图（仅适用于const）  <br /></td></tr>
+<tr class="memitem:a6e54f1ca3a83867eb8eb84a0caa0b867" id="r_a6e54f1ca3a83867eb8eb84a0caa0b867"><td class="memTemplParams" colspan="2">template&lt;typename T&gt; <br />
+requires (!std::is_lvalue_reference_v&lt;T&gt;)</td></tr>
+<tr class="memitem:a6e54f1ca3a83867eb8eb84a0caa0b867 template"><td class="memItemLeft" align="right" valign="top">T &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6e54f1ca3a83867eb8eb84a0caa0b867">Set</a> (T &amp;&amp;_Temp)=delete</td></tr>
+<tr class="memdesc:a6e54f1ca3a83867eb8eb84a0caa0b867"><td class="mdescLeft">&#160;</td><td class="mdescRight">删除临时对象设置方式，防止从临时对象构造导致悬空指针  <br /></td></tr>
+<tr class="memitem:afa060c6e8b8be15794f7c0e6eabd31fd" id="r_afa060c6e8b8be15794f7c0e6eabd31fd"><td class="memTemplParams" colspan="2">template&lt;typename T&gt; <br />
+requires (!std::is_same_v&lt;std::decay_t&lt;T&gt;, <a class="el" href="classNBT__Node.html">NBT_Node</a>&gt; &amp;&amp; <a class="el" href="classNBT__Type.html#a71dfa77059d0a3bd9a6190295ad400ca">NBT_Type::IsValidType_V</a>&lt;std::decay_t&lt;T&gt;&gt; &amp;&amp; !bIsConst)</td></tr>
+<tr class="memitem:afa060c6e8b8be15794f7c0e6eabd31fd template"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classNBT__Node__View.html">NBT_Node_View</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afa060c6e8b8be15794f7c0e6eabd31fd">operator=</a> (T &amp;value)</td></tr>
+<tr class="memdesc:afa060c6e8b8be15794f7c0e6eabd31fd"><td class="mdescLeft">&#160;</td><td class="mdescRight">通用赋值设置函数（仅适用于非const）  <br /></td></tr>
+<tr class="memitem:aa6c8183031c4e7ee09e1c8d4cc67b0c4" id="r_aa6c8183031c4e7ee09e1c8d4cc67b0c4"><td class="memTemplParams" colspan="2">template&lt;typename T&gt; <br />
+requires (!std::is_same_v&lt;std::decay_t&lt;T&gt;, <a class="el" href="classNBT__Node.html">NBT_Node</a>&gt; &amp;&amp; <a class="el" href="classNBT__Type.html#a71dfa77059d0a3bd9a6190295ad400ca">NBT_Type::IsValidType_V</a>&lt;std::decay_t&lt;T&gt;&gt; &amp;&amp; bIsConst)</td></tr>
+<tr class="memitem:aa6c8183031c4e7ee09e1c8d4cc67b0c4 template"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classNBT__Node__View.html">NBT_Node_View</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa6c8183031c4e7ee09e1c8d4cc67b0c4">operator=</a> (const T &amp;value)</td></tr>
+<tr class="memdesc:aa6c8183031c4e7ee09e1c8d4cc67b0c4"><td class="mdescLeft">&#160;</td><td class="mdescRight">通用赋值设置函数（仅适用于const）  <br /></td></tr>
+<tr class="memitem:a987f1293daa5fc655fbe5cedf8f29009" id="r_a987f1293daa5fc655fbe5cedf8f29009"><td class="memTemplParams" colspan="2">template&lt;typename = void&gt; <br />
+requires (!bIsConst)</td></tr>
+<tr class="memitem:a987f1293daa5fc655fbe5cedf8f29009 template"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classNBT__Node__View.html">NBT_Node_View</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a987f1293daa5fc655fbe5cedf8f29009">operator=</a> (<a class="el" href="classNBT__Node.html">NBT_Node</a> &amp;node)</td></tr>
+<tr class="memdesc:a987f1293daa5fc655fbe5cedf8f29009"><td class="mdescLeft">&#160;</td><td class="mdescRight">从NBT_Node赋值重设视图（仅适用于非const）  <br /></td></tr>
+<tr class="memitem:a878312cf3c8cd46d96dd5b64a2a53408" id="r_a878312cf3c8cd46d96dd5b64a2a53408"><td class="memTemplParams" colspan="2">template&lt;typename = void&gt; <br />
+requires (bIsConst)</td></tr>
+<tr class="memitem:a878312cf3c8cd46d96dd5b64a2a53408 template"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classNBT__Node__View.html">NBT_Node_View</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a878312cf3c8cd46d96dd5b64a2a53408">operator=</a> (const <a class="el" href="classNBT__Node.html">NBT_Node</a> &amp;node)</td></tr>
+<tr class="memdesc:a878312cf3c8cd46d96dd5b64a2a53408"><td class="mdescLeft">&#160;</td><td class="mdescRight">从NBT_Node赋值重设视图（仅适用于const）  <br /></td></tr>
+<tr class="memitem:a747edbb635296847a36323b40122abb2" id="r_a747edbb635296847a36323b40122abb2"><td class="memTemplParams" colspan="2">template&lt;typename T&gt; <br />
+requires (!std::is_lvalue_reference_v&lt;T&gt;)</td></tr>
+<tr class="memitem:a747edbb635296847a36323b40122abb2 template"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classNBT__Node__View.html">NBT_Node_View</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a747edbb635296847a36323b40122abb2">operator=</a> (T &amp;&amp;_Temp)=delete</td></tr>
+<tr class="memdesc:a747edbb635296847a36323b40122abb2"><td class="mdescLeft">&#160;</td><td class="mdescRight">删除临时对象赋值设置方式，防止从临时对象构造导致悬空指针  <br /></td></tr>
+<tr class="memitem:ac444992a37f79ae1ddaeb370dbb3e38e" id="r_ac444992a37f79ae1ddaeb370dbb3e38e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac444992a37f79ae1ddaeb370dbb3e38e">NBT_Node_View</a> ()</td></tr>
+<tr class="memdesc:ac444992a37f79ae1ddaeb370dbb3e38e"><td class="mdescLeft">&#160;</td><td class="mdescRight">默认构造函数  <br /></td></tr>
 <tr class="memitem:a2c7b06bbe6da6a6d72b657da19fd25b7" id="r_a2c7b06bbe6da6a6d72b657da19fd25b7"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2c7b06bbe6da6a6d72b657da19fd25b7">~NBT_Node_View</a> ()=default</td></tr>
 <tr class="memdesc:a2c7b06bbe6da6a6d72b657da19fd25b7"><td class="mdescLeft">&#160;</td><td class="mdescRight">默认析构函数  <br /></td></tr>
 <tr class="memitem:ae93ad1831f2eea21d82b12701b7ffa5c" id="r_ae93ad1831f2eea21d82b12701b7ffa5c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae93ad1831f2eea21d82b12701b7ffa5c">NBT_Node_View</a> (const <a class="el" href="classNBT__Node__View.html">NBT_Node_View</a> &amp;_Copy)</td></tr>
@@ -152,6 +192,11 @@ requires (!bIsConst)</td></tr>
 <tr class="memitem:aded092c3500fc6190a62cee486196de3" id="r_aded092c3500fc6190a62cee486196de3"><td class="memTemplParams" colspan="2">template&lt;typename T&gt; </td></tr>
 <tr class="memitem:aded092c3500fc6190a62cee486196de3 template"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aded092c3500fc6190a62cee486196de3">TypeHolds</a> () const</td></tr>
 <tr class="memdesc:aded092c3500fc6190a62cee486196de3"><td class="mdescLeft">&#160;</td><td class="mdescRight">类型判断  <br /></td></tr>
+<tr class="memitem:a8924e4a3ead9319dd26f508c9b84c4cb" id="r_a8924e4a3ead9319dd26f508c9b84c4cb"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8924e4a3ead9319dd26f508c9b84c4cb">IsEmpty</a> () const</td></tr>
+<tr class="memdesc:a8924e4a3ead9319dd26f508c9b84c4cb"><td class="mdescLeft">&#160;</td><td class="mdescRight">为空判断  <br /></td></tr>
+<tr class="memitem:acd53dc188283a5f3b27090bc30c285df" id="r_acd53dc188283a5f3b27090bc30c285df"><td class="memItemLeft" align="right" valign="top"><a id="acd53dc188283a5f3b27090bc30c285df" name="acd53dc188283a5f3b27090bc30c285df"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>SetEmpty</b> ()</td></tr>
+<tr class="memdesc:acd53dc188283a5f3b27090bc30c285df"><td class="mdescLeft">&#160;</td><td class="mdescRight">设置为空 <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-static-attribs" class="groupheader"><a id="pub-static-attribs" name="pub-static-attribs"></a>
 静态 Public 属性</h2></td></tr>
@@ -163,8 +208,7 @@ static constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><b>is_c
 针对每种类型提供一个方便使用的函数，由宏批量生成</h2></td></tr>
 <tr><td class="ititle" colspan="2"><p>具体作用说明：</p>
 <ul>
-<li>Get开头+类型名的函数：直接获取此类型，不做任何检查，由std::get具体实现决定</li>
-<li>Is开头 + 类型名的函数：判断当前NBT_Node_View是否指向此类型 </li>
+<li>Set开头+类型名的函数：设置node为此类型，从值或默认值设置 </li>
 </ul>
 </td></tr>
 <tr class="memitem:aae91c1947400e5dfb4368f6574cf51ea" id="r_aae91c1947400e5dfb4368f6574cf51ea"><td class="memItemLeft" align="right" valign="top">std::conditional_t&lt; bIsConst, const <a class="el" href="classNBT__Type.html#a16ac41e6cfe61a603407221527b6b16c">NBT_Type::End</a> &amp;, <a class="el" href="classNBT__Type.html#a16ac41e6cfe61a603407221527b6b16c">NBT_Type::End</a> &amp; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aae91c1947400e5dfb4368f6574cf51ea">GetEnd</a> (<a class="el" href="classNBT__Node__View.html">NBT_Node_View</a> &amp;node)</td></tr>
@@ -349,6 +393,136 @@ requires (!bIsConst)</td></tr>
 <tr class="memdesc:af4041f6ac7ad0bde1f9c81ec5f7dc763"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取当前视图指向的 Compound 类型的数据（仅适用于非const视图）  <br /></td></tr>
 <tr class="memitem:a7b66625806995aa91ac58cdd1c4dc0e2" id="r_a7b66625806995aa91ac58cdd1c4dc0e2"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7b66625806995aa91ac58cdd1c4dc0e2">IsCompound</a> () const</td></tr>
 <tr class="memdesc:a7b66625806995aa91ac58cdd1c4dc0e2"><td class="mdescLeft">&#160;</td><td class="mdescRight">检查当前视图是否指向 Compound 类型的数据  <br /></td></tr>
+<tr class="memitem:a078751838e59e5bbd1895f455877a0f9" id="r_a078751838e59e5bbd1895f455877a0f9"><td class="memTemplParams" colspan="2">template&lt;typename = void&gt; <br />
+requires (!bIsConst)</td></tr>
+<tr class="memitem:a078751838e59e5bbd1895f455877a0f9 template"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classNBT__Type.html#a16ac41e6cfe61a603407221527b6b16c">NBT_Type::End</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a078751838e59e5bbd1895f455877a0f9">SetEnd</a> (<a class="el" href="classNBT__Type.html#a16ac41e6cfe61a603407221527b6b16c">NBT_Type::End</a> &amp;value)</td></tr>
+<tr class="memdesc:a078751838e59e5bbd1895f455877a0f9"><td class="mdescLeft">&#160;</td><td class="mdescRight">从value设置 End 类型的视图（非const）  <br /></td></tr>
+<tr class="memitem:aa79e438621afe6a64bee3a924a563f86" id="r_aa79e438621afe6a64bee3a924a563f86"><td class="memTemplParams" colspan="2">template&lt;typename = void&gt; <br />
+requires (bIsConst)</td></tr>
+<tr class="memitem:aa79e438621afe6a64bee3a924a563f86 template"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classNBT__Type.html#a16ac41e6cfe61a603407221527b6b16c">NBT_Type::End</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa79e438621afe6a64bee3a924a563f86">SetEnd</a> (const <a class="el" href="classNBT__Type.html#a16ac41e6cfe61a603407221527b6b16c">NBT_Type::End</a> &amp;value)</td></tr>
+<tr class="memdesc:aa79e438621afe6a64bee3a924a563f86"><td class="mdescLeft">&#160;</td><td class="mdescRight">从value设置 End 类型的视图（const）  <br /></td></tr>
+<tr class="memitem:a664d40d6e3247514255d50b3b0562d0a" id="r_a664d40d6e3247514255d50b3b0562d0a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classNBT__Type.html#a16ac41e6cfe61a603407221527b6b16c">NBT_Type::End</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a664d40d6e3247514255d50b3b0562d0a">SetEnd</a> (<a class="el" href="classNBT__Type.html#a16ac41e6cfe61a603407221527b6b16c">NBT_Type::End</a> &amp;&amp;_Temp)=delete</td></tr>
+<tr class="memdesc:a664d40d6e3247514255d50b3b0562d0a"><td class="mdescLeft">&#160;</td><td class="mdescRight">删除从临时对象设置 End 类型的视图，，防止从临时对象构造导致悬空指针  <br /></td></tr>
+<tr class="memitem:aa1726289c5f8e2ce32a7c046bdc35865" id="r_aa1726289c5f8e2ce32a7c046bdc35865"><td class="memTemplParams" colspan="2">template&lt;typename = void&gt; <br />
+requires (!bIsConst)</td></tr>
+<tr class="memitem:aa1726289c5f8e2ce32a7c046bdc35865 template"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classNBT__Type.html#a09b5ce48dffc429ad8a7d05d007741c1">NBT_Type::Byte</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa1726289c5f8e2ce32a7c046bdc35865">SetByte</a> (<a class="el" href="classNBT__Type.html#a09b5ce48dffc429ad8a7d05d007741c1">NBT_Type::Byte</a> &amp;value)</td></tr>
+<tr class="memdesc:aa1726289c5f8e2ce32a7c046bdc35865"><td class="mdescLeft">&#160;</td><td class="mdescRight">从value设置 Byte 类型的视图（非const）  <br /></td></tr>
+<tr class="memitem:ab5240f40a690ea49c98baff6b1a91b3b" id="r_ab5240f40a690ea49c98baff6b1a91b3b"><td class="memTemplParams" colspan="2">template&lt;typename = void&gt; <br />
+requires (bIsConst)</td></tr>
+<tr class="memitem:ab5240f40a690ea49c98baff6b1a91b3b template"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classNBT__Type.html#a09b5ce48dffc429ad8a7d05d007741c1">NBT_Type::Byte</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab5240f40a690ea49c98baff6b1a91b3b">SetByte</a> (const <a class="el" href="classNBT__Type.html#a09b5ce48dffc429ad8a7d05d007741c1">NBT_Type::Byte</a> &amp;value)</td></tr>
+<tr class="memdesc:ab5240f40a690ea49c98baff6b1a91b3b"><td class="mdescLeft">&#160;</td><td class="mdescRight">从value设置 Byte 类型的视图（const）  <br /></td></tr>
+<tr class="memitem:af0a47fe4268484167beb2977d9745aab" id="r_af0a47fe4268484167beb2977d9745aab"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classNBT__Type.html#a09b5ce48dffc429ad8a7d05d007741c1">NBT_Type::Byte</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af0a47fe4268484167beb2977d9745aab">SetByte</a> (<a class="el" href="classNBT__Type.html#a09b5ce48dffc429ad8a7d05d007741c1">NBT_Type::Byte</a> &amp;&amp;_Temp)=delete</td></tr>
+<tr class="memdesc:af0a47fe4268484167beb2977d9745aab"><td class="mdescLeft">&#160;</td><td class="mdescRight">删除从临时对象设置 Byte 类型的视图，，防止从临时对象构造导致悬空指针  <br /></td></tr>
+<tr class="memitem:ae2741a8dffe589d540f41d4992d79378" id="r_ae2741a8dffe589d540f41d4992d79378"><td class="memTemplParams" colspan="2">template&lt;typename = void&gt; <br />
+requires (!bIsConst)</td></tr>
+<tr class="memitem:ae2741a8dffe589d540f41d4992d79378 template"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classNBT__Type.html#a3e47d05c36743947da966f4223237262">NBT_Type::Short</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae2741a8dffe589d540f41d4992d79378">SetShort</a> (<a class="el" href="classNBT__Type.html#a3e47d05c36743947da966f4223237262">NBT_Type::Short</a> &amp;value)</td></tr>
+<tr class="memdesc:ae2741a8dffe589d540f41d4992d79378"><td class="mdescLeft">&#160;</td><td class="mdescRight">从value设置 Short 类型的视图（非const）  <br /></td></tr>
+<tr class="memitem:a3fd9867f7e8b465e2ccc78d4d40281e5" id="r_a3fd9867f7e8b465e2ccc78d4d40281e5"><td class="memTemplParams" colspan="2">template&lt;typename = void&gt; <br />
+requires (bIsConst)</td></tr>
+<tr class="memitem:a3fd9867f7e8b465e2ccc78d4d40281e5 template"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classNBT__Type.html#a3e47d05c36743947da966f4223237262">NBT_Type::Short</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3fd9867f7e8b465e2ccc78d4d40281e5">SetShort</a> (const <a class="el" href="classNBT__Type.html#a3e47d05c36743947da966f4223237262">NBT_Type::Short</a> &amp;value)</td></tr>
+<tr class="memdesc:a3fd9867f7e8b465e2ccc78d4d40281e5"><td class="mdescLeft">&#160;</td><td class="mdescRight">从value设置 Short 类型的视图（const）  <br /></td></tr>
+<tr class="memitem:a35f2f1f8cfe4816636f78d9954b3aa1b" id="r_a35f2f1f8cfe4816636f78d9954b3aa1b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classNBT__Type.html#a3e47d05c36743947da966f4223237262">NBT_Type::Short</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a35f2f1f8cfe4816636f78d9954b3aa1b">SetShort</a> (<a class="el" href="classNBT__Type.html#a3e47d05c36743947da966f4223237262">NBT_Type::Short</a> &amp;&amp;_Temp)=delete</td></tr>
+<tr class="memdesc:a35f2f1f8cfe4816636f78d9954b3aa1b"><td class="mdescLeft">&#160;</td><td class="mdescRight">删除从临时对象设置 Short 类型的视图，，防止从临时对象构造导致悬空指针  <br /></td></tr>
+<tr class="memitem:a370ac61892eeca26595774ef05fb177a" id="r_a370ac61892eeca26595774ef05fb177a"><td class="memTemplParams" colspan="2">template&lt;typename = void&gt; <br />
+requires (!bIsConst)</td></tr>
+<tr class="memitem:a370ac61892eeca26595774ef05fb177a template"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classNBT__Type.html#afee0233d7f58b90cc9ce2b903da2da22">NBT_Type::Int</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a370ac61892eeca26595774ef05fb177a">SetInt</a> (<a class="el" href="classNBT__Type.html#afee0233d7f58b90cc9ce2b903da2da22">NBT_Type::Int</a> &amp;value)</td></tr>
+<tr class="memdesc:a370ac61892eeca26595774ef05fb177a"><td class="mdescLeft">&#160;</td><td class="mdescRight">从value设置 Int 类型的视图（非const）  <br /></td></tr>
+<tr class="memitem:ad0b8d8e0dfc3a03413d5884e1d1d4c7d" id="r_ad0b8d8e0dfc3a03413d5884e1d1d4c7d"><td class="memTemplParams" colspan="2">template&lt;typename = void&gt; <br />
+requires (bIsConst)</td></tr>
+<tr class="memitem:ad0b8d8e0dfc3a03413d5884e1d1d4c7d template"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classNBT__Type.html#afee0233d7f58b90cc9ce2b903da2da22">NBT_Type::Int</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad0b8d8e0dfc3a03413d5884e1d1d4c7d">SetInt</a> (const <a class="el" href="classNBT__Type.html#afee0233d7f58b90cc9ce2b903da2da22">NBT_Type::Int</a> &amp;value)</td></tr>
+<tr class="memdesc:ad0b8d8e0dfc3a03413d5884e1d1d4c7d"><td class="mdescLeft">&#160;</td><td class="mdescRight">从value设置 Int 类型的视图（const）  <br /></td></tr>
+<tr class="memitem:a61af3fcc47831dfe3e0aee48dabd6293" id="r_a61af3fcc47831dfe3e0aee48dabd6293"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classNBT__Type.html#afee0233d7f58b90cc9ce2b903da2da22">NBT_Type::Int</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a61af3fcc47831dfe3e0aee48dabd6293">SetInt</a> (<a class="el" href="classNBT__Type.html#afee0233d7f58b90cc9ce2b903da2da22">NBT_Type::Int</a> &amp;&amp;_Temp)=delete</td></tr>
+<tr class="memdesc:a61af3fcc47831dfe3e0aee48dabd6293"><td class="mdescLeft">&#160;</td><td class="mdescRight">删除从临时对象设置 Int 类型的视图，，防止从临时对象构造导致悬空指针  <br /></td></tr>
+<tr class="memitem:a310d54a6a747af266de71ec9939cd722" id="r_a310d54a6a747af266de71ec9939cd722"><td class="memTemplParams" colspan="2">template&lt;typename = void&gt; <br />
+requires (!bIsConst)</td></tr>
+<tr class="memitem:a310d54a6a747af266de71ec9939cd722 template"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classNBT__Type.html#a7f8ae2e6e2f87445d1e72f7e922ba053">NBT_Type::Long</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a310d54a6a747af266de71ec9939cd722">SetLong</a> (<a class="el" href="classNBT__Type.html#a7f8ae2e6e2f87445d1e72f7e922ba053">NBT_Type::Long</a> &amp;value)</td></tr>
+<tr class="memdesc:a310d54a6a747af266de71ec9939cd722"><td class="mdescLeft">&#160;</td><td class="mdescRight">从value设置 Long 类型的视图（非const）  <br /></td></tr>
+<tr class="memitem:abb57bf360445b29f82d3c90a6620785d" id="r_abb57bf360445b29f82d3c90a6620785d"><td class="memTemplParams" colspan="2">template&lt;typename = void&gt; <br />
+requires (bIsConst)</td></tr>
+<tr class="memitem:abb57bf360445b29f82d3c90a6620785d template"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classNBT__Type.html#a7f8ae2e6e2f87445d1e72f7e922ba053">NBT_Type::Long</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abb57bf360445b29f82d3c90a6620785d">SetLong</a> (const <a class="el" href="classNBT__Type.html#a7f8ae2e6e2f87445d1e72f7e922ba053">NBT_Type::Long</a> &amp;value)</td></tr>
+<tr class="memdesc:abb57bf360445b29f82d3c90a6620785d"><td class="mdescLeft">&#160;</td><td class="mdescRight">从value设置 Long 类型的视图（const）  <br /></td></tr>
+<tr class="memitem:a3355339ebce21c1c63a86214c040a423" id="r_a3355339ebce21c1c63a86214c040a423"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classNBT__Type.html#a7f8ae2e6e2f87445d1e72f7e922ba053">NBT_Type::Long</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3355339ebce21c1c63a86214c040a423">SetLong</a> (<a class="el" href="classNBT__Type.html#a7f8ae2e6e2f87445d1e72f7e922ba053">NBT_Type::Long</a> &amp;&amp;_Temp)=delete</td></tr>
+<tr class="memdesc:a3355339ebce21c1c63a86214c040a423"><td class="mdescLeft">&#160;</td><td class="mdescRight">删除从临时对象设置 Long 类型的视图，，防止从临时对象构造导致悬空指针  <br /></td></tr>
+<tr class="memitem:a14578ea19b35eb997654e716ee030fd3" id="r_a14578ea19b35eb997654e716ee030fd3"><td class="memTemplParams" colspan="2">template&lt;typename = void&gt; <br />
+requires (!bIsConst)</td></tr>
+<tr class="memitem:a14578ea19b35eb997654e716ee030fd3 template"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classNBT__Type.html#a8a7ac779b8e8a7fdccb3456844abe5cf">NBT_Type::Float</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a14578ea19b35eb997654e716ee030fd3">SetFloat</a> (<a class="el" href="classNBT__Type.html#a8a7ac779b8e8a7fdccb3456844abe5cf">NBT_Type::Float</a> &amp;value)</td></tr>
+<tr class="memdesc:a14578ea19b35eb997654e716ee030fd3"><td class="mdescLeft">&#160;</td><td class="mdescRight">从value设置 Float 类型的视图（非const）  <br /></td></tr>
+<tr class="memitem:a2f36923d8e12321e2a16d8eebb99e596" id="r_a2f36923d8e12321e2a16d8eebb99e596"><td class="memTemplParams" colspan="2">template&lt;typename = void&gt; <br />
+requires (bIsConst)</td></tr>
+<tr class="memitem:a2f36923d8e12321e2a16d8eebb99e596 template"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classNBT__Type.html#a8a7ac779b8e8a7fdccb3456844abe5cf">NBT_Type::Float</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2f36923d8e12321e2a16d8eebb99e596">SetFloat</a> (const <a class="el" href="classNBT__Type.html#a8a7ac779b8e8a7fdccb3456844abe5cf">NBT_Type::Float</a> &amp;value)</td></tr>
+<tr class="memdesc:a2f36923d8e12321e2a16d8eebb99e596"><td class="mdescLeft">&#160;</td><td class="mdescRight">从value设置 Float 类型的视图（const）  <br /></td></tr>
+<tr class="memitem:a8e0c59f2cf12c0036e009c88cc27d4e5" id="r_a8e0c59f2cf12c0036e009c88cc27d4e5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classNBT__Type.html#a8a7ac779b8e8a7fdccb3456844abe5cf">NBT_Type::Float</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8e0c59f2cf12c0036e009c88cc27d4e5">SetFloat</a> (<a class="el" href="classNBT__Type.html#a8a7ac779b8e8a7fdccb3456844abe5cf">NBT_Type::Float</a> &amp;&amp;_Temp)=delete</td></tr>
+<tr class="memdesc:a8e0c59f2cf12c0036e009c88cc27d4e5"><td class="mdescLeft">&#160;</td><td class="mdescRight">删除从临时对象设置 Float 类型的视图，，防止从临时对象构造导致悬空指针  <br /></td></tr>
+<tr class="memitem:a69142e23ab8e29269c8a23f3ace97255" id="r_a69142e23ab8e29269c8a23f3ace97255"><td class="memTemplParams" colspan="2">template&lt;typename = void&gt; <br />
+requires (!bIsConst)</td></tr>
+<tr class="memitem:a69142e23ab8e29269c8a23f3ace97255 template"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classNBT__Type.html#aaea549797088fb63987679367bc9d39a">NBT_Type::Double</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a69142e23ab8e29269c8a23f3ace97255">SetDouble</a> (<a class="el" href="classNBT__Type.html#aaea549797088fb63987679367bc9d39a">NBT_Type::Double</a> &amp;value)</td></tr>
+<tr class="memdesc:a69142e23ab8e29269c8a23f3ace97255"><td class="mdescLeft">&#160;</td><td class="mdescRight">从value设置 Double 类型的视图（非const）  <br /></td></tr>
+<tr class="memitem:aa0200451e0673fadfc99c731e2f0362d" id="r_aa0200451e0673fadfc99c731e2f0362d"><td class="memTemplParams" colspan="2">template&lt;typename = void&gt; <br />
+requires (bIsConst)</td></tr>
+<tr class="memitem:aa0200451e0673fadfc99c731e2f0362d template"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classNBT__Type.html#aaea549797088fb63987679367bc9d39a">NBT_Type::Double</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa0200451e0673fadfc99c731e2f0362d">SetDouble</a> (const <a class="el" href="classNBT__Type.html#aaea549797088fb63987679367bc9d39a">NBT_Type::Double</a> &amp;value)</td></tr>
+<tr class="memdesc:aa0200451e0673fadfc99c731e2f0362d"><td class="mdescLeft">&#160;</td><td class="mdescRight">从value设置 Double 类型的视图（const）  <br /></td></tr>
+<tr class="memitem:a125549a8e6a2ee124d5d38a6a6520c9a" id="r_a125549a8e6a2ee124d5d38a6a6520c9a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classNBT__Type.html#aaea549797088fb63987679367bc9d39a">NBT_Type::Double</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a125549a8e6a2ee124d5d38a6a6520c9a">SetDouble</a> (<a class="el" href="classNBT__Type.html#aaea549797088fb63987679367bc9d39a">NBT_Type::Double</a> &amp;&amp;_Temp)=delete</td></tr>
+<tr class="memdesc:a125549a8e6a2ee124d5d38a6a6520c9a"><td class="mdescLeft">&#160;</td><td class="mdescRight">删除从临时对象设置 Double 类型的视图，，防止从临时对象构造导致悬空指针  <br /></td></tr>
+<tr class="memitem:aa75e07030e05c423fef025097b764d8b" id="r_aa75e07030e05c423fef025097b764d8b"><td class="memTemplParams" colspan="2">template&lt;typename = void&gt; <br />
+requires (!bIsConst)</td></tr>
+<tr class="memitem:aa75e07030e05c423fef025097b764d8b template"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classNBT__Type.html#a953bc9e67e1b5d82c0786b5992f00ed8">NBT_Type::ByteArray</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa75e07030e05c423fef025097b764d8b">SetByteArray</a> (<a class="el" href="classNBT__Type.html#a953bc9e67e1b5d82c0786b5992f00ed8">NBT_Type::ByteArray</a> &amp;value)</td></tr>
+<tr class="memdesc:aa75e07030e05c423fef025097b764d8b"><td class="mdescLeft">&#160;</td><td class="mdescRight">从value设置 ByteArray 类型的视图（非const）  <br /></td></tr>
+<tr class="memitem:a7ab45351cdb4880e5462b69229fb1062" id="r_a7ab45351cdb4880e5462b69229fb1062"><td class="memTemplParams" colspan="2">template&lt;typename = void&gt; <br />
+requires (bIsConst)</td></tr>
+<tr class="memitem:a7ab45351cdb4880e5462b69229fb1062 template"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classNBT__Type.html#a953bc9e67e1b5d82c0786b5992f00ed8">NBT_Type::ByteArray</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7ab45351cdb4880e5462b69229fb1062">SetByteArray</a> (const <a class="el" href="classNBT__Type.html#a953bc9e67e1b5d82c0786b5992f00ed8">NBT_Type::ByteArray</a> &amp;value)</td></tr>
+<tr class="memdesc:a7ab45351cdb4880e5462b69229fb1062"><td class="mdescLeft">&#160;</td><td class="mdescRight">从value设置 ByteArray 类型的视图（const）  <br /></td></tr>
+<tr class="memitem:a7792a12c605e740fbee2df391271cd9f" id="r_a7792a12c605e740fbee2df391271cd9f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classNBT__Type.html#a953bc9e67e1b5d82c0786b5992f00ed8">NBT_Type::ByteArray</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7792a12c605e740fbee2df391271cd9f">SetByteArray</a> (<a class="el" href="classNBT__Type.html#a953bc9e67e1b5d82c0786b5992f00ed8">NBT_Type::ByteArray</a> &amp;&amp;_Temp)=delete</td></tr>
+<tr class="memdesc:a7792a12c605e740fbee2df391271cd9f"><td class="mdescLeft">&#160;</td><td class="mdescRight">删除从临时对象设置 ByteArray 类型的视图，，防止从临时对象构造导致悬空指针  <br /></td></tr>
+<tr class="memitem:a60a04c758c0ad2e2053d2dd90b146dc4" id="r_a60a04c758c0ad2e2053d2dd90b146dc4"><td class="memTemplParams" colspan="2">template&lt;typename = void&gt; <br />
+requires (!bIsConst)</td></tr>
+<tr class="memitem:a60a04c758c0ad2e2053d2dd90b146dc4 template"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classNBT__Type.html#a9c4ad0b2bcd4b5cafb0c9a3f083f9406">NBT_Type::IntArray</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a60a04c758c0ad2e2053d2dd90b146dc4">SetIntArray</a> (<a class="el" href="classNBT__Type.html#a9c4ad0b2bcd4b5cafb0c9a3f083f9406">NBT_Type::IntArray</a> &amp;value)</td></tr>
+<tr class="memdesc:a60a04c758c0ad2e2053d2dd90b146dc4"><td class="mdescLeft">&#160;</td><td class="mdescRight">从value设置 IntArray 类型的视图（非const）  <br /></td></tr>
+<tr class="memitem:a33d985d606bf9d34d55f58e1867c9bf1" id="r_a33d985d606bf9d34d55f58e1867c9bf1"><td class="memTemplParams" colspan="2">template&lt;typename = void&gt; <br />
+requires (bIsConst)</td></tr>
+<tr class="memitem:a33d985d606bf9d34d55f58e1867c9bf1 template"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classNBT__Type.html#a9c4ad0b2bcd4b5cafb0c9a3f083f9406">NBT_Type::IntArray</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a33d985d606bf9d34d55f58e1867c9bf1">SetIntArray</a> (const <a class="el" href="classNBT__Type.html#a9c4ad0b2bcd4b5cafb0c9a3f083f9406">NBT_Type::IntArray</a> &amp;value)</td></tr>
+<tr class="memdesc:a33d985d606bf9d34d55f58e1867c9bf1"><td class="mdescLeft">&#160;</td><td class="mdescRight">从value设置 IntArray 类型的视图（const）  <br /></td></tr>
+<tr class="memitem:a8994b4f09806b027c5cab85f254e2603" id="r_a8994b4f09806b027c5cab85f254e2603"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classNBT__Type.html#a9c4ad0b2bcd4b5cafb0c9a3f083f9406">NBT_Type::IntArray</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8994b4f09806b027c5cab85f254e2603">SetIntArray</a> (<a class="el" href="classNBT__Type.html#a9c4ad0b2bcd4b5cafb0c9a3f083f9406">NBT_Type::IntArray</a> &amp;&amp;_Temp)=delete</td></tr>
+<tr class="memdesc:a8994b4f09806b027c5cab85f254e2603"><td class="mdescLeft">&#160;</td><td class="mdescRight">删除从临时对象设置 IntArray 类型的视图，，防止从临时对象构造导致悬空指针  <br /></td></tr>
+<tr class="memitem:ad7ed1b170c37c09639822fd0ffe9282f" id="r_ad7ed1b170c37c09639822fd0ffe9282f"><td class="memTemplParams" colspan="2">template&lt;typename = void&gt; <br />
+requires (!bIsConst)</td></tr>
+<tr class="memitem:ad7ed1b170c37c09639822fd0ffe9282f template"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classNBT__Type.html#aa2c61028536166272869c3bbc91d3197">NBT_Type::LongArray</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad7ed1b170c37c09639822fd0ffe9282f">SetLongArray</a> (<a class="el" href="classNBT__Type.html#aa2c61028536166272869c3bbc91d3197">NBT_Type::LongArray</a> &amp;value)</td></tr>
+<tr class="memdesc:ad7ed1b170c37c09639822fd0ffe9282f"><td class="mdescLeft">&#160;</td><td class="mdescRight">从value设置 LongArray 类型的视图（非const）  <br /></td></tr>
+<tr class="memitem:ae43d62f3d65aa19cabf487f7df6d2a82" id="r_ae43d62f3d65aa19cabf487f7df6d2a82"><td class="memTemplParams" colspan="2">template&lt;typename = void&gt; <br />
+requires (bIsConst)</td></tr>
+<tr class="memitem:ae43d62f3d65aa19cabf487f7df6d2a82 template"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classNBT__Type.html#aa2c61028536166272869c3bbc91d3197">NBT_Type::LongArray</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae43d62f3d65aa19cabf487f7df6d2a82">SetLongArray</a> (const <a class="el" href="classNBT__Type.html#aa2c61028536166272869c3bbc91d3197">NBT_Type::LongArray</a> &amp;value)</td></tr>
+<tr class="memdesc:ae43d62f3d65aa19cabf487f7df6d2a82"><td class="mdescLeft">&#160;</td><td class="mdescRight">从value设置 LongArray 类型的视图（const）  <br /></td></tr>
+<tr class="memitem:a7ff633b0497dcf962a0dfa1a9a58ff3c" id="r_a7ff633b0497dcf962a0dfa1a9a58ff3c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classNBT__Type.html#aa2c61028536166272869c3bbc91d3197">NBT_Type::LongArray</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7ff633b0497dcf962a0dfa1a9a58ff3c">SetLongArray</a> (<a class="el" href="classNBT__Type.html#aa2c61028536166272869c3bbc91d3197">NBT_Type::LongArray</a> &amp;&amp;_Temp)=delete</td></tr>
+<tr class="memdesc:a7ff633b0497dcf962a0dfa1a9a58ff3c"><td class="mdescLeft">&#160;</td><td class="mdescRight">删除从临时对象设置 LongArray 类型的视图，，防止从临时对象构造导致悬空指针  <br /></td></tr>
+<tr class="memitem:afe33ba0a18eef7d26715143907e174b4" id="r_afe33ba0a18eef7d26715143907e174b4"><td class="memTemplParams" colspan="2">template&lt;typename = void&gt; <br />
+requires (!bIsConst)</td></tr>
+<tr class="memitem:afe33ba0a18eef7d26715143907e174b4 template"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classNBT__Type.html#a8580dcb2a4494cd9bc52526d43f61865">NBT_Type::String</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afe33ba0a18eef7d26715143907e174b4">SetString</a> (<a class="el" href="classNBT__Type.html#a8580dcb2a4494cd9bc52526d43f61865">NBT_Type::String</a> &amp;value)</td></tr>
+<tr class="memdesc:afe33ba0a18eef7d26715143907e174b4"><td class="mdescLeft">&#160;</td><td class="mdescRight">从value设置 String 类型的视图（非const）  <br /></td></tr>
+<tr class="memitem:ad53707a5650f8c1b60ae6d4b136647b3" id="r_ad53707a5650f8c1b60ae6d4b136647b3"><td class="memTemplParams" colspan="2">template&lt;typename = void&gt; <br />
+requires (bIsConst)</td></tr>
+<tr class="memitem:ad53707a5650f8c1b60ae6d4b136647b3 template"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classNBT__Type.html#a8580dcb2a4494cd9bc52526d43f61865">NBT_Type::String</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad53707a5650f8c1b60ae6d4b136647b3">SetString</a> (const <a class="el" href="classNBT__Type.html#a8580dcb2a4494cd9bc52526d43f61865">NBT_Type::String</a> &amp;value)</td></tr>
+<tr class="memdesc:ad53707a5650f8c1b60ae6d4b136647b3"><td class="mdescLeft">&#160;</td><td class="mdescRight">从value设置 String 类型的视图（const）  <br /></td></tr>
+<tr class="memitem:aacf066752a2b536ecd235888046b1fc3" id="r_aacf066752a2b536ecd235888046b1fc3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classNBT__Type.html#a8580dcb2a4494cd9bc52526d43f61865">NBT_Type::String</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aacf066752a2b536ecd235888046b1fc3">SetString</a> (<a class="el" href="classNBT__Type.html#a8580dcb2a4494cd9bc52526d43f61865">NBT_Type::String</a> &amp;&amp;_Temp)=delete</td></tr>
+<tr class="memdesc:aacf066752a2b536ecd235888046b1fc3"><td class="mdescLeft">&#160;</td><td class="mdescRight">删除从临时对象设置 String 类型的视图，，防止从临时对象构造导致悬空指针  <br /></td></tr>
+<tr class="memitem:a1915aac2f9dea4bc920e0b422e9d55ab" id="r_a1915aac2f9dea4bc920e0b422e9d55ab"><td class="memTemplParams" colspan="2">template&lt;typename = void&gt; <br />
+requires (!bIsConst)</td></tr>
+<tr class="memitem:a1915aac2f9dea4bc920e0b422e9d55ab template"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classNBT__Type.html#a87b4d71087e5c0ab1111a4999dace42f">NBT_Type::List</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1915aac2f9dea4bc920e0b422e9d55ab">SetList</a> (<a class="el" href="classNBT__Type.html#a87b4d71087e5c0ab1111a4999dace42f">NBT_Type::List</a> &amp;value)</td></tr>
+<tr class="memdesc:a1915aac2f9dea4bc920e0b422e9d55ab"><td class="mdescLeft">&#160;</td><td class="mdescRight">从value设置 List 类型的视图（非const）  <br /></td></tr>
+<tr class="memitem:a19fb45c02f33ab77b6ea971c0144ff48" id="r_a19fb45c02f33ab77b6ea971c0144ff48"><td class="memTemplParams" colspan="2">template&lt;typename = void&gt; <br />
+requires (bIsConst)</td></tr>
+<tr class="memitem:a19fb45c02f33ab77b6ea971c0144ff48 template"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classNBT__Type.html#a87b4d71087e5c0ab1111a4999dace42f">NBT_Type::List</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a19fb45c02f33ab77b6ea971c0144ff48">SetList</a> (const <a class="el" href="classNBT__Type.html#a87b4d71087e5c0ab1111a4999dace42f">NBT_Type::List</a> &amp;value)</td></tr>
+<tr class="memdesc:a19fb45c02f33ab77b6ea971c0144ff48"><td class="mdescLeft">&#160;</td><td class="mdescRight">从value设置 List 类型的视图（const）  <br /></td></tr>
+<tr class="memitem:a0b2e3b3893d3ada3d84eab305afb0762" id="r_a0b2e3b3893d3ada3d84eab305afb0762"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classNBT__Type.html#a87b4d71087e5c0ab1111a4999dace42f">NBT_Type::List</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0b2e3b3893d3ada3d84eab305afb0762">SetList</a> (<a class="el" href="classNBT__Type.html#a87b4d71087e5c0ab1111a4999dace42f">NBT_Type::List</a> &amp;&amp;_Temp)=delete</td></tr>
+<tr class="memdesc:a0b2e3b3893d3ada3d84eab305afb0762"><td class="mdescLeft">&#160;</td><td class="mdescRight">删除从临时对象设置 List 类型的视图，，防止从临时对象构造导致悬空指针  <br /></td></tr>
+<tr class="memitem:a8ac150c9eede9f141f492ed8748c217f" id="r_a8ac150c9eede9f141f492ed8748c217f"><td class="memTemplParams" colspan="2">template&lt;typename = void&gt; <br />
+requires (!bIsConst)</td></tr>
+<tr class="memitem:a8ac150c9eede9f141f492ed8748c217f template"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classNBT__Type.html#a9dcd5050b96a10161f18d7ae4a22e7b3">NBT_Type::Compound</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8ac150c9eede9f141f492ed8748c217f">SetCompound</a> (<a class="el" href="classNBT__Type.html#a9dcd5050b96a10161f18d7ae4a22e7b3">NBT_Type::Compound</a> &amp;value)</td></tr>
+<tr class="memdesc:a8ac150c9eede9f141f492ed8748c217f"><td class="mdescLeft">&#160;</td><td class="mdescRight">从value设置 Compound 类型的视图（非const）  <br /></td></tr>
+<tr class="memitem:aa4f68e244e7d8a0ad2bb711fc79a2ddf" id="r_aa4f68e244e7d8a0ad2bb711fc79a2ddf"><td class="memTemplParams" colspan="2">template&lt;typename = void&gt; <br />
+requires (bIsConst)</td></tr>
+<tr class="memitem:aa4f68e244e7d8a0ad2bb711fc79a2ddf template"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classNBT__Type.html#a9dcd5050b96a10161f18d7ae4a22e7b3">NBT_Type::Compound</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa4f68e244e7d8a0ad2bb711fc79a2ddf">SetCompound</a> (const <a class="el" href="classNBT__Type.html#a9dcd5050b96a10161f18d7ae4a22e7b3">NBT_Type::Compound</a> &amp;value)</td></tr>
+<tr class="memdesc:aa4f68e244e7d8a0ad2bb711fc79a2ddf"><td class="mdescLeft">&#160;</td><td class="mdescRight">从value设置 Compound 类型的视图（const）  <br /></td></tr>
+<tr class="memitem:ae757d9d80dd01c39022c2edf848c61f2" id="r_ae757d9d80dd01c39022c2edf848c61f2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classNBT__Type.html#a9dcd5050b96a10161f18d7ae4a22e7b3">NBT_Type::Compound</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae757d9d80dd01c39022c2edf848c61f2">SetCompound</a> (<a class="el" href="classNBT__Type.html#a9dcd5050b96a10161f18d7ae4a22e7b3">NBT_Type::Compound</a> &amp;&amp;_Temp)=delete</td></tr>
+<tr class="memdesc:ae757d9d80dd01c39022c2edf848c61f2"><td class="mdescLeft">&#160;</td><td class="mdescRight">删除从临时对象设置 Compound 类型的视图，，防止从临时对象构造导致悬空指针  <br /></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">详细描述</h2>
 <div class="textblock"><div class="compoundTemplParams">template&lt;bool bIsConst&gt;<br />
@@ -368,8 +542,8 @@ class NBT_Node_View&lt; bIsConst &gt;</div><p>NBT节点的视图，用于指向�
 </ul>
 </dd></dl>
 </div><a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">构造及析构函数说明</h2>
-<a id="aea88ebea7579b088612318612822b405" name="aea88ebea7579b088612318612822b405"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aea88ebea7579b088612318612822b405">&#9670;&#160;</a></span>NBT_Node_View() <span class="overload">[1/9]</span></h2>
+<a id="a7501618a38a01bb7c3cd9fe808637237" name="a7501618a38a01bb7c3cd9fe808637237"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7501618a38a01bb7c3cd9fe808637237">&#9670;&#160;</a></span>NBT_Node_View() <span class="overload">[1/9]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -377,7 +551,7 @@ class NBT_Node_View&lt; bIsConst &gt;</div><p>NBT节点的视图，用于指向�
 template&lt;bool bIsConst&gt; </div>
 <div class="memtemplate">
 template&lt;typename T&gt; <br />
-requires (!std::is_same_v&lt;std::decay_t&lt;T&gt;, <a class="el" href="classNBT__Node.html">NBT_Node</a>&gt;)</div>
+requires (!std::is_same_v&lt;std::decay_t&lt;T&gt;, <a class="el" href="classNBT__Node.html">NBT_Node</a>&gt; &amp;&amp;<a class="el" href="classNBT__Type.html#a71dfa77059d0a3bd9a6190295ad400ca">NBT_Type::IsValidType_V</a>&lt;std::decay_t&lt;T&gt;&gt; &amp;&amp; !bIsConst)</div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -396,7 +570,7 @@ requires (!std::is_same_v&lt;std::decay_t&lt;T&gt;, <a class="el" href="classNBT
 </table>
 </div><div class="memdoc">
 
-<p>通用构造函数（适用于const与非const的情况） </p>
+<p>通用构造函数（仅适用于非const） </p>
 <dl class="tparams"><dt>模板参数</dt><dd>
   <table class="tparams">
     <tr><td class="paramname">T</td><td>要指向的数据类型 </td></tr>
@@ -415,8 +589,8 @@ requires (!std::is_same_v&lt;std::decay_t&lt;T&gt;, <a class="el" href="classNBT
 
 </div>
 </div>
-<a id="a2676c4c284344c0ff476e441728175d3" name="a2676c4c284344c0ff476e441728175d3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2676c4c284344c0ff476e441728175d3">&#9670;&#160;</a></span>NBT_Node_View() <span class="overload">[2/9]</span></h2>
+<a id="a6138cbcd4af8368865b74adaa8edf49d" name="a6138cbcd4af8368865b74adaa8edf49d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6138cbcd4af8368865b74adaa8edf49d">&#9670;&#160;</a></span>NBT_Node_View() <span class="overload">[2/9]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -424,7 +598,7 @@ requires (!std::is_same_v&lt;std::decay_t&lt;T&gt;, <a class="el" href="classNBT
 template&lt;bool bIsConst&gt; </div>
 <div class="memtemplate">
 template&lt;typename T&gt; <br />
-requires (!std::is_same_v&lt;std::decay_t&lt;T&gt;, <a class="el" href="classNBT__Node.html">NBT_Node</a>&gt; &amp;&amp; bIsConst)</div>
+requires (!std::is_same_v&lt;std::decay_t&lt;T&gt;, <a class="el" href="classNBT__Node.html">NBT_Node</a>&gt; &amp;&amp; <a class="el" href="classNBT__Type.html#a71dfa77059d0a3bd9a6190295ad400ca">NBT_Type::IsValidType_V</a>&lt;std::decay_t&lt;T&gt;&gt; &amp;&amp; bIsConst)</div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -461,53 +635,8 @@ requires (!std::is_same_v&lt;std::decay_t&lt;T&gt;, <a class="el" href="classNBT
 
 </div>
 </div>
-<a id="a38f303bd1a6bb93ed5bc0e367c052a9a" name="a38f303bd1a6bb93ed5bc0e367c052a9a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a38f303bd1a6bb93ed5bc0e367c052a9a">&#9670;&#160;</a></span>NBT_Node_View() <span class="overload">[3/9]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;bool bIsConst&gt; </div>
-<div class="memtemplate">
-template&lt;typename T&gt; <br />
-requires (!std::is_same_v&lt;std::decay_t&lt;T&gt;, <a class="el" href="classNBT__Node.html">NBT_Node</a>&gt;)</div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="classNBT__Node__View.html">NBT_Node_View</a>&lt; bIsConst &gt;::NBT_Node_View </td>
-          <td>(</td>
-          <td class="paramtype">T &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>_Temp</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>删除临时对象构造方式，防止从临时对象构造导致悬空指针 </p>
-<dl class="tparams"><dt>模板参数</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">T</td><td>临时对象的类型 </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="params"><dt>参数</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">_Temp</td><td>任意类型的临时对象 </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section note"><dt>注解</dt><dd>这是一个删除的构造函数，用于一定程度上防御用户通过临时对象构造 </dd></dl>
-
-</div>
-</div>
 <a id="aa4cb7b3cac8cd88cd03fa1b5385b1350" name="aa4cb7b3cac8cd88cd03fa1b5385b1350"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa4cb7b3cac8cd88cd03fa1b5385b1350">&#9670;&#160;</a></span>NBT_Node_View() <span class="overload">[4/9]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#aa4cb7b3cac8cd88cd03fa1b5385b1350">&#9670;&#160;</a></span>NBT_Node_View() <span class="overload">[3/9]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -531,7 +660,7 @@ template&lt;bool bIsConst&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>从NBT_Node构造视图（适用于const与非const的情况） </p>
+<p>从NBT_Node构造视图（仅适用于非const） </p>
 <dl class="params"><dt>参数</dt><dd>
   <table class="params">
     <tr><td class="paramname">node</td><td>要创建视图的NBT_Node对象 </td></tr>
@@ -544,7 +673,7 @@ template&lt;bool bIsConst&gt; </div>
 </div>
 </div>
 <a id="a9f162eab7bf975a99675bb5d1ad079e3" name="a9f162eab7bf975a99675bb5d1ad079e3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9f162eab7bf975a99675bb5d1ad079e3">&#9670;&#160;</a></span>NBT_Node_View() <span class="overload">[5/9]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a9f162eab7bf975a99675bb5d1ad079e3">&#9670;&#160;</a></span>NBT_Node_View() <span class="overload">[4/9]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -583,44 +712,8 @@ requires (bIsConst)</div>
 
 </div>
 </div>
-<a id="a4c3e005e59ad16c2411a35a728435136" name="a4c3e005e59ad16c2411a35a728435136"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4c3e005e59ad16c2411a35a728435136">&#9670;&#160;</a></span>NBT_Node_View() <span class="overload">[6/9]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;bool bIsConst&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="classNBT__Node__View.html">NBT_Node_View</a>&lt; bIsConst &gt;::NBT_Node_View </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="classNBT__Node.html">NBT_Node</a> &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>_Temp</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>删除临时对象构造方式，防止从临时对象构造导致悬空指针 </p>
-<dl class="params"><dt>参数</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">_Temp</td><td>NBT_Node类型的临时对象 </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section note"><dt>注解</dt><dd>这是一个删除的构造函数，用于一定程度上防御用户通过临时对象构造 </dd></dl>
-
-</div>
-</div>
 <a id="aa1bc9c8f2cfd6976439317e9303ae37a" name="aa1bc9c8f2cfd6976439317e9303ae37a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa1bc9c8f2cfd6976439317e9303ae37a">&#9670;&#160;</a></span>NBT_Node_View() <span class="overload">[7/9]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#aa1bc9c8f2cfd6976439317e9303ae37a">&#9670;&#160;</a></span>NBT_Node_View() <span class="overload">[5/9]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -661,6 +754,81 @@ requires (bIsConst)</div>
   </dd>
 </dl>
 <dl class="section note"><dt>注解</dt><dd>从NBT_Node_View&lt;false&gt;隐式构造为NBT_Node_View&lt;true&gt; </dd></dl>
+
+</div>
+</div>
+<a id="a33341bdbc0964157e60841fd0e499056" name="a33341bdbc0964157e60841fd0e499056"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a33341bdbc0964157e60841fd0e499056">&#9670;&#160;</a></span>NBT_Node_View() <span class="overload">[6/9]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;bool bIsConst&gt; </div>
+<div class="memtemplate">
+template&lt;typename T&gt; <br />
+requires (!std::is_lvalue_reference_v&lt;T&gt;)</div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classNBT__Node__View.html">NBT_Node_View</a>&lt; bIsConst &gt;::NBT_Node_View </td>
+          <td>(</td>
+          <td class="paramtype">T &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>_Temp</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>删除临时对象构造方式，防止从临时对象构造导致悬空指针 </p>
+<dl class="tparams"><dt>模板参数</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T</td><td>临时对象的类型 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">_Temp</td><td>任意类型的临时对象 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>注解</dt><dd>这是一个删除的构造函数，用于一定程度上防御用户通过临时对象构造 </dd></dl>
+
+</div>
+</div>
+<a id="ac444992a37f79ae1ddaeb370dbb3e38e" name="ac444992a37f79ae1ddaeb370dbb3e38e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac444992a37f79ae1ddaeb370dbb3e38e">&#9670;&#160;</a></span>NBT_Node_View() <span class="overload">[7/9]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;bool bIsConst&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classNBT__Node__View.html">NBT_Node_View</a>&lt; bIsConst &gt;::NBT_Node_View </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>默认构造函数 </p>
+<dl class="section note"><dt>注解</dt><dd>构造为空View </dd></dl>
 
 </div>
 </div>
@@ -1841,6 +2009,36 @@ template&lt;bool bIsConst&gt; </div>
 
 </div>
 </div>
+<a id="a8924e4a3ead9319dd26f508c9b84c4cb" name="a8924e4a3ead9319dd26f508c9b84c4cb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8924e4a3ead9319dd26f508c9b84c4cb">&#9670;&#160;</a></span>IsEmpty()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;bool bIsConst&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="classNBT__Node__View.html">NBT_Node_View</a>&lt; bIsConst &gt;::IsEmpty </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>为空判断 </p>
+<dl class="section return"><dt>返回</dt><dd>如果存储空值则返回true，否则返回false </dd></dl>
+
+</div>
+</div>
 <a id="a5011d3177da7f71500db75b37a534d39" name="a5011d3177da7f71500db75b37a534d39"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a5011d3177da7f71500db75b37a534d39">&#9670;&#160;</a></span>IsEnd()</h2>
 
@@ -2185,8 +2383,49 @@ template&lt;bool bIsConst&gt; </div>
 
 </div>
 </div>
+<a id="a878312cf3c8cd46d96dd5b64a2a53408" name="a878312cf3c8cd46d96dd5b64a2a53408"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a878312cf3c8cd46d96dd5b64a2a53408">&#9670;&#160;</a></span>operator=() <span class="overload">[1/7]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;bool bIsConst&gt; </div>
+<div class="memtemplate">
+template&lt;typename = void&gt; <br />
+requires (bIsConst)</div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classNBT__Node__View.html">NBT_Node_View</a> &amp; <a class="el" href="classNBT__Node__View.html">NBT_Node_View</a>&lt; bIsConst &gt;::operator= </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classNBT__Node.html">NBT_Node</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>node</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>从NBT_Node赋值重设视图（仅适用于const） </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">node</td><td>要创建视图的NBT_Node对象 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>设置的值的常量引用 </dd></dl>
+<dl class="section note"><dt>注解</dt><dd>创建指向NBT_Node内部数据的只读视图 </dd></dl>
+<dl class="section warning"><dt>警告</dt><dd>传入的NBT_Node对象必须在使用期间保持有效，否则行为未定义 </dd></dl>
+
+</div>
+</div>
 <a id="ae57a71545d4ce645768ac615751a218c" name="ae57a71545d4ce645768ac615751a218c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae57a71545d4ce645768ac615751a218c">&#9670;&#160;</a></span>operator=() <span class="overload">[1/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ae57a71545d4ce645768ac615751a218c">&#9670;&#160;</a></span>operator=() <span class="overload">[2/7]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2222,8 +2461,96 @@ template&lt;bool bIsConst&gt; </div>
 
 </div>
 </div>
+<a id="aa6c8183031c4e7ee09e1c8d4cc67b0c4" name="aa6c8183031c4e7ee09e1c8d4cc67b0c4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa6c8183031c4e7ee09e1c8d4cc67b0c4">&#9670;&#160;</a></span>operator=() <span class="overload">[3/7]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;bool bIsConst&gt; </div>
+<div class="memtemplate">
+template&lt;typename T&gt; <br />
+requires (!std::is_same_v&lt;std::decay_t&lt;T&gt;, <a class="el" href="classNBT__Node.html">NBT_Node</a>&gt; &amp;&amp; <a class="el" href="classNBT__Type.html#a71dfa77059d0a3bd9a6190295ad400ca">NBT_Type::IsValidType_V</a>&lt;std::decay_t&lt;T&gt;&gt; &amp;&amp; bIsConst)</div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classNBT__Node__View.html">NBT_Node_View</a> &amp; <a class="el" href="classNBT__Node__View.html">NBT_Node_View</a>&lt; bIsConst &gt;::operator= </td>
+          <td>(</td>
+          <td class="paramtype">const T &amp;</td>          <td class="paramname"><span class="paramname"><em>value</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>通用赋值设置函数（仅适用于const） </p>
+<dl class="tparams"><dt>模板参数</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T</td><td>要指向的数据类型 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">value</td><td>要指向的数据对象的常量引用 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>设置的值的常量引用 </dd></dl>
+<dl class="section note"><dt>注解</dt><dd>要求类型T必须是NBT_Type类型列表中的任意一个，且不是NBT_Node类型 </dd></dl>
+<dl class="section warning"><dt>警告</dt><dd>传入的对象必须在使用期间保持有效，否则行为未定义 </dd></dl>
+
+</div>
+</div>
+<a id="a987f1293daa5fc655fbe5cedf8f29009" name="a987f1293daa5fc655fbe5cedf8f29009"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a987f1293daa5fc655fbe5cedf8f29009">&#9670;&#160;</a></span>operator=() <span class="overload">[4/7]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;bool bIsConst&gt; </div>
+<div class="memtemplate">
+template&lt;typename = void&gt; <br />
+requires (!bIsConst)</div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classNBT__Node__View.html">NBT_Node_View</a> &amp; <a class="el" href="classNBT__Node__View.html">NBT_Node_View</a>&lt; bIsConst &gt;::operator= </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classNBT__Node.html">NBT_Node</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>node</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>从NBT_Node赋值重设视图（仅适用于非const） </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">node</td><td>要创建视图的NBT_Node对象 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>设置的值的引用 </dd></dl>
+<dl class="section note"><dt>注解</dt><dd>创建指向NBT_Node内部数据的视图 </dd></dl>
+<dl class="section warning"><dt>警告</dt><dd>传入的NBT_Node对象必须在使用期间保持有效，否则行为未定义 </dd></dl>
+
+</div>
+</div>
 <a id="a4c5f54b0436b87e47574ce5c74f315e6" name="a4c5f54b0436b87e47574ce5c74f315e6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4c5f54b0436b87e47574ce5c74f315e6">&#9670;&#160;</a></span>operator=() <span class="overload">[2/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a4c5f54b0436b87e47574ce5c74f315e6">&#9670;&#160;</a></span>operator=() <span class="overload">[5/7]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2256,6 +2583,99 @@ template&lt;bool bIsConst&gt; </div>
 </dl>
 <dl class="section return"><dt>返回</dt><dd>当前视图对象指向的数据的引用 </dd></dl>
 <dl class="section note"><dt>注解</dt><dd>移动赋值会转移指针，原视图将变为无效状态 </dd></dl>
+
+</div>
+</div>
+<a id="a747edbb635296847a36323b40122abb2" name="a747edbb635296847a36323b40122abb2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a747edbb635296847a36323b40122abb2">&#9670;&#160;</a></span>operator=() <span class="overload">[6/7]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;bool bIsConst&gt; </div>
+<div class="memtemplate">
+template&lt;typename T&gt; <br />
+requires (!std::is_lvalue_reference_v&lt;T&gt;)</div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classNBT__Node__View.html">NBT_Node_View</a> &amp; <a class="el" href="classNBT__Node__View.html">NBT_Node_View</a>&lt; bIsConst &gt;::operator= </td>
+          <td>(</td>
+          <td class="paramtype">T &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>_Temp</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>删除临时对象赋值设置方式，防止从临时对象构造导致悬空指针 </p>
+<dl class="tparams"><dt>模板参数</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T</td><td>临时对象的类型 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">_Temp</td><td>任意类型的临时对象 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>注解</dt><dd>这是一个删除的设置函数，用于一定程度上防御用户通过临时对象构造 </dd></dl>
+
+</div>
+</div>
+<a id="afa060c6e8b8be15794f7c0e6eabd31fd" name="afa060c6e8b8be15794f7c0e6eabd31fd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afa060c6e8b8be15794f7c0e6eabd31fd">&#9670;&#160;</a></span>operator=() <span class="overload">[7/7]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;bool bIsConst&gt; </div>
+<div class="memtemplate">
+template&lt;typename T&gt; <br />
+requires (!std::is_same_v&lt;std::decay_t&lt;T&gt;, <a class="el" href="classNBT__Node.html">NBT_Node</a>&gt; &amp;&amp; <a class="el" href="classNBT__Type.html#a71dfa77059d0a3bd9a6190295ad400ca">NBT_Type::IsValidType_V</a>&lt;std::decay_t&lt;T&gt;&gt; &amp;&amp; !bIsConst)</div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classNBT__Node__View.html">NBT_Node_View</a> &amp; <a class="el" href="classNBT__Node__View.html">NBT_Node_View</a>&lt; bIsConst &gt;::operator= </td>
+          <td>(</td>
+          <td class="paramtype">T &amp;</td>          <td class="paramname"><span class="paramname"><em>value</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>通用赋值设置函数（仅适用于非const） </p>
+<dl class="tparams"><dt>模板参数</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T</td><td>要指向的数据类型 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">value</td><td>要指向的数据对象的引用 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>设置的值的引用 </dd></dl>
+<dl class="section note"><dt>注解</dt><dd>要求类型T必须是NBT_Type类型列表中的任意一个，且不是NBT_Node类型 </dd>
+<dd>
+传入的对象必须在使用期间保持有效，否则行为未定义 </dd></dl>
 
 </div>
 </div>
@@ -2293,6 +2713,1710 @@ template&lt;bool bIsConst&gt; </div>
 </dl>
 <dl class="section return"><dt>返回</dt><dd>是否相等 </dd></dl>
 <dl class="section note"><dt>注解</dt><dd>比较两个视图指向的数据内容是否相等，如果两个视图存储的类型不同则直接返回false， 否则会返回指向的对象的比较结果 </dd></dl>
+
+</div>
+</div>
+<a id="a446fa601d26e822fd63184cc644141eb" name="a446fa601d26e822fd63184cc644141eb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a446fa601d26e822fd63184cc644141eb">&#9670;&#160;</a></span>Set() <span class="overload">[1/5]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;bool bIsConst&gt; </div>
+<div class="memtemplate">
+template&lt;typename = void&gt; <br />
+requires (bIsConst)</div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="classNBT__Node.html">NBT_Node</a> &amp; <a class="el" href="classNBT__Node__View.html">NBT_Node_View</a>&lt; bIsConst &gt;::Set </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classNBT__Node.html">NBT_Node</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>node</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>从NBT_Node重设视图（仅适用于const） </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">node</td><td>要创建视图的NBT_Node对象 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>设置的值的常量引用 </dd></dl>
+<dl class="section note"><dt>注解</dt><dd>创建指向NBT_Node内部数据的只读视图 </dd></dl>
+<dl class="section warning"><dt>警告</dt><dd>传入的NBT_Node对象必须在使用期间保持有效，否则行为未定义 </dd></dl>
+
+</div>
+</div>
+<a id="ae740aa2f860ecc697362de194d4e6033" name="ae740aa2f860ecc697362de194d4e6033"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae740aa2f860ecc697362de194d4e6033">&#9670;&#160;</a></span>Set() <span class="overload">[2/5]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;bool bIsConst&gt; </div>
+<div class="memtemplate">
+template&lt;typename T&gt; <br />
+requires (!std::is_same_v&lt;std::decay_t&lt;T&gt;, <a class="el" href="classNBT__Node.html">NBT_Node</a>&gt; &amp;&amp; <a class="el" href="classNBT__Type.html#a71dfa77059d0a3bd9a6190295ad400ca">NBT_Type::IsValidType_V</a>&lt;std::decay_t&lt;T&gt;&gt; &amp;&amp; bIsConst)</div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const T &amp; <a class="el" href="classNBT__Node__View.html">NBT_Node_View</a>&lt; bIsConst &gt;::Set </td>
+          <td>(</td>
+          <td class="paramtype">const T &amp;</td>          <td class="paramname"><span class="paramname"><em>value</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>通用设置函数（仅适用于const） </p>
+<dl class="tparams"><dt>模板参数</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T</td><td>要指向的数据类型 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">value</td><td>要指向的数据对象的常量引用 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>设置的值的常量引用 </dd></dl>
+<dl class="section note"><dt>注解</dt><dd>要求类型T必须是NBT_Type类型列表中的任意一个，且不是NBT_Node类型 </dd></dl>
+<dl class="section warning"><dt>警告</dt><dd>传入的对象必须在使用期间保持有效，否则行为未定义 </dd></dl>
+
+</div>
+</div>
+<a id="a530b794ca148305a3ff1a064bf40bef1" name="a530b794ca148305a3ff1a064bf40bef1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a530b794ca148305a3ff1a064bf40bef1">&#9670;&#160;</a></span>Set() <span class="overload">[3/5]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;bool bIsConst&gt; </div>
+<div class="memtemplate">
+template&lt;typename = void&gt; <br />
+requires (!bIsConst)</div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classNBT__Node.html">NBT_Node</a> &amp; <a class="el" href="classNBT__Node__View.html">NBT_Node_View</a>&lt; bIsConst &gt;::Set </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classNBT__Node.html">NBT_Node</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>node</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>从NBT_Node重设视图（仅适用于非const） </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">node</td><td>要创建视图的NBT_Node对象 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>设置的值的引用 </dd></dl>
+<dl class="section note"><dt>注解</dt><dd>创建指向NBT_Node内部数据的视图 </dd></dl>
+<dl class="section warning"><dt>警告</dt><dd>传入的NBT_Node对象必须在使用期间保持有效，否则行为未定义 </dd></dl>
+
+</div>
+</div>
+<a id="a6e54f1ca3a83867eb8eb84a0caa0b867" name="a6e54f1ca3a83867eb8eb84a0caa0b867"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6e54f1ca3a83867eb8eb84a0caa0b867">&#9670;&#160;</a></span>Set() <span class="overload">[4/5]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;bool bIsConst&gt; </div>
+<div class="memtemplate">
+template&lt;typename T&gt; <br />
+requires (!std::is_lvalue_reference_v&lt;T&gt;)</div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">T &amp; <a class="el" href="classNBT__Node__View.html">NBT_Node_View</a>&lt; bIsConst &gt;::Set </td>
+          <td>(</td>
+          <td class="paramtype">T &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>_Temp</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>删除临时对象设置方式，防止从临时对象构造导致悬空指针 </p>
+<dl class="tparams"><dt>模板参数</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T</td><td>临时对象的类型 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">_Temp</td><td>任意类型的临时对象 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>注解</dt><dd>这是一个删除的设置函数，用于一定程度上防御用户通过临时对象构造 </dd></dl>
+
+</div>
+</div>
+<a id="a8fe08b4179b290c69183597078f2b846" name="a8fe08b4179b290c69183597078f2b846"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8fe08b4179b290c69183597078f2b846">&#9670;&#160;</a></span>Set() <span class="overload">[5/5]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;bool bIsConst&gt; </div>
+<div class="memtemplate">
+template&lt;typename T&gt; <br />
+requires (!std::is_same_v&lt;std::decay_t&lt;T&gt;, <a class="el" href="classNBT__Node.html">NBT_Node</a>&gt; &amp;&amp; <a class="el" href="classNBT__Type.html#a71dfa77059d0a3bd9a6190295ad400ca">NBT_Type::IsValidType_V</a>&lt;std::decay_t&lt;T&gt;&gt; &amp;&amp; !bIsConst)</div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">T &amp; <a class="el" href="classNBT__Node__View.html">NBT_Node_View</a>&lt; bIsConst &gt;::Set </td>
+          <td>(</td>
+          <td class="paramtype">T &amp;</td>          <td class="paramname"><span class="paramname"><em>value</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>通用设置函数（仅适用于非const） </p>
+<dl class="tparams"><dt>模板参数</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T</td><td>要指向的数据类型 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">value</td><td>要指向的数据对象的引用 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>设置的值的引用 </dd></dl>
+<dl class="section note"><dt>注解</dt><dd>要求类型T必须是NBT_Type类型列表中的任意一个，且不是NBT_Node类型 </dd>
+<dd>
+传入的对象必须在使用期间保持有效，否则行为未定义 </dd></dl>
+
+</div>
+</div>
+<a id="ab5240f40a690ea49c98baff6b1a91b3b" name="ab5240f40a690ea49c98baff6b1a91b3b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab5240f40a690ea49c98baff6b1a91b3b">&#9670;&#160;</a></span>SetByte() <span class="overload">[1/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;bool bIsConst&gt; </div>
+<div class="memtemplate">
+template&lt;typename = void&gt; <br />
+requires (bIsConst)</div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="classNBT__Type.html#a09b5ce48dffc429ad8a7d05d007741c1">NBT_Type::Byte</a> &amp; <a class="el" href="classNBT__Node__View.html">NBT_Node_View</a>&lt; bIsConst &gt;::SetByte </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classNBT__Type.html#a09b5ce48dffc429ad8a7d05d007741c1">NBT_Type::Byte</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>value</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>从value设置 Byte 类型的视图（const） </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">value</td><td>要设置的值的常量引用 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>设置的值的引用 </dd></dl>
+
+</div>
+</div>
+<a id="af0a47fe4268484167beb2977d9745aab" name="af0a47fe4268484167beb2977d9745aab"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af0a47fe4268484167beb2977d9745aab">&#9670;&#160;</a></span>SetByte() <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;bool bIsConst&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classNBT__Type.html#a09b5ce48dffc429ad8a7d05d007741c1">NBT_Type::Byte</a> &amp; <a class="el" href="classNBT__Node__View.html">NBT_Node_View</a>&lt; bIsConst &gt;::SetByte </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classNBT__Type.html#a09b5ce48dffc429ad8a7d05d007741c1">NBT_Type::Byte</a> &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>_Temp</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>删除从临时对象设置 Byte 类型的视图，，防止从临时对象构造导致悬空指针 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">_Temp</td><td>Byte 类型的临时对象 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>注解</dt><dd>这是一个删除的设置函数，用于一定程度上防御用户通过临时对象构造 </dd></dl>
+
+</div>
+</div>
+<a id="aa1726289c5f8e2ce32a7c046bdc35865" name="aa1726289c5f8e2ce32a7c046bdc35865"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa1726289c5f8e2ce32a7c046bdc35865">&#9670;&#160;</a></span>SetByte() <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;bool bIsConst&gt; </div>
+<div class="memtemplate">
+template&lt;typename = void&gt; <br />
+requires (!bIsConst)</div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classNBT__Type.html#a09b5ce48dffc429ad8a7d05d007741c1">NBT_Type::Byte</a> &amp; <a class="el" href="classNBT__Node__View.html">NBT_Node_View</a>&lt; bIsConst &gt;::SetByte </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classNBT__Type.html#a09b5ce48dffc429ad8a7d05d007741c1">NBT_Type::Byte</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>value</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>从value设置 Byte 类型的视图（非const） </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">value</td><td>要设置的值的引用 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>设置的值的引用 </dd></dl>
+
+</div>
+</div>
+<a id="a7ab45351cdb4880e5462b69229fb1062" name="a7ab45351cdb4880e5462b69229fb1062"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7ab45351cdb4880e5462b69229fb1062">&#9670;&#160;</a></span>SetByteArray() <span class="overload">[1/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;bool bIsConst&gt; </div>
+<div class="memtemplate">
+template&lt;typename = void&gt; <br />
+requires (bIsConst)</div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="classNBT__Type.html#a953bc9e67e1b5d82c0786b5992f00ed8">NBT_Type::ByteArray</a> &amp; <a class="el" href="classNBT__Node__View.html">NBT_Node_View</a>&lt; bIsConst &gt;::SetByteArray </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classNBT__Type.html#a953bc9e67e1b5d82c0786b5992f00ed8">NBT_Type::ByteArray</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>value</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>从value设置 ByteArray 类型的视图（const） </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">value</td><td>要设置的值的常量引用 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>设置的值的引用 </dd></dl>
+
+</div>
+</div>
+<a id="a7792a12c605e740fbee2df391271cd9f" name="a7792a12c605e740fbee2df391271cd9f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7792a12c605e740fbee2df391271cd9f">&#9670;&#160;</a></span>SetByteArray() <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;bool bIsConst&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classNBT__Type.html#a953bc9e67e1b5d82c0786b5992f00ed8">NBT_Type::ByteArray</a> &amp; <a class="el" href="classNBT__Node__View.html">NBT_Node_View</a>&lt; bIsConst &gt;::SetByteArray </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classNBT__Type.html#a953bc9e67e1b5d82c0786b5992f00ed8">NBT_Type::ByteArray</a> &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>_Temp</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>删除从临时对象设置 ByteArray 类型的视图，，防止从临时对象构造导致悬空指针 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">_Temp</td><td>ByteArray 类型的临时对象 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>注解</dt><dd>这是一个删除的设置函数，用于一定程度上防御用户通过临时对象构造 </dd></dl>
+
+</div>
+</div>
+<a id="aa75e07030e05c423fef025097b764d8b" name="aa75e07030e05c423fef025097b764d8b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa75e07030e05c423fef025097b764d8b">&#9670;&#160;</a></span>SetByteArray() <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;bool bIsConst&gt; </div>
+<div class="memtemplate">
+template&lt;typename = void&gt; <br />
+requires (!bIsConst)</div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classNBT__Type.html#a953bc9e67e1b5d82c0786b5992f00ed8">NBT_Type::ByteArray</a> &amp; <a class="el" href="classNBT__Node__View.html">NBT_Node_View</a>&lt; bIsConst &gt;::SetByteArray </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classNBT__Type.html#a953bc9e67e1b5d82c0786b5992f00ed8">NBT_Type::ByteArray</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>value</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>从value设置 ByteArray 类型的视图（非const） </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">value</td><td>要设置的值的引用 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>设置的值的引用 </dd></dl>
+
+</div>
+</div>
+<a id="aa4f68e244e7d8a0ad2bb711fc79a2ddf" name="aa4f68e244e7d8a0ad2bb711fc79a2ddf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa4f68e244e7d8a0ad2bb711fc79a2ddf">&#9670;&#160;</a></span>SetCompound() <span class="overload">[1/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;bool bIsConst&gt; </div>
+<div class="memtemplate">
+template&lt;typename = void&gt; <br />
+requires (bIsConst)</div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="classNBT__Type.html#a9dcd5050b96a10161f18d7ae4a22e7b3">NBT_Type::Compound</a> &amp; <a class="el" href="classNBT__Node__View.html">NBT_Node_View</a>&lt; bIsConst &gt;::SetCompound </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classNBT__Type.html#a9dcd5050b96a10161f18d7ae4a22e7b3">NBT_Type::Compound</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>value</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>从value设置 Compound 类型的视图（const） </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">value</td><td>要设置的值的常量引用 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>设置的值的引用 </dd></dl>
+
+</div>
+</div>
+<a id="ae757d9d80dd01c39022c2edf848c61f2" name="ae757d9d80dd01c39022c2edf848c61f2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae757d9d80dd01c39022c2edf848c61f2">&#9670;&#160;</a></span>SetCompound() <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;bool bIsConst&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classNBT__Type.html#a9dcd5050b96a10161f18d7ae4a22e7b3">NBT_Type::Compound</a> &amp; <a class="el" href="classNBT__Node__View.html">NBT_Node_View</a>&lt; bIsConst &gt;::SetCompound </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classNBT__Type.html#a9dcd5050b96a10161f18d7ae4a22e7b3">NBT_Type::Compound</a> &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>_Temp</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>删除从临时对象设置 Compound 类型的视图，，防止从临时对象构造导致悬空指针 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">_Temp</td><td>Compound 类型的临时对象 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>注解</dt><dd>这是一个删除的设置函数，用于一定程度上防御用户通过临时对象构造 </dd></dl>
+
+</div>
+</div>
+<a id="a8ac150c9eede9f141f492ed8748c217f" name="a8ac150c9eede9f141f492ed8748c217f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8ac150c9eede9f141f492ed8748c217f">&#9670;&#160;</a></span>SetCompound() <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;bool bIsConst&gt; </div>
+<div class="memtemplate">
+template&lt;typename = void&gt; <br />
+requires (!bIsConst)</div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classNBT__Type.html#a9dcd5050b96a10161f18d7ae4a22e7b3">NBT_Type::Compound</a> &amp; <a class="el" href="classNBT__Node__View.html">NBT_Node_View</a>&lt; bIsConst &gt;::SetCompound </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classNBT__Type.html#a9dcd5050b96a10161f18d7ae4a22e7b3">NBT_Type::Compound</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>value</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>从value设置 Compound 类型的视图（非const） </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">value</td><td>要设置的值的引用 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>设置的值的引用 </dd></dl>
+
+</div>
+</div>
+<a id="aa0200451e0673fadfc99c731e2f0362d" name="aa0200451e0673fadfc99c731e2f0362d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa0200451e0673fadfc99c731e2f0362d">&#9670;&#160;</a></span>SetDouble() <span class="overload">[1/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;bool bIsConst&gt; </div>
+<div class="memtemplate">
+template&lt;typename = void&gt; <br />
+requires (bIsConst)</div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="classNBT__Type.html#aaea549797088fb63987679367bc9d39a">NBT_Type::Double</a> &amp; <a class="el" href="classNBT__Node__View.html">NBT_Node_View</a>&lt; bIsConst &gt;::SetDouble </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classNBT__Type.html#aaea549797088fb63987679367bc9d39a">NBT_Type::Double</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>value</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>从value设置 Double 类型的视图（const） </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">value</td><td>要设置的值的常量引用 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>设置的值的引用 </dd></dl>
+
+</div>
+</div>
+<a id="a125549a8e6a2ee124d5d38a6a6520c9a" name="a125549a8e6a2ee124d5d38a6a6520c9a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a125549a8e6a2ee124d5d38a6a6520c9a">&#9670;&#160;</a></span>SetDouble() <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;bool bIsConst&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classNBT__Type.html#aaea549797088fb63987679367bc9d39a">NBT_Type::Double</a> &amp; <a class="el" href="classNBT__Node__View.html">NBT_Node_View</a>&lt; bIsConst &gt;::SetDouble </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classNBT__Type.html#aaea549797088fb63987679367bc9d39a">NBT_Type::Double</a> &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>_Temp</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>删除从临时对象设置 Double 类型的视图，，防止从临时对象构造导致悬空指针 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">_Temp</td><td>Double 类型的临时对象 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>注解</dt><dd>这是一个删除的设置函数，用于一定程度上防御用户通过临时对象构造 </dd></dl>
+
+</div>
+</div>
+<a id="a69142e23ab8e29269c8a23f3ace97255" name="a69142e23ab8e29269c8a23f3ace97255"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a69142e23ab8e29269c8a23f3ace97255">&#9670;&#160;</a></span>SetDouble() <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;bool bIsConst&gt; </div>
+<div class="memtemplate">
+template&lt;typename = void&gt; <br />
+requires (!bIsConst)</div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classNBT__Type.html#aaea549797088fb63987679367bc9d39a">NBT_Type::Double</a> &amp; <a class="el" href="classNBT__Node__View.html">NBT_Node_View</a>&lt; bIsConst &gt;::SetDouble </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classNBT__Type.html#aaea549797088fb63987679367bc9d39a">NBT_Type::Double</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>value</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>从value设置 Double 类型的视图（非const） </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">value</td><td>要设置的值的引用 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>设置的值的引用 </dd></dl>
+
+</div>
+</div>
+<a id="aa79e438621afe6a64bee3a924a563f86" name="aa79e438621afe6a64bee3a924a563f86"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa79e438621afe6a64bee3a924a563f86">&#9670;&#160;</a></span>SetEnd() <span class="overload">[1/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;bool bIsConst&gt; </div>
+<div class="memtemplate">
+template&lt;typename = void&gt; <br />
+requires (bIsConst)</div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="classNBT__Type.html#a16ac41e6cfe61a603407221527b6b16c">NBT_Type::End</a> &amp; <a class="el" href="classNBT__Node__View.html">NBT_Node_View</a>&lt; bIsConst &gt;::SetEnd </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classNBT__Type.html#a16ac41e6cfe61a603407221527b6b16c">NBT_Type::End</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>value</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>从value设置 End 类型的视图（const） </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">value</td><td>要设置的值的常量引用 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>设置的值的引用 </dd></dl>
+
+</div>
+</div>
+<a id="a664d40d6e3247514255d50b3b0562d0a" name="a664d40d6e3247514255d50b3b0562d0a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a664d40d6e3247514255d50b3b0562d0a">&#9670;&#160;</a></span>SetEnd() <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;bool bIsConst&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classNBT__Type.html#a16ac41e6cfe61a603407221527b6b16c">NBT_Type::End</a> &amp; <a class="el" href="classNBT__Node__View.html">NBT_Node_View</a>&lt; bIsConst &gt;::SetEnd </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classNBT__Type.html#a16ac41e6cfe61a603407221527b6b16c">NBT_Type::End</a> &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>_Temp</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>删除从临时对象设置 End 类型的视图，，防止从临时对象构造导致悬空指针 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">_Temp</td><td>End 类型的临时对象 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>注解</dt><dd>这是一个删除的设置函数，用于一定程度上防御用户通过临时对象构造 </dd></dl>
+
+</div>
+</div>
+<a id="a078751838e59e5bbd1895f455877a0f9" name="a078751838e59e5bbd1895f455877a0f9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a078751838e59e5bbd1895f455877a0f9">&#9670;&#160;</a></span>SetEnd() <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;bool bIsConst&gt; </div>
+<div class="memtemplate">
+template&lt;typename = void&gt; <br />
+requires (!bIsConst)</div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classNBT__Type.html#a16ac41e6cfe61a603407221527b6b16c">NBT_Type::End</a> &amp; <a class="el" href="classNBT__Node__View.html">NBT_Node_View</a>&lt; bIsConst &gt;::SetEnd </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classNBT__Type.html#a16ac41e6cfe61a603407221527b6b16c">NBT_Type::End</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>value</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>从value设置 End 类型的视图（非const） </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">value</td><td>要设置的值的引用 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>设置的值的引用 </dd></dl>
+
+</div>
+</div>
+<a id="a2f36923d8e12321e2a16d8eebb99e596" name="a2f36923d8e12321e2a16d8eebb99e596"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2f36923d8e12321e2a16d8eebb99e596">&#9670;&#160;</a></span>SetFloat() <span class="overload">[1/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;bool bIsConst&gt; </div>
+<div class="memtemplate">
+template&lt;typename = void&gt; <br />
+requires (bIsConst)</div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="classNBT__Type.html#a8a7ac779b8e8a7fdccb3456844abe5cf">NBT_Type::Float</a> &amp; <a class="el" href="classNBT__Node__View.html">NBT_Node_View</a>&lt; bIsConst &gt;::SetFloat </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classNBT__Type.html#a8a7ac779b8e8a7fdccb3456844abe5cf">NBT_Type::Float</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>value</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>从value设置 Float 类型的视图（const） </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">value</td><td>要设置的值的常量引用 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>设置的值的引用 </dd></dl>
+
+</div>
+</div>
+<a id="a8e0c59f2cf12c0036e009c88cc27d4e5" name="a8e0c59f2cf12c0036e009c88cc27d4e5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8e0c59f2cf12c0036e009c88cc27d4e5">&#9670;&#160;</a></span>SetFloat() <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;bool bIsConst&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classNBT__Type.html#a8a7ac779b8e8a7fdccb3456844abe5cf">NBT_Type::Float</a> &amp; <a class="el" href="classNBT__Node__View.html">NBT_Node_View</a>&lt; bIsConst &gt;::SetFloat </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classNBT__Type.html#a8a7ac779b8e8a7fdccb3456844abe5cf">NBT_Type::Float</a> &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>_Temp</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>删除从临时对象设置 Float 类型的视图，，防止从临时对象构造导致悬空指针 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">_Temp</td><td>Float 类型的临时对象 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>注解</dt><dd>这是一个删除的设置函数，用于一定程度上防御用户通过临时对象构造 </dd></dl>
+
+</div>
+</div>
+<a id="a14578ea19b35eb997654e716ee030fd3" name="a14578ea19b35eb997654e716ee030fd3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a14578ea19b35eb997654e716ee030fd3">&#9670;&#160;</a></span>SetFloat() <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;bool bIsConst&gt; </div>
+<div class="memtemplate">
+template&lt;typename = void&gt; <br />
+requires (!bIsConst)</div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classNBT__Type.html#a8a7ac779b8e8a7fdccb3456844abe5cf">NBT_Type::Float</a> &amp; <a class="el" href="classNBT__Node__View.html">NBT_Node_View</a>&lt; bIsConst &gt;::SetFloat </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classNBT__Type.html#a8a7ac779b8e8a7fdccb3456844abe5cf">NBT_Type::Float</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>value</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>从value设置 Float 类型的视图（非const） </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">value</td><td>要设置的值的引用 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>设置的值的引用 </dd></dl>
+
+</div>
+</div>
+<a id="ad0b8d8e0dfc3a03413d5884e1d1d4c7d" name="ad0b8d8e0dfc3a03413d5884e1d1d4c7d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad0b8d8e0dfc3a03413d5884e1d1d4c7d">&#9670;&#160;</a></span>SetInt() <span class="overload">[1/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;bool bIsConst&gt; </div>
+<div class="memtemplate">
+template&lt;typename = void&gt; <br />
+requires (bIsConst)</div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="classNBT__Type.html#afee0233d7f58b90cc9ce2b903da2da22">NBT_Type::Int</a> &amp; <a class="el" href="classNBT__Node__View.html">NBT_Node_View</a>&lt; bIsConst &gt;::SetInt </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classNBT__Type.html#afee0233d7f58b90cc9ce2b903da2da22">NBT_Type::Int</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>value</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>从value设置 Int 类型的视图（const） </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">value</td><td>要设置的值的常量引用 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>设置的值的引用 </dd></dl>
+
+</div>
+</div>
+<a id="a61af3fcc47831dfe3e0aee48dabd6293" name="a61af3fcc47831dfe3e0aee48dabd6293"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a61af3fcc47831dfe3e0aee48dabd6293">&#9670;&#160;</a></span>SetInt() <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;bool bIsConst&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classNBT__Type.html#afee0233d7f58b90cc9ce2b903da2da22">NBT_Type::Int</a> &amp; <a class="el" href="classNBT__Node__View.html">NBT_Node_View</a>&lt; bIsConst &gt;::SetInt </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classNBT__Type.html#afee0233d7f58b90cc9ce2b903da2da22">NBT_Type::Int</a> &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>_Temp</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>删除从临时对象设置 Int 类型的视图，，防止从临时对象构造导致悬空指针 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">_Temp</td><td>Int 类型的临时对象 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>注解</dt><dd>这是一个删除的设置函数，用于一定程度上防御用户通过临时对象构造 </dd></dl>
+
+</div>
+</div>
+<a id="a370ac61892eeca26595774ef05fb177a" name="a370ac61892eeca26595774ef05fb177a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a370ac61892eeca26595774ef05fb177a">&#9670;&#160;</a></span>SetInt() <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;bool bIsConst&gt; </div>
+<div class="memtemplate">
+template&lt;typename = void&gt; <br />
+requires (!bIsConst)</div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classNBT__Type.html#afee0233d7f58b90cc9ce2b903da2da22">NBT_Type::Int</a> &amp; <a class="el" href="classNBT__Node__View.html">NBT_Node_View</a>&lt; bIsConst &gt;::SetInt </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classNBT__Type.html#afee0233d7f58b90cc9ce2b903da2da22">NBT_Type::Int</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>value</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>从value设置 Int 类型的视图（非const） </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">value</td><td>要设置的值的引用 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>设置的值的引用 </dd></dl>
+
+</div>
+</div>
+<a id="a33d985d606bf9d34d55f58e1867c9bf1" name="a33d985d606bf9d34d55f58e1867c9bf1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a33d985d606bf9d34d55f58e1867c9bf1">&#9670;&#160;</a></span>SetIntArray() <span class="overload">[1/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;bool bIsConst&gt; </div>
+<div class="memtemplate">
+template&lt;typename = void&gt; <br />
+requires (bIsConst)</div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="classNBT__Type.html#a9c4ad0b2bcd4b5cafb0c9a3f083f9406">NBT_Type::IntArray</a> &amp; <a class="el" href="classNBT__Node__View.html">NBT_Node_View</a>&lt; bIsConst &gt;::SetIntArray </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classNBT__Type.html#a9c4ad0b2bcd4b5cafb0c9a3f083f9406">NBT_Type::IntArray</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>value</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>从value设置 IntArray 类型的视图（const） </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">value</td><td>要设置的值的常量引用 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>设置的值的引用 </dd></dl>
+
+</div>
+</div>
+<a id="a8994b4f09806b027c5cab85f254e2603" name="a8994b4f09806b027c5cab85f254e2603"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8994b4f09806b027c5cab85f254e2603">&#9670;&#160;</a></span>SetIntArray() <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;bool bIsConst&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classNBT__Type.html#a9c4ad0b2bcd4b5cafb0c9a3f083f9406">NBT_Type::IntArray</a> &amp; <a class="el" href="classNBT__Node__View.html">NBT_Node_View</a>&lt; bIsConst &gt;::SetIntArray </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classNBT__Type.html#a9c4ad0b2bcd4b5cafb0c9a3f083f9406">NBT_Type::IntArray</a> &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>_Temp</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>删除从临时对象设置 IntArray 类型的视图，，防止从临时对象构造导致悬空指针 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">_Temp</td><td>IntArray 类型的临时对象 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>注解</dt><dd>这是一个删除的设置函数，用于一定程度上防御用户通过临时对象构造 </dd></dl>
+
+</div>
+</div>
+<a id="a60a04c758c0ad2e2053d2dd90b146dc4" name="a60a04c758c0ad2e2053d2dd90b146dc4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a60a04c758c0ad2e2053d2dd90b146dc4">&#9670;&#160;</a></span>SetIntArray() <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;bool bIsConst&gt; </div>
+<div class="memtemplate">
+template&lt;typename = void&gt; <br />
+requires (!bIsConst)</div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classNBT__Type.html#a9c4ad0b2bcd4b5cafb0c9a3f083f9406">NBT_Type::IntArray</a> &amp; <a class="el" href="classNBT__Node__View.html">NBT_Node_View</a>&lt; bIsConst &gt;::SetIntArray </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classNBT__Type.html#a9c4ad0b2bcd4b5cafb0c9a3f083f9406">NBT_Type::IntArray</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>value</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>从value设置 IntArray 类型的视图（非const） </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">value</td><td>要设置的值的引用 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>设置的值的引用 </dd></dl>
+
+</div>
+</div>
+<a id="a19fb45c02f33ab77b6ea971c0144ff48" name="a19fb45c02f33ab77b6ea971c0144ff48"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a19fb45c02f33ab77b6ea971c0144ff48">&#9670;&#160;</a></span>SetList() <span class="overload">[1/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;bool bIsConst&gt; </div>
+<div class="memtemplate">
+template&lt;typename = void&gt; <br />
+requires (bIsConst)</div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="classNBT__Type.html#a87b4d71087e5c0ab1111a4999dace42f">NBT_Type::List</a> &amp; <a class="el" href="classNBT__Node__View.html">NBT_Node_View</a>&lt; bIsConst &gt;::SetList </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classNBT__Type.html#a87b4d71087e5c0ab1111a4999dace42f">NBT_Type::List</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>value</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>从value设置 List 类型的视图（const） </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">value</td><td>要设置的值的常量引用 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>设置的值的引用 </dd></dl>
+
+</div>
+</div>
+<a id="a0b2e3b3893d3ada3d84eab305afb0762" name="a0b2e3b3893d3ada3d84eab305afb0762"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0b2e3b3893d3ada3d84eab305afb0762">&#9670;&#160;</a></span>SetList() <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;bool bIsConst&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classNBT__Type.html#a87b4d71087e5c0ab1111a4999dace42f">NBT_Type::List</a> &amp; <a class="el" href="classNBT__Node__View.html">NBT_Node_View</a>&lt; bIsConst &gt;::SetList </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classNBT__Type.html#a87b4d71087e5c0ab1111a4999dace42f">NBT_Type::List</a> &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>_Temp</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>删除从临时对象设置 List 类型的视图，，防止从临时对象构造导致悬空指针 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">_Temp</td><td>List 类型的临时对象 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>注解</dt><dd>这是一个删除的设置函数，用于一定程度上防御用户通过临时对象构造 </dd></dl>
+
+</div>
+</div>
+<a id="a1915aac2f9dea4bc920e0b422e9d55ab" name="a1915aac2f9dea4bc920e0b422e9d55ab"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1915aac2f9dea4bc920e0b422e9d55ab">&#9670;&#160;</a></span>SetList() <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;bool bIsConst&gt; </div>
+<div class="memtemplate">
+template&lt;typename = void&gt; <br />
+requires (!bIsConst)</div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classNBT__Type.html#a87b4d71087e5c0ab1111a4999dace42f">NBT_Type::List</a> &amp; <a class="el" href="classNBT__Node__View.html">NBT_Node_View</a>&lt; bIsConst &gt;::SetList </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classNBT__Type.html#a87b4d71087e5c0ab1111a4999dace42f">NBT_Type::List</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>value</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>从value设置 List 类型的视图（非const） </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">value</td><td>要设置的值的引用 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>设置的值的引用 </dd></dl>
+
+</div>
+</div>
+<a id="abb57bf360445b29f82d3c90a6620785d" name="abb57bf360445b29f82d3c90a6620785d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abb57bf360445b29f82d3c90a6620785d">&#9670;&#160;</a></span>SetLong() <span class="overload">[1/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;bool bIsConst&gt; </div>
+<div class="memtemplate">
+template&lt;typename = void&gt; <br />
+requires (bIsConst)</div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="classNBT__Type.html#a7f8ae2e6e2f87445d1e72f7e922ba053">NBT_Type::Long</a> &amp; <a class="el" href="classNBT__Node__View.html">NBT_Node_View</a>&lt; bIsConst &gt;::SetLong </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classNBT__Type.html#a7f8ae2e6e2f87445d1e72f7e922ba053">NBT_Type::Long</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>value</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>从value设置 Long 类型的视图（const） </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">value</td><td>要设置的值的常量引用 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>设置的值的引用 </dd></dl>
+
+</div>
+</div>
+<a id="a3355339ebce21c1c63a86214c040a423" name="a3355339ebce21c1c63a86214c040a423"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3355339ebce21c1c63a86214c040a423">&#9670;&#160;</a></span>SetLong() <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;bool bIsConst&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classNBT__Type.html#a7f8ae2e6e2f87445d1e72f7e922ba053">NBT_Type::Long</a> &amp; <a class="el" href="classNBT__Node__View.html">NBT_Node_View</a>&lt; bIsConst &gt;::SetLong </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classNBT__Type.html#a7f8ae2e6e2f87445d1e72f7e922ba053">NBT_Type::Long</a> &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>_Temp</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>删除从临时对象设置 Long 类型的视图，，防止从临时对象构造导致悬空指针 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">_Temp</td><td>Long 类型的临时对象 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>注解</dt><dd>这是一个删除的设置函数，用于一定程度上防御用户通过临时对象构造 </dd></dl>
+
+</div>
+</div>
+<a id="a310d54a6a747af266de71ec9939cd722" name="a310d54a6a747af266de71ec9939cd722"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a310d54a6a747af266de71ec9939cd722">&#9670;&#160;</a></span>SetLong() <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;bool bIsConst&gt; </div>
+<div class="memtemplate">
+template&lt;typename = void&gt; <br />
+requires (!bIsConst)</div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classNBT__Type.html#a7f8ae2e6e2f87445d1e72f7e922ba053">NBT_Type::Long</a> &amp; <a class="el" href="classNBT__Node__View.html">NBT_Node_View</a>&lt; bIsConst &gt;::SetLong </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classNBT__Type.html#a7f8ae2e6e2f87445d1e72f7e922ba053">NBT_Type::Long</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>value</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>从value设置 Long 类型的视图（非const） </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">value</td><td>要设置的值的引用 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>设置的值的引用 </dd></dl>
+
+</div>
+</div>
+<a id="ae43d62f3d65aa19cabf487f7df6d2a82" name="ae43d62f3d65aa19cabf487f7df6d2a82"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae43d62f3d65aa19cabf487f7df6d2a82">&#9670;&#160;</a></span>SetLongArray() <span class="overload">[1/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;bool bIsConst&gt; </div>
+<div class="memtemplate">
+template&lt;typename = void&gt; <br />
+requires (bIsConst)</div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="classNBT__Type.html#aa2c61028536166272869c3bbc91d3197">NBT_Type::LongArray</a> &amp; <a class="el" href="classNBT__Node__View.html">NBT_Node_View</a>&lt; bIsConst &gt;::SetLongArray </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classNBT__Type.html#aa2c61028536166272869c3bbc91d3197">NBT_Type::LongArray</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>value</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>从value设置 LongArray 类型的视图（const） </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">value</td><td>要设置的值的常量引用 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>设置的值的引用 </dd></dl>
+
+</div>
+</div>
+<a id="a7ff633b0497dcf962a0dfa1a9a58ff3c" name="a7ff633b0497dcf962a0dfa1a9a58ff3c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7ff633b0497dcf962a0dfa1a9a58ff3c">&#9670;&#160;</a></span>SetLongArray() <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;bool bIsConst&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classNBT__Type.html#aa2c61028536166272869c3bbc91d3197">NBT_Type::LongArray</a> &amp; <a class="el" href="classNBT__Node__View.html">NBT_Node_View</a>&lt; bIsConst &gt;::SetLongArray </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classNBT__Type.html#aa2c61028536166272869c3bbc91d3197">NBT_Type::LongArray</a> &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>_Temp</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>删除从临时对象设置 LongArray 类型的视图，，防止从临时对象构造导致悬空指针 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">_Temp</td><td>LongArray 类型的临时对象 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>注解</dt><dd>这是一个删除的设置函数，用于一定程度上防御用户通过临时对象构造 </dd></dl>
+
+</div>
+</div>
+<a id="ad7ed1b170c37c09639822fd0ffe9282f" name="ad7ed1b170c37c09639822fd0ffe9282f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad7ed1b170c37c09639822fd0ffe9282f">&#9670;&#160;</a></span>SetLongArray() <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;bool bIsConst&gt; </div>
+<div class="memtemplate">
+template&lt;typename = void&gt; <br />
+requires (!bIsConst)</div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classNBT__Type.html#aa2c61028536166272869c3bbc91d3197">NBT_Type::LongArray</a> &amp; <a class="el" href="classNBT__Node__View.html">NBT_Node_View</a>&lt; bIsConst &gt;::SetLongArray </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classNBT__Type.html#aa2c61028536166272869c3bbc91d3197">NBT_Type::LongArray</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>value</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>从value设置 LongArray 类型的视图（非const） </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">value</td><td>要设置的值的引用 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>设置的值的引用 </dd></dl>
+
+</div>
+</div>
+<a id="a3fd9867f7e8b465e2ccc78d4d40281e5" name="a3fd9867f7e8b465e2ccc78d4d40281e5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3fd9867f7e8b465e2ccc78d4d40281e5">&#9670;&#160;</a></span>SetShort() <span class="overload">[1/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;bool bIsConst&gt; </div>
+<div class="memtemplate">
+template&lt;typename = void&gt; <br />
+requires (bIsConst)</div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="classNBT__Type.html#a3e47d05c36743947da966f4223237262">NBT_Type::Short</a> &amp; <a class="el" href="classNBT__Node__View.html">NBT_Node_View</a>&lt; bIsConst &gt;::SetShort </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classNBT__Type.html#a3e47d05c36743947da966f4223237262">NBT_Type::Short</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>value</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>从value设置 Short 类型的视图（const） </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">value</td><td>要设置的值的常量引用 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>设置的值的引用 </dd></dl>
+
+</div>
+</div>
+<a id="a35f2f1f8cfe4816636f78d9954b3aa1b" name="a35f2f1f8cfe4816636f78d9954b3aa1b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a35f2f1f8cfe4816636f78d9954b3aa1b">&#9670;&#160;</a></span>SetShort() <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;bool bIsConst&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classNBT__Type.html#a3e47d05c36743947da966f4223237262">NBT_Type::Short</a> &amp; <a class="el" href="classNBT__Node__View.html">NBT_Node_View</a>&lt; bIsConst &gt;::SetShort </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classNBT__Type.html#a3e47d05c36743947da966f4223237262">NBT_Type::Short</a> &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>_Temp</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>删除从临时对象设置 Short 类型的视图，，防止从临时对象构造导致悬空指针 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">_Temp</td><td>Short 类型的临时对象 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>注解</dt><dd>这是一个删除的设置函数，用于一定程度上防御用户通过临时对象构造 </dd></dl>
+
+</div>
+</div>
+<a id="ae2741a8dffe589d540f41d4992d79378" name="ae2741a8dffe589d540f41d4992d79378"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae2741a8dffe589d540f41d4992d79378">&#9670;&#160;</a></span>SetShort() <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;bool bIsConst&gt; </div>
+<div class="memtemplate">
+template&lt;typename = void&gt; <br />
+requires (!bIsConst)</div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classNBT__Type.html#a3e47d05c36743947da966f4223237262">NBT_Type::Short</a> &amp; <a class="el" href="classNBT__Node__View.html">NBT_Node_View</a>&lt; bIsConst &gt;::SetShort </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classNBT__Type.html#a3e47d05c36743947da966f4223237262">NBT_Type::Short</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>value</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>从value设置 Short 类型的视图（非const） </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">value</td><td>要设置的值的引用 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>设置的值的引用 </dd></dl>
+
+</div>
+</div>
+<a id="ad53707a5650f8c1b60ae6d4b136647b3" name="ad53707a5650f8c1b60ae6d4b136647b3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad53707a5650f8c1b60ae6d4b136647b3">&#9670;&#160;</a></span>SetString() <span class="overload">[1/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;bool bIsConst&gt; </div>
+<div class="memtemplate">
+template&lt;typename = void&gt; <br />
+requires (bIsConst)</div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="classNBT__Type.html#a8580dcb2a4494cd9bc52526d43f61865">NBT_Type::String</a> &amp; <a class="el" href="classNBT__Node__View.html">NBT_Node_View</a>&lt; bIsConst &gt;::SetString </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classNBT__Type.html#a8580dcb2a4494cd9bc52526d43f61865">NBT_Type::String</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>value</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>从value设置 String 类型的视图（const） </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">value</td><td>要设置的值的常量引用 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>设置的值的引用 </dd></dl>
+
+</div>
+</div>
+<a id="aacf066752a2b536ecd235888046b1fc3" name="aacf066752a2b536ecd235888046b1fc3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aacf066752a2b536ecd235888046b1fc3">&#9670;&#160;</a></span>SetString() <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;bool bIsConst&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classNBT__Type.html#a8580dcb2a4494cd9bc52526d43f61865">NBT_Type::String</a> &amp; <a class="el" href="classNBT__Node__View.html">NBT_Node_View</a>&lt; bIsConst &gt;::SetString </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classNBT__Type.html#a8580dcb2a4494cd9bc52526d43f61865">NBT_Type::String</a> &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>_Temp</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>删除从临时对象设置 String 类型的视图，，防止从临时对象构造导致悬空指针 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">_Temp</td><td>String 类型的临时对象 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>注解</dt><dd>这是一个删除的设置函数，用于一定程度上防御用户通过临时对象构造 </dd></dl>
+
+</div>
+</div>
+<a id="afe33ba0a18eef7d26715143907e174b4" name="afe33ba0a18eef7d26715143907e174b4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afe33ba0a18eef7d26715143907e174b4">&#9670;&#160;</a></span>SetString() <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;bool bIsConst&gt; </div>
+<div class="memtemplate">
+template&lt;typename = void&gt; <br />
+requires (!bIsConst)</div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classNBT__Type.html#a8580dcb2a4494cd9bc52526d43f61865">NBT_Type::String</a> &amp; <a class="el" href="classNBT__Node__View.html">NBT_Node_View</a>&lt; bIsConst &gt;::SetString </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classNBT__Type.html#a8580dcb2a4494cd9bc52526d43f61865">NBT_Type::String</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>value</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>从value设置 String 类型的视图（非const） </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">value</td><td>要设置的值的引用 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>设置的值的引用 </dd></dl>
 
 </div>
 </div>
