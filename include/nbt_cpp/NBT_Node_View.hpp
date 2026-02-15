@@ -516,7 +516,7 @@ friend bool Is##type(const NBT_Node_View &node)\
  @brief 从value设置 type 类型的视图（非const）
  @param value 要设置的值的引用
  @return 设置的值的引用
-*/\
+ */\
 template <typename = void>\
 requires(!bIsConst)\
 NBT_Type::type &Set##type(NBT_Type::type &value)\
@@ -528,7 +528,7 @@ NBT_Type::type &Set##type(NBT_Type::type &value)\
  @brief 从value设置 type 类型的视图（const）
  @param value 要设置的值的常量引用
  @return 设置的值的引用
-*/\
+ */\
 template <typename = void>\
 requires(bIsConst)\
 const NBT_Type::type &Set##type(const NBT_Type::type &value)\
@@ -540,7 +540,7 @@ const NBT_Type::type &Set##type(const NBT_Type::type &value)\
  @brief 删除从临时对象设置 type 类型的视图，，防止从临时对象构造导致悬空指针
  @param _Temp type 类型的临时对象
  @note 这是一个删除的设置函数，用于一定程度上防御用户通过临时对象构造
-*/\
+ */\
 NBT_Type::type &Set##type(NBT_Type::type &&_Temp) = delete;
 
 	/// @name 针对每种类型提供一个方便使用的函数，由宏批量生成

@@ -321,7 +321,7 @@ friend bool Is##type(const NBT_Node &node)\
  @brief 从value设置node为 type 类型的值（拷贝）
  @param value 要设置的值
  @return 设置的值的引用
-*/\
+ */\
 NBT_Type::type &Set##type(const NBT_Type::type &value)\
 {\
 	return Set<NBT_Type::type>(value);\
@@ -331,7 +331,7 @@ NBT_Type::type &Set##type(const NBT_Type::type &value)\
  @brief 从value设置node为 type 类型的值（移动）
  @param value 要设置的值
  @return 设置的值的引用
-*/\
+ */\
 NBT_Type::type &Set##type(NBT_Type::type &&value)\
 {\
 	return Set<NBT_Type::type>(std::move(value));\
@@ -340,7 +340,7 @@ NBT_Type::type &Set##type(NBT_Type::type &&value)\
 /**
  @brief 设置设置node为 type 类型的默认值（拷贝）
  @return 设置的值的引用
-*/\
+ */\
 NBT_Type::type &Set##type(void)\
 {\
 	return Set<NBT_Type::type>();\
