@@ -391,7 +391,7 @@ bool Contains##type(const typename Compound::key_type &sTagName) const\
  @note 如果标签不存在或类型不匹配则抛出异常，
  具体请参考std::unordered_map关于at的说明与std::get的说明
  */\
-std::optional<const typename NBT_Type::type &> Get##type(const typename Compound::key_type & sTagName) const\
+const typename NBT_Type::type &Get##type(const typename Compound::key_type & sTagName) const\
 {\
 	return Compound::at(sTagName).Get##type();\
 }\
@@ -403,7 +403,7 @@ std::optional<const typename NBT_Type::type &> Get##type(const typename Compound
  @note 如果标签不存在或类型不匹配则抛出异常，
  具体请参考std::unordered_map关于at的说明与std::get的说明
  */\
-std::optional<typename NBT_Type::type &> Get##type(const typename Compound::key_type & sTagName)\
+typename NBT_Type::type &Get##type(const typename Compound::key_type & sTagName)\
 {\
 	return Compound::at(sTagName).Get##type();\
 }\
