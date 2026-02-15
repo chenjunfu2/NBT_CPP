@@ -194,7 +194,7 @@ $(function(){initNavTree('NBT__Node__View_8hpp_source.html','',''); });
 <div class="foldopen" id="foldopen00134" data-start="{" data-end="}">
 <div class="line"><a id="l00134" name="l00134"></a><span class="lineno"><a class="line" href="classNBT__Node__View.html#a8fe08b4179b290c69183597078f2b846">  134</a></span>    T &amp;<a class="code hl_function" href="classNBT__Node__View.html#a8fe08b4179b290c69183597078f2b846">Set</a>(T &amp;value)</div>
 <div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>    {</div>
-<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>        data.emplace&lt;PtrType&lt;T&gt;&gt;(&amp;value);</div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>        data.template emplace&lt;PtrType&lt;T&gt;&gt;(&amp;value);</div>
 <div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span>        <span class="keywordflow">return</span> value;</div>
 <div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span>    }</div>
 </div>
@@ -204,7 +204,7 @@ $(function(){initNavTree('NBT__Node__View_8hpp_source.html','',''); });
 <div class="foldopen" id="foldopen00148" data-start="{" data-end="}">
 <div class="line"><a id="l00148" name="l00148"></a><span class="lineno"><a class="line" href="classNBT__Node__View.html#ae740aa2f860ecc697362de194d4e6033">  148</a></span>    <span class="keyword">const</span> T &amp;<a class="code hl_function" href="classNBT__Node__View.html#ae740aa2f860ecc697362de194d4e6033">Set</a>(<span class="keyword">const</span> T &amp;value)</div>
 <div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>    {</div>
-<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span>        data.emplace&lt;PtrType&lt;T&gt;&gt;(&amp;value);</div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span>        data.template emplace&lt;PtrType&lt;T&gt;&gt;(&amp;value);</div>
 <div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span>        <span class="keywordflow">return</span> value;</div>
 <div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span>    }</div>
 </div>
@@ -420,7 +420,7 @@ $(function(){initNavTree('NBT__Node__View_8hpp_source.html','',''); });
 <div class="foldopen" id="foldopen00413" data-start="{" data-end="}">
 <div class="line"><a id="l00413" name="l00413"></a><span class="lineno"><a class="line" href="classNBT__Node__View.html#acd53dc188283a5f3b27090bc30c285df">  413</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classNBT__Node__View.html#acd53dc188283a5f3b27090bc30c285df">SetEmpty</a>()</div>
 <div class="line"><a id="l00414" name="l00414"></a><span class="lineno">  414</span>    {</div>
-<div class="line"><a id="l00415" name="l00415"></a><span class="lineno">  415</span>        data.emplace&lt;PtrType&lt;NBT_Type::End&gt;&gt;(PtrType&lt;NBT_Type::End&gt;{});</div>
+<div class="line"><a id="l00415" name="l00415"></a><span class="lineno">  415</span>        data.template emplace&lt;PtrType&lt;NBT_Type::End&gt;&gt;(PtrType&lt;NBT_Type::End&gt;{});</div>
 <div class="line"><a id="l00416" name="l00416"></a><span class="lineno">  416</span>    }</div>
 </div>
 <div class="line"><a id="l00417" name="l00417"></a><span class="lineno">  417</span> </div>
