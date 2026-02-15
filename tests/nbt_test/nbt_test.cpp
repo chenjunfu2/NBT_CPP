@@ -528,7 +528,7 @@ int mainhh(void)
 	return 0;
 }
 
-int main7890(void)
+int main(void)
 {
 	NBT_Node node_cpd{ NBT_Type::Compound{} };
 

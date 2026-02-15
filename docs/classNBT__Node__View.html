@@ -26,7 +26,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">chenjunfu2-nbt-cpp<span id="projectnumber">&#160;v1.0.2</span>
+   <div id="projectname">chenjunfu2-nbt-cpp<span id="projectnumber">&#160;v1.0.3</span>
    </div>
    <div id="projectbrief">一个基于CPP20的NBT(Named Binary Tag)库</div>
   </td>
@@ -142,13 +142,13 @@ requires (bIsConst)</td></tr>
 <tr class="memdesc:acdd77a4a7f153480e3f817c39e79f46e"><td class="mdescLeft">&#160;</td><td class="mdescRight">三路比较运算符  <br /></td></tr>
 <tr class="memitem:a900d04030667d8b78f970cba77e8188c" id="r_a900d04030667d8b78f970cba77e8188c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="NBT__TAG_8hpp.html#ada3a2766daa185b5461d684c766b4a2e">NBT_TAG</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a900d04030667d8b78f970cba77e8188c">GetTag</a> () const noexcept</td></tr>
 <tr class="memdesc:a900d04030667d8b78f970cba77e8188c"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取当前视图指向的NBT类型的枚举值  <br /></td></tr>
-<tr class="memitem:a5dcb8bf6470ca0190187e3bbe9c502f3" id="r_a5dcb8bf6470ca0190187e3bbe9c502f3"><td class="memTemplParams" colspan="2">template&lt;typename T&gt; </td></tr>
-<tr class="memitem:a5dcb8bf6470ca0190187e3bbe9c502f3 template"><td class="memItemLeft" align="right" valign="top">const T &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5dcb8bf6470ca0190187e3bbe9c502f3">GetData</a> () const</td></tr>
-<tr class="memdesc:a5dcb8bf6470ca0190187e3bbe9c502f3"><td class="mdescLeft">&#160;</td><td class="mdescRight">通过指定类型获取当前视图指向的数据对象  <br /></td></tr>
-<tr class="memitem:a15ff7407a1fd4848ca78be68a7984ada" id="r_a15ff7407a1fd4848ca78be68a7984ada"><td class="memTemplParams" colspan="2">template&lt;typename T&gt; <br />
+<tr class="memitem:a378d636f0c4e4adf3a0633e43d470bae" id="r_a378d636f0c4e4adf3a0633e43d470bae"><td class="memTemplParams" colspan="2">template&lt;typename T&gt; </td></tr>
+<tr class="memitem:a378d636f0c4e4adf3a0633e43d470bae template"><td class="memItemLeft" align="right" valign="top">const T &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a378d636f0c4e4adf3a0633e43d470bae">Get</a> () const</td></tr>
+<tr class="memdesc:a378d636f0c4e4adf3a0633e43d470bae"><td class="mdescLeft">&#160;</td><td class="mdescRight">通过指定类型获取当前视图指向的数据对象  <br /></td></tr>
+<tr class="memitem:ac7a6102584c191aaea615cf2567ef082" id="r_ac7a6102584c191aaea615cf2567ef082"><td class="memTemplParams" colspan="2">template&lt;typename T&gt; <br />
 requires (!bIsConst)</td></tr>
-<tr class="memitem:a15ff7407a1fd4848ca78be68a7984ada template"><td class="memItemLeft" align="right" valign="top">T &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a15ff7407a1fd4848ca78be68a7984ada">GetData</a> ()</td></tr>
-<tr class="memdesc:a15ff7407a1fd4848ca78be68a7984ada"><td class="mdescLeft">&#160;</td><td class="mdescRight">通过指定类型获取当前视图指向的数据对象（仅适用于非const视图）  <br /></td></tr>
+<tr class="memitem:ac7a6102584c191aaea615cf2567ef082 template"><td class="memItemLeft" align="right" valign="top">T &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac7a6102584c191aaea615cf2567ef082">Get</a> ()</td></tr>
+<tr class="memdesc:ac7a6102584c191aaea615cf2567ef082"><td class="mdescLeft">&#160;</td><td class="mdescRight">通过指定类型获取当前视图指向的数据对象（仅适用于非const视图）  <br /></td></tr>
 <tr class="memitem:aded092c3500fc6190a62cee486196de3" id="r_aded092c3500fc6190a62cee486196de3"><td class="memTemplParams" colspan="2">template&lt;typename T&gt; </td></tr>
 <tr class="memitem:aded092c3500fc6190a62cee486196de3 template"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aded092c3500fc6190a62cee486196de3">TypeHolds</a> () const</td></tr>
 <tr class="memdesc:aded092c3500fc6190a62cee486196de3"><td class="mdescLeft">&#160;</td><td class="mdescRight">类型判断  <br /></td></tr>
@@ -767,6 +767,85 @@ template&lt;bool bIsConst&gt; </div>
 </div>
 </div>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">成员函数说明</h2>
+<a id="ac7a6102584c191aaea615cf2567ef082" name="ac7a6102584c191aaea615cf2567ef082"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac7a6102584c191aaea615cf2567ef082">&#9670;&#160;</a></span>Get() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;bool bIsConst&gt; </div>
+<div class="memtemplate">
+template&lt;typename T&gt; <br />
+requires (!bIsConst)</div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">T &amp; <a class="el" href="classNBT__Node__View.html">NBT_Node_View</a>&lt; bIsConst &gt;::Get </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>通过指定类型获取当前视图指向的数据对象（仅适用于非const视图） </p>
+<dl class="tparams"><dt>模板参数</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T</td><td>要访问的数据类型 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>对指向数据的引用 </dd></dl>
+<dl class="section note"><dt>注解</dt><dd>如果类型不存在或当前存储的不是指定类型的指针，则抛出异常，具体请参考std::get的说明 </dd></dl>
+
+</div>
+</div>
+<a id="a378d636f0c4e4adf3a0633e43d470bae" name="a378d636f0c4e4adf3a0633e43d470bae"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a378d636f0c4e4adf3a0633e43d470bae">&#9670;&#160;</a></span>Get() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;bool bIsConst&gt; </div>
+<div class="memtemplate">
+template&lt;typename T&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const T &amp; <a class="el" href="classNBT__Node__View.html">NBT_Node_View</a>&lt; bIsConst &gt;::Get </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>通过指定类型获取当前视图指向的数据对象 </p>
+<dl class="tparams"><dt>模板参数</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T</td><td>要访问的数据类型 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>对指向数据的常量引用 </dd></dl>
+<dl class="section note"><dt>注解</dt><dd>如果类型不存在或当前存储的不是指定类型的指针，则抛出异常，具体请参考std::get的说明 </dd></dl>
+
+</div>
+</div>
 <a id="a4b8f7852b379003f503ab0ea5565243f" name="a4b8f7852b379003f503ab0ea5565243f"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a4b8f7852b379003f503ab0ea5565243f">&#9670;&#160;</a></span>GetByte() <span class="overload">[1/2]</span></h2>
 
@@ -959,85 +1038,6 @@ template&lt;bool bIsConst&gt; </div>
 <p>获取当前视图指向的 Compound 类型的数据 </p>
 <dl class="section return"><dt>返回</dt><dd>对指定类型数据的常量引用 </dd></dl>
 <dl class="section note"><dt>注解</dt><dd>如果类型不存在或当前指向的不是 Compound 类型，则抛出异常，具体请参考std::get的说明 </dd></dl>
-
-</div>
-</div>
-<a id="a15ff7407a1fd4848ca78be68a7984ada" name="a15ff7407a1fd4848ca78be68a7984ada"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a15ff7407a1fd4848ca78be68a7984ada">&#9670;&#160;</a></span>GetData() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;bool bIsConst&gt; </div>
-<div class="memtemplate">
-template&lt;typename T&gt; <br />
-requires (!bIsConst)</div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">T &amp; <a class="el" href="classNBT__Node__View.html">NBT_Node_View</a>&lt; bIsConst &gt;::GetData </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>通过指定类型获取当前视图指向的数据对象（仅适用于非const视图） </p>
-<dl class="tparams"><dt>模板参数</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">T</td><td>要访问的数据类型 </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>返回</dt><dd>对指向数据的引用 </dd></dl>
-<dl class="section note"><dt>注解</dt><dd>如果类型不存在或当前存储的不是指定类型的指针，则抛出异常，具体请参考std::get的说明 </dd></dl>
-
-</div>
-</div>
-<a id="a5dcb8bf6470ca0190187e3bbe9c502f3" name="a5dcb8bf6470ca0190187e3bbe9c502f3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5dcb8bf6470ca0190187e3bbe9c502f3">&#9670;&#160;</a></span>GetData() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;bool bIsConst&gt; </div>
-<div class="memtemplate">
-template&lt;typename T&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">const T &amp; <a class="el" href="classNBT__Node__View.html">NBT_Node_View</a>&lt; bIsConst &gt;::GetData </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>通过指定类型获取当前视图指向的数据对象 </p>
-<dl class="tparams"><dt>模板参数</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">T</td><td>要访问的数据类型 </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>返回</dt><dd>对指向数据的常量引用 </dd></dl>
-<dl class="section note"><dt>注解</dt><dd>如果类型不存在或当前存储的不是指定类型的指针，则抛出异常，具体请参考std::get的说明 </dd></dl>
 
 </div>
 </div>
