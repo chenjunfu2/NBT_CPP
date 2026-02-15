@@ -560,16 +560,11 @@ int main(void)
 	cpd.PutByte(MU8STR("byte"), 9);
 	cpd.PutString(MU8STR("str"), MU8STR("test str"));
 
-	auto byte = cpd.GetByte(MU8STR("byte"));
-	auto byte1 = cpd.GetByte(MU8STR("byte1"));
+	auto &byte = cpd.GetByte(MU8STR("byte"));
+	auto &byte1 = cpd.GetByte(MU8STR("byte1"));
 
-	auto str = cpd.GetString(MU8STR("str"));
-	auto str1 = cpd.GetString(MU8STR("str1"));
-
-	NBT_Print{ stdout }("byte:[{}]\n", byte);
-	NBT_Print{ stdout }("byte1:[{}]\n", byte1);
-	NBT_Print{ stdout }("str:[{}]\n", str);
-	NBT_Print{ stdout }("str1:[{}]\n", str1);
+	auto &str = cpd.GetString(MU8STR("str"));
+	auto &str1 = cpd.GetString(MU8STR("str1"));
 
 	return 0;
 }
