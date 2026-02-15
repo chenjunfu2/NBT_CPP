@@ -528,7 +528,7 @@ NBT_Type::type &Set##type(NBT_Type::type &value)\
 */\
 template <typename = void>\
 requires(bIsConst)\
-NBT_Type::type &Set##type(const NBT_Type::type &value)\
+const NBT_Type::type &Set##type(const NBT_Type::type &value)\
 {\
 	return Set<NBT_Type::type>(value); \
 }\

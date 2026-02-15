@@ -535,7 +535,7 @@ int main(void)
 	PrintBool(node_cpd.IsCompound(), "", "\n");
 	PrintBool(IsCompound(node_cpd), "", "\n");
 	PrintBool(node_cpd.IsList(), "", "\n");
-	PrintBool(IsList(node_cpd), "", "\n");
+	PrintBool(IsList(node_cpd), "", "\n\n");
 
 	NBT_Type::Compound cpd{};
 
@@ -544,19 +544,51 @@ int main(void)
 	PrintBool(IsCompound(const_view_cpd), "", "\n");
 	PrintBool(const_view_cpd.IsList(), "", "\n");
 	PrintBool(IsList(const_view_cpd), "", "\n");
+	const_view_cpd = cpd;
+	PrintBool(const_view_cpd.IsCompound(), "", "\n");
+	PrintBool(const_view_cpd.IsEnd(), "", "\n");
+	PrintBool(const_view_cpd.IsByte(), "", "\n");
+	const_view_cpd.SetCompound(cpd);
+	PrintBool(const_view_cpd.IsCompound(), "", "\n");
+	PrintBool(const_view_cpd.IsEnd(), "", "\n");
+	PrintBool(const_view_cpd.IsByte(), "", "\n");
+	const_view_cpd = node_cpd;
+	PrintBool(IsCompound(const_view_cpd), "", "\n");
+	PrintBool(IsEnd(const_view_cpd), "", "\n");
+	PrintBool(IsByte(const_view_cpd), "", "\n\n");
 
 	NBT_Node_View<false> view_cpd{ cpd };
 	PrintBool(view_cpd.IsCompound(), "", "\n");
 	PrintBool(IsCompound(view_cpd), "", "\n");
 	PrintBool(view_cpd.IsList(), "", "\n");
 	PrintBool(IsList(view_cpd), "", "\n");
+	view_cpd = cpd;
+	PrintBool(view_cpd.IsCompound(), "", "\n");
+	PrintBool(view_cpd.IsEnd(), "", "\n");
+	PrintBool(view_cpd.IsByte(), "", "\n");
+	view_cpd.SetCompound(cpd);
+	PrintBool(view_cpd.IsCompound(), "", "\n");
+	PrintBool(view_cpd.IsEnd(), "", "\n");
+	PrintBool(view_cpd.IsByte(), "", "\n");
+	view_cpd = node_cpd;
+	PrintBool(IsCompound(view_cpd), "", "\n");
+	PrintBool(IsEnd(view_cpd), "", "\n");
+	PrintBool(IsByte(view_cpd), "", "\n\n");
+	
+
+	NBT_Node_View<true> const_view_empty{};
+	PrintBool(const_view_empty.IsEmpty(), "", "\n");
+	const_view_empty.SetCompound(cpd);
+	PrintBool(const_view_empty.IsEmpty(), "", "\n");
+	const_view_empty.SetEmpty();
+	PrintBool(const_view_empty.IsEmpty(), "", "\n\n");
 
 	NBT_Node_View<false> view_empty{};
 	PrintBool(view_empty.IsEmpty(), "", "\n");
 	view_empty.SetCompound(cpd);
 	PrintBool(view_empty.IsEmpty(), "", "\n");
 	view_empty.SetEmpty();
-	PrintBool(view_empty.IsEmpty(), "", "\n");
+	PrintBool(view_empty.IsEmpty(), "", "\n\n");
 
 	//禁止临时对象
 	//NBT_Node_View<true> temp_test(NBT_Type::Compound{});
