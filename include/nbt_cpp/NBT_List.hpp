@@ -712,7 +712,7 @@ std::optional<typename NBT_Type::type &> Get##type(const typename List::size_typ
  @brief 获取列表第一个 type 类型数据（常量版本）
  @return 如果列表不为空，且开头元素类型为 type ，则返回开头的 type 类型的元素引用，否则返回std::nullopt
  */\
-const typename NBT_Type::type &Front##type(void) const\
+std::optional<const typename NBT_Type::type &> Front##type(void) const\
 {\
 	return !List::empty() && List::front().Is##type()\
 		? std::optional<typename List::value_type &>{ List::front().Get##type() }\
@@ -723,7 +723,7 @@ const typename NBT_Type::type &Front##type(void) const\
  @brief 获取列表第一个 type 类型数据
  @return 如果列表不为空，且开头元素类型为 type ，则返回开头的 type 类型的元素引用，否则返回std::nullopt
  */\
-typename NBT_Type::type &Front##type(void)\
+std::optional<typename NBT_Type::type &> Front##type(void)\
  {\
 	return !List::empty() && List::front().Is##type()\
 		? std::optional<typename List::value_type &>{ List::front().Get##type() }\
@@ -733,7 +733,7 @@ typename NBT_Type::type &Front##type(void)\
  @brief 获取列表最后一个 type 类型数据（常量版本）
  @return 如果列表不为空，且最后元素类型为 type ，则返回最后的 type 类型的元素引用，否则返回std::nullopt
  */\
-const typename NBT_Type::type &Back##type(void) const\
+std::optional<const typename NBT_Type::type &> Back##type(void) const\
 {\
 	return !List::empty() && List::back().Is##type()\
 		? std::optional<typename List::value_type &>{ List::back().Get##type() }\
@@ -744,7 +744,7 @@ const typename NBT_Type::type &Back##type(void) const\
  @brief 获取列表最后一个 type 类型数据
  @return 如果列表不为空，且最后元素类型为 type ，则返回最后的 type 类型的元素引用，否则返回std::nullopt
  */\
-typename NBT_Type::type &Back##type(void)\
+std::optional<typename NBT_Type::type &> Back##type(void)\
 {\
 	return !List::empty() && List::back().Is##type()\
 		? std::optional<typename List::value_type &>{ List::back().Get##type() }\
