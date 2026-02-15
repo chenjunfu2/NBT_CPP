@@ -13,6 +13,9 @@ git push origin master
 #新建分支
 git checkout -b update-chenjunfu2-nbt-cpp-x.x.x
 
+#检查分支情况
+git branch
+
 #回到项目目录
 cd ..
 cd ..
