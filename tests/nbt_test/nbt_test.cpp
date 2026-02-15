@@ -554,17 +554,3 @@ int main7890(void)
 	return 0;
 }
 
-int main(void)
-{
-	NBT_Type::Compound cpd{};
-	cpd.PutByte(MU8STR("byte"), 9);
-	cpd.PutString(MU8STR("str"), MU8STR("test str"));
-
-	auto &byte = cpd.GetByte(MU8STR("byte"));
-	auto &byte1 = cpd.GetByte(MU8STR("byte1"));
-
-	auto &str = cpd.GetString(MU8STR("str"));
-	auto &str1 = cpd.GetString(MU8STR("str1"));
-
-	return 0;
-}
