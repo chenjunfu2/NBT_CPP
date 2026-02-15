@@ -399,7 +399,7 @@ std::optional<const typename NBT_Type::type &> Get##type(const typename Compound
 {\
 	auto *p = Has(sTagName);\
 	return p != NULL && p->Is##type()\
-		? std::optional<typename Compound::mapped_type &>{ *p };\
+		? std::optional<typename Compound::mapped_type &>{ p->Get##type() };\
 		: std::optional<typename Compound::mapped_type &>{ std::nullopt }\
 }\
 \
@@ -414,7 +414,7 @@ std::optional<typename NBT_Type::type &> Get##type(const typename Compound::key_
 {\
 	auto *p = Has(sTagName);\
 	return p != NULL && p->Is##type()\
-		? std::optional<typename Compound::mapped_type &>{ *p };\
+		? std::optional<typename Compound::mapped_type &>{ p->Get##type() };\
 		: std::optional<typename Compound::mapped_type &>{ std::nullopt }\
 }\
 \
