@@ -336,6 +336,7 @@ NBT_Type::type &Set##type(NBT_Type::type &&value)\
 {\
 	return Set<NBT_Type::type>(std::move(value));\
 }\
+\
 /**
  @brief 设置设置node为 type 类型的默认值（拷贝）
  @return 设置的值的引用

@@ -551,6 +551,24 @@ int main(void)
 	PrintBool(view_cpd.IsList(), "", "\n");
 	PrintBool(IsList(view_cpd), "", "\n");
 
+	NBT_Node_View<false> view_empty{};
+	PrintBool(view_empty.IsEmpty(), "", "\n");
+	view_empty.SetCompound(cpd);
+	PrintBool(view_empty.IsEmpty(), "", "\n");
+	view_empty.SetEmpty();
+	PrintBool(view_empty.IsEmpty(), "", "\n");
+
+	//禁止临时对象
+	//NBT_Node_View<true> temp_test(NBT_Type::Compound{});
+	//NBT_Node_View<true> temp_test{ NBT_Type::Compound{} };
+	//NBT_Node_View<true> temp_test{};
+	//temp_test.Set(NBT_Type::Compound{});
+
+	//NBT_Node_View<true> temp_test(NBT_Node{});
+	//NBT_Node_View<true> temp_test{};
+	//temp_test.Set(NBT_Node{});
+	//temp_test.SetCompound({});
+
 	return 0;
 }
 
