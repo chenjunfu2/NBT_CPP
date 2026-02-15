@@ -314,7 +314,7 @@ friend bool Is##type(const NBT_Node &node)\
 #undef TYPE_GET_FUNC
 
 /// @def TYPE_SET_FUNC(type)
-/// @brief 不同类型名设置接口生成宏
+/// @brief 不同类型名接口生成宏
 /// @note 用户不应该使用此宏（实际上宏已在使用后取消定义），标注仅为消除doxygen警告
 #define TYPE_SET_FUNC(type)\
 /**
