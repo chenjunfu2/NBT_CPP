@@ -4,7 +4,6 @@
 #include <compare>
 #include <type_traits>
 #include <initializer_list>
-#include <optional>
 
 #include "NBT_Type.hpp"
 
@@ -212,6 +211,25 @@ public:
 
 	//简化map查询
 
+	/// @brief 根据标签名获取对应的NBT值
+	/// @param sTagName 要查找的标签名
+	/// @return 标签名对应的值的引用
+	/// @note 如果标签不存在则抛出异常，具体请参考std::unordered_map关于at的说明
+	typename Compound::mapped_type &Get(const typename Compound::key_type &sTagName)
+	{
+		return Compound::at(sTagName);
+	}
+
+	/// @brief 根据标签名获取对应的NBT值（常量版本）
+	/// @param sTagName 要查找的标签名
+	/// @return 标签名对应的值的常量引用
+	/// @note 如果标签不存在则抛出异常，具体请参考std::unordered_map关于at的说明
+	const typename Compound::mapped_type &Get(const typename Compound::key_type &sTagName) const
+	{
+		return Compound::at(sTagName);
+	}
+
+
 	/// @brief 搜索标签是否存在
 	/// @param sTagName 要搜索的标签名
 	/// @return 如果找到，则返回指向标签名对应的值的指针，否则返回NULL指针
@@ -221,7 +239,7 @@ public:
 		auto find = Compound::find(sTagName);
 		return find == Compound::end()
 			? NULL
-			: &(*find->second);
+			: &(find->second);
 	}
 
 	/// @brief 搜索标签是否存在（常量版本）
@@ -233,29 +251,7 @@ public:
 		auto find = Compound::find(sTagName);
 		return find == Compound::end()
 			? NULL
-			: &(*find->second);
-	}
-
-	/// @brief 根据标签名获取对应的NBT值
-	/// @param sTagName 要查找的标签名
-	/// @return 如果标签存在，则返回对应的引用，否则返回std::nullopt
-	std::optional<typename Compound::mapped_type &> Get(const typename Compound::key_type &sTagName)
-	{
-		auto p = Has(sTagName);
-		return p == NULL 
-			? std::optional<typename Compound::mapped_type &>{ std::nullopt }
-			: std::optional<typename Compound::mapped_type &>{ *p };
-	}
-
-	/// @brief 根据标签名获取对应的NBT值（常量版本）
-	/// @param sTagName 要查找的标签名
-	/// @return 如果标签存在，则返回对应的引用，否则返回std::nullopt
-	std::optional<const typename Compound::mapped_type &> Get(const typename Compound::key_type &sTagName) const
-	{
-		auto p = Has(sTagName);
-		return p == NULL
-			? std::optional<const typename Compound::mapped_type &>{ std::nullopt }
-			: std::optional<const typename Compound::mapped_type &>{ *p };
+			: &(find->second);
 	}
 
 	//简化map插入
@@ -397,10 +393,7 @@ bool Contains##type(const typename Compound::key_type &sTagName)\
  */\
 std::optional<const typename NBT_Type::type &> Get##type(const typename Compound::key_type & sTagName) const\
 {\
-	auto *p = Has(sTagName);\
-	return p != NULL && p->Is##type()\
-		? std::optional<typename Compound::mapped_type &>{ p->Get##type() };\
-		: std::optional<typename Compound::mapped_type &>{ std::nullopt }\
+	return Compound::at(sTagName).Get##type();\
 }\
 \
 /**
@@ -412,10 +405,7 @@ std::optional<const typename NBT_Type::type &> Get##type(const typename Compound
  */\
 std::optional<typename NBT_Type::type &> Get##type(const typename Compound::key_type & sTagName)\
 {\
-	auto *p = Has(sTagName);\
-	return p != NULL && p->Is##type()\
-		? std::optional<typename Compound::mapped_type &>{ p->Get##type() };\
-		: std::optional<typename Compound::mapped_type &>{ std::nullopt }\
+	return Compound::at(sTagName).Get##type();\
 }\
 \
 /**

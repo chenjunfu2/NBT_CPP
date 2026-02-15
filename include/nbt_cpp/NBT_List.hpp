@@ -4,7 +4,6 @@
 #include <compare>
 #include <type_traits>
 #include <initializer_list>
-#include <optional>
 #include <stdexcept>
 
 #include "NBT_Type.hpp"
@@ -317,58 +316,72 @@ public:
 
 	/// @brief 根据位置获取值
 	/// @param szPos 要查找的位置
-	/// @return 如果szPos范围合法，则返回指定位置的元素引用，否则返回std::nullopt
-	std::optional<typename List::value_type &> Get(const typename List::size_type &szPos)
+	/// @return 位置对应的值的引用
+	/// @note 如果位置不存在则抛出异常，请参考std::vector对于at的描述
+	typename List::value_type &Get(const typename List::size_type &szPos)
 	{
-		return szPos < List::size()
-			? std::optional<typename List::value_type &>{ List::operator[](szPos) }
-			: std::optional<typename List::value_type &>{ std::nullopt };
+		return List::at(szPos);
 	}
 
 	/// @brief 根据位置获取值（常量版本）
 	/// @param szPos 要查找的位置
-	/// @return 如果szPos范围合法，则返回指定位置的元素引用，否则返回std::nullopt
-	std::optional<const typename List::value_type &> Get(const typename List::size_type &szPos) const
+	/// @return 位置对应的值的常量引用
+	/// @note 如果位置不存在则抛出异常，请参考std::vector对于at的描述
+	const typename List::value_type &Get(const typename List::size_type &szPos) const
+	{
+		return List::at(szPos);
+	}
+
+	/// @brief 根据位置查找值
+	/// @param szPos 要查找的位置
+	/// @return 位置对应的值的指针，如果值不存在则为NULL
+	typename List::value_type *Has(const typename List::size_type &szPos) noexcept
 	{
 		return szPos < List::size()
-			? std::optional<typename List::value_type &>{ List::operator[](szPos) }
-			: std::optional<typename List::value_type &>{ std::nullopt };
+			? &List::operator[](szPos)
+			: NULL;
+	}
+
+	/// @brief 根据位置查找值（常量版本）
+	/// @param szPos 要查找的位置
+	/// @return 位置对应的值的指针，如果值不存在则为NULL
+	const typename List::value_type *Has(const typename List::size_type &szPos) const noexcept
+	{
+		return szPos < List::size()
+			? &List::operator[](szPos)
+			: NULL;
 	}
 
 	/// @brief 获取列表开头的元素
-	/// @return 如果列表不为空，则返回开头的元素的引用，否则返回std::nullopt
-	std::optional<typename List::value_type &>Front(void) noexcept
+	/// @return 开头的元素的引用
+	/// @note 如果当前列表为空，行为未定义，请参考std::vector对于front的描述
+	typename List::value_type &Front(void) noexcept
 	{
-		return !List::empty()
-			? std::optional<typename List::value_type &>{ List::front() }
-			: std::optional<typename List::value_type &>{ std::nullopt };
+		return List::front();
 	}
 
 	/// @brief 获取列表开头的元素（常量版本）
-	/// @return 如果列表不为空，则返回开头的元素的常量引用，否则返回std::nullopt
-	std::optional<const typename List::value_type &>Front(void) const noexcept
+	/// @return 开头的元素的常量引用
+	/// @note 如果当前列表为空，行为未定义，请参考std::vector对于front的描述
+	const typename List::value_type &Front(void) const noexcept
 	{
-		return !List::empty()
-			? std::optional<typename List::value_type &>{ List::front() }
-			: std::optional<typename List::value_type &>{ std::nullopt };
+		return List::front();
 	}
 
 	/// @brief 获取列表最后的元素
-	/// @return 如果列表不为空，则返回最后的元素的引用，否则返回std::nullopt
-	std::optional<typename List::value_type &>Back(void) noexcept
+	/// @return 最后的元素的引用
+	/// @note 如果当前列表为空，行为未定义，请参考std::vector对于back的描述
+	typename List::value_type &Back(void) noexcept
 	{
-		return !List::empty()
-			? std::optional<typename List::value_type &>{ List::back() }
-			: std::optional<typename List::value_type &>{ std::nullopt };
+		return List::back();
 	}
 
 	/// @brief 获取列表最后的元素（常量版本）
-	/// @return 如果列表不为空，则返回最后的元素的引用，否则返回std::nullopt
-	std::optional<const typename List::value_type &>Back(void) const noexcept
+	/// @return 最后的元素的引用
+	/// @note 如果当前列表为空，行为未定义，请参考std::vector对于back的描述
+	const typename List::value_type &Back(void) const noexcept
 	{
-		return !List::empty()
-			? std::optional<typename List::value_type &>{ List::back() }
-			: std::optional<typename List::value_type &>{ std::nullopt };
+		return List::back();
 	}
 
 	/// @}
@@ -687,68 +700,94 @@ public:
 /**
  @brief 获取指定位置的 type 类型数据（常量版本）
  @param szPos 位置索引
- @return 如果szPos范围合法，且szPos位置元素类型为 type ，则返回指定位置的 type 类型元素引用，否则返回std::nullopt
+ @return type 类型数据的常量引用
+ @note 如果位置不存在或类型不匹配则抛出异常，
+ 具体请参考std::vector关于at的说明与std::get的说明
  */\
-std::optional<const typename NBT_Type::type &> Get##type(const typename List::size_type &szPos) const\
+const typename NBT_Type::type &Get##type(const typename List::size_type &szPos) const\
 {\
-	return szPos < List::size() && List::operator[](szPos).Is##type()\
-		? std::optional<typename List::value_type &>{ List::operator[](szPos).Get##type() }\
-		: std::optional<typename List::value_type &>{ std::nullopt };\
+	return List::at(szPos).Get##type();\
 }\
 \
 /**
  @brief 获取指定位置的 type 类型数据
  @param szPos 位置索引
- @return 如果szPos范围合法，且szPos位置元素类型为 type ，则返回指定位置的 type 类型元素引用，否则返回std::nullopt
+ @return type 类型数据的引用
+ @note 如果位置不存在或类型不匹配则抛出异常，
+ 具体请参考std::vector关于at的说明与std::get的说明
  */\
-std::optional<typename NBT_Type::type &> Get##type(const typename List::size_type &szPos)\
+typename NBT_Type::type &Get##type(const typename List::size_type &szPos)\
 {\
-	return szPos < List::size() && List::operator[](szPos).Is##type()\
-		? std::optional<typename List::value_type &>{ List::operator[](szPos).Get##type() }\
-		: std::optional<typename List::value_type &>{ std::nullopt };\
+	return List::at(szPos).Get##type();\
+}\
+\
+/**
+ @brief 获取指定位置的 type 类型数据（常量版本）
+ @param szPos 位置索引
+ @return type 类型数据的指针，如果位置不存在或类型不对则返回NULL
+ */\
+const typename NBT_Type::type *Has##type(const typename List::size_type &szPos) const noexcept\
+{\
+	auto *p = Has(szPos);\
+	return p != NULL && p->Is##type()\
+		? &p->Get##type()\
+		: NULL;\
+}\
+\
+/**
+ @brief 获取指定位置的 type 类型数据
+ @param szPos 位置索引
+ @return type 类型数据的指针，如果位置不存在或类型不对则返回NULL
+ */\
+typename NBT_Type::type *Has##type(const typename List::size_type &szPos) noexcept\
+{\
+	auto *p = Has(szPos);\
+	return p != NULL && p->Is##type()\
+		? &p->Get##type()\
+		: NULL;\
 }\
 \
 /**
  @brief 获取列表第一个 type 类型数据（常量版本）
- @return 如果列表不为空，且开头元素类型为 type ，则返回开头的 type 类型的元素引用，否则返回std::nullopt
+ @return type 类型数据的常量引用
+ @note 如果列表为空或类型不匹配则抛出异常，
+ 具体请参考std::vector关于front的说明与std::get的说明
  */\
-std::optional<const typename NBT_Type::type &> Front##type(void) const\
+const typename NBT_Type::type &Front##type(void) const\
 {\
-	return !List::empty() && List::front().Is##type()\
-		? std::optional<typename List::value_type &>{ List::front().Get##type() }\
-		: std::optional<typename List::value_type &>{ std::nullopt };\
+	return List::front().Get##type(); \
 }\
 \
 /**
  @brief 获取列表第一个 type 类型数据
- @return 如果列表不为空，且开头元素类型为 type ，则返回开头的 type 类型的元素引用，否则返回std::nullopt
+ @return type 类型数据的引用
+ @note 如果列表为空或类型不匹配则抛出异常，
+ 具体请参考std::vector关于front的说明与std::get的说明
  */\
-std::optional<typename NBT_Type::type &> Front##type(void)\
+typename NBT_Type::type &Front##type(void)\
  {\
-	return !List::empty() && List::front().Is##type()\
-		? std::optional<typename List::value_type &>{ List::front().Get##type() }\
-		: std::optional<typename List::value_type &>{ std::nullopt };\
+	return List::front().Get##type(); \
  }\
 /**
  @brief 获取列表最后一个 type 类型数据（常量版本）
- @return 如果列表不为空，且最后元素类型为 type ，则返回最后的 type 类型的元素引用，否则返回std::nullopt
+ @return type 类型数据的常量引用
+ @note 如果列表为空或类型不匹配则抛出异常，
+ 具体请参考std::vector关于back的说明与std::get的说明
  */\
-std::optional<const typename NBT_Type::type &> Back##type(void) const\
+const typename NBT_Type::type &Back##type(void) const\
 {\
-	return !List::empty() && List::back().Is##type()\
-		? std::optional<typename List::value_type &>{ List::back().Get##type() }\
-		: std::optional<typename List::value_type &>{ std::nullopt };\
+	return List::back().Get##type();\
 }\
 \
 /**
  @brief 获取列表最后一个 type 类型数据
- @return 如果列表不为空，且最后元素类型为 type ，则返回最后的 type 类型的元素引用，否则返回std::nullopt
+ @return type 类型数据的引用
+ @note 如果列表为空或类型不匹配则抛出异常，
+ 具体请参考std::vector关于back的说明与std::get的说明
  */\
-std::optional<typename NBT_Type::type &> Back##type(void)\
+typename NBT_Type::type &Back##type(void)\
 {\
-	return !List::empty() && List::back().Is##type()\
-		? std::optional<typename List::value_type &>{ List::back().Get##type() }\
-		: std::optional<typename List::value_type &>{ std::nullopt };\
+	return List::back().Get##type();\
 }
 
  /// @name 针对每种类型提供一个方便使用的函数，由宏批量生成

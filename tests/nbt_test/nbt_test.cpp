@@ -528,7 +528,7 @@ int mainhh(void)
 	return 0;
 }
 
-int main(void)
+int main7890(void)
 {
 	NBT_Node node_cpd{ NBT_Type::Compound{} };
 
@@ -550,6 +550,26 @@ int main(void)
 	PrintBool(IsCompound(view_cpd), "", "\n");
 	PrintBool(view_cpd.IsList(), "", "\n");
 	PrintBool(IsList(view_cpd), "", "\n");
+
+	return 0;
+}
+
+int main(void)
+{
+	NBT_Type::Compound cpd{};
+	cpd.PutByte(MU8STR("byte"), 9);
+	cpd.PutString(MU8STR("str"), MU8STR("test str"));
+
+	auto byte = cpd.GetByte(MU8STR("byte"));
+	auto byte1 = cpd.GetByte(MU8STR("byte1"));
+
+	auto str = cpd.GetString(MU8STR("str"));
+	auto str1 = cpd.GetString(MU8STR("str1"));
+
+	NBT_Print{ stdout }("byte:[{}]\n", byte);
+	NBT_Print{ stdout }("byte1:[{}]\n", byte1);
+	NBT_Print{ stdout }("str:[{}]\n", str);
+	NBT_Print{ stdout }("str1:[{}]\n", str1);
 
 	return 0;
 }
