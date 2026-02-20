@@ -1,6 +1,8 @@
 var classNBT__String =
 [
     [ "View", "classNBT__String.html#a0b6037dd11409fde0d48bf501863cc57", null ],
+    [ "NBT_String", "classNBT__String.html#a36bfb992d5dcf9332339aee479d51202", null ],
+    [ "NBT_String", "classNBT__String.html#a2c99d3d570bc3b3add3915f48eb6bfdd", null ],
     [ "NBT_String", "classNBT__String.html#a5ae26f9e910e98c7c39dc805d15b14f4", null ],
     [ "NBT_String", "classNBT__String.html#aa3044923d907391e22e95566ccec46bf", null ],
     [ "NBT_String", "classNBT__String.html#ac4f128e129e485bf789df2d0e29c9eec", null ],
