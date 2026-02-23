@@ -31,7 +31,6 @@ var hierarchy =
     [ "NBT_Reader", "classNBT__Reader.html", null ],
     [ "NBT_Type", "classNBT__Type.html", null ],
     [ "NBT_Writer", "classNBT__Writer.html", null ],
-    [ "NBT_List&lt; List &gt;::NoCheck_T", "structNBT__List_1_1NoCheck__T.html", null ],
     [ "String", null, [
       [ "NBT_String< String, StringView >", "classNBT__String.html", null ]
     ] ],

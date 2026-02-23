@@ -20,6 +20,5 @@ var searchData=
   ['nbt_5fstring_3c_20std_3a_3abasic_5fstring_3c_20uint8_5ft_20_3e_2c_20std_3a_3abasic_5fstring_5fview_3c_20uint8_5ft_20_3e_20_3e_17',['NBT_String&lt; std::basic_string&lt; uint8_t &gt;, std::basic_string_view&lt; uint8_t &gt; &gt;',['../classNBT__String.html',1,'']]],
   ['nbt_5fstringview_18',['NBT_StringView',['../classNBT__StringView.html',1,'']]],
   ['nbt_5ftype_19',['NBT_Type',['../classNBT__Type.html',1,'']]],
-  ['nbt_5fwriter_20',['NBT_Writer',['../classNBT__Writer.html',1,'']]],
-  ['nocheck_5ft_21',['NoCheck_T',['../structNBT__List_1_1NoCheck__T.html',1,'NBT_List']]]
+  ['nbt_5fwriter_20',['NBT_Writer',['../classNBT__Writer.html',1,'']]]
 ];
