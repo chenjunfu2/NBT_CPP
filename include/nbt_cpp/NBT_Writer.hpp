@@ -155,7 +155,6 @@ private:
 		UnknownError,//其他错误
 		StdException,//标准异常
 		OutOfMemoryError,//内存不足错误
-		ListElementTypeError,//列表元素类型错误（代码问题）
 		StackDepthExceeded,//调用栈深度过深（代码问题）
 		StringTooLongError,//字符串过长错误
 		ArrayTooLongError,//数组过长错误
@@ -172,7 +171,6 @@ private:
 		"UnknownError",
 		"StdException",
 		"OutOfMemoryError",
-		"ListElementTypeError",
 		"StackDepthExceeded",
 		"StringTooLongError",
 		"ArrayTooLongError",
@@ -386,7 +384,7 @@ catch(...)\
 		//输出名称长度
 		NBT_Type::StringLength wNameLength = (uint16_t)szStringLength;
 		eRet = WriteBigEndian(tData, wNameLength, funcErrInfo);
-		if (eRet < AllOk)
+		if (eRet != AllOk)
 		{
 			STACK_TRACEBACK("wNameLength Write");
 			return eRet;
@@ -416,7 +414,7 @@ catch(...)\
 		RAW_DATA_T tTmpRawData = std::bit_cast<RAW_DATA_T>(tBuiltIn);
 
 		eRet = WriteBigEndian(tData, tTmpRawData, funcErrInfo);
-		if (eRet < AllOk)
+		if (eRet != AllOk)
 		{
 			STACK_TRACEBACK("tTmpRawData Write");
 			return eRet;
@@ -444,7 +442,7 @@ catch(...)\
 		//获取实际写出大小
 		NBT_Type::ArrayLength iArrayLength = (NBT_Type::ArrayLength)szArrayLength;
 		eRet = WriteBigEndian(tData, iArrayLength, funcErrInfo);
-		if (eRet < AllOk)
+		if (eRet != AllOk)
 		{
 			STACK_TRACEBACK("iArrayLength Write");
 			return eRet;
@@ -461,7 +459,7 @@ catch(...)\
 		for (NBT_Type::ArrayLength i = 0; i < iArrayLength; ++i)
 		{
 			eRet = WriteBigEndian(tData, tArray[i], funcErrInfo);
-			if (eRet < AllOk)
+			if (eRet != AllOk)
 			{
 				STACK_TRACEBACK("tTmpData Write");
 				return eRet;
@@ -471,7 +469,68 @@ catch(...)\
 		return eRet;
 	}
 
-	//如果是非根部，不会输出额外的Compound_End
+	template<typename OutputStream, typename ErrInfoFunc>
+	static ErrCode PutCompoundEntry(OutputStream &tData, const NBT_Type::String &sName, const NBT_Node &nodeNbt, size_t szStackDepth, ErrInfoFunc &funcErrInfo)//它不是noexcept的
+	{
+		ErrCode eRet = AllOk;
+
+		//获取类型
+		NBT_TAG curTag = nodeNbt.GetTag();
+
+		//集合中如果存在nbt end类型的元素，删除而不输出
+		if (curTag == NBT_TAG::End)
+		{
+			//End元素被忽略警告（警告不返回错误码）
+			Error(EndElementIgnoreWarn, tData, funcErrInfo, "{}:\nName: \"{}\", type is [NBT_Type::End], ignored!", __FUNCTION__,
+				sName.ToCharTypeUTF8());//此处ToCharTypeUTF8可能抛异常
+			return eRet;
+		}
+
+		//先写出tag
+		eRet = WriteBigEndian(tData, (NBT_TAG_RAW_TYPE)curTag, funcErrInfo);
+		if (eRet != AllOk)
+		{
+			STACK_TRACEBACK("curTag Write");
+			return eRet;
+		}
+
+		//然后写出name
+		eRet = PutName(tData, sName, funcErrInfo);
+		if (eRet != AllOk)
+		{
+			STACK_TRACEBACK("PutName Fail, Type: [NBT_Type::{}]", NBT_Type::GetTypeName(curTag));
+			return eRet;
+		}
+
+		//最后根据tag类型写出数据
+		eRet = PutSwitch<bSortCompound>(tData, nodeNbt, curTag, szStackDepth - 1, funcErrInfo);
+		if (eRet != AllOk)
+		{
+			STACK_TRACEBACK("PutSwitch Fail, Name: \"{}\", Type: [NBT_Type::{}]",
+				sName.ToCharTypeUTF8(), NBT_Type::GetTypeName(curTag));//此处ToCharTypeUTF8可能抛异常
+			return eRet;
+		}
+
+		return eRet;
+	}
+
+	template<typename OutputStream, typename ErrInfoFunc>
+	static ErrCode PutCompoundEnd(OutputStream &tData, ErrInfoFunc &funcErrInfo) noexcept
+	{
+		ErrCode = AllOk;
+		
+		//注意Compound类型有一个NBT_TAG::End结尾
+		eRet = WriteBigEndian(tData, (NBT_TAG_RAW_TYPE)NBT_TAG::End, funcErrInfo);
+		if (eRet != AllOk)
+		{
+			STACK_TRACEBACK("NBT_TAG::End[0x00(0)] Write");
+			return eRet;
+		}
+
+		return eRet;
+	}
+
+	//如果是非根部，则会输出额外的Compound_End
 	template<bool bRoot, bool bSortCompound, typename OutputStream, typename ErrInfoFunc>
 	static ErrCode PutCompoundType(OutputStream &tData, const NBT_Type::Compound &tCompound, size_t szStackDepth, ErrInfoFunc &funcErrInfo) noexcept
 	{
@@ -558,50 +617,20 @@ catch(...)\
 				}
 			}();
 
-			NBT_TAG curTag = nodeNbt.GetTag();
-
-			//集合中如果存在nbt end类型的元素，删除而不输出
-			if (curTag == NBT_TAG::End)
-			{
-				//End元素被忽略警告（警告不返回错误码）
-				Error(EndElementIgnoreWarn, tData, funcErrInfo, "{}:\nName: \"{}\", type is [NBT_Type::End], ignored!", __FUNCTION__,
-					sName.ToCharTypeUTF8());
-				continue;
-			}
-
-			//先写出tag
-			eRet = WriteBigEndian(tData, (NBT_TAG_RAW_TYPE)curTag, funcErrInfo);
+			eRet = PutCompoundEntry(tData, sName, nodeNbt, szStackDepth, funcErrInfo);
 			if (eRet != AllOk)
 			{
-				STACK_TRACEBACK("curTag Write");
-				return eRet;
-			}
-
-			//然后写出name
-			eRet = PutName(tData, sName, funcErrInfo);
-			if (eRet != AllOk)
-			{
-				STACK_TRACEBACK("PutName Fail, Type: [NBT_Type::{}]", NBT_Type::GetTypeName(curTag));
-				return eRet;
-			}
-
-			//最后根据tag类型写出数据
-			eRet = PutSwitch<bSortCompound>(tData, nodeNbt, curTag, szStackDepth - 1, funcErrInfo);
-			if (eRet != AllOk)
-			{
-				STACK_TRACEBACK("PutSwitch Fail, Name: \"{}\", Type: [NBT_Type::{}]",
-					sName.ToCharTypeUTF8(), NBT_Type::GetTypeName(curTag));
+				STACK_TRACEBACK("PutCompoundEntry");
 				return eRet;
 			}
 		}
 
 		if constexpr (!bRoot)
 		{
-			//注意Compound类型有一个NBT_TAG::End结尾，如果写出错误则在前面返回，不放置结尾
-			eRet = WriteBigEndian(tData, (NBT_TAG_RAW_TYPE)NBT_TAG::End, funcErrInfo);
+			eRet = PutCompoundEnd(tData, funcErrInfo);
 			if (eRet != AllOk)
 			{
-				STACK_TRACEBACK("NBT_TAG::End[0x00(0)] Write");
+				STACK_TRACEBACK("PutCompoundEnd");
 				return eRet;
 			}
 		}
@@ -616,7 +645,7 @@ catch(...)\
 		ErrCode eRet = AllOk;
 
 		eRet = PutName(tData, tString, funcErrInfo);//借用PutName实现，因为string走的name相同操作
-		if (eRet < AllOk)
+		if (eRet != AllOk)
 		{
 			STACK_TRACEBACK("PutString");//因为是借用实现，所以这里小小的改个名，防止报错Name误导人
 			return eRet;
@@ -644,22 +673,35 @@ catch(...)\
 		//转换为写入大小
 		NBT_Type::ListLength iListLength = (NBT_Type::ListLength)szListLength;
 
-		//判断：长度不为0但是拥有空标签
-		NBT_TAG enListValueTag = tList.enElementTag;
-		if (enListValueTag == NBT_TAG::End && iListLength != 0)
+		//获取列表标签
+		bool bNeedWarp = false;
+		NBT_TAG enListElementTag = NBT_TAG::End;
+
+		//判断列表元素一致性，不一致则使用Compound封装
+		for (const auto &it : tList)
 		{
-			eRet = Error(ListElementTypeError, tData, funcErrInfo, "{}:\nThe list with TAG_End[0x00] tag must be empty, but [{}] elements were found", __FUNCTION__,
-				iListLength);
-			STACK_TRACEBACK("iListLength And enListValueTag Test");
-			return eRet;
+			if (enListElementTag == NBT_TAG::End)
+			{
+				enListElementTag = it.GetTag();//哪怕元素类型本身是End也没关系，因为最终都会被跳过，不影响enTestTag与后续判断
+				continue;
+			}
+			
+			if (enListElementTag != it.GetTag())
+			{
+				bNeedWarp = true;
+				enListElementTag = NBT_TAG::Compound;//修改为Compound封装
+				break;
+			}
 		}
 
-		//获取列表标签，如果列表长度为0，则强制改为空标签
-		NBT_TAG enListElementTag = iListLength == 0 ? NBT_TAG::End : enListValueTag;
+		//执行到这里：如果tList为空，那么enListElementTag恰好为End，符合0长度且为End的情况
+		//如果List不为空：
+		//元素不同：bNeedWarp为true且enListElementTag为Compound
+		//元素相同：bNeedWarp为false且enListElementTag为列表元素类型
 
 		//写出标签
 		eRet = WriteBigEndian(tData, (NBT_TAG_RAW_TYPE)enListElementTag, funcErrInfo);
-		if (eRet < AllOk)
+		if (eRet != AllOk)
 		{
 			STACK_TRACEBACK("enListElementTag Write");
 			return eRet;
@@ -667,33 +709,53 @@ catch(...)\
 
 		//写出长度
 		eRet = WriteBigEndian(tData, iListLength, funcErrInfo);
-		if (eRet < AllOk)
+		if (eRet != AllOk)
 		{
 			STACK_TRACEBACK("iListLength Write");
 			return eRet;
 		}
 
 		//写出列表（递归）
-		//写出时判断元素标签与enListElementTag不一致的错误
 		for (NBT_Type::ListLength i = 0; i < iListLength; ++i)
 		{
 			//获取元素与类型
 			const NBT_Node &tmpNode = tList[i];
-			NBT_TAG curTag = tmpNode.GetTag();
-
-			//对于每个元素，检查类型是否与列表存储一致
-			if (curTag != enListElementTag)
+			
+			if (!bNeedWarp)//不需要封装，直接写出
 			{
-				eRet = Error(ListElementTypeError, tData, funcErrInfo, "{}:\nExpected type [NBT_Type::{}][0x{:02X}({})] in list, but found type [NBT_Type::{}][0x{:02X}({})]", __FUNCTION__,
-				NBT_Type::GetTypeName(enListElementTag), (NBT_TAG_RAW_TYPE)enListElementTag, (NBT_TAG_RAW_TYPE)enListElementTag,
-				NBT_Type::GetTypeName(curTag), (NBT_TAG_RAW_TYPE)curTag, (NBT_TAG_RAW_TYPE)curTag);
-				STACK_TRACEBACK("curTag Test");
-				return eRet;
+				//列表无名字，无需重复tag，只需输出数据
+				eRet = PutSwitch<bSortCompound>(tData, tmpNode, enListElementTag, szStackDepth - 1, funcErrInfo);
 			}
+			else//需要封装，添加Compound
+			{
+				//如果元素本身就是Compound，那么检测是否和封装模式匹配，是的话再套一层防止丢失语义
+				auto curTag = tmpNode.GetTag();
+				if (curTag == NBT_TAG::Compound)
+				{
+					const auto &cpdNode = tmpNode.GetCompound();
+					if (cpdNode.Size() != 1 || !cpdNode.Contains(MU8STR("")))//直接写出为Compound
+					{
+						eRet = PutCompoundType<false, bSortCompound>(tData, cpdNode, szStackDepth - 1, funcErrInfo);
+						continue;
+					}
+				}
+				
+				//是Compound但是需要再套一层或者不是Compound
+				eRet = PutCompoundEntry(tData, MU8STR(""), tmpNode, szStackDepth - 1, funcErrInfo);
+				if (eRet != AllOk)
+				{
+					STACK_TRACEBACK("PutCompoundEntry");
+					return eRet;
+				}
 
-			//一致，很好，那么输出
-			//列表无名字，无需重复tag，只需输出数据
-			eRet = PutSwitch<bSortCompound>(tData, tmpNode, enListElementTag, szStackDepth - 1, funcErrInfo);
+				eRet = PutCompoundEnd(tData, funcErrInfo);
+				if (eRet != AllOk)
+				{
+					STACK_TRACEBACK("PutCompoundEnd");
+					return eRet;
+				}
+			}
+			
 			if (eRet != AllOk)
 			{
 				STACK_TRACEBACK("PutSwitch Error, Size: [{}] Index: [{}]", iListLength, i);

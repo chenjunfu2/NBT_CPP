@@ -177,6 +177,23 @@ private:
 	template<bool bRoot = true, bool bSortCompound = true, typename PrintFunc = NBT_Print>//首次使用NBT_Node_View解包，后续直接使用NBT_Node引用免除额外初始化开销
 	static void PrintSwitch(std::conditional_t<bRoot, const NBT_Node_View<true> &, const NBT_Node &>nRoot, size_t szLevel, PrintFunc &funcPrint)
 	{
+		static auto PrintArray = [](const std::string strBeg, const auto &vArr, const std::string strEnd, PrintFunc &funcPrint) -> void
+		{
+			funcPrint(strBeg);
+			bool bFirst = true;
+			for (const auto &it : vArr)
+			{
+				if (bFirst)
+				{
+					bFirst = false;
+					funcPrint("{}", it);
+				}
+				funcPrint(",{}", it);
+			}
+			funcPrint(strEnd);
+		};
+
+
 		auto tag = nRoot.GetTag();
 		switch (tag)
 		{
@@ -218,49 +235,19 @@ private:
 		case NBT_TAG::ByteArray:
 			{
 				const auto &arr = nRoot.template Get<NBT_Type::ByteArray>();
-				funcPrint("[B;");
-				for (const auto &it : arr)
-				{
-					funcPrint("{},", it);
-				}
-				if (arr.size() != 0)
-				{
-					funcPrint("\b");
-				}
-
-				funcPrint("]");
+				PrintArray("[B;", arr, "]", funcPrint);
 			}
 			break;
 		case NBT_TAG::IntArray:
 			{
 				const auto &arr = nRoot.template Get<NBT_Type::IntArray>();
-				funcPrint("[I;");
-				for (const auto &it : arr)
-				{
-					funcPrint("{},", it);
-				}
-
-				if (arr.size() != 0)
-				{
-					funcPrint("\b");
-				}
-				funcPrint("]");
+				PrintArray("[I;", arr, "]", funcPrint);
 			}
 			break;
 		case NBT_TAG::LongArray:
 			{
 				const auto &arr = nRoot.template Get<NBT_Type::LongArray>();
-				funcPrint("[L;");
-				for (const auto &it : arr)
-				{
-					funcPrint("{},", it);
-				}
-
-				if (arr.size() != 0)
-				{
-					funcPrint("\b");
-				}
-				funcPrint("]");
+				PrintArray("[L;", arr, "]", funcPrint);
 			}
 			break;
 		case NBT_TAG::String:
@@ -273,18 +260,25 @@ private:
 				const auto &list = nRoot.template Get<NBT_Type::List>();
 				PrintPadding(szLevel, false, !bRoot, funcPrint);//不是根部则打印开头换行
 				funcPrint("[");
+
+				bool bFirst = true;
 				for (const auto &it : list)
 				{
 					PrintPadding(szLevel, true, it.GetTag() != NBT_TAG::Compound && it.GetTag() != NBT_TAG::List, funcPrint);
 					PrintSwitch<false>(it, szLevel + 1, funcPrint);
+					if (bFirst)
+					{
+						bFirst = false;
+						continue;
+					}
 					funcPrint(",");
 				}
 
-				if (list.Size() != 0)
+				if (list.Size() != 0)//空列表无需换行以及对齐
 				{
-					funcPrint("\b \b");//清除最后一个逗号
-					PrintPadding(szLevel, false, true, funcPrint);//空列表无需换行以及对齐
+					PrintPadding(szLevel, false, true, funcPrint);
 				}
+
 				funcPrint("]");
 			}
 			break;
@@ -296,11 +290,17 @@ private:
 
 				if constexpr (!bSortCompound)
 				{
+					bool bFirst = true;
 					for (const auto &it : cpd)
 					{
 						PrintPadding(szLevel, true, true, funcPrint);
 						funcPrint("\"{}\":", it.first.ToCharTypeUTF8());
 						PrintSwitch<false>(it.second, szLevel + 1, funcPrint);
+						if (bFirst)
+						{
+							bFirst = false;
+							continue;
+						}
 						funcPrint(",");
 					}
 				}
@@ -308,20 +308,26 @@ private:
 				{
 					auto vSort = CompoundSort(cpd);
 
+					bool bFirst = true;
 					for (const auto &it : vSort)
 					{
 						PrintPadding(szLevel, true, true, funcPrint);
 						funcPrint("\"{}\":", it->first.ToCharTypeUTF8());
 						PrintSwitch<false>(it->second, szLevel + 1, funcPrint);
+						if (bFirst)
+						{
+							bFirst = false;
+							continue;
+						}
 						funcPrint(",");
 					}
 				}
 
-				if (cpd.Size() != 0)
+				if (cpd.Size() != 0)//空集合无需换行以及对齐
 				{
-					funcPrint("\b \b");//清除最后一个逗号
-					PrintPadding(szLevel, false, true, funcPrint);//空集合无需换行以及对齐
+					PrintPadding(szLevel, false, true, funcPrint);
 				}
+
 				funcPrint("}}");//大括号转义
 			}
 			break;

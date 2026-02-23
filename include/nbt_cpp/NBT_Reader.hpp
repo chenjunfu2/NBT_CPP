@@ -193,7 +193,6 @@ private:
 		UnknownError,//其他错误
 		StdException,//标准异常
 		OutOfMemoryError,//内存不足错误（NBT文件问题）
-		ListElementTypeError,//列表元素类型错误（NBT文件问题）
 		StackDepthExceeded,//调用栈深度过深（NBT文件or代码设置问题）
 		NbtTypeTagError,//NBT标签类型错误（NBT文件问题）
 		OutOfRangeError,//（NBT内部长度错误溢出）（NBT文件问题）
@@ -209,7 +208,6 @@ private:
 		"UnknownError",
 		"StdException",
 		"OutOfMemoryError",
-		"ListElementTypeError",
 		"StackDepthExceeded",
 		"NbtTypeTagError",
 		"OutOfRangeError",
@@ -564,7 +562,7 @@ catch(...)\
 			eRet = GetSwitch(tData, tmpNode, tagNbt, szStackDepth - 1, funcErrInfo);
 			if (eRet != AllOk)
 			{
-				STACK_TRACEBACK("GetSwitch Fail, Name: \"{}\", Type: [NBT_Type::{}]", sName.ToCharTypeUTF8(), NBT_Type::GetTypeName(tagNbt));
+				STACK_TRACEBACK("GetSwitch Fail, Name: \"{}\", Type: [NBT_Type::{}]", sName.ToCharTypeUTF8(), NBT_Type::GetTypeName(tagNbt));//注意这里ToCharTypeUTF8可能抛异常
 				//return eRet;//注意此处不返回，进行插入，以便分析错误之前的正确数据
 			}
 
@@ -580,7 +578,7 @@ catch(...)\
 
 				//发出警告，注意警告不用eRet接返回值
 				Error(ElementExistsWarn, tData, funcErrInfo, "{}:\nName: \"{}\", Type: [NBT_Type::{}] data already exist!", __FUNCTION__,
-					sName.ToCharTypeUTF8(), NBT_Type::GetTypeName(tagNbt));
+					sName.ToCharTypeUTF8(), NBT_Type::GetTypeName(tagNbt));//注意这里ToCharTypeUTF8可能抛异常
 			}
 
 			//最后判断是否出错
