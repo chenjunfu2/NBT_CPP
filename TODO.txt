@@ -1,24 +1,12 @@
 编写完整测试案例
 现有测试案例整理
 测试使用MyAssert验证
-
 多编译器测试
 多平台测试
 
-编写说明文档
-
-List继承迭代器
-List迭代器额外进行检测，然后提供无检测迭代器
 List提供Insert功能
 
 NBT_Helper提供一个通用遍历例程，统一化不同的例程调用通用例程，并提供用户遍历接口
 
-修复NBT部分值序列化功能，处理格式化输出的末尾逗号
 NBT_String构造补全，允许从std::string构造转换（默认），直接强转底层拷贝构造（explicit），view允许从std::string强转底层拷贝构造（explicit）
 
-NBT_List以及NBT_Write、NBT_Read、NBT_Helper等处理规范修改：
-List允许任意元素了
-Write过程中，List元素类型不一致的情况下，使用Compound包装，并修改列表类型为Compound，每个元素都放在Key为空字符的Compound下，
-	在这里如果元素本身就是Compound且长得和包装器一样，那么进行二次包装防止丢失原始语义，否则直接写入原始Compound减少二次包装。
-Read过程中，如果是Compound类型的List，那么检测是否为仅有1个元素且key为空字符，是则解包，因为Write保证包装不丢失原始语义，但是
-	如果NBT为用户生成，则可能导致丢失语义，提供一个模板参数，允许选择是否自动解除包装的选项
