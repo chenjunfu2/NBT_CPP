@@ -177,12 +177,12 @@ void NBT_Endian_Test(void)
 	MyAssert(TestFunc(NBT_Endian::ByteSwap64(U64VAL), _U64VAL));
 }
 
-template<typename Data_T>
+template<bool bAutoUnwrapMixedList = true, typename Data_T>
 void NBT_ReadWrite_Test(const Data_T &NbtRawData, const NBT_Type::Compound &cpdGen)
 {
 	//读取解析
 	NBT_Type::Compound cpdRead{};
-	NBT_Reader::ReadNBT(NbtRawData, 0, cpdRead);
+	NBT_Reader::ReadNBT<bAutoUnwrapMixedList>(NbtRawData, 0, cpdRead);
 
 	//判断读到的内容是否与生成的相同
 	//测试数据与生成的是否相同
@@ -416,13 +416,14 @@ void EmptyCompoundTest()
 	NBT_ReadWrite_Test(NbtRawData, cpdGen);
 }
 
-void AnyTypeListTest()
+void MixedListTest()
 {
 	constexpr auto NbtRawData = StrHexArray::ToHexArr < R"(
-	0A 00 00 09 00 04 74 65 73 74 0A 00 00 00 04 03
+	0A 00 00 09 00 04 74 65 73 74 0A 00 00 00 05 03
 	00 00 00 00 00 01 00 06 00 00 40 00 00 00 00 00
 	00 00 00 0A 00 00 0B 00 00 00 00 00 00 00 00 08
-	00 00 00 07 74 65 73 74 73 74 72 00 00
+	00 00 00 07 74 65 73 74 73 74 72 00 07 00 07 74
+	65 73 74 61 72 72 00 00 00 02 00 01 00 00
 )" >();
 
 	NBT_Type::Compound cpdGen
@@ -437,9 +438,10 @@ void AnyTypeListTest()
 		list.AddBackDouble(2.0);
 		list.AddBackCompound(NBT_Type::Compound{ {MU8STR(""),NBT_Type::IntArray{}} });
 		list.AddBackString(MU8STR("teststr"));
+		list.AddBackCompound(NBT_Type::Compound{ {MU8STR("testarr"),NBT_Type::ByteArray{0,1}} });
 	}
 
-	NBT_ReadWrite_Test(NbtRawData, cpdGen);
+	NBT_ReadWrite_Test<true>(NbtRawData, cpdGen);
 }
 
 int main(void)
@@ -449,7 +451,7 @@ int main(void)
 
 	MultiDataTest();
 	EmptyCompoundTest();
-	AnyTypeListTest();
+	MixedListTest();
 
 	return 0;
 }
