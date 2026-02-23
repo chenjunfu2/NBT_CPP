@@ -116,6 +116,14 @@ Public 成员函数</h2></td></tr>
 <tr class="memdesc:a36bfb992d5dcf9332339aee479d51202"><td class="mdescLeft">&#160;</td><td class="mdescRight">提供从父类拷贝构造此类的途径  <br /></td></tr>
 <tr class="memitem:a2c99d3d570bc3b3add3915f48eb6bfdd" id="r_a2c99d3d570bc3b3add3915f48eb6bfdd"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2c99d3d570bc3b3add3915f48eb6bfdd">NBT_String</a> (String &amp;&amp;_Move)</td></tr>
 <tr class="memdesc:a2c99d3d570bc3b3add3915f48eb6bfdd"><td class="mdescLeft">&#160;</td><td class="mdescRight">提供从父类移动构造此类的途径  <br /></td></tr>
+<tr class="memitem:a5339e7323a4c92a4d59453c25d859262" id="r_a5339e7323a4c92a4d59453c25d859262"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5339e7323a4c92a4d59453c25d859262">NBT_String</a> (const std::basic_string_view&lt; char &gt; &amp;u8CharTypeString)</td></tr>
+<tr class="memdesc:a5339e7323a4c92a4d59453c25d859262"><td class="mdescLeft">&#160;</td><td class="mdescRight">从char类型的UTF-8编码字符串构造NBT_String对象  <br /></td></tr>
+<tr class="memitem:a70d5fc07ce9dcbdd8b82cc9a0dc42991" id="r_a70d5fc07ce9dcbdd8b82cc9a0dc42991"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a70d5fc07ce9dcbdd8b82cc9a0dc42991">NBT_String</a> (const std::basic_string_view&lt; char8_t &gt; &amp;u8String)</td></tr>
+<tr class="memdesc:a70d5fc07ce9dcbdd8b82cc9a0dc42991"><td class="mdescLeft">&#160;</td><td class="mdescRight">从UTF-8编码字符串构造NBT_String对象  <br /></td></tr>
+<tr class="memitem:ae44ed14c77eb7b8233a487cd2de76abc" id="r_ae44ed14c77eb7b8233a487cd2de76abc"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae44ed14c77eb7b8233a487cd2de76abc">NBT_String</a> (const std::basic_string_view&lt; wchar_t &gt; &amp;u16WCharTypeString)</td></tr>
+<tr class="memdesc:ae44ed14c77eb7b8233a487cd2de76abc"><td class="mdescLeft">&#160;</td><td class="mdescRight">从wchar_t类型的UTF-16编码字符串构造NBT_String对象  <br /></td></tr>
+<tr class="memitem:a0a97381e56adf9feefc281c18f92527e" id="r_a0a97381e56adf9feefc281c18f92527e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0a97381e56adf9feefc281c18f92527e">NBT_String</a> (const std::basic_string_view&lt; char16_t &gt; &amp;u16String)</td></tr>
+<tr class="memdesc:a0a97381e56adf9feefc281c18f92527e"><td class="mdescLeft">&#160;</td><td class="mdescRight">从UTF-16编码字符串构造NBT_String对象  <br /></td></tr>
 <tr class="memitem:a5ae26f9e910e98c7c39dc805d15b14f4" id="r_a5ae26f9e910e98c7c39dc805d15b14f4"><td class="memTemplParams" colspan="2">template&lt;size_t N&gt; </td></tr>
 <tr class="memitem:a5ae26f9e910e98c7c39dc805d15b14f4 template"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5ae26f9e910e98c7c39dc805d15b14f4">NBT_String</a> (const typename String::value_type(&amp;ltrStr)[N])</td></tr>
 <tr class="memdesc:a5ae26f9e910e98c7c39dc805d15b14f4"><td class="mdescLeft">&#160;</td><td class="mdescRight">通过c风格字符串或字符数组初始化  <br /></td></tr>
@@ -133,14 +141,14 @@ Public 成员函数</h2></td></tr>
 <tr class="memdesc:aebe58dd269534d405c1aa73d7cfb442a"><td class="mdescLeft">&#160;</td><td class="mdescRight">转换到UTF-16字符编码，但是返回为wchar_t类型而非char16_t类型  <br /></td></tr>
 <tr class="memitem:a145584faa1178b6cf83165d8b3e6ba6b" id="r_a145584faa1178b6cf83165d8b3e6ba6b"><td class="memItemLeft" align="right" valign="top">auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a145584faa1178b6cf83165d8b3e6ba6b">ToUTF16</a> (void) const</td></tr>
 <tr class="memdesc:a145584faa1178b6cf83165d8b3e6ba6b"><td class="mdescLeft">&#160;</td><td class="mdescRight">转换到UTF-16字符编码  <br /></td></tr>
-<tr class="memitem:af2ad502b233edc1b61502b15ca1e7ceb" id="r_af2ad502b233edc1b61502b15ca1e7ceb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af2ad502b233edc1b61502b15ca1e7ceb">FromCharTypeUTF8</a> (std::basic_string_view&lt; char &gt; u8String)</td></tr>
-<tr class="memdesc:af2ad502b233edc1b61502b15ca1e7ceb"><td class="mdescLeft">&#160;</td><td class="mdescRight">从char类型的UTF-8编码字符串替换当前对象内容  <br /></td></tr>
-<tr class="memitem:af43948eaa86118187466dd82c6770347" id="r_af43948eaa86118187466dd82c6770347"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af43948eaa86118187466dd82c6770347">FromUTF8</a> (std::basic_string_view&lt; char8_t &gt; u8String)</td></tr>
-<tr class="memdesc:af43948eaa86118187466dd82c6770347"><td class="mdescLeft">&#160;</td><td class="mdescRight">从UTF-8编码字符串替换当前对象内容  <br /></td></tr>
-<tr class="memitem:a37d4315533e5d1a18a5194cd17e76760" id="r_a37d4315533e5d1a18a5194cd17e76760"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a37d4315533e5d1a18a5194cd17e76760">FromWchartTypeUTF16</a> (std::basic_string_view&lt; wchar_t &gt; u16String)</td></tr>
-<tr class="memdesc:a37d4315533e5d1a18a5194cd17e76760"><td class="mdescLeft">&#160;</td><td class="mdescRight">从wchar_t类型的UTF-16编码字符串替换当前对象内容  <br /></td></tr>
-<tr class="memitem:a192c951f3e8810dd8a8be3a23395ce09" id="r_a192c951f3e8810dd8a8be3a23395ce09"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a192c951f3e8810dd8a8be3a23395ce09">FromUTF16</a> (std::basic_string_view&lt; char16_t &gt; u16String)</td></tr>
-<tr class="memdesc:a192c951f3e8810dd8a8be3a23395ce09"><td class="mdescLeft">&#160;</td><td class="mdescRight">从UTF-16编码字符串替换当前对象内容  <br /></td></tr>
+<tr class="memitem:af63e31240dd17bbd05d211fee47b9300" id="r_af63e31240dd17bbd05d211fee47b9300"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af63e31240dd17bbd05d211fee47b9300">FromCharTypeUTF8</a> (const std::basic_string_view&lt; char &gt; &amp;u8CharTypeString)</td></tr>
+<tr class="memdesc:af63e31240dd17bbd05d211fee47b9300"><td class="mdescLeft">&#160;</td><td class="mdescRight">从char类型的UTF-8编码字符串替换当前对象内容  <br /></td></tr>
+<tr class="memitem:afb41aa17f1b00e1f57e722a85769a232" id="r_afb41aa17f1b00e1f57e722a85769a232"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afb41aa17f1b00e1f57e722a85769a232">FromUTF8</a> (const std::basic_string_view&lt; char8_t &gt; &amp;u8String)</td></tr>
+<tr class="memdesc:afb41aa17f1b00e1f57e722a85769a232"><td class="mdescLeft">&#160;</td><td class="mdescRight">从UTF-8编码字符串替换当前对象内容  <br /></td></tr>
+<tr class="memitem:aba24906b2cf2bc2314eb92533630962b" id="r_aba24906b2cf2bc2314eb92533630962b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aba24906b2cf2bc2314eb92533630962b">FromWchartTypeUTF16</a> (const std::basic_string_view&lt; wchar_t &gt; &amp;u16WCharTypeString)</td></tr>
+<tr class="memdesc:aba24906b2cf2bc2314eb92533630962b"><td class="mdescLeft">&#160;</td><td class="mdescRight">从wchar_t类型的UTF-16编码字符串替换当前对象内容  <br /></td></tr>
+<tr class="memitem:ac9c26f985cd2e559071225fd2eb8267b" id="r_ac9c26f985cd2e559071225fd2eb8267b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac9c26f985cd2e559071225fd2eb8267b">FromUTF16</a> (const std::basic_string_view&lt; char16_t &gt; &amp;u16String)</td></tr>
+<tr class="memdesc:ac9c26f985cd2e559071225fd2eb8267b"><td class="mdescLeft">&#160;</td><td class="mdescRight">从UTF-16编码字符串替换当前对象内容  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-friends" class="groupheader"><a id="friends" name="friends"></a>
 友元</h2></td></tr>
@@ -164,7 +172,7 @@ class NBT_String&lt; String, StringView &gt;</div><p>继承自标准库std::basi
 <dl class="section note"><dt>注解</dt><dd>用户不应自行实例化此类，请使用NBT_Type::String来访问此类实例化类型。 </dd></dl>
 </div><a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">构造及析构函数说明</h2>
 <a id="a36bfb992d5dcf9332339aee479d51202" name="a36bfb992d5dcf9332339aee479d51202"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a36bfb992d5dcf9332339aee479d51202">&#9670;&#160;</a></span>NBT_String() <span class="overload">[1/5]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a36bfb992d5dcf9332339aee479d51202">&#9670;&#160;</a></span>NBT_String() <span class="overload">[1/9]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -199,7 +207,7 @@ template&lt;typename String, typename StringView&gt; </div>
 </div>
 </div>
 <a id="a2c99d3d570bc3b3add3915f48eb6bfdd" name="a2c99d3d570bc3b3add3915f48eb6bfdd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2c99d3d570bc3b3add3915f48eb6bfdd">&#9670;&#160;</a></span>NBT_String() <span class="overload">[2/5]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a2c99d3d570bc3b3add3915f48eb6bfdd">&#9670;&#160;</a></span>NBT_String() <span class="overload">[2/9]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -233,8 +241,148 @@ template&lt;typename String, typename StringView&gt; </div>
 
 </div>
 </div>
+<a id="a5339e7323a4c92a4d59453c25d859262" name="a5339e7323a4c92a4d59453c25d859262"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5339e7323a4c92a4d59453c25d859262">&#9670;&#160;</a></span>NBT_String() <span class="overload">[3/9]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename String, typename StringView&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classNBT__String.html">NBT_String</a>&lt; String, StringView &gt;::NBT_String </td>
+          <td>(</td>
+          <td class="paramtype">const std::basic_string_view&lt; char &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>u8CharTypeString</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>从char类型的UTF-8编码字符串构造NBT_String对象 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">u8CharTypeString</td><td>char类型的UTF-8字符串视图 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a70d5fc07ce9dcbdd8b82cc9a0dc42991" name="a70d5fc07ce9dcbdd8b82cc9a0dc42991"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a70d5fc07ce9dcbdd8b82cc9a0dc42991">&#9670;&#160;</a></span>NBT_String() <span class="overload">[4/9]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename String, typename StringView&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classNBT__String.html">NBT_String</a>&lt; String, StringView &gt;::NBT_String </td>
+          <td>(</td>
+          <td class="paramtype">const std::basic_string_view&lt; char8_t &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>u8String</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>从UTF-8编码字符串构造NBT_String对象 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">u8String</td><td>char8_t类型的UTF-8字符串视图 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ae44ed14c77eb7b8233a487cd2de76abc" name="ae44ed14c77eb7b8233a487cd2de76abc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae44ed14c77eb7b8233a487cd2de76abc">&#9670;&#160;</a></span>NBT_String() <span class="overload">[5/9]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename String, typename StringView&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classNBT__String.html">NBT_String</a>&lt; String, StringView &gt;::NBT_String </td>
+          <td>(</td>
+          <td class="paramtype">const std::basic_string_view&lt; wchar_t &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>u16WCharTypeString</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>从wchar_t类型的UTF-16编码字符串构造NBT_String对象 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">u16WCharTypeString</td><td>wchar_t类型的UTF-16字符串视图 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a0a97381e56adf9feefc281c18f92527e" name="a0a97381e56adf9feefc281c18f92527e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0a97381e56adf9feefc281c18f92527e">&#9670;&#160;</a></span>NBT_String() <span class="overload">[6/9]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename String, typename StringView&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classNBT__String.html">NBT_String</a>&lt; String, StringView &gt;::NBT_String </td>
+          <td>(</td>
+          <td class="paramtype">const std::basic_string_view&lt; char16_t &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>u16String</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>从UTF-16编码字符串构造NBT_String对象 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">u16String</td><td>char16_t类型的UTF-16字符串视图 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="a5ae26f9e910e98c7c39dc805d15b14f4" name="a5ae26f9e910e98c7c39dc805d15b14f4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5ae26f9e910e98c7c39dc805d15b14f4">&#9670;&#160;</a></span>NBT_String() <span class="overload">[3/5]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a5ae26f9e910e98c7c39dc805d15b14f4">&#9670;&#160;</a></span>NBT_String() <span class="overload">[7/9]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -272,7 +420,7 @@ template&lt;size_t N&gt; </div>
 </div>
 </div>
 <a id="aa3044923d907391e22e95566ccec46bf" name="aa3044923d907391e22e95566ccec46bf"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa3044923d907391e22e95566ccec46bf">&#9670;&#160;</a></span>NBT_String() <span class="overload">[4/5]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#aa3044923d907391e22e95566ccec46bf">&#9670;&#160;</a></span>NBT_String() <span class="overload">[8/9]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -307,7 +455,7 @@ template&lt;typename String, typename StringView&gt; </div>
 </div>
 </div>
 <a id="ac4f128e129e485bf789df2d0e29c9eec" name="ac4f128e129e485bf789df2d0e29c9eec"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac4f128e129e485bf789df2d0e29c9eec">&#9670;&#160;</a></span>NBT_String() <span class="overload">[5/5]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ac4f128e129e485bf789df2d0e29c9eec">&#9670;&#160;</a></span>NBT_String() <span class="overload">[9/9]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -342,8 +490,8 @@ template&lt;typename String, typename StringView&gt; </div>
 </div>
 </div>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">成员函数说明</h2>
-<a id="af2ad502b233edc1b61502b15ca1e7ceb" name="af2ad502b233edc1b61502b15ca1e7ceb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af2ad502b233edc1b61502b15ca1e7ceb">&#9670;&#160;</a></span>FromCharTypeUTF8()</h2>
+<a id="af63e31240dd17bbd05d211fee47b9300" name="af63e31240dd17bbd05d211fee47b9300"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af63e31240dd17bbd05d211fee47b9300">&#9670;&#160;</a></span>FromCharTypeUTF8()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -356,7 +504,7 @@ template&lt;typename String, typename StringView&gt; </div>
         <tr>
           <td class="memname">void <a class="el" href="classNBT__String.html">NBT_String</a>&lt; String, StringView &gt;::FromCharTypeUTF8 </td>
           <td>(</td>
-          <td class="paramtype">std::basic_string_view&lt; char &gt;</td>          <td class="paramname"><span class="paramname"><em>u8String</em></span></td><td>)</td>
+          <td class="paramtype">const std::basic_string_view&lt; char &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>u8CharTypeString</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -370,7 +518,7 @@ template&lt;typename String, typename StringView&gt; </div>
 <p>从char类型的UTF-8编码字符串替换当前对象内容 </p>
 <dl class="params"><dt>参数</dt><dd>
   <table class="params">
-    <tr><td class="paramname">u8String</td><td>char类型的视图view，实际编码应为UTF-8 </td></tr>
+    <tr><td class="paramname">u8CharTypeString</td><td>char类型的视图view，实际编码应为UTF-8 </td></tr>
   </table>
   </dd>
 </dl>
@@ -378,8 +526,8 @@ template&lt;typename String, typename StringView&gt; </div>
 
 </div>
 </div>
-<a id="a192c951f3e8810dd8a8be3a23395ce09" name="a192c951f3e8810dd8a8be3a23395ce09"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a192c951f3e8810dd8a8be3a23395ce09">&#9670;&#160;</a></span>FromUTF16()</h2>
+<a id="ac9c26f985cd2e559071225fd2eb8267b" name="ac9c26f985cd2e559071225fd2eb8267b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac9c26f985cd2e559071225fd2eb8267b">&#9670;&#160;</a></span>FromUTF16()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -392,7 +540,7 @@ template&lt;typename String, typename StringView&gt; </div>
         <tr>
           <td class="memname">void <a class="el" href="classNBT__String.html">NBT_String</a>&lt; String, StringView &gt;::FromUTF16 </td>
           <td>(</td>
-          <td class="paramtype">std::basic_string_view&lt; char16_t &gt;</td>          <td class="paramname"><span class="paramname"><em>u16String</em></span></td><td>)</td>
+          <td class="paramtype">const std::basic_string_view&lt; char16_t &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>u16String</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -414,8 +562,8 @@ template&lt;typename String, typename StringView&gt; </div>
 
 </div>
 </div>
-<a id="af43948eaa86118187466dd82c6770347" name="af43948eaa86118187466dd82c6770347"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af43948eaa86118187466dd82c6770347">&#9670;&#160;</a></span>FromUTF8()</h2>
+<a id="afb41aa17f1b00e1f57e722a85769a232" name="afb41aa17f1b00e1f57e722a85769a232"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afb41aa17f1b00e1f57e722a85769a232">&#9670;&#160;</a></span>FromUTF8()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -428,7 +576,7 @@ template&lt;typename String, typename StringView&gt; </div>
         <tr>
           <td class="memname">void <a class="el" href="classNBT__String.html">NBT_String</a>&lt; String, StringView &gt;::FromUTF8 </td>
           <td>(</td>
-          <td class="paramtype">std::basic_string_view&lt; char8_t &gt;</td>          <td class="paramname"><span class="paramname"><em>u8String</em></span></td><td>)</td>
+          <td class="paramtype">const std::basic_string_view&lt; char8_t &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>u8String</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -450,8 +598,8 @@ template&lt;typename String, typename StringView&gt; </div>
 
 </div>
 </div>
-<a id="a37d4315533e5d1a18a5194cd17e76760" name="a37d4315533e5d1a18a5194cd17e76760"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a37d4315533e5d1a18a5194cd17e76760">&#9670;&#160;</a></span>FromWchartTypeUTF16()</h2>
+<a id="aba24906b2cf2bc2314eb92533630962b" name="aba24906b2cf2bc2314eb92533630962b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aba24906b2cf2bc2314eb92533630962b">&#9670;&#160;</a></span>FromWchartTypeUTF16()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -464,7 +612,7 @@ template&lt;typename String, typename StringView&gt; </div>
         <tr>
           <td class="memname">void <a class="el" href="classNBT__String.html">NBT_String</a>&lt; String, StringView &gt;::FromWchartTypeUTF16 </td>
           <td>(</td>
-          <td class="paramtype">std::basic_string_view&lt; wchar_t &gt;</td>          <td class="paramname"><span class="paramname"><em>u16String</em></span></td><td>)</td>
+          <td class="paramtype">const std::basic_string_view&lt; wchar_t &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>u16WCharTypeString</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -478,7 +626,7 @@ template&lt;typename String, typename StringView&gt; </div>
 <p>从wchar_t类型的UTF-16编码字符串替换当前对象内容 </p>
 <dl class="params"><dt>参数</dt><dd>
   <table class="params">
-    <tr><td class="paramname">u16String</td><td>wchar_t类型的视图view，实际编码应为UTF-16 </td></tr>
+    <tr><td class="paramname">u16WCharTypeString</td><td>wchar_t类型的视图view，实际编码应为UTF-16 </td></tr>
   </table>
   </dd>
 </dl>
