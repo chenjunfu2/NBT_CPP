@@ -724,7 +724,7 @@ catch(...)\
 			if (!bNeedWarp)//不需要封装，直接写出
 			{
 				//列表无名字，无需重复tag，只需输出数据
-				eRet = PutSwitch<bSortCompound>(tData, tmpNode, enListElementTag, szStackDepth - 1, funcErrInfo);
+				eRet = PutSwitch<bSortCompound>(tData, tmpNode, enListElementTag, szStackDepth - 1, funcErrInfo);//同一元素类型List
 			}
 			else//需要封装，添加Compound
 			{
