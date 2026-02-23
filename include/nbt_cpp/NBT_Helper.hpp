@@ -264,14 +264,17 @@ private:
 				bool bFirst = true;
 				for (const auto &it : list)
 				{
-					PrintPadding(szLevel, true, it.GetTag() != NBT_TAG::Compound && it.GetTag() != NBT_TAG::List, funcPrint);
-					PrintSwitch<false>(it, szLevel + 1, funcPrint);
 					if (bFirst)
 					{
 						bFirst = false;
-						continue;
 					}
-					funcPrint(",");
+					else
+					{
+						funcPrint(",");
+					}
+
+					PrintPadding(szLevel, true, it.GetTag() != NBT_TAG::Compound && it.GetTag() != NBT_TAG::List, funcPrint);
+					PrintSwitch<false>(it, szLevel + 1, funcPrint);
 				}
 
 				if (list.Size() != 0)//空列表无需换行以及对齐
