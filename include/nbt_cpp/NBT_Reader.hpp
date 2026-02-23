@@ -512,7 +512,7 @@ catch(...)\
 	}
 
 	//如果是非根部，有额外检测
-	template<bool bRoot, typename InputStream, typename ErrInfoFunc>
+	template<bool bRoot, bool bUnwrapMixedList, typename InputStream, typename ErrInfoFunc>
 	static ErrCode GetCompoundType(InputStream &tData, NBT_Type::Compound &tCompound, size_t szStackDepth, ErrInfoFunc &funcErrInfo) noexcept
 	{
 	MYTRY;
@@ -560,7 +560,7 @@ catch(...)\
 
 			//然后根据类型，调用对应的类型读取并返回到tmpNode
 			NBT_Node tmpNode{};
-			eRet = GetSwitch(tData, tmpNode, tagNbt, szStackDepth - 1, funcErrInfo);
+			eRet = GetSwitch<bUnwrapMixedList>(tData, tmpNode, tagNbt, szStackDepth - 1, funcErrInfo);
 			if (eRet != AllOk)
 			{
 				STACK_TRACEBACK("GetSwitch Fail, Name: \"{}\", Type: [NBT_Type::{}]", sName.ToCharTypeUTF8(), NBT_Type::GetTypeName(tagNbt));//注意这里ToCharTypeUTF8可能抛异常
@@ -610,7 +610,7 @@ catch(...)\
 		return eRet;
 	}
 
-	template<typename InputStream, typename ErrInfoFunc>
+	template<bool bUnwrapMixedList, typename InputStream, typename ErrInfoFunc>
 	static ErrCode GetListType(InputStream &tData, NBT_Type::List &tList, size_t szStackDepth, ErrInfoFunc &funcErrInfo) noexcept
 	{
 	MYTRY;
@@ -667,15 +667,14 @@ catch(...)\
 			enListElementTag = (NBT_TAG_RAW_TYPE)NBT_TAG::End;
 		}
 
-		//设置类型并提前扩容
-		//tList.enElementTag = (NBT_TAG)enListElementTag;//先设置类型
+		//提前扩容
 		tList.reserve(iListLength);//已知大小提前分配减少开销
 
 		//根据元素类型，读取n次列表
 		for (NBT_Type::ListLength i = 0; i < iListLength; ++i)
 		{
 			NBT_Node tmpNode{};//列表元素会直接赋值修改
-			eRet = GetSwitch(tData, tmpNode, (NBT_TAG)enListElementTag, szStackDepth - 1, funcErrInfo);
+			eRet = GetSwitch<bUnwrapMixedList>(tData, tmpNode, (NBT_TAG)enListElementTag, szStackDepth - 1, funcErrInfo);
 			if (eRet != AllOk)//错误处理
 			{
 				STACK_TRACEBACK("GetSwitch Error, Size: [{}] Index: [{}]", iListLength, i);
@@ -683,7 +682,38 @@ catch(...)\
 			}
 
 			//每读取一个往后插入一个
-			tList.emplace_back(std::move(tmpNode));
+			if constexpr (!bUnwrapMixedList)//正常插入
+			{
+				tList.emplace_back(std::move(tmpNode));
+			}
+			else//尝试解包插入
+			{
+				auto *pNode = &tmpNode;
+				do
+				{
+					if (enListElementTag != NBT_TAG::Compound)
+					{
+						break;
+					}
+
+					//尝试解包：只有一个无名称根
+					auto &cpdNode = tmpNode.GetCompound();//此处可能抛异常
+					if (cpdNode.Size() != 1)
+					{
+						break;
+					}
+
+					auto *pFind = cpdNode.Has(MU8STR(""));
+					if (pFind == NULL)
+					{
+						break;//没找到，说明是普通Compound
+					}
+
+					pNode = pFind;//找到了！
+				} while (0);
+
+				tList.emplace_back(std::move(*pNode));
+			}
 		}
 		
 		return eRet;
@@ -691,7 +721,7 @@ catch(...)\
 	}
 
 	//这个函数拦截所有内部调用产生的异常并处理返回，所以此函数绝对不抛出异常，由此调用此函数的函数也可无需catch异常
-	template<typename InputStream, typename ErrInfoFunc>
+	template<bool bUnwrapMixedList, typename InputStream, typename ErrInfoFunc>
 	static ErrCode GetSwitch(InputStream &tData, NBT_Node &nodeNbt, NBT_TAG tagNbt, size_t szStackDepth, ErrInfoFunc &funcErrInfo) noexcept//选择函数不检查递归层，由函数调用的函数检查
 	{
 		ErrCode eRet = AllOk;
@@ -758,14 +788,14 @@ catch(...)\
 			{
 				using CurType = NBT_Type::TagToType_T<NBT_TAG::List>;
 				nodeNbt.Set<CurType>();
-				eRet = GetListType(tData, nodeNbt.Get<CurType>(), szStackDepth, funcErrInfo);//选择函数不减少递归层
+				eRet = GetListType<bUnwrapMixedList>(tData, nodeNbt.Get<CurType>(), szStackDepth, funcErrInfo);//选择函数不减少递归层
 			}
 			break;
 		case NBT_TAG::Compound://需要递归调用
 			{
 				using CurType = NBT_Type::TagToType_T<NBT_TAG::Compound>;
 				nodeNbt.Set<CurType>();
-				eRet = GetCompoundType<false>(tData, nodeNbt.Get<CurType>(), szStackDepth, funcErrInfo);//选择函数不减少递归层
+				eRet = GetCompoundType<false, bUnwrapMixedList>(tData, nodeNbt.Get<CurType>(), szStackDepth, funcErrInfo);//选择函数不减少递归层
 			}
 			break;
 		case NBT_TAG::IntArray:
@@ -826,6 +856,7 @@ public:
 	//如果指定了szDataStartIndex则会忽略tData中长度为szDataStartIndex的数据
 
 	/// @brief 从输入流中读取NBT数据到NBT_Type::Compound对象中
+	/// @tparam bUnwrapMixedList 是否自动解包列表中的打包Compound
 	/// @tparam InputStream 输入流类型，必须符合DefaultOutputStream类型的接口
 	/// @tparam ErrInfoFunc 错误信息输出仿函数类型
 	/// @param IptStream 输入流对象
@@ -836,13 +867,14 @@ public:
 	/// @note 错误与警告信息都输出到funcErrInfo，错误会导致函数结束剩下的写出任务，并进行栈回溯输出，最终返回false。警告则只会输出一次信息，然后继续执行，如果没有任何错误但是存在警告，函数仍将返回true。
 	/// 函数不会清除tCompound对象的数据，所以可以通过多次调用此函数，把多个NBT数据流合并到同一个tCompound对象内，
 	/// 但是如果多个流中有重复、同名的NBT键，则会产生冲突，为了保证键的唯一性，后来的值会替换原先的值，并通过funcErrInfo产生一个警告信息。
-	template<typename InputStream, typename ErrInfoFunc = NBT_Print>
+	template<bool bUnwrapMixedList = true, typename InputStream, typename ErrInfoFunc = NBT_Print>
 	static bool ReadNBT(InputStream IptStream, NBT_Type::Compound &tCompound, size_t szStackDepth = 512, ErrInfoFunc funcErrInfo = NBT_Print{ stderr }) noexcept//从data中读取nbt
 	{
-		return GetCompoundType<true>(IptStream, tCompound, szStackDepth, funcErrInfo) == AllOk;//从data中获取nbt数据到nRoot中，只有此调用为根部调用（模板true），用于处理特殊情况
+		return GetCompoundType<true, bUnwrapMixedList>(IptStream, tCompound, szStackDepth, funcErrInfo) == AllOk;//从data中获取nbt数据到nRoot中，只有此调用为根部调用（模板true），用于处理特殊情况
 	}
 
 	/// @brief 从数据容器中读取NBT数据到NBT_Type::Compound对象中
+	/// @tparam bUnwrapMixedList 是否自动解包列表中的打包Compound
 	/// @tparam DataType 数据容器类型
 	/// @tparam ErrInfoFunc 错误信息输出仿函数类型
 	/// @param tDataInput 输入数据容器
@@ -852,11 +884,11 @@ public:
 	/// @param funcErrInfo 错误信息处理仿函数
 	/// @return 读取成功返回true，失败返回false
 	/// @note 此函数是ReadNBT的标准库容器版本，其它信息请参考ReadNBT(InputStream)版本的详细说明
-	template<typename DataType = std::vector<uint8_t>, typename ErrInfoFunc = NBT_Print>
+	template<bool bUnwrapMixedList = true, typename DataType = std::vector<uint8_t>, typename ErrInfoFunc = NBT_Print>
 	static bool ReadNBT(const DataType &tDataInput, size_t szStartIdx, NBT_Type::Compound &tCompound, size_t szStackDepth = 512, ErrInfoFunc funcErrInfo = NBT_Print{ stderr }) noexcept//从data中读取nbt
 	{
 		DefaultInputStream<DataType> IptStream(tDataInput, szStartIdx);
-		return GetCompoundType<true>(IptStream, tCompound, szStackDepth, funcErrInfo) == AllOk;
+		return GetCompoundType<true, bUnwrapMixedList>(IptStream, tCompound, szStackDepth, funcErrInfo) == AllOk;
 	}
 
 
