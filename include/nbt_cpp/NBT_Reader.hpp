@@ -192,6 +192,7 @@ private:
 
 		UnknownError,//其他错误
 		StdException,//标准异常
+		ListElementTypeError,//列表元素类型错误（NBT文件问题）
 		OutOfMemoryError,//内存不足错误（NBT文件问题）
 		StackDepthExceeded,//调用栈深度过深（NBT文件or代码设置问题）
 		NbtTypeTagError,//NBT标签类型错误（NBT文件问题）
@@ -204,7 +205,7 @@ private:
 	constexpr static inline const char *const errReason[] =
 	{
 		"AllOk",
-
+		"ListElementTypeError",
 		"UnknownError",
 		"StdException",
 		"OutOfMemoryError",
@@ -667,7 +668,7 @@ catch(...)\
 		}
 
 		//设置类型并提前扩容
-		tList.enElementTag = (NBT_TAG)enListElementTag;//先设置类型
+		//tList.enElementTag = (NBT_TAG)enListElementTag;//先设置类型
 		tList.reserve(iListLength);//已知大小提前分配减少开销
 
 		//根据元素类型，读取n次列表

@@ -85,7 +85,7 @@ public:
 	/// @return 是否相等
 	bool operator==(const NBT_List &_Right) const noexcept
 	{
-		return List::operator==(_Right);
+		return (const List &)*this == (const List &)_Right;
 	}
 
 	/// @brief 不等比较运算符
@@ -93,7 +93,7 @@ public:
 	/// @return 是否不相等
 	bool operator!=(const NBT_List &_Right) const noexcept
 	{
-		return List::operator!=(_Right);
+		return (const List &)*this != (const List &)_Right;
 	}
 
 	/// @brief 三路比较运算符
@@ -101,7 +101,7 @@ public:
 	/// @return 比较结果，通过std::partial_ordering返回
 	std::partial_ordering operator<=>(const NBT_List &_Right) const noexcept
 	{
-		return List::operator<=>(_Right);
+		return (const List &)*this <=> (const List &)_Right;
 	}
 
 	/// @name 暴露父类迭代器接口
@@ -269,7 +269,7 @@ public:
 	/// @brief 调整容器大小，如果大小大于当前大小，那么使用val填充新增空间，否则删除多余元素
 	/// @param szNewSize 新的容器大小
 	/// @param val （可能）需要重复的元素
-	void Resize(size_t szNewSize, const List::value_type &val)
+	void Resize(size_t szNewSize, const typename List::value_type &val)
 	{
 		return List::resize(szNewSize, val);
 	}
@@ -471,7 +471,7 @@ typename NBT_Type::type &Back##type(void)\
  @param vTagVal 要插入的 type 类型值
  @return 刚才插入的元素的引用
  */\
-List::value_type &Add##type(size_t szPos, const typename NBT_Type::type &vTagVal)\
+typename List::value_type &Add##type(size_t szPos, const typename NBT_Type::type &vTagVal)\
 {\
 	return Add(szPos, vTagVal);\
 }\
@@ -483,7 +483,7 @@ List::value_type &Add##type(size_t szPos, const typename NBT_Type::type &vTagVal
  @return 刚才插入的元素的引用
  @note 通用类型函数Add的代理，具体行为参考Add函数的说明
  */\
-List::value_type & Add##type(size_t szPos, typename NBT_Type::type &&vTagVal)\
+typename List::value_type & Add##type(size_t szPos, typename NBT_Type::type &&vTagVal)\
 {\
 	return Add(szPos, std::move(vTagVal));\
 }\
@@ -494,7 +494,7 @@ List::value_type & Add##type(size_t szPos, typename NBT_Type::type &&vTagVal)\
  @return 刚才插入的元素的引用
  @note 通用类型函数AddFront的代理，具体行为参考AddFront函数的说明
  */\
-List::value_type &AddFront##type(const typename NBT_Type::type &vTagVal)\
+typename List::value_type &AddFront##type(const typename NBT_Type::type &vTagVal)\
 {\
 	return AddFront(vTagVal); \
 }\
@@ -505,7 +505,7 @@ List::value_type &AddFront##type(const typename NBT_Type::type &vTagVal)\
  @return 刚才插入的元素的引用
  @note 通用类型函数AddFront的代理，具体行为参考AddFront函数的说明
  */\
-List::value_type & AddFront##type(typename NBT_Type::type &&vTagVal)\
+typename List::value_type & AddFront##type(typename NBT_Type::type &&vTagVal)\
 {\
 	return AddFront(std::move(vTagVal));\
 }\
@@ -516,7 +516,7 @@ List::value_type & AddFront##type(typename NBT_Type::type &&vTagVal)\
  @return 刚才插入的元素的引用
  @note 通用类型函数AddBack的代理，具体行为参考AddBack函数的说明
  */\
-List::value_type &AddBack##type(const typename NBT_Type::type &vTagVal)\
+typename List::value_type &AddBack##type(const typename NBT_Type::type &vTagVal)\
 {\
 	return AddBack(vTagVal);\
 }\
@@ -527,7 +527,7 @@ List::value_type &AddBack##type(const typename NBT_Type::type &vTagVal)\
  @return 刚才插入的元素的引用
  @note 通用类型函数AddBack的代理，具体行为参考AddBack函数的说明
  */\
-List::value_type &AddBack##type(typename NBT_Type::type &&vTagVal)\
+typename List::value_type &AddBack##type(typename NBT_Type::type &&vTagVal)\
 {\
 	return AddBack(std::move(vTagVal));\
 }\
@@ -539,7 +539,7 @@ List::value_type &AddBack##type(typename NBT_Type::type &&vTagVal)\
  @return 刚才修改的元素的引用
  @note 通用类型函数Set的代理，具体行为参考Set函数的说明
  */\
-List::value_type &Set##type(size_t szPos, const typename NBT_Type::type &vTagVal)\
+typename List::value_type &Set##type(size_t szPos, const typename NBT_Type::type &vTagVal)\
 {\
 	return Set(szPos, vTagVal);\
 }\
@@ -551,7 +551,7 @@ List::value_type &Set##type(size_t szPos, const typename NBT_Type::type &vTagVal
  @return 刚才修改的元素的引用
  @note 通用类型函数Set的代理，具体行为参考Set函数的说明
  */\
-List::value_type &Set##type(size_t szPos, typename NBT_Type::type &&vTagVal)\
+typename List::value_type &Set##type(size_t szPos, typename NBT_Type::type &&vTagVal)\
 {\
 	return Set(szPos, std::move(vTagVal));\
 }

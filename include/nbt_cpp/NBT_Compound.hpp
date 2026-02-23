@@ -143,7 +143,7 @@ public:
 	/// @note 转发底层容器的实现，具体信息请参考std::unordered_map的说明
 	bool operator==(const NBT_Compound &_Right) const noexcept
 	{
-		return Compound::operator==(_Right);
+		return (const Compound &)*this == (const Compound &)_Right;
 	}
 
 	/// @brief 不等比较运算符
@@ -152,7 +152,7 @@ public:
 	/// @note 转发底层容器的实现，具体信息请参考std::unordered_map的说明
 	bool operator!=(const NBT_Compound &_Right) const noexcept
 	{
-		return Compound::operator!=(_Right);
+		return (const Compound &)*this != (const Compound &)_Right;
 	}
 
 	/// @brief 三路比较运算符
@@ -163,11 +163,11 @@ public:
 	{
 		if constexpr (NBT_Compound_Concept::HasSpaceship<Compound>)
 		{
-			return Compound::operator<=>(_Right);
+			return (const Compound &)*this <=> (const Compound &)_Right;
 		}
 		else
 		{
-			if (Compound::operator==(_Right))
+			if (operator==(_Right))
 			{
 				return std::partial_ordering::equivalent;//相等返回相等
 			}

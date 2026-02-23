@@ -469,7 +469,7 @@ catch(...)\
 		return eRet;
 	}
 
-	template<typename OutputStream, typename ErrInfoFunc>
+	template<bool bSortCompound, typename OutputStream, typename ErrInfoFunc>
 	static ErrCode PutCompoundEntry(OutputStream &tData, const NBT_Type::String &sName, const NBT_Node &nodeNbt, size_t szStackDepth, ErrInfoFunc &funcErrInfo)//它不是noexcept的
 	{
 		ErrCode eRet = AllOk;
@@ -517,7 +517,7 @@ catch(...)\
 	template<typename OutputStream, typename ErrInfoFunc>
 	static ErrCode PutCompoundEnd(OutputStream &tData, ErrInfoFunc &funcErrInfo) noexcept
 	{
-		ErrCode = AllOk;
+		ErrCode eRet = AllOk;
 		
 		//注意Compound类型有一个NBT_TAG::End结尾
 		eRet = WriteBigEndian(tData, (NBT_TAG_RAW_TYPE)NBT_TAG::End, funcErrInfo);
@@ -617,7 +617,7 @@ catch(...)\
 				}
 			}();
 
-			eRet = PutCompoundEntry(tData, sName, nodeNbt, szStackDepth, funcErrInfo);
+			eRet = PutCompoundEntry<bSortCompound>(tData, sName, nodeNbt, szStackDepth, funcErrInfo);
 			if (eRet != AllOk)
 			{
 				STACK_TRACEBACK("PutCompoundEntry");
@@ -741,7 +741,9 @@ catch(...)\
 				}
 				
 				//是Compound但是需要再套一层或者不是Compound
-				eRet = PutCompoundEntry(tData, MU8STR(""), tmpNode, szStackDepth - 1, funcErrInfo);
+				MYTRY;
+				eRet = PutCompoundEntry<bSortCompound>(tData, MU8STR(""), tmpNode, szStackDepth - 1, funcErrInfo);
+				MYCATCH;
 				if (eRet != AllOk)
 				{
 					STACK_TRACEBACK("PutCompoundEntry");

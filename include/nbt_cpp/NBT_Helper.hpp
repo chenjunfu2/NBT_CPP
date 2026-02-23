@@ -179,7 +179,7 @@ private:
 	{
 		static auto PrintArray = [](const std::string strBeg, const auto &vArr, const std::string strEnd, PrintFunc &funcPrint) -> void
 		{
-			funcPrint(strBeg);
+			funcPrint("{}", strBeg);
 			bool bFirst = true;
 			for (const auto &it : vArr)
 			{
@@ -190,7 +190,7 @@ private:
 				}
 				funcPrint(",{}", it);
 			}
-			funcPrint(strEnd);
+			funcPrint("{}", strEnd);
 		};
 
 
@@ -293,15 +293,18 @@ private:
 					bool bFirst = true;
 					for (const auto &it : cpd)
 					{
-						PrintPadding(szLevel, true, true, funcPrint);
-						funcPrint("\"{}\":", it.first.ToCharTypeUTF8());
-						PrintSwitch<false>(it.second, szLevel + 1, funcPrint);
 						if (bFirst)
 						{
 							bFirst = false;
-							continue;
 						}
-						funcPrint(",");
+						else
+						{
+							funcPrint(",");
+						}
+
+						PrintPadding(szLevel, true, true, funcPrint);
+						funcPrint("\"{}\":", it.first.ToCharTypeUTF8());
+						PrintSwitch<false>(it.second, szLevel + 1, funcPrint);
 					}
 				}
 				else
@@ -311,15 +314,18 @@ private:
 					bool bFirst = true;
 					for (const auto &it : vSort)
 					{
-						PrintPadding(szLevel, true, true, funcPrint);
-						funcPrint("\"{}\":", it->first.ToCharTypeUTF8());
-						PrintSwitch<false>(it->second, szLevel + 1, funcPrint);
 						if (bFirst)
 						{
 							bFirst = false;
-							continue;
 						}
-						funcPrint(",");
+						else
+						{
+							funcPrint(",");
+						}
+
+						PrintPadding(szLevel, true, true, funcPrint);
+						funcPrint("\"{}\":", it->first.ToCharTypeUTF8());
+						PrintSwitch<false>(it->second, szLevel + 1, funcPrint);
 					}
 				}
 

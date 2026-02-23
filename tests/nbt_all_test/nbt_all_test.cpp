@@ -177,78 +177,14 @@ void NBT_Endian_Test(void)
 	MyAssert(TestFunc(NBT_Endian::ByteSwap64(U64VAL), _U64VAL));
 }
 
-void NBT_ReadWrite_Test(void)
+template<typename Data_T>
+void NBT_ReadWrite_Test(const Data_T &NbtRawData, const NBT_Type::Compound &cpdGen)
 {
-	constexpr auto NbtRawData = StrHexArray::ToHexArr<R"(
-	0A 00 00 01 00 04 62 79 74 65 80 05 00 05 66 6C
-	6F 61 74 BD EA 7E FA 02 00 05 73 68 6F 72 74 7F
-	FF 03 00 03 69 6E 74 80 00 00 00 04 00 04 6C 6F
-	6E 67 00 00 01 0A 9F C7 00 42 08 00 06 73 74 72
-	69 6E 67 00 06 E6 B5 8B E8 AF 95 06 00 06 64 6F
-	75 62 6C 65 40 FB F5 23 12 5A AB 47 0A 00 08 63
-	6F 6D 70 6F 75 6E 64 07 00 0A 62 79 74 65 20 61
-	72 72 61 79 00 00 00 07 01 02 03 04 05 06 07 0B
-	00 09 69 6E 74 20 61 72 72 61 79 00 00 00 07 00
-	00 00 01 00 00 00 02 00 00 00 03 00 00 00 04 00
-	00 00 05 00 00 00 06 00 00 00 07 0C 00 0A 6C 6F
-	6E 67 20 61 72 72 61 79 00 00 00 07 00 00 00 00
-	00 00 00 01 00 00 00 00 00 00 00 02 00 00 00 00
-	00 00 00 03 00 00 00 00 00 00 00 04 00 00 00 00
-	00 00 00 05 00 00 00 00 00 00 00 06 00 00 00 00
-	00 00 00 07 00 09 00 04 6C 69 73 74 08 00 00 00
-	06 00 09 74 65 73 74 20 73 74 72 30 00 09 74 65
-	73 74 20 73 74 72 31 00 09 74 65 73 74 20 73 74
-	72 32 00 09 74 65 73 74 20 73 74 72 33 00 09 74
-	65 73 74 20 73 74 72 34 00 09 74 65 73 74 20 73
-	74 72 35 00
-)">();
-
 	//读取解析
 	NBT_Type::Compound cpdRead{};
 	NBT_Reader::ReadNBT(NbtRawData, 0, cpdRead);
 
 	//判断读到的内容是否与生成的相同
-
-	NBT_Type::Compound cpdGen
-	{
-		{MU8STR(""),NBT_Type::Compound{}}
-	};
-	{
-		auto &insertTarget = cpdGen.GetCompound(MU8STR(""));
-
-		insertTarget.PutCompound(MU8STR("compound"),
-			NBT_Type::Compound
-			{
-				{MU8STR("byte array"),NBT_Type::ByteArray{1,2,3,4,5,6,7}},
-				{MU8STR("int array"),NBT_Type::IntArray{1,2,3,4,5,6,7}},
-				{MU8STR("long array"),NBT_Type::LongArray{1,2,3,4,5,6,7}},
-			}
-		);
-
-		insertTarget.PutList(MU8STR("list"),
-			NBT_Type::List
-			{
-				MU8STR("test str0"),
-				MU8STR("test str1"),
-				MU8STR("test str2"),
-				MU8STR("test str3"),
-				MU8STR("test str4"),
-				MU8STR("test str5"),
-			}
-		);
-
-		NBT_Type::Compound cpdTemp{};
-		cpdTemp.PutByte(MU8STR("byte"), -128);
-		cpdTemp.PutShort(MU8STR("short"), 32767);
-		cpdTemp.PutInt(MU8STR("int"), -2147483648);
-		cpdTemp.PutLong(MU8STR("long"), 1145141919810);
-		cpdTemp.PutFloat(MU8STR("float"), -0.1145f);
-		cpdTemp.PutDouble(MU8STR("double"), 114514.191981);
-		cpdTemp.PutString(MU8STR("string"), MU8STR("测试"));
-
-		insertTarget.Merge(std::move(cpdTemp));
-	}
-
 	//测试数据与生成的是否相同
 	MyAssert([&](bool b) -> bool
 		{
@@ -393,11 +329,127 @@ void NBT_IO_Test(void)
 	);
 }
 
+
+
+void MultiDataTest(void)
+{
+	constexpr auto NbtRawData = StrHexArray::ToHexArr < R"(
+	0A 00 00 01 00 04 62 79 74 65 80 05 00 05 66 6C
+	6F 61 74 BD EA 7E FA 02 00 05 73 68 6F 72 74 7F
+	FF 03 00 03 69 6E 74 80 00 00 00 04 00 04 6C 6F
+	6E 67 00 00 01 0A 9F C7 00 42 08 00 06 73 74 72
+	69 6E 67 00 06 E6 B5 8B E8 AF 95 06 00 06 64 6F
+	75 62 6C 65 40 FB F5 23 12 5A AB 47 0A 00 08 63
+	6F 6D 70 6F 75 6E 64 07 00 0A 62 79 74 65 20 61
+	72 72 61 79 00 00 00 07 01 02 03 04 05 06 07 0B
+	00 09 69 6E 74 20 61 72 72 61 79 00 00 00 07 00
+	00 00 01 00 00 00 02 00 00 00 03 00 00 00 04 00
+	00 00 05 00 00 00 06 00 00 00 07 0C 00 0A 6C 6F
+	6E 67 20 61 72 72 61 79 00 00 00 07 00 00 00 00
+	00 00 00 01 00 00 00 00 00 00 00 02 00 00 00 00
+	00 00 00 03 00 00 00 00 00 00 00 04 00 00 00 00
+	00 00 00 05 00 00 00 00 00 00 00 06 00 00 00 00
+	00 00 00 07 00 09 00 04 6C 69 73 74 08 00 00 00
+	06 00 09 74 65 73 74 20 73 74 72 30 00 09 74 65
+	73 74 20 73 74 72 31 00 09 74 65 73 74 20 73 74
+	72 32 00 09 74 65 73 74 20 73 74 72 33 00 09 74
+	65 73 74 20 73 74 72 34 00 09 74 65 73 74 20 73
+	74 72 35 00
+)" > ();
+
+
+	NBT_Type::Compound cpdGen
+	{
+		{MU8STR(""),NBT_Type::Compound{}}
+	};
+	{
+		auto &insertTarget = cpdGen.GetCompound(MU8STR(""));
+
+		insertTarget.PutCompound(MU8STR("compound"),
+			NBT_Type::Compound
+			{
+				{MU8STR("byte array"),NBT_Type::ByteArray{1,2,3,4,5,6,7}},
+				{MU8STR("int array"),NBT_Type::IntArray{1,2,3,4,5,6,7}},
+				{MU8STR("long array"),NBT_Type::LongArray{1,2,3,4,5,6,7}},
+			}
+		);
+
+		insertTarget.PutList(MU8STR("list"),
+			NBT_Type::List
+			{
+				MU8STR("test str0"),
+				MU8STR("test str1"),
+				MU8STR("test str2"),
+				MU8STR("test str3"),
+				MU8STR("test str4"),
+				MU8STR("test str5"),
+			}
+		);
+
+		NBT_Type::Compound cpdTemp{};
+		cpdTemp.PutByte(MU8STR("byte"), -128);
+		cpdTemp.PutShort(MU8STR("short"), 32767);
+		cpdTemp.PutInt(MU8STR("int"), -2147483648);
+		cpdTemp.PutLong(MU8STR("long"), 1145141919810);
+		cpdTemp.PutFloat(MU8STR("float"), -0.1145f);
+		cpdTemp.PutDouble(MU8STR("double"), 114514.191981);
+		cpdTemp.PutString(MU8STR("string"), MU8STR("测试"));
+
+		insertTarget.Merge(std::move(cpdTemp));
+	}
+
+	NBT_ReadWrite_Test(NbtRawData, cpdGen);
+}
+
+
+void EmptyCompoundTest()
+{
+	constexpr auto NbtRawData = StrHexArray::ToHexArr < R"(
+	0A 00 00 00
+)" > ();
+
+	NBT_Type::Compound cpdGen
+	{
+		{MU8STR(""),NBT_Type::Compound{}}
+	};
+
+	NBT_ReadWrite_Test(NbtRawData, cpdGen);
+}
+
+void AnyTypeListTest()
+{
+	constexpr auto NbtRawData = StrHexArray::ToHexArr < R"(
+	0A 00 00 09 00 04 74 65 73 74 0A 00 00 00 04 03
+	00 00 00 00 00 01 00 06 00 00 40 00 00 00 00 00
+	00 00 00 0A 00 00 0B 00 00 00 00 00 00 00 00 08
+	00 00 00 07 74 65 73 74 73 74 72 00 00
+)" >();
+
+	NBT_Type::Compound cpdGen
+	{
+		{MU8STR(""),NBT_Type::Compound{}}
+	};
+	{
+		auto &insertTarget = cpdGen.GetCompound(MU8STR(""));
+		auto &list = insertTarget.PutList(MU8STR("test"), {}).first->second.GetList();
+
+		list.AddBackInt(1);
+		list.AddBackDouble(2.0);
+		list.AddBackCompound(NBT_Type::Compound{ {MU8STR(""),NBT_Type::IntArray{}} });
+		list.AddBackString(MU8STR("teststr"));
+	}
+
+	NBT_ReadWrite_Test(NbtRawData, cpdGen);
+}
+
 int main(void)
 {
 	StrHexArrayTest();
-	NBT_ReadWrite_Test();
 	NBT_IO_Test();
+
+	MultiDataTest();
+	EmptyCompoundTest();
+	AnyTypeListTest();
 
 	return 0;
 }

@@ -509,7 +509,7 @@ int mainhh(void)
 	lst.AddBackByte(1);
 	lst.AddBackByte(2);
 	lst.AddBackByte(3);
-	lst.AddBackInt<true>(4);
+	lst.AddBackInt(4);
 
 
 	cpd.Put(MU8STR("list"), std::move(lst));
