@@ -720,6 +720,13 @@ catch(...)\
 		{
 			//获取元素与类型
 			const NBT_Node &tmpNode = tList[i];
+			auto curTag = tmpNode.GetTag();
+
+			if (curTag == NBT_TAG::End)
+			{
+				//End元素被忽略警告（警告不返回错误码）
+				Error(EndElementIgnoreWarn, tData, funcErrInfo, "{}:\ntList[{}] type is [NBT_Type::End], ignored!", __FUNCTION__, i);
+			}
 			
 			if (!bNeedWarp)//不需要封装，直接写出
 			{
@@ -729,7 +736,7 @@ catch(...)\
 			else//需要封装，添加Compound
 			{
 				//如果元素本身就是Compound，那么检测是否和封装模式匹配，是的话再套一层防止丢失语义
-				auto curTag = tmpNode.GetTag();
+				
 				if (curTag == NBT_TAG::Compound)
 				{
 					const auto &cpdNode = tmpNode.GetCompound();
