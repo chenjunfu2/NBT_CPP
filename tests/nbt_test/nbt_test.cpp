@@ -1,5 +1,6 @@
 ﻿#include <nbt_cpp/NBT_All.hpp>
 #include <my/CodeTimer.hpp>
+#include <my/MyAssert.hpp>
 
 #include <stdio.h>
 //#include <source_location>
@@ -528,7 +529,7 @@ int mainhh(void)
 	return 0;
 }
 
-int main(void)
+int main69999(void)
 {
 	NBT_Node node_cpd{ NBT_Type::Compound{} };
 
@@ -604,3 +605,20 @@ int main(void)
 	return 0;
 }
 
+int main(void)
+{
+	NBT_Type::List l;
+
+	l.AddBackEnd({});
+	l.AddBackInt(0);
+	l.AddBackEnd({});
+	l.AddBackInt(1);
+	l.AddBackEnd({});
+
+	NBT_Type::Compound c{ {MU8STR(""),std::move(l)} };
+
+	std::vector<uint8_t> s;
+	MyAssert(NBT_Writer::WriteNBT(s, 0, c));
+
+
+}
