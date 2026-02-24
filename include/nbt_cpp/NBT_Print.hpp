@@ -55,6 +55,7 @@ public:
 
 	/// @brief 函数调用运算符重载，用于将类作为仿函数调用
 	/// @tparam ...Args 变参模板
+	/// @param lvl 用于指示信息打印等级
 	/// @param fmt 接受std::format_string的format
 	/// @param ...args 变参，与string的format对应
 	/// @note 函数不能也不应该抛出任何异常，因为函数可能用于异常信息打印，不能出现二次异常，
