@@ -77,10 +77,11 @@ public:
 			pfOutput = pfOutputErr;
 			break;
 		default:
+			//错误的等级不进行赋值，保持pfOutput为NULL，在后续跳过输出
 			break;
 		}
 
-		if (pfOutput == NULL)
+		if (pfOutput == NULL)//为NULL跳过
 		{
 			return;
 		}
