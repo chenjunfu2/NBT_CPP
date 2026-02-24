@@ -529,7 +529,7 @@ int mainhh(void)
 	return 0;
 }
 
-int main69999(void)
+int main(void)
 {
 	NBT_Node node_cpd{ NBT_Type::Compound{} };
 
@@ -605,7 +605,7 @@ int main69999(void)
 	return 0;
 }
 
-int main(void)
+int maingg(void)
 {
 	NBT_Type::List l;
 
@@ -619,8 +619,8 @@ int main(void)
 	NBT_Type::Compound c{ {MU8STR(""),std::move(l)} };
 
 	std::vector<uint8_t> s;
-	MyAssert(NBT_Writer::WriteNBT(s, 0, c));
-	MyAssert(NBT_Reader::ReadNBT<true>(s, 0, c));
+	MyAssert(NBT_Writer::WriteNBT(s, 0, c, 512, NBT_Print{ NULL,NULL }));//仅输出ERR
+	MyAssert(NBT_Reader::ReadNBT<true>(s, 0, c, 512, NBT_Print{ NULL,NULL }));//仅输出ERR
 
 	NBT_Helper::Print(c);
 
