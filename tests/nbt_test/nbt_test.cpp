@@ -614,11 +614,15 @@ int main(void)
 	l.AddBackEnd({});
 	l.AddBackInt(1);
 	l.AddBackEnd({});
+	l.AddBackLong(2);
 
 	NBT_Type::Compound c{ {MU8STR(""),std::move(l)} };
 
 	std::vector<uint8_t> s;
 	MyAssert(NBT_Writer::WriteNBT(s, 0, c));
+	MyAssert(NBT_Reader::ReadNBT<true>(s, 0, c));
 
+	NBT_Helper::Print(c);
 
+	return 0;
 }
