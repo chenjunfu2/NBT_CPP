@@ -672,6 +672,7 @@ catch(...)\
 
 		//转换为写入大小
 		NBT_Type::ListLength iListLength = (NBT_Type::ListLength)szListLength;
+		NBT_Type::ListLength iListEmptyEntryLength = 0;//统计空元素数量
 
 		//获取列表标签
 		bool bNeedWarp = false;
@@ -680,17 +681,31 @@ catch(...)\
 		//判断列表元素一致性，不一致则使用Compound封装
 		for (const auto &it : tList)
 		{
+			auto curTag = it.GetTag();
+			if (curTag == NBT_TAG::End)
+			{
+				++iListEmptyEntryLength;//统计空元素数量
+				continue;//空元素没有后续判断必要性，跳过
+			}
+
+			//如果已经确定需要进行替换，则跳过
+			if (bNeedWarp == true)
+			{
+				continue;
+			}
+
+			//如果列表元素值为End，那么替换为当前类型
 			if (enListElementTag == NBT_TAG::End)
 			{
-				enListElementTag = it.GetTag();//哪怕元素类型本身是End也没关系，因为最终都会被跳过，不影响enTestTag与后续判断
+				enListElementTag = curTag;
 				continue;
 			}
 			
-			if (enListElementTag != it.GetTag())
+			//类型不同则设为替换类型
+			if (enListElementTag != curTag)
 			{
 				bNeedWarp = true;
 				enListElementTag = NBT_TAG::Compound;//修改为Compound封装
-				break;
 			}
 		}
 
@@ -707,8 +722,8 @@ catch(...)\
 			return eRet;
 		}
 
-		//写出长度
-		eRet = WriteBigEndian(tData, iListLength, funcErrInfo);
+		//写出长度，不包含空元素，所以减去iListEmptyEntryLength
+		eRet = WriteBigEndian(tData, iListLength - iListEmptyEntryLength, funcErrInfo);
 		if (eRet != AllOk)
 		{
 			STACK_TRACEBACK("iListLength Write");
@@ -716,22 +731,29 @@ catch(...)\
 		}
 
 		//写出列表（递归）
-		for (NBT_Type::ListLength i = 0; i < iListLength; ++i)
+		for (NBT_Type::ListLength i = 0; i < iListLength; ++i)//注意遍历仍然需要遍历整个列表，而不是iListLength - iListEmptyEntryLength
 		{
 			//获取元素与类型
 			const NBT_Node &tmpNode = tList[i];
 			auto curTag = tmpNode.GetTag();
 
-			if (curTag == NBT_TAG::End)
+			if (curTag == NBT_TAG::End)//空元素跳过
 			{
 				//End元素被忽略警告（警告不返回错误码）
 				Error(EndElementIgnoreWarn, tData, funcErrInfo, "{}:\ntList[{}] type is [NBT_Type::End], ignored!", __FUNCTION__, i);
+				continue;//跳过
 			}
 			
 			if (!bNeedWarp)//不需要封装，直接写出
 			{
 				//列表无名字，无需重复tag，只需输出数据
 				eRet = PutSwitch<bSortCompound>(tData, tmpNode, enListElementTag, szStackDepth - 1, funcErrInfo);//同一元素类型List
+
+				if (eRet != AllOk)
+				{
+					STACK_TRACEBACK("PutSwitch Error, Size: [{}] Index: [{}]", iListLength, i);
+					return eRet;
+				}
 			}
 			else//需要封装，添加Compound
 			{
@@ -763,12 +785,6 @@ catch(...)\
 					STACK_TRACEBACK("PutCompoundEnd");
 					return eRet;
 				}
-			}
-			
-			if (eRet != AllOk)
-			{
-				STACK_TRACEBACK("PutSwitch Error, Size: [{}] Index: [{}]", iListLength, i);
-				return eRet;
 			}
 		}
 
