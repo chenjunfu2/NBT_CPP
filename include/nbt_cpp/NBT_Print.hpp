@@ -53,7 +53,7 @@ public:
 	/// @brief 默认析构
 	~NBT_Print(void) = default;
 
-	/// @brief 函数调用运算符重载，用于将类作为仿函数调用
+	/// @brief 函数调用运算符重载，用于将类作为仿函数调用，通过使用指定等级输出信息
 	/// @tparam ...Args 变参模板
 	/// @param lvl 用于指示信息打印等级
 	/// @param fmt 接受std::format_string的format
@@ -92,5 +92,18 @@ public:
 		{
 			fprintf(stderr, "ErrInfo Exception: \"Unknown Error\"\n");
 		}
+	}
+
+	/// @brief 函数调用运算符重载，用于将类作为仿函数调用，默认使用Info等级输出信息
+	/// @tparam ...Args 变参模板
+	/// @param fmt 接受std::format_string的format
+	/// @param ...args 变参，与string的format对应
+	/// @note 函数不能也不应该抛出任何异常，因为函数可能用于异常信息打印，不能出现二次异常，
+	/// 本实现中如果std::format出现任何二次异常，则放弃打印自定义信息，从c标准io的printf输出新抛出的异常信息，
+	/// 如果再次失败，则不做处理，因为异常可能已经致命，导致无法执行任何代码。
+	template<typename... Args>
+	void operator()(const std::FMT_STR<Args...> fmt, Args&&... args) noexcept
+	{
+		return operator()(NBT_Print_Level::Info, std::move(fmt), std::forward<Args>(args)...);
 	}
 };

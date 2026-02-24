@@ -36,7 +36,7 @@ public:
 	/// @param bPadding 是否打印缩进补白
 	/// @param bNewLine 是否在所有打印完成后的末尾换行
 	template<bool bSortCompound = true, typename PrintFunc = NBT_Print>
-	static void Print(const NBT_Node_View<true> nRoot, PrintFunc funcPrint = NBT_Print{ stdout }, bool bPadding = true, bool bNewLine = true)
+	static void Print(const NBT_Node_View<true> nRoot, PrintFunc funcPrint = NBT_Print{}, bool bPadding = true, bool bNewLine = true)
 	{
 		size_t szLevelStart = bPadding ? 0 : (size_t)-1;//跳过打印
 
