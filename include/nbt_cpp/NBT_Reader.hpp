@@ -18,8 +18,6 @@
 /// @brief NBT类型二进制反序列化工具
 
 /// @brief 这个类用于提供从NBT二进制流读取到NBT_Type::Compound对象的反序列化功能
-/// @tparam bIgnoreWarn 是否忽略读取过程的警告
-template <bool bIgnoreWarn = false>
 class NBT_Reader
 {
 	/// @brief 禁止构造
@@ -255,12 +253,6 @@ private:
 			Args&&... args
 		) noexcept
 	{
-		//忽略警告
-		if constexpr (std::is_same_v<T, WarnCode> && bIgnoreWarn)
-		{
-			return;
-		}
-
 		//打印错误原因
 		if constexpr (std::is_same_v<T, ErrCode>)
 		{

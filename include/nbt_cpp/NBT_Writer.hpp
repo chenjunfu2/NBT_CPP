@@ -19,8 +19,6 @@
 /// @brief NBT类型二进制序列化工具
 
 /// @brief 这个类用于提供从NBT_Type::Compound对象写出到NBT二进制流的序列化功能
-/// @tparam bIgnoreWarn 是否忽略写出过程的警告
-template <bool bIgnoreWarn = false>
 class NBT_Writer
 {
 	/// @brief 禁止构造
@@ -218,12 +216,6 @@ private:
 			Args&&... args
 		) noexcept
 	{
-		//忽略警告
-		if constexpr (std::is_same_v<T, WarnCode> && bIgnoreWarn)
-		{
-			return;
-		}
-
 		//打印错误原因
 		if constexpr (std::is_same_v<T, ErrCode>)
 		{
