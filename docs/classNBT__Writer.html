@@ -105,23 +105,23 @@ $(function(){initNavTree('classNBT__Writer.html','','classNBT__Writer-members');
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-static-methods" class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 静态 Public 成员函数</h2></td></tr>
-<tr class="memitem:a9994a3c1127b0eb222e18d7aa3f8098a" id="r_a9994a3c1127b0eb222e18d7aa3f8098a"><td class="memTemplParams" colspan="2">template&lt;bool bSortCompound = true, typename OutputStream, typename ErrInfoFunc = NBT_Print&gt; </td></tr>
-<tr class="memitem:a9994a3c1127b0eb222e18d7aa3f8098a template"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9994a3c1127b0eb222e18d7aa3f8098a">WriteNBT</a> (OutputStream OptStream, const <a class="el" href="classNBT__Type.html#a9dcd5050b96a10161f18d7ae4a22e7b3">NBT_Type::Compound</a> &amp;tCompound, size_t szStackDepth=512, ErrInfoFunc funcErrInfo=<a class="el" href="classNBT__Print.html">NBT_Print</a>{ stderr }) noexcept</td></tr>
-<tr class="memdesc:a9994a3c1127b0eb222e18d7aa3f8098a"><td class="mdescLeft">&#160;</td><td class="mdescRight">将NBT_Type::Compound对象写入到输出流中  <br /></td></tr>
-<tr class="memitem:a62321929a60ee8373eb530e85a9edc97" id="r_a62321929a60ee8373eb530e85a9edc97"><td class="memTemplParams" colspan="2">template&lt;bool bSortCompound = true, typename DataType = std::vector&lt;uint8_t&gt;, typename ErrInfoFunc = NBT_Print&gt; </td></tr>
-<tr class="memitem:a62321929a60ee8373eb530e85a9edc97 template"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a62321929a60ee8373eb530e85a9edc97">WriteNBT</a> (DataType &amp;tDataOutput, size_t szStartIdx, const <a class="el" href="classNBT__Type.html#a9dcd5050b96a10161f18d7ae4a22e7b3">NBT_Type::Compound</a> &amp;tCompound, size_t szStackDepth=512, ErrInfoFunc funcErrInfo=<a class="el" href="classNBT__Print.html">NBT_Print</a>{ stderr }) noexcept</td></tr>
-<tr class="memdesc:a62321929a60ee8373eb530e85a9edc97"><td class="mdescLeft">&#160;</td><td class="mdescRight">将NBT_Type::Compound对象写入到数据容器中  <br /></td></tr>
+<tr class="memitem:a9375397b4108e65b029702eef9cfd48f" id="r_a9375397b4108e65b029702eef9cfd48f"><td class="memTemplParams" colspan="2">template&lt;bool bSortCompound = true, typename OutputStream, typename InfoFunc = NBT_Print&gt; </td></tr>
+<tr class="memitem:a9375397b4108e65b029702eef9cfd48f template"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9375397b4108e65b029702eef9cfd48f">WriteNBT</a> (OutputStream OptStream, const <a class="el" href="classNBT__Type.html#a9dcd5050b96a10161f18d7ae4a22e7b3">NBT_Type::Compound</a> &amp;tCompound, size_t szStackDepth=512, InfoFunc funcInfo=<a class="el" href="classNBT__Print.html">NBT_Print</a>{}) noexcept</td></tr>
+<tr class="memdesc:a9375397b4108e65b029702eef9cfd48f"><td class="mdescLeft">&#160;</td><td class="mdescRight">将NBT_Type::Compound对象写入到输出流中  <br /></td></tr>
+<tr class="memitem:a71e825126323a834d3501d3fe6bb405f" id="r_a71e825126323a834d3501d3fe6bb405f"><td class="memTemplParams" colspan="2">template&lt;bool bSortCompound = true, typename DataType = std::vector&lt;uint8_t&gt;, typename InfoFunc = NBT_Print&gt; </td></tr>
+<tr class="memitem:a71e825126323a834d3501d3fe6bb405f template"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a71e825126323a834d3501d3fe6bb405f">WriteNBT</a> (DataType &amp;tDataOutput, size_t szStartIdx, const <a class="el" href="classNBT__Type.html#a9dcd5050b96a10161f18d7ae4a22e7b3">NBT_Type::Compound</a> &amp;tCompound, size_t szStackDepth=512, InfoFunc funcInfo=<a class="el" href="classNBT__Print.html">NBT_Print</a>{}) noexcept</td></tr>
+<tr class="memdesc:a71e825126323a834d3501d3fe6bb405f"><td class="mdescLeft">&#160;</td><td class="mdescRight">将NBT_Type::Compound对象写入到数据容器中  <br /></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">详细描述</h2>
 <div class="textblock"><p>这个类用于提供从NBT_Type::Compound对象写出到NBT二进制流的序列化功能 </p>
 </div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">成员函数说明</h2>
-<a id="a62321929a60ee8373eb530e85a9edc97" name="a62321929a60ee8373eb530e85a9edc97"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a62321929a60ee8373eb530e85a9edc97">&#9670;&#160;</a></span>WriteNBT() <span class="overload">[1/2]</span></h2>
+<a id="a71e825126323a834d3501d3fe6bb405f" name="a71e825126323a834d3501d3fe6bb405f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a71e825126323a834d3501d3fe6bb405f">&#9670;&#160;</a></span>WriteNBT() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;bool bSortCompound = true, typename DataType = std::vector&lt;uint8_t&gt;, typename ErrInfoFunc = NBT_Print&gt; </div>
+template&lt;bool bSortCompound = true, typename DataType = std::vector&lt;uint8_t&gt;, typename InfoFunc = NBT_Print&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -149,7 +149,7 @@ template&lt;bool bSortCompound = true, typename DataType = std::vector&lt;uint8_
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">ErrInfoFunc</td>          <td class="paramname"><span class="paramname"><em>funcErrInfo</em></span><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="classNBT__Print.html">NBT_Print</a>{&#160;stderr&#160;}</span>&#160;)</td>
+          <td class="paramtype">InfoFunc</td>          <td class="paramname"><span class="paramname"><em>funcInfo</em></span><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="classNBT__Print.html">NBT_Print</a>{}</span>&#160;)</td>
         </tr>
       </table>
   </td>
@@ -164,7 +164,7 @@ template&lt;bool bSortCompound = true, typename DataType = std::vector&lt;uint8_
   <table class="tparams">
     <tr><td class="paramname">bSortCompound</td><td>是否对Compound对象内部的键进行排序，以获得一致性的输出结果 </td></tr>
     <tr><td class="paramname">DataType</td><td>数据容器类型 </td></tr>
-    <tr><td class="paramname">ErrInfoFunc</td><td>错误信息输出仿函数类型 </td></tr>
+    <tr><td class="paramname">InfoFunc</td><td>信息输出仿函数类型 </td></tr>
   </table>
   </dd>
 </dl>
@@ -174,7 +174,7 @@ template&lt;bool bSortCompound = true, typename DataType = std::vector&lt;uint8_
     <tr><td class="paramdir"></td><td class="paramname">szStartIdx</td><td>数据起始索引，用于指定起始写入位置，设置为tDataOutput.size()则可以进行拼接，设置为0则清空容器 </td></tr>
     <tr><td class="paramdir"></td><td class="paramname">tCompound</td><td>用于写出的对象 </td></tr>
     <tr><td class="paramdir"></td><td class="paramname">szStackDepth</td><td>递归最大深度，防止栈溢出 </td></tr>
-    <tr><td class="paramdir"></td><td class="paramname">funcErrInfo</td><td>错误信息处理仿函数 </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">funcInfo</td><td>错误信息处理仿函数 </td></tr>
   </table>
   </dd>
 </dl>
@@ -183,13 +183,13 @@ template&lt;bool bSortCompound = true, typename DataType = std::vector&lt;uint8_
 
 </div>
 </div>
-<a id="a9994a3c1127b0eb222e18d7aa3f8098a" name="a9994a3c1127b0eb222e18d7aa3f8098a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9994a3c1127b0eb222e18d7aa3f8098a">&#9670;&#160;</a></span>WriteNBT() <span class="overload">[2/2]</span></h2>
+<a id="a9375397b4108e65b029702eef9cfd48f" name="a9375397b4108e65b029702eef9cfd48f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9375397b4108e65b029702eef9cfd48f">&#9670;&#160;</a></span>WriteNBT() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;bool bSortCompound = true, typename OutputStream, typename ErrInfoFunc = NBT_Print&gt; </div>
+template&lt;bool bSortCompound = true, typename OutputStream, typename InfoFunc = NBT_Print&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -212,7 +212,7 @@ template&lt;bool bSortCompound = true, typename OutputStream, typename ErrInfoFu
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">ErrInfoFunc</td>          <td class="paramname"><span class="paramname"><em>funcErrInfo</em></span><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="classNBT__Print.html">NBT_Print</a>{&#160;stderr&#160;}</span>&#160;)</td>
+          <td class="paramtype">InfoFunc</td>          <td class="paramname"><span class="paramname"><em>funcInfo</em></span><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="classNBT__Print.html">NBT_Print</a>{}</span>&#160;)</td>
         </tr>
       </table>
   </td>
@@ -227,7 +227,7 @@ template&lt;bool bSortCompound = true, typename OutputStream, typename ErrInfoFu
   <table class="tparams">
     <tr><td class="paramname">bSortCompound</td><td>是否对Compound对象内部的键进行排序，以获得一致性的输出结果 </td></tr>
     <tr><td class="paramname">OutputStream</td><td>输出流类型，必须符合DefaultOutputStream类型的接口 </td></tr>
-    <tr><td class="paramname">ErrInfoFunc</td><td>错误信息输出仿函数类型 </td></tr>
+    <tr><td class="paramname">InfoFunc</td><td>信息输出仿函数类型 </td></tr>
   </table>
   </dd>
 </dl>
@@ -236,12 +236,12 @@ template&lt;bool bSortCompound = true, typename OutputStream, typename ErrInfoFu
     <tr><td class="paramdir">[out]</td><td class="paramname">OptStream</td><td>输出流对象 </td></tr>
     <tr><td class="paramdir"></td><td class="paramname">tCompound</td><td>用于写出的对象 </td></tr>
     <tr><td class="paramdir"></td><td class="paramname">szStackDepth</td><td>递归最大深度，防止栈溢出 </td></tr>
-    <tr><td class="paramdir"></td><td class="paramname">funcErrInfo</td><td>错误信息处理仿函数 </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">funcInfo</td><td>错误信息处理仿函数 </td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>返回</dt><dd>写入成功返回true，失败返回false </dd></dl>
-<dl class="section note"><dt>注解</dt><dd>错误与警告信息都输出到funcErrInfo，错误会导致函数结束剩下的写出任务，并进行栈回溯输出，最终返回false。警告则只会输出一次信息，然后继续执行，如果没有任何错误但是存在警告，函数仍将返回true。 </dd></dl>
+<dl class="section note"><dt>注解</dt><dd>错误与警告信息都输出到funcInfo，错误会导致函数结束剩下的写出任务，并进行栈回溯输出，最终返回false。警告则只会输出一次信息，然后继续执行，如果没有任何错误但是存在警告，函数仍将返回true。 </dd></dl>
 
 </div>
 </div>

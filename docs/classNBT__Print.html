@@ -100,21 +100,24 @@ $(function(){initNavTree('classNBT__Print.html','','classNBT__Print-members'); }
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public 成员函数</h2></td></tr>
-<tr class="memitem:a1f1c34f6877dc9eb0e1d87c6b8814d2c" id="r_a1f1c34f6877dc9eb0e1d87c6b8814d2c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1f1c34f6877dc9eb0e1d87c6b8814d2c">NBT_Print</a> (FILE *_pfOutput)</td></tr>
-<tr class="memdesc:a1f1c34f6877dc9eb0e1d87c6b8814d2c"><td class="mdescLeft">&#160;</td><td class="mdescRight">通过c文件对象构造  <br /></td></tr>
+<tr class="memitem:adc11e4db49c64e57802b625ef0d83205" id="r_adc11e4db49c64e57802b625ef0d83205"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#adc11e4db49c64e57802b625ef0d83205">NBT_Print</a> (FILE *_pfOutputInfo=stdout, FILE *_pfOutputWarn=stderr, FILE *_pfOutputErr=stderr)</td></tr>
+<tr class="memdesc:adc11e4db49c64e57802b625ef0d83205"><td class="mdescLeft">&#160;</td><td class="mdescRight">通过c文件对象构造  <br /></td></tr>
 <tr class="memitem:a8f3f53ef5f64d005a4b0efe579d714ce" id="r_a8f3f53ef5f64d005a4b0efe579d714ce"><td class="memItemLeft" align="right" valign="top"><a id="a8f3f53ef5f64d005a4b0efe579d714ce" name="a8f3f53ef5f64d005a4b0efe579d714ce"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>~NBT_Print</b> (void)=default</td></tr>
 <tr class="memdesc:a8f3f53ef5f64d005a4b0efe579d714ce"><td class="mdescLeft">&#160;</td><td class="mdescRight">默认析构 <br /></td></tr>
+<tr class="memitem:aef14ca7879e9e56e2f7b47dfc63b4ae5" id="r_aef14ca7879e9e56e2f7b47dfc63b4ae5"><td class="memTemplParams" colspan="2">template&lt;typename... Args&gt; </td></tr>
+<tr class="memitem:aef14ca7879e9e56e2f7b47dfc63b4ae5 template"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aef14ca7879e9e56e2f7b47dfc63b4ae5">operator()</a> (<a class="el" href="NBT__Print_8hpp.html#a977ff50d4d248543d59717387e6dd311">NBT_Print_Level</a> lvl, const std::FMT_STR&lt; Args... &gt; fmt, Args &amp;&amp;... args) noexcept</td></tr>
+<tr class="memdesc:aef14ca7879e9e56e2f7b47dfc63b4ae5"><td class="mdescLeft">&#160;</td><td class="mdescRight">函数调用运算符重载，用于将类作为仿函数调用，通过使用指定等级输出信息  <br /></td></tr>
 <tr class="memitem:a5f4504f6b96dc0c2340b56793cb72e20" id="r_a5f4504f6b96dc0c2340b56793cb72e20"><td class="memTemplParams" colspan="2">template&lt;typename... Args&gt; </td></tr>
 <tr class="memitem:a5f4504f6b96dc0c2340b56793cb72e20 template"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5f4504f6b96dc0c2340b56793cb72e20">operator()</a> (const std::FMT_STR&lt; Args... &gt; fmt, Args &amp;&amp;... args) noexcept</td></tr>
-<tr class="memdesc:a5f4504f6b96dc0c2340b56793cb72e20"><td class="mdescLeft">&#160;</td><td class="mdescRight">函数调用运算符重载，用于将类作为仿函数调用  <br /></td></tr>
+<tr class="memdesc:a5f4504f6b96dc0c2340b56793cb72e20"><td class="mdescLeft">&#160;</td><td class="mdescRight">函数调用运算符重载，用于将类作为仿函数调用，默认使用Info等级输出信息  <br /></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">详细描述</h2>
 <div class="textblock"><p>一个用于打印信息到指定的C文件对象的工具类，作为库内大部分存在信息输出接口的默认实现。 实际可被使用此类为默认值参数的函数的调用方，以类似此类的仿函数参数重写的其它类型替换， 比如调用方实现了一个My_Print，只要重载了仿函数调用运算符，且参数与此类的仿函数调用运算符一致， 则可以直接替换此类并传递给目标参数。 </p>
 <dl class="section note"><dt>注解</dt><dd>输出格式里的fmt为std::format格式 </dd></dl>
 </div><a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">构造及析构函数说明</h2>
-<a id="a1f1c34f6877dc9eb0e1d87c6b8814d2c" name="a1f1c34f6877dc9eb0e1d87c6b8814d2c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1f1c34f6877dc9eb0e1d87c6b8814d2c">&#9670;&#160;</a></span>NBT_Print()</h2>
+<a id="adc11e4db49c64e57802b625ef0d83205" name="adc11e4db49c64e57802b625ef0d83205"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adc11e4db49c64e57802b625ef0d83205">&#9670;&#160;</a></span>NBT_Print()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -125,8 +128,17 @@ Public 成员函数</h2></td></tr>
         <tr>
           <td class="memname">NBT_Print::NBT_Print </td>
           <td>(</td>
-          <td class="paramtype">FILE *</td>          <td class="paramname"><span class="paramname"><em>_pfOutput</em></span></td><td>)</td>
+          <td class="paramtype">FILE *</td>          <td class="paramname"><span class="paramname"><em>_pfOutputInfo</em></span><span class="paramdefsep"> = </span><span class="paramdefval">stdout</span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">FILE *</td>          <td class="paramname"><span class="paramname"><em>_pfOutputWarn</em></span><span class="paramdefsep"> = </span><span class="paramdefval">stderr</span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">FILE *</td>          <td class="paramname"><span class="paramname"><em>_pfOutputErr</em></span><span class="paramdefsep"> = </span><span class="paramdefval">stderr</span>&#160;)</td>
         </tr>
       </table>
   </td>
@@ -139,17 +151,21 @@ Public 成员函数</h2></td></tr>
 <p>通过c文件对象构造 </p>
 <dl class="params"><dt>参数</dt><dd>
   <table class="params">
-    <tr><td class="paramname">_pfOutput</td><td>C文件对象 </td></tr>
+    <tr><td class="paramname">_pfOutputInfo</td><td>普通信息输出的C文件对象（通常为stdout） </td></tr>
+    <tr><td class="paramname">_pfOutputWarn</td><td>警告信息输出的C文件对象（通常为stderr） </td></tr>
+    <tr><td class="paramname">_pfOutputErr</td><td>错误信息输出的C文件对象（通常为stderr） </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section note"><dt>注解</dt><dd>类只引用文件对象，而非持有，类不会释放文件对象， 且文件对象的生命周期必须大于此类，否则行为未定义 </dd></dl>
+<dl class="section note"><dt>注解</dt><dd>类只引用文件对象，而非持有，类不会释放文件对象， 且文件对象的生命周期必须大于此类，否则行为未定义 </dd>
+<dd>
+用户必须所有参数不为NULL </dd></dl>
 
 </div>
 </div>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">成员函数说明</h2>
 <a id="a5f4504f6b96dc0c2340b56793cb72e20" name="a5f4504f6b96dc0c2340b56793cb72e20"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5f4504f6b96dc0c2340b56793cb72e20">&#9670;&#160;</a></span>operator()()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a5f4504f6b96dc0c2340b56793cb72e20">&#9670;&#160;</a></span>operator()() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -177,7 +193,7 @@ template&lt;typename... Args&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>函数调用运算符重载，用于将类作为仿函数调用 </p>
+<p>函数调用运算符重载，用于将类作为仿函数调用，默认使用Info等级输出信息 </p>
 <dl class="tparams"><dt>模板参数</dt><dd>
   <table class="tparams">
     <tr><td class="paramname">...Args</td><td>变参模板 </td></tr>
@@ -186,6 +202,59 @@ template&lt;typename... Args&gt; </div>
 </dl>
 <dl class="params"><dt>参数</dt><dd>
   <table class="params">
+    <tr><td class="paramname">fmt</td><td>接受std::format_string的format </td></tr>
+    <tr><td class="paramname">...args</td><td>变参，与string的format对应 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>注解</dt><dd>函数不能也不应该抛出任何异常，因为函数可能用于异常信息打印，不能出现二次异常， 本实现中如果std::format出现任何二次异常，则放弃打印自定义信息，从c标准io的printf输出新抛出的异常信息， 如果再次失败，则不做处理，因为异常可能已经致命，导致无法执行任何代码。 </dd></dl>
+
+</div>
+</div>
+<a id="aef14ca7879e9e56e2f7b47dfc63b4ae5" name="aef14ca7879e9e56e2f7b47dfc63b4ae5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aef14ca7879e9e56e2f7b47dfc63b4ae5">&#9670;&#160;</a></span>operator()() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename... Args&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void NBT_Print::operator() </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="NBT__Print_8hpp.html#a977ff50d4d248543d59717387e6dd311">NBT_Print_Level</a></td>          <td class="paramname"><span class="paramname"><em>lvl</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::FMT_STR&lt; Args... &gt;</td>          <td class="paramname"><span class="paramname"><em>fmt</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Args &amp;&amp;...</td>          <td class="paramname"><span class="paramname"><em>args</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>函数调用运算符重载，用于将类作为仿函数调用，通过使用指定等级输出信息 </p>
+<dl class="tparams"><dt>模板参数</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">...Args</td><td>变参模板 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">lvl</td><td>用于指示信息打印等级 </td></tr>
     <tr><td class="paramname">fmt</td><td>接受std::format_string的format </td></tr>
     <tr><td class="paramname">...args</td><td>变参，与string的format对应 </td></tr>
   </table>

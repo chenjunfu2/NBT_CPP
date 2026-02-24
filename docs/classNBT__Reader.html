@@ -105,23 +105,23 @@ $(function(){initNavTree('classNBT__Reader.html','','classNBT__Reader-members');
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-static-methods" class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 静态 Public 成员函数</h2></td></tr>
-<tr class="memitem:a7f0f475ec15eb8b47f81e8b7e0bd857f" id="r_a7f0f475ec15eb8b47f81e8b7e0bd857f"><td class="memTemplParams" colspan="2">template&lt;bool bUnwrapMixedList = true, typename InputStream, typename ErrInfoFunc = NBT_Print&gt; </td></tr>
-<tr class="memitem:a7f0f475ec15eb8b47f81e8b7e0bd857f template"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7f0f475ec15eb8b47f81e8b7e0bd857f">ReadNBT</a> (InputStream IptStream, <a class="el" href="classNBT__Type.html#a9dcd5050b96a10161f18d7ae4a22e7b3">NBT_Type::Compound</a> &amp;tCompound, size_t szStackDepth=512, ErrInfoFunc funcErrInfo=<a class="el" href="classNBT__Print.html">NBT_Print</a>{ stderr }) noexcept</td></tr>
-<tr class="memdesc:a7f0f475ec15eb8b47f81e8b7e0bd857f"><td class="mdescLeft">&#160;</td><td class="mdescRight">从输入流中读取NBT数据到NBT_Type::Compound对象中  <br /></td></tr>
-<tr class="memitem:a64149f7b27756dabe792ea8e940fe5ec" id="r_a64149f7b27756dabe792ea8e940fe5ec"><td class="memTemplParams" colspan="2">template&lt;bool bUnwrapMixedList = true, typename DataType = std::vector&lt;uint8_t&gt;, typename ErrInfoFunc = NBT_Print&gt; </td></tr>
-<tr class="memitem:a64149f7b27756dabe792ea8e940fe5ec template"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a64149f7b27756dabe792ea8e940fe5ec">ReadNBT</a> (const DataType &amp;tDataInput, size_t szStartIdx, <a class="el" href="classNBT__Type.html#a9dcd5050b96a10161f18d7ae4a22e7b3">NBT_Type::Compound</a> &amp;tCompound, size_t szStackDepth=512, ErrInfoFunc funcErrInfo=<a class="el" href="classNBT__Print.html">NBT_Print</a>{ stderr }) noexcept</td></tr>
-<tr class="memdesc:a64149f7b27756dabe792ea8e940fe5ec"><td class="mdescLeft">&#160;</td><td class="mdescRight">从数据容器中读取NBT数据到NBT_Type::Compound对象中  <br /></td></tr>
+<tr class="memitem:a91240a440b8fcd42c1ff818c0e2ad000" id="r_a91240a440b8fcd42c1ff818c0e2ad000"><td class="memTemplParams" colspan="2">template&lt;bool bUnwrapMixedList = true, typename InputStream, typename InfoFunc = NBT_Print&gt; </td></tr>
+<tr class="memitem:a91240a440b8fcd42c1ff818c0e2ad000 template"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a91240a440b8fcd42c1ff818c0e2ad000">ReadNBT</a> (InputStream IptStream, <a class="el" href="classNBT__Type.html#a9dcd5050b96a10161f18d7ae4a22e7b3">NBT_Type::Compound</a> &amp;tCompound, size_t szStackDepth=512, InfoFunc funcInfo=<a class="el" href="classNBT__Print.html">NBT_Print</a>{}) noexcept</td></tr>
+<tr class="memdesc:a91240a440b8fcd42c1ff818c0e2ad000"><td class="mdescLeft">&#160;</td><td class="mdescRight">从输入流中读取NBT数据到NBT_Type::Compound对象中  <br /></td></tr>
+<tr class="memitem:a0e4580613702843175e561d02e688bd1" id="r_a0e4580613702843175e561d02e688bd1"><td class="memTemplParams" colspan="2">template&lt;bool bUnwrapMixedList = true, typename DataType = std::vector&lt;uint8_t&gt;, typename InfoFunc = NBT_Print&gt; </td></tr>
+<tr class="memitem:a0e4580613702843175e561d02e688bd1 template"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0e4580613702843175e561d02e688bd1">ReadNBT</a> (const DataType &amp;tDataInput, size_t szStartIdx, <a class="el" href="classNBT__Type.html#a9dcd5050b96a10161f18d7ae4a22e7b3">NBT_Type::Compound</a> &amp;tCompound, size_t szStackDepth=512, InfoFunc funcInfo=<a class="el" href="classNBT__Print.html">NBT_Print</a>{}) noexcept</td></tr>
+<tr class="memdesc:a0e4580613702843175e561d02e688bd1"><td class="mdescLeft">&#160;</td><td class="mdescRight">从数据容器中读取NBT数据到NBT_Type::Compound对象中  <br /></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">详细描述</h2>
 <div class="textblock"><p>这个类用于提供从NBT二进制流读取到NBT_Type::Compound对象的反序列化功能 </p>
 </div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">成员函数说明</h2>
-<a id="a64149f7b27756dabe792ea8e940fe5ec" name="a64149f7b27756dabe792ea8e940fe5ec"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a64149f7b27756dabe792ea8e940fe5ec">&#9670;&#160;</a></span>ReadNBT() <span class="overload">[1/2]</span></h2>
+<a id="a0e4580613702843175e561d02e688bd1" name="a0e4580613702843175e561d02e688bd1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0e4580613702843175e561d02e688bd1">&#9670;&#160;</a></span>ReadNBT() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;bool bUnwrapMixedList = true, typename DataType = std::vector&lt;uint8_t&gt;, typename ErrInfoFunc = NBT_Print&gt; </div>
+template&lt;bool bUnwrapMixedList = true, typename DataType = std::vector&lt;uint8_t&gt;, typename InfoFunc = NBT_Print&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -149,7 +149,7 @@ template&lt;bool bUnwrapMixedList = true, typename DataType = std::vector&lt;uin
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">ErrInfoFunc</td>          <td class="paramname"><span class="paramname"><em>funcErrInfo</em></span><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="classNBT__Print.html">NBT_Print</a>{&#160;stderr&#160;}</span>&#160;)</td>
+          <td class="paramtype">InfoFunc</td>          <td class="paramname"><span class="paramname"><em>funcInfo</em></span><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="classNBT__Print.html">NBT_Print</a>{}</span>&#160;)</td>
         </tr>
       </table>
   </td>
@@ -164,7 +164,7 @@ template&lt;bool bUnwrapMixedList = true, typename DataType = std::vector&lt;uin
   <table class="tparams">
     <tr><td class="paramname">bUnwrapMixedList</td><td>是否自动解包列表中的打包Compound </td></tr>
     <tr><td class="paramname">DataType</td><td>数据容器类型 </td></tr>
-    <tr><td class="paramname">ErrInfoFunc</td><td>错误信息输出仿函数类型 </td></tr>
+    <tr><td class="paramname">InfoFunc</td><td>错误信息输出仿函数类型 </td></tr>
   </table>
   </dd>
 </dl>
@@ -174,7 +174,7 @@ template&lt;bool bUnwrapMixedList = true, typename DataType = std::vector&lt;uin
     <tr><td class="paramdir"></td><td class="paramname">szStartIdx</td><td>数据起始索引，会忽略tDataInput中长度为szStartIndex的数据 </td></tr>
     <tr><td class="paramdir">[out]</td><td class="paramname">tCompound</td><td>用于返回读取结果的对象 </td></tr>
     <tr><td class="paramdir"></td><td class="paramname">szStackDepth</td><td>递归最大深度深度，防止栈溢出 </td></tr>
-    <tr><td class="paramdir"></td><td class="paramname">funcErrInfo</td><td>错误信息处理仿函数 </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">funcInfo</td><td>错误信息处理仿函数 </td></tr>
   </table>
   </dd>
 </dl>
@@ -183,13 +183,13 @@ template&lt;bool bUnwrapMixedList = true, typename DataType = std::vector&lt;uin
 
 </div>
 </div>
-<a id="a7f0f475ec15eb8b47f81e8b7e0bd857f" name="a7f0f475ec15eb8b47f81e8b7e0bd857f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7f0f475ec15eb8b47f81e8b7e0bd857f">&#9670;&#160;</a></span>ReadNBT() <span class="overload">[2/2]</span></h2>
+<a id="a91240a440b8fcd42c1ff818c0e2ad000" name="a91240a440b8fcd42c1ff818c0e2ad000"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a91240a440b8fcd42c1ff818c0e2ad000">&#9670;&#160;</a></span>ReadNBT() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;bool bUnwrapMixedList = true, typename InputStream, typename ErrInfoFunc = NBT_Print&gt; </div>
+template&lt;bool bUnwrapMixedList = true, typename InputStream, typename InfoFunc = NBT_Print&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -212,7 +212,7 @@ template&lt;bool bUnwrapMixedList = true, typename InputStream, typename ErrInfo
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">ErrInfoFunc</td>          <td class="paramname"><span class="paramname"><em>funcErrInfo</em></span><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="classNBT__Print.html">NBT_Print</a>{&#160;stderr&#160;}</span>&#160;)</td>
+          <td class="paramtype">InfoFunc</td>          <td class="paramname"><span class="paramname"><em>funcInfo</em></span><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="classNBT__Print.html">NBT_Print</a>{}</span>&#160;)</td>
         </tr>
       </table>
   </td>
@@ -227,7 +227,7 @@ template&lt;bool bUnwrapMixedList = true, typename InputStream, typename ErrInfo
   <table class="tparams">
     <tr><td class="paramname">bUnwrapMixedList</td><td>是否自动解包列表中的打包Compound </td></tr>
     <tr><td class="paramname">InputStream</td><td>输入流类型，必须符合DefaultOutputStream类型的接口 </td></tr>
-    <tr><td class="paramname">ErrInfoFunc</td><td>错误信息输出仿函数类型 </td></tr>
+    <tr><td class="paramname">InfoFunc</td><td>错误信息输出仿函数类型 </td></tr>
   </table>
   </dd>
 </dl>
@@ -236,12 +236,12 @@ template&lt;bool bUnwrapMixedList = true, typename InputStream, typename ErrInfo
     <tr><td class="paramdir"></td><td class="paramname">IptStream</td><td>输入流对象 </td></tr>
     <tr><td class="paramdir">[out]</td><td class="paramname">tCompound</td><td>用于返回读取结果的对象 </td></tr>
     <tr><td class="paramdir"></td><td class="paramname">szStackDepth</td><td>递归最大深度深度，防止栈溢出 </td></tr>
-    <tr><td class="paramdir"></td><td class="paramname">funcErrInfo</td><td>错误信息处理仿函数 </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">funcInfo</td><td>错误信息处理仿函数 </td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>返回</dt><dd>读取成功返回true，失败返回false </dd></dl>
-<dl class="section note"><dt>注解</dt><dd>错误与警告信息都输出到funcErrInfo，错误会导致函数结束剩下的写出任务，并进行栈回溯输出，最终返回false。警告则只会输出一次信息，然后继续执行，如果没有任何错误但是存在警告，函数仍将返回true。 函数不会清除tCompound对象的数据，所以可以通过多次调用此函数，把多个NBT数据流合并到同一个tCompound对象内， 但是如果多个流中有重复、同名的NBT键，则会产生冲突，为了保证键的唯一性，后来的值会替换原先的值，并通过funcErrInfo产生一个警告信息。 </dd></dl>
+<dl class="section note"><dt>注解</dt><dd>错误与警告信息都输出到funcInfo，错误会导致函数结束剩下的写出任务，并进行栈回溯输出，最终返回false。警告则只会输出一次信息，然后继续执行，如果没有任何错误但是存在警告，函数仍将返回true。 函数不会清除tCompound对象的数据，所以可以通过多次调用此函数，把多个NBT数据流合并到同一个tCompound对象内， 但是如果多个流中有重复、同名的NBT键，则会产生冲突，为了保证键的唯一性，后来的值会替换原先的值，并通过funcInfo产生一个警告信息。 </dd></dl>
 
 </div>
 </div>

@@ -173,6 +173,15 @@ using&#160;</td><td class="memItemRight" valign="bottom"><b>ListLength</b> = int
 静态 Public 成员函数</h2></td></tr>
 <tr class="memitem:aee5bc4a2ad015e10f57f1f5b02a41418" id="r_aee5bc4a2ad015e10f57f1f5b02a41418"><td class="memItemLeft" align="right" valign="top">static constexpr const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aee5bc4a2ad015e10f57f1f5b02a41418">GetTypeName</a> (<a class="el" href="NBT__TAG_8hpp.html#ada3a2766daa185b5461d684c766b4a2e">NBT_TAG</a> tag) noexcept</td></tr>
 <tr class="memdesc:aee5bc4a2ad015e10f57f1f5b02a41418"><td class="mdescLeft">&#160;</td><td class="mdescRight">通过类型标签获取类型名称  <br /></td></tr>
+<tr id="pub-static-methods-0" class="groupHeader"><td colspan="2"><div class="groupHeader">类型判断函数（可动态）</div></td></tr>
+<tr class="memitem:aafd30262d53d64fa3e9c0d72caaaca4b" id="r_aafd30262d53d64fa3e9c0d72caaaca4b"><td class="memItemLeft" align="right" valign="top">static constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aafd30262d53d64fa3e9c0d72caaaca4b">IsNumericTag</a> (<a class="el" href="NBT__TAG_8hpp.html#ada3a2766daa185b5461d684c766b4a2e">NBT_TAG</a> tag) noexcept</td></tr>
+<tr class="memdesc:aafd30262d53d64fa3e9c0d72caaaca4b"><td class="mdescLeft">&#160;</td><td class="mdescRight">判断给定的NBT_TAG是否对应数值类型（包含所有整数和浮点数类型）  <br /></td></tr>
+<tr class="memitem:aedfebfb369c541b0d62de5369d31b1ee" id="r_aedfebfb369c541b0d62de5369d31b1ee"><td class="memItemLeft" align="right" valign="top">static constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aedfebfb369c541b0d62de5369d31b1ee">IsIntegerTag</a> (<a class="el" href="NBT__TAG_8hpp.html#ada3a2766daa185b5461d684c766b4a2e">NBT_TAG</a> tag) noexcept</td></tr>
+<tr class="memdesc:aedfebfb369c541b0d62de5369d31b1ee"><td class="mdescLeft">&#160;</td><td class="mdescRight">判断给定的NBT_TAG是否对应整数类型（包含所有整数类型）  <br /></td></tr>
+<tr class="memitem:a71a9601d2cacc198cbe6ec96ccd03853" id="r_a71a9601d2cacc198cbe6ec96ccd03853"><td class="memItemLeft" align="right" valign="top">static constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a71a9601d2cacc198cbe6ec96ccd03853">IsFloatingTag</a> (<a class="el" href="NBT__TAG_8hpp.html#ada3a2766daa185b5461d684c766b4a2e">NBT_TAG</a> tag) noexcept</td></tr>
+<tr class="memdesc:a71a9601d2cacc198cbe6ec96ccd03853"><td class="mdescLeft">&#160;</td><td class="mdescRight">判断给定的NBT_TAG是否对应浮点数类型（包含所有浮点数类型）  <br /></td></tr>
+<tr class="memitem:ae0dcf9c4f01a3508350b27e22efac716" id="r_ae0dcf9c4f01a3508350b27e22efac716"><td class="memItemLeft" align="right" valign="top">static constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae0dcf9c4f01a3508350b27e22efac716">IsArrayTag</a> (<a class="el" href="NBT__TAG_8hpp.html#ada3a2766daa185b5461d684c766b4a2e">NBT_TAG</a> tag) noexcept</td></tr>
+<tr class="memdesc:ae0dcf9c4f01a3508350b27e22efac716"><td class="mdescLeft">&#160;</td><td class="mdescRight">判断给定的NBT_TAG是否对应数组类型（包含所有数组类型）  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-static-attribs" class="groupheader"><a id="pub-static-attribs" name="pub-static-attribs"></a>
 静态 Public 属性</h2></td></tr>
@@ -225,6 +234,19 @@ static constexpr <a class="el" href="#a7f8ae2e6e2f87445d1e72f7e922ba053">Long</a
 <tr class="memitem:af4de3bfa5483cc0c6eb0963afda375ef" id="r_af4de3bfa5483cc0c6eb0963afda375ef"><td class="memItemLeft" align="right" valign="top"><a id="af4de3bfa5483cc0c6eb0963afda375ef" name="af4de3bfa5483cc0c6eb0963afda375ef"></a>
 static constexpr <a class="el" href="#a7f8ae2e6e2f87445d1e72f7e922ba053">Long</a>&#160;</td><td class="memItemRight" valign="bottom"><b>Long_Min</b> = INT64_MIN</td></tr>
 <tr class="memdesc:af4de3bfa5483cc0c6eb0963afda375ef"><td class="mdescLeft">&#160;</td><td class="mdescRight">长整数类型最小值 <br /></td></tr>
+<tr id="pub-static-attribs-2" class="groupHeader"><td colspan="2"><div class="groupHeader">类型判断模板</div></td></tr>
+<tr class="memitem:a133b229478ee9047158f6f99900b3d59" id="r_a133b229478ee9047158f6f99900b3d59"><td class="memTemplParams" colspan="2">template&lt;typename T&gt; </td></tr>
+<tr class="memitem:a133b229478ee9047158f6f99900b3d59 template"><td class="memItemLeft" align="right" valign="top">static constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a133b229478ee9047158f6f99900b3d59">IsNumericType_V</a></td></tr>
+<tr class="memdesc:a133b229478ee9047158f6f99900b3d59"><td class="mdescLeft">&#160;</td><td class="mdescRight">判断类型是否为NBT数值类型（包含所有整数和浮点数类型）  <br /></td></tr>
+<tr class="memitem:a4c376aa5e59ded392dc860e3ac745436" id="r_a4c376aa5e59ded392dc860e3ac745436"><td class="memTemplParams" colspan="2">template&lt;typename T&gt; </td></tr>
+<tr class="memitem:a4c376aa5e59ded392dc860e3ac745436 template"><td class="memItemLeft" align="right" valign="top">static constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4c376aa5e59ded392dc860e3ac745436">IsIntegerType_V</a></td></tr>
+<tr class="memdesc:a4c376aa5e59ded392dc860e3ac745436"><td class="mdescLeft">&#160;</td><td class="mdescRight">判断类型是否为NBT整数类型（包含所有整数类型）  <br /></td></tr>
+<tr class="memitem:abba0d08fee2e48ecd59247d760ad6dca" id="r_abba0d08fee2e48ecd59247d760ad6dca"><td class="memTemplParams" colspan="2">template&lt;typename T&gt; </td></tr>
+<tr class="memitem:abba0d08fee2e48ecd59247d760ad6dca template"><td class="memItemLeft" align="right" valign="top">static constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abba0d08fee2e48ecd59247d760ad6dca">IsFloatingType_V</a></td></tr>
+<tr class="memdesc:abba0d08fee2e48ecd59247d760ad6dca"><td class="mdescLeft">&#160;</td><td class="mdescRight">判断类型是否为NBT浮点数类型（包含所有浮点数类型）  <br /></td></tr>
+<tr class="memitem:ab0dace6d74cd4e85f28a52c768f198ec" id="r_ab0dace6d74cd4e85f28a52c768f198ec"><td class="memTemplParams" colspan="2">template&lt;typename T&gt; </td></tr>
+<tr class="memitem:ab0dace6d74cd4e85f28a52c768f198ec template"><td class="memItemLeft" align="right" valign="top">static constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab0dace6d74cd4e85f28a52c768f198ec">IsArrayType_V</a></td></tr>
+<tr class="memdesc:ab0dace6d74cd4e85f28a52c768f198ec"><td class="mdescLeft">&#160;</td><td class="mdescRight">判断类型是否为NBT数组类型（包含所有数组类型）  <br /></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">详细描述</h2>
 <div class="textblock"><p>提供NBT类型定义，包括NBT格式中的所有数据类型，以及部分辅助功能，比如静态类型与Tag映射，类型存在查询，类型列表大小，类型最大小值等 </p>
@@ -399,6 +421,142 @@ template&lt;<a class="el" href="NBT__TAG_8hpp.html#ada3a2766daa185b5461d684c766b
 
 </div>
 </div>
+<a id="ae0dcf9c4f01a3508350b27e22efac716" name="ae0dcf9c4f01a3508350b27e22efac716"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae0dcf9c4f01a3508350b27e22efac716">&#9670;&#160;</a></span>IsArrayTag()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr bool NBT_Type::IsArrayTag </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="NBT__TAG_8hpp.html#ada3a2766daa185b5461d684c766b4a2e">NBT_TAG</a></td>          <td class="paramname"><span class="paramname"><em>tag</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span><span class="mlabel constexpr">constexpr</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>判断给定的NBT_TAG是否对应数组类型（包含所有数组类型） </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">tag</td><td>需要判断的NBT_TAG枚举值 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>如果tag对应ByteArray、IntArray、LongArray中的一种，则返回true，否则返回false </dd></dl>
+
+</div>
+</div>
+<a id="a71a9601d2cacc198cbe6ec96ccd03853" name="a71a9601d2cacc198cbe6ec96ccd03853"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a71a9601d2cacc198cbe6ec96ccd03853">&#9670;&#160;</a></span>IsFloatingTag()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr bool NBT_Type::IsFloatingTag </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="NBT__TAG_8hpp.html#ada3a2766daa185b5461d684c766b4a2e">NBT_TAG</a></td>          <td class="paramname"><span class="paramname"><em>tag</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span><span class="mlabel constexpr">constexpr</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>判断给定的NBT_TAG是否对应浮点数类型（包含所有浮点数类型） </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">tag</td><td>需要判断的NBT_TAG枚举值 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>如果tag对应Float、Double中的一种，则返回true，否则返回false </dd></dl>
+
+</div>
+</div>
+<a id="aedfebfb369c541b0d62de5369d31b1ee" name="aedfebfb369c541b0d62de5369d31b1ee"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aedfebfb369c541b0d62de5369d31b1ee">&#9670;&#160;</a></span>IsIntegerTag()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr bool NBT_Type::IsIntegerTag </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="NBT__TAG_8hpp.html#ada3a2766daa185b5461d684c766b4a2e">NBT_TAG</a></td>          <td class="paramname"><span class="paramname"><em>tag</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span><span class="mlabel constexpr">constexpr</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>判断给定的NBT_TAG是否对应整数类型（包含所有整数类型） </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">tag</td><td>需要判断的NBT_TAG枚举值 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>如果tag对应Byte、Short、Int、Long中的一种，则返回true，否则返回false </dd></dl>
+
+</div>
+</div>
+<a id="aafd30262d53d64fa3e9c0d72caaaca4b" name="aafd30262d53d64fa3e9c0d72caaaca4b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aafd30262d53d64fa3e9c0d72caaaca4b">&#9670;&#160;</a></span>IsNumericTag()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr bool NBT_Type::IsNumericTag </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="NBT__TAG_8hpp.html#ada3a2766daa185b5461d684c766b4a2e">NBT_TAG</a></td>          <td class="paramname"><span class="paramname"><em>tag</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span><span class="mlabel constexpr">constexpr</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>判断给定的NBT_TAG是否对应数值类型（包含所有整数和浮点数类型） </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">tag</td><td>需要判断的NBT_TAG枚举值 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>如果tag对应Byte、Short、Int、Long、Float、Double中的一种，则返回true，否则返回false </dd></dl>
+
+</div>
+</div>
 <a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">类成员变量说明</h2>
 <a id="a61c44fff74188bb26d53106f53a71709" name="a61c44fff74188bb26d53106f53a71709"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a61c44fff74188bb26d53106f53a71709">&#9670;&#160;</a></span>ArrayLength_Min</h2>
@@ -422,6 +580,157 @@ template&lt;<a class="el" href="NBT__TAG_8hpp.html#ada3a2766daa185b5461d684c766b
 
 <p>数组长度类型最小值 </p>
 <dl class="section note"><dt>注解</dt><dd>实际数组长度最小值为0，这里是长度类型的最小值 </dd></dl>
+
+</div>
+</div>
+<a id="ab0dace6d74cd4e85f28a52c768f198ec" name="ab0dace6d74cd4e85f28a52c768f198ec"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab0dace6d74cd4e85f28a52c768f198ec">&#9670;&#160;</a></span>IsArrayType_V</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool NBT_Type::IsArrayType_V</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span><span class="mlabel constexpr">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<b>初始值:</b><div class="fragment"><div class="line">=</div>
+<div class="line">        std::is_same_v&lt;T, ByteArray&gt; ||</div>
+<div class="line">        std::is_same_v&lt;T, IntArray&gt; ||</div>
+<div class="line">        std::is_same_v&lt;T, LongArray&gt;</div>
+</div><!-- fragment -->
+<p>判断类型是否为NBT数组类型（包含所有数组类型） </p>
+<dl class="tparams"><dt>模板参数</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T</td><td>需要检查的类型 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>注解</dt><dd>如果类型是ByteArray、IntArray、LongArray中的一种，则返回true，否则返回false </dd></dl>
+
+</div>
+</div>
+<a id="abba0d08fee2e48ecd59247d760ad6dca" name="abba0d08fee2e48ecd59247d760ad6dca"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abba0d08fee2e48ecd59247d760ad6dca">&#9670;&#160;</a></span>IsFloatingType_V</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool NBT_Type::IsFloatingType_V</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span><span class="mlabel constexpr">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<b>初始值:</b><div class="fragment"><div class="line">=</div>
+<div class="line">        std::is_same_v&lt;T, Float&gt; ||</div>
+<div class="line">        std::is_same_v&lt;T, Double&gt;</div>
+</div><!-- fragment -->
+<p>判断类型是否为NBT浮点数类型（包含所有浮点数类型） </p>
+<dl class="tparams"><dt>模板参数</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T</td><td>需要检查的类型 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>注解</dt><dd>如果类型是Float、Double中的一种，则返回true，否则返回false </dd></dl>
+
+</div>
+</div>
+<a id="a4c376aa5e59ded392dc860e3ac745436" name="a4c376aa5e59ded392dc860e3ac745436"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4c376aa5e59ded392dc860e3ac745436">&#9670;&#160;</a></span>IsIntegerType_V</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool NBT_Type::IsIntegerType_V</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span><span class="mlabel constexpr">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<b>初始值:</b><div class="fragment"><div class="line">=</div>
+<div class="line">        std::is_same_v&lt;T, Byte&gt; ||</div>
+<div class="line">        std::is_same_v&lt;T, Short&gt; ||</div>
+<div class="line">        std::is_same_v&lt;T, Int&gt; ||</div>
+<div class="line">        std::is_same_v&lt;T, Long&gt;</div>
+</div><!-- fragment -->
+<p>判断类型是否为NBT整数类型（包含所有整数类型） </p>
+<dl class="tparams"><dt>模板参数</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T</td><td>需要检查的类型 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>注解</dt><dd>如果类型是Byte、Short、Int、Long中的一种，则返回true，否则返回false </dd></dl>
+
+</div>
+</div>
+<a id="a133b229478ee9047158f6f99900b3d59" name="a133b229478ee9047158f6f99900b3d59"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a133b229478ee9047158f6f99900b3d59">&#9670;&#160;</a></span>IsNumericType_V</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool NBT_Type::IsNumericType_V</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span><span class="mlabel constexpr">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<b>初始值:</b><div class="fragment"><div class="line">=</div>
+<div class="line">        std::is_same_v&lt;T, Byte&gt; ||</div>
+<div class="line">        std::is_same_v&lt;T, Short&gt; ||</div>
+<div class="line">        std::is_same_v&lt;T, Int&gt; ||</div>
+<div class="line">        std::is_same_v&lt;T, Long&gt; ||</div>
+<div class="line">        std::is_same_v&lt;T, Float&gt; ||</div>
+<div class="line">        std::is_same_v&lt;T, Double&gt;</div>
+</div><!-- fragment -->
+<p>判断类型是否为NBT数值类型（包含所有整数和浮点数类型） </p>
+<dl class="tparams"><dt>模板参数</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T</td><td>需要检查的类型 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>注解</dt><dd>如果类型是Byte、Short、Int、Long、Float、Double中的一种，则返回true，否则返回false </dd></dl>
 
 </div>
 </div>
