@@ -151,15 +151,15 @@ Public 成员函数</h2></td></tr>
 <p>通过c文件对象构造 </p>
 <dl class="params"><dt>参数</dt><dd>
   <table class="params">
-    <tr><td class="paramname">_pfOutputInfo</td><td>普通信息输出的C文件对象（通常为stdout） </td></tr>
-    <tr><td class="paramname">_pfOutputWarn</td><td>警告信息输出的C文件对象（通常为stderr） </td></tr>
-    <tr><td class="paramname">_pfOutputErr</td><td>错误信息输出的C文件对象（通常为stderr） </td></tr>
+    <tr><td class="paramname">_pfOutputInfo</td><td>普通信息输出的C文件对象（通常为stdout，可以为NULL） </td></tr>
+    <tr><td class="paramname">_pfOutputWarn</td><td>警告信息输出的C文件对象（通常为stderr，可以为NULL） </td></tr>
+    <tr><td class="paramname">_pfOutputErr</td><td>错误信息输出的C文件对象（通常为stderr，可以为NULL） </td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section note"><dt>注解</dt><dd>类只引用文件对象，而非持有，类不会释放文件对象， 且文件对象的生命周期必须大于此类，否则行为未定义 </dd>
 <dd>
-用户必须所有参数不为NULL </dd></dl>
+如果任意构造参数为NULL，则与其对应等级的输出会被取消 </dd></dl>
 
 </div>
 </div>
