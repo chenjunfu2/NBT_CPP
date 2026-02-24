@@ -43,7 +43,7 @@ public:
 	/// @param _pfOutputErr 错误信息输出的C文件对象（通常为stderr）
 	/// @note 类只引用文件对象，而非持有，类不会释放文件对象，
 	/// 且文件对象的生命周期必须大于此类，否则行为未定义
-	/// @note 用户必须所有参数不为NULL
+	/// @note 如果任意构造参数为NULL，则与其对应等级的输出会被取消
 	NBT_Print(FILE *_pfOutputInfo = stdout, FILE *_pfOutputWarn = stderr, FILE *_pfOutputErr = stderr)
 		: pfOutputInfo(_pfOutputInfo)
 		, pfOutputWarn(_pfOutputWarn)
@@ -67,7 +67,6 @@ public:
 		FILE *pfOutput = NULL;
 		switch (lvl)
 		{
-		default:
 		case NBT_Print_Level::Info:
 			pfOutput = pfOutputInfo;
 			break;
@@ -77,6 +76,13 @@ public:
 		case NBT_Print_Level::Err:
 			pfOutput = pfOutputErr;
 			break;
+		default:
+			break;
+		}
+
+		if (pfOutput == NULL)
+		{
+			return;
 		}
 
 		try
