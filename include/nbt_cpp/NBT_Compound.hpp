@@ -159,7 +159,12 @@ public:
 	/// @brief 三路比较运算符
 	/// @param _Right 要比较的右操作数
 	/// @return 比较结果，通过std::partial_ordering返回
-	/// @note 如果底层容器支持三路比较则转发其实现，否则使用容器Key进行排序比较
+	/// @note 如果底层容器支持三路比较则转发其实现，否则：
+	/// - 首先比较容器大小，如果不相等，那么返回比较结果
+	/// - 接着使用容器Key进行排序比较
+	///   - 如果key不相等，则返回比较结果
+	///   - 如果val不相等，则返回比较结果
+	/// - 如果都相同，返回相等
 	/// @warn 此比较方法开销较大，且可能存在递归情况
 	std::partial_ordering operator<=>(const NBT_Compound &_Right) const noexcept
 	{

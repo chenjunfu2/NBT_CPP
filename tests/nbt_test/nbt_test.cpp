@@ -635,7 +635,8 @@ int main(void)
 	{
 		NBT_Type::Compound
 		{
-			mp{"Damage", NBT_Node{NBT_Type::Int{0xAC}}},
+			mp{"RepairCost", NBT_Node{NBT_Type::Int{0x3}}},
+			//mp{"Damage", NBT_Node{NBT_Type::Int{0x0}}},
 			mp{"Enchantments", NBT_Node
 			{
 				NBT_Type::List
@@ -658,7 +659,7 @@ int main(void)
 					}
 				}
 			}},
-			mp{"RepairCost", NBT_Node{NBT_Type::Int{0x3}}} 
+			 
 		}
 	};
 
