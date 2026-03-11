@@ -1,5 +1,6 @@
 ﻿#pragma once
 
+#include <vector>
 #include <unordered_map>
 #include <compare>
 #include <type_traits>
@@ -207,11 +208,14 @@ public:
 	/// 排序仅影响返回的vector，不影响底层unordered_map的实际顺序
 	/// @warn 因为返回值中存储迭代器，在对当前容器进行修改后默认迭代器失效，
 	/// 请勿再次通过返回的std::vector中的迭代器访问容器成员
-	std::vector<Compound::iterator> KeySortIt(void)
+	std::vector<typename Compound::iterator> KeySortIt(void)
 	{
-		std::vector<Compound::iterator> listSortIt;
+		std::vector<typename Compound::iterator> listSortIt;
 		listSortIt.reserve(Compound::size());
-		listSortIt.assign(Compound::begin(), Compound::end());
+		for (auto it = Compound::begin(); it != Compound::end(); ++it)
+		{
+			listSortIt.push_back(it);
+		}
 
 		std::sort(listSortIt.begin(), listSortIt.end(),
 			[](const auto &l, const auto &r) -> bool
@@ -229,11 +233,14 @@ public:
 	/// 排序仅影响返回的std::vector，不影响底层unordered_map的实际顺序
 	/// @warn 因为返回值中存储迭代器，在对当前容器进行修改后默认迭代器失效，
 	/// 请勿再次通过返回的std::vector中的迭代器访问容器成员
-	std::vector<Compound::const_iterator> KeySortIt(void) const
+	std::vector<typename Compound::const_iterator> KeySortIt(void) const
 	{
-		std::vector<Compound::const_iterator> listSortIt;
+		std::vector<typename Compound::const_iterator> listSortIt;
 		listSortIt.reserve(Compound::size());
-		listSortIt.assign(Compound::cbegin(), Compound::cend());
+		for (auto it = Compound::cbegin(); it != Compound::cend(); ++it)
+		{
+			listSortIt.push_back(it);
+		}
 
 		std::sort(listSortIt.begin(), listSortIt.end(),
 			[](const auto &l, const auto &r) -> bool

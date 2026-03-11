@@ -529,7 +529,7 @@ int mainhh(void)
 	return 0;
 }
 
-int main(void)
+int main_r(void)
 {
 	NBT_Node node_cpd{ NBT_Type::Compound{} };
 
@@ -626,3 +626,90 @@ int maingg(void)
 
 	return 0;
 }
+
+int main(void)
+{
+	using mp = std::pair<const NBT_Type::String, NBT_Node>;
+
+	NBT_Node item_data
+	{
+		NBT_Type::Compound
+		{
+			mp{"Damage", NBT_Node{NBT_Type::Int{0xAC}}},
+			mp{"Enchantments", NBT_Node
+			{
+				NBT_Type::List
+				{
+					NBT_Node
+					{
+						NBT_Type::Compound
+						{
+							mp{"id", NBT_Node{NBT_Type::String{"minecraft:unbreaking"}}},
+							mp{"lvl", NBT_Node{NBT_Type::Short{0x3}}}
+						}
+					},
+					NBT_Node
+					{
+						NBT_Type::Compound
+						{
+							mp{"id", NBT_Node{NBT_Type::String{"minecraft:mending"}}},
+							mp{"lvl", NBT_Node{NBT_Type::Short{0x1}}}
+						}
+					}
+				}
+			}},
+			mp{"RepairCost", NBT_Node{NBT_Type::Int{0x3}}} 
+		}
+	};
+
+	NBT_Node item_data2
+	{
+		NBT_Type::Compound
+		{
+			mp{"RepairCost", NBT_Node{NBT_Type::Int{0x1}}},
+			mp{"Enchantments", NBT_Node
+			{
+				NBT_Type::List
+				{
+					NBT_Node
+					{
+						NBT_Type::Compound
+						{
+							mp{"id", NBT_Node{NBT_Type::String{"minecraft:infinity"}}},
+							mp{"lvl", NBT_Node{NBT_Type::Short{0x1}}}
+						}
+					},
+					NBT_Node
+					{
+						NBT_Type::Compound
+						{
+							mp{"id", NBT_Node{NBT_Type::String{"minecraft:flame"}}},
+							mp{"lvl", NBT_Node{NBT_Type::Short{0x1}}}
+						}
+					}
+				}
+			}}
+		}
+	};
+
+	auto cmp = item_data <=> item_data2;
+	if (cmp == std::partial_ordering::less)
+	{
+		printf("item_data < item_data2");
+	}
+	else if (cmp == std::partial_ordering::greater)
+	{
+		printf("item_data > item_data2");
+	}
+	else if (cmp == std::partial_ordering::equivalent)
+	{
+		printf("item_data == item_data2");
+	}
+	else if (cmp == std::partial_ordering::unordered)
+	{
+		printf("item_data ? item_data2");
+	}
+
+	return 0;
+}
+
