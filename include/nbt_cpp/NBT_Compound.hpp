@@ -165,7 +165,7 @@ public:
 	///   - 如果key不相等，则返回比较结果
 	///   - 如果val不相等，则返回比较结果
 	/// - 如果都相同，返回相等
-	/// @warn 此比较方法开销较大，且可能存在递归情况
+	/// @warning 此比较方法开销较大，且可能存在递归情况
 	std::partial_ordering operator<=>(const NBT_Compound &_Right) const noexcept
 	{
 		if constexpr (NBT_Compound_Concept::HasSpaceship<Compound>)
@@ -211,7 +211,7 @@ public:
 	/// @return 包含所有元素迭代器的vector，这些迭代器按照键名升序排序
 	/// @note 返回的迭代器可用于遍历元素，并允许修改元素的值
 	/// 排序仅影响返回的vector，不影响底层unordered_map的实际顺序
-	/// @warn 因为返回值中存储迭代器，在对当前容器进行修改后默认迭代器失效，
+	/// @warning 因为返回值中存储迭代器，在对当前容器进行修改后默认迭代器失效，
 	/// 请勿再次通过返回的std::vector中的迭代器访问容器成员
 	std::vector<typename Compound::iterator> KeySortIt(void)
 	{
@@ -236,7 +236,7 @@ public:
 	/// @return 包含所有元素常量迭代器的vector，这些迭代器按照键名升序排序
 	/// @note 返回的迭代器可用于遍历元素，但不允许修改元素的值
 	/// 排序仅影响返回的std::vector，不影响底层unordered_map的实际顺序
-	/// @warn 因为返回值中存储迭代器，在对当前容器进行修改后默认迭代器失效，
+	/// @warning 因为返回值中存储迭代器，在对当前容器进行修改后默认迭代器失效，
 	/// 请勿再次通过返回的std::vector中的迭代器访问容器成员
 	std::vector<typename Compound::const_iterator> KeySortIt(void) const
 	{

@@ -529,7 +529,7 @@ int mainhh(void)
 	return 0;
 }
 
-int main_r(void)
+int main(void)
 {
 	NBT_Node node_cpd{ NBT_Type::Compound{} };
 
@@ -627,7 +627,7 @@ int maingg(void)
 	return 0;
 }
 
-int main(void)
+int main_r(void)
 {
 	using mp = std::pair<const NBT_Type::String, NBT_Node>;
 
@@ -635,12 +635,20 @@ int main(void)
 	{
 		NBT_Type::Compound
 		{
-			mp{"RepairCost", NBT_Node{NBT_Type::Int{0x3}}},
-			//mp{"Damage", NBT_Node{NBT_Type::Int{0x0}}},
+			mp{"Damage", NBT_Node{NBT_Type::Int{0x1}}},
+			//mp{"RepairCost", NBT_Node{NBT_Type::Int{0x0}}},
 			mp{"Enchantments", NBT_Node
 			{
 				NBT_Type::List
 				{
+					NBT_Node
+					{
+						NBT_Type::Compound
+						{
+							mp{"id", NBT_Node{NBT_Type::String{"minecraft:infinity"}}},
+							mp{"lvl", NBT_Node{NBT_Type::Short{0x1}}}
+						}
+					},
 					NBT_Node
 					{
 						NBT_Type::Compound
@@ -667,7 +675,7 @@ int main(void)
 	{
 		NBT_Type::Compound
 		{
-			mp{"RepairCost", NBT_Node{NBT_Type::Int{0x1}}},
+			mp{"Damage", NBT_Node{NBT_Type::Int{0x1}}},
 			mp{"Enchantments", NBT_Node
 			{
 				NBT_Type::List
