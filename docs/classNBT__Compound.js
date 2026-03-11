@@ -80,6 +80,8 @@ var classNBT__Compound =
     [ "HasShort", "classNBT__Compound.html#af657c9b622ef53d17696b37db132d63f", null ],
     [ "HasString", "classNBT__Compound.html#a67ba8e12d8455a86cd98a73392eb67bd", null ],
     [ "HasString", "classNBT__Compound.html#ada9902fea1e06ef14f54c993edf17486", null ],
+    [ "KeySortIt", "classNBT__Compound.html#ad3192c42a29b9fb830b1666cce0481a4", null ],
+    [ "KeySortIt", "classNBT__Compound.html#a0c565ccf741328bfe99ea59a9e76d9af", null ],
     [ "Merge", "classNBT__Compound.html#ae6adf10c9807a2b2bfb46f6caeafad35", null ],
     [ "Merge", "classNBT__Compound.html#a40fc8cef70215966cc8c52216cd8dfad", null ],
     [ "operator!=", "classNBT__Compound.html#a14298a425fd7d608cb5dfdc7af8f7964", null ],

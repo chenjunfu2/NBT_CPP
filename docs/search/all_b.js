@@ -1,16 +1,12 @@
 var searchData=
 [
-  ['merge_0',['Merge',['../classNBT__Compound.html#ae6adf10c9807a2b2bfb46f6caeafad35',1,'NBT_Compound::Merge(const NBT_Compound &amp;_Copy)'],['../classNBT__Compound.html#a40fc8cef70215966cc8c52216cd8dfad',1,'NBT_Compound::Merge(NBT_Compound &amp;&amp;_Move)'],['../classNBT__List.html#a784a716c9a69f0c485ba27ab8336227c',1,'NBT_List::Merge(const NBT_List &amp;_Copy)'],['../classNBT__List.html#a5af1926a09253bd6cf27f8d3826e10f8',1,'NBT_List::Merge(NBT_List &amp;&amp;_Move)']]],
-  ['mu8_5ft_1',['MU8_T',['../classMUTF8__Tool.html#a7bfe05740c7386dc60b28826940b4d7d',1,'MUTF8_Tool']]],
-  ['mu8cv2u16_2',['MU8CV2U16',['../MUTF8__Tool_8hpp.html#a39f90331bcda0f60cd03464db28bf2b5',1,'MUTF8_Tool.hpp']]],
-  ['mu8cv2u8_3',['MU8CV2U8',['../MUTF8__Tool_8hpp.html#a604eb79d9d199f3b6f9e6437e6bd1527',1,'MUTF8_Tool.hpp']]],
-  ['mu8str_4',['MU8STR',['../NBT__Node_8hpp.html#ac625b0c6c73f0f64396917d442c84e0d',1,'NBT_Node.hpp']]],
-  ['mu8strv_5',['MU8STRV',['../NBT__Node_8hpp.html#abd6aab1538577f5315c3ec235371c548',1,'NBT_Node.hpp']]],
-  ['mu8tou16_6',['MU8ToU16',['../classMUTF8__Tool.html#a3d653d37813603c6ce48b550f2802187',1,'MUTF8_Tool::MU8ToU16(const std::basic_string_view&lt; MU8T &gt; &amp;mu8String, size_t szReserve=0)'],['../classMUTF8__Tool.html#aabad56af401b0fe31381274c9f449dbd',1,'MUTF8_Tool::MU8ToU16(const MU8T *mu8String, size_t szStringLength, size_t szReserve=0)']]],
-  ['mu8tou16length_7',['MU8ToU16Length',['../classMUTF8__Tool.html#ac4d0d1102a3876986dde6ccb74a88531',1,'MUTF8_Tool::MU8ToU16Length(const std::basic_string_view&lt; MU8T &gt; &amp;mu8String)'],['../classMUTF8__Tool.html#a9ff6132c90ac32f82e9203fae7e1c23c',1,'MUTF8_Tool::MU8ToU16Length(const MU8T *mu8String, size_t szStringLength)']]],
-  ['mu8tou8_8',['MU8ToU8',['../classMUTF8__Tool.html#a2cb9551c046c873cf4c50e9302735b47',1,'MUTF8_Tool::MU8ToU8(const std::basic_string_view&lt; MU8T &gt; &amp;mu8String, size_t szReserve=0)'],['../classMUTF8__Tool.html#a0819b9b1d84a60684c551c5076320bd2',1,'MUTF8_Tool::MU8ToU8(const MU8T *mu8String, size_t szStringLength, size_t szReserve=0)']]],
-  ['mu8tou8length_9',['MU8ToU8Length',['../classMUTF8__Tool.html#a4aff282fd4b017beea0dbacbe5d1ca9d',1,'MUTF8_Tool::MU8ToU8Length(const std::basic_string_view&lt; MU8T &gt; &amp;mu8String)'],['../classMUTF8__Tool.html#a4591deea110b80a87a08e8569f57e7e0',1,'MUTF8_Tool::MU8ToU8Length(const MU8T *mu8String, size_t szStringLength)']]],
-  ['mutf8_5ftool_10',['MUTF8_Tool',['../classMUTF8__Tool.html',1,'']]],
-  ['mutf8_5ftool_2ehpp_11',['MUTF8_Tool.hpp',['../MUTF8__Tool_8hpp.html',1,'']]],
-  ['mutf8_5ftool_5finternal_12',['MUTF8_Tool_Internal',['../namespaceMUTF8__Tool__Internal.html',1,'']]]
+  ['list_0',['List',['../classNBT__Type.html#a87b4d71087e5c0ab1111a4999dace42f',1,'NBT_Type::List'],['../NBT__TAG_8hpp.html#ada3a2766daa185b5461d684c766b4a2ea4ee29ca12c7d126654bd0e5275de6135',1,'List:&#160;NBT_TAG.hpp']]],
+  ['listlength_1',['ListLength',['../classNBT__Type.html#aada1dd1babf26819e3a18944032eceb4',1,'NBT_Type']]],
+  ['listlength_5fmax_2',['ListLength_Max',['../classNBT__Type.html#ab5fc25f906a932636a99402f56090ff7',1,'NBT_Type']]],
+  ['listlength_5fmin_3',['ListLength_Min',['../classNBT__Type.html#af765ad3b48be748556f296d6fd4037ac',1,'NBT_Type']]],
+  ['littletonativeany_4',['LittleToNativeAny',['../classNBT__Endian.html#a13b3406cac21abe021f10fc728611646',1,'NBT_Endian']]],
+  ['long_5',['Long',['../classNBT__Type.html#a7f8ae2e6e2f87445d1e72f7e922ba053',1,'NBT_Type::Long'],['../NBT__TAG_8hpp.html#ada3a2766daa185b5461d684c766b4a2ea8394f0347c184cf156ac5924dccb773b',1,'Long:&#160;NBT_TAG.hpp']]],
+  ['long_5fmax_6',['Long_Max',['../classNBT__Type.html#a90e7b887fc9d0fc605caac20c30c4f4c',1,'NBT_Type']]],
+  ['long_5fmin_7',['Long_Min',['../classNBT__Type.html#af4de3bfa5483cc0c6eb0963afda375ef',1,'NBT_Type']]],
+  ['longarray_8',['LongArray',['../classNBT__Type.html#aa2c61028536166272869c3bbc91d3197',1,'NBT_Type::LongArray'],['../NBT__TAG_8hpp.html#ada3a2766daa185b5461d684c766b4a2ea8bbd125334fd7be70adc8c8819241053',1,'LongArray:&#160;NBT_TAG.hpp']]]
 ];

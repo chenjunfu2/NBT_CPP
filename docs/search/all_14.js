@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['warn_0',['Warn',['../NBT__Print_8hpp.html#a977ff50d4d248543d59717387e6dd311a56525ae64d370c0b448ac0d60710ef17',1,'NBT_Print.hpp']]],
-  ['writefile_1',['WriteFile',['../classNBT__IO.html#a712cfa63160ad4a35656443fa7a174dc',1,'NBT_IO']]],
-  ['writenbt_2',['WriteNBT',['../classNBT__Writer.html#a9375397b4108e65b029702eef9cfd48f',1,'NBT_Writer::WriteNBT(OutputStream OptStream, const NBT_Type::Compound &amp;tCompound, size_t szStackDepth=512, InfoFunc funcInfo=NBT_Print{}) noexcept'],['../classNBT__Writer.html#a71e825126323a834d3501d3fe6bb405f',1,'NBT_Writer::WriteNBT(DataType &amp;tDataOutput, size_t szStartIdx, const NBT_Type::Compound &amp;tCompound, size_t szStackDepth=512, InfoFunc funcInfo=NBT_Print{}) noexcept']]]
+  ['valuetype_0',['ValueType',['../classNBT__Reader_1_1DefaultInputStream.html#acfd7cdbd71cec6a4b05e010e18008197',1,'NBT_Reader::DefaultInputStream::ValueType'],['../classNBT__Writer_1_1DefaultOutputStream.html#a144920e573e9f0ea1a5546d3e006de68',1,'NBT_Writer::DefaultOutputStream::ValueType']]],
+  ['vcpkg_5fconfig_2eh_1',['vcpkg_config.h',['../vcpkg__config_8h.html',1,'']]],
+  ['view_2',['View',['../classNBT__String.html#a0b6037dd11409fde0d48bf501863cc57',1,'NBT_String']]]
 ];

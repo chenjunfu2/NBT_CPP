@@ -133,6 +133,10 @@ Public 成员函数</h2></td></tr>
 <tr class="memdesc:a14298a425fd7d608cb5dfdc7af8f7964"><td class="mdescLeft">&#160;</td><td class="mdescRight">不等比较运算符  <br /></td></tr>
 <tr class="memitem:a0fa486d01bcc56c5688fa1ec04b80088" id="r_a0fa486d01bcc56c5688fa1ec04b80088"><td class="memItemLeft" align="right" valign="top">std::partial_ordering&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0fa486d01bcc56c5688fa1ec04b80088">operator&lt;=&gt;</a> (const <a class="el" href="classNBT__Compound.html">NBT_Compound</a> &amp;_Right) const noexcept</td></tr>
 <tr class="memdesc:a0fa486d01bcc56c5688fa1ec04b80088"><td class="mdescLeft">&#160;</td><td class="mdescRight">三路比较运算符  <br /></td></tr>
+<tr class="memitem:ad3192c42a29b9fb830b1666cce0481a4" id="r_ad3192c42a29b9fb830b1666cce0481a4"><td class="memItemLeft" align="right" valign="top">std::vector&lt; typename Compound::iterator &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad3192c42a29b9fb830b1666cce0481a4">KeySortIt</a> (void)</td></tr>
+<tr class="memdesc:ad3192c42a29b9fb830b1666cce0481a4"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取按键名排序的迭代器向量（非常量版本）  <br /></td></tr>
+<tr class="memitem:a0c565ccf741328bfe99ea59a9e76d9af" id="r_a0c565ccf741328bfe99ea59a9e76d9af"><td class="memItemLeft" align="right" valign="top">std::vector&lt; typename Compound::const_iterator &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0c565ccf741328bfe99ea59a9e76d9af">KeySortIt</a> (void) const</td></tr>
+<tr class="memdesc:a0c565ccf741328bfe99ea59a9e76d9af"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取按键名排序的常量迭代器向量（常量版本）  <br /></td></tr>
 <tr class="memitem:a3d5ecf8fcdc474f3daef41aeb131ccef" id="r_a3d5ecf8fcdc474f3daef41aeb131ccef"><td class="memItemLeft" align="right" valign="top">Compound::mapped_type &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3d5ecf8fcdc474f3daef41aeb131ccef">Get</a> (const typename Compound::key_type &amp;sTagName)</td></tr>
 <tr class="memdesc:a3d5ecf8fcdc474f3daef41aeb131ccef"><td class="mdescLeft">&#160;</td><td class="mdescRight">根据标签名获取对应的NBT值  <br /></td></tr>
 <tr class="memitem:a6b1029565d717d63724dccb698721703" id="r_a6b1029565d717d63724dccb698721703"><td class="memItemLeft" align="right" valign="top">const Compound::mapped_type &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6b1029565d717d63724dccb698721703">Get</a> (const typename Compound::key_type &amp;sTagName) const</td></tr>
@@ -3413,6 +3417,70 @@ template&lt;typename Compound&gt; </div>
 
 </div>
 </div>
+<a id="ad3192c42a29b9fb830b1666cce0481a4" name="ad3192c42a29b9fb830b1666cce0481a4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad3192c42a29b9fb830b1666cce0481a4">&#9670;&#160;</a></span>KeySortIt() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Compound&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; typename Compound::iterator &gt; <a class="el" href="classNBT__Compound.html">NBT_Compound</a>&lt; Compound &gt;::KeySortIt </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>获取按键名排序的迭代器向量（非常量版本） </p>
+<dl class="section return"><dt>返回</dt><dd>包含所有元素迭代器的vector，这些迭代器按照键名升序排序 </dd></dl>
+<dl class="section note"><dt>注解</dt><dd>返回的迭代器可用于遍历元素，并允许修改元素的值 排序仅影响返回的vector，不影响底层unordered_map的实际顺序 </dd></dl>
+<dl class="section warning"><dt>警告</dt><dd>因为返回值中存储迭代器，在对当前容器进行修改后默认迭代器失效， 请勿再次通过返回的std::vector中的迭代器访问容器成员 </dd></dl>
+
+</div>
+</div>
+<a id="a0c565ccf741328bfe99ea59a9e76d9af" name="a0c565ccf741328bfe99ea59a9e76d9af"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0c565ccf741328bfe99ea59a9e76d9af">&#9670;&#160;</a></span>KeySortIt() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Compound&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; typename Compound::const_iterator &gt; <a class="el" href="classNBT__Compound.html">NBT_Compound</a>&lt; Compound &gt;::KeySortIt </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>获取按键名排序的常量迭代器向量（常量版本） </p>
+<dl class="section return"><dt>返回</dt><dd>包含所有元素常量迭代器的vector，这些迭代器按照键名升序排序 </dd></dl>
+<dl class="section note"><dt>注解</dt><dd>返回的迭代器可用于遍历元素，但不允许修改元素的值 排序仅影响返回的std::vector，不影响底层unordered_map的实际顺序 </dd></dl>
+<dl class="section warning"><dt>警告</dt><dd>因为返回值中存储迭代器，在对当前容器进行修改后默认迭代器失效， 请勿再次通过返回的std::vector中的迭代器访问容器成员 </dd></dl>
+
+</div>
+</div>
 <a id="ae6adf10c9807a2b2bfb46f6caeafad35" name="ae6adf10c9807a2b2bfb46f6caeafad35"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ae6adf10c9807a2b2bfb46f6caeafad35">&#9670;&#160;</a></span>Merge() <span class="overload">[1/2]</span></h2>
 
@@ -3555,7 +3623,17 @@ template&lt;typename Compound&gt; </div>
   </dd>
 </dl>
 <dl class="section return"><dt>返回</dt><dd>比较结果，通过std::partial_ordering返回 </dd></dl>
-<dl class="section note"><dt>注解</dt><dd>如果底层容器支持三路比较则转发其实现，否则使用容器的相等运算符比较，在相等时返回equivalent，不相等时返回unordered </dd></dl>
+<dl class="section note"><dt>注解</dt><dd>如果底层容器支持三路比较则转发其实现，否则：<ul>
+<li>首先比较容器大小，如果不相等，那么返回比较结果</li>
+<li>接着使用容器Key进行排序比较<ul>
+<li>如果key不相等，则返回比较结果</li>
+<li>如果val不相等，则返回比较结果</li>
+</ul>
+</li>
+<li>如果都相同，返回相等 </li>
+</ul>
+</dd></dl>
+<dl class="section warning"><dt>警告</dt><dd>此比较方法开销较大，且可能存在递归情况 </dd></dl>
 
 </div>
 </div>
