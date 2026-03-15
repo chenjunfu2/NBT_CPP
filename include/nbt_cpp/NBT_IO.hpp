@@ -432,7 +432,7 @@ public:
 		}
 	}
 
-	/// @brief 压缩数据，但是不抛出异常，而是通过funcErrInfo打印异常信息并返回成功与否
+	/// @brief 解压数据，但是不抛出异常，而是通过funcErrInfo打印异常信息并返回成功与否
 	/// @tparam I 输入的顺序容器类型
 	/// @tparam O 输出的顺序容器类型
 	/// @tparam ErrInfoFunc 打印异常信息的仿函数类型
@@ -470,7 +470,7 @@ public:
 		}
 	}
 
-	/// @brief 解压数据，但是不抛出异常，而是通过funcErrInfo打印异常信息并返回成功与否
+	/// @brief 压缩数据，但是不抛出异常，而是通过funcErrInfo打印异常信息并返回成功与否
 	/// @tparam I 输入的顺序容器类型
 	/// @tparam O 输出的顺序容器类型
 	/// @tparam ErrInfoFunc 打印异常信息的仿函数类型
