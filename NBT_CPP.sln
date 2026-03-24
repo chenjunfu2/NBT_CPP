@@ -65,9 +65,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "nbt_cpp", "nbt_cpp", "{E9EB
 		include\nbt_cpp\NBT_Node_View.hpp = include\nbt_cpp\NBT_Node_View.hpp
 		include\nbt_cpp\NBT_Print.hpp = include\nbt_cpp\NBT_Print.hpp
 		include\nbt_cpp\NBT_Reader.hpp = include\nbt_cpp\NBT_Reader.hpp
+		include\nbt_cpp\NBT_Scanner.hpp = include\nbt_cpp\NBT_Scanner.hpp
 		include\nbt_cpp\NBT_String.hpp = include\nbt_cpp\NBT_String.hpp
 		include\nbt_cpp\NBT_TAG.hpp = include\nbt_cpp\NBT_TAG.hpp
 		include\nbt_cpp\NBT_Type.hpp = include\nbt_cpp\NBT_Type.hpp
+		include\nbt_cpp\NBT_Visitor.hpp = include\nbt_cpp\NBT_Visitor.hpp
 		include\nbt_cpp\NBT_Writer.hpp = include\nbt_cpp\NBT_Writer.hpp
 		include\nbt_cpp\vcpkg_config.h = include\nbt_cpp\vcpkg_config.h
 	EndProjectSection

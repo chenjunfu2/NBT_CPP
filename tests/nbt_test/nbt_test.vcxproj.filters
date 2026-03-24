@@ -85,5 +85,11 @@
     <ClInclude Include="..\..\include\nbt_cpp\NBT_IO.hpp">
       <Filter>头文件\nbt_cpp</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\include\nbt_cpp\NBT_Visitor.hpp">
+      <Filter>头文件\nbt_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\nbt_cpp\NBT_Scanner.hpp">
+      <Filter>头文件\nbt_cpp</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

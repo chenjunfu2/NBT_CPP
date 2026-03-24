@@ -189,9 +189,11 @@
     <ClInclude Include="..\..\include\nbt_cpp\NBT_Node_View.hpp" />
     <ClInclude Include="..\..\include\nbt_cpp\NBT_Print.hpp" />
     <ClInclude Include="..\..\include\nbt_cpp\NBT_Reader.hpp" />
+    <ClInclude Include="..\..\include\nbt_cpp\NBT_Scanner.hpp" />
     <ClInclude Include="..\..\include\nbt_cpp\NBT_String.hpp" />
     <ClInclude Include="..\..\include\nbt_cpp\NBT_TAG.hpp" />
     <ClInclude Include="..\..\include\nbt_cpp\NBT_Type.hpp" />
+    <ClInclude Include="..\..\include\nbt_cpp\NBT_Visitor.hpp" />
     <ClInclude Include="..\..\include\nbt_cpp\NBT_Writer.hpp" />
     <ClInclude Include="..\..\include\nbt_cpp\vcpkg_config.h" />
   </ItemGroup>
