@@ -6,5 +6,6 @@ var concepts =
       [ "HasCRBegin", "conceptNBT__Compound__Concept_1_1HasCRBegin.html", null ],
       [ "HasREnd", "conceptNBT__Compound__Concept_1_1HasREnd.html", null ],
       [ "HasCREnd", "conceptNBT__Compound__Concept_1_1HasCREnd.html", null ]
-    ] ]
+    ] ],
+    [ "IsLookLike_NBT_Visitor", "conceptIsLookLike__NBT__Visitor.html", null ]
 ];

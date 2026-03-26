@@ -50,6 +50,7 @@ var NAVTREE =
         [ "函数", "functions_func.html", "functions_func" ],
         [ "变量", "functions_vars.html", null ],
         [ "类型定义", "functions_type.html", null ],
+        [ "枚举", "functions_enum.html", null ],
         [ "相关符号", "functions_rela.html", null ]
       ] ]
     ] ],
@@ -69,9 +70,9 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "Compiler__Define_8h.html",
-"classNBT__Hash.html#a610a1ad0b35394c2b221b9562f5f2fde",
-"classNBT__List.html#affbd47cfb0a9f7df632f5df56e1f6204",
-"classNBT__Node__View.html#ac31cc698d1b517a5f43171d9ffa3c3ca"
+"classNBT__Hash.html#a4b760cc312eb58bf85314fce904b8b7a",
+"classNBT__List.html#afabe2ed3264695b38db2a9f3ce3158e3",
+"classNBT__Node__View.html#abf59c51e65c6d33b1fe2cdaf1215699b"
 ];
 
 var SYNCONMSG = '点击 关闭 面板同步';

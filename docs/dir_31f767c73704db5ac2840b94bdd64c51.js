@@ -14,9 +14,11 @@ var dir_31f767c73704db5ac2840b94bdd64c51 =
     [ "NBT_Node_View.hpp", "NBT__Node__View_8hpp.html", "NBT__Node__View_8hpp" ],
     [ "NBT_Print.hpp", "NBT__Print_8hpp.html", "NBT__Print_8hpp" ],
     [ "NBT_Reader.hpp", "NBT__Reader_8hpp.html", "NBT__Reader_8hpp" ],
+    [ "NBT_Scanner.hpp", "NBT__Scanner_8hpp_source.html", null ],
     [ "NBT_String.hpp", "NBT__String_8hpp.html", "NBT__String_8hpp" ],
     [ "NBT_TAG.hpp", "NBT__TAG_8hpp.html", "NBT__TAG_8hpp" ],
     [ "NBT_Type.hpp", "NBT__Type_8hpp.html", "NBT__Type_8hpp" ],
+    [ "NBT_Visitor.hpp", "NBT__Visitor_8hpp_source.html", null ],
     [ "NBT_Writer.hpp", "NBT__Writer_8hpp.html", "NBT__Writer_8hpp" ],
     [ "vcpkg_config.h", "vcpkg__config_8h.html", "vcpkg__config_8h" ]
 ];

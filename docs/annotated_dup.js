@@ -19,8 +19,10 @@ var annotated_dup =
     [ "NBT_Node_View", "classNBT__Node__View.html", "classNBT__Node__View" ],
     [ "NBT_Print", "classNBT__Print.html", "classNBT__Print" ],
     [ "NBT_Reader", "classNBT__Reader.html", "classNBT__Reader" ],
+    [ "NBT_Scanner", "classNBT__Scanner.html", null ],
     [ "NBT_String", "classNBT__String.html", "classNBT__String" ],
     [ "NBT_StringView", "classNBT__StringView.html", "classNBT__StringView" ],
     [ "NBT_Type", "classNBT__Type.html", "classNBT__Type" ],
+    [ "NBT_Visitor", "classNBT__Visitor.html", "classNBT__Visitor" ],
     [ "NBT_Writer", "classNBT__Writer.html", "classNBT__Writer" ]
 ];

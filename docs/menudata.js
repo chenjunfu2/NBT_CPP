@@ -96,6 +96,7 @@ var menudata={children:[
 {text:"t",url:"functions_type.html#index_t"},
 {text:"u",url:"functions_type.html#index_u"},
 {text:"v",url:"functions_type.html#index_v"}]},
+{text:"枚举",url:"functions_enum.html"},
 {text:"相关符号",url:"functions_rela.html",children:[
 {text:"g",url:"functions_rela.html#index_g"},
 {text:"i",url:"functions_rela.html#index_i"}]}]}]},

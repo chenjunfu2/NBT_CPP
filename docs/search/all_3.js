@@ -23,6 +23,7 @@ var searchData=
   ['containslongarray_20',['ContainsLongArray',['../classNBT__Compound.html#a366840540d4b75d3f632979fdc1844bc',1,'NBT_Compound']]],
   ['containsshort_21',['ContainsShort',['../classNBT__Compound.html#ad1fafccf3fbe8b6444f29e9673577be9',1,'NBT_Compound']]],
   ['containsstring_22',['ContainsString',['../classNBT__Compound.html#a46713493383299a8bebafa53983f8867',1,'NBT_Compound']]],
-  ['cpp_23',['chenjunfu2-nbt-cpp',['../index.html',1,'']]],
-  ['curdata_24',['CurData',['../classNBT__Reader_1_1DefaultInputStream.html#a29b992dfc31300c60419665097b593da',1,'NBT_Reader::DefaultInputStream']]]
+  ['continue_23',['Continue',['../classNBT__Visitor.html#a774511b728d31a0b9026603cab510161aa0bfb8e59e6c13fc8d990781f77694fe',1,'NBT_Visitor']]],
+  ['cpp_24',['chenjunfu2-nbt-cpp',['../index.html',1,'']]],
+  ['curdata_25',['CurData',['../classNBT__Reader_1_1DefaultInputStream.html#a29b992dfc31300c60419665097b593da',1,'NBT_Reader::DefaultInputStream']]]
 ];

@@ -29,7 +29,9 @@ var hierarchy =
     [ "NBT_Node_View&lt; bIsConst &gt;", "classNBT__Node__View.html", null ],
     [ "NBT_Print", "classNBT__Print.html", null ],
     [ "NBT_Reader", "classNBT__Reader.html", null ],
+    [ "NBT_Scanner", "classNBT__Scanner.html", null ],
     [ "NBT_Type", "classNBT__Type.html", null ],
+    [ "NBT_Visitor", "classNBT__Visitor.html", null ],
     [ "NBT_Writer", "classNBT__Writer.html", null ],
     [ "String", null, [
       [ "NBT_String< String, StringView >", "classNBT__String.html", null ]

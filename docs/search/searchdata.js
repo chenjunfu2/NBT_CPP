@@ -7,12 +7,12 @@ var indexSectionsWithContent =
   4: "abcdefghiklmnoprstuw~",
   5: "abilst",
   6: "abcdefhilmnstuv",
-  7: "n",
+  7: "nr",
   8: "bcdefilsw",
   9: "gi",
   10: "cfmtu",
   11: "chn与以使包可库注",
-  12: "h"
+  12: "hi"
 };
 
 var indexSectionNames =

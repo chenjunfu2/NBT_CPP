@@ -16,13 +16,14 @@ var searchData=
   ['backstring_13',['BackString',['../classNBT__List.html#a7482809de9d8d5e02078230018f450b6',1,'NBT_List::BackString(void) const'],['../classNBT__List.html#affd46b6a866f1e29d5d68cebf96ff392',1,'NBT_List::BackString(void)']]],
   ['basedata_14',['BaseData',['../classNBT__Reader_1_1DefaultInputStream.html#a9cef9842de468d854860ffe65077e1ab',1,'NBT_Reader::DefaultInputStream']]],
   ['bigtonativeany_15',['BigToNativeAny',['../classNBT__Endian.html#aa489c37460ec0c136e2e7d0f74695035',1,'NBT_Endian']]],
-  ['builtinrawtype_5ft_16',['BuiltinRawType_T',['../classNBT__Type.html#aa937376fd94d8a9abe0fb6e16107009d',1,'NBT_Type']]],
-  ['byte_17',['Byte',['../classNBT__Type.html#a09b5ce48dffc429ad8a7d05d007741c1',1,'NBT_Type::Byte'],['../NBT__TAG_8hpp.html#ada3a2766daa185b5461d684c766b4a2eaa245c3230debe5c956484ecc6fa93877',1,'Byte:&#160;NBT_TAG.hpp']]],
-  ['byte_5fmax_18',['Byte_Max',['../classNBT__Type.html#a4914c541bb3d92c6f9160cef0423e303',1,'NBT_Type']]],
-  ['byte_5fmin_19',['Byte_Min',['../classNBT__Type.html#a23f7fc5765282207d0a5a43fc29b85c5',1,'NBT_Type']]],
-  ['bytearray_20',['ByteArray',['../classNBT__Type.html#a953bc9e67e1b5d82c0786b5992f00ed8',1,'NBT_Type::ByteArray'],['../NBT__TAG_8hpp.html#ada3a2766daa185b5461d684c766b4a2ea29d83f0080e24c1f4b3975dc9ff9e868',1,'ByteArray:&#160;NBT_TAG.hpp']]],
-  ['byteswap16_21',['ByteSwap16',['../classNBT__Endian.html#a68933ecd2f92b56e25389fb9b6b45848',1,'NBT_Endian']]],
-  ['byteswap32_22',['ByteSwap32',['../classNBT__Endian.html#a2cdd925007ecd0a1d38c3b6ed54c6020',1,'NBT_Endian']]],
-  ['byteswap64_23',['ByteSwap64',['../classNBT__Endian.html#a78133426cce86c1dec331a0adec3bb16',1,'NBT_Endian']]],
-  ['byteswapany_24',['ByteSwapAny',['../classNBT__Endian.html#a4ae63ae6273e809d6b3a2875f88a5723',1,'NBT_Endian']]]
+  ['break_16',['Break',['../classNBT__Visitor.html#a774511b728d31a0b9026603cab510161ae4c38d6d45baf080943d323dd51a2ce8',1,'NBT_Visitor::Break'],['../classNBT__Visitor.html#afd2eb25e96cf30cd2106b59468435d01ae4c38d6d45baf080943d323dd51a2ce8',1,'NBT_Visitor::Break']]],
+  ['builtinrawtype_5ft_17',['BuiltinRawType_T',['../classNBT__Type.html#aa937376fd94d8a9abe0fb6e16107009d',1,'NBT_Type']]],
+  ['byte_18',['Byte',['../classNBT__Type.html#a09b5ce48dffc429ad8a7d05d007741c1',1,'NBT_Type::Byte'],['../NBT__TAG_8hpp.html#ada3a2766daa185b5461d684c766b4a2eaa245c3230debe5c956484ecc6fa93877',1,'Byte:&#160;NBT_TAG.hpp']]],
+  ['byte_5fmax_19',['Byte_Max',['../classNBT__Type.html#a4914c541bb3d92c6f9160cef0423e303',1,'NBT_Type']]],
+  ['byte_5fmin_20',['Byte_Min',['../classNBT__Type.html#a23f7fc5765282207d0a5a43fc29b85c5',1,'NBT_Type']]],
+  ['bytearray_21',['ByteArray',['../classNBT__Type.html#a953bc9e67e1b5d82c0786b5992f00ed8',1,'NBT_Type::ByteArray'],['../NBT__TAG_8hpp.html#ada3a2766daa185b5461d684c766b4a2ea29d83f0080e24c1f4b3975dc9ff9e868',1,'ByteArray:&#160;NBT_TAG.hpp']]],
+  ['byteswap16_22',['ByteSwap16',['../classNBT__Endian.html#a68933ecd2f92b56e25389fb9b6b45848',1,'NBT_Endian']]],
+  ['byteswap32_23',['ByteSwap32',['../classNBT__Endian.html#a2cdd925007ecd0a1d38c3b6ed54c6020',1,'NBT_Endian']]],
+  ['byteswap64_24',['ByteSwap64',['../classNBT__Endian.html#a78133426cce86c1dec331a0adec3bb16',1,'NBT_Endian']]],
+  ['byteswapany_25',['ByteSwapAny',['../classNBT__Endian.html#a4ae63ae6273e809d6b3a2875f88a5723',1,'NBT_Endian']]]
 ];

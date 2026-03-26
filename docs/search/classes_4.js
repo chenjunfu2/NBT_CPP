@@ -16,9 +16,11 @@ var searchData=
   ['nbt_5fnode_5fview_13',['NBT_Node_View',['../classNBT__Node__View.html',1,'']]],
   ['nbt_5fprint_14',['NBT_Print',['../classNBT__Print.html',1,'']]],
   ['nbt_5freader_15',['NBT_Reader',['../classNBT__Reader.html',1,'']]],
-  ['nbt_5fstring_16',['NBT_String',['../classNBT__String.html',1,'']]],
-  ['nbt_5fstring_3c_20std_3a_3abasic_5fstring_3c_20uint8_5ft_20_3e_2c_20std_3a_3abasic_5fstring_5fview_3c_20uint8_5ft_20_3e_20_3e_17',['NBT_String&lt; std::basic_string&lt; uint8_t &gt;, std::basic_string_view&lt; uint8_t &gt; &gt;',['../classNBT__String.html',1,'']]],
-  ['nbt_5fstringview_18',['NBT_StringView',['../classNBT__StringView.html',1,'']]],
-  ['nbt_5ftype_19',['NBT_Type',['../classNBT__Type.html',1,'']]],
-  ['nbt_5fwriter_20',['NBT_Writer',['../classNBT__Writer.html',1,'']]]
+  ['nbt_5fscanner_16',['NBT_Scanner',['../classNBT__Scanner.html',1,'']]],
+  ['nbt_5fstring_17',['NBT_String',['../classNBT__String.html',1,'']]],
+  ['nbt_5fstring_3c_20std_3a_3abasic_5fstring_3c_20uint8_5ft_20_3e_2c_20std_3a_3abasic_5fstring_5fview_3c_20uint8_5ft_20_3e_20_3e_18',['NBT_String&lt; std::basic_string&lt; uint8_t &gt;, std::basic_string_view&lt; uint8_t &gt; &gt;',['../classNBT__String.html',1,'']]],
+  ['nbt_5fstringview_19',['NBT_StringView',['../classNBT__StringView.html',1,'']]],
+  ['nbt_5ftype_20',['NBT_Type',['../classNBT__Type.html',1,'']]],
+  ['nbt_5fvisitor_21',['NBT_Visitor',['../classNBT__Visitor.html',1,'']]],
+  ['nbt_5fwriter_22',['NBT_Writer',['../classNBT__Writer.html',1,'']]]
 ];
