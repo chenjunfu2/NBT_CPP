@@ -163,7 +163,7 @@ private:
 		std::string tmp{};
 		if constexpr (NBT_Type::IsFloatingType_V<T>)
 		{
-			tmp = std::format("{:.{}g}", value, std::numeric_limits<T>::max_digits10);
+			tmp = std::format("{:.{}f}", value, std::numeric_limits<T>::max_digits10);
 		}
 		else if constexpr (NBT_Type::IsIntegerType_V<T>)
 		{

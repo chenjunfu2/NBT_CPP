@@ -719,10 +719,42 @@ int main(void)
 		printf("item_data ? item_data2\n");
 	}
 
-	printf("\n%s\n", NBT_Helper::Serialize<true, false, true>(item_data).ToCharTypeUTF8().c_str());
-	printf("\n%s\n", NBT_Helper::Serialize<true, false, false>(item_data).c_str());
+	NBT_Node testprint
+	{
+		NBT_Type::Compound
+		{
+			mp{"Damage", NBT_Node{NBT_Type::Int{0x1}}},
+			mp{"TestFloat", NBT_Node{NBT_Type::Float{0.0001f}}},
+			mp{"TestDouble", NBT_Node{NBT_Type::Double{0.0001}}},
+			mp{"Enchantments", NBT_Node
+			{
+				NBT_Type::List
+				{
+					NBT_Node
+					{
+						NBT_Type::Compound
+						{
+							mp{"id", NBT_Node{NBT_Type::String{"minecraft:infinity"}}},
+							mp{"lvl", NBT_Node{NBT_Type::Short{0x1}}}
+						}
+					},
+					NBT_Node
+					{
+						NBT_Type::Compound
+						{
+							mp{"id", NBT_Node{NBT_Type::String{"minecraft:flame"}}},
+							mp{"lvl", NBT_Node{NBT_Type::Short{0x1}}}
+						}
+					}
+				}
+			}}
+		}
+	};
 
-	printf("\n%s\n", NBT_Helper::Serialize<true, true, false>(item_data).c_str());
+	printf("\n%s\n", NBT_Helper::Serialize<true, false, true>(testprint).ToCharTypeUTF8().c_str());
+	printf("\n%s\n", NBT_Helper::Serialize<true, false, false>(testprint).c_str());
+
+	printf("\n%s\n", NBT_Helper::Serialize<true, true, false>(testprint).c_str());
 
 	return 0;
 }

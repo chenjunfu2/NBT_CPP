@@ -22,7 +22,9 @@ public:
 	requires(IsLookLike_NBT_Visitor<Visitor>)
 	static bool Scan(InputStream IptStream, Visitor &tVisitor)
 	{
+		tVisitor.VisitBegin();
 		//TODO
+		tVisitor.VisitEnd();
 	}
 	
 	template<typename DataType = std::vector<uint8_t>, typename Visitor>
@@ -31,10 +33,9 @@ public:
 	{
 		DefaultInputStream<DataType> IptStream(tDataInput, szStartIdx);
 
-		//tVisitor.VisitBegin();
+		tVisitor.VisitBegin();
+		//TODO
 
 		tVisitor.VisitEnd();
-
-		//TODO
 	}
 };
