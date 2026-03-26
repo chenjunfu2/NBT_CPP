@@ -15,8 +15,8 @@ class NBT_Scanner
 
 
 public:
-	//返回值表示因为内部错误自行退出的，还是用户主动退出的（哪怕用户捕获到错误进行主动退出）
-	//true:用户主动退出   false:内部错误自行退出
+	//返回值表示因为内部错误自行退出的，还是用正常退出的
+	//true:正常   false:错误退出
 
 	template<typename InputStream, typename Visitor>
 	requires(IsLookLike_NBT_Visitor<Visitor>)
