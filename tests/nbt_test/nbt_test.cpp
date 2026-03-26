@@ -529,7 +529,7 @@ int mainhh(void)
 	return 0;
 }
 
-int main(void)
+int main0___(void)
 {
 	NBT_Node node_cpd{ NBT_Type::Compound{} };
 
@@ -627,7 +627,7 @@ int maingg(void)
 	return 0;
 }
 
-int main_r(void)
+int main(void)
 {
 	using mp = std::pair<const NBT_Type::String, NBT_Node>;
 
@@ -704,20 +704,25 @@ int main_r(void)
 	auto cmp = item_data <=> item_data2;
 	if (cmp == std::partial_ordering::less)
 	{
-		printf("item_data < item_data2");
+		printf("item_data < item_data2\n");
 	}
 	else if (cmp == std::partial_ordering::greater)
 	{
-		printf("item_data > item_data2");
+		printf("item_data > item_data2\n");
 	}
 	else if (cmp == std::partial_ordering::equivalent)
 	{
-		printf("item_data == item_data2");
+		printf("item_data == item_data2\n");
 	}
 	else if (cmp == std::partial_ordering::unordered)
 	{
-		printf("item_data ? item_data2");
+		printf("item_data ? item_data2\n");
 	}
+
+	printf("\n%s\n", NBT_Helper::Serialize<true, false, true>(item_data).ToCharTypeUTF8().c_str());
+	printf("\n%s\n", NBT_Helper::Serialize<true, false, false>(item_data).c_str());
+
+	printf("\n%s\n", NBT_Helper::Serialize<true, true, false>(item_data).c_str());
 
 	return 0;
 }

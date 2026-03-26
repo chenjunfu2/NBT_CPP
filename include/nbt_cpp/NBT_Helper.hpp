@@ -49,13 +49,15 @@ public:
 
 	/// @brief 直接序列化，按照一定规则输出为String并返回
 	/// @tparam bSortCompound 是否对Compound进行排序
+	/// @tparam bHexNumType 是否使用十六进制无损输出值
+	/// @tparam bSnbtType 是否对输出为SNBT格式（SNBT下强制为十进制值，忽略bHexNumType参数）
 	/// @param nRoot 任意NBT_Type中的类型，仅初始化为视图
 	/// @return 返回序列化的结果
 	/// @note 注意并非序列化为snbt，一般用于小NBT对象的附加信息输出
 	template<bool bSortCompound = true, bool bHexNumType = true, bool bSnbtType = false>
 	static std::conditional_t<bSnbtType, NBT_Type::String, std::string> Serialize(const NBT_Node_View<true> nRoot)
 	{
-		std::string sRet{};
+		std::conditional_t<bSnbtType, NBT_Type::String, std::string> sRet{};
 		SerializeSwitch<true, bSortCompound, bHexNumType, bSnbtType>(nRoot, sRet);
 		return sRet;
 	}
@@ -125,11 +127,14 @@ private:
 	}
 
 	template<typename T>
-	requires(NBT_Type::IsNumericType_V<T>)
+	requires(std::is_arithmetic_v<T>)
 	static void NumericToHexString(const T &value, std::string &result)
 	{
-		static_assert(std::is_arithmetic_v<T>, "T must be an arithmetic type");
+		//映射
 		static constexpr char hex_chars[] = "0123456789ABCDEF";
+
+		//前缀
+		result += "0x";
 
 		//按固定字节序处理
 		const unsigned char *bytes = (const unsigned char *)&value;
@@ -153,7 +158,7 @@ private:
 
 	template<typename T, typename STR_T>
 	requires(NBT_Type::IsNumericType_V<T> && (std::is_same_v<STR_T, NBT_Type::String> || std::is_same_v<STR_T, std::string>))
-	void NumericToDecString(const T &value, STR_T &result)
+	static void NumericToDecString(const T &value, STR_T &result)
 	{
 		std::string tmp{};
 		if constexpr (NBT_Type::IsFloatingType_V<T>)
