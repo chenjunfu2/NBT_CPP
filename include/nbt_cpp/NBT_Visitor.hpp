@@ -95,10 +95,10 @@ public:
 	}
 
 
-	ResultControl VisitStart(NBT_TAG_RAW_TYPE tagRootType)
+	void VisitBegin(void)
 	{
 		//do something...
-		return ResultControl::Continue;
+		return;
 	}
 
 	void VisitEnd(void)
@@ -181,8 +181,8 @@ requires(T visitor, NBT_Visitor nbt_visitor)
 
 	//开始/结束方法
 	{
-		visitor.VisitStart(NBT_TAG_RAW_TYPE{})
-	} -> std::same_as<decltype(nbt_visitor.VisitStart(NBT_TAG_RAW_TYPE{}))>;
+		visitor.VisitBegin()
+	};
 	{
 		visitor.VisitEnd()
 	};

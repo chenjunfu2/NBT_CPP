@@ -15,8 +15,8 @@ class NBT_Scanner
 
 
 public:
-	//返回值表示因为内部错误自行退出的，还是用正常退出的
-	//true:正常   false:错误退出
+	//返回值表示因为错误退出的，还是用正常退出的
+	//true:正常退出   false:错误退出
 
 	template<typename InputStream, typename Visitor>
 	requires(IsLookLike_NBT_Visitor<Visitor>)
@@ -31,6 +31,9 @@ public:
 	{
 		DefaultInputStream<DataType> IptStream(tDataInput, szStartIdx);
 
+		//tVisitor.VisitBegin();
+
+		tVisitor.VisitEnd();
 
 		//TODO
 	}
