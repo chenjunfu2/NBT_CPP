@@ -197,7 +197,6 @@ private:
 		StackDepthExceeded,//调用栈深度过深（NBT文件or代码设置问题）
 		NbtTypeTagError,//NBT标签类型错误（NBT文件问题）
 		OutOfRangeError,//（NBT内部长度错误溢出）（NBT文件问题）
-		InternalTypeError,//变体NBT节点类型错误（代码问题）
 
 		ERRCODE_END,//结束标记，统计负数部分大小
 	};
@@ -212,7 +211,6 @@ private:
 		"StackDepthExceeded",
 		"NbtTypeTagError",
 		"OutOfRangeError",
-		"InternalTypeError",
 	};
 
 	//记得同步数组！

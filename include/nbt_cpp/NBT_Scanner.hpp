@@ -8,7 +8,7 @@ class NBT_Scanner
 	template<typename T>
 	using DefaultInputStream = NBT_Reader::DefaultInputStream<T>;
 
-
+	
 
 
 
