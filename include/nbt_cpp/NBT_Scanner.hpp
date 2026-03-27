@@ -56,8 +56,26 @@ catch(...)\
 ///@endcond
 
 public:
+	using ErrCode = NBT_Reader::ErrCode;
+	using WarnCode = NBT_Reader::WarnCode;
+
+	template <typename T, typename InputStream, typename InfoFunc, typename... Args>
+	requires(std::is_same_v<T, ErrCode> || std::is_same_v<T, WarnCode>)
+	static std::conditional_t<std::is_same_v<T, ErrCode>, ErrCode, void> Error
+	(
+		const T &code,
+		const InputStream &tData,
+		InfoFunc &funcInfo,
+		const std::FMT_STR<Args...> fmt,
+		Args&&... args
+	) noexcept
+	{
+		return NBT_Reader::Error(code, tData, funcInfo, fmt, std::forward<Args>(args)...);
+	}
 
 
+
+	
 
 
 
@@ -71,7 +89,7 @@ public:
 
 	template<typename InputStream, typename Visitor, typename InfoFunc = NBT_Print>
 	requires(IsLookLike_NBT_Visitor<Visitor>)
-	static bool Scan(InputStream IptStream, Visitor &tVisitor, InfoFunc funcInfo = NBT_Print{})
+	static bool Scan(InputStream IptStream, Visitor &tVisitor, size_t szStackDepth = 512, InfoFunc funcInfo = NBT_Print{})
 	{
 		tVisitor.VisitBegin();
 		//TODO
@@ -80,13 +98,12 @@ public:
 	
 	template<typename DataType = std::vector<uint8_t>, typename Visitor, typename InfoFunc = NBT_Print>
 	requires(IsLookLike_NBT_Visitor<Visitor>)
-	static bool Scan(const DataType &tDataInput, size_t szStartIdx, Visitor &tVisitor, InfoFunc funcInfo = NBT_Print{})
+	static bool Scan(const DataType &tDataInput, size_t szStartIdx, Visitor &tVisitor, size_t szStackDepth = 512, InfoFunc funcInfo = NBT_Print{})
 	{
 		NBT_IO::DefaultInputStream<DataType> IptStream(tDataInput, szStartIdx);
 
 		tVisitor.VisitBegin();
 		//TODO
-
 		tVisitor.VisitEnd();
 	}
 
