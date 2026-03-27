@@ -130,7 +130,17 @@ private:
 		result += "0x";
 
 		//按照原始字节序处理
-		using Raw_T = std::conditional_t<NBT_Type::IsNumericType_V<T>, NBT_Type::BuiltinRawType_T<T>, T>;
+		using Raw_T = decltype([](void) -> auto
+		{
+			if constexpr (NBT_Type::IsNumericType_V<T>)
+			{
+				return NBT_Type::BuiltinRawType_T<T>{};
+			}
+			else
+			{
+				return T{};
+			}
+		}());
 		Raw_T uintVal = std::bit_cast<Raw_T>(value);
 
 		for (size_t i = 0; i < sizeof(T); ++i)
