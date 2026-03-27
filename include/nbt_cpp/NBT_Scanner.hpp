@@ -70,7 +70,7 @@ public:
 		Args&&... args
 	) noexcept
 	{
-		return NBT_Reader::Error(code, tData, funcInfo, fmt, std::forward<Args>(args)...);
+		return NBT_Reader::Error(code, tData, funcInfo, std::move(fmt), std::forward<Args>(args)...);
 	}
 
 

@@ -756,6 +756,8 @@ int main(void)
 
 	printf("\n%s\n", NBT_Helper::Serialize<true, true, false>(testprint).c_str());
 
+	NBT_Helper::Print(testprint);
+
 	return 0;
 }
 

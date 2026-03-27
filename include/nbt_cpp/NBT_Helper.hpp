@@ -32,15 +32,16 @@ public:
 	/// @tparam bSortCompound 是否对Compound进行排序
 	/// @tparam PrintFunc 用于输出的仿函数类型，具体格式请参考NBT_Print说明
 	/// @param nRoot 任意NBT_Type中的类型，仅初始化为视图
-	/// @param funcPrint 用于输出的仿函数
-	/// @param bPadding 是否打印缩进补白
+	/// @param bPaddingStartLevel 是否打印缩进补白
 	/// @param bNewLine 是否在所有打印完成后的末尾换行
+	/// @param strLevelPadding 用于打印一级的空白内容
+	/// @param funcPrint 用于输出的仿函数
 	template<bool bSortCompound = true, typename PrintFunc = NBT_Print>
-	static void Print(const NBT_Node_View<true> nRoot, PrintFunc funcPrint = NBT_Print{}, bool bPadding = true, bool bNewLine = true)
+	static void Print(const NBT_Node_View<true> nRoot, bool bPaddingStartLevel = true, bool bNewLine = true, const std::string & strLevelPadding = "    ", PrintFunc funcPrint = NBT_Print{})
 	{
-		size_t szLevelStart = bPadding ? 0 : (size_t)-1;//跳过打印
+		size_t szLevelStart = bPaddingStartLevel ? 0 : (size_t)-1;//跳过打印
 
-		PrintSwitch<true, bSortCompound>(nRoot, szLevelStart, funcPrint);
+		PrintSwitch<true, bSortCompound>(nRoot, szLevelStart, strLevelPadding, funcPrint);
 		if (bNewLine)
 		{
 			funcPrint("\n");
@@ -100,10 +101,8 @@ public:
 #endif
 
 private:
-	constexpr const static inline char *const LevelPadding = "    ";//默认对齐
-
 	template<typename PrintFunc>
-	static void PrintPadding(size_t szLevel, bool bSubLevel, bool bNewLine, PrintFunc &funcPrint)//bSubLevel会让缩进多一层
+	static void PrintPadding(size_t szLevel, bool bSubLevel, bool bNewLine, const std::string &strLevelPadding, PrintFunc &funcPrint)//bSubLevel会让缩进多一层
 	{
 		if (szLevel == (size_t)-1)//跳过打印
 		{
@@ -117,12 +116,12 @@ private:
 		
 		for (size_t i = 0; i < szLevel; ++i)
 		{
-			funcPrint("{}", LevelPadding);
+			funcPrint("{}", strLevelPadding);
 		}
 
 		if (bSubLevel)
 		{
-			funcPrint("{}", LevelPadding);
+			funcPrint("{}", strLevelPadding);
 		}
 	}
 
@@ -191,7 +190,7 @@ private:
 private:
 	//首次调用默认为true，二次调用开始内部主动变为false
 	template<bool bRoot, bool bSortCompound, typename PrintFunc = NBT_Print>//首次使用NBT_Node_View解包，后续直接使用NBT_Node引用免除额外初始化开销
-	static void PrintSwitch(std::conditional_t<bRoot, const NBT_Node_View<true> &, const NBT_Node &>nRoot, size_t szLevel, PrintFunc &funcPrint)
+	static void PrintSwitch(std::conditional_t<bRoot, const NBT_Node_View<true> &, const NBT_Node &>nRoot, size_t szLevel, const std::string &strLevelPadding, const char *const LevelPadding, PrintFunc &funcPrint)
 	{
 		static auto PrintArray = [](const std::string strBeg, const auto &vArr, const std::string strEnd, PrintFunc &funcPrint) -> void
 		{
@@ -274,7 +273,7 @@ private:
 		case NBT_TAG::List://需要打印缩进的地方
 			{
 				const auto &list = nRoot.template Get<NBT_Type::List>();
-				PrintPadding(szLevel, false, !bRoot, funcPrint);//不是根部则打印开头换行
+				PrintPadding(szLevel, false, !bRoot, strLevelPadding, funcPrint);//不是根部则打印开头换行
 				funcPrint("[");
 
 				bool bFirst = true;
@@ -289,13 +288,13 @@ private:
 						funcPrint(",");
 					}
 
-					PrintPadding(szLevel, true, it.GetTag() != NBT_TAG::Compound && it.GetTag() != NBT_TAG::List, funcPrint);
+					PrintPadding(szLevel, true, it.GetTag() != NBT_TAG::Compound && it.GetTag() != NBT_TAG::List, strLevelPadding, funcPrint);
 					PrintSwitch<false, bSortCompound, PrintFunc>(it, szLevel + 1, funcPrint);
 				}
 
 				if (list.Size() != 0)//空列表无需换行以及对齐
 				{
-					PrintPadding(szLevel, false, true, funcPrint);
+					PrintPadding(szLevel, false, true, strLevelPadding, funcPrint);
 				}
 
 				funcPrint("]");
@@ -304,7 +303,7 @@ private:
 		case NBT_TAG::Compound://需要打印缩进的地方
 			{
 				const auto &cpd = nRoot.template Get<NBT_Type::Compound>();
-				PrintPadding(szLevel, false, !bRoot, funcPrint);//不是根部则打印开头换行
+				PrintPadding(szLevel, false, !bRoot, strLevelPadding, funcPrint);//不是根部则打印开头换行
 				funcPrint("{{");//大括号转义
 
 				if constexpr (!bSortCompound)
@@ -321,7 +320,7 @@ private:
 							funcPrint(",");
 						}
 
-						PrintPadding(szLevel, true, true, funcPrint);
+						PrintPadding(szLevel, true, true, strLevelPadding, funcPrint);
 						funcPrint("\"{}\":", it.first.ToCharTypeUTF8());
 						PrintSwitch<false, bSortCompound, PrintFunc>(it.second, szLevel + 1, funcPrint);
 					}
@@ -342,7 +341,7 @@ private:
 							funcPrint(",");
 						}
 
-						PrintPadding(szLevel, true, true, funcPrint);
+						PrintPadding(szLevel, true, true, strLevelPadding, funcPrint);
 						funcPrint("\"{}\":", it->first.ToCharTypeUTF8());
 						PrintSwitch<false, bSortCompound, PrintFunc>(it->second, szLevel + 1, funcPrint);
 					}
@@ -350,7 +349,7 @@ private:
 
 				if (cpd.Size() != 0)//空集合无需换行以及对齐
 				{
-					PrintPadding(szLevel, false, true, funcPrint);
+					PrintPadding(szLevel, false, true, strLevelPadding, funcPrint);
 				}
 
 				funcPrint("}}");//大括号转义
