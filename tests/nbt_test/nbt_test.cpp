@@ -726,6 +726,7 @@ int main(void)
 			mp{"Damage", NBT_Node{NBT_Type::Int{0x1}}},
 			mp{"TestFloat", NBT_Node{NBT_Type::Float{0.0001f}}},
 			mp{"TestDouble", NBT_Node{NBT_Type::Double{0.0001}}},
+			mp{"TestDouble2", NBT_Node{NBT_Type::Double{0.00000012345678}}},
 			mp{"Enchantments", NBT_Node
 			{
 				NBT_Type::List

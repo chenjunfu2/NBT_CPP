@@ -38,7 +38,7 @@ public:
 	template<bool bSortCompound = true, typename PrintFunc = NBT_Print>
 	static void Print(const NBT_Node_View<true> nRoot, size_t szPaddingStartLevel = 0, const std::string & strLevelPadding = "    ", PrintFunc funcPrint = NBT_Print{})
 	{
-		PrintSwitch<true, bSortCompound>(nRoot, szLevelStart, strLevelPadding, funcPrint);
+		PrintSwitch<true, bSortCompound>(nRoot, szPaddingStartLevel, strLevelPadding, funcPrint);
 	}
 
 	/// @brief 直接序列化，按照一定规则输出为String并返回
