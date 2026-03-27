@@ -162,7 +162,7 @@ private:
 		std::string tmp{};
 		if constexpr (NBT_Type::IsFloatingType_V<T>)
 		{
-			tmp = std::format("{:.{}f}", value, std::numeric_limits<T>::max_digits10);
+			tmp = std::format("{:.{}g}", value, std::numeric_limits<T>::max_digits10);
 		}
 		else if constexpr (NBT_Type::IsIntegerType_V<T>)
 		{
@@ -289,7 +289,7 @@ private:
 					}
 
 					PrintPadding(szLevel, true, it.GetTag() != NBT_TAG::Compound && it.GetTag() != NBT_TAG::List, strLevelPadding, funcPrint);
-					PrintSwitch<false, bSortCompound, PrintFunc>(it, szLevel + 1, funcPrint);
+					PrintSwitch<false, bSortCompound, PrintFunc>(it, szLevel + 1, strLevelPadding, funcPrint);
 				}
 
 				if (list.Size() != 0)//空列表无需换行以及对齐
@@ -322,7 +322,7 @@ private:
 
 						PrintPadding(szLevel, true, true, strLevelPadding, funcPrint);
 						funcPrint("\"{}\":", it.first.ToCharTypeUTF8());
-						PrintSwitch<false, bSortCompound, PrintFunc>(it.second, szLevel + 1, funcPrint);
+						PrintSwitch<false, bSortCompound, PrintFunc>(it.second, szLevel + 1, strLevelPadding, funcPrint);
 					}
 				}
 				else
@@ -343,7 +343,7 @@ private:
 
 						PrintPadding(szLevel, true, true, strLevelPadding, funcPrint);
 						funcPrint("\"{}\":", it->first.ToCharTypeUTF8());
-						PrintSwitch<false, bSortCompound, PrintFunc>(it->second, szLevel + 1, funcPrint);
+						PrintSwitch<false, bSortCompound, PrintFunc>(it->second, szLevel + 1, strLevelPadding, funcPrint);
 					}
 				}
 
