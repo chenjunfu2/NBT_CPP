@@ -6,6 +6,7 @@
 #include <algorithm>
 
 #include "NBT_Print.hpp"//打印输出
+#include "NBT_Endian.hpp"
 #include "NBT_Node.hpp"
 #include "NBT_Node_View.hpp"
 
@@ -128,23 +129,16 @@ private:
 		//前缀
 		result += "0x";
 
-		//按固定字节序处理
-		const unsigned char *bytes = (const unsigned char *)&value;
-		if constexpr (std::endian::native == std::endian::little)
+		//按照原始字节序处理
+		using Raw_T = std::conditional_t<NBT_Type::IsNumericType_V<T>, NBT_Type::BuiltinRawType_T<T>, T>;
+		Raw_T uintVal = std::bit_cast<Raw_T>(value);
+
+		for (size_t i = 0; i < sizeof(T); ++i)
 		{
-			for (size_t i = sizeof(T); i-- > 0; )
-			{
-				result += hex_chars[(bytes[i] >> 4) & 0x0F];//高4
-				result += hex_chars[(bytes[i] >> 0) & 0x0F];//低4
-			}
-		}
-		else
-		{
-			for (size_t i = 0; i < sizeof(T); ++i)
-			{
-				result += hex_chars[(bytes[i] >> 4) & 0x0F];//高4
-				result += hex_chars[(bytes[i] >> 0) & 0x0F];//低4
-			}
+			uint8_t u8Byte = (uintVal >> 8 * (sizeof(T) - i - 1)) & 0xFF;//遍历字节，从高到低
+
+			result += hex_chars[(u8Byte >> 4) & 0x0F];//高4
+			result += hex_chars[(u8Byte >> 0) & 0x0F];//低4
 		}
 	}
 
