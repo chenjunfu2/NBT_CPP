@@ -32,20 +32,13 @@ public:
 	/// @tparam bSortCompound 是否对Compound进行排序
 	/// @tparam PrintFunc 用于输出的仿函数类型，具体格式请参考NBT_Print说明
 	/// @param nRoot 任意NBT_Type中的类型，仅初始化为视图
-	/// @param bPaddingStartLevel 是否打印缩进补白
-	/// @param bNewLine 是否在所有打印完成后的末尾换行
+	/// @param szPaddingStartLevel 从指定缩进等级开始打印，值为(size_t)-1则不打印缩进
 	/// @param strLevelPadding 用于打印一级的空白内容
 	/// @param funcPrint 用于输出的仿函数
 	template<bool bSortCompound = true, typename PrintFunc = NBT_Print>
-	static void Print(const NBT_Node_View<true> nRoot, bool bPaddingStartLevel = true, bool bNewLine = true, const std::string & strLevelPadding = "    ", PrintFunc funcPrint = NBT_Print{})
+	static void Print(const NBT_Node_View<true> nRoot, size_t szPaddingStartLevel = 0, const std::string & strLevelPadding = "    ", PrintFunc funcPrint = NBT_Print{})
 	{
-		size_t szLevelStart = bPaddingStartLevel ? 0 : (size_t)-1;//跳过打印
-
 		PrintSwitch<true, bSortCompound>(nRoot, szLevelStart, strLevelPadding, funcPrint);
-		if (bNewLine)
-		{
-			funcPrint("\n");
-		}
 	}
 
 	/// @brief 直接序列化，按照一定规则输出为String并返回
