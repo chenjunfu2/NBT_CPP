@@ -190,7 +190,7 @@ private:
 private:
 	//首次调用默认为true，二次调用开始内部主动变为false
 	template<bool bRoot, bool bSortCompound, typename PrintFunc = NBT_Print>//首次使用NBT_Node_View解包，后续直接使用NBT_Node引用免除额外初始化开销
-	static void PrintSwitch(std::conditional_t<bRoot, const NBT_Node_View<true> &, const NBT_Node &>nRoot, size_t szLevel, const std::string &strLevelPadding, const char *const LevelPadding, PrintFunc &funcPrint)
+	static void PrintSwitch(std::conditional_t<bRoot, const NBT_Node_View<true> &, const NBT_Node &>nRoot, size_t szLevel, const std::string &strLevelPadding, PrintFunc &funcPrint)
 	{
 		static auto PrintArray = [](const std::string strBeg, const auto &vArr, const std::string strEnd, PrintFunc &funcPrint) -> void
 		{
