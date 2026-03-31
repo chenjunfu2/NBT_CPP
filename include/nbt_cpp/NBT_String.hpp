@@ -231,7 +231,7 @@ public:
 
 	/// @brief 从wchar_t类型的UTF-16编码字符串视图构造NBT_String对象
 	/// @param u16WCharTypeString wchar_t类型的UTF-16字符串视图
-	NBT_String(std::basic_string_view<wchar_t> u16WCharTypeString) :String(MUTF8_Tool<typename String::value_type, wchar_t, char8_t>::U8ToMU8(u16WCharTypeString))
+	NBT_String(std::basic_string_view<wchar_t> u16WCharTypeString) :String(MUTF8_Tool<typename String::value_type, wchar_t, char8_t>::U16ToMU8(u16WCharTypeString))
 	{}
 
 	/// @brief 从UTF-16编码字符串视图构造NBT_String对象
