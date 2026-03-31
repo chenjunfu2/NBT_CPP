@@ -1,8 +1,8 @@
 ﻿#include <stdio.h>
 
+#include <nbt_cpp/NBT_All.hpp>
 #include <my/StrHexArray.hpp>
 #include <my/MyAssert.hpp>
-#include <nbt_cpp/NBT_All.hpp>
 
 template<typename T>
 void PrintHexArr(T data, uint8_t u8CountOfLine = 16, const char *pstrLineBeg = " ", const char *pstrLineEnd = "\n", const char* pstrHexPadding = " ") noexcept
