@@ -2,8 +2,10 @@ name: C/C++ CI
 
 on:
   workflow_dispatch:
-  #push:
-  #  branches: [ "master" ]
+  push:
+    branches: [ "master" ]
+    paths:
+    - 'docs/**'
   #pull_request:
   #  branches: [ "master" ]
 
