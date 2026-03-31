@@ -8,13 +8,11 @@ var classNBT__String =
     [ "NBT_String", "classNBT__String.html#a0171ea225ca8123586e795c5d3b65f7f", null ],
     [ "NBT_String", "classNBT__String.html#a430937f7fafdde273accaf2f799d7d5e", null ],
     [ "NBT_String", "classNBT__String.html#aa8c739d2285fc10183d73dee14c91b74", null ],
-    [ "NBT_String", "classNBT__String.html#aab5b08729ceb88107c137cd4d361ae66", null ],
     [ "NBT_String", "classNBT__String.html#a228b007f64009e601819374b3592f2e0", null ],
     [ "NBT_String", "classNBT__String.html#a0c704e46c03e37f24487baaa8b288615", null ],
     [ "NBT_String", "classNBT__String.html#aa541e313b7d064b7c5c6a32ec694b331", null ],
     [ "NBT_String", "classNBT__String.html#a76ca97927eaefc349b46d9d318ddd6f1", null ],
     [ "NBT_String", "classNBT__String.html#a37b9d1641434fdf417a8d63840c887a4", null ],
-    [ "NBT_String", "classNBT__String.html#a9418f379fc0b52cb63a83fd633ab57f4", null ],
     [ "NBT_String", "classNBT__String.html#a7813de0bfb8b4d95d7c30021a8d47763", null ],
     [ "NBT_String", "classNBT__String.html#a5ae26f9e910e98c7c39dc805d15b14f4", null ],
     [ "NBT_String", "classNBT__String.html#aa3044923d907391e22e95566ccec46bf", null ],
@@ -29,11 +27,8 @@ var classNBT__String =
     [ "FromUTF8", "classNBT__String.html#a207fc2104595785b59d2a96811f6bdc0", null ],
     [ "FromUTF8", "classNBT__String.html#af43948eaa86118187466dd82c6770347", null ],
     [ "FromUTF8", "classNBT__String.html#a8aed296fca2a284d9bfa9bcc2967cb2e", null ],
-    [ "FromWchartTypeUTF16", "classNBT__String.html#a8d543458e895bdfc39159ebcc917610f", null ],
-    [ "FromWchartTypeUTF16", "classNBT__String.html#a3a8eb3d2be2f3196d6730b9b0889437d", null ],
     [ "GetCharTypeView", "classNBT__String.html#a5eb1495a67fa3d068a96d6a3244d0552", null ],
     [ "ToCharTypeUTF8", "classNBT__String.html#acc98daa94965d8684d0c0115dfb14a15", null ],
     [ "ToUTF16", "classNBT__String.html#a145584faa1178b6cf83165d8b3e6ba6b", null ],
-    [ "ToUTF8", "classNBT__String.html#a51aa60b3affb42e25e4ea5dd69a829d7", null ],
-    [ "ToWchartTypeUTF16", "classNBT__String.html#aebe58dd269534d405c1aa73d7cfb442a", null ]
+    [ "ToUTF8", "classNBT__String.html#a51aa60b3affb42e25e4ea5dd69a829d7", null ]
 ];
