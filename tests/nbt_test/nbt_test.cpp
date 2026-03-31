@@ -635,9 +635,9 @@ int main(void)
 	{
 		NBT_Type::Compound
 		{
-			mp{"Damage", NBT_Node{NBT_Type::Int{0x1}}},
+			mp{MU8STR("Damage"), NBT_Node{NBT_Type::Int{0x1}}},
 			//mp{"RepairCost", NBT_Node{NBT_Type::Int{0x0}}},
-			mp{"Enchantments", NBT_Node
+			mp{MU8STR("Enchantments"), NBT_Node
 			{
 				NBT_Type::List
 				{
@@ -645,24 +645,24 @@ int main(void)
 					{
 						NBT_Type::Compound
 						{
-							mp{"id", NBT_Node{NBT_Type::String{"minecraft:infinity"}}},
-							mp{"lvl", NBT_Node{NBT_Type::Short{0x1}}}
+							mp{MU8STR("id"), NBT_Node{NBT_Type::String{MU8STR("minecraft:infinity")}}},
+							mp{MU8STR("lvl"), NBT_Node{NBT_Type::Short{0x1}}}
 						}
 					},
 					NBT_Node
 					{
 						NBT_Type::Compound
 						{
-							mp{"id", NBT_Node{NBT_Type::String{"minecraft:unbreaking"}}},
-							mp{"lvl", NBT_Node{NBT_Type::Short{0x3}}}
+							mp{MU8STR("id"), NBT_Node{NBT_Type::String{MU8STR("minecraft:unbreaking")}}},
+							mp{MU8STR("lvl"), NBT_Node{NBT_Type::Short{0x3}}}
 						}
 					},
 					NBT_Node
 					{
 						NBT_Type::Compound
 						{
-							mp{"id", NBT_Node{NBT_Type::String{"minecraft:mending"}}},
-							mp{"lvl", NBT_Node{NBT_Type::Short{0x1}}}
+							mp{MU8STR("id"), NBT_Node{NBT_Type::String{MU8STR("minecraft:mending")}}},
+							mp{MU8STR("lvl"), NBT_Node{NBT_Type::Short{0x1}}}
 						}
 					}
 				}
@@ -675,8 +675,8 @@ int main(void)
 	{
 		NBT_Type::Compound
 		{
-			mp{"Damage", NBT_Node{NBT_Type::Int{0x1}}},
-			mp{"Enchantments", NBT_Node
+			mp{MU8STR("Damage"), NBT_Node{NBT_Type::Int{0x1}}},
+			mp{MU8STR("Enchantments"), NBT_Node
 			{
 				NBT_Type::List
 				{
@@ -684,16 +684,16 @@ int main(void)
 					{
 						NBT_Type::Compound
 						{
-							mp{"id", NBT_Node{NBT_Type::String{"minecraft:infinity"}}},
-							mp{"lvl", NBT_Node{NBT_Type::Short{0x1}}}
+							mp{MU8STR("id"), NBT_Node{NBT_Type::String{MU8STR("minecraft:infinity")}}},
+							mp{MU8STR("lvl"), NBT_Node{NBT_Type::Short{0x1}}}
 						}
 					},
 					NBT_Node
 					{
 						NBT_Type::Compound
 						{
-							mp{"id", NBT_Node{NBT_Type::String{"minecraft:flame"}}},
-							mp{"lvl", NBT_Node{NBT_Type::Short{0x1}}}
+							mp{MU8STR("id"), NBT_Node{NBT_Type::String{MU8STR("minecraft:flame")}}},
+							mp{MU8STR("lvl"), NBT_Node{NBT_Type::Short{0x1}}}
 						}
 					}
 				}
@@ -723,11 +723,11 @@ int main(void)
 	{
 		NBT_Type::Compound
 		{
-			mp{"Damage", NBT_Node{NBT_Type::Int{0x1}}},
-			mp{"TestFloat", NBT_Node{NBT_Type::Float{0.0001f}}},
-			mp{"TestDouble", NBT_Node{NBT_Type::Double{0.0001}}},
-			mp{"TestDouble2", NBT_Node{NBT_Type::Double{0.00000012345678}}},
-			mp{"Enchantments", NBT_Node
+			mp{MU8STR("Damage"), NBT_Node{NBT_Type::Int{0x1}}},
+			mp{MU8STR("TestFloat"), NBT_Node{NBT_Type::Float{0.0001f}}},
+			mp{MU8STR("TestDouble"), NBT_Node{NBT_Type::Double{0.0001}}},
+			mp{MU8STR("TestDouble2"), NBT_Node{NBT_Type::Double{0.00000012345678}}},
+			mp{MU8STR("Enchantments"), NBT_Node
 			{
 				NBT_Type::List
 				{
@@ -735,16 +735,16 @@ int main(void)
 					{
 						NBT_Type::Compound
 						{
-							mp{"id", NBT_Node{NBT_Type::String{"minecraft:infinity"}}},
-							mp{"lvl", NBT_Node{NBT_Type::Short{0x1}}}
+							mp{MU8STR("id"), NBT_Node{NBT_Type::String{MU8STR("minecraft:infinity")}}},
+							mp{MU8STR("lvl"), NBT_Node{NBT_Type::Short{0x1}}}
 						}
 					},
 					NBT_Node
 					{
 						NBT_Type::Compound
 						{
-							mp{"id", NBT_Node{NBT_Type::String{"minecraft:flame"}}},
-							mp{"lvl", NBT_Node{NBT_Type::Short{0x1}}}
+							mp{MU8STR("id"), NBT_Node{NBT_Type::String{MU8STR("minecraft:flame")}}},
+							mp{MU8STR("lvl"), NBT_Node{NBT_Type::Short{0x1}}}
 						}
 					}
 				}
