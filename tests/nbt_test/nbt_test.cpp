@@ -627,7 +627,57 @@ int maingg(void)
 	return 0;
 }
 
-int main(void)
+
+int main(void)//_teststring
+{
+	uint8_t arr0[] = { 't','e','s','t', '0'};
+	uint8_t arr1[] = { 't','e','s','t', '1','\0'};
+	uint8_t arr2[] = { 't','e','s','t', '2','\xC0','\x80' };
+	uint8_t arr3[] = { 't','e','s','t', '3','\xC0','\x80','\0' };
+
+
+	NBT_Type::String sArr[] =
+	{
+		arr0,
+		arr1,
+		arr2,
+		arr3,
+
+		MU8STR("test4"),
+		MU8STRV("test5"),
+
+		std::string("test6"),
+		std::string_view("test7"),
+
+		std::u8string(u8"test8"),
+		std::u8string_view(u8"test9"),
+
+		std::wstring(L"test10"),
+		std::wstring_view(L"test11"),
+		
+		std::u16string(u"test12"),
+		std::u16string_view(u"test13"),
+
+		{std::string("test14"), NBT_Type::String::USE_RAW_DATA{}},
+		{std::string_view("test15"), NBT_Type::String::USE_RAW_DATA{}},
+
+		{std::u8string(u8"test16"), NBT_Type::String::USE_RAW_DATA{}},
+		{std::u8string_view(u8"test17"), NBT_Type::String::USE_RAW_DATA{}},
+	};
+
+	NBT_Print print(stdout, NULL, NULL);
+
+	size_t i = 0;
+	for (const auto &it : sArr)
+	{
+		print("{}: [{}]\n", i++, it.ToCharTypeUTF8());
+	}
+
+	return 0;
+}
+
+
+int main_xx(void)
 {
 	using mp = std::pair<const NBT_Type::String, NBT_Node>;
 
