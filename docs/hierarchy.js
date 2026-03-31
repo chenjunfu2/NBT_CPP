@@ -13,8 +13,8 @@ var hierarchy =
     [ "Compound", null, [
       [ "NBT_Compound< Compound >", "classNBT__Compound.html", null ]
     ] ],
-    [ "NBT_Reader::DefaultInputStream&lt; T &gt;", "classNBT__Reader_1_1DefaultInputStream.html", null ],
-    [ "NBT_Writer::DefaultOutputStream&lt; T &gt;", "classNBT__Writer_1_1DefaultOutputStream.html", null ],
+    [ "NBT_IO::DefaultInputStream&lt; T &gt;", "classNBT__IO_1_1DefaultInputStream.html", null ],
+    [ "NBT_IO::DefaultOutputStream&lt; T &gt;", "classNBT__IO_1_1DefaultOutputStream.html", null ],
     [ "std::hash&lt; NBT_String&lt; String, StringView &gt; &gt;", "structstd_1_1hash_3_01NBT__String_3_01String_00_01StringView_01_4_01_4.html", null ],
     [ "std::hash&lt; NBT_StringView&lt; String, StringView &gt; &gt;", "structstd_1_1hash_3_01NBT__StringView_3_01String_00_01StringView_01_4_01_4.html", null ],
     [ "List", null, [
@@ -42,6 +42,7 @@ var hierarchy =
     [ "std::unordered_map", null, [
       [ "NBT_Compound< std::unordered_map< String, NBT_Node > >", "classNBT__Compound.html", null ]
     ] ],
+    [ "NBT_String&lt; String, StringView &gt;::USE_RAW_DATA", "structNBT__String_1_1USE__RAW__DATA.html", null ],
     [ "std::vector", null, [
       [ "NBT_Array< std::vector< Byte > >", "classNBT__Array.html", null ],
       [ "NBT_Array< std::vector< Int > >", "classNBT__Array.html", null ],

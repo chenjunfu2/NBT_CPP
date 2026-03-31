@@ -1,7 +1,6 @@
 var searchData=
 [
-  ['mu8cv2u16_0',['MU8CV2U16',['../MUTF8__Tool_8hpp.html#a39f90331bcda0f60cd03464db28bf2b5',1,'MUTF8_Tool.hpp']]],
-  ['mu8cv2u8_1',['MU8CV2U8',['../MUTF8__Tool_8hpp.html#a604eb79d9d199f3b6f9e6437e6bd1527',1,'MUTF8_Tool.hpp']]],
-  ['mu8str_2',['MU8STR',['../NBT__Node_8hpp.html#ac625b0c6c73f0f64396917d442c84e0d',1,'NBT_Node.hpp']]],
-  ['mu8strv_3',['MU8STRV',['../NBT__Node_8hpp.html#abd6aab1538577f5315c3ec235371c548',1,'NBT_Node.hpp']]]
+  ['type_5fget_5ffunc_0',['TYPE_GET_FUNC',['../NBT__Compound_8hpp.html#ad96dcd6a7375a0bff7225ea70579c1ed',1,'TYPE_GET_FUNC:&#160;NBT_Compound.hpp'],['../NBT__List_8hpp.html#ad96dcd6a7375a0bff7225ea70579c1ed',1,'TYPE_GET_FUNC:&#160;NBT_List.hpp'],['../NBT__Node_8hpp.html#ad96dcd6a7375a0bff7225ea70579c1ed',1,'TYPE_GET_FUNC:&#160;NBT_Node.hpp'],['../NBT__Node__View_8hpp.html#ad96dcd6a7375a0bff7225ea70579c1ed',1,'TYPE_GET_FUNC:&#160;NBT_Node_View.hpp']]],
+  ['type_5fput_5ffunc_1',['TYPE_PUT_FUNC',['../NBT__Compound_8hpp.html#a4e3830e5c76bfd46aa912c3ffda8488c',1,'TYPE_PUT_FUNC:&#160;NBT_Compound.hpp'],['../NBT__List_8hpp.html#a4e3830e5c76bfd46aa912c3ffda8488c',1,'TYPE_PUT_FUNC:&#160;NBT_List.hpp']]],
+  ['type_5fset_5ffunc_2',['TYPE_SET_FUNC',['../NBT__Node_8hpp.html#a8b970b74ecd9bae3d74ac0c6fe1db49f',1,'TYPE_SET_FUNC:&#160;NBT_Node.hpp'],['../NBT__Node__View_8hpp.html#a8b970b74ecd9bae3d74ac0c6fe1db49f',1,'TYPE_SET_FUNC:&#160;NBT_Node_View.hpp']]]
 ];

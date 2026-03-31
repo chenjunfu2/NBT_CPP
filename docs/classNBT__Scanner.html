@@ -26,7 +26,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">chenjunfu2-nbt-cpp<span id="projectnumber">&#160;v2.0.1</span>
+   <div id="projectname">chenjunfu2-nbt-cpp<span id="projectnumber">&#160;v2.1.0</span>
    </div>
    <div id="projectbrief">一个基于CPP20的NBT(Named Binary Tag)库</div>
   </td>
@@ -93,16 +93,27 @@ $(function(){initNavTree('classNBT__Scanner.html','','classNBT__Scanner-members'
 </div><!--header-->
 <div class="contents">
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-types" class="groupheader"><a id="pub-types" name="pub-types"></a>
+Public 类型</h2></td></tr>
+<tr class="memitem:adb5ca5f6d61c79595d4b0952c7745642" id="r_adb5ca5f6d61c79595d4b0952c7745642"><td class="memItemLeft" align="right" valign="top"><a id="adb5ca5f6d61c79595d4b0952c7745642" name="adb5ca5f6d61c79595d4b0952c7745642"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><b>ErrCode</b> = NBT_Reader::ErrCode</td></tr>
+<tr class="memitem:a4e34451a31e0f8476827a05c526d0896" id="r_a4e34451a31e0f8476827a05c526d0896"><td class="memItemLeft" align="right" valign="top"><a id="a4e34451a31e0f8476827a05c526d0896" name="a4e34451a31e0f8476827a05c526d0896"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><b>WarnCode</b> = NBT_Reader::WarnCode</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-static-methods" class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 静态 Public 成员函数</h2></td></tr>
-<tr class="memitem:a1f182f0557184b356dcd3c5e4916de86" id="r_a1f182f0557184b356dcd3c5e4916de86"><td class="memTemplParams" colspan="2"><a id="a1f182f0557184b356dcd3c5e4916de86" name="a1f182f0557184b356dcd3c5e4916de86"></a>
-template&lt;typename InputStream, typename Visitor&gt; <br />
+<tr class="memitem:a3a61c70286db8decc984bd0875ebe6a1" id="r_a3a61c70286db8decc984bd0875ebe6a1"><td class="memTemplParams" colspan="2"><a id="a3a61c70286db8decc984bd0875ebe6a1" name="a3a61c70286db8decc984bd0875ebe6a1"></a>
+template&lt;typename T, typename InputStream, typename InfoFunc, typename... Args&gt; <br />
+requires (std::is_same_v&lt;T, ErrCode&gt; || std::is_same_v&lt;T, WarnCode&gt;)</td></tr>
+<tr class="memitem:a3a61c70286db8decc984bd0875ebe6a1 template"><td class="memItemLeft" align="right" valign="top">static std::conditional_t&lt; std::is_same_v&lt; T, ErrCode &gt;, ErrCode, void &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>Error</b> (const T &amp;code, const InputStream &amp;tData, InfoFunc &amp;funcInfo, const std::format_string&lt; Args... &gt; fmt, Args &amp;&amp;... args) noexcept</td></tr>
+<tr class="memitem:acef3a44e8d24e620bf6bfa203e10f24c" id="r_acef3a44e8d24e620bf6bfa203e10f24c"><td class="memTemplParams" colspan="2"><a id="acef3a44e8d24e620bf6bfa203e10f24c" name="acef3a44e8d24e620bf6bfa203e10f24c"></a>
+template&lt;typename InputStream, typename Visitor, typename InfoFunc = NBT_Print&gt; <br />
 requires (<a class="el" href="conceptIsLookLike__NBT__Visitor.html">IsLookLike_NBT_Visitor</a>&lt;Visitor&gt;)</td></tr>
-<tr class="memitem:a1f182f0557184b356dcd3c5e4916de86 template"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><b>Scan</b> (InputStream IptStream, Visitor &amp;tVisitor)</td></tr>
-<tr class="memitem:a09fcea9d1374425f48f01d68372d238a" id="r_a09fcea9d1374425f48f01d68372d238a"><td class="memTemplParams" colspan="2"><a id="a09fcea9d1374425f48f01d68372d238a" name="a09fcea9d1374425f48f01d68372d238a"></a>
-template&lt;typename DataType = std::vector&lt;uint8_t&gt;, typename Visitor&gt; <br />
+<tr class="memitem:acef3a44e8d24e620bf6bfa203e10f24c template"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><b>Scan</b> (InputStream &amp;IptStream, Visitor &amp;tVisitor, size_t szStackDepth=512, InfoFunc funcInfo=<a class="el" href="classNBT__Print.html">NBT_Print</a>{})</td></tr>
+<tr class="memitem:ad6a974103e27856f57def7028f6f226a" id="r_ad6a974103e27856f57def7028f6f226a"><td class="memTemplParams" colspan="2"><a id="ad6a974103e27856f57def7028f6f226a" name="ad6a974103e27856f57def7028f6f226a"></a>
+template&lt;typename DataType = std::vector&lt;uint8_t&gt;, typename Visitor, typename InfoFunc = NBT_Print&gt; <br />
 requires (<a class="el" href="conceptIsLookLike__NBT__Visitor.html">IsLookLike_NBT_Visitor</a>&lt;Visitor&gt;)</td></tr>
-<tr class="memitem:a09fcea9d1374425f48f01d68372d238a template"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><b>Scan</b> (const DataType &amp;tDataInput, size_t szStartIdx, Visitor &amp;tVisitor)</td></tr>
+<tr class="memitem:ad6a974103e27856f57def7028f6f226a template"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><b>Scan</b> (const DataType &amp;tDataInput, size_t szStartIdx, Visitor &amp;tVisitor, size_t szStackDepth=512, InfoFunc funcInfo=<a class="el" href="classNBT__Print.html">NBT_Print</a>{})</td></tr>
 </table>
 <hr/>该类的文档由以下文件生成:<ul>
 <li><a class="el" href="NBT__Scanner_8hpp_source.html">NBT_Scanner.hpp</a></li>

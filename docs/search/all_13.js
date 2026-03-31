@@ -10,7 +10,8 @@ var searchData=
   ['u8tomu8_7',['U8ToMU8',['../classMUTF8__Tool.html#a00f339fe87c64d3648507c6a7e53cd94',1,'MUTF8_Tool::U8ToMU8(const std::basic_string_view&lt; U8T &gt; &amp;u8String, size_t szReserve=0)'],['../classMUTF8__Tool.html#add05a906de04250a214f75d47a418746',1,'MUTF8_Tool::U8ToMU8(const U8T *u8String, size_t szStringLength, size_t szReserve=0)'],['../classMUTF8__Tool.html#a50d6907fb42e59fa652c9987da42dc58',1,'MUTF8_Tool::U8ToMU8(void)']]],
   ['u8tomu8length_8',['U8ToMU8Length',['../classMUTF8__Tool.html#a629e6f6a83603f41fb7d1b836a14d902',1,'MUTF8_Tool::U8ToMU8Length(const std::basic_string_view&lt; U8T &gt; &amp;u8String)'],['../classMUTF8__Tool.html#aa7c73ff27bbad8d0356ea0c41d2aa03b',1,'MUTF8_Tool::U8ToMU8Length(const U8T *u8String, size_t szStringLength)']]],
   ['u8tomu8str_9',['U8TOMU8STR',['../MUTF8__Tool_8hpp.html#acab5b758ea4be7512271d1100917a846',1,'MUTF8_Tool.hpp']]],
-  ['unget_10',['UnGet',['../classNBT__Reader_1_1DefaultInputStream.html#aca0d8f78a2de884e1bd5c741558fc5c2',1,'NBT_Reader::DefaultInputStream']]],
-  ['unput_11',['UnPut',['../classNBT__Writer_1_1DefaultOutputStream.html#ae36e5922755d8302dde26e28bf0b58ca',1,'NBT_Writer::DefaultOutputStream']]],
-  ['update_12',['Update',['../classNBT__Hash.html#a6987754dc7090fd11e145928b8d53901',1,'NBT_Hash::Update(const void *pData, size_t szSize)'],['../classNBT__Hash.html#a6e8fe64e062dd879357cbb6ad922e0ee',1,'NBT_Hash::Update(const T &amp;tData)'],['../classNBT__Hash.html#a610a1ad0b35394c2b221b9562f5f2fde',1,'NBT_Hash::Update(const T(&amp;tDataArr)[N])']]]
+  ['unget_10',['UnGet',['../classNBT__IO_1_1DefaultInputStream.html#a4e7f50f574a9883dc220cc9a1fdabd71',1,'NBT_IO::DefaultInputStream']]],
+  ['unput_11',['UnPut',['../classNBT__IO_1_1DefaultOutputStream.html#a181793376e739472e7e43391b4ede9b8',1,'NBT_IO::DefaultOutputStream']]],
+  ['update_12',['Update',['../classNBT__Hash.html#a6987754dc7090fd11e145928b8d53901',1,'NBT_Hash::Update(const void *pData, size_t szSize)'],['../classNBT__Hash.html#a6e8fe64e062dd879357cbb6ad922e0ee',1,'NBT_Hash::Update(const T &amp;tData)'],['../classNBT__Hash.html#a610a1ad0b35394c2b221b9562f5f2fde',1,'NBT_Hash::Update(const T(&amp;tDataArr)[N])']]],
+  ['use_5fraw_5fdata_13',['USE_RAW_DATA',['../structNBT__String_1_1USE__RAW__DATA.html',1,'NBT_String']]]
 ];

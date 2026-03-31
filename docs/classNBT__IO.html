@@ -26,7 +26,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">chenjunfu2-nbt-cpp<span id="projectnumber">&#160;v2.0.1</span>
+   <div id="projectname">chenjunfu2-nbt-cpp<span id="projectnumber">&#160;v2.1.0</span>
    </div>
    <div id="projectbrief">一个基于CPP20的NBT(Named Binary Tag)库</div>
   </td>
@@ -98,18 +98,25 @@ $(function(){initNavTree('classNBT__IO.html','','classNBT__IO-members'); });
 
 <p><code>#include &lt;<a class="el" href="NBT__IO_8hpp_source.html">NBT_IO.hpp</a>&gt;</code></p>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+类</h2></td></tr>
+<tr class="memitem:DefaultInputStream" id="r_DefaultInputStream"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNBT__IO_1_1DefaultInputStream.html">DefaultInputStream</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">默认输入流类，用于从标准库容器中读取数据  <a href="classNBT__IO_1_1DefaultInputStream.html#details">更多...</a><br /></td></tr>
+<tr class="memitem:DefaultOutputStream" id="r_DefaultOutputStream"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNBT__IO_1_1DefaultOutputStream.html">DefaultOutputStream</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">默认输出流类，用于将数据写入到标准库容器中  <a href="classNBT__IO_1_1DefaultOutputStream.html#details">更多...</a><br /></td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-static-methods" class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 静态 Public 成员函数</h2></td></tr>
-<tr class="memitem:a712cfa63160ad4a35656443fa7a174dc" id="r_a712cfa63160ad4a35656443fa7a174dc"><td class="memTemplParams" colspan="2">template&lt;typename T = std::vector&lt;uint8_t&gt;&gt; <br />
+<tr class="memitem:a140d5db89aa2e0e9fbacff6a1839aa63" id="r_a140d5db89aa2e0e9fbacff6a1839aa63"><td class="memTemplParams" colspan="2">template&lt;typename T = std::vector&lt;uint8_t&gt;&gt; <br />
 requires (sizeof(typename T::value_type) == 1 &amp;&amp; std::is_trivially_copyable_v&lt;typename T::value_type&gt;)</td></tr>
-<tr class="memitem:a712cfa63160ad4a35656443fa7a174dc template"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a712cfa63160ad4a35656443fa7a174dc">WriteFile</a> (const std::string &amp;strFileName, const T &amp;tData)</td></tr>
-<tr class="memdesc:a712cfa63160ad4a35656443fa7a174dc"><td class="mdescLeft">&#160;</td><td class="mdescRight">从任意顺序容器写出字节流数据到指定文件名的文件中  <br /></td></tr>
-<tr class="memitem:a4f91a054c824b54a2bac9cff9cba7f3f" id="r_a4f91a054c824b54a2bac9cff9cba7f3f"><td class="memTemplParams" colspan="2">template&lt;typename T = std::vector&lt;uint8_t&gt;&gt; <br />
+<tr class="memitem:a140d5db89aa2e0e9fbacff6a1839aa63 template"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a140d5db89aa2e0e9fbacff6a1839aa63">WriteFile</a> (const std::filesystem::path &amp;pathFileName, const T &amp;tData)</td></tr>
+<tr class="memdesc:a140d5db89aa2e0e9fbacff6a1839aa63"><td class="mdescLeft">&#160;</td><td class="mdescRight">从任意顺序容器写出字节流数据到指定文件名的文件中  <br /></td></tr>
+<tr class="memitem:a0e36d7f00cc8cb898ebea56d3c53f65a" id="r_a0e36d7f00cc8cb898ebea56d3c53f65a"><td class="memTemplParams" colspan="2">template&lt;typename T = std::vector&lt;uint8_t&gt;&gt; <br />
 requires (sizeof(typename T::value_type) == 1 &amp;&amp; std::is_trivially_copyable_v&lt;typename T::value_type&gt;)</td></tr>
-<tr class="memitem:a4f91a054c824b54a2bac9cff9cba7f3f template"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4f91a054c824b54a2bac9cff9cba7f3f">ReadFile</a> (const std::string &amp;strFileName, T &amp;tData)</td></tr>
-<tr class="memdesc:a4f91a054c824b54a2bac9cff9cba7f3f"><td class="mdescLeft">&#160;</td><td class="mdescRight">从指定文件名的文件中读取字节流数据到任意顺序容器中  <br /></td></tr>
-<tr class="memitem:a66b69f2bb051ada7b7506fbc233ed8fc" id="r_a66b69f2bb051ada7b7506fbc233ed8fc"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a66b69f2bb051ada7b7506fbc233ed8fc">IsFileExist</a> (const std::string &amp;sFileName)</td></tr>
-<tr class="memdesc:a66b69f2bb051ada7b7506fbc233ed8fc"><td class="mdescLeft">&#160;</td><td class="mdescRight">判断指定文件名的文件是否存在  <br /></td></tr>
+<tr class="memitem:a0e36d7f00cc8cb898ebea56d3c53f65a template"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0e36d7f00cc8cb898ebea56d3c53f65a">ReadFile</a> (const std::filesystem::path &amp;pathFileName, T &amp;tData)</td></tr>
+<tr class="memdesc:a0e36d7f00cc8cb898ebea56d3c53f65a"><td class="mdescLeft">&#160;</td><td class="mdescRight">从指定文件名的文件中读取字节流数据到任意顺序容器中  <br /></td></tr>
+<tr class="memitem:a376fee406ed1df95df347d8ec074d0ec" id="r_a376fee406ed1df95df347d8ec074d0ec"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a376fee406ed1df95df347d8ec074d0ec">IsFileExist</a> (const std::filesystem::path &amp;pathFileName)</td></tr>
+<tr class="memdesc:a376fee406ed1df95df347d8ec074d0ec"><td class="mdescLeft">&#160;</td><td class="mdescRight">判断指定文件名的文件是否存在  <br /></td></tr>
 <tr class="memitem:aac207e7431c4130f085b4e650b9e458c" id="r_aac207e7431c4130f085b4e650b9e458c"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aac207e7431c4130f085b4e650b9e458c">IsZlib</a> (uint8_t u8DataFirst, uint8_t u8DataSecond)</td></tr>
 <tr class="memdesc:aac207e7431c4130f085b4e650b9e458c"><td class="mdescLeft">&#160;</td><td class="mdescRight">通过字节流开始的两个字节判断是否可能是Zlib压缩  <br /></td></tr>
 <tr class="memitem:a77dedf7083ac20c6e328323f3475f540" id="r_a77dedf7083ac20c6e328323f3475f540"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a77dedf7083ac20c6e328323f3475f540">IsGzip</a> (uint8_t u8DataFirst, uint8_t u8DataSecond)</td></tr>
@@ -406,8 +413,8 @@ requires (sizeof(typename T::value_type) == 1 &amp;&amp; std::is_trivially_copya
 
 </div>
 </div>
-<a id="a66b69f2bb051ada7b7506fbc233ed8fc" name="a66b69f2bb051ada7b7506fbc233ed8fc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a66b69f2bb051ada7b7506fbc233ed8fc">&#9670;&#160;</a></span>IsFileExist()</h2>
+<a id="a376fee406ed1df95df347d8ec074d0ec" name="a376fee406ed1df95df347d8ec074d0ec"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a376fee406ed1df95df347d8ec074d0ec">&#9670;&#160;</a></span>IsFileExist()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -418,7 +425,7 @@ requires (sizeof(typename T::value_type) == 1 &amp;&amp; std::is_trivially_copya
         <tr>
           <td class="memname">bool NBT_IO::IsFileExist </td>
           <td>(</td>
-          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>sFileName</em></span></td><td>)</td>
+          <td class="paramtype">const std::filesystem::path &amp;</td>          <td class="paramname"><span class="paramname"><em>pathFileName</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -432,7 +439,7 @@ requires (sizeof(typename T::value_type) == 1 &amp;&amp; std::is_trivially_copya
 <p>判断指定文件名的文件是否存在 </p>
 <dl class="params"><dt>参数</dt><dd>
   <table class="params">
-    <tr><td class="paramname">sFileName</td><td>目标文件名 </td></tr>
+    <tr><td class="paramname">pathFileName</td><td>目标文件名 </td></tr>
   </table>
   </dd>
 </dl>
@@ -521,8 +528,8 @@ requires (sizeof(typename T::value_type) == 1 &amp;&amp; std::is_trivially_copya
 
 </div>
 </div>
-<a id="a4f91a054c824b54a2bac9cff9cba7f3f" name="a4f91a054c824b54a2bac9cff9cba7f3f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4f91a054c824b54a2bac9cff9cba7f3f">&#9670;&#160;</a></span>ReadFile()</h2>
+<a id="a0e36d7f00cc8cb898ebea56d3c53f65a" name="a0e36d7f00cc8cb898ebea56d3c53f65a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0e36d7f00cc8cb898ebea56d3c53f65a">&#9670;&#160;</a></span>ReadFile()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -536,7 +543,7 @@ requires (sizeof(typename T::value_type) == 1 &amp;&amp; std::is_trivially_copya
         <tr>
           <td class="memname">bool NBT_IO::ReadFile </td>
           <td>(</td>
-          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>strFileName</em></span>, </td>
+          <td class="paramtype">const std::filesystem::path &amp;</td>          <td class="paramname"><span class="paramname"><em>pathFileName</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -560,7 +567,7 @@ requires (sizeof(typename T::value_type) == 1 &amp;&amp; std::is_trivially_copya
 </dl>
 <dl class="params"><dt>参数</dt><dd>
   <table class="params">
-    <tr><td class="paramdir"></td><td class="paramname">strFileName</td><td>目标文件名 </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">pathFileName</td><td>目标文件名 </td></tr>
     <tr><td class="paramdir">[out]</td><td class="paramname">tData</td><td>顺序容器的引用 </td></tr>
   </table>
   </dd>
@@ -570,8 +577,8 @@ requires (sizeof(typename T::value_type) == 1 &amp;&amp; std::is_trivially_copya
 
 </div>
 </div>
-<a id="a712cfa63160ad4a35656443fa7a174dc" name="a712cfa63160ad4a35656443fa7a174dc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a712cfa63160ad4a35656443fa7a174dc">&#9670;&#160;</a></span>WriteFile()</h2>
+<a id="a140d5db89aa2e0e9fbacff6a1839aa63" name="a140d5db89aa2e0e9fbacff6a1839aa63"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a140d5db89aa2e0e9fbacff6a1839aa63">&#9670;&#160;</a></span>WriteFile()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -585,7 +592,7 @@ requires (sizeof(typename T::value_type) == 1 &amp;&amp; std::is_trivially_copya
         <tr>
           <td class="memname">bool NBT_IO::WriteFile </td>
           <td>(</td>
-          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>strFileName</em></span>, </td>
+          <td class="paramtype">const std::filesystem::path &amp;</td>          <td class="paramname"><span class="paramname"><em>pathFileName</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -609,7 +616,7 @@ requires (sizeof(typename T::value_type) == 1 &amp;&amp; std::is_trivially_copya
 </dl>
 <dl class="params"><dt>参数</dt><dd>
   <table class="params">
-    <tr><td class="paramname">strFileName</td><td>目标文件名 </td></tr>
+    <tr><td class="paramname">pathFileName</td><td>目标文件名 </td></tr>
     <tr><td class="paramname">tData</td><td>顺序容器的引用 </td></tr>
   </table>
   </dd>

@@ -26,7 +26,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">chenjunfu2-nbt-cpp<span id="projectnumber">&#160;v2.0.1</span>
+   <div id="projectname">chenjunfu2-nbt-cpp<span id="projectnumber">&#160;v2.1.0</span>
    </div>
    <div id="projectbrief">一个基于CPP20的NBT(Named Binary Tag)库</div>
   </td>
@@ -98,16 +98,11 @@ $(function(){initNavTree('classNBT__Writer.html','','classNBT__Writer-members');
 
 <p><code>#include &lt;<a class="el" href="NBT__Writer_8hpp_source.html">NBT_Writer.hpp</a>&gt;</code></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
-类</h2></td></tr>
-<tr class="memitem:DefaultOutputStream" id="r_DefaultOutputStream"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNBT__Writer_1_1DefaultOutputStream.html">DefaultOutputStream</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">默认输出流类，用于将数据写入到标准库容器中  <a href="classNBT__Writer_1_1DefaultOutputStream.html#details">更多...</a><br /></td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-static-methods" class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 静态 Public 成员函数</h2></td></tr>
-<tr class="memitem:a9375397b4108e65b029702eef9cfd48f" id="r_a9375397b4108e65b029702eef9cfd48f"><td class="memTemplParams" colspan="2">template&lt;bool bSortCompound = true, typename OutputStream, typename InfoFunc = NBT_Print&gt; </td></tr>
-<tr class="memitem:a9375397b4108e65b029702eef9cfd48f template"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9375397b4108e65b029702eef9cfd48f">WriteNBT</a> (OutputStream OptStream, const <a class="el" href="classNBT__Type.html#a9dcd5050b96a10161f18d7ae4a22e7b3">NBT_Type::Compound</a> &amp;tCompound, size_t szStackDepth=512, InfoFunc funcInfo=<a class="el" href="classNBT__Print.html">NBT_Print</a>{}) noexcept</td></tr>
-<tr class="memdesc:a9375397b4108e65b029702eef9cfd48f"><td class="mdescLeft">&#160;</td><td class="mdescRight">将NBT_Type::Compound对象写入到输出流中  <br /></td></tr>
+<tr class="memitem:a21747da6670ca56e4aa54aef890864eb" id="r_a21747da6670ca56e4aa54aef890864eb"><td class="memTemplParams" colspan="2">template&lt;bool bSortCompound = true, typename OutputStream, typename InfoFunc = NBT_Print&gt; </td></tr>
+<tr class="memitem:a21747da6670ca56e4aa54aef890864eb template"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a21747da6670ca56e4aa54aef890864eb">WriteNBT</a> (OutputStream &amp;OptStream, const <a class="el" href="classNBT__Type.html#a9dcd5050b96a10161f18d7ae4a22e7b3">NBT_Type::Compound</a> &amp;tCompound, size_t szStackDepth=512, InfoFunc funcInfo=<a class="el" href="classNBT__Print.html">NBT_Print</a>{}) noexcept</td></tr>
+<tr class="memdesc:a21747da6670ca56e4aa54aef890864eb"><td class="mdescLeft">&#160;</td><td class="mdescRight">将NBT_Type::Compound对象写入到输出流中  <br /></td></tr>
 <tr class="memitem:a71e825126323a834d3501d3fe6bb405f" id="r_a71e825126323a834d3501d3fe6bb405f"><td class="memTemplParams" colspan="2">template&lt;bool bSortCompound = true, typename DataType = std::vector&lt;uint8_t&gt;, typename InfoFunc = NBT_Print&gt; </td></tr>
 <tr class="memitem:a71e825126323a834d3501d3fe6bb405f template"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a71e825126323a834d3501d3fe6bb405f">WriteNBT</a> (DataType &amp;tDataOutput, size_t szStartIdx, const <a class="el" href="classNBT__Type.html#a9dcd5050b96a10161f18d7ae4a22e7b3">NBT_Type::Compound</a> &amp;tCompound, size_t szStackDepth=512, InfoFunc funcInfo=<a class="el" href="classNBT__Print.html">NBT_Print</a>{}) noexcept</td></tr>
 <tr class="memdesc:a71e825126323a834d3501d3fe6bb405f"><td class="mdescLeft">&#160;</td><td class="mdescRight">将NBT_Type::Compound对象写入到数据容器中  <br /></td></tr>
@@ -183,8 +178,8 @@ template&lt;bool bSortCompound = true, typename DataType = std::vector&lt;uint8_
 
 </div>
 </div>
-<a id="a9375397b4108e65b029702eef9cfd48f" name="a9375397b4108e65b029702eef9cfd48f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9375397b4108e65b029702eef9cfd48f">&#9670;&#160;</a></span>WriteNBT() <span class="overload">[2/2]</span></h2>
+<a id="a21747da6670ca56e4aa54aef890864eb" name="a21747da6670ca56e4aa54aef890864eb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a21747da6670ca56e4aa54aef890864eb">&#9670;&#160;</a></span>WriteNBT() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -197,7 +192,7 @@ template&lt;bool bSortCompound = true, typename OutputStream, typename InfoFunc 
         <tr>
           <td class="memname">bool NBT_Writer::WriteNBT </td>
           <td>(</td>
-          <td class="paramtype">OutputStream</td>          <td class="paramname"><span class="paramname"><em>OptStream</em></span>, </td>
+          <td class="paramtype">OutputStream &amp;</td>          <td class="paramname"><span class="paramname"><em>OptStream</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>

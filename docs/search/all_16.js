@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['_7edefaultinputstream_0',['~DefaultInputStream',['../classNBT__Reader_1_1DefaultInputStream.html#aa18d4b703cba1316b459e82c09945e47',1,'NBT_Reader::DefaultInputStream']]],
-  ['_7edefaultoutputstream_1',['~DefaultOutputStream',['../classNBT__Writer_1_1DefaultOutputStream.html#a63edd1e9ec0a03c633ed67a09fb967d6',1,'NBT_Writer::DefaultOutputStream']]],
+  ['_7edefaultinputstream_0',['~DefaultInputStream',['../classNBT__IO_1_1DefaultInputStream.html#a5a55943d14aa4469b5b7a38bd1fee147',1,'NBT_IO::DefaultInputStream']]],
+  ['_7edefaultoutputstream_1',['~DefaultOutputStream',['../classNBT__IO_1_1DefaultOutputStream.html#ad19fc19d0e01936c41ce7fc9521ce395',1,'NBT_IO::DefaultOutputStream']]],
   ['_7enbt_5fcompound_2',['~NBT_Compound',['../classNBT__Compound.html#abde89144c5554eb06271c8d01f620bd6',1,'NBT_Compound']]],
   ['_7enbt_5fhash_3',['~NBT_Hash',['../classNBT__Hash.html#a4b760cc312eb58bf85314fce904b8b7a',1,'NBT_Hash']]],
   ['_7enbt_5flist_4',['~NBT_List',['../classNBT__List.html#aa8a4cbbc10c1fbf823495598b0ca6aa1',1,'NBT_List']]],

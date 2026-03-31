@@ -18,5 +18,5 @@ var searchData=
   ['containslongarray_15',['ContainsLongArray',['../classNBT__Compound.html#a366840540d4b75d3f632979fdc1844bc',1,'NBT_Compound']]],
   ['containsshort_16',['ContainsShort',['../classNBT__Compound.html#ad1fafccf3fbe8b6444f29e9673577be9',1,'NBT_Compound']]],
   ['containsstring_17',['ContainsString',['../classNBT__Compound.html#a46713493383299a8bebafa53983f8867',1,'NBT_Compound']]],
-  ['curdata_18',['CurData',['../classNBT__Reader_1_1DefaultInputStream.html#a29b992dfc31300c60419665097b593da',1,'NBT_Reader::DefaultInputStream']]]
+  ['curdata_18',['CurData',['../classNBT__IO_1_1DefaultInputStream.html#a6417c41162dd41f04bdec06358c48b1f',1,'NBT_IO::DefaultInputStream']]]
 ];

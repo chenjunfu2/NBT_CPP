@@ -14,7 +14,7 @@ var searchData=
   ['backlongarray_11',['BackLongArray',['../classNBT__List.html#ad9ae79518d8d70bbecd81b18e2a11252',1,'NBT_List::BackLongArray(void) const'],['../classNBT__List.html#a607f2066a7e198d87044d4f539874da4',1,'NBT_List::BackLongArray(void)']]],
   ['backshort_12',['BackShort',['../classNBT__List.html#aac36fac7dc70f865f142008a1d2f60ec',1,'NBT_List::BackShort(void) const'],['../classNBT__List.html#a762e4d37d2cf357de4dbec6cc8cc6d31',1,'NBT_List::BackShort(void)']]],
   ['backstring_13',['BackString',['../classNBT__List.html#a7482809de9d8d5e02078230018f450b6',1,'NBT_List::BackString(void) const'],['../classNBT__List.html#affd46b6a866f1e29d5d68cebf96ff392',1,'NBT_List::BackString(void)']]],
-  ['basedata_14',['BaseData',['../classNBT__Reader_1_1DefaultInputStream.html#a9cef9842de468d854860ffe65077e1ab',1,'NBT_Reader::DefaultInputStream']]],
+  ['basedata_14',['BaseData',['../classNBT__IO_1_1DefaultInputStream.html#a9e3811ba393e9ee2a51d65b0ff92fee1',1,'NBT_IO::DefaultInputStream']]],
   ['bigtonativeany_15',['BigToNativeAny',['../classNBT__Endian.html#aa489c37460ec0c136e2e7d0f74695035',1,'NBT_Endian']]],
   ['byteswap16_16',['ByteSwap16',['../classNBT__Endian.html#a68933ecd2f92b56e25389fb9b6b45848',1,'NBT_Endian']]],
   ['byteswap32_17',['ByteSwap32',['../classNBT__Endian.html#a2cdd925007ecd0a1d38c3b6ed54c6020',1,'NBT_Endian']]],

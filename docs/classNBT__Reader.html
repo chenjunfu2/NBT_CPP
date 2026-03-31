@@ -26,7 +26,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">chenjunfu2-nbt-cpp<span id="projectnumber">&#160;v2.0.1</span>
+   <div id="projectname">chenjunfu2-nbt-cpp<span id="projectnumber">&#160;v2.1.0</span>
    </div>
    <div id="projectbrief">一个基于CPP20的NBT(Named Binary Tag)库</div>
   </td>
@@ -98,19 +98,19 @@ $(function(){initNavTree('classNBT__Reader.html','','classNBT__Reader-members');
 
 <p><code>#include &lt;<a class="el" href="NBT__Reader_8hpp_source.html">NBT_Reader.hpp</a>&gt;</code></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
-类</h2></td></tr>
-<tr class="memitem:DefaultInputStream" id="r_DefaultInputStream"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNBT__Reader_1_1DefaultInputStream.html">DefaultInputStream</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">默认输入流类，用于从标准库容器中读取数据  <a href="classNBT__Reader_1_1DefaultInputStream.html#details">更多...</a><br /></td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-static-methods" class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 静态 Public 成员函数</h2></td></tr>
-<tr class="memitem:a91240a440b8fcd42c1ff818c0e2ad000" id="r_a91240a440b8fcd42c1ff818c0e2ad000"><td class="memTemplParams" colspan="2">template&lt;bool bUnwrapMixedList = true, typename InputStream, typename InfoFunc = NBT_Print&gt; </td></tr>
-<tr class="memitem:a91240a440b8fcd42c1ff818c0e2ad000 template"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a91240a440b8fcd42c1ff818c0e2ad000">ReadNBT</a> (InputStream IptStream, <a class="el" href="classNBT__Type.html#a9dcd5050b96a10161f18d7ae4a22e7b3">NBT_Type::Compound</a> &amp;tCompound, size_t szStackDepth=512, InfoFunc funcInfo=<a class="el" href="classNBT__Print.html">NBT_Print</a>{}) noexcept</td></tr>
-<tr class="memdesc:a91240a440b8fcd42c1ff818c0e2ad000"><td class="mdescLeft">&#160;</td><td class="mdescRight">从输入流中读取NBT数据到NBT_Type::Compound对象中  <br /></td></tr>
+<tr class="memitem:ae1268eb2e59ce69cd171a3088729d457" id="r_ae1268eb2e59ce69cd171a3088729d457"><td class="memTemplParams" colspan="2">template&lt;bool bUnwrapMixedList = true, typename InputStream, typename InfoFunc = NBT_Print&gt; </td></tr>
+<tr class="memitem:ae1268eb2e59ce69cd171a3088729d457 template"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae1268eb2e59ce69cd171a3088729d457">ReadNBT</a> (InputStream &amp;IptStream, <a class="el" href="classNBT__Type.html#a9dcd5050b96a10161f18d7ae4a22e7b3">NBT_Type::Compound</a> &amp;tCompound, size_t szStackDepth=512, InfoFunc funcInfo=<a class="el" href="classNBT__Print.html">NBT_Print</a>{}) noexcept</td></tr>
+<tr class="memdesc:ae1268eb2e59ce69cd171a3088729d457"><td class="mdescLeft">&#160;</td><td class="mdescRight">从输入流中读取NBT数据到NBT_Type::Compound对象中  <br /></td></tr>
 <tr class="memitem:a0e4580613702843175e561d02e688bd1" id="r_a0e4580613702843175e561d02e688bd1"><td class="memTemplParams" colspan="2">template&lt;bool bUnwrapMixedList = true, typename DataType = std::vector&lt;uint8_t&gt;, typename InfoFunc = NBT_Print&gt; </td></tr>
 <tr class="memitem:a0e4580613702843175e561d02e688bd1 template"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0e4580613702843175e561d02e688bd1">ReadNBT</a> (const DataType &amp;tDataInput, size_t szStartIdx, <a class="el" href="classNBT__Type.html#a9dcd5050b96a10161f18d7ae4a22e7b3">NBT_Type::Compound</a> &amp;tCompound, size_t szStackDepth=512, InfoFunc funcInfo=<a class="el" href="classNBT__Print.html">NBT_Print</a>{}) noexcept</td></tr>
 <tr class="memdesc:a0e4580613702843175e561d02e688bd1"><td class="mdescLeft">&#160;</td><td class="mdescRight">从数据容器中读取NBT数据到NBT_Type::Compound对象中  <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-friends" class="groupheader"><a id="friends" name="friends"></a>
+友元</h2></td></tr>
+<tr class="memitem:ae402d2136e44e193df375d25373cfa4c" id="r_ae402d2136e44e193df375d25373cfa4c"><td class="memItemLeft" align="right" valign="top"><a id="ae402d2136e44e193df375d25373cfa4c" name="ae402d2136e44e193df375d25373cfa4c"></a>
+class&#160;</td><td class="memItemRight" valign="bottom"><b>NBT_Scanner</b></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">详细描述</h2>
 <div class="textblock"><p>这个类用于提供从NBT二进制流读取到NBT_Type::Compound对象的反序列化功能 </p>
@@ -183,8 +183,8 @@ template&lt;bool bUnwrapMixedList = true, typename DataType = std::vector&lt;uin
 
 </div>
 </div>
-<a id="a91240a440b8fcd42c1ff818c0e2ad000" name="a91240a440b8fcd42c1ff818c0e2ad000"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a91240a440b8fcd42c1ff818c0e2ad000">&#9670;&#160;</a></span>ReadNBT() <span class="overload">[2/2]</span></h2>
+<a id="ae1268eb2e59ce69cd171a3088729d457" name="ae1268eb2e59ce69cd171a3088729d457"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae1268eb2e59ce69cd171a3088729d457">&#9670;&#160;</a></span>ReadNBT() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -197,7 +197,7 @@ template&lt;bool bUnwrapMixedList = true, typename InputStream, typename InfoFun
         <tr>
           <td class="memname">bool NBT_Reader::ReadNBT </td>
           <td>(</td>
-          <td class="paramtype">InputStream</td>          <td class="paramname"><span class="paramname"><em>IptStream</em></span>, </td>
+          <td class="paramtype">InputStream &amp;</td>          <td class="paramname"><span class="paramname"><em>IptStream</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -226,7 +226,7 @@ template&lt;bool bUnwrapMixedList = true, typename InputStream, typename InfoFun
 <dl class="tparams"><dt>模板参数</dt><dd>
   <table class="tparams">
     <tr><td class="paramname">bUnwrapMixedList</td><td>是否自动解包列表中的打包Compound </td></tr>
-    <tr><td class="paramname">InputStream</td><td>输入流类型，必须符合DefaultOutputStream类型的接口 </td></tr>
+    <tr><td class="paramname">InputStream</td><td>输入流类型，必须符合DefaultInputStream类型的接口 </td></tr>
     <tr><td class="paramname">InfoFunc</td><td>错误信息输出仿函数类型 </td></tr>
   </table>
   </dd>

@@ -26,7 +26,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">chenjunfu2-nbt-cpp<span id="projectnumber">&#160;v2.0.1</span>
+   <div id="projectname">chenjunfu2-nbt-cpp<span id="projectnumber">&#160;v2.1.0</span>
    </div>
    <div id="projectbrief">一个基于CPP20的NBT(Named Binary Tag)库</div>
   </td>
@@ -98,11 +98,16 @@ Public 类型</h2></td></tr>
 <tr class="memitem:a774511b728d31a0b9026603cab510161" id="r_a774511b728d31a0b9026603cab510161"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a774511b728d31a0b9026603cab510161">ResultControl</a> { <a class="el" href="#a774511b728d31a0b9026603cab510161aa0bfb8e59e6c13fc8d990781f77694fe">Continue</a>
 , <a class="el" href="#a774511b728d31a0b9026603cab510161ae4c38d6d45baf080943d323dd51a2ce8">Break</a>
 , <a class="el" href="#a774511b728d31a0b9026603cab510161a11a755d598c0c417f9a36758c3da7481">Stop</a>
+, <a class="el" href="#a774511b728d31a0b9026603cab510161a902b0d55fddef6f8d651fe1035b7d4bd">Error</a>
  }</td></tr>
-<tr class="memitem:afd2eb25e96cf30cd2106b59468435d01" id="r_afd2eb25e96cf30cd2106b59468435d01"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afd2eb25e96cf30cd2106b59468435d01">NestingControl</a> { <a class="el" href="#afd2eb25e96cf30cd2106b59468435d01af1851d5600eae616ee802a31ac74701b">Enter</a>
+<tr class="memitem:afd2eb25e96cf30cd2106b59468435d01" id="r_afd2eb25e96cf30cd2106b59468435d01"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afd2eb25e96cf30cd2106b59468435d01">NestingControl</a> { <br />
+&#160;&#160;<a class="el" href="#afd2eb25e96cf30cd2106b59468435d01af1851d5600eae616ee802a31ac74701b">Enter</a>
 , <a class="el" href="#afd2eb25e96cf30cd2106b59468435d01a72ef2b9b6965d078e3c7f95487a82d1c">Skip</a>
 , <a class="el" href="#afd2eb25e96cf30cd2106b59468435d01ae4c38d6d45baf080943d323dd51a2ce8">Break</a>
 , <a class="el" href="#afd2eb25e96cf30cd2106b59468435d01a11a755d598c0c417f9a36758c3da7481">Stop</a>
+, <br />
+&#160;&#160;<a class="el" href="#afd2eb25e96cf30cd2106b59468435d01a902b0d55fddef6f8d651fe1035b7d4bd">Error</a>
+<br />
  }</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
@@ -133,8 +138,8 @@ requires (<a class="el" href="classNBT__Type.html#ab0dace6d74cd4e85f28a52c768f19
 <a class="el" href="#afd2eb25e96cf30cd2106b59468435d01">NestingControl</a>&#160;</td><td class="memItemRight" valign="bottom"><b>VisitCompoundNextEntry</b> (<a class="el" href="NBT__TAG_8hpp.html#acd49bdf6bc79b8f3a1f351faec46ea6c">NBT_TAG_RAW_TYPE</a> tagEntryType, const <a class="el" href="classNBT__Type.html#a8580dcb2a4494cd9bc52526d43f61865">NBT_Type::String</a> &amp;strKey)</td></tr>
 <tr class="memitem:a1d15e4f8bb713d6c06813c9d19728b98" id="r_a1d15e4f8bb713d6c06813c9d19728b98"><td class="memItemLeft" align="right" valign="top"><a id="a1d15e4f8bb713d6c06813c9d19728b98" name="a1d15e4f8bb713d6c06813c9d19728b98"></a>
 <a class="el" href="#a774511b728d31a0b9026603cab510161">ResultControl</a>&#160;</td><td class="memItemRight" valign="bottom"><b>VisitCompoundEnd</b> (void)</td></tr>
-<tr class="memitem:a9b3540d60dbf2d75cc060140d0f4886a" id="r_a9b3540d60dbf2d75cc060140d0f4886a"><td class="memItemLeft" align="right" valign="top"><a id="a9b3540d60dbf2d75cc060140d0f4886a" name="a9b3540d60dbf2d75cc060140d0f4886a"></a>
-<a class="el" href="#a774511b728d31a0b9026603cab510161">ResultControl</a>&#160;</td><td class="memItemRight" valign="bottom"><b>VisitStart</b> (<a class="el" href="NBT__TAG_8hpp.html#acd49bdf6bc79b8f3a1f351faec46ea6c">NBT_TAG_RAW_TYPE</a> tagRootType)</td></tr>
+<tr class="memitem:a6c5d25c6466f2ba38246cd861c82870d" id="r_a6c5d25c6466f2ba38246cd861c82870d"><td class="memItemLeft" align="right" valign="top"><a id="a6c5d25c6466f2ba38246cd861c82870d" name="a6c5d25c6466f2ba38246cd861c82870d"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>VisitBegin</b> (void)</td></tr>
 <tr class="memitem:aa5ab92aa6360187eb7e451701e99504e" id="r_aa5ab92aa6360187eb7e451701e99504e"><td class="memItemLeft" align="right" valign="top"><a id="aa5ab92aa6360187eb7e451701e99504e" name="aa5ab92aa6360187eb7e451701e99504e"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>VisitEnd</b> (void)</td></tr>
 </table>
@@ -167,6 +172,8 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>VisitEnd</b> (void)</
 </td></tr>
 <tr><td class="fieldname"><a id="afd2eb25e96cf30cd2106b59468435d01a11a755d598c0c417f9a36758c3da7481" name="afd2eb25e96cf30cd2106b59468435d01a11a755d598c0c417f9a36758c3da7481"></a>Stop&#160;</td><td class="fielddoc"><p>停止处理（终止解析） </p>
 </td></tr>
+<tr><td class="fieldname"><a id="afd2eb25e96cf30cd2106b59468435d01a902b0d55fddef6f8d651fe1035b7d4bd" name="afd2eb25e96cf30cd2106b59468435d01a902b0d55fddef6f8d651fe1035b7d4bd"></a>Error&#160;</td><td class="fielddoc"><p>出现错误（终止解析并进行错误处理） </p>
+</td></tr>
 </table>
 
 </div>
@@ -196,6 +203,8 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>VisitEnd</b> (void)</
 <tr><td class="fieldname"><a id="a774511b728d31a0b9026603cab510161ae4c38d6d45baf080943d323dd51a2ce8" name="a774511b728d31a0b9026603cab510161ae4c38d6d45baf080943d323dd51a2ce8"></a>Break&#160;</td><td class="fielddoc"><p>跳过剩余值（离开当前结构层级回到父层级） </p>
 </td></tr>
 <tr><td class="fieldname"><a id="a774511b728d31a0b9026603cab510161a11a755d598c0c417f9a36758c3da7481" name="a774511b728d31a0b9026603cab510161a11a755d598c0c417f9a36758c3da7481"></a>Stop&#160;</td><td class="fielddoc"><p>停止处理（终止解析） </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a774511b728d31a0b9026603cab510161a902b0d55fddef6f8d651fe1035b7d4bd" name="a774511b728d31a0b9026603cab510161a902b0d55fddef6f8d651fe1035b7d4bd"></a>Error&#160;</td><td class="fielddoc"><p>出现错误（终止解析并进行错误处理） </p>
 </td></tr>
 </table>
 

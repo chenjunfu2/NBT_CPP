@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['index_0',['Index',['../classNBT__Reader_1_1DefaultInputStream.html#a5732070c24765a2d127c423f7495c7e5',1,'NBT_Reader::DefaultInputStream::Index() const noexcept'],['../classNBT__Reader_1_1DefaultInputStream.html#a80d41ff74113d37ed4f7eeb09088fb8e',1,'NBT_Reader::DefaultInputStream::Index() noexcept']]],
+  ['index_0',['Index',['../classNBT__IO_1_1DefaultInputStream.html#a52fb0b9c5fc4314ada7a6c248fcdaf0e',1,'NBT_IO::DefaultInputStream::Index() const noexcept'],['../classNBT__IO_1_1DefaultInputStream.html#accbc87158f7c3fb3769a297edfe3abcb',1,'NBT_IO::DefaultInputStream::Index() noexcept']]],
   ['isarraytag_1',['IsArrayTag',['../classNBT__Type.html#ae0dcf9c4f01a3508350b27e22efac716',1,'NBT_Type']]],
   ['isbyte_2',['IsByte',['../classNBT__Node.html#a928d9679b5385ae5eaf0ac0eb0118fe4',1,'NBT_Node::IsByte()'],['../classNBT__Node__View.html#a409d5d15685a52b8a35dce025816cfa7',1,'NBT_Node_View::IsByte()']]],
   ['isbytearray_3',['IsByteArray',['../classNBT__Node.html#a73622dc113c6e17ab73a632e1b921984',1,'NBT_Node::IsByteArray()'],['../classNBT__Node__View.html#af93059e71c59567f4b63b1fbd66043aa',1,'NBT_Node_View::IsByteArray()']]],
@@ -10,8 +10,8 @@ var searchData=
   ['isdatazipped_7',['IsDataZipped',['../classNBT__IO.html#a4676a6e6a44e7e52f408073675d555e3',1,'NBT_IO']]],
   ['isdouble_8',['IsDouble',['../classNBT__Node.html#a18bec59a8bf3179cbcbdb6ef4719ddc2',1,'NBT_Node::IsDouble()'],['../classNBT__Node__View.html#af23d6e8dbcaeef743bf134a7d760f59d',1,'NBT_Node_View::IsDouble() const']]],
   ['isempty_9',['IsEmpty',['../classNBT__Node__View.html#a8924e4a3ead9319dd26f508c9b84c4cb',1,'NBT_Node_View']]],
-  ['isend_10',['IsEnd',['../classNBT__Node.html#a73390c4a7ce3aee0189db027ef480cae',1,'NBT_Node::IsEnd()'],['../classNBT__Node__View.html#a5011d3177da7f71500db75b37a534d39',1,'NBT_Node_View::IsEnd()'],['../classNBT__Reader_1_1DefaultInputStream.html#ae601c1793d65746b18a8ce5be7ad0d13',1,'NBT_Reader::DefaultInputStream::IsEnd()']]],
-  ['isfileexist_11',['IsFileExist',['../classNBT__IO.html#a66b69f2bb051ada7b7506fbc233ed8fc',1,'NBT_IO']]],
+  ['isend_10',['IsEnd',['../classNBT__IO_1_1DefaultInputStream.html#af5affd31d2b0cc922536e90fdce46c79',1,'NBT_IO::DefaultInputStream::IsEnd()'],['../classNBT__Node.html#a73390c4a7ce3aee0189db027ef480cae',1,'NBT_Node::IsEnd()'],['../classNBT__Node__View.html#a5011d3177da7f71500db75b37a534d39',1,'NBT_Node_View::IsEnd()']]],
+  ['isfileexist_11',['IsFileExist',['../classNBT__IO.html#a376fee406ed1df95df347d8ec074d0ec',1,'NBT_IO']]],
   ['isfloat_12',['IsFloat',['../classNBT__Node.html#a04eea9aa642d1b1d7c2452cc5f8cae4b',1,'NBT_Node::IsFloat()'],['../classNBT__Node__View.html#a3db496139e7530d8fb489cf51c0473e4',1,'NBT_Node_View::IsFloat()']]],
   ['isfloatingtag_13',['IsFloatingTag',['../classNBT__Type.html#a71a9601d2cacc198cbe6ec96ccd03853',1,'NBT_Type']]],
   ['isgzip_14',['IsGzip',['../classNBT__IO.html#a77dedf7083ac20c6e328323f3475f540',1,'NBT_IO']]],

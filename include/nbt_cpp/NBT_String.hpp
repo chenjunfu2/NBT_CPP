@@ -318,7 +318,6 @@ public:
 
 	/// @brief 从 char 类型的UTF-8编码字符串直接替换当前对象内容
 	/// @param u8CharTypeString char类型的basic_string，实际编码应为UTF-8
-	/// @param tag 重载匹配标签，指示直接使用原始值而非自动转换
 	/// @note 直接使用原始字符串替换当前对象内容，不进行编码转换。
 	/// @warning 用户必须确保仅使用非代理对UTF8进行原始值初始化，否则字符串内容将不正确。
 	void FromCharTypeUTF8(const std::basic_string<char> &u8CharTypeString, USE_RAW_DATA)
@@ -336,7 +335,6 @@ public:
 
 	/// @brief 从UTF-8编码字符串直接替换当前对象内容
 	/// @param u8String char8_t类型的basic_string
-	/// @param tag 重载匹配标签，指示直接使用原始值而非自动转换
 	/// @note 直接使用原始字符串替换当前对象内容，不进行编码转换。
 	/// @warning 用户必须确保仅使用非代理对UTF8进行原始值初始化，否则字符串内容将不正确。
 	void FromUTF8(const std::basic_string<char8_t> &u8String, USE_RAW_DATA)
@@ -372,7 +370,6 @@ public:
 
 	/// @brief 从char类型的UTF-8编码字符串直接替换当前对象内容
 	/// @param u8CharTypeString char类型的视图view，实际编码应为UTF-8
-	/// @param tag 重载匹配标签，指示直接使用原始值而非自动转换
 	/// @note 直接使用原始字符串替换当前对象内容，不进行编码转换。
 	/// @warning 用户必须确保仅使用非代理对UTF8进行原始值初始化，否则字符串内容将不正确。
 	void FromCharTypeUTF8(std::basic_string_view<char> u8CharTypeString, USE_RAW_DATA)
@@ -390,7 +387,6 @@ public:
 
 	/// @brief 从UTF-8编码字符串直接替换当前对象内容
 	/// @param u8String char8_t类型的视图view
-	/// @param tag 重载匹配标签，指示直接使用原始值而非自动转换
 	/// @note 直接使用原始字符串替换当前对象内容，不进行编码转换。
 	/// @warning 用户必须确保仅使用非代理对UTF8进行原始值初始化，否则字符串内容将不正确。
 	void FromUTF8(std::basic_string_view<char8_t> u8String, USE_RAW_DATA)

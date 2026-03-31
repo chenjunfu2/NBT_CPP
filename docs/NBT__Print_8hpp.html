@@ -26,7 +26,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">chenjunfu2-nbt-cpp<span id="projectnumber">&#160;v2.0.1</span>
+   <div id="projectname">chenjunfu2-nbt-cpp<span id="projectnumber">&#160;v2.1.0</span>
    </div>
    <div id="projectbrief">一个基于CPP20的NBT(Named Binary Tag)库</div>
   </td>
@@ -105,11 +105,6 @@ $(function(){initNavTree('NBT__Print_8hpp.html','',''); });
 <tr class="memitem:NBT_5FPrint" id="r_NBT_5FPrint"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNBT__Print.html">NBT_Print</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">一个用于打印信息到指定的C文件对象的工具类，作为库内大部分存在信息输出接口的默认实现。 实际可被使用此类为默认值参数的函数的调用方，以类似此类的仿函数参数重写的其它类型替换， 比如调用方实现了一个My_Print，只要重载了仿函数调用运算符，且参数与此类的仿函数调用运算符一致， 则可以直接替换此类并传递给目标参数。  <a href="classNBT__Print.html#details">更多...</a><br /></td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 id="header-define-members" class="groupheader"><a id="define-members" name="define-members"></a>
-宏定义</h2></td></tr>
-<tr class="memitem:aaeec52d64d60583082da5a33a1bcee74" id="r_aaeec52d64d60583082da5a33a1bcee74"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aaeec52d64d60583082da5a33a1bcee74">FMT_STR</a>&#160;&#160;&#160;format_string</td></tr>
-<tr class="memdesc:aaeec52d64d60583082da5a33a1bcee74"><td class="mdescLeft">&#160;</td><td class="mdescRight">用于MSVC低版本的std::format_string支持。  <br /></td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-enum-members" class="groupheader"><a id="enum-members" name="enum-members"></a>
 枚举</h2></td></tr>
 <tr class="memitem:a977ff50d4d248543d59717387e6dd311" id="r_a977ff50d4d248543d59717387e6dd311"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a977ff50d4d248543d59717387e6dd311">NBT_Print_Level</a> { <a class="el" href="#a977ff50d4d248543d59717387e6dd311a4059b0251f66a18cb56f544728796875">Info</a>
@@ -120,25 +115,7 @@ $(function(){initNavTree('NBT__Print_8hpp.html','',''); });
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">详细描述</h2>
 <div class="textblock"><p>用于处理NBT信息打印的默认实现 </p>
-</div><a name="doc-define-members" id="doc-define-members"></a><h2 id="header-doc-define-members" class="groupheader">宏定义说明</h2>
-<a id="aaeec52d64d60583082da5a33a1bcee74" name="aaeec52d64d60583082da5a33a1bcee74"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aaeec52d64d60583082da5a33a1bcee74">&#9670;&#160;</a></span>FMT_STR</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define FMT_STR&#160;&#160;&#160;format_string</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>用于MSVC低版本的std::format_string支持。 </p>
-<p>在版本过低的时候切换为msvc内部实现。 其它编译器与版本使用标准库实现。 </p>
-
-</div>
-</div>
-<a name="doc-enum-members" id="doc-enum-members"></a><h2 id="header-doc-enum-members" class="groupheader">枚举类型说明</h2>
+</div><a name="doc-enum-members" id="doc-enum-members"></a><h2 id="header-doc-enum-members" class="groupheader">枚举类型说明</h2>
 <a id="a977ff50d4d248543d59717387e6dd311" name="a977ff50d4d248543d59717387e6dd311"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a977ff50d4d248543d59717387e6dd311">&#9670;&#160;</a></span>NBT_Print_Level</h2>
 

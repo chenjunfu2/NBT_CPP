@@ -1,7 +1,7 @@
 var indexSectionsWithContent =
 {
   0: "_abcdefghiklmnoprstuvw~与以使包可库注",
-  1: "_dhmns",
+  1: "_dhmnsu",
   2: "mns",
   3: "cmnv",
   4: "abcdefghiklmnoprstuw~",
@@ -10,7 +10,7 @@ var indexSectionsWithContent =
   7: "nr",
   8: "bcdefilsw",
   9: "gi",
-  10: "cfmtu",
+  10: "cmtu",
   11: "chn与以使包可库注",
   12: "hi"
 };

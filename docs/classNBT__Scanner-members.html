@@ -26,7 +26,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">chenjunfu2-nbt-cpp<span id="projectnumber">&#160;v2.0.1</span>
+   <div id="projectname">chenjunfu2-nbt-cpp<span id="projectnumber">&#160;v2.1.0</span>
    </div>
    <div id="projectbrief">一个基于CPP20的NBT(Named Binary Tag)库</div>
   </td>
@@ -95,8 +95,11 @@ $(function(){initNavTree('classNBT__Scanner.html','',''); });
 
 <p>成员的完整列表，这些成员属于 <a class="el" href="classNBT__Scanner.html">NBT_Scanner</a>,包括所有继承而来的类成员</p>
 <table class="directory">
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>Scan</b>(InputStream IptStream, Visitor &amp;tVisitor) (定义于 <a class="el" href="classNBT__Scanner.html">NBT_Scanner</a>)</td><td class="entry"><a class="el" href="classNBT__Scanner.html">NBT_Scanner</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">static</span></td></tr>
-  <tr bgcolor="#f0f0f0" class="odd"><td class="entry"><b>Scan</b>(const DataType &amp;tDataInput, size_t szStartIdx, Visitor &amp;tVisitor) (定义于 <a class="el" href="classNBT__Scanner.html">NBT_Scanner</a>)</td><td class="entry"><a class="el" href="classNBT__Scanner.html">NBT_Scanner</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">static</span></td></tr>
+  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>ErrCode</b> typedef (定义于 <a class="el" href="classNBT__Scanner.html">NBT_Scanner</a>)</td><td class="entry"><a class="el" href="classNBT__Scanner.html">NBT_Scanner</a></td><td class="entry"></td></tr>
+  <tr bgcolor="#f0f0f0" class="odd"><td class="entry"><b>Error</b>(const T &amp;code, const InputStream &amp;tData, InfoFunc &amp;funcInfo, const std::format_string&lt; Args... &gt; fmt, Args &amp;&amp;... args) noexcept (定义于 <a class="el" href="classNBT__Scanner.html">NBT_Scanner</a>)</td><td class="entry"><a class="el" href="classNBT__Scanner.html">NBT_Scanner</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">static</span></td></tr>
+  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>Scan</b>(InputStream &amp;IptStream, Visitor &amp;tVisitor, size_t szStackDepth=512, InfoFunc funcInfo=NBT_Print{}) (定义于 <a class="el" href="classNBT__Scanner.html">NBT_Scanner</a>)</td><td class="entry"><a class="el" href="classNBT__Scanner.html">NBT_Scanner</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">static</span></td></tr>
+  <tr bgcolor="#f0f0f0" class="odd"><td class="entry"><b>Scan</b>(const DataType &amp;tDataInput, size_t szStartIdx, Visitor &amp;tVisitor, size_t szStackDepth=512, InfoFunc funcInfo=NBT_Print{}) (定义于 <a class="el" href="classNBT__Scanner.html">NBT_Scanner</a>)</td><td class="entry"><a class="el" href="classNBT__Scanner.html">NBT_Scanner</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">static</span></td></tr>
+  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>WarnCode</b> typedef (定义于 <a class="el" href="classNBT__Scanner.html">NBT_Scanner</a>)</td><td class="entry"><a class="el" href="classNBT__Scanner.html">NBT_Scanner</a></td><td class="entry"></td></tr>
 </table></div><!-- contents -->
 </div><!-- doc-content -->
 </div><!-- container -->

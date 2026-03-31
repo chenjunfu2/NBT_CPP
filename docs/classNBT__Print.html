@@ -26,7 +26,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">chenjunfu2-nbt-cpp<span id="projectnumber">&#160;v2.0.1</span>
+   <div id="projectname">chenjunfu2-nbt-cpp<span id="projectnumber">&#160;v2.1.0</span>
    </div>
    <div id="projectbrief">一个基于CPP20的NBT(Named Binary Tag)库</div>
   </td>
@@ -105,12 +105,12 @@ Public 成员函数</h2></td></tr>
 <tr class="memitem:a8f3f53ef5f64d005a4b0efe579d714ce" id="r_a8f3f53ef5f64d005a4b0efe579d714ce"><td class="memItemLeft" align="right" valign="top"><a id="a8f3f53ef5f64d005a4b0efe579d714ce" name="a8f3f53ef5f64d005a4b0efe579d714ce"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>~NBT_Print</b> (void)=default</td></tr>
 <tr class="memdesc:a8f3f53ef5f64d005a4b0efe579d714ce"><td class="mdescLeft">&#160;</td><td class="mdescRight">默认析构 <br /></td></tr>
-<tr class="memitem:aef14ca7879e9e56e2f7b47dfc63b4ae5" id="r_aef14ca7879e9e56e2f7b47dfc63b4ae5"><td class="memTemplParams" colspan="2">template&lt;typename... Args&gt; </td></tr>
-<tr class="memitem:aef14ca7879e9e56e2f7b47dfc63b4ae5 template"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aef14ca7879e9e56e2f7b47dfc63b4ae5">operator()</a> (<a class="el" href="NBT__Print_8hpp.html#a977ff50d4d248543d59717387e6dd311">NBT_Print_Level</a> lvl, const std::FMT_STR&lt; Args... &gt; fmt, Args &amp;&amp;... args) noexcept</td></tr>
-<tr class="memdesc:aef14ca7879e9e56e2f7b47dfc63b4ae5"><td class="mdescLeft">&#160;</td><td class="mdescRight">函数调用运算符重载，用于将类作为仿函数调用，通过使用指定等级输出信息  <br /></td></tr>
-<tr class="memitem:a5f4504f6b96dc0c2340b56793cb72e20" id="r_a5f4504f6b96dc0c2340b56793cb72e20"><td class="memTemplParams" colspan="2">template&lt;typename... Args&gt; </td></tr>
-<tr class="memitem:a5f4504f6b96dc0c2340b56793cb72e20 template"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5f4504f6b96dc0c2340b56793cb72e20">operator()</a> (const std::FMT_STR&lt; Args... &gt; fmt, Args &amp;&amp;... args) noexcept</td></tr>
-<tr class="memdesc:a5f4504f6b96dc0c2340b56793cb72e20"><td class="mdescLeft">&#160;</td><td class="mdescRight">函数调用运算符重载，用于将类作为仿函数调用，默认使用Info等级输出信息  <br /></td></tr>
+<tr class="memitem:a4cbba097e5551b7dff96052f4f64c9e7" id="r_a4cbba097e5551b7dff96052f4f64c9e7"><td class="memTemplParams" colspan="2">template&lt;typename... Args&gt; </td></tr>
+<tr class="memitem:a4cbba097e5551b7dff96052f4f64c9e7 template"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4cbba097e5551b7dff96052f4f64c9e7">operator()</a> (<a class="el" href="NBT__Print_8hpp.html#a977ff50d4d248543d59717387e6dd311">NBT_Print_Level</a> lvl, const std::format_string&lt; Args... &gt; fmt, Args &amp;&amp;... args) noexcept</td></tr>
+<tr class="memdesc:a4cbba097e5551b7dff96052f4f64c9e7"><td class="mdescLeft">&#160;</td><td class="mdescRight">函数调用运算符重载，用于将类作为仿函数调用，通过使用指定等级输出信息  <br /></td></tr>
+<tr class="memitem:abfbdfa0131d496e7f1c9e06c17490fbd" id="r_abfbdfa0131d496e7f1c9e06c17490fbd"><td class="memTemplParams" colspan="2">template&lt;typename... Args&gt; </td></tr>
+<tr class="memitem:abfbdfa0131d496e7f1c9e06c17490fbd template"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abfbdfa0131d496e7f1c9e06c17490fbd">operator()</a> (const std::format_string&lt; Args... &gt; fmt, Args &amp;&amp;... args) noexcept</td></tr>
+<tr class="memdesc:abfbdfa0131d496e7f1c9e06c17490fbd"><td class="mdescLeft">&#160;</td><td class="mdescRight">函数调用运算符重载，用于将类作为仿函数调用，默认使用Info等级输出信息  <br /></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">详细描述</h2>
 <div class="textblock"><p>一个用于打印信息到指定的C文件对象的工具类，作为库内大部分存在信息输出接口的默认实现。 实际可被使用此类为默认值参数的函数的调用方，以类似此类的仿函数参数重写的其它类型替换， 比如调用方实现了一个My_Print，只要重载了仿函数调用运算符，且参数与此类的仿函数调用运算符一致， 则可以直接替换此类并传递给目标参数。 </p>
@@ -164,8 +164,8 @@ Public 成员函数</h2></td></tr>
 </div>
 </div>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">成员函数说明</h2>
-<a id="a5f4504f6b96dc0c2340b56793cb72e20" name="a5f4504f6b96dc0c2340b56793cb72e20"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5f4504f6b96dc0c2340b56793cb72e20">&#9670;&#160;</a></span>operator()() <span class="overload">[1/2]</span></h2>
+<a id="abfbdfa0131d496e7f1c9e06c17490fbd" name="abfbdfa0131d496e7f1c9e06c17490fbd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abfbdfa0131d496e7f1c9e06c17490fbd">&#9670;&#160;</a></span>operator()() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -178,7 +178,7 @@ template&lt;typename... Args&gt; </div>
         <tr>
           <td class="memname">void NBT_Print::operator() </td>
           <td>(</td>
-          <td class="paramtype">const std::FMT_STR&lt; Args... &gt;</td>          <td class="paramname"><span class="paramname"><em>fmt</em></span>, </td>
+          <td class="paramtype">const std::format_string&lt; Args... &gt;</td>          <td class="paramname"><span class="paramname"><em>fmt</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -211,8 +211,8 @@ template&lt;typename... Args&gt; </div>
 
 </div>
 </div>
-<a id="aef14ca7879e9e56e2f7b47dfc63b4ae5" name="aef14ca7879e9e56e2f7b47dfc63b4ae5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aef14ca7879e9e56e2f7b47dfc63b4ae5">&#9670;&#160;</a></span>operator()() <span class="overload">[2/2]</span></h2>
+<a id="a4cbba097e5551b7dff96052f4f64c9e7" name="a4cbba097e5551b7dff96052f4f64c9e7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4cbba097e5551b7dff96052f4f64c9e7">&#9670;&#160;</a></span>operator()() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -230,7 +230,7 @@ template&lt;typename... Args&gt; </div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const std::FMT_STR&lt; Args... &gt;</td>          <td class="paramname"><span class="paramname"><em>fmt</em></span>, </td>
+          <td class="paramtype">const std::format_string&lt; Args... &gt;</td>          <td class="paramname"><span class="paramname"><em>fmt</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
