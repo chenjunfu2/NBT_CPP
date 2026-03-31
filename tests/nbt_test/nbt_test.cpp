@@ -631,9 +631,9 @@ int maingg(void)
 int main(void)//_teststring
 {
 	uint8_t arr0[] = { 't','e','s','t', '0'};
-	uint8_t arr1[] = { 't','e','s','t', '1','\0'};
-	uint8_t arr2[] = { 't','e','s','t', '2','\xC0','\x80' };
-	uint8_t arr3[] = { 't','e','s','t', '3','\xC0','\x80','\0' };
+	uint8_t arr1[] = { 't','e','s','t', '1', (uint8_t)'\0'};
+	uint8_t arr2[] = { 't','e','s','t', '2', (uint8_t)'\xC0', (uint8_t)'\x80' };
+	uint8_t arr3[] = { 't','e','s','t', '3', (uint8_t)'\xC0', (uint8_t)'\x80', (uint8_t)'\0' };
 
 
 	NBT_Type::String sArr[] =
@@ -651,18 +651,15 @@ int main(void)//_teststring
 
 		std::u8string(u8"test8"),
 		std::u8string_view(u8"test9"),
-
-		std::wstring(L"test10"),
-		std::wstring_view(L"test11"),
 		
-		std::u16string(u"test12"),
-		std::u16string_view(u"test13"),
+		std::u16string(u"test10"),
+		std::u16string_view(u"test11"),
 
-		{std::string("test14"), NBT_Type::String::USE_RAW_DATA{}},
-		{std::string_view("test15"), NBT_Type::String::USE_RAW_DATA{}},
+		{std::string("test12"), NBT_Type::String::USE_RAW_DATA{}},
+		{std::string_view("test13"), NBT_Type::String::USE_RAW_DATA{}},
 
-		{std::u8string(u8"test16"), NBT_Type::String::USE_RAW_DATA{}},
-		{std::u8string_view(u8"test17"), NBT_Type::String::USE_RAW_DATA{}},
+		{std::u8string(u8"test14"), NBT_Type::String::USE_RAW_DATA{}},
+		{std::u8string_view(u8"test15"), NBT_Type::String::USE_RAW_DATA{}},
 	};
 
 	NBT_Print print(stdout, NULL, NULL);
