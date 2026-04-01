@@ -117,7 +117,7 @@ var classNBT__Compound =
     [ "PutString", "classNBT__Compound.html#a100531ab11aad918b852977fbfd37808", null ],
     [ "PutString", "classNBT__Compound.html#a006acc33e043248f771161af74a4b8c6", null ],
     [ "Remove", "classNBT__Compound.html#af55b9238e41a777d8971a58de3134877", null ],
-    [ "Size", "classNBT__Compound.html#a5449c52e28ba84e4e5ab7e207784cf2b", null ],
+    [ "Size", "classNBT__Compound.html#ad89f708ab985664401c5210817184215", null ],
     [ "TryPut", "classNBT__Compound.html#a3b9392db95dee4f687be620a5be32b4b", null ],
     [ "TryPutByte", "classNBT__Compound.html#ae587071b04f7b132bade6d6593833af9", null ],
     [ "TryPutByte", "classNBT__Compound.html#affa8bdbbcc1ea6052c29477c873add0a", null ],

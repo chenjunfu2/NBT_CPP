@@ -93,28 +93,91 @@ $(function(){initNavTree('classNBT__Scanner.html','','classNBT__Scanner-members'
 </div><!--header-->
 <div class="contents">
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 id="header-pub-types" class="groupheader"><a id="pub-types" name="pub-types"></a>
-Public 类型</h2></td></tr>
-<tr class="memitem:adb5ca5f6d61c79595d4b0952c7745642" id="r_adb5ca5f6d61c79595d4b0952c7745642"><td class="memItemLeft" align="right" valign="top"><a id="adb5ca5f6d61c79595d4b0952c7745642" name="adb5ca5f6d61c79595d4b0952c7745642"></a>
-using&#160;</td><td class="memItemRight" valign="bottom"><b>ErrCode</b> = NBT_Reader::ErrCode</td></tr>
-<tr class="memitem:a4e34451a31e0f8476827a05c526d0896" id="r_a4e34451a31e0f8476827a05c526d0896"><td class="memItemLeft" align="right" valign="top"><a id="a4e34451a31e0f8476827a05c526d0896" name="a4e34451a31e0f8476827a05c526d0896"></a>
-using&#160;</td><td class="memItemRight" valign="bottom"><b>WarnCode</b> = NBT_Reader::WarnCode</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-static-methods" class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 静态 Public 成员函数</h2></td></tr>
-<tr class="memitem:a3a61c70286db8decc984bd0875ebe6a1" id="r_a3a61c70286db8decc984bd0875ebe6a1"><td class="memTemplParams" colspan="2"><a id="a3a61c70286db8decc984bd0875ebe6a1" name="a3a61c70286db8decc984bd0875ebe6a1"></a>
-template&lt;typename T, typename InputStream, typename InfoFunc, typename... Args&gt; <br />
-requires (std::is_same_v&lt;T, ErrCode&gt; || std::is_same_v&lt;T, WarnCode&gt;)</td></tr>
-<tr class="memitem:a3a61c70286db8decc984bd0875ebe6a1 template"><td class="memItemLeft" align="right" valign="top">static std::conditional_t&lt; std::is_same_v&lt; T, ErrCode &gt;, ErrCode, void &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>Error</b> (const T &amp;code, const InputStream &amp;tData, InfoFunc &amp;funcInfo, const std::format_string&lt; Args... &gt; fmt, Args &amp;&amp;... args) noexcept</td></tr>
-<tr class="memitem:acef3a44e8d24e620bf6bfa203e10f24c" id="r_acef3a44e8d24e620bf6bfa203e10f24c"><td class="memTemplParams" colspan="2"><a id="acef3a44e8d24e620bf6bfa203e10f24c" name="acef3a44e8d24e620bf6bfa203e10f24c"></a>
-template&lt;typename InputStream, typename Visitor, typename InfoFunc = NBT_Print&gt; <br />
+<tr class="memitem:ad100409b7deda6e989f0f166d17d15a4" id="r_ad100409b7deda6e989f0f166d17d15a4"><td class="memTemplParams" colspan="2"><a id="ad100409b7deda6e989f0f166d17d15a4" name="ad100409b7deda6e989f0f166d17d15a4"></a>
+template&lt;typename InputStream, typename Visitor&gt; <br />
 requires (<a class="el" href="conceptIsLookLike__NBT__Visitor.html">IsLookLike_NBT_Visitor</a>&lt;Visitor&gt;)</td></tr>
-<tr class="memitem:acef3a44e8d24e620bf6bfa203e10f24c template"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><b>Scan</b> (InputStream &amp;IptStream, Visitor &amp;tVisitor, size_t szStackDepth=512, InfoFunc funcInfo=<a class="el" href="classNBT__Print.html">NBT_Print</a>{})</td></tr>
-<tr class="memitem:ad6a974103e27856f57def7028f6f226a" id="r_ad6a974103e27856f57def7028f6f226a"><td class="memTemplParams" colspan="2"><a id="ad6a974103e27856f57def7028f6f226a" name="ad6a974103e27856f57def7028f6f226a"></a>
-template&lt;typename DataType = std::vector&lt;uint8_t&gt;, typename Visitor, typename InfoFunc = NBT_Print&gt; <br />
+<tr class="memitem:ad100409b7deda6e989f0f166d17d15a4 template"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><b>Scan</b> (InputStream &amp;IptStream, Visitor &amp;tVisitor, size_t szStackDepth=512)</td></tr>
+<tr class="memitem:a01cdd2492d9801273a7459d33d0b4069" id="r_a01cdd2492d9801273a7459d33d0b4069"><td class="memTemplParams" colspan="2"><a id="a01cdd2492d9801273a7459d33d0b4069" name="a01cdd2492d9801273a7459d33d0b4069"></a>
+template&lt;typename DataType = std::vector&lt;uint8_t&gt;, typename Visitor&gt; <br />
 requires (<a class="el" href="conceptIsLookLike__NBT__Visitor.html">IsLookLike_NBT_Visitor</a>&lt;Visitor&gt;)</td></tr>
-<tr class="memitem:ad6a974103e27856f57def7028f6f226a template"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><b>Scan</b> (const DataType &amp;tDataInput, size_t szStartIdx, Visitor &amp;tVisitor, size_t szStackDepth=512, InfoFunc funcInfo=<a class="el" href="classNBT__Print.html">NBT_Print</a>{})</td></tr>
+<tr class="memitem:a01cdd2492d9801273a7459d33d0b4069 template"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><b>Scan</b> (const DataType &amp;tDataInput, size_t szStartIdx, Visitor &amp;tVisitor, size_t szStackDepth=512)</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pro-types" class="groupheader"><a id="pro-types" name="pro-types"></a>
+Protected 类型</h2></td></tr>
+<tr class="memitem:adbc20282bb20db30d8967ea0c6ca4598" id="r_adbc20282bb20db30d8967ea0c6ca4598"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#adbc20282bb20db30d8967ea0c6ca4598">Control</a> : uint8_t { <a class="el" href="#adbc20282bb20db30d8967ea0c6ca4598aa0bfb8e59e6c13fc8d990781f77694fe">Continue</a>
+, <a class="el" href="#adbc20282bb20db30d8967ea0c6ca4598ae4c38d6d45baf080943d323dd51a2ce8">Break</a>
+, <a class="el" href="#adbc20282bb20db30d8967ea0c6ca4598a11a755d598c0c417f9a36758c3da7481">Stop</a>
+, <a class="el" href="#adbc20282bb20db30d8967ea0c6ca4598a902b0d55fddef6f8d651fe1035b7d4bd">Error</a>
+ }</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pro-methods" class="groupheader"><a id="pro-methods" name="pro-methods"></a>
+Protected 成员函数</h2></td></tr>
+<tr class="memitem:aa38aeafcc060c0dc83fb9b1d67b9872e" id="r_aa38aeafcc060c0dc83fb9b1d67b9872e"><td class="memItemLeft" align="right" valign="top"><a id="aa38aeafcc060c0dc83fb9b1d67b9872e" name="aa38aeafcc060c0dc83fb9b1d67b9872e"></a>
+<a class="el" href="#adbc20282bb20db30d8967ea0c6ca4598">Control</a>&#160;</td><td class="memItemRight" valign="bottom"><b>ResultControlToControl</b> (<a class="el" href="classNBT__Visitor.html#a5dd0ef8b7205c99438132ea13413f82b">NBT_Visitor::ResultControl</a> enResultControl)</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pro-static-methods" class="groupheader"><a id="pro-static-methods" name="pro-static-methods"></a>
+静态 Protected 成员函数</h2></td></tr>
+<tr class="memitem:a671c4c30bd6d95b6e9592ce42b077675" id="r_a671c4c30bd6d95b6e9592ce42b077675"><td class="memTemplParams" colspan="2"><a id="a671c4c30bd6d95b6e9592ce42b077675" name="a671c4c30bd6d95b6e9592ce42b077675"></a>
+template&lt;bool bNoCheck = false, typename T, typename InputStream, typename InfoFunc&gt; <br />
+requires std::integral&lt;T&gt;</td></tr>
+<tr class="memitem:a671c4c30bd6d95b6e9592ce42b077675 template"><td class="memItemLeft" align="right" valign="top">static std::conditional_t&lt; bNoCheck, void, bool &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>ReadBigEndian</b> (InputStream &amp;tData, T &amp;tVal)</td></tr>
+<tr class="memitem:a9d0bf8419af34fe8aa044af73f158d12" id="r_a9d0bf8419af34fe8aa044af73f158d12"><td class="memTemplParams" colspan="2"><a id="a9d0bf8419af34fe8aa044af73f158d12" name="a9d0bf8419af34fe8aa044af73f158d12"></a>
+template&lt;typename InputStream, typename Visitor&gt; </td></tr>
+<tr class="memitem:a9d0bf8419af34fe8aa044af73f158d12 template"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="#adbc20282bb20db30d8967ea0c6ca4598">Control</a>&#160;</td><td class="memItemRight" valign="bottom"><b>ScanEndType</b> (InputStream &amp;tData, Visitor &amp;tVisitor)</td></tr>
+<tr class="memitem:a68ee73b47fa6808076e866d7fcc12766" id="r_a68ee73b47fa6808076e866d7fcc12766"><td class="memTemplParams" colspan="2"><a id="a68ee73b47fa6808076e866d7fcc12766" name="a68ee73b47fa6808076e866d7fcc12766"></a>
+template&lt;typename T, typename InputStream, typename Visitor&gt; </td></tr>
+<tr class="memitem:a68ee73b47fa6808076e866d7fcc12766 template"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="#adbc20282bb20db30d8967ea0c6ca4598">Control</a>&#160;</td><td class="memItemRight" valign="bottom"><b>ScanBuiltInType</b> (InputStream &amp;tData, Visitor &amp;tVisitor)</td></tr>
+<tr class="memitem:a469deb58c95e91174b8dbb41185d013e" id="r_a469deb58c95e91174b8dbb41185d013e"><td class="memTemplParams" colspan="2"><a id="a469deb58c95e91174b8dbb41185d013e" name="a469deb58c95e91174b8dbb41185d013e"></a>
+template&lt;typename T, typename InputStream, typename Visitor&gt; </td></tr>
+<tr class="memitem:a469deb58c95e91174b8dbb41185d013e template"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="#adbc20282bb20db30d8967ea0c6ca4598">Control</a>&#160;</td><td class="memItemRight" valign="bottom"><b>ScanArrayType</b> (InputStream &amp;tData, Visitor &amp;tVisitor)</td></tr>
+<tr class="memitem:a48ff11483331edc155836f3bc1ec1d5a" id="r_a48ff11483331edc155836f3bc1ec1d5a"><td class="memTemplParams" colspan="2"><a id="a48ff11483331edc155836f3bc1ec1d5a" name="a48ff11483331edc155836f3bc1ec1d5a"></a>
+template&lt;typename InputStream, typename Visitor&gt; </td></tr>
+<tr class="memitem:a48ff11483331edc155836f3bc1ec1d5a template"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="#adbc20282bb20db30d8967ea0c6ca4598">Control</a>&#160;</td><td class="memItemRight" valign="bottom"><b>ScanStringType</b> (InputStream &amp;tData, Visitor &amp;tVisitor)</td></tr>
+<tr class="memitem:a6e692a5342ba35f4271675f7fd8df7d7" id="r_a6e692a5342ba35f4271675f7fd8df7d7"><td class="memTemplParams" colspan="2"><a id="a6e692a5342ba35f4271675f7fd8df7d7" name="a6e692a5342ba35f4271675f7fd8df7d7"></a>
+template&lt;typename InputStream, typename Visitor&gt; </td></tr>
+<tr class="memitem:a6e692a5342ba35f4271675f7fd8df7d7 template"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="#adbc20282bb20db30d8967ea0c6ca4598">Control</a>&#160;</td><td class="memItemRight" valign="bottom"><b>ScanListType</b> (InputStream &amp;tData, Visitor &amp;tVisitor, size_t szStackDepth)</td></tr>
+<tr class="memitem:a9b5500f9b79db56986cd3f52a13d64b8" id="r_a9b5500f9b79db56986cd3f52a13d64b8"><td class="memTemplParams" colspan="2"><a id="a9b5500f9b79db56986cd3f52a13d64b8" name="a9b5500f9b79db56986cd3f52a13d64b8"></a>
+template&lt;typename InputStream, typename Visitor&gt; </td></tr>
+<tr class="memitem:a9b5500f9b79db56986cd3f52a13d64b8 template"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="#adbc20282bb20db30d8967ea0c6ca4598">Control</a>&#160;</td><td class="memItemRight" valign="bottom"><b>ScanCompoundType</b> (InputStream &amp;tData, Visitor &amp;tVisitor, size_t szStackDepth)</td></tr>
+<tr class="memitem:a621071a6b7be6a51aa3e3c75788daff4" id="r_a621071a6b7be6a51aa3e3c75788daff4"><td class="memTemplParams" colspan="2"><a id="a621071a6b7be6a51aa3e3c75788daff4" name="a621071a6b7be6a51aa3e3c75788daff4"></a>
+template&lt;typename InputStream, typename Visitor&gt; </td></tr>
+<tr class="memitem:a621071a6b7be6a51aa3e3c75788daff4 template"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="#adbc20282bb20db30d8967ea0c6ca4598">Control</a>&#160;</td><td class="memItemRight" valign="bottom"><b>ScanSwitch</b> (InputStream &amp;tData, Visitor &amp;tVisitor, size_t szStackDepth)</td></tr>
 </table>
+<a name="doc-enum-members" id="doc-enum-members"></a><h2 id="header-doc-enum-members" class="groupheader">成员枚举类型说明</h2>
+<a id="adbc20282bb20db30d8967ea0c6ca4598" name="adbc20282bb20db30d8967ea0c6ca4598"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adbc20282bb20db30d8967ea0c6ca4598">&#9670;&#160;</a></span>Control</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum class <a class="el" href="#adbc20282bb20db30d8967ea0c6ca4598">NBT_Scanner::Control</a> : uint8_t</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel strong">strong</span><span class="mlabel protected">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">枚举值</th></tr><tr><td class="fieldname"><a id="adbc20282bb20db30d8967ea0c6ca4598aa0bfb8e59e6c13fc8d990781f77694fe" name="adbc20282bb20db30d8967ea0c6ca4598aa0bfb8e59e6c13fc8d990781f77694fe"></a>Continue&#160;</td><td class="fielddoc"><p>继续处理（继续迭代） </p>
+</td></tr>
+<tr><td class="fieldname"><a id="adbc20282bb20db30d8967ea0c6ca4598ae4c38d6d45baf080943d323dd51a2ce8" name="adbc20282bb20db30d8967ea0c6ca4598ae4c38d6d45baf080943d323dd51a2ce8"></a>Break&#160;</td><td class="fielddoc"><p>跳过剩余值（离开当前结构层级回到父层级） </p>
+</td></tr>
+<tr><td class="fieldname"><a id="adbc20282bb20db30d8967ea0c6ca4598a11a755d598c0c417f9a36758c3da7481" name="adbc20282bb20db30d8967ea0c6ca4598a11a755d598c0c417f9a36758c3da7481"></a>Stop&#160;</td><td class="fielddoc"><p>停止处理（终止解析） </p>
+</td></tr>
+<tr><td class="fieldname"><a id="adbc20282bb20db30d8967ea0c6ca4598a902b0d55fddef6f8d651fe1035b7d4bd" name="adbc20282bb20db30d8967ea0c6ca4598a902b0d55fddef6f8d651fe1035b7d4bd"></a>Error&#160;</td><td class="fielddoc"><p>出现错误（终止解析） </p>
+</td></tr>
+</table>
+
+</div>
+</div>
 <hr/>该类的文档由以下文件生成:<ul>
 <li><a class="el" href="NBT__Scanner_8hpp_source.html">NBT_Scanner.hpp</a></li>
 </ul>

@@ -1,5 +1,18 @@
 var NAVTREEINDEX4 =
 {
+"index.html#autotoc_md4":[2,0],
+"index.html#autotoc_md5":[3],
+"index.html#autotoc_md6":[4],
+"index.html#autotoc_md7":[5],
+"namespaceMUTF8__Tool__Internal.html":[6,0,0],
+"namespaceMUTF8__Tool__Internal.html#a88e572a96e3736b5821cf29a1076ec7a":[6,0,0,1],
+"namespaceNBT__Compound__Concept.html":[6,0,1],
+"namespacemembers.html":[6,1,0],
+"namespacemembers_func.html":[6,1,1],
+"namespaces.html":[6,0],
+"namespacestd.html":[6,0,2],
+"pages.html":[],
+"structNBT__String_1_1USE__RAW__DATA.html":[8,0,15,0],
 "structNBT__Type_1_1__TypeList.html":[8,0,17,0],
 "structstd_1_1hash_3_01NBT__StringView_3_01String_00_01StringView_01_4_01_4.html":[6,0,2,1],
 "structstd_1_1hash_3_01NBT__StringView_3_01String_00_01StringView_01_4_01_4.html":[8,0,1,1],

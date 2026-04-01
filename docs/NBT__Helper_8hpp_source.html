@@ -163,7 +163,7 @@ $(function(){initNavTree('NBT__Helper_8hpp_source.html','',''); });
 </div>
 <div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span><span class="preprocessor">#endif</span></div>
 <div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span> </div>
-<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span><span class="keyword">protected</span>:</div>
 <div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Pr<span class="keywordtype">int</span>Func&gt;</div>
 <div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>    <span class="keyword">static</span> <span class="keywordtype">void</span> PrintPadding(<span class="keywordtype">size_t</span> szLevel, <span class="keywordtype">bool</span> bSubLevel, <span class="keywordtype">bool</span> bNewLine, <span class="keyword">const</span> std::string &amp;strLevelPadding, PrintFunc &amp;funcPrint)<span class="comment">//bSubLevel会让缩进多一层</span></div>
 <div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>    {</div>
@@ -253,7 +253,7 @@ $(function(){initNavTree('NBT__Helper_8hpp_source.html','',''); });
 <div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span>        }</div>
 <div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span>    }</div>
 <div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span> </div>
-<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span><span class="keyword">protected</span>:</div>
 <div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span>    <span class="comment">//首次调用默认为true，二次调用开始内部主动变为false</span></div>
 <div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span>    <span class="keyword">template</span>&lt;<span class="keywordtype">bool</span> bRoot, <span class="keywordtype">bool</span> bSortCompound, <span class="keyword">typename</span> Pr<span class="keywordtype">int</span>Func = NBT_Pr<span class="keywordtype">int</span>&gt;<span class="comment">//首次使用NBT_Node_View解包，后续直接使用NBT_Node引用免除额外初始化开销</span></div>
 <div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span>    <span class="keyword">static</span> <span class="keywordtype">void</span> PrintSwitch(std::conditional_t&lt;bRoot, <span class="keyword">const</span> NBT_Node_View&lt;true&gt; &amp;, <span class="keyword">const</span> NBT_Node &amp;&gt;nRoot, <span class="keywordtype">size_t</span> szLevel, <span class="keyword">const</span> std::string &amp;strLevelPadding, PrintFunc &amp;funcPrint)</div>
