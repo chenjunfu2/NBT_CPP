@@ -55,7 +55,7 @@ catch(...)\
 }
 ///@endcond
 
-private:
+protected:
 	using ErrCode = NBT_Reader::ErrCode;
 	using WarnCode = NBT_Reader::WarnCode;
 
