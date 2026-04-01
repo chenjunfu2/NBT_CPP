@@ -56,6 +56,9 @@ protected:
 		}
 	}
 
+	//增加skip系列函数，用于跳过值
+
+
 	template<typename InputStream, typename Visitor>
 	static Control ScanEndType(InputStream &tData, Visitor &tVisitor)
 	{
@@ -209,11 +212,6 @@ protected:
 
 		return retControl;
 	}
-
-
-
-
-
 
 
 public:
