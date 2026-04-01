@@ -44,7 +44,6 @@ protected:
 		}
 	}
 
-	//TODO
 	template<typename InputStream, typename Visitor>
 	static Control ScanSwitch(InputStream &tData, Visitor &tVisitor, size_t szStackDepth)
 	{
