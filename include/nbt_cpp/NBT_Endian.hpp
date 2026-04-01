@@ -19,7 +19,7 @@ class NBT_Endian
 	/// @brief 禁止析构
 	~NBT_Endian(void) = delete;
 	
-private:
+public:
 	constexpr static bool IsLittleEndian(void) noexcept
 	{
 		return std::endian::native == std::endian::little;
