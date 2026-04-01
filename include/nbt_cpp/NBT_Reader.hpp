@@ -17,7 +17,6 @@
 /// @file
 /// @brief NBT类型二进制反序列化工具
 
-class NBT_Scanner;
 
 /// @brief 这个类用于提供从NBT二进制流读取到NBT_Type::Compound对象的反序列化功能
 class NBT_Reader
@@ -26,9 +25,6 @@ class NBT_Reader
 	NBT_Reader(void) = delete;
 	/// @brief 禁止析构
 	~NBT_Reader(void) = delete;
-
-	//友元
-	friend class NBT_Scanner;
 
 protected:
 	enum ErrCode : uint8_t
