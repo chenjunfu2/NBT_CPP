@@ -30,7 +30,7 @@ protected:
 		case NBT_Visitor::ResultControl::Continue:	return Control::Continue;
 		case NBT_Visitor::ResultControl::Break:		return Control::Break;
 		case NBT_Visitor::ResultControl::Stop:		return Control::Stop;
-		default: throw std::runtime_error("Unknown ResultControl Value");
+		default:									return Control::Error;
 		}
 	}
 
@@ -57,7 +57,7 @@ protected:
 	}
 
 	template<typename InputStream, typename Visitor>
-	static Control ScanEnd(InputStream &tData, Visitor &tVisitor)
+	static Control ScanEndType(InputStream &tData, Visitor &tVisitor)
 	{
 		return ResultControlToControl(tVisitor.VisitListEnd());
 	}
@@ -75,62 +75,139 @@ protected:
 		return ResultControlToControl(tVisitor.VisitNumericResult<T>(tTmpRawData));
 	}
 
+	template<typename T, typename InputStream, typename Visitor>
+	static Control ScanArrayType(InputStream &tData, Visitor &tVisitor)
+	{
+		
+	}
+
+	template<typename InputStream, typename Visitor>
+	static Control ScanStringType(InputStream &tData, Visitor &tVisitor)
+	{
+		
+	}
+
+	template<typename InputStream, typename Visitor>
+	static Control ScanListType(InputStream &tData, Visitor &tVisitor, size_t szStackDepth)
+	{
+
+	}
+
+	template<typename InputStream, typename Visitor>
+	static Control ScanCompoundType(InputStream &tData, Visitor &tVisitor, size_t szStackDepth)
+	{
+
+	}
+
 
 	template<typename InputStream, typename Visitor>
 	static Control ScanSwitch(InputStream &tData, Visitor &tVisitor, size_t szStackDepth)
 	{
-	MYTRY;
-		ErrCode eRet = AllOk;
-
 		if (!tData.HasAvailData(sizeof(NBT_TAG_RAW_TYPE)))
 		{
-			return eRet;
+			return Control::Error;
 		}
 
-		
+		Control retControl;
 		NBT_TAG tagNbt = (NBT_TAG)(NBT_TAG_RAW_TYPE)tData.GetNext();
 		switch (tagNbt)
 		{
 		case NBT_TAG::End:
-			ScanEnd(tData, tVisitor);
+			{
+				retControl = ScanEndType(tData, tVisitor);
+			}
 			break;
 		case NBT_TAG::Byte:
-			using CurType = NBT_Type::TagToType_T<NBT_TAG::Byte>;
-			auto retControl = ScanBuiltInType<>(tData, tVisitor);
-
-
-
+			{
+				using CurType = NBT_Type::TagToType_T<NBT_TAG::Byte>;
+				retControl = ScanBuiltInType<CurType>(tData, tVisitor);
+			}
 			break;
 		case NBT_TAG::Short:
+			{
+				using CurType = NBT_Type::TagToType_T<NBT_TAG::Short>;
+				retControl = ScanBuiltInType<CurType>(tData, tVisitor);
+			}
 			break;
 		case NBT_TAG::Int:
+			{
+				using CurType = NBT_Type::TagToType_T<NBT_TAG::Int>;
+				retControl = ScanBuiltInType<CurType>(tData, tVisitor);
+			}
 			break;
 		case NBT_TAG::Long:
+			{
+				using CurType = NBT_Type::TagToType_T<NBT_TAG::Long>;
+				retControl = ScanBuiltInType<CurType>(tData, tVisitor);
+			}
 			break;
 		case NBT_TAG::Float:
+			{
+				using CurType = NBT_Type::TagToType_T<NBT_TAG::Float>;
+				retControl = ScanBuiltInType<CurType>(tData, tVisitor);
+			}
 			break;
 		case NBT_TAG::Double:
+			{
+				using CurType = NBT_Type::TagToType_T<NBT_TAG::Double>;
+				retControl = ScanBuiltInType<CurType>(tData, tVisitor);
+			}
 			break;
 		case NBT_TAG::ByteArray:
+			{
+				using CurType = NBT_Type::TagToType_T<NBT_TAG::ByteArray>;
+				retControl = ScanArrayType<CurType>(tData, tVisitor);
+			}
 			break;
 		case NBT_TAG::String:
+			{
+				retControl = ScanStringType(tData, tVisitor);
+			}
 			break;
 		case NBT_TAG::List:
+			{
+				retControl = ScanListType(tData, tVisitor);
+			}
 			break;
 		case NBT_TAG::Compound:
+			{
+				retControl = ScanCompoundType(tData, tVisitor);
+			}
 			break;
 		case NBT_TAG::IntArray:
+			{
+				using CurType = NBT_Type::TagToType_T<NBT_TAG::IntArray>;
+				retControl = ScanArrayType<CurType>(tData, tVisitor);
+			}
 			break;
 		case NBT_TAG::LongArray:
+			{
+				using CurType = NBT_Type::TagToType_T<NBT_TAG::LongArray>;
+				retControl = ScanArrayType<CurType>(tData, tVisitor);
+			}
 			break;
-		case NBT_TAG::ENUM_END:
+		default:
+			{
+				retControl = Control::Error;
+			}
+			break;
+		}
+
+		switch (retControl)
+		{
+		case NBT_Scanner::Control::Continue:
+			break;
+		case NBT_Scanner::Control::Break:
+			break;
+		case NBT_Scanner::Control::Stop:
+			break;
+		case NBT_Scanner::Control::Error:
 			break;
 		default:
 			break;
 		}
 
-		return eRet;
-	MYCATCH;
+		return retControl;
 	}
 
 
