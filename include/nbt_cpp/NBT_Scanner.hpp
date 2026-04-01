@@ -20,7 +20,19 @@ protected:
 		Continue,	///< 继续处理（继续迭代）
 		Break,		///< 跳过剩余值（离开当前结构层级回到父层级）
 		Stop,		///< 停止处理（终止解析）
+		Error,		///< 出现错误（终止解析）
 	};
+
+	Control ResultControlToControl(NBT_Visitor::ResultControl enResultControl)
+	{
+		switch (enResultControl)
+		{
+		case NBT_Visitor::ResultControl::Continue:	return Control::Continue;
+		case NBT_Visitor::ResultControl::Break:		return Control::Break;
+		case NBT_Visitor::ResultControl::Stop:		return Control::Stop;
+		default: throw std::runtime_error("Unknown ResultControl Value");
+		}
+	}
 
 	template<bool bNoCheck = false, typename T, typename InputStream, typename InfoFunc>
 	requires std::integral<T>
@@ -45,6 +57,26 @@ protected:
 	}
 
 	template<typename InputStream, typename Visitor>
+	static Control ScanEnd(InputStream &tData, Visitor &tVisitor)
+	{
+		return ResultControlToControl(tVisitor.VisitListEnd());
+	}
+
+	template<typename T, typename InputStream, typename Visitor>
+	static Control ScanBuiltInType(InputStream &tData, Visitor &tVisitor)
+	{
+		using RAW_DATA_T = NBT_Type::BuiltinRawType_T<T>;//类型映射
+		RAW_DATA_T tTmpRawData = 0;
+		if (!ReadBigEndian(tData, tTmpRawData, funcInfo))
+		{
+			return Control::Error;
+		}
+
+		return ResultControlToControl(tVisitor.VisitNumericResult<T>(tTmpRawData));
+	}
+
+
+	template<typename InputStream, typename Visitor>
 	static Control ScanSwitch(InputStream &tData, Visitor &tVisitor, size_t szStackDepth)
 	{
 	MYTRY;
@@ -60,21 +92,14 @@ protected:
 		switch (tagNbt)
 		{
 		case NBT_TAG::End:
-			switch (c)
-			{
-			case NBT_Visitor::ResultControl::Continue:
-				break;
-			case NBT_Visitor::ResultControl::Break:
-				break;
-			case NBT_Visitor::ResultControl::Stop:
-				break;
-			case NBT_Visitor::ResultControl::Error:
-				break;
-			default:
-				break;
-			}
+			ScanEnd(tData, tVisitor);
 			break;
 		case NBT_TAG::Byte:
+			using CurType = NBT_Type::TagToType_T<NBT_TAG::Byte>;
+			auto retControl = ScanBuiltInType<>(tData, tVisitor);
+
+
+
 			break;
 		case NBT_TAG::Short:
 			break;
@@ -117,7 +142,7 @@ protected:
 public:
 	template<typename InputStream, typename Visitor>
 	requires(IsLookLike_NBT_Visitor<Visitor>)
-	static void Scan(InputStream &IptStream, Visitor &tVisitor, size_t szStackDepth = 512)
+	static bool Scan(InputStream &IptStream, Visitor &tVisitor, size_t szStackDepth = 512)
 	{
 		tVisitor.VisitBegin();
 		//TODO
@@ -126,7 +151,7 @@ public:
 	
 	template<typename DataType = std::vector<uint8_t>, typename Visitor>
 	requires(IsLookLike_NBT_Visitor<Visitor>)
-	static void Scan(const DataType &tDataInput, size_t szStartIdx, Visitor &tVisitor, size_t szStackDepth = 512)
+	static bool Scan(const DataType &tDataInput, size_t szStartIdx, Visitor &tVisitor, size_t szStackDepth = 512)
 	{
 		NBT_IO::DefaultInputStream<DataType> IptStream(tDataInput, szStartIdx);
 
