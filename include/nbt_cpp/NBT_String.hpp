@@ -27,7 +27,7 @@ class NBT_StringView : public StringView
 	friend class NBT_Helper;
 
 private:
-	static constexpr size_t CalcStringViewSize(const typename StringView::value_type *ltrStr, size_t N)
+	static constexpr typename StringView::size_type CalcStringViewSize(const typename StringView::value_type *ltrStr, typename StringView::size_type N)
 	{
 		//c string - 0x00
 		if (N >= 1 && ltrStr[N - 1] == 0x00)
@@ -75,7 +75,7 @@ public:
 	/// 这里视图的裁切仅缩小视图内存储的字符串实际大小，而非修改原始对象进行修改，
 	/// 因为View仅构造为视图，不持有对象，如果引用的对象提前结束生命周期，会导致未定义行为，
 	/// 请保证被View引用的对象生存周期大于View，或在生存周期结束后不再使用由其初始化的View。
-	template<size_t N>//c风格字符串or数组
+	template<typename StringView::size_type N>//c风格字符串or数组
 	constexpr NBT_StringView(const typename StringView::value_type(&ltrStr)[N]) :StringView(ltrStr, CalcStringViewSize(ltrStr, N))
 	{}
 
@@ -119,7 +119,7 @@ class NBT_String :public String//暂时不考虑保护继承
 	static_assert(sizeof(char) == sizeof(typename String::value_type), "Size error");
 	
 private:
-	static constexpr size_t CalcStringSize(const typename String::value_type *ltrStr, size_t N)
+	static constexpr typename String::size_type CalcStringSize(const typename String::value_type *ltrStr, typename String::size_type N)
 	{
 		//c string - 0x00
 		if (N >= 1 && ltrStr[N - 1] == 0x00)
@@ -249,7 +249,7 @@ public:
 	/// @param ltrStr 数组的引用
 	/// @note 如果字符串或字符数组以c风格字符串的\0或mutf8的0x80 0xc0结尾，则裁切多余结尾，因为string数据中不应包含字符串结束符，
 	/// 这里的裁切仅缩小拷贝字符串长度，而非修改原始对象进行修改。
-	template<size_t N>
+	template<typename String::size_type N>
 	NBT_String(const typename String::value_type(&ltrStr)[N]) :String(ltrStr, CalcStringSize(ltrStr, N))
 	{}
 
