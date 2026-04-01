@@ -289,26 +289,26 @@ public:
 	}
 
 	/// @brief 在指定位置插入一个元素（拷贝构造）
-	/// @param pos 插入位置的迭代器
+	/// @param itPos 插入位置的迭代器
 	/// @param value 需要插入的元素
 	/// @return 指向新插入元素的迭代器
 	typename List::iterator Insert(typename List::const_iterator itPos, const typename List::value_type &value)
 	{
-		return List::insert(pos, value);
+		return List::insert(itPos, value);
 	}
 
 	/// @brief 在指定位置插入一个元素（移动构造）
-	/// @param pos 插入位置的迭代器
+	/// @param itPos 插入位置的迭代器
 	/// @param value 需要插入的元素
 	/// @return 指向新插入元素的迭代器
 	typename List::iterator Insert(typename List::const_iterator itPos, typename List::value_type &&value)
 	{
-		return List::insert(pos, std::move(value));
+		return List::insert(itPos, std::move(value));
 	}
 
 	/// @brief 在指定位置插入count个相同的元素
-	/// @param pos 插入位置的迭代器
-	/// @param count 插入的元素个数
+	/// @param itPos 插入位置的迭代器
+	/// @param szCount 插入的元素个数
 	/// @param value 需要重复插入的元素
 	/// @return 指向第一个新插入元素的迭代器
 	typename List::iterator Insert(typename List::const_iterator itPos, typename List::size_type szCount, const typename List::value_type &value)
@@ -317,23 +317,23 @@ public:
 	}
 
 	/// @brief 在指定位置插入一个范围内的元素
-	/// @param pos 插入位置的迭代器
-	/// @param first 范围的起始迭代器
-	/// @param last 范围的结束迭代器
+	/// @param itPos 插入位置的迭代器
+	/// @param itFirst 范围的起始迭代器
+	/// @param itLast 范围的结束迭代器
 	/// @return 指向第一个新插入元素的迭代器
-	template<class InputIt>
+	template<typename InputIt>
 	typename List::iterator Insert(typename List::const_iterator itPos, InputIt itFirst, InputIt itLast)
 	{
 		return List::insert(itPos, itFirst, itLast);
 	}
 
 	/// @brief 在指定位置插入初始化列表中的元素
-	/// @param pos 插入位置的迭代器
-	/// @param ilist 初始化列表
+	/// @param itPos 插入位置的迭代器
+	/// @param ilistValue 初始化列表
 	/// @return 指向第一个新插入元素的迭代器
-	typename List::iterator Insert(typename List::const_iterator itPos, std::initializer_list<typename List::value_type> ilistVal)
+	typename List::iterator Insert(typename List::const_iterator itPos, std::initializer_list<typename List::value_type> ilistValue)
 	{
-		return List::insert(itPos, ilistVal);
+		return List::insert(itPos, ilistValue);
 	}
 
 	///@}
