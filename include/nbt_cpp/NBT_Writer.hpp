@@ -25,7 +25,7 @@ class NBT_Writer
 	/// @brief 禁止析构
 	~NBT_Writer(void) = delete;
 
-private:
+protected:
 	enum ErrCode : uint8_t
 	{
 		AllOk = 0,//没有问题

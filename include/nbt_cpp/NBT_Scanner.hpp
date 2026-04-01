@@ -55,7 +55,7 @@ catch(...)\
 }
 ///@endcond
 
-public:
+private:
 	using ErrCode = NBT_Reader::ErrCode;
 	using WarnCode = NBT_Reader::WarnCode;
 
@@ -73,9 +73,25 @@ public:
 		return NBT_Reader::Error(code, tData, funcInfo, std::move(fmt), std::forward<Args>(args)...);
 	}
 
+	template<bool bNoCheck = false, typename T, typename InputStream, typename InfoFunc>
+	requires std::integral<T>
+	static inline std::conditional_t<bNoCheck, void, ErrCode> ReadBigEndian(InputStream &tData, T &tVal, InfoFunc &funcInfo) noexcept
+	{
+		return NBT_Reader::ReadBigEndian(tData, tVal, funcInfo);
+	}
 
 	//TODO
-	
+	template<typename InputStream, typename InfoFunc>
+	static ErrCode ScanSwitch(InputStream &tData, size_t szStackDepth, InfoFunc &funcInfo)
+	{
+
+
+
+
+
+
+
+	}
 
 
 
