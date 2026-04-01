@@ -20,11 +20,15 @@ class NBT_Endian
 	~NBT_Endian(void) = delete;
 	
 public:
+	/// @brief 判断当前平台字节序是否是小端字节序
+	/// @return 如果是小端字节序，返回true，否则返回false
 	constexpr static bool IsLittleEndian(void) noexcept
 	{
 		return std::endian::native == std::endian::little;
 	}
 
+	/// @brief 判断当前平台字节序是否是大端字节序
+	/// @return 如果是大端字节序，返回true，否则返回false
 	constexpr static bool IsBigEndian(void) noexcept
 	{
 		return std::endian::native == std::endian::big;

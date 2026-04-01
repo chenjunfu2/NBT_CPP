@@ -27,6 +27,7 @@ class NBT_Reader
 	~NBT_Reader(void) = delete;
 
 protected:
+///@cond
 	enum ErrCode : uint8_t
 	{
 		AllOk = 0,//没有问题
@@ -126,10 +127,8 @@ protected:
 		funcInfo(lvl, "\"\n\n");
 
 		//如果可以，预览szCurrent前后n个字符，否则裁切到边界
-/// @cond
 #define VIEW_PRE (4 * 8 + 3)//向前
 #define VIEW_SUF (4 * 8 + 5)//向后
-/// @endcond
 		size_t rangeBeg = (tData.Index() > VIEW_PRE) ? (tData.Index() - VIEW_PRE) : (0);//上边界裁切
 		size_t rangeEnd = ((tData.Index() + VIEW_SUF) < tData.Size()) ? (tData.Index() + VIEW_SUF) : (tData.Size());//下边界裁切
 #undef VIEW_SUF
@@ -192,7 +191,7 @@ protected:
 		}
 	}
 
-///@cond
+
 #define _RP___FUNCTION__ __FUNCTION__//用于编译过程二次替换达到函数内部
 
 #define _RP___LINE__ _RP_STRLING(__LINE__)
@@ -232,7 +231,6 @@ catch(...)\
 	STACK_TRACEBACK("catch(...)");\
 	return eRet;\
 }
-///@endcond
 
 	//读取大端序数值，bNoCheck为true则不进行任何检查
 	template<bool bNoCheck = false, typename T, typename InputStream, typename InfoFunc>
@@ -665,6 +663,7 @@ catch(...)\
 
 		return eRet;//传递返回值
 	}
+///@endcond
 
 public:
 	/*

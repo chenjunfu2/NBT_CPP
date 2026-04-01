@@ -15,6 +15,7 @@ class NBT_Scanner
 	~NBT_Scanner(void) = delete;
 
 protected:
+///@cond
 	enum class Control : uint8_t
 	{
 		Continue,	///< 继续处理（继续迭代）
@@ -213,6 +214,7 @@ protected:
 		return retControl;
 	}
 
+///@endcond
 
 public:
 	template<typename InputStream, typename Visitor>
