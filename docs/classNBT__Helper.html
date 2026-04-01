@@ -117,29 +117,6 @@ using&#160;</td><td class="memItemRight" valign="bottom"><b>DefaultFuncType</b> 
 <tr class="memitem:a1225907dae22576697be39c8129a2a04" id="r_a1225907dae22576697be39c8129a2a04"><td class="memTemplParams" colspan="2">template&lt;bool bSortCompound = true, typename TB = DefaultFuncType, typename TA = DefaultFuncType&gt; </td></tr>
 <tr class="memitem:a1225907dae22576697be39c8129a2a04 template"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classNBT__Hash.html#a28f6cc5c1f29c0448a33f192a1455501">NBT_Hash::HASH_T</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1225907dae22576697be39c8129a2a04">Hash</a> (const <a class="el" href="classNBT__Node__View.html">NBT_Node_View</a>&lt; true &gt; nRoot, <a class="el" href="classNBT__Hash.html">NBT_Hash</a> nbtHash, TB funBefore=<a class="el" href="#a6a920351c9ea2ff47a592541ddd3e39d">DefaultFunc</a>, TA funAfter=<a class="el" href="#a6a920351c9ea2ff47a592541ddd3e39d">DefaultFunc</a>)</td></tr>
 <tr class="memdesc:a1225907dae22576697be39c8129a2a04"><td class="mdescLeft">&#160;</td><td class="mdescRight">对NBT对象进行递归计算哈希  <br /></td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 id="header-pro-static-methods" class="groupheader"><a id="pro-static-methods" name="pro-static-methods"></a>
-静态 Protected 成员函数</h2></td></tr>
-<tr class="memitem:a984ddb551b80d5abcf609f9fa30f723e" id="r_a984ddb551b80d5abcf609f9fa30f723e"><td class="memTemplParams" colspan="2"><a id="a984ddb551b80d5abcf609f9fa30f723e" name="a984ddb551b80d5abcf609f9fa30f723e"></a>
-template&lt;typename PrintFunc&gt; </td></tr>
-<tr class="memitem:a984ddb551b80d5abcf609f9fa30f723e template"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><b>PrintPadding</b> (size_t szLevel, bool bSubLevel, bool bNewLine, const std::string &amp;strLevelPadding, PrintFunc &amp;funcPrint)</td></tr>
-<tr class="memitem:a3aeac2f70067812af6689c52dc493f21" id="r_a3aeac2f70067812af6689c52dc493f21"><td class="memTemplParams" colspan="2"><a id="a3aeac2f70067812af6689c52dc493f21" name="a3aeac2f70067812af6689c52dc493f21"></a>
-template&lt;typename T&gt; <br />
-requires (std::is_arithmetic_v&lt;T&gt;)</td></tr>
-<tr class="memitem:a3aeac2f70067812af6689c52dc493f21 template"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><b>NumericToHexString</b> (const T &amp;value, std::string &amp;result)</td></tr>
-<tr class="memitem:af1d50d3af8036594fb66f24bf9d0d25b" id="r_af1d50d3af8036594fb66f24bf9d0d25b"><td class="memTemplParams" colspan="2"><a id="af1d50d3af8036594fb66f24bf9d0d25b" name="af1d50d3af8036594fb66f24bf9d0d25b"></a>
-template&lt;typename T, typename STR_T&gt; <br />
-requires (<a class="el" href="classNBT__Type.html#a133b229478ee9047158f6f99900b3d59">NBT_Type::IsNumericType_V</a>&lt;T&gt; &amp;&amp; (std::is_same_v&lt;STR_T, <a class="el" href="classNBT__Type.html#a8580dcb2a4494cd9bc52526d43f61865">NBT_Type::String</a>&gt; || std::is_same_v&lt;STR_T, std::string&gt;))</td></tr>
-<tr class="memitem:af1d50d3af8036594fb66f24bf9d0d25b template"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><b>NumericToDecString</b> (const T &amp;value, STR_T &amp;result)</td></tr>
-<tr class="memitem:a4de97fd861ebf1e8a1adbfd037746a98" id="r_a4de97fd861ebf1e8a1adbfd037746a98"><td class="memTemplParams" colspan="2"><a id="a4de97fd861ebf1e8a1adbfd037746a98" name="a4de97fd861ebf1e8a1adbfd037746a98"></a>
-template&lt;bool bRoot, bool bSortCompound, typename PrintFunc = NBT_Print&gt; </td></tr>
-<tr class="memitem:a4de97fd861ebf1e8a1adbfd037746a98 template"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><b>PrintSwitch</b> (std::conditional_t&lt; bRoot, const <a class="el" href="classNBT__Node__View.html">NBT_Node_View</a>&lt; true &gt; &amp;, const <a class="el" href="classNBT__Node.html">NBT_Node</a> &amp; &gt;nRoot, size_t szLevel, const std::string &amp;strLevelPadding, PrintFunc &amp;funcPrint)</td></tr>
-<tr class="memitem:ab34b7358083562a0006e4a6ea72d3280" id="r_ab34b7358083562a0006e4a6ea72d3280"><td class="memTemplParams" colspan="2"><a id="ab34b7358083562a0006e4a6ea72d3280" name="ab34b7358083562a0006e4a6ea72d3280"></a>
-template&lt;bool bRoot, bool bSortCompound, bool bHexNumType, bool bSnbtType&gt; </td></tr>
-<tr class="memitem:ab34b7358083562a0006e4a6ea72d3280 template"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><b>SerializeSwitch</b> (std::conditional_t&lt; bRoot, const <a class="el" href="classNBT__Node__View.html">NBT_Node_View</a>&lt; true &gt; &amp;, const <a class="el" href="classNBT__Node.html">NBT_Node</a> &amp; &gt;nRoot, std::conditional_t&lt; bSnbtType, <a class="el" href="classNBT__Type.html#a8580dcb2a4494cd9bc52526d43f61865">NBT_Type::String</a>, std::string &gt; &amp;sRet)</td></tr>
-<tr class="memitem:af852ac09ba4cd4f1ba5ea1a657eaeb08" id="r_af852ac09ba4cd4f1ba5ea1a657eaeb08"><td class="memTemplParams" colspan="2"><a id="af852ac09ba4cd4f1ba5ea1a657eaeb08" name="af852ac09ba4cd4f1ba5ea1a657eaeb08"></a>
-template&lt;bool bRoot, bool bSortCompound&gt; </td></tr>
-<tr class="memitem:af852ac09ba4cd4f1ba5ea1a657eaeb08 template"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><b>HashSwitch</b> (std::conditional_t&lt; bRoot, const <a class="el" href="classNBT__Node__View.html">NBT_Node_View</a>&lt; true &gt; &amp;, const <a class="el" href="classNBT__Node.html">NBT_Node</a> &amp; &gt;nRoot, <a class="el" href="classNBT__Hash.html">NBT_Hash</a> &amp;nbtHash)</td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">详细描述</h2>
 <div class="textblock"><p>用于格式化打印、序列化、计算哈希等功能 </p>

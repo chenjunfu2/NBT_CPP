@@ -1,10 +1,5 @@
 var NAVTREEINDEX4 =
 {
-"index.html#autotoc_md4":[2,0],
-"index.html#autotoc_md5":[3],
-"index.html#autotoc_md6":[4],
-"index.html#autotoc_md7":[5],
-"namespaceMUTF8__Tool__Internal.html":[6,0,0],
 "namespaceMUTF8__Tool__Internal.html#a88e572a96e3736b5821cf29a1076ec7a":[6,0,0,1],
 "namespaceNBT__Compound__Concept.html":[6,0,1],
 "namespacemembers.html":[6,1,0],

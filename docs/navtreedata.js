@@ -73,7 +73,7 @@ var NAVTREEINDEX =
 "classNBT__Hash.html#a5a3d8b7591347184a597918440d43f52",
 "classNBT__List.html#ad79dbba6510361a6af9fef2467b3c8b1",
 "classNBT__Node__View.html#a6ac7990d3f62dedda965b4ec7302a3b9",
-"index.html#autotoc_md4"
+"namespaceMUTF8__Tool__Internal.html#a88e572a96e3736b5821cf29a1076ec7a"
 ];
 
 var SYNCONMSG = '点击 关闭 面板同步';

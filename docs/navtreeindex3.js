@@ -94,11 +94,6 @@ var NAVTREEINDEX3 =
 "classNBT__Print.html#adc11e4db49c64e57802b625ef0d83205":[8,0,12,0],
 "classNBT__Reader.html":[8,0,13],
 "classNBT__Scanner.html":[8,0,14],
-"classNBT__Scanner.html#adbc20282bb20db30d8967ea0c6ca4598":[8,0,14,0],
-"classNBT__Scanner.html#adbc20282bb20db30d8967ea0c6ca4598a11a755d598c0c417f9a36758c3da7481":[8,0,14,0,2],
-"classNBT__Scanner.html#adbc20282bb20db30d8967ea0c6ca4598a902b0d55fddef6f8d651fe1035b7d4bd":[8,0,14,0,3],
-"classNBT__Scanner.html#adbc20282bb20db30d8967ea0c6ca4598aa0bfb8e59e6c13fc8d990781f77694fe":[8,0,14,0,0],
-"classNBT__Scanner.html#adbc20282bb20db30d8967ea0c6ca4598ae4c38d6d45baf080943d323dd51a2ce8":[8,0,14,0,1],
 "classNBT__String.html":[8,0,15],
 "classNBT__String.html#a0171ea225ca8123586e795c5d3b65f7f":[8,0,15,5],
 "classNBT__String.html#a0b6037dd11409fde0d48bf501863cc57":[8,0,15,1],
@@ -249,5 +244,10 @@ var NAVTREEINDEX3 =
 "index.html":[],
 "index.html#autotoc_md1":[0],
 "index.html#autotoc_md2":[1],
-"index.html#autotoc_md3":[2]
+"index.html#autotoc_md3":[2],
+"index.html#autotoc_md4":[2,0],
+"index.html#autotoc_md5":[3],
+"index.html#autotoc_md6":[4],
+"index.html#autotoc_md7":[5],
+"namespaceMUTF8__Tool__Internal.html":[6,0,0]
 };
