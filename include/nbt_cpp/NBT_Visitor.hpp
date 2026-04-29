@@ -53,13 +53,13 @@ public:
 		return ResultControl::Continue;
 	}
 
-	NestingControl VisitListBegin(NBT_TAG tagElement, size_t szListLength)
+	ResultControl VisitListBegin(NBT_TAG enListElementTag, size_t szListLength)
 	{
 		//do something...
-		return NestingControl::Enter;
+		return ResultControl::Continue;
 	}
 
-	NestingControl VisitListNextElement(NBT_TAG tagElement, size_t szListIndex)
+	NestingControl VisitListNextElement(NBT_TAG enListElementTag, size_t szListIndex)
 	{
 		//do something...
 		return NestingControl::Enter;
@@ -71,19 +71,19 @@ public:
 		return ResultControl::Continue;
 	}
 
-	NestingControl VisitCompoundBegin(void)
+	ResultControl VisitCompoundBegin(void)
+	{
+		//do something...
+		return ResultControl::Continue;
+	}
+
+	NestingControl VisitCompoundNextEntryType(NBT_TAG enCompoundEntryTag)
 	{
 		//do something...
 		return NestingControl::Enter;
 	}
 
-	NestingControl VisitCompoundNextEntryType(NBT_TAG tagEntry)
-	{
-		//do something...
-		return NestingControl::Enter;
-	}
-
-	NestingControl VisitCompoundNextEntry(NBT_TAG tagEntry, NBT_Type::String &&strKey)
+	NestingControl VisitCompoundNextEntry(NBT_TAG enCompoundEntryTag, NBT_Type::String &&strKey)
 	{
 		//do something...
 		return NestingControl::Enter;

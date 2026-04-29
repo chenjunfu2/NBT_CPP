@@ -28,10 +28,10 @@ protected:
 	{
 		switch (enResultControl)
 		{
-		case NBT_Visitor::ResultControl::Continue:	return Control::Continue;
-		case NBT_Visitor::ResultControl::Break:		return Control::Break;
-		case NBT_Visitor::ResultControl::Stop:		return Control::Stop;
-		default:									return Control::Error;
+		case NBT_Visitor::ResultControl::Continue:	return Control::Continue;	break;
+		case NBT_Visitor::ResultControl::Break:		return Control::Break;		break;
+		case NBT_Visitor::ResultControl::Stop:		return Control::Stop;		break;
+		default:									return Control::Error;		break;
 		}
 	}
 
@@ -251,18 +251,158 @@ protected:
 
 		if (enListElementTag >= NBT_TAG::ENUM_END)
 		{
-
+			return Control::Error;
 		}
 
+		NBT_Type::ListLength iListLength = 0;//4byte
+		if (!ReadBigEndian(tData, iListLength))
+		{
+			return Control::Error;
+		}
 
+		if (iListLength < 0)
+		{
+			return Control::Error;
+		}
 
+		size_t szListLength = (size_t)iListLength;
+		if (enListElementTag == NBT_TAG::End && szListLength != 0)
+		{
+			return Control::Error;
+		}
 
+		if (szListLength == 0 && enListElementTag != NBT_TAG::End)
+		{
+			enListElementTag = (NBT_TAG_RAW_TYPE)NBT_TAG::End;
+		}
+
+		NBT_Visitor::ResultControl visitRet = VisitListBegin((NBT_TAG)enListElementTag, szListLength);
+		switch (visitRet)
+		{
+		case NBT_Visitor::ResultControl::Continue://继续处理
+			break;
+		case NBT_Visitor::ResultControl::Break:
+			for (size_t i = 0; i < szListLength; ++i)
+			{
+				if (!SkipSwitch(tData, (NBT_TAG)enListElementTag, szStackDepth - 1))
+				{
+					return Control::Error;
+				}
+			}
+			break;
+		case NBT_Visitor::ResultControl::Stop:
+			return Control::Stop;
+			break;
+		default:
+			return Control::Error;
+			break;
+		}
+
+		for (size_t i = 0; i < szListLength; ++i)
+		{
+			NBT_Visitor::ResultControl visitRet = tVisitor.VisitListNextElement((NBT_TAG)enListElementTag, i);
+			switch (visitRet)
+			{
+			case NBT_Visitor::ResultControl::Continue:
+				break;
+			case NBT_Visitor::ResultControl::Break:
+				//跳过剩余所有列表元素
+				for (size_t j = i; j < szListLength; ++j)//从当前i开始跳到结束
+				{
+					if (!SkipSwitch(tData, (NBT_TAG)enListElementTag, szStackDepth - 1))
+					{
+						return Control::Error;
+					}
+				}
+				break;
+			case NBT_Visitor::ResultControl::Stop:
+				return Control::Stop;
+				break;
+			default:
+				return Control::Error;
+				break;
+			}
+
+			Control visitSubRet = ScanSwitch(tData, (NBT_TAG)enListElementTag, tVisitor, szStackDepth - 1);
+			switch (visitSubRet)
+			{
+			case Control::Continue://继续（什么也不做）
+				break;
+			case Control::Break:
+				//跳过剩余所有列表元素
+				for (size_t j = i; j < szListLength; ++j)//从当前i开始跳到结束
+				{
+					if (!SkipSwitch(tData, (NBT_TAG)enListElementTag, szStackDepth - 1))
+					{
+						return Control::Error;
+					}
+				}
+				break;
+			case Control::Stop:
+				return Control::Stop;
+				break;
+			case Control::Error:
+			default:
+				return Control::Error;
+				break;
+			}
+		}
+
+		return ResultControlToControl(tVisitor.VisitListEnd());
 	}
 
 	template<typename InputStream>
 	static bool SkipListType(InputStream &tData, size_t szStackDepth)
 	{
-		//TODO
+		if (szStackDepth == 0)
+		{
+			return Control::Error;
+		}
+
+		NBT_TAG_RAW_TYPE enListElementTag = 0;//b=byte
+		if (!ReadBigEndian(tData, enListElementTag))
+		{
+			return Control::Error;
+		}
+
+		if (enListElementTag >= NBT_TAG::ENUM_END)
+		{
+			return Control::Error;
+		}
+
+		NBT_Type::ListLength iListLength = 0;//4byte
+		if (!ReadBigEndian(tData, iListLength))
+		{
+			return Control::Error;
+		}
+
+		if (iListLength < 0)
+		{
+			return Control::Error;
+		}
+
+		size_t szListLength = (size_t)iListLength;
+		if (enListElementTag == NBT_TAG::End && szListLength != 0)
+		{
+			return Control::Error;
+		}
+
+		if (szListLength == 0 && enListElementTag != NBT_TAG::End)
+		{
+			enListElementTag = (NBT_TAG_RAW_TYPE)NBT_TAG::End;
+		}
+
+		size_t szSkipLength = szListLength;
+
+		for (size_t i = 0; i < szSkipLength; ++i)
+		{
+			if (!SkipSwitch(tData, (NBT_TAG)enListElementTag, szStackDepth - 1))
+			{
+				return false;
+			}
+		}
+
+		return true;
 	}
 
 	template<typename InputStream, typename Visitor>
@@ -278,15 +418,9 @@ protected:
 	}
 
 	template<typename InputStream, typename Visitor>
-	static Control ScanSwitch(InputStream &tData, Visitor &tVisitor, size_t szStackDepth)
+	static Control ScanSwitch(InputStream &tData, NBT_TAG tagNbt, Visitor &tVisitor, size_t szStackDepth)
 	{
-		if (!tData.HasAvailData(sizeof(NBT_TAG_RAW_TYPE)))
-		{
-			return Control::Error;
-		}
-
 		Control retControl;
-		NBT_TAG tagNbt = (NBT_TAG)(NBT_TAG_RAW_TYPE)tData.GetNext();
 		switch (tagNbt)
 		{
 		case NBT_TAG::End:
@@ -370,28 +504,97 @@ protected:
 			break;
 		}
 
-		//TODO
-		switch (retControl)
-		{
-		case NBT_Scanner::Control::Continue:
-			break;
-		case NBT_Scanner::Control::Break:
-			break;
-		case NBT_Scanner::Control::Stop:
-			break;
-		case NBT_Scanner::Control::Error:
-			break;
-		default:
-			break;
-		}
-
 		return retControl;
 	}
 
 	template<typename InputStream>
-	static bool SkipSwitch(InputStream &tData, size_t szStackDepth)
+	static bool SkipSwitch(InputStream &tData, NBT_TAG tagNbt, size_t szStackDepth)
 	{
-		//TODO
+		bool bRet = false;
+		switch (tagNbt)
+		{
+		case NBT_TAG::End:
+			{
+				bRet = SkipEndType(tData);
+			}
+			break;
+		case NBT_TAG::Byte:
+			{
+				using CurType = NBT_Type::TagToType_T<NBT_TAG::Byte>;
+				bRet = SkipBuiltInType<CurType>(tData);
+			}
+			break;
+		case NBT_TAG::Short:
+			{
+				using CurType = NBT_Type::TagToType_T<NBT_TAG::Short>;
+				bRet = SkipBuiltInType<CurType>(tData);
+			}
+			break;
+		case NBT_TAG::Int:
+			{
+				using CurType = NBT_Type::TagToType_T<NBT_TAG::Int>;
+				bRet = SkipBuiltInType<CurType>(tData);
+			}
+			break;
+		case NBT_TAG::Long:
+			{
+				using CurType = NBT_Type::TagToType_T<NBT_TAG::Long>;
+				bRet = SkipBuiltInType<CurType>(tData);
+			}
+			break;
+		case NBT_TAG::Float:
+			{
+				using CurType = NBT_Type::TagToType_T<NBT_TAG::Float>;
+				bRet = SkipBuiltInType<CurType>(tData);
+			}
+			break;
+		case NBT_TAG::Double:
+			{
+				using CurType = NBT_Type::TagToType_T<NBT_TAG::Double>;
+				bRet = SkipBuiltInType<CurType>(tData);
+			}
+			break;
+		case NBT_TAG::ByteArray:
+			{
+				using CurType = NBT_Type::TagToType_T<NBT_TAG::ByteArray>;
+				bRet = SkipArrayType<CurType>(tData);
+			}
+			break;
+		case NBT_TAG::String:
+			{
+				bRet = SkipStringType(tData);
+			}
+			break;
+		case NBT_TAG::List:
+			{
+				bRet = SkipListType(tData, szStackDepth);
+			}
+			break;
+		case NBT_TAG::Compound:
+			{
+				bRet = SkipCompoundType(tData, szStackDepth);
+			}
+			break;
+		case NBT_TAG::IntArray:
+			{
+				using CurType = NBT_Type::TagToType_T<NBT_TAG::IntArray>;
+				bRet = SkipArrayType<CurType>(tData);
+			}
+			break;
+		case NBT_TAG::LongArray:
+			{
+				using CurType = NBT_Type::TagToType_T<NBT_TAG::LongArray>;
+				bRet = SkipArrayType<CurType>(tData);
+			}
+			break;
+		default:
+			{
+				bRet = false;
+			}
+			break;
+		}
+
+		return bRet;
 	}
 
 ///@endcond
@@ -418,3 +621,4 @@ public:
 	}
 
 };
+//TODO: 添加使用visit输出报错
