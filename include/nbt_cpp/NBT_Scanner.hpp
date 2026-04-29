@@ -329,16 +329,7 @@ protected:
 			switch (visitSubRet)
 			{
 			case Control::Continue://继续（什么也不做）
-				break;
-			case Control::Break:
-				//跳过剩余所有列表元素
-				for (size_t j = i; j < szListLength; ++j)//从当前i开始跳到结束
-				{
-					if (!SkipSwitch<bRoot>(tData, enListElementTag, szStackDepth - 1))
-					{
-						return Control::Error;
-					}
-				}
+			case Control::Break://跳过（从内部跳出）（什么也不做）
 				break;
 			case Control::Stop:
 				return Control::Stop;
@@ -425,7 +416,19 @@ protected:
 				return Control::Stop;//结束
 			}
 
-			//tVisitor.VisitCompoundBegin();
+			NBT_Visitor::ResultControl visitBegRet = tVisitor.VisitCompoundBegin();
+			switch (visitBegRet)
+			{
+			case NBT_Visitor::ResultControl::Continue:
+				break;
+			case NBT_Visitor::ResultControl::Break:
+				break;
+			case NBT_Visitor::ResultControl::Stop:
+				break;
+			default:
+				break;
+			}
+
 
 			//先读取一下类型
 			NBT_TAG enCompoundEntryTag = (NBT_TAG)(NBT_TAG_RAW_TYPE)tData.GetNext();
@@ -439,7 +442,21 @@ protected:
 				return Control::Error;
 			}
 
-			//tVisitor.VisitCompoundNextEntryType(enCompoundEntryTag);
+			NBT_Visitor::NestingControl visitTypeRet = tVisitor.VisitCompoundNextEntryType(enCompoundEntryTag);
+			switch (visitTypeRet)
+			{
+			case NBT_Visitor::NestingControl::Enter:
+				break;
+			case NBT_Visitor::NestingControl::Skip:
+				break;
+			case NBT_Visitor::NestingControl::Break:
+				break;
+			case NBT_Visitor::NestingControl::Stop:
+				break;
+			default:
+				break;
+			}
+
 
 			NBT_Type::String sName{};
 			if (!GetName(tData, sName))
@@ -447,15 +464,58 @@ protected:
 				return Control::Error;
 			}
 
-			//tVisitor.VisitCompoundNextEntry(enCompoundEntryTag, std::move(sName));
+			NBT_Visitor::NestingControl visitEntryRet = tVisitor.VisitCompoundNextEntry(enCompoundEntryTag, std::move(sName));
+			switch (visitEntryRet)
+			{
+			case NBT_Visitor::NestingControl::Enter:
+				break;
+			case NBT_Visitor::NestingControl::Skip:
+				break;
+			case NBT_Visitor::NestingControl::Break:
+				break;
+			case NBT_Visitor::NestingControl::Stop:
+				break;
+			default:
+				break;
+			}
+
 			Control visitSubRet = ScanSwitch<bRoot>(tData, enCompoundEntryTag, tVisitor, szStackDepth - 1);
 			switch (visitSubRet)
 			{
 			case Control::Continue://啥也不做（继续）
 				break;
 			case Control::Break:
-				//跳过剩余的compound值
-				
+				while (true)
+				{
+					//跳过剩余的compound值
+					NBT_TAG_RAW_TYPE u8SkipTag{};
+					if (ReadBigEndian(tData, u8SkipTag))
+					{
+						return Control::Error;
+					}
+
+					NBT_TAG enCompoundEntryTag = u8SkipTag;
+
+					if (enCompoundEntryTag == NBT_TAG::End)
+					{
+						return ResultControlToControl(tVisitor.VisitCompoundEnd());
+					}
+
+					if (enCompoundEntryTag >= NBT_TAG::ENUM_END)
+					{
+						return Control::Error;
+					}
+
+					if (!SkipName(tData))
+					{
+						return Control::Error;
+					}
+
+					if (!SkipSwitch(tData, u8SkipTag, szStackDepth - 1))
+					{
+						return Control::Error;
+					}
+				}
 				break;
 			case Control::Stop:
 				return Control::Stop;
