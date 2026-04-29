@@ -242,7 +242,7 @@ protected:
 	}
 
 	template<typename InputStream>
-	static bool SkipListType(InputStream &tData)
+	static bool SkipListType(InputStream &tData, size_t szStackDepth)
 	{
 		//TODO
 	}
@@ -254,7 +254,7 @@ protected:
 	}
 
 	template<typename InputStream>
-	static bool SkipCompoundType(InputStream &tData)
+	static bool SkipCompoundType(InputStream &tData, size_t szStackDepth)
 	{
 		//TODO
 	}
@@ -368,6 +368,12 @@ protected:
 		}
 
 		return retControl;
+	}
+
+	template<typename InputStream>
+	static bool SkipSwitch(InputStream &tData, size_t szStackDepth)
+	{
+		//TODO
 	}
 
 ///@endcond
