@@ -83,7 +83,7 @@ public:
 		return NestingControl::Enter;
 	}
 
-	NestingControl VisitCompoundNextEntry(NBT_TAG enCompoundEntryTag, NBT_Type::String &&strKey)
+	NestingControl VisitCompoundNextEntry(NBT_TAG enCompoundEntryTag, NBT_Type::String &&sName)
 	{
 		//do something...
 		return NestingControl::Enter;

@@ -235,7 +235,7 @@ protected:
 		return SkipName(tData);
 	}
 
-	template<typename InputStream, typename Visitor>
+	template<bool bRoot, typename InputStream, typename Visitor>
 	static Control ScanListType(InputStream &tData, Visitor &tVisitor, size_t szStackDepth)
 	{
 		if (szStackDepth == 0)
@@ -311,7 +311,7 @@ protected:
 				//跳过剩余所有列表元素
 				for (size_t j = i; j < szListLength; ++j)//从当前i开始跳到结束
 				{
-					if (!SkipSwitch(tData, enListElementTag, szStackDepth - 1))
+					if (!SkipSwitch<bRoot>(tData, enListElementTag, szStackDepth - 1))
 					{
 						return Control::Error;
 					}
@@ -325,7 +325,7 @@ protected:
 				break;
 			}
 
-			Control visitSubRet = ScanSwitch(tData, enListElementTag, tVisitor, szStackDepth - 1);
+			Control visitSubRet = ScanSwitch<bRoot>(tData, enListElementTag, tVisitor, szStackDepth - 1);
 			switch (visitSubRet)
 			{
 			case Control::Continue://继续（什么也不做）
@@ -334,7 +334,7 @@ protected:
 				//跳过剩余所有列表元素
 				for (size_t j = i; j < szListLength; ++j)//从当前i开始跳到结束
 				{
-					if (!SkipSwitch(tData, enListElementTag, szStackDepth - 1))
+					if (!SkipSwitch<bRoot>(tData, enListElementTag, szStackDepth - 1))
 					{
 						return Control::Error;
 					}
@@ -353,7 +353,7 @@ protected:
 		return ResultControlToControl(tVisitor.VisitListEnd());
 	}
 
-	template<typename InputStream>
+	template<bool bRoot, typename InputStream>
 	static bool SkipListType(InputStream &tData, size_t szStackDepth)
 	{
 		if (szStackDepth == 0)
@@ -400,7 +400,7 @@ protected:
 
 		for (size_t i = 0; i < szSkipLength; ++i)
 		{
-			if (!SkipSwitch(tData, enListElementTag, szStackDepth - 1))
+			if (!SkipSwitch<bRoot>(tData, enListElementTag, szStackDepth - 1))
 			{
 				return false;
 			}
@@ -412,40 +412,62 @@ protected:
 	template<bool bRoot, typename InputStream, typename Visitor>
 	static Control ScanCompoundType(InputStream &tData, Visitor &tVisitor, size_t szStackDepth)
 	{
-		//处理末尾情况
-		if (!tData.HasAvailData(sizeof(NBT_TAG_RAW_TYPE)))
+		while (true)
 		{
-			if constexpr (!bRoot)//非根部情况遇到末尾，则报错
+			//处理末尾情况
+			if (!tData.HasAvailData(sizeof(NBT_TAG_RAW_TYPE)))
+			{
+				if constexpr (!bRoot)//非根部情况遇到末尾，则报错
+				{
+					return Control::Error;
+				}
+
+				return Control::Stop;//结束
+			}
+
+			//tVisitor.VisitCompoundBegin();
+
+			//先读取一下类型
+			NBT_TAG enCompoundEntryTag = (NBT_TAG)(NBT_TAG_RAW_TYPE)tData.GetNext();
+			if (enCompoundEntryTag == NBT_TAG::End)//处理End情况
+			{
+				return ResultControlToControl(tVisitor.VisitCompoundEnd());
+			}
+
+			if (enCompoundEntryTag >= NBT_TAG::ENUM_END)
 			{
 				return Control::Error;
 			}
 
-			return Control::Stop;//结束
+			//tVisitor.VisitCompoundNextEntryType(enCompoundEntryTag);
+
+			NBT_Type::String sName{};
+			if (!GetName(tData, sName))
+			{
+				return Control::Error;
+			}
+
+			//tVisitor.VisitCompoundNextEntry(enCompoundEntryTag, std::move(sName));
+			Control visitSubRet = ScanSwitch<bRoot>(tData, enCompoundEntryTag, tVisitor, szStackDepth - 1);
+			switch (visitSubRet)
+			{
+			case Control::Continue://啥也不做（继续）
+				break;
+			case Control::Break:
+				//跳过剩余的compound值
+				
+				break;
+			case Control::Stop:
+				return Control::Stop;
+				break;
+			case Control::Error:
+			default:
+				return Control::Error;
+				break;
+			}
 		}
 
-		//tVisitor.VisitCompoundBegin();
-
-		//先读取一下类型
-		NBT_TAG enCompoundEntryTag = (NBT_TAG)(NBT_TAG_RAW_TYPE)tData.GetNext();
-		if (enCompoundEntryTag == NBT_TAG::End)//处理End情况
-		{
-			return VisitCompoundEnd();//返回
-		}
-
-		if (enCompoundEntryTag >= NBT_TAG::ENUM_END)
-		{
-			return Control::Error;
-		}
-
-		//tVisitor.VisitCompoundNextEntryType(enCompoundEntryTag);
-
-		NBT_Type::String sName{};
-		if (!GetName(tData, sName, funcInfo))
-		{
-			return Control::Error;
-		}
-
-
+		return ResultControlToControl(tVisitor.VisitCompoundEnd());//返回
 	}
 
 	template<bool bRoot, typename InputStream>
@@ -514,7 +536,7 @@ protected:
 			break;
 		case NBT_TAG::List:
 			{
-				retControl = ScanListType(tData, tVisitor);
+				retControl = ScanListType<bRoot>(tData, tVisitor);
 			}
 			break;
 		case NBT_TAG::Compound:
@@ -604,7 +626,7 @@ protected:
 			break;
 		case NBT_TAG::List:
 			{
-				bRet = SkipListType(tData, szStackDepth);
+				bRet = SkipListType<bRoot>(tData, szStackDepth);
 			}
 			break;
 		case NBT_TAG::Compound:
