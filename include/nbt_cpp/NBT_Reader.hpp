@@ -272,11 +272,12 @@ catch(...)\
 			return eRet;
 		}
 
-		size_t szStringLength = (size_t)wStringLength;
 		using ValueType = NBT_Type::String::value_type;
+		size_t szStringLength = (size_t)wStringLength;
+		size_t szStringSize = szStringLength * sizeof(ValueType);
 
 		//判断长度是否超过
-		if (!tData.HasAvailData(szStringLength * sizeof(ValueType)))
+		if (!tData.HasAvailData(szStringSize))
 		{
 			ErrCode eRet = Error(OutOfRangeError, tData, funcInfo, "{}:\n(Index[{}] + szStringLength[{}])[{}] > DataSize[{}]", __FUNCTION__,
 				tData.Index(), szStringLength, tData.Index() + szStringLength, tData.Size());
@@ -288,7 +289,7 @@ catch(...)\
 		tName.reserve(szStringLength);//提前分配
 		tName.assign((const ValueType *)tData.CurData(), szStringLength);//构造string（如果长度为0则构造0长字符串，合法行为）
 		
-		tData.AddIndex(szStringLength * sizeof(ValueType));//移动下标
+		tData.AddIndex(szStringSize);//移动下标
 
 		return eRet;
 	MYCATCH;
@@ -323,38 +324,39 @@ catch(...)\
 		ErrCode eRet = AllOk;
 
 		//获取4字节有符号数，代表数组元素个数
-		NBT_Type::ArrayLength iElementCount = 0;//4byte
-		eRet = ReadBigEndian(tData, iElementCount, funcInfo);
+		NBT_Type::ArrayLength iArrayLength = 0;//4byte
+		eRet = ReadBigEndian(tData, iArrayLength, funcInfo);
 		if (eRet != AllOk)
 		{
-			STACK_TRACEBACK("iElementCount Read");
+			STACK_TRACEBACK("iArrayLength Read");
 			return eRet;
 		}
 
 		//检查有符号数大小范围
-		if (iElementCount < 0)
+		if (iArrayLength < 0)
 		{
-			eRet = Error(OutOfRangeError, tData, funcInfo, ":\iElementCount[{}] < 0", __FUNCTION__, iElementCount);
-			STACK_TRACEBACK("iElementCount Test");
+			eRet = Error(OutOfRangeError, tData, funcInfo, ":\iArrayLength[{}] < 0", __FUNCTION__, iArrayLength);
+			STACK_TRACEBACK("iArrayLength Test");
 			return eRet;
 		}
 
-		size_t szElementCount = (size_t)iElementCount;
 		using ValueType = typename T::value_type;
+		size_t szArrayLength = (size_t)iArrayLength;
+		size_t szArraySize = szArrayLength * sizeof(ValueType);
 
 		//判断长度是否超过
-		if (!tData.HasAvailData(szElementCount * sizeof(ValueType)))//保证下方调用安全
+		if (!tData.HasAvailData(szArraySize))//保证下方调用安全
 		{
-			eRet = Error(OutOfRangeError, tData, funcInfo, "{}:\n(Index[{}] + szElementCount[{}] * sizeof(T::value_type)[{}])[{}] > DataSize[{}]", __FUNCTION__,
-				tData.Index(), szElementCount, sizeof(ValueType), tData.Index() + szElementCount * sizeof(typename T::value_type), tData.Size());
+			eRet = Error(OutOfRangeError, tData, funcInfo, "{}:\n(Index[{}] + szArraySize[{}])[{}] > DataSize[{}]", __FUNCTION__,
+				tData.Index(), szArrayLength, tData.Index() + szArraySize, tData.Size());
 			STACK_TRACEBACK("HasAvailData Test");
 			return eRet;
 		}
 		
 		//数组保存
-		tArray.reserve(szElementCount);//提前扩容
+		tArray.reserve(szArrayLength);//提前扩容
 		//读取dElementCount个元素
-		for (size_t i = 0; i < szElementCount; ++i)
+		for (size_t i = 0; i < szArrayLength; ++i)
 		{
 			ValueType tTmpData{};
 			ReadBigEndian<true>(tData, tTmpData, funcInfo);//调用需要确保范围安全

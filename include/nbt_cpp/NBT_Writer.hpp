@@ -262,25 +262,26 @@ catch(...)\
 		}
 
 		//输出名称长度
-		NBT_Type::StringLength wNameLength = (NBT_Type::StringLength)szStringLength;
-		eRet = WriteBigEndian(tData, wNameLength, funcInfo);
+		NBT_Type::StringLength wStringLength = (NBT_Type::StringLength)szStringLength;
+		eRet = WriteBigEndian(tData, wStringLength, funcInfo);
 		if (eRet != AllOk)
 		{
-			STACK_TRACEBACK("wNameLength Write");
+			STACK_TRACEBACK("wStringLength Write");
 			return eRet;
 		}
 
 		using ValueType = NBT_Type::String::value_type;
+		size_t szStringSize = szStringLength * sizeof(ValueType);
 
 		//输出名称
-		eRet = CheckReserve(tData, szStringLength * sizeof(ValueType), funcInfo);//提前分配
+		eRet = CheckReserve(tData, szStringSize, funcInfo);//提前分配
 		if (eRet != AllOk)
 		{
-			STACK_TRACEBACK("CheckReserve Fail, Check Size: [{}]", szStringLength * sizeof(ValueType));
+			STACK_TRACEBACK("CheckReserve Fail, Check Size: [{}]", szStringSize);
 			return eRet;
 		}
 		//范围写入
-		tData.PutRange((const typename OutputStream::ValueType *)sName.data(), szStringLength * sizeof(ValueType));
+		tData.PutRange((const typename OutputStream::ValueType *)sName.data(), szStringSize);
 
 		return eRet;
 	MYCATCH;
@@ -331,12 +332,13 @@ catch(...)\
 		}
 
 		using ValueType = typename T::value_type;
+		size_t szArraySize = szArrayLength * sizeof(ValueType);
 
 		//写出元素
-		eRet = CheckReserve(tData, szArrayLength * sizeof(ValueType), funcInfo);//提前分配
+		eRet = CheckReserve(tData, szArraySize, funcInfo);//提前分配
 		if (eRet != AllOk)
 		{
-			STACK_TRACEBACK("CheckReserve Fail, Check Size: [{}]", szArrayLength * sizeof(ValueType));
+			STACK_TRACEBACK("CheckReserve Fail, Check Size: [{}]", szArraySize);
 			return eRet;
 		}
 
