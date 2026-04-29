@@ -1,6 +1,7 @@
 ﻿#pragma once
 
 #include "NBT_Node.hpp"
+#include "NBT_Print.hpp"
 
 #include <stdint.h>
 
@@ -52,13 +53,13 @@ public:
 		return ResultControl::Continue;
 	}
 
-	NestingControl VisitListBegin(NBT_TAG_RAW_TYPE tagElementType, NBT_Type::ListLength i32Length)
+	NestingControl VisitListBegin(NBT_TAG tagElement, size_t szListLength)
 	{
 		//do something...
 		return NestingControl::Enter;
 	}
 
-	NestingControl VisitListNextElement(NBT_TAG_RAW_TYPE tagElementType, NBT_Type::ListLength i32Index)
+	NestingControl VisitListNextElement(NBT_TAG tagElement, size_t szListIndex)
 	{
 		//do something...
 		return NestingControl::Enter;
@@ -76,13 +77,13 @@ public:
 		return NestingControl::Enter;
 	}
 
-	NestingControl VisitCompoundNextEntryType(NBT_TAG_RAW_TYPE tagEntryType)
+	NestingControl VisitCompoundNextEntryType(NBT_TAG tagEntry)
 	{
 		//do something...
 		return NestingControl::Enter;
 	}
 
-	NestingControl VisitCompoundNextEntry(NBT_TAG_RAW_TYPE tagEntryType, NBT_Type::String &&strKey)
+	NestingControl VisitCompoundNextEntry(NBT_TAG tagEntry, NBT_Type::String &&strKey)
 	{
 		//do something...
 		return NestingControl::Enter;
@@ -106,6 +107,13 @@ public:
 		//do something...
 		return;
 	}
+
+	template<typename... Args>
+	void VisitError(NBT_Print_Level lvl, const std::format_string<Args...> fmt, Args&&... args)
+	{
+		//throw or print error
+		return;
+	}
 };
 
 template <typename T>
@@ -113,31 +121,44 @@ concept IsLookLike_NBT_Visitor =
 requires(
 	T visitor,
 	NBT_Visitor nbt_visitor,
+
+	NBT_Type::Byte nbt_byte,
+	NBT_Type::Short nbt_short,
+	NBT_Type::Int nbt_int,
+	NBT_Type::Long nbt_long,
+	NBT_Type::Float nbt_float,
+	NBT_Type::Double nbt_double,
+
+	NBT_TAG nbt_tag,
+	size_t nbt_list_length,
+	size_t nbt_list_index,
+
 	NBT_Type::ByteArray nbt_bytearray,
 	NBT_Type::IntArray nbt_intarray,
 	NBT_Type::LongArray nbt_longarray,
-	NBT_Type::String nbt_string
+	NBT_Type::String nbt_string,
+	NBT_Print_Level nbt_print_level
 	)
 {
 	//数值类型访问方法
 	{
-		visitor.VisitNumericResult(NBT_Type::Byte{})
-	} -> std::same_as<decltype(nbt_visitor.VisitNumericResult(NBT_Type::Byte{}))>;
+		visitor.VisitNumericResult(nbt_byte)
+	} -> std::same_as<decltype(nbt_visitor.VisitNumericResult(nbt_byte))>;
 	{
-		visitor.VisitNumericResult(NBT_Type::Short{})
-	} -> std::same_as<decltype(nbt_visitor.VisitNumericResult(NBT_Type::Short{}))>;
+		visitor.VisitNumericResult(nbt_short)
+	} -> std::same_as<decltype(nbt_visitor.VisitNumericResult(nbt_short))>;
 	{
-		visitor.VisitNumericResult(NBT_Type::Int{})
-	} -> std::same_as<decltype(nbt_visitor.VisitNumericResult(NBT_Type::Int{}))>;
+		visitor.VisitNumericResult(nbt_int)
+	} -> std::same_as<decltype(nbt_visitor.VisitNumericResult(nbt_int))>;
 	{
-		visitor.VisitNumericResult(NBT_Type::Long{})
-	} -> std::same_as<decltype(nbt_visitor.VisitNumericResult(NBT_Type::Long{}))>;
+		visitor.VisitNumericResult(nbt_long)
+	} -> std::same_as<decltype(nbt_visitor.VisitNumericResult(nbt_long))>;
 	{
-		visitor.VisitNumericResult(NBT_Type::Float{})
-	} -> std::same_as<decltype(nbt_visitor.VisitNumericResult(NBT_Type::Float{}))>;
+		visitor.VisitNumericResult(nbt_float)
+	} -> std::same_as<decltype(nbt_visitor.VisitNumericResult(nbt_float))>;
 	{
-		visitor.VisitNumericResult(NBT_Type::Double{})
-	} -> std::same_as<decltype(nbt_visitor.VisitNumericResult(NBT_Type::Double{}))>;
+		visitor.VisitNumericResult(nbt_double)
+	} -> std::same_as<decltype(nbt_visitor.VisitNumericResult(nbt_double))>;
 
 	//数组类型访问方法
 	{
@@ -163,11 +184,11 @@ requires(
 
 	//List相关方法
 	{
-		visitor.VisitListBegin(NBT_TAG_RAW_TYPE{}, NBT_Type::ListLength{})
-	} -> std::same_as<decltype(nbt_visitor.VisitListBegin(NBT_TAG_RAW_TYPE{}, NBT_Type::ListLength{}))>;
+		visitor.VisitListBegin(nbt_tag, nbt_list_length)
+	} -> std::same_as<decltype(nbt_visitor.VisitListBegin(nbt_tag, nbt_list_length))>;
 	{
-		visitor.VisitListNextElement(NBT_TAG_RAW_TYPE{}, NBT_Type::ListLength{})
-	} -> std::same_as<decltype(nbt_visitor.VisitListNextElement(NBT_TAG_RAW_TYPE{}, NBT_Type::ListLength{}))>;
+		visitor.VisitListNextElement(nbt_tag, nbt_list_index)
+	} -> std::same_as<decltype(nbt_visitor.VisitListNextElement(nbt_tag, nbt_list_index))>;
 	{
 		visitor.VisitListEnd()
 	} -> std::same_as<decltype(nbt_visitor.VisitListEnd())>;
@@ -177,11 +198,11 @@ requires(
 		visitor.VisitCompoundBegin()
 	} -> std::same_as<decltype(nbt_visitor.VisitCompoundBegin())>;
 	{
-		visitor.VisitCompoundNextEntryType(NBT_TAG_RAW_TYPE{})
-	} -> std::same_as<decltype(nbt_visitor.VisitCompoundNextEntryType(NBT_TAG_RAW_TYPE{}))>;
+		visitor.VisitCompoundNextEntryType(nbt_tag)
+	} -> std::same_as<decltype(nbt_visitor.VisitCompoundNextEntryType(nbt_tag))>;
 	{
-		visitor.VisitCompoundNextEntry(NBT_TAG_RAW_TYPE{}, std::move(nbt_string))
-	} -> std::same_as<decltype(nbt_visitor.VisitCompoundNextEntry(NBT_TAG_RAW_TYPE{}, std::move(nbt_string)))>;
+		visitor.VisitCompoundNextEntry(nbt_tag, std::move(nbt_string))
+	} -> std::same_as<decltype(nbt_visitor.VisitCompoundNextEntry(nbt_tag, std::move(nbt_string)))>;
 	{
 		visitor.VisitCompoundEnd()
 	} -> std::same_as<decltype(nbt_visitor.VisitCompoundEnd())>;
@@ -192,6 +213,17 @@ requires(
 	};
 	{
 		visitor.VisitEnd()
+	};
+
+	//错误处理（不完全验证）
+	{
+		visitor.VisitError(nbt_print_level, "error message")
+	};
+	{
+		visitor.VisitError(nbt_print_level, "error with code: {}", 0)
+	};
+	{
+		visitor.VisitError(nbt_print_level, "error with info: {}", "test info")
 	};
 };
 

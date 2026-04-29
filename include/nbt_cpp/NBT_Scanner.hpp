@@ -238,7 +238,25 @@ protected:
 	template<typename InputStream, typename Visitor>
 	static Control ScanListType(InputStream &tData, Visitor &tVisitor, size_t szStackDepth)
 	{
-		//TODO
+		if (szStackDepth == 0)
+		{
+			return Control::Error;
+		}
+
+		NBT_TAG_RAW_TYPE enListElementTag = 0;//b=byte
+		if (!ReadBigEndian(tData, enListElementTag))
+		{
+			return Control::Error;
+		}
+
+		if (enListElementTag >= NBT_TAG::ENUM_END)
+		{
+
+		}
+
+
+
+
 	}
 
 	template<typename InputStream>
