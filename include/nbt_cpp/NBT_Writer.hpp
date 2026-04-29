@@ -329,14 +329,14 @@ catch(...)\
 		}
 
 		//写出元素
-		eRet = CheckReserve(tData, iArrayLength * sizeof(tArray[0]), funcInfo);//提前分配
+		eRet = CheckReserve(tData, (size_t)iArrayLength * sizeof(tArray[0]), funcInfo);//提前分配
 		if (eRet != AllOk)
 		{
-			STACK_TRACEBACK("CheckReserve Fail, Check Size: [{}]", iArrayLength * sizeof(tArray[0]));
+			STACK_TRACEBACK("CheckReserve Fail, Check Size: [{}]", (size_t)iArrayLength * sizeof(tArray[0]));
 			return eRet;
 		}
 
-		for (NBT_Type::ArrayLength i = 0; i < iArrayLength; ++i)
+		for (size_t i = 0; i < (size_t)iArrayLength; ++i)
 		{
 			eRet = WriteBigEndian(tData, tArray[i], funcInfo);
 			if (eRet != AllOk)
@@ -595,7 +595,7 @@ catch(...)\
 		}
 
 		//写出列表（递归）
-		for (NBT_Type::ListLength i = 0; i < iListLength; ++i)//注意遍历仍然需要遍历整个列表，而不是iListLength - iListEmptyEntryLength
+		for (size_t i = 0; i < (size_t)iListLength; ++i)//注意遍历仍然需要遍历整个列表，而不是iListLength - iListEmptyEntryLength
 		{
 			//获取元素与类型
 			const NBT_Node &tmpNode = tList[i];

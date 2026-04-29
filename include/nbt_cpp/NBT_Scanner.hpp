@@ -82,7 +82,24 @@ protected:
 	template<typename T, typename InputStream, typename Visitor>
 	static Control ScanArrayType(InputStream &tData, Visitor &tVisitor)
 	{
-		
+		//获取4字节有符号数，代表数组元素个数
+		NBT_Type::ArrayLength iElementCount = 0;//4byte
+		if (!ReadBigEndian(tData, iElementCount, funcInfo))
+		{
+			return Control::Error;
+		}
+
+		using ValueType = typename T::value_type;
+
+		if (!tData.HasAvailData(iElementCount * sizeof(ValueType)))
+		{
+			return Control::Error;
+		}
+
+		T tArray{};
+		tArray.reserve(iElementCount);
+
+
 	}
 
 	template<typename InputStream, typename Visitor>

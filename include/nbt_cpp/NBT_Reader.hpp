@@ -328,10 +328,18 @@ catch(...)\
 			return eRet;
 		}
 
+		//检查有符号数大小范围
+		if (iElementCount < 0)
+		{
+			eRet = Error(OutOfRangeError, tData, funcInfo, ":\iElementCount[{}] < 0", __FUNCTION__, iElementCount);
+			STACK_TRACEBACK("iElementCount Test");
+			return eRet;
+		}
+
 		using ValueType = typename T::value_type;
 
 		//判断长度是否超过
-		if (!tData.HasAvailData(iElementCount * sizeof(ValueType)))//保证下方调用安全
+		if (!tData.HasAvailData((size_t)iElementCount * sizeof(ValueType)))//保证下方调用安全
 		{
 			eRet = Error(OutOfRangeError, tData, funcInfo, "{}:\n(Index[{}] + iElementCount[{}] * sizeof(T::value_type)[{}])[{}] > DataSize[{}]", __FUNCTION__,
 				tData.Index(), (size_t)iElementCount, sizeof(ValueType), tData.Index() + (size_t)iElementCount * sizeof(typename T::value_type), tData.Size());
@@ -340,9 +348,9 @@ catch(...)\
 		}
 		
 		//数组保存
-		tArray.reserve(iElementCount);//提前扩容
+		tArray.reserve((size_t)iElementCount);//提前扩容
 		//读取dElementCount个元素
-		for (NBT_Type::ArrayLength i = 0; i < iElementCount; ++i)
+		for (size_t i = 0; i < (size_t)iElementCount; ++i)
 		{
 			ValueType tTmpData{};
 			ReadBigEndian<true>(tData, tTmpData, funcInfo);//调用需要确保范围安全
@@ -510,10 +518,10 @@ catch(...)\
 		}
 
 		//提前扩容
-		tList.reserve(iListLength);//已知大小提前分配减少开销
+		tList.reserve((size_t)iListLength);//已知大小提前分配减少开销
 
 		//根据元素类型，读取n次列表
-		for (NBT_Type::ListLength i = 0; i < iListLength; ++i)
+		for (size_t i = 0; i < (size_t)iListLength; ++i)
 		{
 			NBT_Node tmpNode{};//列表元素会直接赋值修改
 			eRet = GetSwitch<bUnwrapMixedList>(tData, tmpNode, (NBT_TAG)enListElementTag, szStackDepth - 1, funcInfo);
