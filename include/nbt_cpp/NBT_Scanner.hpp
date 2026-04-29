@@ -403,6 +403,22 @@ protected:
 	template<bool bRoot, typename InputStream, typename Visitor>
 	static Control ScanCompoundType(InputStream &tData, Visitor &tVisitor, size_t szStackDepth)
 	{
+		NBT_Visitor::ResultControl visitBegRet = tVisitor.VisitCompoundBegin();
+		switch (visitBegRet)//TODO
+		{
+		case NBT_Visitor::ResultControl::Continue://继续
+			break;
+		case NBT_Visitor::ResultControl::Break:
+			goto skip_any;
+			break;
+		case NBT_Visitor::ResultControl::Stop:
+			return Control::Stop;
+			break;
+		default:
+			return Control::Error;
+			break;
+		}
+
 		while (true)
 		{
 			//处理末尾情况
@@ -415,20 +431,6 @@ protected:
 
 				return Control::Stop;//结束
 			}
-
-			NBT_Visitor::ResultControl visitBegRet = tVisitor.VisitCompoundBegin();
-			switch (visitBegRet)
-			{
-			case NBT_Visitor::ResultControl::Continue:
-				break;
-			case NBT_Visitor::ResultControl::Break:
-				break;
-			case NBT_Visitor::ResultControl::Stop:
-				break;
-			default:
-				break;
-			}
-
 
 			//先读取一下类型
 			NBT_TAG enCompoundEntryTag = (NBT_TAG)(NBT_TAG_RAW_TYPE)tData.GetNext();
@@ -445,15 +447,40 @@ protected:
 			NBT_Visitor::NestingControl visitTypeRet = tVisitor.VisitCompoundNextEntryType(enCompoundEntryTag);
 			switch (visitTypeRet)
 			{
-			case NBT_Visitor::NestingControl::Enter:
+			case NBT_Visitor::NestingControl::Enter://继续
 				break;
-			case NBT_Visitor::NestingControl::Skip:
+			case NBT_Visitor::NestingControl::Skip://跳过一个
+				{
+					if (!SkipName(tData))
+					{
+						return Control::Error;
+					}
+
+					if (!SkipSwitch<bRoot>(tData, enCompoundEntryTag, szStackDepth - 1))
+					{
+						return Control::Error;
+					}
+				}
 				break;
 			case NBT_Visitor::NestingControl::Break:
+				{
+					if (!SkipName(tData))//先跳过当前剩余
+					{
+						return Control::Error;
+					}
+
+					if (!SkipSwitch<bRoot>(tData, enCompoundEntryTag, szStackDepth - 1))
+					{
+						return Control::Error;
+					}
+					goto skip_any;
+				}
 				break;
 			case NBT_Visitor::NestingControl::Stop:
+				return Control::Stop;
 				break;
 			default:
+				return Control::Error;
 				break;
 			}
 
@@ -465,17 +492,32 @@ protected:
 			}
 
 			NBT_Visitor::NestingControl visitEntryRet = tVisitor.VisitCompoundNextEntry(enCompoundEntryTag, std::move(sName));
-			switch (visitEntryRet)
+			switch (visitEntryRet)//TODO
 			{
-			case NBT_Visitor::NestingControl::Enter:
+			case NBT_Visitor::NestingControl::Enter://继续
 				break;
-			case NBT_Visitor::NestingControl::Skip:
+			case NBT_Visitor::NestingControl::Skip://跳过一个
+				{
+					if (!SkipSwitch<bRoot>(tData, enCompoundEntryTag, szStackDepth - 1))
+					{
+						return Control::Error;
+					}
+				}
 				break;
-			case NBT_Visitor::NestingControl::Break:
+			case NBT_Visitor::NestingControl::Break://跳过剩余
+				{
+					if (!SkipSwitch<bRoot>(tData, enCompoundEntryTag, szStackDepth - 1))//先跳过当前
+					{
+						return Control::Error;
+					}
+					goto skip_any;
+				}
 				break;
 			case NBT_Visitor::NestingControl::Stop:
+				return Control::Stop;
 				break;
 			default:
+				return Control::Error;
 				break;
 			}
 
@@ -483,39 +525,7 @@ protected:
 			switch (visitSubRet)
 			{
 			case Control::Continue://啥也不做（继续）
-				break;
-			case Control::Break:
-				while (true)
-				{
-					//跳过剩余的compound值
-					NBT_TAG_RAW_TYPE u8SkipTag{};
-					if (ReadBigEndian(tData, u8SkipTag))
-					{
-						return Control::Error;
-					}
-
-					NBT_TAG enCompoundEntryTag = u8SkipTag;
-
-					if (enCompoundEntryTag == NBT_TAG::End)
-					{
-						return ResultControlToControl(tVisitor.VisitCompoundEnd());
-					}
-
-					if (enCompoundEntryTag >= NBT_TAG::ENUM_END)
-					{
-						return Control::Error;
-					}
-
-					if (!SkipName(tData))
-					{
-						return Control::Error;
-					}
-
-					if (!SkipSwitch(tData, u8SkipTag, szStackDepth - 1))
-					{
-						return Control::Error;
-					}
-				}
+			case Control::Break://从内部跳出（啥也不做）（继续）
 				break;
 			case Control::Stop:
 				return Control::Stop;
@@ -527,13 +537,87 @@ protected:
 			}
 		}
 
+	skip_any://跳过剩下所有数据
+		while (true)
+		{
+			//跳过剩余的compound值
+			//处理末尾情况
+			if (!tData.HasAvailData(sizeof(NBT_TAG_RAW_TYPE)))
+			{
+				if constexpr (!bRoot)//非根部情况遇到末尾，则报错
+				{
+					return Control::Error;
+				}
+
+				return Control::Stop;//结束
+			}
+
+			NBT_TAG enCompoundEntryTag = (NBT_TAG)(NBT_TAG_RAW_TYPE)tData.GetNext();
+
+			if (enCompoundEntryTag == NBT_TAG::End)
+			{
+				return ResultControlToControl(tVisitor.VisitCompoundEnd());
+			}
+
+			if (enCompoundEntryTag >= NBT_TAG::ENUM_END)
+			{
+				return Control::Error;
+			}
+
+			if (!SkipName(tData))
+			{
+				return Control::Error;
+			}
+
+			if (!SkipSwitch<bRoot>(tData, enCompoundEntryTag, szStackDepth - 1))
+			{
+				return Control::Error;
+			}
+		}
+
 		return ResultControlToControl(tVisitor.VisitCompoundEnd());//返回
 	}
 
 	template<bool bRoot, typename InputStream>
 	static bool SkipCompoundType(InputStream &tData, size_t szStackDepth)
 	{
-		//TODO
+		while (true)
+		{
+			//跳过compound值
+			if (!tData.HasAvailData(sizeof(NBT_TAG_RAW_TYPE)))//处理末尾情况
+			{
+				if constexpr (!bRoot)//非根部情况遇到末尾，则报错
+				{
+					return false;
+				}
+
+				return true;
+			}
+
+			NBT_TAG enCompoundEntryTag = (NBT_TAG)(NBT_TAG_RAW_TYPE)tData.GetNext();
+
+			if (enCompoundEntryTag == NBT_TAG::End)
+			{
+				return true;
+			}
+
+			if (enCompoundEntryTag >= NBT_TAG::ENUM_END)
+			{
+				return false;
+			}
+
+			if (!SkipName(tData))
+			{
+				return false;
+			}
+
+			if (!SkipSwitch<bRoot>(tData, enCompoundEntryTag, szStackDepth - 1))
+			{
+				return false;
+			}
+		}
+
+		return true;
 	}
 
 	template<bool bRoot, typename InputStream, typename Visitor>
