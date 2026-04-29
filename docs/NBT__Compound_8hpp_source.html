@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
-<meta name="generator" content="Doxygen 1.15.0"/>
+<meta name="generator" content="Doxygen 1.16.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>chenjunfu2-nbt-cpp: NBT_Compound.hpp 源文件</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
@@ -35,7 +35,7 @@
 </table>
 </div>
 <!-- end header part -->
-<!-- 制作者 Doxygen 1.15.0 -->
+<!-- 制作者 Doxygen 1.16.1 -->
 <script type="text/javascript">
 var searchBox = new SearchBox("searchBox", "search/",'.html');
 </script>
@@ -392,7 +392,7 @@ $(function(){initNavTree('NBT__Compound_8hpp_source.html','',''); });
 <div class="line"><a id="l00347" name="l00347"></a><span class="lineno">  347</span>    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> K, <span class="keyword">typename</span> V&gt;</div>
 <div class="line"><a id="l00348" name="l00348"></a><span class="lineno">  348</span>    <span class="keyword">requires</span> std::constructible_from&lt;typename Compound::key_type, K &amp;&amp;&gt; &amp;&amp;std::constructible_from&lt;typename Compound::mapped_type, V &amp;&amp;&gt;</div>
 <div class="foldopen" id="foldopen00349" data-start="{" data-end="}">
-<div class="line"><a id="l00349" name="l00349"></a><span class="lineno"><a class="line" href="classNBT__Compound.html#a3f853b4f1ffd45ea41e8671b1e8f18bc">  349</a></span>    std::pair&lt;typename Compound::iterator, bool&gt; <a class="code hl_function" href="classNBT__Compound.html#a3f853b4f1ffd45ea41e8671b1e8f18bc">Put</a>(K &amp;&amp;sTagName, V &amp;&amp;vTagVal)</div>
+<div class="line"><a id="l00349" name="l00349"></a><span class="lineno"><a class="line" href="classNBT__Compound.html#af07de8d80cbad16ba00193cdbfe476bb">  349</a></span>    std::pair&lt;typename Compound::iterator, bool&gt; <a class="code hl_function" href="classNBT__Compound.html#af07de8d80cbad16ba00193cdbfe476bb">Put</a>(K &amp;&amp;sTagName, V &amp;&amp;vTagVal)</div>
 <div class="line"><a id="l00350" name="l00350"></a><span class="lineno">  350</span>    {</div>
 <div class="line"><a id="l00351" name="l00351"></a><span class="lineno">  351</span>        <span class="comment">//总是允许插入nbt end，但是在写出文件时会忽略end类型</span></div>
 <div class="line"><a id="l00352" name="l00352"></a><span class="lineno">  352</span>        <span class="comment">//if (!TestType(vTagVal))</span></div>
@@ -407,7 +407,7 @@ $(function(){initNavTree('NBT__Compound_8hpp_source.html','',''); });
 <div class="line"><a id="l00368" name="l00368"></a><span class="lineno">  368</span>    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> K, <span class="keyword">typename</span> V&gt;</div>
 <div class="line"><a id="l00369" name="l00369"></a><span class="lineno">  369</span>    <span class="keyword">requires</span> std::constructible_from&lt;typename Compound::key_type, K &amp;&amp;&gt; &amp;&amp;std::constructible_from&lt;typename Compound::mapped_type, V &amp;&amp;&gt;</div>
 <div class="foldopen" id="foldopen00370" data-start="{" data-end="}">
-<div class="line"><a id="l00370" name="l00370"></a><span class="lineno"><a class="line" href="classNBT__Compound.html#a3b9392db95dee4f687be620a5be32b4b">  370</a></span>    std::pair&lt;typename Compound::iterator, bool&gt; <a class="code hl_function" href="classNBT__Compound.html#a3b9392db95dee4f687be620a5be32b4b">TryPut</a>(K &amp;&amp;sTagName, V &amp;&amp;vTagVal)</div>
+<div class="line"><a id="l00370" name="l00370"></a><span class="lineno"><a class="line" href="classNBT__Compound.html#ae7531a860e634f235e97505fbc646e72">  370</a></span>    std::pair&lt;typename Compound::iterator, bool&gt; <a class="code hl_function" href="classNBT__Compound.html#ae7531a860e634f235e97505fbc646e72">TryPut</a>(K &amp;&amp;sTagName, V &amp;&amp;vTagVal)</div>
 <div class="line"><a id="l00371" name="l00371"></a><span class="lineno">  371</span>    {</div>
 <div class="line"><a id="l00372" name="l00372"></a><span class="lineno">  372</span>        <span class="comment">//总是允许插入nbt end，但是在写出文件时会忽略end类型</span></div>
 <div class="line"><a id="l00373" name="l00373"></a><span class="lineno">  373</span>        <span class="comment">//if (!TestType(vTagVal))</span></div>
@@ -549,13 +549,13 @@ $(function(){initNavTree('NBT__Compound_8hpp_source.html','',''); });
 </div>
 <div class="line"><a id="l00551" name="l00551"></a><span class="lineno">  551</span><span class="preprocessor">\</span></div>
 <div class="line"><a id="l00556" name="l00556"></a><span class="lineno">  556</span><span class="preprocessor">template &lt;typename K&gt;\</span></div>
-<div class="line"><a id="l00557" name="l00557"></a><span class="lineno"><a class="line" href="classNBT__Compound.html#a28d29885f0087dab56362a70831d16a1">  557</a></span><span class="preprocessor">requires std::constructible_from&lt;typename Compound::key_type, K &amp;&amp;&gt;\</span></div>
-<div class="line"><a id="l00558" name="l00558"></a><span class="lineno"><a class="line" href="classNBT__Compound.html#a9b7c2ab2dd2a970bb95ca8647eb8fc81">  558</a></span><span class="preprocessor">std::pair&lt;typename Compound::iterator, bool&gt; Put##type(K &amp;&amp;sTagName, const typename NBT_Type::type &amp;vTagVal)\</span></div>
-<div class="line"><a id="l00559" name="l00559"></a><span class="lineno"><a class="line" href="classNBT__Compound.html#aa3eb7bb7094a1c772badc492d7a2a3cd">  559</a></span><span class="preprocessor">{\</span></div>
-<div class="line"><a id="l00560" name="l00560"></a><span class="lineno"><a class="line" href="classNBT__Compound.html#ac002adf0d3f48399cd3b54cd013c50a5">  560</a></span><span class="preprocessor">    return Put(std::forward&lt;K&gt;(sTagName), vTagVal);\</span></div>
-<div class="line"><a id="l00561" name="l00561"></a><span class="lineno"><a class="line" href="classNBT__Compound.html#a4e247528fd98728a841a2463a6b3862e">  561</a></span><span class="preprocessor">}\</span></div>
-<div class="line"><a id="l00562" name="l00562"></a><span class="lineno"><a class="line" href="classNBT__Compound.html#a7421c014cb72d5ee627082e7eb74eadb">  562</a></span><span class="preprocessor">\</span></div>
-<div class="line"><a id="l00563" name="l00563"></a><span class="lineno"><a class="line" href="classNBT__Compound.html#a5295257da9bb2598920e1cb2cf42a8fa">  563</a></span><span class="preprocessor"></span><span class="preprocessor">\</span></div>
+<div class="line"><a id="l00557" name="l00557"></a><span class="lineno"><a class="line" href="classNBT__Compound.html#acb37144d51db9754d2b77c0336196672">  557</a></span><span class="preprocessor">requires std::constructible_from&lt;typename Compound::key_type, K &amp;&amp;&gt;\</span></div>
+<div class="line"><a id="l00558" name="l00558"></a><span class="lineno"><a class="line" href="classNBT__Compound.html#a945b30be2fdc8c7190300f04508db5c0">  558</a></span><span class="preprocessor">std::pair&lt;typename Compound::iterator, bool&gt; Put##type(K &amp;&amp;sTagName, const typename NBT_Type::type &amp;vTagVal)\</span></div>
+<div class="line"><a id="l00559" name="l00559"></a><span class="lineno"><a class="line" href="classNBT__Compound.html#a4c2381467109a26ba1aa6845e8bc0a68">  559</a></span><span class="preprocessor">{\</span></div>
+<div class="line"><a id="l00560" name="l00560"></a><span class="lineno"><a class="line" href="classNBT__Compound.html#a742475c877e4bfeb9ca4eb76e9a10cb8">  560</a></span><span class="preprocessor">    return Put(std::forward&lt;K&gt;(sTagName), vTagVal);\</span></div>
+<div class="line"><a id="l00561" name="l00561"></a><span class="lineno"><a class="line" href="classNBT__Compound.html#a6dbb3466a7b4f2f714bfe043cab42f22">  561</a></span><span class="preprocessor">}\</span></div>
+<div class="line"><a id="l00562" name="l00562"></a><span class="lineno"><a class="line" href="classNBT__Compound.html#ab259f23a06d3b24a83d396f7fd14380b">  562</a></span><span class="preprocessor">\</span></div>
+<div class="line"><a id="l00563" name="l00563"></a><span class="lineno"><a class="line" href="classNBT__Compound.html#a2c9dc3c5689d6e3223e96d15ff543005">  563</a></span><span class="preprocessor"></span><span class="preprocessor">\</span></div>
 <div class="line"><a id="l00572" name="l00572"></a><span class="lineno">  572</span><span class="preprocessor">template &lt;typename K&gt;\</span></div>
 <div class="line"><a id="l00573" name="l00573"></a><span class="lineno">  573</span><span class="preprocessor">requires std::constructible_from&lt;typename Compound::key_type, K &amp;&amp;&gt;\</span></div>
 <div class="line"><a id="l00574" name="l00574"></a><span class="lineno">  574</span><span class="preprocessor">std::pair&lt;typename Compound::iterator, bool&gt; Put##type(K &amp;&amp;sTagName, typename NBT_Type::type &amp;&amp;vTagVal)\</span></div>
@@ -621,9 +621,7 @@ $(function(){initNavTree('NBT__Compound_8hpp_source.html','',''); });
 <div class="ttc" id="aclassNBT__Compound_html_a1c1e53eda849634f51a87b409eae667c"><div class="ttname"><a href="classNBT__Compound.html#a1c1e53eda849634f51a87b409eae667c">NBT_Compound::NBT_Compound</a></div><div class="ttdeci">NBT_Compound(NBT_Compound &amp;&amp;_Move) noexcept</div><div class="ttdoc">移动构造函数</div><div class="ttdef"><b>定义</b> NBT_Compound.hpp:108</div></div>
 <div class="ttc" id="aclassNBT__Compound_html_a20ac9ea08a74b07827910c5d7aed3652"><div class="ttname"><a href="classNBT__Compound.html#a20ac9ea08a74b07827910c5d7aed3652">NBT_Compound::operator=</a></div><div class="ttdeci">NBT_Compound &amp; operator=(const NBT_Compound &amp;_Copy)</div><div class="ttdoc">拷贝赋值运算符</div><div class="ttdef"><b>定义</b> NBT_Compound.hpp:128</div></div>
 <div class="ttc" id="aclassNBT__Compound_html_a2ba93a31d028e00c25220151e56cfbb2"><div class="ttname"><a href="classNBT__Compound.html#a2ba93a31d028e00c25220151e56cfbb2">NBT_Compound::operator=</a></div><div class="ttdeci">NBT_Compound &amp; operator=(NBT_Compound &amp;&amp;_Move) noexcept</div><div class="ttdoc">移动赋值运算符</div><div class="ttdef"><b>定义</b> NBT_Compound.hpp:119</div></div>
-<div class="ttc" id="aclassNBT__Compound_html_a3b9392db95dee4f687be620a5be32b4b"><div class="ttname"><a href="classNBT__Compound.html#a3b9392db95dee4f687be620a5be32b4b">NBT_Compound::TryPut</a></div><div class="ttdeci">std::pair&lt; typename Compound::iterator, bool &gt; TryPut(K &amp;&amp;sTagName, V &amp;&amp;vTagVal)</div><div class="ttdoc">原位构造键值对</div><div class="ttdef"><b>定义</b> NBT_Compound.hpp:370</div></div>
 <div class="ttc" id="aclassNBT__Compound_html_a3d5ecf8fcdc474f3daef41aeb131ccef"><div class="ttname"><a href="classNBT__Compound.html#a3d5ecf8fcdc474f3daef41aeb131ccef">NBT_Compound::Get</a></div><div class="ttdeci">Compound::mapped_type &amp; Get(const typename Compound::key_type &amp;sTagName)</div><div class="ttdoc">根据标签名获取对应的NBT值</div><div class="ttdef"><b>定义</b> NBT_Compound.hpp:297</div></div>
-<div class="ttc" id="aclassNBT__Compound_html_a3f853b4f1ffd45ea41e8671b1e8f18bc"><div class="ttname"><a href="classNBT__Compound.html#a3f853b4f1ffd45ea41e8671b1e8f18bc">NBT_Compound::Put</a></div><div class="ttdeci">std::pair&lt; typename Compound::iterator, bool &gt; Put(K &amp;&amp;sTagName, V &amp;&amp;vTagVal)</div><div class="ttdoc">插入或替换键值对</div><div class="ttdef"><b>定义</b> NBT_Compound.hpp:349</div></div>
 <div class="ttc" id="aclassNBT__Compound_html_a40fc8cef70215966cc8c52216cd8dfad"><div class="ttname"><a href="classNBT__Compound.html#a40fc8cef70215966cc8c52216cd8dfad">NBT_Compound::Merge</a></div><div class="ttdeci">void Merge(NBT_Compound &amp;&amp;_Move)</div><div class="ttdoc">合并另一个NBT_Compound的内容（移动）</div><div class="ttdef"><b>定义</b> NBT_Compound.hpp:423</div></div>
 <div class="ttc" id="aclassNBT__Compound_html_a5179c66852b9e8d22fe3ba4c279f45b5"><div class="ttname"><a href="classNBT__Compound.html#a5179c66852b9e8d22fe3ba4c279f45b5">NBT_Compound::GetData</a></div><div class="ttdeci">const Compound &amp; GetData(void) const noexcept</div><div class="ttdoc">获取底层容器数据的常量引用</div><div class="ttdef"><b>定义</b> NBT_Compound.hpp:136</div></div>
 <div class="ttc" id="aclassNBT__Compound_html_a619c60233d9f9bf1613e082d4db0b888"><div class="ttname"><a href="classNBT__Compound.html#a619c60233d9f9bf1613e082d4db0b888">NBT_Compound::Has</a></div><div class="ttdeci">const Compound::mapped_type * Has(const typename Compound::key_type &amp;sTagName) const noexcept</div><div class="ttdoc">搜索标签是否存在（常量版本）</div><div class="ttdef"><b>定义</b> NBT_Compound.hpp:328</div></div>
@@ -639,6 +637,8 @@ $(function(){initNavTree('NBT__Compound_8hpp_source.html','',''); });
 <div class="ttc" id="aclassNBT__Compound_html_ad3192c42a29b9fb830b1666cce0481a4"><div class="ttname"><a href="classNBT__Compound.html#ad3192c42a29b9fb830b1666cce0481a4">NBT_Compound::KeySortIt</a></div><div class="ttdeci">std::vector&lt; typename Compound::iterator &gt; KeySortIt(void)</div><div class="ttdoc">获取按键名排序的迭代器向量（非常量版本）</div><div class="ttdef"><b>定义</b> NBT_Compound.hpp:216</div></div>
 <div class="ttc" id="aclassNBT__Compound_html_ad89f708ab985664401c5210817184215"><div class="ttname"><a href="classNBT__Compound.html#ad89f708ab985664401c5210817184215">NBT_Compound::Size</a></div><div class="ttdeci">Compound::size_type Size(void) const noexcept</div><div class="ttdoc">获取容器中元素的数量</div><div class="ttdef"><b>定义</b> NBT_Compound.hpp:405</div></div>
 <div class="ttc" id="aclassNBT__Compound_html_ae6adf10c9807a2b2bfb46f6caeafad35"><div class="ttname"><a href="classNBT__Compound.html#ae6adf10c9807a2b2bfb46f6caeafad35">NBT_Compound::Merge</a></div><div class="ttdeci">void Merge(const NBT_Compound &amp;_Copy)</div><div class="ttdoc">合并另一个NBT_Compound的内容（拷贝）</div><div class="ttdef"><b>定义</b> NBT_Compound.hpp:414</div></div>
+<div class="ttc" id="aclassNBT__Compound_html_ae7531a860e634f235e97505fbc646e72"><div class="ttname"><a href="classNBT__Compound.html#ae7531a860e634f235e97505fbc646e72">NBT_Compound::TryPut</a></div><div class="ttdeci">std::pair&lt; typename Compound::iterator, bool &gt; TryPut(K &amp;&amp;sTagName, V &amp;&amp;vTagVal)</div><div class="ttdoc">原位构造键值对</div><div class="ttdef"><b>定义</b> NBT_Compound.hpp:370</div></div>
+<div class="ttc" id="aclassNBT__Compound_html_af07de8d80cbad16ba00193cdbfe476bb"><div class="ttname"><a href="classNBT__Compound.html#af07de8d80cbad16ba00193cdbfe476bb">NBT_Compound::Put</a></div><div class="ttdeci">std::pair&lt; typename Compound::iterator, bool &gt; Put(K &amp;&amp;sTagName, V &amp;&amp;vTagVal)</div><div class="ttdoc">插入或替换键值对</div><div class="ttdef"><b>定义</b> NBT_Compound.hpp:349</div></div>
 <div class="ttc" id="aclassNBT__Compound_html_af55b9238e41a777d8971a58de3134877"><div class="ttname"><a href="classNBT__Compound.html#af55b9238e41a777d8971a58de3134877">NBT_Compound::Remove</a></div><div class="ttdeci">bool Remove(const typename Compound::key_type &amp;sTagName)</div><div class="ttdoc">删除指定标签</div><div class="ttdef"><b>定义</b> NBT_Compound.hpp:384</div></div>
 <div class="ttc" id="aclassNBT__Helper_html"><div class="ttname"><a href="classNBT__Helper.html">NBT_Helper</a></div><div class="ttdoc">用于格式化打印、序列化、计算哈希等功能</div><div class="ttdef"><b>定义</b> NBT_Helper.hpp:25</div></div>
 <div class="ttc" id="aclassNBT__Reader_html"><div class="ttname"><a href="classNBT__Reader.html">NBT_Reader</a></div><div class="ttdoc">这个类用于提供从NBT二进制流读取到NBT_Type::Compound对象的反序列化功能</div><div class="ttdef"><b>定义</b> NBT_Reader.hpp:23</div></div>
@@ -657,7 +657,7 @@ $(function(){initNavTree('NBT__Compound_8hpp_source.html','',''); });
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><b>include</b></li><li class="navelem"><b>nbt_cpp</b></li><li class="navelem"><a href="NBT__Compound_8hpp.html">NBT_Compound.hpp</a></li>
-    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.15.0 </li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.16.1 </li>
   </ul>
 </div>
 </body>

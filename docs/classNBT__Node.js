@@ -1,8 +1,8 @@
 var classNBT__Node =
 [
-    [ "NBT_Node", "classNBT__Node.html#a41fd89f0014840b9d16a53631e32872d", null ],
-    [ "NBT_Node", "classNBT__Node.html#a98133df60dd97b77adfe5c4da0fbbc58", null ],
-    [ "NBT_Node", "classNBT__Node.html#a7a5f6ba8d259e139dee76fa7dd4710ac", null ],
+    [ "NBT_Node", "classNBT__Node.html#aec695b2e6b60ac1ba6973a021daed0c1", null ],
+    [ "NBT_Node", "classNBT__Node.html#a1486b2b15393e3dc62b17cb14fb7eb88", null ],
+    [ "NBT_Node", "classNBT__Node.html#ace33c71614d7e4e7247610aee13071c9", null ],
     [ "NBT_Node", "classNBT__Node.html#a563191b4f4ce4e18c4933aa0b901cca0", null ],
     [ "~NBT_Node", "classNBT__Node.html#a75fc393abbdf7a7b407a4b65ddc62128", null ],
     [ "NBT_Node", "classNBT__Node.html#a0a1a8d205a7cdd957d5c364c892fb714", null ],
@@ -54,9 +54,9 @@ var classNBT__Node =
     [ "operator<=>", "classNBT__Node.html#ad7464704bf05359553847fcbff07d842", null ],
     [ "operator=", "classNBT__Node.html#a5f97f665c3babadf9fb71eed0c630a7c", null ],
     [ "operator=", "classNBT__Node.html#ac0049147897c4c059f42323045f73e61", null ],
-    [ "operator=", "classNBT__Node.html#ac64032605ac28f69498a75f651187b06", null ],
+    [ "operator=", "classNBT__Node.html#a6dcfd4087873b0deb087cb1254dc080c", null ],
     [ "operator==", "classNBT__Node.html#ae55d205cb2169d48c0eae7d3a3d0e81d", null ],
-    [ "Set", "classNBT__Node.html#a708a593a53e2b94a1656850bd0278ecb", null ],
+    [ "Set", "classNBT__Node.html#a0c4af79585018f895866f3be2b8d0327", null ],
     [ "SetByte", "classNBT__Node.html#a88a44c8539ecbab16589e59a4f3f791e", null ],
     [ "SetByte", "classNBT__Node.html#a5c1a8b9e50456b9edba9c5b015c35c5b", null ],
     [ "SetByte", "classNBT__Node.html#a9d002f4b79b4c26632460a5b0bef84d6", null ],

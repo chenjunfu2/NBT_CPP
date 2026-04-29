@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
-<meta name="generator" content="Doxygen 1.15.0"/>
+<meta name="generator" content="Doxygen 1.16.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>chenjunfu2-nbt-cpp: NBT_Endian类 参考</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
@@ -35,7 +35,7 @@
 </table>
 </div>
 <!-- end header part -->
-<!-- 制作者 Doxygen 1.15.0 -->
+<!-- 制作者 Doxygen 1.16.1 -->
 <script type="text/javascript">
 var searchBox = new SearchBox("searchBox", "search/",'.html');
 </script>
@@ -100,52 +100,45 @@ $(function(){initNavTree('classNBT__Endian.html','','classNBT__Endian-members');
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-static-methods" class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 静态 Public 成员函数</h2></td></tr>
-<tr class="memitem:ae23e97ecc7e7f9c335303d3ecae3e4aa" id="r_ae23e97ecc7e7f9c335303d3ecae3e4aa"><td class="memItemLeft" align="right" valign="top">static constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae23e97ecc7e7f9c335303d3ecae3e4aa">IsLittleEndian</a> (void) noexcept</td></tr>
+<tr class="memitem:ae23e97ecc7e7f9c335303d3ecae3e4aa" id="r_ae23e97ecc7e7f9c335303d3ecae3e4aa"><td class="memItemLeft">static constexpr bool&#160;</td><td class="memItemRight"><a class="el" href="#ae23e97ecc7e7f9c335303d3ecae3e4aa">IsLittleEndian</a> (void) noexcept</td></tr>
 <tr class="memdesc:ae23e97ecc7e7f9c335303d3ecae3e4aa"><td class="mdescLeft">&#160;</td><td class="mdescRight">判断当前平台字节序是否是小端字节序  <br /></td></tr>
-<tr class="memitem:a99d9d182d58a381255170bb1e3a1fb2c" id="r_a99d9d182d58a381255170bb1e3a1fb2c"><td class="memItemLeft" align="right" valign="top">static constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a99d9d182d58a381255170bb1e3a1fb2c">IsBigEndian</a> (void) noexcept</td></tr>
+<tr class="memitem:a99d9d182d58a381255170bb1e3a1fb2c" id="r_a99d9d182d58a381255170bb1e3a1fb2c"><td class="memItemLeft">static constexpr bool&#160;</td><td class="memItemRight"><a class="el" href="#a99d9d182d58a381255170bb1e3a1fb2c">IsBigEndian</a> (void) noexcept</td></tr>
 <tr class="memdesc:a99d9d182d58a381255170bb1e3a1fb2c"><td class="mdescLeft">&#160;</td><td class="mdescRight">判断当前平台字节序是否是大端字节序  <br /></td></tr>
-<tr class="memitem:a4ae63ae6273e809d6b3a2875f88a5723" id="r_a4ae63ae6273e809d6b3a2875f88a5723"><td class="memTemplParams" colspan="2">template&lt;typename T&gt; <br />
-requires std::integral&lt;T&gt;</td></tr>
-<tr class="memitem:a4ae63ae6273e809d6b3a2875f88a5723 template"><td class="memItemLeft" align="right" valign="top">static constexpr T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4ae63ae6273e809d6b3a2875f88a5723">ByteSwapAny</a> (T data) noexcept</td></tr>
-<tr class="memdesc:a4ae63ae6273e809d6b3a2875f88a5723"><td class="mdescLeft">&#160;</td><td class="mdescRight">颠倒字节序，需要整数字节数为2的倍数或字节数为1  <br /></td></tr>
-<tr class="memitem:a68933ecd2f92b56e25389fb9b6b45848" id="r_a68933ecd2f92b56e25389fb9b6b45848"><td class="memItemLeft" align="right" valign="top">static uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a68933ecd2f92b56e25389fb9b6b45848">ByteSwap16</a> (uint16_t data) noexcept</td></tr>
+<tr class="memitem:ae3026110ebee4b02068755c511ca7f0b" id="r_ae3026110ebee4b02068755c511ca7f0b"><td class="memTemplParams" colspan="2">template&lt;typename T&gt; </td></tr>
+<tr class="memitem:ae3026110ebee4b02068755c511ca7f0b template"><td class="memItemLeft">static constexpr T&#160;</td><td class="memItemRight"><a class="el" href="#ae3026110ebee4b02068755c511ca7f0b">ByteSwapAny</a> (T data) noexcept</td></tr>
+<tr class="memdesc:ae3026110ebee4b02068755c511ca7f0b"><td class="mdescLeft">&#160;</td><td class="mdescRight">颠倒字节序，需要整数字节数为2的倍数或字节数为1  <br /></td></tr>
+<tr class="memitem:a68933ecd2f92b56e25389fb9b6b45848" id="r_a68933ecd2f92b56e25389fb9b6b45848"><td class="memItemLeft">static uint16_t&#160;</td><td class="memItemRight"><a class="el" href="#a68933ecd2f92b56e25389fb9b6b45848">ByteSwap16</a> (uint16_t data) noexcept</td></tr>
 <tr class="memdesc:a68933ecd2f92b56e25389fb9b6b45848"><td class="mdescLeft">&#160;</td><td class="mdescRight">颠倒字节序16位特化版  <br /></td></tr>
-<tr class="memitem:a2cdd925007ecd0a1d38c3b6ed54c6020" id="r_a2cdd925007ecd0a1d38c3b6ed54c6020"><td class="memItemLeft" align="right" valign="top">static uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2cdd925007ecd0a1d38c3b6ed54c6020">ByteSwap32</a> (uint32_t data) noexcept</td></tr>
+<tr class="memitem:a2cdd925007ecd0a1d38c3b6ed54c6020" id="r_a2cdd925007ecd0a1d38c3b6ed54c6020"><td class="memItemLeft">static uint32_t&#160;</td><td class="memItemRight"><a class="el" href="#a2cdd925007ecd0a1d38c3b6ed54c6020">ByteSwap32</a> (uint32_t data) noexcept</td></tr>
 <tr class="memdesc:a2cdd925007ecd0a1d38c3b6ed54c6020"><td class="mdescLeft">&#160;</td><td class="mdescRight">颠倒字节序32位特化版  <br /></td></tr>
-<tr class="memitem:a78133426cce86c1dec331a0adec3bb16" id="r_a78133426cce86c1dec331a0adec3bb16"><td class="memItemLeft" align="right" valign="top">static uint64_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a78133426cce86c1dec331a0adec3bb16">ByteSwap64</a> (uint64_t data) noexcept</td></tr>
+<tr class="memitem:a78133426cce86c1dec331a0adec3bb16" id="r_a78133426cce86c1dec331a0adec3bb16"><td class="memItemLeft">static uint64_t&#160;</td><td class="memItemRight"><a class="el" href="#a78133426cce86c1dec331a0adec3bb16">ByteSwap64</a> (uint64_t data) noexcept</td></tr>
 <tr class="memdesc:a78133426cce86c1dec331a0adec3bb16"><td class="mdescLeft">&#160;</td><td class="mdescRight">颠倒字节序32位特化版  <br /></td></tr>
-<tr class="memitem:a667b738930a0fc22dcb8de388cecff77" id="r_a667b738930a0fc22dcb8de388cecff77"><td class="memTemplParams" colspan="2">template&lt;typename T&gt; <br />
-requires std::integral&lt;T&gt;</td></tr>
-<tr class="memitem:a667b738930a0fc22dcb8de388cecff77 template"><td class="memItemLeft" align="right" valign="top">static constexpr T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a667b738930a0fc22dcb8de388cecff77">AutoByteSwap</a> (T data) noexcept</td></tr>
-<tr class="memdesc:a667b738930a0fc22dcb8de388cecff77"><td class="mdescLeft">&#160;</td><td class="mdescRight">颠倒字节序，自动匹配位数  <br /></td></tr>
-<tr class="memitem:a3c5d4d5c6524fefde74ead7ed8d376c6" id="r_a3c5d4d5c6524fefde74ead7ed8d376c6"><td class="memTemplParams" colspan="2">template&lt;typename T&gt; <br />
-requires std::integral&lt;T&gt;</td></tr>
-<tr class="memitem:a3c5d4d5c6524fefde74ead7ed8d376c6 template"><td class="memItemLeft" align="right" valign="top">static T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3c5d4d5c6524fefde74ead7ed8d376c6">NativeToBigAny</a> (T data) noexcept</td></tr>
-<tr class="memdesc:a3c5d4d5c6524fefde74ead7ed8d376c6"><td class="mdescLeft">&#160;</td><td class="mdescRight">从当前平台字节序转换到大端字节序，自动匹配位数  <br /></td></tr>
-<tr class="memitem:aed5e9a52b98b49b8319133353b895a0c" id="r_aed5e9a52b98b49b8319133353b895a0c"><td class="memTemplParams" colspan="2">template&lt;typename T&gt; <br />
-requires std::integral&lt;T&gt;</td></tr>
-<tr class="memitem:aed5e9a52b98b49b8319133353b895a0c template"><td class="memItemLeft" align="right" valign="top">static T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aed5e9a52b98b49b8319133353b895a0c">NativeToLittleAny</a> (T data) noexcept</td></tr>
-<tr class="memdesc:aed5e9a52b98b49b8319133353b895a0c"><td class="mdescLeft">&#160;</td><td class="mdescRight">从当前平台字节序转换到小端字节序，自动匹配位数  <br /></td></tr>
-<tr class="memitem:aa489c37460ec0c136e2e7d0f74695035" id="r_aa489c37460ec0c136e2e7d0f74695035"><td class="memTemplParams" colspan="2">template&lt;typename T&gt; <br />
-requires std::integral&lt;T&gt;</td></tr>
-<tr class="memitem:aa489c37460ec0c136e2e7d0f74695035 template"><td class="memItemLeft" align="right" valign="top">static T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa489c37460ec0c136e2e7d0f74695035">BigToNativeAny</a> (T data) noexcept</td></tr>
-<tr class="memdesc:aa489c37460ec0c136e2e7d0f74695035"><td class="mdescLeft">&#160;</td><td class="mdescRight">从大端字节序转换到当前平台字节序，自动匹配位数  <br /></td></tr>
-<tr class="memitem:a13b3406cac21abe021f10fc728611646" id="r_a13b3406cac21abe021f10fc728611646"><td class="memTemplParams" colspan="2">template&lt;typename T&gt; <br />
-requires std::integral&lt;T&gt;</td></tr>
-<tr class="memitem:a13b3406cac21abe021f10fc728611646 template"><td class="memItemLeft" align="right" valign="top">static T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a13b3406cac21abe021f10fc728611646">LittleToNativeAny</a> (T data) noexcept</td></tr>
-<tr class="memdesc:a13b3406cac21abe021f10fc728611646"><td class="mdescLeft">&#160;</td><td class="mdescRight">从小端字节序转换到当前平台字节序，自动匹配位数  <br /></td></tr>
+<tr class="memitem:ae098aa276c399b2edf2e4c1bd805e86a" id="r_ae098aa276c399b2edf2e4c1bd805e86a"><td class="memTemplParams" colspan="2">template&lt;typename T&gt; </td></tr>
+<tr class="memitem:ae098aa276c399b2edf2e4c1bd805e86a template"><td class="memItemLeft">static constexpr T&#160;</td><td class="memItemRight"><a class="el" href="#ae098aa276c399b2edf2e4c1bd805e86a">AutoByteSwap</a> (T data) noexcept</td></tr>
+<tr class="memdesc:ae098aa276c399b2edf2e4c1bd805e86a"><td class="mdescLeft">&#160;</td><td class="mdescRight">颠倒字节序，自动匹配位数  <br /></td></tr>
+<tr class="memitem:a8bb71b35386a3a4e4f557302c00e4d18" id="r_a8bb71b35386a3a4e4f557302c00e4d18"><td class="memTemplParams" colspan="2">template&lt;typename T&gt; </td></tr>
+<tr class="memitem:a8bb71b35386a3a4e4f557302c00e4d18 template"><td class="memItemLeft">static T&#160;</td><td class="memItemRight"><a class="el" href="#a8bb71b35386a3a4e4f557302c00e4d18">NativeToBigAny</a> (T data) noexcept</td></tr>
+<tr class="memdesc:a8bb71b35386a3a4e4f557302c00e4d18"><td class="mdescLeft">&#160;</td><td class="mdescRight">从当前平台字节序转换到大端字节序，自动匹配位数  <br /></td></tr>
+<tr class="memitem:a68faa80b17298c81ad21b6882e7ac030" id="r_a68faa80b17298c81ad21b6882e7ac030"><td class="memTemplParams" colspan="2">template&lt;typename T&gt; </td></tr>
+<tr class="memitem:a68faa80b17298c81ad21b6882e7ac030 template"><td class="memItemLeft">static T&#160;</td><td class="memItemRight"><a class="el" href="#a68faa80b17298c81ad21b6882e7ac030">NativeToLittleAny</a> (T data) noexcept</td></tr>
+<tr class="memdesc:a68faa80b17298c81ad21b6882e7ac030"><td class="mdescLeft">&#160;</td><td class="mdescRight">从当前平台字节序转换到小端字节序，自动匹配位数  <br /></td></tr>
+<tr class="memitem:a82f4e968a2c3a4ff0010dfb5cba394fa" id="r_a82f4e968a2c3a4ff0010dfb5cba394fa"><td class="memTemplParams" colspan="2">template&lt;typename T&gt; </td></tr>
+<tr class="memitem:a82f4e968a2c3a4ff0010dfb5cba394fa template"><td class="memItemLeft">static T&#160;</td><td class="memItemRight"><a class="el" href="#a82f4e968a2c3a4ff0010dfb5cba394fa">BigToNativeAny</a> (T data) noexcept</td></tr>
+<tr class="memdesc:a82f4e968a2c3a4ff0010dfb5cba394fa"><td class="mdescLeft">&#160;</td><td class="mdescRight">从大端字节序转换到当前平台字节序，自动匹配位数  <br /></td></tr>
+<tr class="memitem:abccdfd80ea274ad448aacc291286ceaa" id="r_abccdfd80ea274ad448aacc291286ceaa"><td class="memTemplParams" colspan="2">template&lt;typename T&gt; </td></tr>
+<tr class="memitem:abccdfd80ea274ad448aacc291286ceaa template"><td class="memItemLeft">static T&#160;</td><td class="memItemRight"><a class="el" href="#abccdfd80ea274ad448aacc291286ceaa">LittleToNativeAny</a> (T data) noexcept</td></tr>
+<tr class="memdesc:abccdfd80ea274ad448aacc291286ceaa"><td class="mdescLeft">&#160;</td><td class="mdescRight">从小端字节序转换到当前平台字节序，自动匹配位数  <br /></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">详细描述</h2>
 <div class="textblock"><p>用于处理大小端运算，根据实际平台字节序类型进行自动匹配 </p>
 </div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">成员函数说明</h2>
-<a id="a667b738930a0fc22dcb8de388cecff77" name="a667b738930a0fc22dcb8de388cecff77"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a667b738930a0fc22dcb8de388cecff77">&#9670;&#160;</a></span>AutoByteSwap()</h2>
+<a id="ae098aa276c399b2edf2e4c1bd805e86a" name="ae098aa276c399b2edf2e4c1bd805e86a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae098aa276c399b2edf2e4c1bd805e86a">&#9670;&#160;</a></span>AutoByteSwap()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename T&gt; <br />
-requires std::integral&lt;T&gt;</div>
+template&lt;typename T&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -182,14 +175,13 @@ requires std::integral&lt;T&gt;</div>
 
 </div>
 </div>
-<a id="aa489c37460ec0c136e2e7d0f74695035" name="aa489c37460ec0c136e2e7d0f74695035"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa489c37460ec0c136e2e7d0f74695035">&#9670;&#160;</a></span>BigToNativeAny()</h2>
+<a id="a82f4e968a2c3a4ff0010dfb5cba394fa" name="a82f4e968a2c3a4ff0010dfb5cba394fa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a82f4e968a2c3a4ff0010dfb5cba394fa">&#9670;&#160;</a></span>BigToNativeAny()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename T&gt; <br />
-requires std::integral&lt;T&gt;</div>
+template&lt;typename T&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -331,14 +323,13 @@ requires std::integral&lt;T&gt;</div>
 
 </div>
 </div>
-<a id="a4ae63ae6273e809d6b3a2875f88a5723" name="a4ae63ae6273e809d6b3a2875f88a5723"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4ae63ae6273e809d6b3a2875f88a5723">&#9670;&#160;</a></span>ByteSwapAny()</h2>
+<a id="ae3026110ebee4b02068755c511ca7f0b" name="ae3026110ebee4b02068755c511ca7f0b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae3026110ebee4b02068755c511ca7f0b">&#9670;&#160;</a></span>ByteSwapAny()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename T&gt; <br />
-requires std::integral&lt;T&gt;</div>
+template&lt;typename T&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -431,14 +422,13 @@ requires std::integral&lt;T&gt;</div>
 
 </div>
 </div>
-<a id="a13b3406cac21abe021f10fc728611646" name="a13b3406cac21abe021f10fc728611646"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a13b3406cac21abe021f10fc728611646">&#9670;&#160;</a></span>LittleToNativeAny()</h2>
+<a id="abccdfd80ea274ad448aacc291286ceaa" name="abccdfd80ea274ad448aacc291286ceaa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abccdfd80ea274ad448aacc291286ceaa">&#9670;&#160;</a></span>LittleToNativeAny()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename T&gt; <br />
-requires std::integral&lt;T&gt;</div>
+template&lt;typename T&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -475,14 +465,13 @@ requires std::integral&lt;T&gt;</div>
 
 </div>
 </div>
-<a id="a3c5d4d5c6524fefde74ead7ed8d376c6" name="a3c5d4d5c6524fefde74ead7ed8d376c6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3c5d4d5c6524fefde74ead7ed8d376c6">&#9670;&#160;</a></span>NativeToBigAny()</h2>
+<a id="a8bb71b35386a3a4e4f557302c00e4d18" name="a8bb71b35386a3a4e4f557302c00e4d18"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8bb71b35386a3a4e4f557302c00e4d18">&#9670;&#160;</a></span>NativeToBigAny()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename T&gt; <br />
-requires std::integral&lt;T&gt;</div>
+template&lt;typename T&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -519,14 +508,13 @@ requires std::integral&lt;T&gt;</div>
 
 </div>
 </div>
-<a id="aed5e9a52b98b49b8319133353b895a0c" name="aed5e9a52b98b49b8319133353b895a0c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aed5e9a52b98b49b8319133353b895a0c">&#9670;&#160;</a></span>NativeToLittleAny()</h2>
+<a id="a68faa80b17298c81ad21b6882e7ac030" name="a68faa80b17298c81ad21b6882e7ac030"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a68faa80b17298c81ad21b6882e7ac030">&#9670;&#160;</a></span>NativeToLittleAny()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename T&gt; <br />
-requires std::integral&lt;T&gt;</div>
+template&lt;typename T&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -580,7 +568,7 @@ requires std::integral&lt;T&gt;</div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a href="classNBT__Endian.html">NBT_Endian</a></li>
-    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.15.0 </li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.16.1 </li>
   </ul>
 </div>
 </body>

@@ -1,8 +1,8 @@
 var searchData=
 [
   ['data_0',['Data',['../classNBT__IO_1_1DefaultOutputStream.html#a1f476a9d0f1c736d8248288922df77c7',1,'NBT_IO::DefaultOutputStream::Data(void) const noexcept'],['../classNBT__IO_1_1DefaultOutputStream.html#a41dec4401262086ce19a86a117d4bfbd',1,'NBT_IO::DefaultOutputStream::Data(void) noexcept']]],
-  ['decompressdata_1',['DecompressData',['../classNBT__IO.html#a6b020f152629eeb57e30a8617dd82117',1,'NBT_IO']]],
-  ['decompressdatanothrow_2',['DecompressDataNoThrow',['../classNBT__IO.html#a00f26bdf9522ddaa9a6e2df1cadab594',1,'NBT_IO']]],
+  ['decompressdata_1',['DecompressData',['../classNBT__IO.html#aa135196f6ad75f4d9fdc96284c3838e8',1,'NBT_IO']]],
+  ['decompressdatanothrow_2',['DecompressDataNoThrow',['../classNBT__IO.html#acd9e15b5528d016e87ffb67464aab8c8',1,'NBT_IO']]],
   ['defaultfunc_3',['DefaultFunc',['../classNBT__Helper.html#a6a920351c9ea2ff47a592541ddd3e39d',1,'NBT_Helper']]],
   ['defaultfunctype_4',['DefaultFuncType',['../classNBT__Helper.html#af4533b1cf78febd8ad41bdbeb6bc0736',1,'NBT_Helper']]],
   ['defaultinputstream_5',['DefaultInputStream',['../classNBT__IO_1_1DefaultInputStream.html',1,'NBT_IO::DefaultInputStream&lt; T &gt;'],['../classNBT__IO_1_1DefaultInputStream.html#a1fb489a423c947b9f068a892c384485d',1,'NBT_IO::DefaultInputStream::DefaultInputStream(const T &amp;&amp;_tData, size_t szStartIdx=0)=delete'],['../classNBT__IO_1_1DefaultInputStream.html#aeda7ff56dc059d949f971b1cb6a43ea9',1,'NBT_IO::DefaultInputStream::DefaultInputStream(const T &amp;_tData, size_t szStartIdx=0)'],['../classNBT__IO_1_1DefaultInputStream.html#a83daf9d0d39c048f838fa2dd552b9ae7',1,'NBT_IO::DefaultInputStream::DefaultInputStream(const DefaultInputStream &amp;)=delete'],['../classNBT__IO_1_1DefaultInputStream.html#a1a07587be3183e40023e21f47e9c0315',1,'NBT_IO::DefaultInputStream::DefaultInputStream(DefaultInputStream &amp;&amp;)=delete']]],

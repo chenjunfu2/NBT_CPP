@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
-<meta name="generator" content="Doxygen 1.15.0"/>
+<meta name="generator" content="Doxygen 1.16.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>chenjunfu2-nbt-cpp: NBT_Type.hpp 源文件</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
@@ -35,7 +35,7 @@
 </table>
 </div>
 <!-- end header part -->
-<!-- 制作者 Doxygen 1.15.0 -->
+<!-- 制作者 Doxygen 1.16.1 -->
 <script type="text/javascript">
 var searchBox = new SearchBox("searchBox", "search/",'.html');
 </script>
@@ -160,7 +160,7 @@ $(function(){initNavTree('NBT__Type_8hpp_source.html','',''); });
 <div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>    <span class="keyword">template</span>&lt;<span class="keyword">typename</span>... Ts&gt;</div>
 <div class="line"><a id="l00079" name="l00079"></a><span class="lineno"><a class="line" href="structNBT__Type_1_1__TypeList.html">   79</a></span>    <span class="keyword">struct </span><a class="code hl_struct" href="structNBT__Type_1_1__TypeList.html">_TypeList</a>{};</div>
 <div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span></div>
-<div class="line"><a id="l00082" name="l00082"></a><span class="lineno"><a class="line" href="classNBT__Type.html#a3e6b28d3639afce0227285776d2f4c66">   82</a></span>    <span class="keyword">using </span><a class="code hl_typedef" href="classNBT__Type.html#a3e6b28d3639afce0227285776d2f4c66">TypeList</a> = <a class="code hl_struct" href="structNBT__Type_1_1__TypeList.html">_TypeList</a></div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno"><a class="line" href="classNBT__Type.html#a9a7c80f2a9957107e6a93aa33760adf9">   82</a></span>    <span class="keyword">using </span><a class="code hl_typedef" href="classNBT__Type.html#a9a7c80f2a9957107e6a93aa33760adf9">TypeList</a> = <a class="code hl_struct" href="structNBT__Type_1_1__TypeList.html">_TypeList</a></div>
 <div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>    &lt;</div>
 <div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>        <a class="code hl_typedef" href="classNBT__Type.html#a16ac41e6cfe61a603407221527b6b16c">End</a>,</div>
 <div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>        <a class="code hl_typedef" href="classNBT__Type.html#a09b5ce48dffc429ad8a7d05d007741c1">Byte</a>,</div>
@@ -292,7 +292,7 @@ $(function(){initNavTree('NBT__Type_8hpp_source.html','',''); });
 <div class="line"><a id="l00238" name="l00238"></a><span class="lineno">  238</span>    <span class="keyword">requires</span>((<a class="code hl_typedef" href="NBT__TAG_8hpp.html#acd49bdf6bc79b8f3a1f351faec46ea6c">NBT_TAG_RAW_TYPE</a>)Tag &lt; <a class="code hl_variable" href="classNBT__Type.html#a4626b45e682f561d3c25fd749ad4145b">TypeListSize_V</a>)</div>
 <div class="line"><a id="l00239" name="l00239"></a><span class="lineno">  239</span>    <span class="keyword">struct</span> TagToType</div>
 <div class="line"><a id="l00240" name="l00240"></a><span class="lineno">  240</span>    {</div>
-<div class="line"><a id="l00241" name="l00241"></a><span class="lineno">  241</span>        <span class="keyword">using </span>type = <span class="keyword">typename</span> TypeAt&lt;(<a class="code hl_typedef" href="NBT__TAG_8hpp.html#acd49bdf6bc79b8f3a1f351faec46ea6c">NBT_TAG_RAW_TYPE</a>)Tag, <a class="code hl_typedef" href="classNBT__Type.html#a3e6b28d3639afce0227285776d2f4c66">TypeList</a>&gt;::type;</div>
+<div class="line"><a id="l00241" name="l00241"></a><span class="lineno">  241</span>        <span class="keyword">using </span>type = <span class="keyword">typename</span> TypeAt&lt;(<a class="code hl_typedef" href="NBT__TAG_8hpp.html#acd49bdf6bc79b8f3a1f351faec46ea6c">NBT_TAG_RAW_TYPE</a>)Tag, <a class="code hl_typedef" href="classNBT__Type.html#a9a7c80f2a9957107e6a93aa33760adf9">TypeList</a>&gt;::type;</div>
 <div class="line"><a id="l00242" name="l00242"></a><span class="lineno">  242</span>    };</div>
 <div class="line"><a id="l00244" name="l00244"></a><span class="lineno">  244</span></div>
 <div class="line"><a id="l00249" name="l00249"></a><span class="lineno">  249</span>    <span class="keyword">template</span> &lt;NBT_TAG Tag&gt;</div>
@@ -508,7 +508,6 @@ $(function(){initNavTree('NBT__Type_8hpp_source.html','',''); });
 <div class="ttc" id="aclassNBT__Type_html_a2ab0fcd64529b22fe3f67f3e6ec2997f"><div class="ttname"><a href="classNBT__Type.html#a2ab0fcd64529b22fe3f67f3e6ec2997f">NBT_Type::Short_Min</a></div><div class="ttdeci">static constexpr Short Short_Min</div><div class="ttdoc">短整数类型形最小值</div><div class="ttdef"><b>定义</b> NBT_Type.hpp:160</div></div>
 <div class="ttc" id="aclassNBT__Type_html_a38f9e5a21f8d2e8217fcdf65c47039a4"><div class="ttname"><a href="classNBT__Type.html#a38f9e5a21f8d2e8217fcdf65c47039a4">NBT_Type::ArrayLength</a></div><div class="ttdeci">int32_t ArrayLength</div><div class="ttdoc">数组长度类型</div><div class="ttdef"><b>定义</b> NBT_Type.hpp:136</div></div>
 <div class="ttc" id="aclassNBT__Type_html_a3e47d05c36743947da966f4223237262"><div class="ttname"><a href="classNBT__Type.html#a3e47d05c36743947da966f4223237262">NBT_Type::Short</a></div><div class="ttdeci">int16_t Short</div><div class="ttdoc">16位有符号整数</div><div class="ttdef"><b>定义</b> NBT_Type.hpp:49</div></div>
-<div class="ttc" id="aclassNBT__Type_html_a3e6b28d3639afce0227285776d2f4c66"><div class="ttname"><a href="classNBT__Type.html#a3e6b28d3639afce0227285776d2f4c66">NBT_Type::TypeList</a></div><div class="ttdeci">_TypeList&lt; End, Byte, Short, Int, Long, Float, Double, ByteArray, String, List, Compound, IntArray, LongArray &gt; TypeList</div><div class="ttdoc">完整的NBT类型列表定义</div><div class="ttdef"><b>定义</b> NBT_Type.hpp:82</div></div>
 <div class="ttc" id="aclassNBT__Type_html_a3e807fbcf91b55568e76023589603424"><div class="ttname"><a href="classNBT__Type.html#a3e807fbcf91b55568e76023589603424">NBT_Type::IsContainerTag</a></div><div class="ttdeci">static constexpr bool IsContainerTag(NBT_TAG tag) noexcept</div><div class="ttdoc">判断给定的NBT_TAG是否对应容器类型（包含List、Compound和所有数组类型）</div><div class="ttdef"><b>定义</b> NBT_Type.hpp:416</div></div>
 <div class="ttc" id="aclassNBT__Type_html_a4626b45e682f561d3c25fd749ad4145b"><div class="ttname"><a href="classNBT__Type.html#a4626b45e682f561d3c25fd749ad4145b">NBT_Type::TypeListSize_V</a></div><div class="ttdeci">static constexpr size_t TypeListSize_V</div><div class="ttdoc">类型列表大小：获取NBT类型的个数</div><div class="ttdef"><b>定义</b> NBT_Type.hpp:223</div></div>
 <div class="ttc" id="aclassNBT__Type_html_a46c6f23bc65828e79fd08579780ddc47"><div class="ttname"><a href="classNBT__Type.html#a46c6f23bc65828e79fd08579780ddc47">NBT_Type::StringLength_Max</a></div><div class="ttdeci">static constexpr StringLength StringLength_Max</div><div class="ttdoc">字符串长度类型最大值</div><div class="ttdef"><b>定义</b> NBT_Type.hpp:146</div></div>
@@ -528,6 +527,7 @@ $(function(){initNavTree('NBT__Type_8hpp_source.html','',''); });
 <div class="ttc" id="aclassNBT__Type_html_a8a7ac779b8e8a7fdccb3456844abe5cf"><div class="ttname"><a href="classNBT__Type.html#a8a7ac779b8e8a7fdccb3456844abe5cf">NBT_Type::Float</a></div><div class="ttdeci">std::conditional_t&lt;(sizeof(float)==sizeof(Float_Raw)), float, Float_Raw &gt; Float</div><div class="ttdoc">单精度浮点类型</div><div class="ttdef"><b>定义</b> NBT_Type.hpp:55</div></div>
 <div class="ttc" id="aclassNBT__Type_html_a90e7b887fc9d0fc605caac20c30c4f4c"><div class="ttname"><a href="classNBT__Type.html#a90e7b887fc9d0fc605caac20c30c4f4c">NBT_Type::Long_Max</a></div><div class="ttdeci">static constexpr Long Long_Max</div><div class="ttdoc">长整数类型最大值</div><div class="ttdef"><b>定义</b> NBT_Type.hpp:165</div></div>
 <div class="ttc" id="aclassNBT__Type_html_a953bc9e67e1b5d82c0786b5992f00ed8"><div class="ttname"><a href="classNBT__Type.html#a953bc9e67e1b5d82c0786b5992f00ed8">NBT_Type::ByteArray</a></div><div class="ttdeci">NBT_Array&lt; std::vector&lt; Byte &gt; &gt; ByteArray</div><div class="ttdoc">存储 8位有符号整数的数组类型</div><div class="ttdef"><b>定义</b> NBT_Type.hpp:59</div></div>
+<div class="ttc" id="aclassNBT__Type_html_a9a7c80f2a9957107e6a93aa33760adf9"><div class="ttname"><a href="classNBT__Type.html#a9a7c80f2a9957107e6a93aa33760adf9">NBT_Type::TypeList</a></div><div class="ttdeci">_TypeList&lt; End, Byte, Short, Int, Long, Float, Double, ByteArray, String, List, Compound, IntArray, LongArray &gt; TypeList</div><div class="ttdoc">完整的NBT类型列表定义</div><div class="ttdef"><b>定义</b> NBT_Type.hpp:82</div></div>
 <div class="ttc" id="aclassNBT__Type_html_a9c4ad0b2bcd4b5cafb0c9a3f083f9406"><div class="ttname"><a href="classNBT__Type.html#a9c4ad0b2bcd4b5cafb0c9a3f083f9406">NBT_Type::IntArray</a></div><div class="ttdeci">NBT_Array&lt; std::vector&lt; Int &gt; &gt; IntArray</div><div class="ttdoc">存储32位有符号整数的数组类型</div><div class="ttdef"><b>定义</b> NBT_Type.hpp:60</div></div>
 <div class="ttc" id="aclassNBT__Type_html_a9dcd5050b96a10161f18d7ae4a22e7b3"><div class="ttname"><a href="classNBT__Type.html#a9dcd5050b96a10161f18d7ae4a22e7b3">NBT_Type::Compound</a></div><div class="ttdeci">NBT_Compound&lt; std::unordered_map&lt; String, NBT_Node &gt; &gt; Compound</div><div class="ttdoc">集合类型，可存储任意不同的NBT类型，通过名称映射值</div><div class="ttdef"><b>定义</b> NBT_Type.hpp:72</div></div>
 <div class="ttc" id="aclassNBT__Type_html_aa2c61028536166272869c3bbc91d3197"><div class="ttname"><a href="classNBT__Type.html#aa2c61028536166272869c3bbc91d3197">NBT_Type::LongArray</a></div><div class="ttdeci">NBT_Array&lt; std::vector&lt; Long &gt; &gt; LongArray</div><div class="ttdoc">存储64位有符号整数的数组类型</div><div class="ttdef"><b>定义</b> NBT_Type.hpp:61</div></div>
@@ -560,7 +560,7 @@ $(function(){initNavTree('NBT__Type_8hpp_source.html','',''); });
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><b>include</b></li><li class="navelem"><b>nbt_cpp</b></li><li class="navelem"><a href="NBT__Type_8hpp.html">NBT_Type.hpp</a></li>
-    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.15.0 </li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.16.1 </li>
   </ul>
 </div>
 </body>

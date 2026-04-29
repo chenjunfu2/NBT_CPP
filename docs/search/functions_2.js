@@ -1,8 +1,8 @@
 var searchData=
 [
   ['clear_0',['Clear',['../classNBT__Compound.html#a11ae318e17ba5b0a5a0a075701f27b44',1,'NBT_Compound::Clear()'],['../classNBT__List.html#a7096884de61f70ec185883f4012f6298',1,'NBT_List::Clear()'],['../classNBT__Node.html#af15d32d1c98c51b6c58c232fa724630c',1,'NBT_Node::Clear()']]],
-  ['compressdata_1',['CompressData',['../classNBT__IO.html#ae07925a74f5db70c16c6bbe76ba81b31',1,'NBT_IO']]],
-  ['compressdatanothrow_2',['CompressDataNoThrow',['../classNBT__IO.html#a31eb936874d1af59ea5da53162a024ea',1,'NBT_IO']]],
+  ['compressdata_1',['CompressData',['../classNBT__IO.html#a1aedf88b6a48e4899dc796597ab236df',1,'NBT_IO']]],
+  ['compressdatanothrow_2',['CompressDataNoThrow',['../classNBT__IO.html#acb1e080c5f689eaf38640ca7827b7146',1,'NBT_IO']]],
   ['contains_3',['Contains',['../classNBT__Compound.html#a8d29e5604d49149e5851bc1308abc475',1,'NBT_Compound::Contains()'],['../classNBT__List.html#a4043ffc0168fd0d771e13ba13cf5abdf',1,'NBT_List::Contains()']]],
   ['containsbyte_4',['ContainsByte',['../classNBT__Compound.html#ad82bbbe37a468c4dcec5e1cd4171299c',1,'NBT_Compound']]],
   ['containsbytearray_5',['ContainsByteArray',['../classNBT__Compound.html#ae9682760f3960b6b58333a8662c41338',1,'NBT_Compound']]],

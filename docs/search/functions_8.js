@@ -9,7 +9,7 @@ var searchData=
   ['iscompound_6',['IsCompound',['../classNBT__Node.html#a82a7f0fb669369250a09cb49aa3887bb',1,'NBT_Node::IsCompound()'],['../classNBT__Node__View.html#a7b66625806995aa91ac58cdd1c4dc0e2',1,'NBT_Node_View::IsCompound()']]],
   ['iscompoundtag_7',['IsCompoundTag',['../classNBT__Type.html#aa9a6f94ced6c408ce902204dc8801429',1,'NBT_Type']]],
   ['iscontainertag_8',['IsContainerTag',['../classNBT__Type.html#a3e807fbcf91b55568e76023589603424',1,'NBT_Type']]],
-  ['isdatazipped_9',['IsDataZipped',['../classNBT__IO.html#a4676a6e6a44e7e52f408073675d555e3',1,'NBT_IO']]],
+  ['isdatazipped_9',['IsDataZipped',['../classNBT__IO.html#a661837d3e3d2d8f8267f6e42876429cd',1,'NBT_IO']]],
   ['isdouble_10',['IsDouble',['../classNBT__Node.html#a18bec59a8bf3179cbcbdb6ef4719ddc2',1,'NBT_Node::IsDouble()'],['../classNBT__Node__View.html#af23d6e8dbcaeef743bf134a7d760f59d',1,'NBT_Node_View::IsDouble() const']]],
   ['isempty_11',['IsEmpty',['../classNBT__Node__View.html#a8924e4a3ead9319dd26f508c9b84c4cb',1,'NBT_Node_View']]],
   ['isend_12',['IsEnd',['../classNBT__IO_1_1DefaultInputStream.html#af5affd31d2b0cc922536e90fdce46c79',1,'NBT_IO::DefaultInputStream::IsEnd()'],['../classNBT__Node.html#a73390c4a7ce3aee0189db027ef480cae',1,'NBT_Node::IsEnd()'],['../classNBT__Node__View.html#a5011d3177da7f71500db75b37a534d39',1,'NBT_Node_View::IsEnd()']]],

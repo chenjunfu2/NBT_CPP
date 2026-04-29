@@ -47,5 +47,5 @@ var searchData=
   ['arraylength_44',['ArrayLength',['../classNBT__Type.html#a38f9e5a21f8d2e8217fcdf65c47039a4',1,'NBT_Type']]],
   ['arraylength_5fmax_45',['ArrayLength_Max',['../classNBT__Type.html#ac12e0beaccb23ad2b11620a503b8b0c7',1,'NBT_Type']]],
   ['arraylength_5fmin_46',['ArrayLength_Min',['../classNBT__Type.html#a61c44fff74188bb26d53106f53a71709',1,'NBT_Type']]],
-  ['autobyteswap_47',['AutoByteSwap',['../classNBT__Endian.html#a667b738930a0fc22dcb8de388cecff77',1,'NBT_Endian']]]
+  ['autobyteswap_47',['AutoByteSwap',['../classNBT__Endian.html#ae098aa276c399b2edf2e4c1bd805e86a',1,'NBT_Endian']]]
 ];

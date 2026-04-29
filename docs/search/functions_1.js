@@ -15,9 +15,9 @@ var searchData=
   ['backshort_12',['BackShort',['../classNBT__List.html#aac36fac7dc70f865f142008a1d2f60ec',1,'NBT_List::BackShort(void) const'],['../classNBT__List.html#a762e4d37d2cf357de4dbec6cc8cc6d31',1,'NBT_List::BackShort(void)']]],
   ['backstring_13',['BackString',['../classNBT__List.html#a7482809de9d8d5e02078230018f450b6',1,'NBT_List::BackString(void) const'],['../classNBT__List.html#affd46b6a866f1e29d5d68cebf96ff392',1,'NBT_List::BackString(void)']]],
   ['basedata_14',['BaseData',['../classNBT__IO_1_1DefaultInputStream.html#a9e3811ba393e9ee2a51d65b0ff92fee1',1,'NBT_IO::DefaultInputStream']]],
-  ['bigtonativeany_15',['BigToNativeAny',['../classNBT__Endian.html#aa489c37460ec0c136e2e7d0f74695035',1,'NBT_Endian']]],
+  ['bigtonativeany_15',['BigToNativeAny',['../classNBT__Endian.html#a82f4e968a2c3a4ff0010dfb5cba394fa',1,'NBT_Endian']]],
   ['byteswap16_16',['ByteSwap16',['../classNBT__Endian.html#a68933ecd2f92b56e25389fb9b6b45848',1,'NBT_Endian']]],
   ['byteswap32_17',['ByteSwap32',['../classNBT__Endian.html#a2cdd925007ecd0a1d38c3b6ed54c6020',1,'NBT_Endian']]],
   ['byteswap64_18',['ByteSwap64',['../classNBT__Endian.html#a78133426cce86c1dec331a0adec3bb16',1,'NBT_Endian']]],
-  ['byteswapany_19',['ByteSwapAny',['../classNBT__Endian.html#a4ae63ae6273e809d6b3a2875f88a5723',1,'NBT_Endian']]]
+  ['byteswapany_19',['ByteSwapAny',['../classNBT__Endian.html#ae3026110ebee4b02068755c511ca7f0b',1,'NBT_Endian']]]
 ];

@@ -8,7 +8,7 @@ var classNBT__Hash =
     [ "Digest", "classNBT__Hash.html#a41f4f608b89edfc68e0962473bfe5e57", null ],
     [ "operator=", "classNBT__Hash.html#a5a3d8b7591347184a597918440d43f52", null ],
     [ "operator=", "classNBT__Hash.html#ad648b94a7d1df47d63e4718f78c3d72f", null ],
-    [ "Update", "classNBT__Hash.html#a6e8fe64e062dd879357cbb6ad922e0ee", null ],
-    [ "Update", "classNBT__Hash.html#a610a1ad0b35394c2b221b9562f5f2fde", null ],
+    [ "Update", "classNBT__Hash.html#a1a06cae6d59c9418f74bec3ca938393f", null ],
+    [ "Update", "classNBT__Hash.html#a9a4989aff15c9d37f7919397d1eba8c2", null ],
     [ "Update", "classNBT__Hash.html#a6987754dc7090fd11e145928b8d53901", null ]
 ];

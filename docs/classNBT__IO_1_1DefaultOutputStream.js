@@ -12,7 +12,7 @@ var classNBT__IO_1_1DefaultOutputStream =
     [ "operator=", "classNBT__IO_1_1DefaultOutputStream.html#a9357a1fad648e9d1fdbd8ed92d43a6e6", null ],
     [ "operator=", "classNBT__IO_1_1DefaultOutputStream.html#a112d0c99c9dcbae7853b455fba5ebc6a", null ],
     [ "operator[]", "classNBT__IO_1_1DefaultOutputStream.html#a95bd5aad8a6b7ed0ed5426c7a149927f", null ],
-    [ "PutOnce", "classNBT__IO_1_1DefaultOutputStream.html#a3c53a6e34e6bae7bbd8c361a55f4dfa4", null ],
+    [ "PutOnce", "classNBT__IO_1_1DefaultOutputStream.html#afb18a55de8bcce39d448c7c510c0a6e3", null ],
     [ "PutRange", "classNBT__IO_1_1DefaultOutputStream.html#a1758795b7ee93cf4c518eb3706db461c", null ],
     [ "Reset", "classNBT__IO_1_1DefaultOutputStream.html#af0ec702d443260892fc67147a863c108", null ],
     [ "Size", "classNBT__IO_1_1DefaultOutputStream.html#a729d001d0051630eda4a2ef30fa88856", null ],

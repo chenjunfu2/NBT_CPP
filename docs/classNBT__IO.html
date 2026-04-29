@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
-<meta name="generator" content="Doxygen 1.15.0"/>
+<meta name="generator" content="Doxygen 1.16.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>chenjunfu2-nbt-cpp: NBT_IO类 参考</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
@@ -35,7 +35,7 @@
 </table>
 </div>
 <!-- end header part -->
-<!-- 制作者 Doxygen 1.15.0 -->
+<!-- 制作者 Doxygen 1.16.1 -->
 <script type="text/javascript">
 var searchBox = new SearchBox("searchBox", "search/",'.html');
 </script>
@@ -100,59 +100,51 @@ $(function(){initNavTree('classNBT__IO.html','','classNBT__IO-members'); });
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 类</h2></td></tr>
-<tr class="memitem:DefaultInputStream" id="r_DefaultInputStream"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNBT__IO_1_1DefaultInputStream.html">DefaultInputStream</a></td></tr>
+<tr class="memitem:DefaultInputStream" id="r_DefaultInputStream"><td class="memItemLeft">class &#160;</td><td class="memItemRight"><a class="el" href="classNBT__IO_1_1DefaultInputStream.html">DefaultInputStream</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">默认输入流类，用于从标准库容器中读取数据  <a href="classNBT__IO_1_1DefaultInputStream.html#details">更多...</a><br /></td></tr>
-<tr class="memitem:DefaultOutputStream" id="r_DefaultOutputStream"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNBT__IO_1_1DefaultOutputStream.html">DefaultOutputStream</a></td></tr>
+<tr class="memitem:DefaultOutputStream" id="r_DefaultOutputStream"><td class="memItemLeft">class &#160;</td><td class="memItemRight"><a class="el" href="classNBT__IO_1_1DefaultOutputStream.html">DefaultOutputStream</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">默认输出流类，用于将数据写入到标准库容器中  <a href="classNBT__IO_1_1DefaultOutputStream.html#details">更多...</a><br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-static-methods" class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 静态 Public 成员函数</h2></td></tr>
-<tr class="memitem:a140d5db89aa2e0e9fbacff6a1839aa63" id="r_a140d5db89aa2e0e9fbacff6a1839aa63"><td class="memTemplParams" colspan="2">template&lt;typename T = std::vector&lt;uint8_t&gt;&gt; <br />
-requires (sizeof(typename T::value_type) == 1 &amp;&amp; std::is_trivially_copyable_v&lt;typename T::value_type&gt;)</td></tr>
-<tr class="memitem:a140d5db89aa2e0e9fbacff6a1839aa63 template"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a140d5db89aa2e0e9fbacff6a1839aa63">WriteFile</a> (const std::filesystem::path &amp;pathFileName, const T &amp;tData)</td></tr>
-<tr class="memdesc:a140d5db89aa2e0e9fbacff6a1839aa63"><td class="mdescLeft">&#160;</td><td class="mdescRight">从任意顺序容器写出字节流数据到指定文件名的文件中  <br /></td></tr>
-<tr class="memitem:a0e36d7f00cc8cb898ebea56d3c53f65a" id="r_a0e36d7f00cc8cb898ebea56d3c53f65a"><td class="memTemplParams" colspan="2">template&lt;typename T = std::vector&lt;uint8_t&gt;&gt; <br />
-requires (sizeof(typename T::value_type) == 1 &amp;&amp; std::is_trivially_copyable_v&lt;typename T::value_type&gt;)</td></tr>
-<tr class="memitem:a0e36d7f00cc8cb898ebea56d3c53f65a template"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0e36d7f00cc8cb898ebea56d3c53f65a">ReadFile</a> (const std::filesystem::path &amp;pathFileName, T &amp;tData)</td></tr>
-<tr class="memdesc:a0e36d7f00cc8cb898ebea56d3c53f65a"><td class="mdescLeft">&#160;</td><td class="mdescRight">从指定文件名的文件中读取字节流数据到任意顺序容器中  <br /></td></tr>
-<tr class="memitem:a376fee406ed1df95df347d8ec074d0ec" id="r_a376fee406ed1df95df347d8ec074d0ec"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a376fee406ed1df95df347d8ec074d0ec">IsFileExist</a> (const std::filesystem::path &amp;pathFileName)</td></tr>
+<tr class="memitem:ad2a4e2f0f43e34de19df18adfa0ede8c" id="r_ad2a4e2f0f43e34de19df18adfa0ede8c"><td class="memTemplParams" colspan="2">template&lt;typename T = std::vector&lt;uint8_t&gt;&gt; </td></tr>
+<tr class="memitem:ad2a4e2f0f43e34de19df18adfa0ede8c template"><td class="memItemLeft">static bool&#160;</td><td class="memItemRight"><a class="el" href="#ad2a4e2f0f43e34de19df18adfa0ede8c">WriteFile</a> (const std::filesystem::path &amp;pathFileName, const T &amp;tData)</td></tr>
+<tr class="memdesc:ad2a4e2f0f43e34de19df18adfa0ede8c"><td class="mdescLeft">&#160;</td><td class="mdescRight">从任意顺序容器写出字节流数据到指定文件名的文件中  <br /></td></tr>
+<tr class="memitem:aa4f71f5c823611a36cbd8aac9f3255b1" id="r_aa4f71f5c823611a36cbd8aac9f3255b1"><td class="memTemplParams" colspan="2">template&lt;typename T = std::vector&lt;uint8_t&gt;&gt; </td></tr>
+<tr class="memitem:aa4f71f5c823611a36cbd8aac9f3255b1 template"><td class="memItemLeft">static bool&#160;</td><td class="memItemRight"><a class="el" href="#aa4f71f5c823611a36cbd8aac9f3255b1">ReadFile</a> (const std::filesystem::path &amp;pathFileName, T &amp;tData)</td></tr>
+<tr class="memdesc:aa4f71f5c823611a36cbd8aac9f3255b1"><td class="mdescLeft">&#160;</td><td class="mdescRight">从指定文件名的文件中读取字节流数据到任意顺序容器中  <br /></td></tr>
+<tr class="memitem:a376fee406ed1df95df347d8ec074d0ec" id="r_a376fee406ed1df95df347d8ec074d0ec"><td class="memItemLeft">static bool&#160;</td><td class="memItemRight"><a class="el" href="#a376fee406ed1df95df347d8ec074d0ec">IsFileExist</a> (const std::filesystem::path &amp;pathFileName)</td></tr>
 <tr class="memdesc:a376fee406ed1df95df347d8ec074d0ec"><td class="mdescLeft">&#160;</td><td class="mdescRight">判断指定文件名的文件是否存在  <br /></td></tr>
-<tr class="memitem:aac207e7431c4130f085b4e650b9e458c" id="r_aac207e7431c4130f085b4e650b9e458c"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aac207e7431c4130f085b4e650b9e458c">IsZlib</a> (uint8_t u8DataFirst, uint8_t u8DataSecond)</td></tr>
+<tr class="memitem:aac207e7431c4130f085b4e650b9e458c" id="r_aac207e7431c4130f085b4e650b9e458c"><td class="memItemLeft">static bool&#160;</td><td class="memItemRight"><a class="el" href="#aac207e7431c4130f085b4e650b9e458c">IsZlib</a> (uint8_t u8DataFirst, uint8_t u8DataSecond)</td></tr>
 <tr class="memdesc:aac207e7431c4130f085b4e650b9e458c"><td class="mdescLeft">&#160;</td><td class="mdescRight">通过字节流开始的两个字节判断是否可能是Zlib压缩  <br /></td></tr>
-<tr class="memitem:a77dedf7083ac20c6e328323f3475f540" id="r_a77dedf7083ac20c6e328323f3475f540"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a77dedf7083ac20c6e328323f3475f540">IsGzip</a> (uint8_t u8DataFirst, uint8_t u8DataSecond)</td></tr>
+<tr class="memitem:a77dedf7083ac20c6e328323f3475f540" id="r_a77dedf7083ac20c6e328323f3475f540"><td class="memItemLeft">static bool&#160;</td><td class="memItemRight"><a class="el" href="#a77dedf7083ac20c6e328323f3475f540">IsGzip</a> (uint8_t u8DataFirst, uint8_t u8DataSecond)</td></tr>
 <tr class="memdesc:a77dedf7083ac20c6e328323f3475f540"><td class="mdescLeft">&#160;</td><td class="mdescRight">通过字节流开始的两个字节判断是否可能是Gzip压缩  <br /></td></tr>
-<tr class="memitem:a4676a6e6a44e7e52f408073675d555e3" id="r_a4676a6e6a44e7e52f408073675d555e3"><td class="memTemplParams" colspan="2">template&lt;typename T&gt; <br />
-requires (sizeof(typename T::value_type) == 1 &amp;&amp; std::is_trivially_copyable_v&lt;typename T::value_type&gt;)</td></tr>
-<tr class="memitem:a4676a6e6a44e7e52f408073675d555e3 template"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4676a6e6a44e7e52f408073675d555e3">IsDataZipped</a> (const T &amp;tData)</td></tr>
-<tr class="memdesc:a4676a6e6a44e7e52f408073675d555e3"><td class="mdescLeft">&#160;</td><td class="mdescRight">判断一个顺序容器存储的字节流是否可能存在压缩  <br /></td></tr>
-<tr class="memitem:a6b020f152629eeb57e30a8617dd82117" id="r_a6b020f152629eeb57e30a8617dd82117"><td class="memTemplParams" colspan="2">template&lt;typename I, typename O&gt; <br />
-requires (sizeof(typename I::value_type) == 1 &amp;&amp; std::is_trivially_copyable_v&lt;typename I::value_type&gt; &amp;&amp; sizeof(typename O::value_type) == 1 &amp;&amp; std::is_trivially_copyable_v&lt;typename O::value_type&gt;)</td></tr>
-<tr class="memitem:a6b020f152629eeb57e30a8617dd82117 template"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6b020f152629eeb57e30a8617dd82117">DecompressData</a> (O &amp;oData, const I &amp;iData)</td></tr>
-<tr class="memdesc:a6b020f152629eeb57e30a8617dd82117"><td class="mdescLeft">&#160;</td><td class="mdescRight">解压数据，自动判断Zlib或Gzip并解压，如果失败则抛出异常  <br /></td></tr>
-<tr class="memitem:ae07925a74f5db70c16c6bbe76ba81b31" id="r_ae07925a74f5db70c16c6bbe76ba81b31"><td class="memTemplParams" colspan="2">template&lt;typename I, typename O&gt; <br />
-requires (sizeof(typename I::value_type) == 1 &amp;&amp; std::is_trivially_copyable_v&lt;typename I::value_type&gt; &amp;&amp; sizeof(typename O::value_type) == 1 &amp;&amp; std::is_trivially_copyable_v&lt;typename O::value_type&gt;)</td></tr>
-<tr class="memitem:ae07925a74f5db70c16c6bbe76ba81b31 template"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae07925a74f5db70c16c6bbe76ba81b31">CompressData</a> (O &amp;oData, const I &amp;iData, int iLevel=Z_DEFAULT_COMPRESSION)</td></tr>
-<tr class="memdesc:ae07925a74f5db70c16c6bbe76ba81b31"><td class="mdescLeft">&#160;</td><td class="mdescRight">压缩数据，默认压缩为Gzip，也就是NBT格式的标准压缩类型，如果失败则抛出异常  <br /></td></tr>
-<tr class="memitem:a00f26bdf9522ddaa9a6e2df1cadab594" id="r_a00f26bdf9522ddaa9a6e2df1cadab594"><td class="memTemplParams" colspan="2">template&lt;typename I, typename O, typename ErrInfoFunc = NBT_Print&gt; <br />
-requires (sizeof(typename I::value_type) == 1 &amp;&amp; std::is_trivially_copyable_v&lt;typename I::value_type&gt; &amp;&amp; sizeof(typename O::value_type) == 1 &amp;&amp; std::is_trivially_copyable_v&lt;typename O::value_type&gt;)</td></tr>
-<tr class="memitem:a00f26bdf9522ddaa9a6e2df1cadab594 template"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a00f26bdf9522ddaa9a6e2df1cadab594">DecompressDataNoThrow</a> (O &amp;oData, const I &amp;iData, ErrInfoFunc funcErrInfo=<a class="el" href="classNBT__Print.html">NBT_Print</a>{ stderr }) noexcept</td></tr>
-<tr class="memdesc:a00f26bdf9522ddaa9a6e2df1cadab594"><td class="mdescLeft">&#160;</td><td class="mdescRight">解压数据，但是不抛出异常，而是通过funcErrInfo打印异常信息并返回成功与否  <br /></td></tr>
-<tr class="memitem:a31eb936874d1af59ea5da53162a024ea" id="r_a31eb936874d1af59ea5da53162a024ea"><td class="memTemplParams" colspan="2">template&lt;typename I, typename O, typename ErrInfoFunc = NBT_Print&gt; <br />
-requires (sizeof(typename I::value_type) == 1 &amp;&amp; std::is_trivially_copyable_v&lt;typename I::value_type&gt; &amp;&amp; sizeof(typename O::value_type) == 1 &amp;&amp; std::is_trivially_copyable_v&lt;typename O::value_type&gt;)</td></tr>
-<tr class="memitem:a31eb936874d1af59ea5da53162a024ea template"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a31eb936874d1af59ea5da53162a024ea">CompressDataNoThrow</a> (O &amp;oData, const I &amp;iData, int iLevel=Z_DEFAULT_COMPRESSION, ErrInfoFunc funcErrInfo=<a class="el" href="classNBT__Print.html">NBT_Print</a>{ stderr }) noexcept</td></tr>
-<tr class="memdesc:a31eb936874d1af59ea5da53162a024ea"><td class="mdescLeft">&#160;</td><td class="mdescRight">压缩数据，但是不抛出异常，而是通过funcErrInfo打印异常信息并返回成功与否  <br /></td></tr>
+<tr class="memitem:a661837d3e3d2d8f8267f6e42876429cd" id="r_a661837d3e3d2d8f8267f6e42876429cd"><td class="memTemplParams" colspan="2">template&lt;typename T&gt; </td></tr>
+<tr class="memitem:a661837d3e3d2d8f8267f6e42876429cd template"><td class="memItemLeft">static bool&#160;</td><td class="memItemRight"><a class="el" href="#a661837d3e3d2d8f8267f6e42876429cd">IsDataZipped</a> (const T &amp;tData)</td></tr>
+<tr class="memdesc:a661837d3e3d2d8f8267f6e42876429cd"><td class="mdescLeft">&#160;</td><td class="mdescRight">判断一个顺序容器存储的字节流是否可能存在压缩  <br /></td></tr>
+<tr class="memitem:aa135196f6ad75f4d9fdc96284c3838e8" id="r_aa135196f6ad75f4d9fdc96284c3838e8"><td class="memTemplParams" colspan="2">template&lt;typename I, typename O&gt; </td></tr>
+<tr class="memitem:aa135196f6ad75f4d9fdc96284c3838e8 template"><td class="memItemLeft">static void&#160;</td><td class="memItemRight"><a class="el" href="#aa135196f6ad75f4d9fdc96284c3838e8">DecompressData</a> (O &amp;oData, const I &amp;iData)</td></tr>
+<tr class="memdesc:aa135196f6ad75f4d9fdc96284c3838e8"><td class="mdescLeft">&#160;</td><td class="mdescRight">解压数据，自动判断Zlib或Gzip并解压，如果失败则抛出异常  <br /></td></tr>
+<tr class="memitem:a1aedf88b6a48e4899dc796597ab236df" id="r_a1aedf88b6a48e4899dc796597ab236df"><td class="memTemplParams" colspan="2">template&lt;typename I, typename O&gt; </td></tr>
+<tr class="memitem:a1aedf88b6a48e4899dc796597ab236df template"><td class="memItemLeft">static void&#160;</td><td class="memItemRight"><a class="el" href="#a1aedf88b6a48e4899dc796597ab236df">CompressData</a> (O &amp;oData, const I &amp;iData, int iLevel=Z_DEFAULT_COMPRESSION)</td></tr>
+<tr class="memdesc:a1aedf88b6a48e4899dc796597ab236df"><td class="mdescLeft">&#160;</td><td class="mdescRight">压缩数据，默认压缩为Gzip，也就是NBT格式的标准压缩类型，如果失败则抛出异常  <br /></td></tr>
+<tr class="memitem:acd9e15b5528d016e87ffb67464aab8c8" id="r_acd9e15b5528d016e87ffb67464aab8c8"><td class="memTemplParams" colspan="2">template&lt;typename I, typename O, typename ErrInfoFunc = NBT_Print&gt; </td></tr>
+<tr class="memitem:acd9e15b5528d016e87ffb67464aab8c8 template"><td class="memItemLeft">static bool&#160;</td><td class="memItemRight"><a class="el" href="#acd9e15b5528d016e87ffb67464aab8c8">DecompressDataNoThrow</a> (O &amp;oData, const I &amp;iData, ErrInfoFunc funcErrInfo=<a class="el" href="classNBT__Print.html">NBT_Print</a>{ stderr }) noexcept</td></tr>
+<tr class="memdesc:acd9e15b5528d016e87ffb67464aab8c8"><td class="mdescLeft">&#160;</td><td class="mdescRight">解压数据，但是不抛出异常，而是通过funcErrInfo打印异常信息并返回成功与否  <br /></td></tr>
+<tr class="memitem:acb1e080c5f689eaf38640ca7827b7146" id="r_acb1e080c5f689eaf38640ca7827b7146"><td class="memTemplParams" colspan="2">template&lt;typename I, typename O, typename ErrInfoFunc = NBT_Print&gt; </td></tr>
+<tr class="memitem:acb1e080c5f689eaf38640ca7827b7146 template"><td class="memItemLeft">static bool&#160;</td><td class="memItemRight"><a class="el" href="#acb1e080c5f689eaf38640ca7827b7146">CompressDataNoThrow</a> (O &amp;oData, const I &amp;iData, int iLevel=Z_DEFAULT_COMPRESSION, ErrInfoFunc funcErrInfo=<a class="el" href="classNBT__Print.html">NBT_Print</a>{ stderr }) noexcept</td></tr>
+<tr class="memdesc:acb1e080c5f689eaf38640ca7827b7146"><td class="mdescLeft">&#160;</td><td class="mdescRight">压缩数据，但是不抛出异常，而是通过funcErrInfo打印异常信息并返回成功与否  <br /></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">详细描述</h2>
 <div class="textblock"><p>用于提供nbt文件读写，解压与压缩功能 </p>
 </div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">成员函数说明</h2>
-<a id="ae07925a74f5db70c16c6bbe76ba81b31" name="ae07925a74f5db70c16c6bbe76ba81b31"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae07925a74f5db70c16c6bbe76ba81b31">&#9670;&#160;</a></span>CompressData()</h2>
+<a id="a1aedf88b6a48e4899dc796597ab236df" name="a1aedf88b6a48e4899dc796597ab236df"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1aedf88b6a48e4899dc796597ab236df">&#9670;&#160;</a></span>CompressData()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename I, typename O&gt; <br />
-requires (sizeof(typename I::value_type) == 1 &amp;&amp; std::is_trivially_copyable_v&lt;typename I::value_type&gt; &amp;&amp; sizeof(typename O::value_type) == 1 &amp;&amp; std::is_trivially_copyable_v&lt;typename O::value_type&gt;)</div>
+template&lt;typename I, typename O&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -200,14 +192,13 @@ requires (sizeof(typename I::value_type) == 1 &amp;&amp; std::is_trivially_copya
 
 </div>
 </div>
-<a id="a31eb936874d1af59ea5da53162a024ea" name="a31eb936874d1af59ea5da53162a024ea"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a31eb936874d1af59ea5da53162a024ea">&#9670;&#160;</a></span>CompressDataNoThrow()</h2>
+<a id="acb1e080c5f689eaf38640ca7827b7146" name="acb1e080c5f689eaf38640ca7827b7146"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acb1e080c5f689eaf38640ca7827b7146">&#9670;&#160;</a></span>CompressDataNoThrow()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename I, typename O, typename ErrInfoFunc = NBT_Print&gt; <br />
-requires (sizeof(typename I::value_type) == 1 &amp;&amp; std::is_trivially_copyable_v&lt;typename I::value_type&gt; &amp;&amp; sizeof(typename O::value_type) == 1 &amp;&amp; std::is_trivially_copyable_v&lt;typename O::value_type&gt;)</div>
+template&lt;typename I, typename O, typename ErrInfoFunc = NBT_Print&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -263,14 +254,13 @@ requires (sizeof(typename I::value_type) == 1 &amp;&amp; std::is_trivially_copya
 
 </div>
 </div>
-<a id="a6b020f152629eeb57e30a8617dd82117" name="a6b020f152629eeb57e30a8617dd82117"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6b020f152629eeb57e30a8617dd82117">&#9670;&#160;</a></span>DecompressData()</h2>
+<a id="aa135196f6ad75f4d9fdc96284c3838e8" name="aa135196f6ad75f4d9fdc96284c3838e8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa135196f6ad75f4d9fdc96284c3838e8">&#9670;&#160;</a></span>DecompressData()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename I, typename O&gt; <br />
-requires (sizeof(typename I::value_type) == 1 &amp;&amp; std::is_trivially_copyable_v&lt;typename I::value_type&gt; &amp;&amp; sizeof(typename O::value_type) == 1 &amp;&amp; std::is_trivially_copyable_v&lt;typename O::value_type&gt;)</div>
+template&lt;typename I, typename O&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -312,14 +302,13 @@ requires (sizeof(typename I::value_type) == 1 &amp;&amp; std::is_trivially_copya
 
 </div>
 </div>
-<a id="a00f26bdf9522ddaa9a6e2df1cadab594" name="a00f26bdf9522ddaa9a6e2df1cadab594"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a00f26bdf9522ddaa9a6e2df1cadab594">&#9670;&#160;</a></span>DecompressDataNoThrow()</h2>
+<a id="acd9e15b5528d016e87ffb67464aab8c8" name="acd9e15b5528d016e87ffb67464aab8c8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acd9e15b5528d016e87ffb67464aab8c8">&#9670;&#160;</a></span>DecompressDataNoThrow()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename I, typename O, typename ErrInfoFunc = NBT_Print&gt; <br />
-requires (sizeof(typename I::value_type) == 1 &amp;&amp; std::is_trivially_copyable_v&lt;typename I::value_type&gt; &amp;&amp; sizeof(typename O::value_type) == 1 &amp;&amp; std::is_trivially_copyable_v&lt;typename O::value_type&gt;)</div>
+template&lt;typename I, typename O, typename ErrInfoFunc = NBT_Print&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -369,14 +358,13 @@ requires (sizeof(typename I::value_type) == 1 &amp;&amp; std::is_trivially_copya
 
 </div>
 </div>
-<a id="a4676a6e6a44e7e52f408073675d555e3" name="a4676a6e6a44e7e52f408073675d555e3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4676a6e6a44e7e52f408073675d555e3">&#9670;&#160;</a></span>IsDataZipped()</h2>
+<a id="a661837d3e3d2d8f8267f6e42876429cd" name="a661837d3e3d2d8f8267f6e42876429cd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a661837d3e3d2d8f8267f6e42876429cd">&#9670;&#160;</a></span>IsDataZipped()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename T&gt; <br />
-requires (sizeof(typename T::value_type) == 1 &amp;&amp; std::is_trivially_copyable_v&lt;typename T::value_type&gt;)</div>
+template&lt;typename T&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -528,14 +516,13 @@ requires (sizeof(typename T::value_type) == 1 &amp;&amp; std::is_trivially_copya
 
 </div>
 </div>
-<a id="a0e36d7f00cc8cb898ebea56d3c53f65a" name="a0e36d7f00cc8cb898ebea56d3c53f65a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0e36d7f00cc8cb898ebea56d3c53f65a">&#9670;&#160;</a></span>ReadFile()</h2>
+<a id="aa4f71f5c823611a36cbd8aac9f3255b1" name="aa4f71f5c823611a36cbd8aac9f3255b1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa4f71f5c823611a36cbd8aac9f3255b1">&#9670;&#160;</a></span>ReadFile()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename T = std::vector&lt;uint8_t&gt;&gt; <br />
-requires (sizeof(typename T::value_type) == 1 &amp;&amp; std::is_trivially_copyable_v&lt;typename T::value_type&gt;)</div>
+template&lt;typename T = std::vector&lt;uint8_t&gt;&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -577,14 +564,13 @@ requires (sizeof(typename T::value_type) == 1 &amp;&amp; std::is_trivially_copya
 
 </div>
 </div>
-<a id="a140d5db89aa2e0e9fbacff6a1839aa63" name="a140d5db89aa2e0e9fbacff6a1839aa63"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a140d5db89aa2e0e9fbacff6a1839aa63">&#9670;&#160;</a></span>WriteFile()</h2>
+<a id="ad2a4e2f0f43e34de19df18adfa0ede8c" name="ad2a4e2f0f43e34de19df18adfa0ede8c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad2a4e2f0f43e34de19df18adfa0ede8c">&#9670;&#160;</a></span>WriteFile()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename T = std::vector&lt;uint8_t&gt;&gt; <br />
-requires (sizeof(typename T::value_type) == 1 &amp;&amp; std::is_trivially_copyable_v&lt;typename T::value_type&gt;)</div>
+template&lt;typename T = std::vector&lt;uint8_t&gt;&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -643,7 +629,7 @@ requires (sizeof(typename T::value_type) == 1 &amp;&amp; std::is_trivially_copya
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a href="classNBT__IO.html">NBT_IO</a></li>
-    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.15.0 </li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.16.1 </li>
   </ul>
 </div>
 </body>

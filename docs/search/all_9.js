@@ -18,7 +18,7 @@ var searchData=
   ['iscompoundtype_5fv_15',['IsCompoundType_V',['../classNBT__Type.html#a55bc8c31fcc208e2cbed63fd5bdf3a1a',1,'NBT_Type']]],
   ['iscontainertag_16',['IsContainerTag',['../classNBT__Type.html#a3e807fbcf91b55568e76023589603424',1,'NBT_Type']]],
   ['iscontainertype_5fv_17',['IsContainerType_V',['../classNBT__Type.html#a5732a67f89efd315f37f20f92a4defbe',1,'NBT_Type']]],
-  ['isdatazipped_18',['IsDataZipped',['../classNBT__IO.html#a4676a6e6a44e7e52f408073675d555e3',1,'NBT_IO']]],
+  ['isdatazipped_18',['IsDataZipped',['../classNBT__IO.html#a661837d3e3d2d8f8267f6e42876429cd',1,'NBT_IO']]],
   ['isdouble_19',['IsDouble',['../classNBT__Node.html#a18bec59a8bf3179cbcbdb6ef4719ddc2',1,'NBT_Node::IsDouble() const'],['../classNBT__Node.html#aaf1fb226cc19e419251887720f235640',1,'NBT_Node::IsDouble(const NBT_Node &amp;node)'],['../classNBT__Node__View.html#af23d6e8dbcaeef743bf134a7d760f59d',1,'NBT_Node_View::IsDouble() const'],['../classNBT__Node__View.html#aac13c09ae8399afc58ef5ff0dde20c79',1,'NBT_Node_View::IsDouble(const NBT_Node_View &amp;node)']]],
   ['isempty_20',['IsEmpty',['../classNBT__Node__View.html#a8924e4a3ead9319dd26f508c9b84c4cb',1,'NBT_Node_View']]],
   ['isend_21',['IsEnd',['../classNBT__IO_1_1DefaultInputStream.html#af5affd31d2b0cc922536e90fdce46c79',1,'NBT_IO::DefaultInputStream::IsEnd()'],['../classNBT__Node.html#a73390c4a7ce3aee0189db027ef480cae',1,'NBT_Node::IsEnd() const'],['../classNBT__Node.html#ac2ba163d8e4b0784f73b1810d7fe0dbd',1,'NBT_Node::IsEnd(const NBT_Node &amp;node)'],['../classNBT__Node__View.html#a5011d3177da7f71500db75b37a534d39',1,'NBT_Node_View::IsEnd() const'],['../classNBT__Node__View.html#a199980f273f6911ba0cc2a67a4214f4e',1,'NBT_Node_View::IsEnd(const NBT_Node_View &amp;node)']]],

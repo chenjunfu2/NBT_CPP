@@ -21,5 +21,5 @@ var classNBT__Type =
     [ "String", "classNBT__Type.html#a8580dcb2a4494cd9bc52526d43f61865", null ],
     [ "StringLength", "classNBT__Type.html#aae1d0d45649a20866a3b95d9323a768a", null ],
     [ "TagToType_T", "classNBT__Type.html#a121fc72b4ada6455470aa0b635f3c763", null ],
-    [ "TypeList", "classNBT__Type.html#a3e6b28d3639afce0227285776d2f4c66", null ]
+    [ "TypeList", "classNBT__Type.html#a9a7c80f2a9957107e6a93aa33760adf9", null ]
 ];
