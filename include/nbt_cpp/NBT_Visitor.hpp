@@ -33,14 +33,14 @@ public:
 	}
 
 	template<typename T>
-	requires(NBT_Type::IsArrayType_V<T>)
-	ResultControl VisitArrayResult(const T &tArrayResult)
+	requires(NBT_Type::IsArrayType_V<T> && !std::is_reference_v<T>)//防止引用折叠
+	ResultControl VisitArrayResult(T &&tArrayResult)
 	{
 		//do something...
 		return ResultControl::Continue;
 	}
 
-	ResultControl VisitStringResult(const NBT_Type::String &strResult)
+	ResultControl VisitStringResult(NBT_Type::String &&strResult)
 	{
 		//do something...
 		return ResultControl::Continue;
@@ -82,7 +82,7 @@ public:
 		return NestingControl::Enter;
 	}
 
-	NestingControl VisitCompoundNextEntry(NBT_TAG_RAW_TYPE tagEntryType, const NBT_Type::String &strKey)
+	NestingControl VisitCompoundNextEntry(NBT_TAG_RAW_TYPE tagEntryType, NBT_Type::String &&strKey)
 	{
 		//do something...
 		return NestingControl::Enter;
@@ -110,7 +110,14 @@ public:
 
 template <typename T>
 concept IsLookLike_NBT_Visitor =
-requires(T visitor, NBT_Visitor nbt_visitor)
+requires(
+	T visitor,
+	NBT_Visitor nbt_visitor,
+	NBT_Type::ByteArray nbt_bytearray,
+	NBT_Type::IntArray nbt_intarray,
+	NBT_Type::LongArray nbt_longarray,
+	NBT_Type::String nbt_string
+	)
 {
 	//数值类型访问方法
 	{
@@ -134,19 +141,19 @@ requires(T visitor, NBT_Visitor nbt_visitor)
 
 	//数组类型访问方法
 	{
-		visitor.VisitArrayResult(NBT_Type::ByteArray{})
-	} -> std::same_as<decltype(nbt_visitor.VisitArrayResult(NBT_Type::ByteArray{}))>;
+		visitor.VisitArrayResult(std::move(nbt_bytearray))
+	} -> std::same_as<decltype(nbt_visitor.VisitArrayResult(std::move(nbt_bytearray)))>;
 	{
-		visitor.VisitArrayResult(NBT_Type::IntArray{})
-	} -> std::same_as<decltype(nbt_visitor.VisitArrayResult(NBT_Type::IntArray{}))>;
+		visitor.VisitArrayResult(std::move(nbt_intarray))
+	} -> std::same_as<decltype(nbt_visitor.VisitArrayResult(std::move(nbt_intarray)))>;
 	{
-		visitor.VisitArrayResult(NBT_Type::LongArray{})
-	} -> std::same_as<decltype(nbt_visitor.VisitArrayResult(NBT_Type::LongArray{}))>;
+		visitor.VisitArrayResult(std::move(nbt_longarray))
+	} -> std::same_as<decltype(nbt_visitor.VisitArrayResult(std::move(nbt_longarray)))>;
 
 	//字符串访问方法
 	{
-		visitor.VisitStringResult(NBT_Type::String{})
-	} -> std::same_as<decltype(nbt_visitor.VisitStringResult(NBT_Type::String{}))>;
+		visitor.VisitStringResult(std::move(nbt_string))
+	} -> std::same_as<decltype(nbt_visitor.VisitStringResult(std::move(nbt_string)))>;
 
 	//结束标记访问方法
 	{
@@ -173,8 +180,8 @@ requires(T visitor, NBT_Visitor nbt_visitor)
 		visitor.VisitCompoundNextEntryType(NBT_TAG_RAW_TYPE{})
 	} -> std::same_as<decltype(nbt_visitor.VisitCompoundNextEntryType(NBT_TAG_RAW_TYPE{}))>;
 	{
-		visitor.VisitCompoundNextEntry(NBT_TAG_RAW_TYPE{}, NBT_Type::String{})
-	} -> std::same_as<decltype(nbt_visitor.VisitCompoundNextEntry(NBT_TAG_RAW_TYPE{}, NBT_Type::String{}))>;
+		visitor.VisitCompoundNextEntry(NBT_TAG_RAW_TYPE{}, std::move(nbt_string))
+	} -> std::same_as<decltype(nbt_visitor.VisitCompoundNextEntry(NBT_TAG_RAW_TYPE{}, std::move(nbt_string)))>;
 	{
 		visitor.VisitCompoundEnd()
 	} -> std::same_as<decltype(nbt_visitor.VisitCompoundEnd())>;

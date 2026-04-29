@@ -59,6 +59,29 @@ protected:
 
 	//增加skip系列函数，用于跳过值
 
+	template<typename InputStream>
+	static bool GetName(InputStream &tData, NBT_Type::String &tName)
+	{
+		//读取长度
+		NBT_Type::StringLength wStringLength = 0;//w->word=2*byte
+		if (!ReadBigEndian(tData, wStringLength))
+		{
+			return false;
+		}
+
+		//检查长度
+		if (!tData.HasAvailData(wStringLength))
+		{
+			return false;
+		}
+
+		//解析数据
+		tName.reserve(wStringLength);//提前分配
+		tName.assign((const NBT_Type::String::value_type *)tData.CurData(), wStringLength);//构造string（如果长度为0则构造0长字符串，合法行为）
+		tData.AddIndex(wStringLength);//移动下标
+
+		return true;
+	}
 
 	template<typename InputStream, typename Visitor>
 	static Control ScanEndType(InputStream &tData, Visitor &tVisitor)
@@ -71,7 +94,7 @@ protected:
 	{
 		using RAW_DATA_T = NBT_Type::BuiltinRawType_T<T>;//类型映射
 		RAW_DATA_T tTmpRawData = 0;
-		if (!ReadBigEndian(tData, tTmpRawData, funcInfo))
+		if (!ReadBigEndian(tData, tTmpRawData))
 		{
 			return Control::Error;
 		}
@@ -84,7 +107,13 @@ protected:
 	{
 		//获取4字节有符号数，代表数组元素个数
 		NBT_Type::ArrayLength iElementCount = 0;//4byte
-		if (!ReadBigEndian(tData, iElementCount, funcInfo))
+		if (!ReadBigEndian(tData, iElementCount))
+		{
+			return Control::Error;
+		}
+
+		//检查有符号数大小范围
+		if (iElementCount < 0)
 		{
 			return Control::Error;
 		}
@@ -96,16 +125,30 @@ protected:
 			return Control::Error;
 		}
 
+		//数组保存
 		T tArray{};
 		tArray.reserve(iElementCount);
+		//读取dElementCount个元素
+		for (size_t i = 0; i < (size_t)iElementCount; ++i)
+		{
+			ValueType tTmpData{};
+			ReadBigEndian<true>(tData, tTmpData);//调用需要确保范围安全
+			tArray.emplace_back(std::move(tTmpData));//读取一个插入一个
+		}
 
-
+		return ResultControlToControl(tVisitor.VisitArrayResult<T>(std::move(tArray)));
 	}
 
 	template<typename InputStream, typename Visitor>
 	static Control ScanStringType(InputStream &tData, Visitor &tVisitor)
 	{
-		
+		NBT_Type::String tString;
+		if (!GetName(tData, tString))
+		{
+			return Control::Error;
+		}
+
+		return ResultControlToControl(tVisitor.VisitStringResult(std::move(tString)));
 	}
 
 	template<typename InputStream, typename Visitor>
