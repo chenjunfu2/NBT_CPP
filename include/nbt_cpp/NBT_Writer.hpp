@@ -615,7 +615,7 @@ catch(...)\
 
 				if (eRet != AllOk)
 				{
-					STACK_TRACEBACK("PutSwitch Error, Size: [{}] Index: [{}]", iListLength, i);
+					STACK_TRACEBACK("PutSwitch Error, Size: [{}] Index: [{}]", (size_t)iListLength, i);
 					return eRet;
 				}
 			}

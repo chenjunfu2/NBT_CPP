@@ -527,7 +527,7 @@ catch(...)\
 			eRet = GetSwitch<bUnwrapMixedList>(tData, tmpNode, (NBT_TAG)enListElementTag, szStackDepth - 1, funcInfo);
 			if (eRet != AllOk)//错误处理
 			{
-				STACK_TRACEBACK("GetSwitch Error, Size: [{}] Index: [{}]", iListLength, i);
+				STACK_TRACEBACK("GetSwitch Error, Size: [{}] Index: [{}]", (size_t)iListLength, i);
 				return eRet;
 			}
 
