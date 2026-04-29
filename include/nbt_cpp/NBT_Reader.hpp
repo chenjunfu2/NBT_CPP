@@ -273,17 +273,16 @@ catch(...)\
 		}
 
 		size_t szStringLength = (size_t)wStringLength;
+		using ValueType = NBT_Type::String::value_type;
 
 		//判断长度是否超过
-		if (!tData.HasAvailData(szStringLength * sizeof(NBT_Type::String::value_type)))
+		if (!tData.HasAvailData(szStringLength * sizeof(ValueType)))
 		{
 			ErrCode eRet = Error(OutOfRangeError, tData, funcInfo, "{}:\n(Index[{}] + szStringLength[{}])[{}] > DataSize[{}]", __FUNCTION__,
 				tData.Index(), szStringLength, tData.Index() + szStringLength, tData.Size());
 			STACK_TRACEBACK("HasAvailData Test");
 			return eRet;
 		}
-
-		using ValueType = NBT_Type::String::value_type;
 		
 		//解析出名称
 		tName.reserve(szStringLength);//提前分配

@@ -69,17 +69,20 @@ protected:
 			return false;
 		}
 
+		size_t szStringLength = (size_t)wStringLength;
+		using ValueType = NBT_Type::String::value_type;
+
 		//检查长度
-		if (!tData.HasAvailData(wStringLength * sizeof(NBT_Type::String::value_type)))
+		if (!tData.HasAvailData(szStringLength * sizeof(ValueType)))
 		{
 			return false;
 		}
 
 		//解析数据
-		tName.reserve(wStringLength);//提前分配
-		tName.assign((const NBT_Type::String::value_type *)tData.CurData(), wStringLength);//构造string（如果长度为0则构造0长字符串，合法行为）
+		tName.reserve(szStringLength);//提前分配
+		tName.assign((const ValueType *)tData.CurData(), szStringLength);//构造string（如果长度为0则构造0长字符串，合法行为）
 		
-		tData.AddIndex(wStringLength * sizeof(NBT_Type::String::value_type));//移动下标
+		tData.AddIndex(szStringLength * sizeof(ValueType));//移动下标
 
 		return true;
 	}
