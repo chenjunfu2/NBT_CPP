@@ -262,7 +262,7 @@ catch(...)\
 		}
 
 		//输出名称长度
-		NBT_Type::StringLength wNameLength = (uint16_t)szStringLength;
+		NBT_Type::StringLength wNameLength = (NBT_Type::StringLength)szStringLength;
 		eRet = WriteBigEndian(tData, wNameLength, funcInfo);
 		if (eRet != AllOk)
 		{
@@ -270,15 +270,17 @@ catch(...)\
 			return eRet;
 		}
 
+		using ValueType = NBT_Type::String::value_type;
+
 		//输出名称
-		eRet = CheckReserve(tData, szStringLength * sizeof(sName[0]), funcInfo);//提前分配
+		eRet = CheckReserve(tData, szStringLength * sizeof(ValueType), funcInfo);//提前分配
 		if (eRet != AllOk)
 		{
-			STACK_TRACEBACK("CheckReserve Fail, Check Size: [{}]", szStringLength * sizeof(sName[0]));
+			STACK_TRACEBACK("CheckReserve Fail, Check Size: [{}]", szStringLength * sizeof(ValueType));
 			return eRet;
 		}
 		//范围写入
-		tData.PutRange((const typename OutputStream::ValueType *)sName.data(), szStringLength);
+		tData.PutRange((const typename OutputStream::ValueType *)sName.data(), szStringLength * sizeof(ValueType));
 
 		return eRet;
 	MYCATCH;
@@ -328,15 +330,17 @@ catch(...)\
 			return eRet;
 		}
 
+		using ValueType = typename T::value_type;
+
 		//写出元素
-		eRet = CheckReserve(tData, (size_t)iArrayLength * sizeof(tArray[0]), funcInfo);//提前分配
+		eRet = CheckReserve(tData, szArrayLength * sizeof(ValueType), funcInfo);//提前分配
 		if (eRet != AllOk)
 		{
-			STACK_TRACEBACK("CheckReserve Fail, Check Size: [{}]", (size_t)iArrayLength * sizeof(tArray[0]));
+			STACK_TRACEBACK("CheckReserve Fail, Check Size: [{}]", szArrayLength * sizeof(ValueType));
 			return eRet;
 		}
 
-		for (size_t i = 0; i < (size_t)iArrayLength; ++i)
+		for (size_t i = 0; i < szArrayLength; ++i)
 		{
 			eRet = WriteBigEndian(tData, tArray[i], funcInfo);
 			if (eRet != AllOk)
@@ -524,19 +528,8 @@ catch(...)\
 		ErrCode eRet = AllOk;
 		CHECK_STACK_DEPTH(szStackDepth);
 
-		//检查
-		size_t szListLength = tList.size();
-		if (szListLength > (size_t)NBT_Type::ListLength_Max)//大于的情况下强制赋值会导致严重问题，只能返回错误
-		{
-			eRet = Error(ListTooLongError, tData, funcInfo, "{}:\nszListLength[{}] > ListLength_Max[{}]", __FUNCTION__,
-				szListLength, (size_t)NBT_Type::ListLength_Max);
-			STACK_TRACEBACK("szListLength Test");
-			return eRet;
-		}
-
 		//转换为写入大小
-		NBT_Type::ListLength iListLength = (NBT_Type::ListLength)szListLength;
-		NBT_Type::ListLength iListEmptyEntryLength = 0;//统计空元素数量
+		size_t szListEmptyEntryLength = 0;//统计空元素数量
 
 		//获取列表标签
 		bool bNeedWarp = false;
@@ -548,7 +541,7 @@ catch(...)\
 			auto curTag = it.GetTag();
 			if (curTag == NBT_TAG::End)
 			{
-				++iListEmptyEntryLength;//统计空元素数量
+				++szListEmptyEntryLength;//统计空元素数量
 				continue;//空元素没有后续判断必要性，跳过
 			}
 
@@ -578,6 +571,18 @@ catch(...)\
 		//元素不同：bNeedWarp为true且enListElementTag为Compound
 		//元素相同：bNeedWarp为false且enListElementTag为列表元素类型
 
+		//检查
+		//仅判断去除空元素后是否超出上限
+		size_t szListLength = tList.size();
+		size_t szListNoEmptyEntryLength = szListLength - szListEmptyEntryLength;
+		if (szListNoEmptyEntryLength > (size_t)NBT_Type::ListLength_Max)//大于的情况下强制赋值会导致严重问题，只能返回错误
+		{
+			eRet = Error(ListTooLongError, tData, funcInfo, "{}:\nszListNoEmptyEntryLength[{}] > ListLength_Max[{}]", __FUNCTION__,
+				szListNoEmptyEntryLength, (size_t)NBT_Type::ListLength_Max);
+			STACK_TRACEBACK("szListLength Test");
+			return eRet;
+		}
+
 		//写出标签
 		eRet = WriteBigEndian(tData, (NBT_TAG_RAW_TYPE)enListElementTag, funcInfo);
 		if (eRet != AllOk)
@@ -587,7 +592,8 @@ catch(...)\
 		}
 
 		//写出长度，不包含空元素，所以减去iListEmptyEntryLength
-		eRet = WriteBigEndian(tData, iListLength - iListEmptyEntryLength, funcInfo);
+		NBT_Type::ListLength iListLength = (NBT_Type::ListLength)szListNoEmptyEntryLength;
+		eRet = WriteBigEndian(tData, iListLength, funcInfo);
 		if (eRet != AllOk)
 		{
 			STACK_TRACEBACK("iListLength Write");
@@ -595,7 +601,7 @@ catch(...)\
 		}
 
 		//写出列表（递归）
-		for (size_t i = 0; i < (size_t)iListLength; ++i)//注意遍历仍然需要遍历整个列表，而不是iListLength - iListEmptyEntryLength
+		for (size_t i = 0; i < szListLength; ++i)//注意遍历仍然需要遍历整个列表而不是仅szListNoEmptyEntryLength，因为空元素可以在任何位置
 		{
 			//获取元素与类型
 			const NBT_Node &tmpNode = tList[i];
@@ -615,7 +621,7 @@ catch(...)\
 
 				if (eRet != AllOk)
 				{
-					STACK_TRACEBACK("PutSwitch Error, Size: [{}] Index: [{}]", (size_t)iListLength, i);
+					STACK_TRACEBACK("PutSwitch Error, Size: [{}] Index: [{}]", szListLength, i);
 					return eRet;
 				}
 			}

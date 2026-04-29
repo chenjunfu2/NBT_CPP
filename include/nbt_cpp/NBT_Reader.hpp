@@ -272,20 +272,24 @@ catch(...)\
 			return eRet;
 		}
 
+		size_t szStringLength = (size_t)wStringLength;
+
 		//判断长度是否超过
-		if (!tData.HasAvailData(wStringLength))
+		if (!tData.HasAvailData(szStringLength * sizeof(NBT_Type::String::value_type)))
 		{
-			ErrCode eRet = Error(OutOfRangeError, tData, funcInfo, "{}:\n(Index[{}] + wStringLength[{}])[{}] > DataSize[{}]", __FUNCTION__,
-				tData.Index(), (size_t)wStringLength, tData.Index() + (size_t)wStringLength, tData.Size());
+			ErrCode eRet = Error(OutOfRangeError, tData, funcInfo, "{}:\n(Index[{}] + szStringLength[{}])[{}] > DataSize[{}]", __FUNCTION__,
+				tData.Index(), szStringLength, tData.Index() + szStringLength, tData.Size());
 			STACK_TRACEBACK("HasAvailData Test");
 			return eRet;
 		}
 
+		using ValueType = NBT_Type::String::value_type;
 		
 		//解析出名称
-		tName.reserve(wStringLength);//提前分配
-		tName.assign((const NBT_Type::String::value_type *)tData.CurData(), wStringLength);//构造string（如果长度为0则构造0长字符串，合法行为）
-		tData.AddIndex(wStringLength);//移动下标
+		tName.reserve(szStringLength);//提前分配
+		tName.assign((const ValueType *)tData.CurData(), szStringLength);//构造string（如果长度为0则构造0长字符串，合法行为）
+		
+		tData.AddIndex(szStringLength * sizeof(ValueType));//移动下标
 
 		return eRet;
 	MYCATCH;
@@ -336,21 +340,22 @@ catch(...)\
 			return eRet;
 		}
 
+		size_t szElementCount = (size_t)iElementCount;
 		using ValueType = typename T::value_type;
 
 		//判断长度是否超过
-		if (!tData.HasAvailData((size_t)iElementCount * sizeof(ValueType)))//保证下方调用安全
+		if (!tData.HasAvailData(szElementCount * sizeof(ValueType)))//保证下方调用安全
 		{
-			eRet = Error(OutOfRangeError, tData, funcInfo, "{}:\n(Index[{}] + iElementCount[{}] * sizeof(T::value_type)[{}])[{}] > DataSize[{}]", __FUNCTION__,
-				tData.Index(), (size_t)iElementCount, sizeof(ValueType), tData.Index() + (size_t)iElementCount * sizeof(typename T::value_type), tData.Size());
+			eRet = Error(OutOfRangeError, tData, funcInfo, "{}:\n(Index[{}] + szElementCount[{}] * sizeof(T::value_type)[{}])[{}] > DataSize[{}]", __FUNCTION__,
+				tData.Index(), szElementCount, sizeof(ValueType), tData.Index() + szElementCount * sizeof(typename T::value_type), tData.Size());
 			STACK_TRACEBACK("HasAvailData Test");
 			return eRet;
 		}
 		
 		//数组保存
-		tArray.reserve((size_t)iElementCount);//提前扩容
+		tArray.reserve(szElementCount);//提前扩容
 		//读取dElementCount个元素
-		for (size_t i = 0; i < (size_t)iElementCount; ++i)
+		for (size_t i = 0; i < szElementCount; ++i)
 		{
 			ValueType tTmpData{};
 			ReadBigEndian<true>(tData, tTmpData, funcInfo);//调用需要确保范围安全
@@ -502,32 +507,34 @@ catch(...)\
 			return eRet;
 		}
 
+		size_t szListLength = (size_t)iListLength;
+
 		//防止重复N个结束标签，带有结束标签的必须是空列表
-		if (enListElementTag == NBT_TAG::End && iListLength != 0)
+		if (enListElementTag == NBT_TAG::End && szListLength != 0)
 		{
 			eRet = Error(ListElementTypeError, tData, funcInfo, "{}:\nThe list with TAG_End[0x00] tag must be empty, but [{}] elements were found", __FUNCTION__,
-				iListLength);
-			STACK_TRACEBACK("enListElementTag And iListLength Test");
+				szListLength);
+			STACK_TRACEBACK("enListElementTag And szListLength Test");
 			return eRet;
 		}
 
 		//确保如果长度为0的情况下，列表类型必为End
-		if (iListLength == 0 && enListElementTag != NBT_TAG::End)
+		if (szListLength == 0 && enListElementTag != NBT_TAG::End)
 		{
 			enListElementTag = (NBT_TAG_RAW_TYPE)NBT_TAG::End;
 		}
 
 		//提前扩容
-		tList.reserve((size_t)iListLength);//已知大小提前分配减少开销
+		tList.reserve(szListLength);//已知大小提前分配减少开销
 
 		//根据元素类型，读取n次列表
-		for (size_t i = 0; i < (size_t)iListLength; ++i)
+		for (size_t i = 0; i < szListLength; ++i)
 		{
 			NBT_Node tmpNode{};//列表元素会直接赋值修改
 			eRet = GetSwitch<bUnwrapMixedList>(tData, tmpNode, (NBT_TAG)enListElementTag, szStackDepth - 1, funcInfo);
 			if (eRet != AllOk)//错误处理
 			{
-				STACK_TRACEBACK("GetSwitch Error, Size: [{}] Index: [{}]", (size_t)iListLength, i);
+				STACK_TRACEBACK("GetSwitch Error, Size: [{}] Index: [{}]", szListLength, i);
 				return eRet;
 			}
 

@@ -70,7 +70,7 @@ protected:
 		}
 
 		//检查长度
-		if (!tData.HasAvailData(wStringLength))
+		if (!tData.HasAvailData(wStringLength * sizeof(NBT_Type::String::value_type)))
 		{
 			return false;
 		}
@@ -78,8 +78,32 @@ protected:
 		//解析数据
 		tName.reserve(wStringLength);//提前分配
 		tName.assign((const NBT_Type::String::value_type *)tData.CurData(), wStringLength);//构造string（如果长度为0则构造0长字符串，合法行为）
-		tData.AddIndex(wStringLength);//移动下标
+		
+		tData.AddIndex(wStringLength * sizeof(NBT_Type::String::value_type));//移动下标
 
+		return true;
+	}
+
+	template<typename InputStream>
+	static bool SkipName(InputStream &tData)
+	{
+		//读取长度
+		NBT_Type::StringLength wStringLength = 0;//w->word=2*byte
+		if (!ReadBigEndian(tData, wStringLength))
+		{
+			return false;
+		}
+
+		size_t szSkipSize = (size_t)wStringLength * sizeof(NBT_Type::String::value_type);
+
+		//检查长度
+		if (!tData.HasAvailData(szSkipSize))
+		{
+			return false;
+		}
+
+		//跳过数据
+		tData.AddIndex(szSkipSize);
 		return true;
 	}
 
@@ -87,6 +111,13 @@ protected:
 	static Control ScanEndType(InputStream &tData, Visitor &tVisitor)
 	{
 		return ResultControlToControl(tVisitor.VisitListEnd());
+	}
+
+	template<typename InputStream>
+	static bool SkipEndType(InputStream &tData)
+	{
+		//EndType无数据负载
+		return true;
 	}
 
 	template<typename T, typename InputStream, typename Visitor>
@@ -100,6 +131,22 @@ protected:
 		}
 
 		return ResultControlToControl(tVisitor.VisitNumericResult<T>(tTmpRawData));
+	}
+
+	template<typename T, typename InputStream>
+	static bool SkipBuiltInType(InputStream &tData)
+	{
+		using RAW_DATA_T = NBT_Type::BuiltinRawType_T<T>;//类型映射
+		size_t szSkipSize = sizeof(RAW_DATA_T);
+
+		if (!tData.HasAvailData(szSkipSize))
+		{
+			return false;
+		}
+
+		//跳过数据
+		tData.AddIndex(szSkipSize);
+		return true;
 	}
 
 	template<typename T, typename InputStream, typename Visitor>
@@ -120,7 +167,7 @@ protected:
 
 		using ValueType = typename T::value_type;
 
-		if (!tData.HasAvailData(iElementCount * sizeof(ValueType)))
+		if (!tData.HasAvailData((size_t)iElementCount * sizeof(ValueType)))
 		{
 			return Control::Error;
 		}
@@ -137,6 +184,34 @@ protected:
 		}
 
 		return ResultControlToControl(tVisitor.VisitArrayResult<T>(std::move(tArray)));
+	}
+
+	template<typename T, typename InputStream>
+	static bool SkipArrayType(InputStream &tData)
+	{
+		//获取4字节有符号数，代表数组元素个数
+		NBT_Type::ArrayLength iElementCount = 0;//4byte
+		if (!ReadBigEndian(tData, iElementCount))
+		{
+			return false;
+		}
+
+		//检查有符号数大小范围
+		if (iElementCount < 0)
+		{
+			return false;
+		}
+
+		using ValueType = typename T::value_type;
+		size_t szSkipSize = (size_t)iElementCount * sizeof(ValueType);
+
+		if (!tData.HasAvailData(szSkipSize))
+		{
+			return false;
+		}
+
+		tData.AddIndex(szSkipSize);
+		return true;
 	}
 
 	template<typename InputStream, typename Visitor>
