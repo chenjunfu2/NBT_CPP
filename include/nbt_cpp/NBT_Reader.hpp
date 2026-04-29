@@ -474,13 +474,15 @@ catch(...)\
 		CHECK_STACK_DEPTH(szStackDepth);
 
 		//读取1字节的列表元素类型
-		NBT_TAG_RAW_TYPE enListElementTag = 0;//b=byte
-		eRet = ReadBigEndian(tData, enListElementTag, funcInfo);
+		NBT_TAG_RAW_TYPE u8ListElementTag = 0;//b=byte
+		eRet = ReadBigEndian(tData, u8ListElementTag, funcInfo);
 		if (eRet != AllOk)
 		{
-			STACK_TRACEBACK("enListElementTag Read");
+			STACK_TRACEBACK("u8ListElementTag Read");
 			return eRet;
 		}
+
+		NBT_TAG enListElementTag = u8ListElementTag;
 
 		//错误的列表元素类型
 		if (enListElementTag >= NBT_TAG::ENUM_END)
@@ -522,7 +524,7 @@ catch(...)\
 		//确保如果长度为0的情况下，列表类型必为End
 		if (szListLength == 0 && enListElementTag != NBT_TAG::End)
 		{
-			enListElementTag = (NBT_TAG_RAW_TYPE)NBT_TAG::End;
+			enListElementTag = NBT_TAG::End;
 		}
 
 		//提前扩容
@@ -532,7 +534,7 @@ catch(...)\
 		for (size_t i = 0; i < szListLength; ++i)
 		{
 			NBT_Node tmpNode{};//列表元素会直接赋值修改
-			eRet = GetSwitch<bUnwrapMixedList>(tData, tmpNode, (NBT_TAG)enListElementTag, szStackDepth - 1, funcInfo);
+			eRet = GetSwitch<bUnwrapMixedList>(tData, tmpNode, enListElementTag, szStackDepth - 1, funcInfo);
 			if (eRet != AllOk)//错误处理
 			{
 				STACK_TRACEBACK("GetSwitch Error, Size: [{}] Index: [{}]", szListLength, i);

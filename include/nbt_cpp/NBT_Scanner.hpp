@@ -243,11 +243,13 @@ protected:
 			return Control::Error;
 		}
 
-		NBT_TAG_RAW_TYPE enListElementTag = 0;//b=byte
-		if (!ReadBigEndian(tData, enListElementTag))
+		NBT_TAG_RAW_TYPE u8ListElementTag = 0;//b=byte
+		if (!ReadBigEndian(tData, u8ListElementTag))
 		{
 			return Control::Error;
 		}
+
+		NBT_TAG enListElementTag = u8ListElementTag;
 
 		if (enListElementTag >= NBT_TAG::ENUM_END)
 		{
@@ -276,7 +278,7 @@ protected:
 			enListElementTag = (NBT_TAG_RAW_TYPE)NBT_TAG::End;
 		}
 
-		NBT_Visitor::ResultControl visitRet = VisitListBegin((NBT_TAG)enListElementTag, szListLength);
+		NBT_Visitor::ResultControl visitRet = VisitListBegin(enListElementTag, szListLength);
 		switch (visitRet)
 		{
 		case NBT_Visitor::ResultControl::Continue://继续处理
@@ -284,7 +286,7 @@ protected:
 		case NBT_Visitor::ResultControl::Break:
 			for (size_t i = 0; i < szListLength; ++i)
 			{
-				if (!SkipSwitch(tData, (NBT_TAG)enListElementTag, szStackDepth - 1))
+				if (!SkipSwitch(tData, enListElementTag, szStackDepth - 1))
 				{
 					return Control::Error;
 				}
@@ -300,7 +302,7 @@ protected:
 
 		for (size_t i = 0; i < szListLength; ++i)
 		{
-			NBT_Visitor::ResultControl visitRet = tVisitor.VisitListNextElement((NBT_TAG)enListElementTag, i);
+			NBT_Visitor::ResultControl visitRet = tVisitor.VisitListNextElement(enListElementTag, i);
 			switch (visitRet)
 			{
 			case NBT_Visitor::ResultControl::Continue:
@@ -309,7 +311,7 @@ protected:
 				//跳过剩余所有列表元素
 				for (size_t j = i; j < szListLength; ++j)//从当前i开始跳到结束
 				{
-					if (!SkipSwitch(tData, (NBT_TAG)enListElementTag, szStackDepth - 1))
+					if (!SkipSwitch(tData, enListElementTag, szStackDepth - 1))
 					{
 						return Control::Error;
 					}
@@ -323,7 +325,7 @@ protected:
 				break;
 			}
 
-			Control visitSubRet = ScanSwitch(tData, (NBT_TAG)enListElementTag, tVisitor, szStackDepth - 1);
+			Control visitSubRet = ScanSwitch(tData, enListElementTag, tVisitor, szStackDepth - 1);
 			switch (visitSubRet)
 			{
 			case Control::Continue://继续（什么也不做）
@@ -332,7 +334,7 @@ protected:
 				//跳过剩余所有列表元素
 				for (size_t j = i; j < szListLength; ++j)//从当前i开始跳到结束
 				{
-					if (!SkipSwitch(tData, (NBT_TAG)enListElementTag, szStackDepth - 1))
+					if (!SkipSwitch(tData, enListElementTag, szStackDepth - 1))
 					{
 						return Control::Error;
 					}
@@ -359,11 +361,13 @@ protected:
 			return Control::Error;
 		}
 
-		NBT_TAG_RAW_TYPE enListElementTag = 0;//b=byte
-		if (!ReadBigEndian(tData, enListElementTag))
+		NBT_TAG_RAW_TYPE u8ListElementTag = 0;//b=byte
+		if (!ReadBigEndian(tData, u8ListElementTag))
 		{
 			return Control::Error;
 		}
+
+		NBT_TAG enListElementTag = u8ListElementTag;
 
 		if (enListElementTag >= NBT_TAG::ENUM_END)
 		{
@@ -396,7 +400,7 @@ protected:
 
 		for (size_t i = 0; i < szSkipLength; ++i)
 		{
-			if (!SkipSwitch(tData, (NBT_TAG)enListElementTag, szStackDepth - 1))
+			if (!SkipSwitch(tData, enListElementTag, szStackDepth - 1))
 			{
 				return false;
 			}
@@ -405,19 +409,42 @@ protected:
 		return true;
 	}
 
-	template<typename InputStream, typename Visitor>
+	template<bool bRoot, typename InputStream, typename Visitor>
 	static Control ScanCompoundType(InputStream &tData, Visitor &tVisitor, size_t szStackDepth)
 	{
-		//TODO
+		//处理末尾情况
+		if (!tData.HasAvailData(sizeof(NBT_TAG_RAW_TYPE)))
+		{
+			if constexpr (!bRoot)//非根部情况遇到末尾，则报错
+			{
+				return Control::Error;
+			}
+
+			return Control::Stop;//结束
+		}
+
+		//先读取一下类型
+		NBT_TAG tagNbt = (NBT_TAG)(NBT_TAG_RAW_TYPE)tData.GetNext();
+		if (tagNbt == NBT_TAG::End)//处理End情况
+		{
+			return VisitCompoundEnd();//返回
+		}
+
+
+
+
+
+
+
 	}
 
-	template<typename InputStream>
+	template<bool bRoot, typename InputStream>
 	static bool SkipCompoundType(InputStream &tData, size_t szStackDepth)
 	{
 		//TODO
 	}
 
-	template<typename InputStream, typename Visitor>
+	template<bool bRoot, typename InputStream, typename Visitor>
 	static Control ScanSwitch(InputStream &tData, NBT_TAG tagNbt, Visitor &tVisitor, size_t szStackDepth)
 	{
 		Control retControl;
@@ -482,7 +509,7 @@ protected:
 			break;
 		case NBT_TAG::Compound:
 			{
-				retControl = ScanCompoundType(tData, tVisitor);
+				retControl = ScanCompoundType<bRoot>(tData, tVisitor);
 			}
 			break;
 		case NBT_TAG::IntArray:
@@ -507,7 +534,7 @@ protected:
 		return retControl;
 	}
 
-	template<typename InputStream>
+	template<bool bRoot, typename InputStream>
 	static bool SkipSwitch(InputStream &tData, NBT_TAG tagNbt, size_t szStackDepth)
 	{
 		bool bRet = false;
@@ -572,7 +599,7 @@ protected:
 			break;
 		case NBT_TAG::Compound:
 			{
-				bRet = SkipCompoundType(tData, szStackDepth);
+				bRet = SkipCompoundType<bRoot>(tData, szStackDepth);
 			}
 			break;
 		case NBT_TAG::IntArray:
