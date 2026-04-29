@@ -57,8 +57,6 @@ protected:
 		}
 	}
 
-	//增加skip系列函数，用于跳过值
-
 	template<typename InputStream>
 	static bool GetName(InputStream &tData, NBT_Type::String &tName)
 	{
@@ -69,11 +67,12 @@ protected:
 			return false;
 		}
 
-		size_t szStringLength = (size_t)wStringLength;
 		using ValueType = NBT_Type::String::value_type;
+		size_t szStringLength = (size_t)wStringLength;
+		size_t szStringSize = szStringLength * sizeof(ValueType);
 
 		//检查长度
-		if (!tData.HasAvailData(szStringLength * sizeof(ValueType)))
+		if (!tData.HasAvailData(szStringSize))
 		{
 			return false;
 		}
@@ -82,7 +81,7 @@ protected:
 		tName.reserve(szStringLength);//提前分配
 		tName.assign((const ValueType *)tData.CurData(), szStringLength);//构造string（如果长度为0则构造0长字符串，合法行为）
 		
-		tData.AddIndex(szStringLength * sizeof(ValueType));//移动下标
+		tData.AddIndex(szStringSize);//移动下标
 
 		return true;
 	}
@@ -156,30 +155,32 @@ protected:
 	static Control ScanArrayType(InputStream &tData, Visitor &tVisitor)
 	{
 		//获取4字节有符号数，代表数组元素个数
-		NBT_Type::ArrayLength iElementCount = 0;//4byte
-		if (!ReadBigEndian(tData, iElementCount))
+		NBT_Type::ArrayLength iArrayLength = 0;//4byte
+		if (!ReadBigEndian(tData, iArrayLength))
 		{
 			return Control::Error;
 		}
 
 		//检查有符号数大小范围
-		if (iElementCount < 0)
+		if (iArrayLength < 0)
 		{
 			return Control::Error;
 		}
 
 		using ValueType = typename T::value_type;
+		size_t szArrayLength = (size_t)iArrayLength;
+		size_t szArraySize = szArrayLength * sizeof(ValueType);
 
-		if (!tData.HasAvailData((size_t)iElementCount * sizeof(ValueType)))
+		if (!tData.HasAvailData(szArraySize))
 		{
 			return Control::Error;
 		}
 
 		//数组保存
 		T tArray{};
-		tArray.reserve(iElementCount);
+		tArray.reserve(szArrayLength);
 		//读取dElementCount个元素
-		for (size_t i = 0; i < (size_t)iElementCount; ++i)
+		for (size_t i = 0; i < szArrayLength; ++i)
 		{
 			ValueType tTmpData{};
 			ReadBigEndian<true>(tData, tTmpData);//调用需要确保范围安全
@@ -193,20 +194,19 @@ protected:
 	static bool SkipArrayType(InputStream &tData)
 	{
 		//获取4字节有符号数，代表数组元素个数
-		NBT_Type::ArrayLength iElementCount = 0;//4byte
-		if (!ReadBigEndian(tData, iElementCount))
+		NBT_Type::ArrayLength iArrayLength = 0;//4byte
+		if (!ReadBigEndian(tData, iArrayLength))
 		{
 			return false;
 		}
 
 		//检查有符号数大小范围
-		if (iElementCount < 0)
+		if (iArrayLength < 0)
 		{
 			return false;
 		}
 
-		using ValueType = typename T::value_type;
-		size_t szSkipSize = (size_t)iElementCount * sizeof(ValueType);
+		size_t szSkipSize = (size_t)iArrayLength * sizeof(T::value_type);
 
 		if (!tData.HasAvailData(szSkipSize))
 		{
@@ -229,18 +229,35 @@ protected:
 		return ResultControlToControl(tVisitor.VisitStringResult(std::move(tString)));
 	}
 
+	template<typename InputStream>
+	static bool SkipStringType(InputStream &tData)
+	{
+		return SkipName(tData);
+	}
+
 	template<typename InputStream, typename Visitor>
 	static Control ScanListType(InputStream &tData, Visitor &tVisitor, size_t szStackDepth)
 	{
+		//TODO
+	}
 
+	template<typename InputStream>
+	static bool SkipListType(InputStream &tData)
+	{
+		//TODO
 	}
 
 	template<typename InputStream, typename Visitor>
 	static Control ScanCompoundType(InputStream &tData, Visitor &tVisitor, size_t szStackDepth)
 	{
-
+		//TODO
 	}
 
+	template<typename InputStream>
+	static bool SkipCompoundType(InputStream &tData)
+	{
+		//TODO
+	}
 
 	template<typename InputStream, typename Visitor>
 	static Control ScanSwitch(InputStream &tData, Visitor &tVisitor, size_t szStackDepth)
@@ -335,6 +352,7 @@ protected:
 			break;
 		}
 
+		//TODO
 		switch (retControl)
 		{
 		case NBT_Scanner::Control::Continue:
