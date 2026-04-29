@@ -391,17 +391,17 @@ catch(...)\
 			}
 
 			//先读取一下类型
-			NBT_TAG tagNbt = (NBT_TAG)(NBT_TAG_RAW_TYPE)tData.GetNext();
-			if (tagNbt == NBT_TAG::End)//处理End情况
+			NBT_TAG enCompoundEntryTag = (NBT_TAG)(NBT_TAG_RAW_TYPE)tData.GetNext();
+			if (enCompoundEntryTag == NBT_TAG::End)//处理End情况
 			{
 				return eRet;//直接返回（默认值AllOk）
 			}
 
-			if (tagNbt >= NBT_TAG::ENUM_END)//确认在范围内
+			if (enCompoundEntryTag >= NBT_TAG::ENUM_END)//确认在范围内
 			{
 				eRet = Error(NbtTypeTagError, tData, funcInfo, "{}:\nNBT Tag switch default: Unknown Type Tag[0x{:02X}({})]", __FUNCTION__,
-					(NBT_TAG_RAW_TYPE)tagNbt, (NBT_TAG_RAW_TYPE)tagNbt);//此处不进行提前返回，往后默认返回处理
-				STACK_TRACEBACK("tagNbt Test");
+					(NBT_TAG_RAW_TYPE)enCompoundEntryTag, (NBT_TAG_RAW_TYPE)enCompoundEntryTag);//此处不进行提前返回，往后默认返回处理
+				STACK_TRACEBACK("enCompoundEntryTag Test");
 				return eRet;//超出范围立刻返回
 			}
 
@@ -410,16 +410,16 @@ catch(...)\
 			eRet = GetName(tData, sName, funcInfo);
 			if (eRet != AllOk)
 			{
-				STACK_TRACEBACK("GetName Fail, Type: [NBT_Type::{}]", NBT_Type::GetTypeName(tagNbt));
+				STACK_TRACEBACK("GetName Fail, Type: [NBT_Type::{}]", NBT_Type::GetTypeName(enCompoundEntryTag));
 				return eRet;//名称读取失败立刻返回
 			}
 
 			//然后根据类型，调用对应的类型读取并返回到tmpNode
 			NBT_Node tmpNode{};
-			eRet = GetSwitch<bUnwrapMixedList>(tData, tmpNode, tagNbt, szStackDepth - 1, funcInfo);
+			eRet = GetSwitch<bUnwrapMixedList>(tData, tmpNode, enCompoundEntryTag, szStackDepth - 1, funcInfo);
 			if (eRet != AllOk)
 			{
-				STACK_TRACEBACK("GetSwitch Fail, Name: \"{}\", Type: [NBT_Type::{}]", sName.ToCharTypeUTF8(), NBT_Type::GetTypeName(tagNbt));//注意这里ToCharTypeUTF8可能抛异常
+				STACK_TRACEBACK("GetSwitch Fail, Name: \"{}\", Type: [NBT_Type::{}]", sName.ToCharTypeUTF8(), NBT_Type::GetTypeName(enCompoundEntryTag));//注意这里ToCharTypeUTF8可能抛异常
 				//return eRet;//注意此处不返回，进行插入，以便分析错误之前的正确数据
 			}
 
@@ -435,7 +435,7 @@ catch(...)\
 
 				//发出警告，注意警告不用eRet接返回值
 				Error(ElementExistsWarn, tData, funcInfo, "{}:\nName: \"{}\", Type: [NBT_Type::{}] data already exist!", __FUNCTION__,
-					sName.ToCharTypeUTF8(), NBT_Type::GetTypeName(tagNbt));//注意这里ToCharTypeUTF8可能抛异常
+					sName.ToCharTypeUTF8(), NBT_Type::GetTypeName(enCompoundEntryTag));//注意这里ToCharTypeUTF8可能抛异常
 			}
 
 			//最后判断是否出错

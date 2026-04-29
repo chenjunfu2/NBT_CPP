@@ -423,17 +423,27 @@ protected:
 			return Control::Stop;//结束
 		}
 
+		//tVisitor.VisitCompoundBegin();
+
 		//先读取一下类型
-		NBT_TAG tagNbt = (NBT_TAG)(NBT_TAG_RAW_TYPE)tData.GetNext();
-		if (tagNbt == NBT_TAG::End)//处理End情况
+		NBT_TAG enCompoundEntryTag = (NBT_TAG)(NBT_TAG_RAW_TYPE)tData.GetNext();
+		if (enCompoundEntryTag == NBT_TAG::End)//处理End情况
 		{
 			return VisitCompoundEnd();//返回
 		}
 
+		if (enCompoundEntryTag >= NBT_TAG::ENUM_END)
+		{
+			return Control::Error;
+		}
 
+		//tVisitor.VisitCompoundNextEntryType(enCompoundEntryTag);
 
-
-
+		NBT_Type::String sName{};
+		if (!GetName(tData, sName, funcInfo))
+		{
+			return Control::Error;
+		}
 
 
 	}
