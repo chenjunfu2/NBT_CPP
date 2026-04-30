@@ -299,16 +299,25 @@ protected:
 
 		for (; i < szListLength; ++i)
 		{
-			NBT_Visitor::ResultControl visitRet = tVisitor.VisitListNextElement(enListElementTag, i);
+			NBT_Visitor::NestingControl visitRet = tVisitor.VisitListNextElement(enListElementTag, i);
 			switch (visitRet)
 			{
-			case NBT_Visitor::ResultControl::Continue:
+			case NBT_Visitor::NestingControl::Enter:
 				break;
-			case NBT_Visitor::ResultControl::Break:
+			case NBT_Visitor::NestingControl::Skip:
+				{
+					if (!SkipSwitch(tData, enListElementTag, szStackDepth - 1))
+					{
+						return Control::Error;
+					}
+					continue;
+				}
+				break;
+			case NBT_Visitor::NestingControl::Break:
 				//跳过剩余所有列表元素
 				goto skip_any;
 				break;
-			case NBT_Visitor::ResultControl::Stop:
+			case NBT_Visitor::NestingControl::Stop:
 				return Control::Stop;
 				break;
 			default:

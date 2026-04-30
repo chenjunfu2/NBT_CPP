@@ -278,8 +278,7 @@ protected:
 
 				//尝试插入，遇到重复则替换
 				auto [it, b] = stTopFrame.pCompound->Put(std::move(sPendingKey), std::forward<T>(tVal));
-				if constexpr(NBT_Type::IsCompoundType_V<T>)
-
+				pNewElement = (void*)&it.second;
 			}
 			break;
 		case Frame::Type::List:
@@ -289,7 +288,7 @@ protected:
 					return false;
 				}
 
-				stTopFrame.pList->AddBack(std::forward<T>(tVal));
+				pNewElement = (void*)&stTopFrame.pList->AddBack(std::forward<T>(tVal));
 			}
 			break;
 		default:
@@ -297,10 +296,43 @@ protected:
 			break;
 		}
 
+		if constexpr (NBT_Type::IsCompoundType_V<T>)
+		{
+			vStack.push_back(
+				Frame
+				{
+					.enType = Frame::Type::Compound,
+					.pCompound = (NBT_Type::Compound *)pNewElement;
+				}
+			);
+		}
+		else if constexpr (NBT_Type::IsListType_V<T>)
+		{
+			vStack.push_back(
+				Frame
+				{
+					.enType = Frame::Type::List,
+					.pList = (NBT_Type::List *)pNewElement;
+				}
+			);
+		}
 
+		return true;
+	}
 
+	bool PopStack(Frame::Type enTypeRequires)
+	{
+		if (vStack.empty())
+		{
+			return false;
+		}
 
+		if (vStack.back().enType != enTypeRequires)
+		{
+			return false;
+		}
 
+		vStack.pop_back();
 		return true;
 	}
 
@@ -372,50 +404,64 @@ public:
 
 	NestingControl VisitListNextElement(NBT_TAG enListElementTag, size_t szListIndex)
 	{
-		//do something...
 		return NestingControl::Enter;
 	}
 
 	ResultControl VisitListEnd(void)
 	{
-		//do something...
+		if (!PopStack(Frame::Type::List))
+		{
+			return ResultControl::Stop;
+		}
 		return ResultControl::Continue;
 	}
 
 	ResultControl VisitCompoundBegin(void)
 	{
-		//do something...
+		if (!AppendStackTop(NBT_Type::Compound{}))
+		{
+			return ResultControl::Stop;
+		}
 		return ResultControl::Continue;
 	}
 
 	NestingControl VisitCompoundNextEntryType(NBT_TAG enCompoundEntryTag)
 	{
-		//do something...
 		return NestingControl::Enter;
 	}
 
 	NestingControl VisitCompoundNextEntry(NBT_TAG enCompoundEntryTag, NBT_Type::String &&sName)
 	{
-		//do something...
+		sPendingKey = sName;
 		return NestingControl::Enter;
 	}
 
 	ResultControl VisitCompoundEnd(void)
 	{
-		//do something...
+		if (!PopStack(Frame::Type::Compound))
+		{
+			return ResultControl::Stop;
+		}
 		return ResultControl::Continue;
 	}
 
 
 	void VisitBegin(void)
 	{
-		//do something...
+		vStack.push_back(
+			Frame
+			{
+				.enType = Frame::Type::Compound,
+				.pCompound = &cpdRoot
+			}
+		);
 		return;
 	}
 
 	void VisitEnd(void)
 	{
-		//do something...
+		vStack.pop_back();
+		vStack.shrink_to_fit();
 		return;
 	}
 
