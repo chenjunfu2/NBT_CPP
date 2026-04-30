@@ -597,7 +597,7 @@ protected:
 	{
 		if (szStackDepth == 0)
 		{
-			return Control::Error;
+			return false;
 		}
 
 		while (true)
@@ -822,8 +822,10 @@ public:
 	static bool Scan(InputStream &IptStream, Visitor &tVisitor, size_t szStackDepth = 512)
 	{
 		tVisitor.VisitBegin();
-		ScanCompoundType<true>(IptStream, tVisitor, szStackDepth);
+		Control scanRet = ScanCompoundType<true>(IptStream, tVisitor, szStackDepth);
 		tVisitor.VisitEnd();
+
+		return scanRet != Control::Error;
 	}
 	
 	template<typename DataType = std::vector<uint8_t>, typename Visitor>
@@ -833,8 +835,10 @@ public:
 		NBT_IO::DefaultInputStream<DataType> IptStream(tDataInput, szStartIdx);
 
 		tVisitor.VisitBegin();
-		ScanCompoundType<true>(IptStream, tVisitor, szStackDepth);
+		Control scanRet = ScanCompoundType<true>(IptStream, tVisitor, szStackDepth);
 		tVisitor.VisitEnd();
+
+		return scanRet != Control::Error;
 	}
 
 };
