@@ -415,20 +415,23 @@ protected:
 			return Control::Error;
 		}
 
-		NBT_Visitor::ResultControl visitBegRet = tVisitor.VisitCompoundBegin();
-		switch (visitBegRet)//TODO
+		if constexpr (!bRoot)//非根部才进行compound调用
 		{
-		case NBT_Visitor::ResultControl::Continue://继续
-			break;
-		case NBT_Visitor::ResultControl::Break:
-			goto skip_any;
-			break;
-		case NBT_Visitor::ResultControl::Stop:
-			return Control::Stop;
-			break;
-		default:
-			return Control::Error;
-			break;
+			NBT_Visitor::ResultControl visitBegRet = tVisitor.VisitCompoundBegin();
+			switch (visitBegRet)
+			{
+			case NBT_Visitor::ResultControl::Continue://继续
+				break;
+			case NBT_Visitor::ResultControl::Break:
+				goto skip_any;
+				break;
+			case NBT_Visitor::ResultControl::Stop:
+				return Control::Stop;
+				break;
+			default:
+				return Control::Error;
+				break;
+			}
 		}
 
 		while (true)
@@ -448,7 +451,7 @@ protected:
 			NBT_TAG enCompoundEntryTag = (NBT_TAG)(NBT_TAG_RAW_TYPE)tData.GetNext();
 			if (enCompoundEntryTag == NBT_TAG::End)//处理End情况
 			{
-				return ResultControlToControl(tVisitor.VisitCompoundEnd());
+				goto end_return;
 			}
 
 			if (enCompoundEntryTag >= NBT_TAG::ENUM_END)
@@ -568,7 +571,7 @@ protected:
 
 			if (enCompoundEntryTag == NBT_TAG::End)
 			{
-				return ResultControlToControl(tVisitor.VisitCompoundEnd());
+				goto end_return;
 			}
 
 			if (enCompoundEntryTag >= NBT_TAG::ENUM_END)
@@ -587,7 +590,15 @@ protected:
 			}
 		}
 
-		return ResultControlToControl(tVisitor.VisitCompoundEnd());//返回
+	end_return:
+		if constexpr (!bRoot)
+		{
+			return ResultControlToControl(tVisitor.VisitCompoundEnd());//返回
+		}
+		else
+		{
+			return Control::Stop;//根部直接返回
+		}
 	}
 
 	template<typename InputStream>
