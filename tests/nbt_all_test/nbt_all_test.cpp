@@ -444,6 +444,9 @@ void MixedListTest()
 	NBT_ReadWrite_Test<true>(NbtRawData, cpdGen);
 }
 
+#include <nbt_cpp/NBT_Scanner.hpp>
+#include <nbt_cpp/NBT_Visitor.hpp>
+
 void ScannerTest()
 {
 	constexpr auto NbtRawData = StrHexArray::ToHexArr < R"(
@@ -470,13 +473,11 @@ void ScannerTest()
 	74 72 35 00
 )" > ();
 
+	NBT_Visitor_Collector vc;
+	NBT_Scanner::Scan(NbtRawData, 0, vc);
+	NBT_Type::Compound cpdScan = vc.MoveRoot();
 
-
-
-
-
-
-
+	NBT_ReadWrite_Test(NbtRawData, cpdScan);
 }
 
 int main(void)

@@ -302,7 +302,7 @@ protected:
 				Frame
 				{
 					.enType = Frame::Type::Compound,
-					.pCompound = (NBT_Type::Compound *)pNewElement;
+					.pCompound = (NBT_Type::Compound *)pNewElement,
 				}
 			);
 		}
@@ -312,7 +312,7 @@ protected:
 				Frame
 				{
 					.enType = Frame::Type::List,
-					.pList = (NBT_Type::List *)pNewElement;
+					.pList = (NBT_Type::List *)pNewElement,
 				}
 			);
 		}
@@ -348,6 +348,16 @@ public:
 public:
 	using ResultControl = NBT_Visitor::ResultControl;
 	using NestingControl = NBT_Visitor::NestingControl;
+
+	const NBT_Type::Compound &ViewRoot(void) const noexcept
+	{
+		return cpdRoot;
+	}
+
+	NBT_Type::Compound &&MoveRoot(void) noexcept
+	{
+		return std::move(cpdRoot);
+	}
 
 public:
 	template<typename T>
@@ -452,7 +462,7 @@ public:
 			Frame
 			{
 				.enType = Frame::Type::Compound,
-				.pCompound = &cpdRoot
+				.pCompound = &cpdRoot,
 			}
 		);
 		return;
@@ -471,10 +481,4 @@ public:
 		//throw or print error
 		return;
 	}
-
-
-
-
-
-
 };
