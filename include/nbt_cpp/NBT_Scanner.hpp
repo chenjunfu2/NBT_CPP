@@ -130,7 +130,7 @@ protected:
 			return Control::Error;
 		}
 
-		return ResultControlToControl(tVisitor.VisitNumericResult<T>(tTmpRawData));
+		return ResultControlToControl(tVisitor.VisitNumericResult<T>(std::bit_cast<T>(tTmpRawData)));
 	}
 
 	template<typename T, typename InputStream>

@@ -486,5 +486,7 @@ int main(void)
 	EmptyCompoundTest();
 	MixedListTest();
 
+	ScannerTest();
+
 	return 0;
 }
