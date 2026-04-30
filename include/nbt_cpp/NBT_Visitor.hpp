@@ -228,3 +228,15 @@ requires(
 };
 
 static_assert(IsLookLike_NBT_Visitor<NBT_Visitor>);
+
+
+class NBT_Visitor_Collector
+{
+
+
+
+
+
+
+
+};

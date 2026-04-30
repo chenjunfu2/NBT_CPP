@@ -278,19 +278,16 @@ protected:
 			enListElementTag = (NBT_TAG_RAW_TYPE)NBT_TAG::End;
 		}
 
+		//遍历索引
+		size_t i = 0;
+
 		NBT_Visitor::ResultControl visitRet = VisitListBegin(enListElementTag, szListLength);
 		switch (visitRet)
 		{
 		case NBT_Visitor::ResultControl::Continue://继续处理
 			break;
 		case NBT_Visitor::ResultControl::Break:
-			for (size_t i = 0; i < szListLength; ++i)
-			{
-				if (!SkipSwitch(tData, enListElementTag, szStackDepth - 1))
-				{
-					return Control::Error;
-				}
-			}
+			goto skip_any;
 			break;
 		case NBT_Visitor::ResultControl::Stop:
 			return Control::Stop;
@@ -300,7 +297,7 @@ protected:
 			break;
 		}
 
-		for (size_t i = 0; i < szListLength; ++i)
+		for (; i < szListLength; ++i)
 		{
 			NBT_Visitor::ResultControl visitRet = tVisitor.VisitListNextElement(enListElementTag, i);
 			switch (visitRet)
@@ -309,13 +306,7 @@ protected:
 				break;
 			case NBT_Visitor::ResultControl::Break:
 				//跳过剩余所有列表元素
-				for (size_t j = i; j < szListLength; ++j)//从当前i开始跳到结束
-				{
-					if (!SkipSwitch(tData, enListElementTag, szStackDepth - 1))
-					{
-						return Control::Error;
-					}
-				}
+				goto skip_any;
 				break;
 			case NBT_Visitor::ResultControl::Stop:
 				return Control::Stop;
@@ -338,6 +329,15 @@ protected:
 			default:
 				return Control::Error;
 				break;
+			}
+		}
+
+	skip_any:
+		for (size_t j = i; j < szListLength; ++j)//从当前i开始跳到结束
+		{
+			if (!SkipSwitch(tData, enListElementTag, szStackDepth - 1))
+			{
+				return Control::Error;
 			}
 		}
 
@@ -403,6 +403,11 @@ protected:
 	template<bool bRoot, typename InputStream, typename Visitor>
 	static Control ScanCompoundType(InputStream &tData, Visitor &tVisitor, size_t szStackDepth)
 	{
+		if (szStackDepth == 0)
+		{
+			return Control::Error;
+		}
+
 		NBT_Visitor::ResultControl visitBegRet = tVisitor.VisitCompoundBegin();
 		switch (visitBegRet)//TODO
 		{
@@ -581,6 +586,11 @@ protected:
 	template<typename InputStream>
 	static bool SkipCompoundType(InputStream &tData, size_t szStackDepth)
 	{
+		if (szStackDepth == 0)
+		{
+			return Control::Error;
+		}
+
 		while (true)
 		{
 			//跳过compound值
@@ -675,12 +685,12 @@ protected:
 			break;
 		case NBT_TAG::List:
 			{
-				retControl = ScanListType(tData, tVisitor);
+				retControl = ScanListType(tData, tVisitor, szStackDepth);
 			}
 			break;
 		case NBT_TAG::Compound:
 			{
-				retControl = ScanCompoundType<false>(tData, tVisitor);
+				retControl = ScanCompoundType<false>(tData, tVisitor, szStackDepth);
 			}
 			break;
 		case NBT_TAG::IntArray:
