@@ -478,6 +478,7 @@ void ScannerTest()
 
 	NBT_ReadWrite_Test(NbtRawData, cpdScan);
 }
+//TODO：Scanner跳过功能测试
 
 int main(void)
 {
