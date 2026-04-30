@@ -1,8 +1,6 @@
 ﻿#pragma once
 
-#include "NBT_Reader.hpp"//友元
-#include "NBT_Visitor.hpp"//鸭子类
-#include "NBT_Print.hpp"//打印输出
+#include "NBT_Visitor.hpp"//鸭子类与部分实现
 #include "NBT_IO.hpp"//IO流
 
 #include <stdint.h>

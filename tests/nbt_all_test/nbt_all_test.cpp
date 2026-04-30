@@ -444,9 +444,6 @@ void MixedListTest()
 	NBT_ReadWrite_Test<true>(NbtRawData, cpdGen);
 }
 
-#include <nbt_cpp/NBT_Scanner.hpp>
-#include <nbt_cpp/NBT_Visitor.hpp>
-
 void ScannerTest()
 {
 	constexpr auto NbtRawData = StrHexArray::ToHexArr < R"(
