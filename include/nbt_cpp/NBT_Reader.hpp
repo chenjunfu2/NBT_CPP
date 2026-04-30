@@ -482,7 +482,7 @@ catch(...)\
 			return eRet;
 		}
 
-		NBT_TAG enListElementTag = u8ListElementTag;
+		NBT_TAG enListElementTag = (NBT_TAG)u8ListElementTag;
 
 		//错误的列表元素类型
 		if (enListElementTag >= NBT_TAG::ENUM_END)

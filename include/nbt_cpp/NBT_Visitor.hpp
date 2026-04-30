@@ -278,7 +278,7 @@ protected:
 
 				//尝试插入，遇到重复则替换
 				auto [it, b] = stTopFrame.pCompound->Put(std::move(sPendingKey), std::forward<T>(tVal));
-				pNewElement = (void*)&it.second;
+				pNewElement = (void*)&(it->second);
 			}
 			break;
 		case Frame::Type::List:

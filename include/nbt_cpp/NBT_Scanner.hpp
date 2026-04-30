@@ -24,7 +24,7 @@ protected:
 		Error,		///< 出现错误（终止解析）
 	};
 
-	Control ResultControlToControl(NBT_Visitor::ResultControl enResultControl)
+	static Control ResultControlToControl(NBT_Visitor::ResultControl enResultControl)
 	{
 		switch (enResultControl)
 		{
@@ -35,7 +35,7 @@ protected:
 		}
 	}
 
-	template<bool bNoCheck = false, typename T, typename InputStream, typename InfoFunc>
+	template<bool bNoCheck = false, typename T, typename InputStream>
 	requires std::integral<T>
 	static inline std::conditional_t<bNoCheck, void, bool> ReadBigEndian(InputStream &tData, T &tVal)
 	{
@@ -249,7 +249,7 @@ protected:
 			return Control::Error;
 		}
 
-		NBT_TAG enListElementTag = u8ListElementTag;
+		NBT_TAG enListElementTag = (NBT_TAG)u8ListElementTag;
 
 		if (enListElementTag >= NBT_TAG::ENUM_END)
 		{
@@ -275,7 +275,7 @@ protected:
 
 		if (szListLength == 0 && enListElementTag != NBT_TAG::End)
 		{
-			enListElementTag = (NBT_TAG_RAW_TYPE)NBT_TAG::End;
+			enListElementTag = NBT_TAG::End;
 		}
 
 		//遍历索引
@@ -358,42 +358,42 @@ protected:
 	{
 		if (szStackDepth == 0)
 		{
-			return Control::Error;
+			return false;
 		}
 
 		NBT_TAG_RAW_TYPE u8ListElementTag = 0;//b=byte
 		if (!ReadBigEndian(tData, u8ListElementTag))
 		{
-			return Control::Error;
+			return false;
 		}
 
-		NBT_TAG enListElementTag = u8ListElementTag;
+		NBT_TAG enListElementTag = (NBT_TAG)u8ListElementTag;
 
 		if (enListElementTag >= NBT_TAG::ENUM_END)
 		{
-			return Control::Error;
+			return false;
 		}
 
 		NBT_Type::ListLength iListLength = 0;//4byte
 		if (!ReadBigEndian(tData, iListLength))
 		{
-			return Control::Error;
+			return false;
 		}
 
 		if (iListLength < 0)
 		{
-			return Control::Error;
+			return false;
 		}
 
 		size_t szListLength = (size_t)iListLength;
 		if (enListElementTag == NBT_TAG::End && szListLength != 0)
 		{
-			return Control::Error;
+			return false;
 		}
 
 		if (szListLength == 0 && enListElementTag != NBT_TAG::End)
 		{
-			enListElementTag = (NBT_TAG_RAW_TYPE)NBT_TAG::End;
+			enListElementTag = NBT_TAG::End;
 		}
 
 		size_t szSkipLength = szListLength;
