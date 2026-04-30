@@ -229,10 +229,202 @@ requires(
 
 static_assert(IsLookLike_NBT_Visitor<NBT_Visitor>);
 
+#include <vector>
 
 class NBT_Visitor_Collector
 {
+protected:
+	struct Frame
+	{
+		enum class Type : uint8_t
+		{
+			Compound, List
+		};
 
+	public:
+		Type enType;
+		union
+		{
+			NBT_Type::Compound *pCompound;
+			NBT_Type::List *pList;
+		};
+	};
+
+protected:
+	NBT_Type::String sPendingKey;
+	std::vector<Frame> vStack{};
+	NBT_Type::Compound cpdRoot{};
+
+protected:
+	template<typename T>
+	bool AppendStackTop(T &&tVal)
+	{
+		if (vStack.empty())
+		{
+			return false;
+		}
+
+		void *pNewElement = NULL;
+
+		Frame &stTopFrame = vStack.back();
+		switch (stTopFrame.enType)
+		{
+		case Frame::Type::Compound:
+			{
+				if (stTopFrame.pCompound == NULL)
+				{
+					return false;
+				}
+
+				//尝试插入，遇到重复则替换
+				auto [it, b] = stTopFrame.pCompound->Put(std::move(sPendingKey), std::forward<T>(tVal));
+				if constexpr(NBT_Type::IsCompoundType_V<T>)
+
+			}
+			break;
+		case Frame::Type::List:
+			{
+				if (stTopFrame.pList == NULL)
+				{
+					return false;
+				}
+
+				stTopFrame.pList->AddBack(std::forward<T>(tVal));
+			}
+			break;
+		default:
+			return false;
+			break;
+		}
+
+
+
+
+
+		return true;
+	}
+
+public:
+	NBT_Visitor_Collector(void) = default;
+	~NBT_Visitor_Collector(void) = default;
+
+	NBT_Visitor_Collector(const NBT_Visitor_Collector &) = default;
+	NBT_Visitor_Collector(NBT_Visitor_Collector &&) = default;
+	NBT_Visitor_Collector &operator=(const NBT_Visitor_Collector &) = default;
+	NBT_Visitor_Collector &operator=(NBT_Visitor_Collector &&) = default;
+
+public:
+	using ResultControl = NBT_Visitor::ResultControl;
+	using NestingControl = NBT_Visitor::NestingControl;
+
+public:
+	template<typename T>
+	requires(NBT_Type::IsNumericType_V<T>)
+	ResultControl VisitNumericResult(T tNumericResult)
+	{
+		if (!AppendStackTop(tNumericResult))
+		{
+			return ResultControl::Stop;
+		}
+		return ResultControl::Continue;
+	}
+
+	template<typename T>
+	requires(NBT_Type::IsArrayType_V<T> && !std::is_reference_v<T>)//防止引用折叠
+	ResultControl VisitArrayResult(T &&tArrayResult)
+	{
+		if (!AppendStackTop(tArrayResult))
+		{
+			return ResultControl::Stop;
+		}
+		return ResultControl::Continue;
+	}
+
+	ResultControl VisitStringResult(NBT_Type::String &&strResult)
+	{
+		if (!AppendStackTop(strResult))
+		{
+			return ResultControl::Stop;
+		}
+		return ResultControl::Continue;
+	}
+
+	ResultControl VisitEndResult(void)
+	{
+		if (!AppendStackTop(NBT_Type::End{}))
+		{
+			return ResultControl::Stop;
+		}
+		return ResultControl::Continue;
+	}
+
+	ResultControl VisitListBegin(NBT_TAG enListElementTag, size_t szListLength)
+	{
+		NBT_Type::List tmpList{};
+		tmpList.Reserve(szListLength);
+
+		if (!AppendStackTop(std::move(tmpList)))
+		{
+			return ResultControl::Stop;
+		}
+		return ResultControl::Continue;
+	}
+
+	NestingControl VisitListNextElement(NBT_TAG enListElementTag, size_t szListIndex)
+	{
+		//do something...
+		return NestingControl::Enter;
+	}
+
+	ResultControl VisitListEnd(void)
+	{
+		//do something...
+		return ResultControl::Continue;
+	}
+
+	ResultControl VisitCompoundBegin(void)
+	{
+		//do something...
+		return ResultControl::Continue;
+	}
+
+	NestingControl VisitCompoundNextEntryType(NBT_TAG enCompoundEntryTag)
+	{
+		//do something...
+		return NestingControl::Enter;
+	}
+
+	NestingControl VisitCompoundNextEntry(NBT_TAG enCompoundEntryTag, NBT_Type::String &&sName)
+	{
+		//do something...
+		return NestingControl::Enter;
+	}
+
+	ResultControl VisitCompoundEnd(void)
+	{
+		//do something...
+		return ResultControl::Continue;
+	}
+
+
+	void VisitBegin(void)
+	{
+		//do something...
+		return;
+	}
+
+	void VisitEnd(void)
+	{
+		//do something...
+		return;
+	}
+
+	template<typename... Args>
+	void VisitError(NBT_Print_Level lvl, const std::format_string<Args...> fmt, Args&&... args)
+	{
+		//throw or print error
+		return;
+	}
 
 
 
