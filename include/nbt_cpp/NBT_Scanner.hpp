@@ -281,7 +281,7 @@ protected:
 		//遍历索引
 		size_t i = 0;
 
-		NBT_Visitor::ResultControl visitRet = VisitListBegin(enListElementTag, szListLength);
+		NBT_Visitor::ResultControl visitRet = tVisitor.VisitListBegin(enListElementTag, szListLength);
 		switch (visitRet)
 		{
 		case NBT_Visitor::ResultControl::Continue://继续处理

@@ -335,7 +335,7 @@ catch(...)\
 		//检查有符号数大小范围
 		if (iArrayLength < 0)
 		{
-			eRet = Error(OutOfRangeError, tData, funcInfo, ":\iArrayLength[{}] < 0", __FUNCTION__, iArrayLength);
+			eRet = Error(OutOfRangeError, tData, funcInfo, ":\niArrayLength[{}] < 0", __FUNCTION__, iArrayLength);
 			STACK_TRACEBACK("iArrayLength Test");
 			return eRet;
 		}
