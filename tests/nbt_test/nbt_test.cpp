@@ -848,20 +848,23 @@ public:
 	// 重写：遇到 Compound 条目时，根据键名决定是否跳过
 	NestingControl VisitCompoundEntryBegin(NBT_TAG enTag, NBT_Type::String &&sName)
 	{
-		if (GetStackDepth() == 0)
+		size_t szCurStackDepth = GetStackDepth();
+
+		if (szCurStackDepth == 0)
 		{
 			sPendingKey = std::move(sName);
 			return NestingControl::Enter;
 		}
-
-		if (GetStackDepth() < szSaveBegStack && !ContainsTargetKey(sName))
+		
+		if (szCurStackDepth < szSaveBegStack &&
+			(szCurStackDepth > 1 || !ContainsTargetKey(sName)))
 		{
 			return NestingControl::Skip;
 		}
 
 		if (enTag == NBT_TAG::Compound)
 		{
-			szSaveBegStack = GetStackDepth();
+			szSaveBegStack = szCurStackDepth;
 		}
 		
 		sPendingKey = std::move(sName);

@@ -6,6 +6,10 @@
 
 #include <stdint.h>
 
+/// @brief NBT 数据流式扫描器，通过访问器回调处理 NBT 结构，不构建完整内存树
+/// @note 该类提供静态方法 ScanNBT，以流式方式解析 NBT 数据。解析过程中通过访问器（Visitor）
+/// 回调通知各个节点（数值、数组、字符串、列表、复合标签等），用户可通过自定义访
+/// 问器控制解析流程（进入、跳过、停止）。处理NBT时无需一次性加载整个数据树到内存。
 class NBT_Scanner
 {
 	/// @brief 禁止构造
@@ -14,6 +18,7 @@ class NBT_Scanner
 	~NBT_Scanner(void) = delete;
 
 protected:
+	///@cond
 	enum class Control : uint8_t
 	{
 		Continue,	///< 继续处理（继续迭代）
@@ -34,7 +39,6 @@ protected:
 	}
 
 protected:
-///@cond
 	enum ErrCode : uint8_t
 	{
 		AllOk = 0,//没有问题
@@ -1148,6 +1152,15 @@ catch(...)\
 
 ///@endcond
 public:
+	/// @brief 从输入流中扫描NBT数据，并通过访问器回调处理每个节点
+	/// @tparam InputStream 输入流类型，必须符合DefaultInputStream类型的接口
+	/// @tparam Visitor 访问器类型，必须符合IsLookLike_NBT_Visitor概念
+	/// @param IptStream 输入流对象
+	/// @param tVisitor 访问器对象，用于处理扫描过程中遇到的NBT数据节点
+	/// @param szStackDepth 递归最大深度，防止栈溢出
+	/// @return 扫描成功返回true，失败返回false
+	/// @note 函数通过访问器回调的方式遍历整个NBT结构，不会构建完整的内存树，适合处理大型NBT数据。
+	/// 若遇到格式错误或超过深度限制，函数将返回false并停止扫描。
 	template<typename InputStream, typename Visitor>
 	requires(IsLookLike_NBT_Visitor<Visitor>)
 	static bool ScanNBT(InputStream &IptStream, Visitor &tVisitor, size_t szStackDepth = 512) noexcept
@@ -1155,6 +1168,15 @@ public:
 		return ScanCompoundType<true>(IptStream, tVisitor, szStackDepth) != Control::Error;
 	}
 	
+	/// @brief 从数据容器中扫描NBT数据，并通过访问器回调处理每个节点
+	/// @tparam DataType 数据容器类型，默认为std::vector<uint8_t>
+	/// @tparam Visitor 访问器类型，必须符合IsLookLike_NBT_Visitor概念
+	/// @param tDataInput 输入数据容器
+	/// @param szStartIdx 数据起始索引，会忽略容器中前szStartIdx字节的数据
+	/// @param tVisitor 访问器对象，用于处理扫描过程中遇到的NBT数据节点
+	/// @param szStackDepth 递归最大深度，防止栈溢出
+	/// @return 扫描成功返回true，失败返回false
+	/// @note 此函数是ScanNBT(InputStream)版本的数据容器适配版本，其它行为请参考ScanNBT(InputStream)版本的说明。
 	template<typename DataType = std::vector<uint8_t>, typename Visitor>
 	requires(IsLookLike_NBT_Visitor<Visitor>)
 	static bool ScanNBT(const DataType &tDataInput, size_t szStartIdx, Visitor &tVisitor, size_t szStackDepth = 512) noexcept
