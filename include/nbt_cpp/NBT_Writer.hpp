@@ -13,6 +13,7 @@
 #include "NBT_Print.hpp"//打印输出
 #include "NBT_Node.hpp"//nbt类型
 #include "NBT_Endian.hpp"//字节序
+#include "NBT_IO.hpp"//IO流对象
 
 /// @file
 /// @brief NBT类型二进制序列化工具

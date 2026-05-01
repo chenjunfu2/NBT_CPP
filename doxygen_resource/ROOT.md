@@ -1,5 +1,5 @@
 ﻿# chenjunfu2-nbt-cpp
-[开源库链接(Github)](https://github.com/chenjunfu2/NBT_CPP/)  
+**[开源库链接(Github)](https://github.com/chenjunfu2/NBT_CPP/)**  
 **最新版本上线vcpkg可能存在延迟，如果需要最新内容，请通过git仓库内的include文件夹安装**
 
 **使用vcpkg安装：**  
@@ -80,19 +80,30 @@ vcpkg install chenjunfu2-nbt-cpp[zlib,xxhash]
 
 ### NBT_Helper.hpp
 - NBT_Print.hpp
+- NBT_Endian.hpp
 - NBT_Node.hpp
 - NBT_Node_View.hpp
 - NBT_Hash.hpp （仅在安装xxhash库的情况下）
 
-这个头文件基本上是处理nbt对象打印、序列化、哈希的帮助函数，
+这个头文件基本上是处理nbt对象打印、序列化、哈希（需安装xxhash库）的帮助函数，
 不使用重载而是单独提供的原因是，cpp不方便去包装任何builtin类型并给这些类型提供各种重载，
 反而是给访问做到一起才更方便。而在MC中因为用的是Java，本身提供builtin类型的包装器，
 所以使用重载更为方便，此为设计模式的差异。
+
+### NBT_Scanner.hpp
+- NBT_Node.hpp
+- NBT_Visitor.hpp
+- NBT_Endian.hpp
+- NBT_IO.hpp
+
+这个头文件基本上是用于快速扫描NBT二进制文件的，可以在不进行NBT对象树的完整构建的情况下，
+选择性的从二进制流中读取、遍历、查找、仅构建需要的内容等。
 
 ### NBT_Reader.hpp 与 NBT_Writer.hpp
 - NBT_Print.hpp
 - NBT_Node.hpp
 - NBT_Endian.hpp
+- NBT_IO.hpp
 
 这两个头文件包含了NBT_Print（打印功能的默认实现，可被替换），
 同时也包含了NBT_Node，因为它们必须看见所有类型才能知道怎么读写，
@@ -104,8 +115,7 @@ vcpkg install chenjunfu2-nbt-cpp[zlib,xxhash]
 ### NBT_IO.hpp
 - NBT_Print.hpp
 
-这个头文件基本上是完成从文件中读写NBT字节流与压缩解压功能的，
-是否提供压缩解压功能取决于是否安装zlib库。
+这个头文件基本上是完成从文件中读写NBT字节流与压缩解压（需安装zlib库）功能的，
 基本上不存在额外的NBT库依赖，它只处理文件与字节流。
   
   

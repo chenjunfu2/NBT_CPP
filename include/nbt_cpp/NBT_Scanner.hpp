@@ -1,8 +1,9 @@
 ﻿#pragma once
 
+#include "NBT_Node.hpp"//nbt类型
 #include "NBT_Visitor.hpp"//鸭子类与部分实现
 #include "NBT_Endian.hpp"//字节序
-#include "NBT_IO.hpp"//IO流
+#include "NBT_IO.hpp"//IO流对象
 
 #include <stdint.h>
 
