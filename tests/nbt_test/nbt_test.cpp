@@ -824,8 +824,8 @@ class KeyCollector : public NBT_Visitor_Collector
 {
 protected:
 	std::unordered_set<NBT_Type::String> setFindKey{};
-	size_t szSaveStack = 0;
-	size_t szStack = 0;
+	size_t szCurStack = 0;
+	size_t szSaveBegStack = 0;
 
 public:
 	KeyCollector(std::initializer_list<NBT_Type::String> init_list) :setFindKey{ init_list }
@@ -841,23 +841,26 @@ public:
 	}
 
 	// 重写：遇到 Compound 条目时，根据键名决定是否跳过
-	NestingControl VisitCompoundNextEntry(NBT_TAG enTag, NBT_Type::String &&sName)
+	NestingControl VisitCompoundEntryBegin(NBT_TAG enTag, NBT_Type::String &&sName)
 	{
-		++szStack;
-
-		if (!bRoot && !ContainsTargetKey(sName))
+		if (szCurStack < szSaveBegStack && !ContainsTargetKey(sName))
 		{
 			return NestingControl::Skip;
 		}
 
-		if (bRoot)
+		if (enTag == NBT_TAG::Compound)
 		{
-			bRoot = false;
+			++szCurStack;
+			szSaveBegStack = szCurStack;
 		}
-
 		
 		sPendingKey = std::move(sName);
 		return NestingControl::Enter;
+	}
+
+	ResultControl VisitCompoundEntryEnd(void)
+	{
+		return ResultControl::Continue;
 	}
 };
 

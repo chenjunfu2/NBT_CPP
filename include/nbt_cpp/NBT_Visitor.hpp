@@ -66,7 +66,7 @@ public:
 		return NestingControl::Enter;
 	}
 
-	ResultControl VisitListElementEnd(void)
+	ResultControl VisitListElementEnd(NBT_TAG enListElementTag, size_t szListIndex)
 	{
 		//do something...
 		return ResultControl::Continue;
@@ -96,7 +96,7 @@ public:
 		return NestingControl::Enter;
 	}
 
-	ResultControl VisitCompoundEntryEnd(void)
+	ResultControl VisitCompoundEntryEnd(NBT_TAG enCompoundEntryTag, NBT_Type::String &&sName)
 	{
 		//do something...
 		return ResultControl::Continue;
@@ -203,8 +203,8 @@ requires(
 		visitor.VisitListElementBegin(nbt_tag, nbt_list_index)
 	} -> std::same_as<decltype(nbt_visitor.VisitListElementBegin(nbt_tag, nbt_list_index))>;
 	{
-		visitor.VisitListElementEnd()
-	};
+		visitor.VisitListElementEnd(nbt_tag, nbt_list_index)
+	} -> std::same_as<decltype(nbt_visitor.VisitListElementEnd(nbt_tag, nbt_list_index))>;
 	{
 		visitor.VisitListEnd()
 	} -> std::same_as<decltype(nbt_visitor.VisitListEnd())>;
@@ -220,8 +220,8 @@ requires(
 		visitor.VisitCompoundEntryBegin(nbt_tag, std::move(nbt_string))
 	} -> std::same_as<decltype(nbt_visitor.VisitCompoundEntryBegin(nbt_tag, std::move(nbt_string)))>;
 	{
-		visitor.VisitCompoundEntryEnd()
-	};
+		visitor.VisitCompoundEntryEnd(nbt_tag, std::move(nbt_string))
+	} -> std::same_as<decltype(nbt_visitor.VisitCompoundEntryEnd(nbt_tag, std::move(nbt_string)))>;
 	{
 		visitor.VisitCompoundEnd()
 	} -> std::same_as<decltype(nbt_visitor.VisitCompoundEnd())>;
@@ -434,7 +434,7 @@ public:
 		return NestingControl::Enter;
 	}
 
-	ResultControl VisitListElementEnd(void)
+	ResultControl VisitListElementEnd(NBT_TAG enListElementTag, size_t szListIndex)
 	{
 		return ResultControl::Continue;
 	}
@@ -468,7 +468,7 @@ public:
 		return NestingControl::Enter;
 	}
 
-	ResultControl VisitCompoundEntryEnd(void)
+	ResultControl VisitCompoundEntryEnd(NBT_TAG enCompoundEntryTag, NBT_Type::String &&sName)
 	{
 		return ResultControl::Continue;
 	}

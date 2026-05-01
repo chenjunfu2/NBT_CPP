@@ -563,7 +563,7 @@ catch(...)\
 			}
 
 			//元素结束回调
-			switch (tVisitor.VisitListElementEnd())
+			switch (tVisitor.VisitListElementEnd(enListElementTag, i))
 			{
 			case NBT_Visitor::ResultControl::Continue:	/*继续（什么也不做）*/	break;
 			case NBT_Visitor::ResultControl::Break:		goto skip_any;			break;//跳过剩余
@@ -826,7 +826,7 @@ catch(...)\
 			}
 
 			//元素访问结束回调
-			switch (tVisitor.VisitCompoundEntryEnd())
+			switch (tVisitor.VisitCompoundEntryEnd(enCompoundEntryTag, std::move(sName)))
 			{
 			case NBT_Visitor::ResultControl::Continue:	/*继续（什么也不做）*/	break;
 			case NBT_Visitor::ResultControl::Break:		goto skip_any;			break;//跳过剩余所有

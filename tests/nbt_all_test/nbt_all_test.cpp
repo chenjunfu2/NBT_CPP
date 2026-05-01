@@ -491,7 +491,7 @@ public:
 	}
 
 	// 重写：遇到 Compound 条目时，根据键名决定是否跳过
-	NestingControl VisitCompoundNextEntry(NBT_TAG enTag, NBT_Type::String &&sName)
+	NestingControl VisitCompoundEntryBegin(NBT_TAG enTag, NBT_Type::String &&sName)
 	{
 		if (ContainsSkip(sName))
 		{
