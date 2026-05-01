@@ -1,6 +1,7 @@
 ﻿#pragma once
 
 #include "NBT_Visitor.hpp"//鸭子类与部分实现
+#include "NBT_Endian.hpp"//字节序
 #include "NBT_IO.hpp"//IO流
 
 #include <stdint.h>
@@ -77,14 +78,14 @@ protected:
 		Args&&... args
 	) noexcept
 	{
-		if (code >= ERRCODE_END)//保证code不会溢出
+		if (errCode >= ERRCODE_END)//保证errCode不会溢出
 		{
-			return code;
+			return errCode;
 		}
 		
 		//打印错误原因
 		NBT_Print_Level lvl = NBT_Print_Level::Err;
-		tVisitor.VisitError(lvl, "Scan Err[{}]: {}\n", (uint8_t)code, errReason[code]);
+		tVisitor.VisitError(lvl, "Scan Err[{}]: {}\n", (uint8_t)errCode, errReason[errCode]);
 
 		//打印扩展信息
 		tVisitor.VisitError(lvl, "Extra Info: \"");
@@ -151,10 +152,29 @@ protected:
 #define CHECK_STACK_DEPTH(depth, ret) \
 if((depth) == 0)\
 {\
-	Error(StackDepthExceeded, tData, tVisitor.VisitError, "{}: NBT nesting depth exceeded maximum call stack limit", _RP___FUNCTION__);\
+	Error(StackDepthExceeded, tData, tVisitor, "{}: NBT nesting depth exceeded maximum call stack limit", _RP___FUNCTION__);\
 	STACK_TRACEBACK(#depth " == 0");\
 	return ret;\
-}\
+}
+
+#define UNKNOWN_CONTROL_CODE(func, ret) \
+{\
+	Error(UnknownControlCode, tData, tVisitor, "Function [" #func "] return unknown control code");\
+	STACK_TRACEBACK("ControlCode Test");\
+	return ret;\
+}
+
+#define CALL_FUNC_RET_CONTROL(func, ...) \
+do\
+{\
+	Control controlRet = ResultControlToControl(func(__VA_ARGS__));\
+	if (controlRet == Control::Error)\
+	{\
+		Error(UnknownControlCode, tData, tVisitor, "Function [" #func "] return unknown control code");\
+		STACK_TRACEBACK("ControlCode Test");\
+	}\
+	return controlRet;\
+}while(false)
 
 #define MYTRY \
 try\
@@ -164,26 +184,26 @@ try\
 }\
 catch(const std::bad_alloc &e)\
 {\
-	Error(OutOfMemoryError, tData, tVisitor.VisitError, "{}: Info:[{}]", _RP___FUNCTION__, e.what());\
+	Error(OutOfMemoryError, tData, tVisitor, "{}: Info:[{}]", _RP___FUNCTION__, e.what());\
 	STACK_TRACEBACK("catch(std::bad_alloc)");\
 	return ret;\
 }\
 catch(const std::exception &e)\
 {\
-	Error(StdException, tData, tVisitor.VisitError, "{}: Info:[{}]", _RP___FUNCTION__, e.what());\
+	Error(StdException, tData, tVisitor, "{}: Info:[{}]", _RP___FUNCTION__, e.what());\
 	STACK_TRACEBACK("catch(std::exception)");\
 	return ret;\
 }\
 catch(...)\
 {\
-	Error(UnknownError, tData, tVisitor.VisitError, "{}: Info:[Unknown Exception]", _RP___FUNCTION__);\
+	Error(UnknownError, tData, tVisitor, "{}: Info:[Unknown Exception]", _RP___FUNCTION__);\
 	STACK_TRACEBACK("catch(...)");\
 	return ret;\
 }
 
 	template<bool bNoCheck = false, typename T, typename InputStream, typename Visitor>
 	requires std::integral<T>
-	static inline std::conditional_t<bNoCheck, void, bool> ReadBigEndian(InputStream &tData, T &tVal, Visitor &tVisitor)
+	static inline std::conditional_t<bNoCheck, void, bool> ReadBigEndian(InputStream &tData, T &tVal, Visitor &tVisitor) noexcept
 	{
 		if constexpr (!bNoCheck)
 		{
@@ -207,8 +227,9 @@ catch(...)\
 	}
 
 	template<typename InputStream, typename Visitor>
-	static bool GetName(InputStream &tData, NBT_Type::String &tName, Visitor &tVisitor)
+	static bool GetName(InputStream &tData, NBT_Type::String &tName, Visitor &tVisitor) noexcept
 	{
+	MYTRY;
 		//读取长度
 		NBT_Type::StringLength wStringLength = 0;//w->word=2*byte
 		if (!ReadBigEndian(tData, wStringLength, tVisitor))
@@ -237,10 +258,11 @@ catch(...)\
 		tData.AddIndex(szStringSize);//移动下标
 
 		return true;
+	MYCATCH(false);
 	}
 
 	template<typename InputStream, typename Visitor>
-	static bool SkipName(InputStream &tData, Visitor &tVisitor)
+	static bool SkipName(InputStream &tData, Visitor &tVisitor) noexcept
 	{
 		//读取长度
 		NBT_Type::StringLength wStringLength = 0;//w->word=2*byte
@@ -267,20 +289,22 @@ catch(...)\
 	}
 
 	template<typename InputStream, typename Visitor>
-	static Control ScanEndType(InputStream &tData, Visitor &tVisitor)
+	static Control ScanEndType(InputStream &tData, Visitor &tVisitor) noexcept
 	{
+	MYTRY;
 		return ResultControlToControl(tVisitor.VisitListEnd());
+	MYCATCH(Control::Error);
 	}
 
 	template<typename InputStream, typename Visitor>
-	static bool SkipEndType(InputStream &tData, Visitor &tVisitor)
+	static bool SkipEndType(InputStream &tData, Visitor &tVisitor) noexcept
 	{
 		//EndType无数据负载
 		return true;
 	}
 
 	template<typename T, typename InputStream, typename Visitor>
-	static Control ScanBuiltInType(InputStream &tData, Visitor &tVisitor)
+	static Control ScanBuiltInType(InputStream &tData, Visitor &tVisitor) noexcept
 	{
 		using RAW_DATA_T = NBT_Type::BuiltinRawType_T<T>;//类型映射
 		RAW_DATA_T tTmpRawData = 0;
@@ -290,11 +314,13 @@ catch(...)\
 			return Control::Error;
 		}
 
-		return ResultControlToControl(tVisitor.VisitNumericResult<T>(std::bit_cast<T>(tTmpRawData)));
+	MYTRY;
+		CALL_FUNC_RET_CONTROL(tVisitor.VisitNumericResult<T>, std::bit_cast<T>(tTmpRawData));
+	MYCATCH(Control::Error);
 	}
 
 	template<typename T, typename InputStream, typename Visitor>
-	static bool SkipBuiltInType(InputStream &tData, Visitor &tVisitor)
+	static bool SkipBuiltInType(InputStream &tData, Visitor &tVisitor) noexcept
 	{
 		using RAW_DATA_T = NBT_Type::BuiltinRawType_T<T>;//类型映射
 		size_t szSkipSize = sizeof(RAW_DATA_T);
@@ -313,8 +339,9 @@ catch(...)\
 	}
 
 	template<typename T, typename InputStream, typename Visitor>
-	static Control ScanArrayType(InputStream &tData, Visitor &tVisitor)
+	static Control ScanArrayType(InputStream &tData, Visitor &tVisitor) noexcept
 	{
+	MYTRY;
 		//获取4字节有符号数，代表数组元素个数
 		NBT_Type::ArrayLength iArrayLength = 0;//4byte
 		if (!ReadBigEndian(tData, iArrayLength, tVisitor))
@@ -357,11 +384,12 @@ catch(...)\
 			tArray.emplace_back(std::move(tTmpData));//读取一个插入一个
 		}
 
-		return ResultControlToControl(tVisitor.VisitArrayResult<T>(std::move(tArray)));
+		CALL_FUNC_RET_CONTROL(tVisitor.VisitArrayResult<T>, std::move(tArray));
+	MYCATCH(Control::Error);
 	}
 
 	template<typename T, typename InputStream, typename Visitor>
-	static bool SkipArrayType(InputStream &tData, Visitor &tVisitor)
+	static bool SkipArrayType(InputStream &tData, Visitor &tVisitor) noexcept
 	{
 		//获取4字节有符号数，代表数组元素个数
 		NBT_Type::ArrayLength iArrayLength = 0;//4byte
@@ -394,7 +422,7 @@ catch(...)\
 	}
 
 	template<typename InputStream, typename Visitor>
-	static Control ScanStringType(InputStream &tData, Visitor &tVisitor)
+	static Control ScanStringType(InputStream &tData, Visitor &tVisitor) noexcept
 	{
 		NBT_Type::String tString;
 		if (!GetName(tData, tString))//转发调用
@@ -403,11 +431,13 @@ catch(...)\
 			return Control::Error;
 		}
 
-		return ResultControlToControl(tVisitor.VisitStringResult(std::move(tString)));
+	MYTRY;
+		CALL_FUNC_RET_CONTROL(tVisitor.VisitStringResult, std::move(tString));
+	MYCATCH(Control::Error);
 	}
 
 	template<typename InputStream, typename Visitor>
-	static bool SkipStringType(InputStream &tData, Visitor &tVisitor)
+	static bool SkipStringType(InputStream &tData, Visitor &tVisitor) noexcept
 	{
 		if (!SkipName(tData, tVisitor))//转发调用
 		{
@@ -419,8 +449,9 @@ catch(...)\
 	}
 
 	template<typename InputStream, typename Visitor>
-	static Control ScanListType(InputStream &tData, Visitor &tVisitor, size_t szStackDepth)
+	static Control ScanListType(InputStream &tData, Visitor &tVisitor, size_t szStackDepth) noexcept
 	{
+	MYTRY;
 		//栈深度检测
 		CHECK_STACK_DEPTH(szStackDepth, Control::Error);
 
@@ -487,7 +518,9 @@ catch(...)\
 		case NBT_Visitor::ResultControl::Continue:	/*继续（什么也不做）*/	break;
 		case NBT_Visitor::ResultControl::Break:		goto skip_any;			break;//这时候索引从0开始，跳过所有
 		case NBT_Visitor::ResultControl::Stop:		return Control::Stop;	break;
-		default:									return Control::Error;	break;
+		default:
+			UNKNOWN_CONTROL_CODE(tVisitor.VisitListBegin, Control::Error);
+			break;
 		}
 
 		//遍历读取
@@ -509,7 +542,9 @@ catch(...)\
 				break;
 			case NBT_Visitor::NestingControl::Break:	goto skip_any;			break;//跳过剩余所有列表元素，注意当前元素还未读取，所以下面依旧从i开始跳
 			case NBT_Visitor::NestingControl::Stop:		return Control::Stop;	break;
-			default:									return Control::Error;	break;
+			default:
+				UNKNOWN_CONTROL_CODE(tVisitor.VisitListNextElement, Control::Error);
+				break;
 			}
 
 			//元素递归访问
@@ -522,7 +557,9 @@ catch(...)\
 				STACK_TRACEBACK("ScanSwitch Error, Size: [{}] Index: [{}]", szListLength, i);
 				return Control::Error;
 				break;
-			default:				return Control::Error;	break;//非法标签
+			default:
+				UNKNOWN_CONTROL_CODE(ScanSwitch, Control::Error);
+				break;
 			}
 		}
 
@@ -537,11 +574,12 @@ catch(...)\
 		}
 
 		//返回控制标签
-		return ResultControlToControl(tVisitor.VisitListEnd());
+		CALL_FUNC_RET_CONTROL(tVisitor.VisitListEnd);
+	MYCATCH(Control::Error);
 	}
 
 	template<typename InputStream, typename Visitor>
-	static bool SkipListType(InputStream &tData, Visitor &tVisitor, size_t szStackDepth)
+	static bool SkipListType(InputStream &tData, Visitor &tVisitor, size_t szStackDepth) noexcept
 	{
 		//栈深度检测
 		CHECK_STACK_DEPTH(szStackDepth, false);
@@ -607,8 +645,9 @@ catch(...)\
 	}
 
 	template<bool bRoot, typename InputStream, typename Visitor>
-	static Control ScanCompoundType(InputStream &tData, Visitor &tVisitor, size_t szStackDepth)
+	static Control ScanCompoundType(InputStream &tData, Visitor &tVisitor, size_t szStackDepth) noexcept
 	{
+	MYTRY;
 		//栈深度检测
 		CHECK_STACK_DEPTH(szStackDepth, Control::Error);
 
@@ -619,7 +658,9 @@ catch(...)\
 			case NBT_Visitor::ResultControl::Continue:	/*继续（什么也不做）*/	break;
 			case NBT_Visitor::ResultControl::Break:		goto skip_any;			break;//跳过所有
 			case NBT_Visitor::ResultControl::Stop:		return Control::Stop;	break;
-			default:									return Control::Error;	break;
+			default:
+				UNKNOWN_CONTROL_CODE(tVisitor.VisitCompoundBegin, Control::Error);
+				break;
 			}
 		}
 		else//根部调用访问器起始回调
@@ -657,7 +698,7 @@ catch(...)\
 			if (u8CompoundEntryTag >= NBT_TAG::ENUM_END)
 			{
 				Error(NbtTypeTagError, tData, tVisitor, "{}:\nNBT Tag switch default: Unknown Type Tag[0x{:02X}({})]", __FUNCTION__,
-					u8CompoundEntryTag, u8CompoundEntryTag);//此处不进行提前返回，往后默认返回处理
+					u8CompoundEntryTag, u8CompoundEntryTag);
 				STACK_TRACEBACK("u8CompoundEntryTag Test");
 				return Control::Error;
 			}
@@ -709,7 +750,9 @@ catch(...)\
 				}
 				break;
 			case NBT_Visitor::NestingControl::Stop:	return Control::Stop;	break;
-			default:								return Control::Error;	break;
+			default:
+				UNKNOWN_CONTROL_CODE(tVisitor.VisitCompoundNextEntryType, Control::Error);
+				break;
 			}
 
 			//读取名称
@@ -751,7 +794,9 @@ catch(...)\
 				}
 				break;
 			case NBT_Visitor::NestingControl::Stop:	return Control::Stop;	break;
-			default:								return Control::Error;	break;
+			default:
+				UNKNOWN_CONTROL_CODE(tVisitor.VisitCompoundNextEntry, Control::Error);
+				break;
 			}
 
 			//元素递归访问
@@ -764,7 +809,9 @@ catch(...)\
 				STACK_TRACEBACK("ScanSwitch Error, Type: [NBT_Type::{}]", NBT_Type::GetTypeName(enCompoundEntryTag));
 				return Control::Error;
 				break;
-			default:				return Control::Error;	break;//非法标签
+			default:
+				UNKNOWN_CONTROL_CODE(ScanSwitch, Control::Error);
+				break;
 			}
 		}
 
@@ -797,6 +844,9 @@ catch(...)\
 
 			if (u8CompoundEntryTag >= NBT_TAG::ENUM_END)
 			{
+				Error(NbtTypeTagError, tData, tVisitor, "{}:\nNBT Tag switch default: Unknown Type Tag[0x{:02X}({})]", __FUNCTION__,
+					u8CompoundEntryTag, u8CompoundEntryTag);
+				STACK_TRACEBACK("u8CompoundEntryTag Test");
 				return Control::Error;
 			}
 
@@ -818,17 +868,18 @@ catch(...)\
 	end_return://结束返回
 		if constexpr (!bRoot)
 		{
-			return ResultControlToControl(tVisitor.VisitCompoundEnd());//返回
+			CALL_FUNC_RET_CONTROL(tVisitor.VisitCompoundEnd);//返回
 		}
 		else
 		{
 			tVisitor.VisitEnd();//根部调用结束
 			return Control::Stop;//根部直接返回
 		}
+	MYCATCH(Control::Error);
 	}
 
 	template<typename InputStream, typename Visitor>
-	static bool SkipCompoundType(InputStream &tData, Visitor &tVisitor, size_t szStackDepth)
+	static bool SkipCompoundType(InputStream &tData, Visitor &tVisitor, size_t szStackDepth) noexcept
 	{
 		//栈深度检测
 		CHECK_STACK_DEPTH(szStackDepth, false);
@@ -848,13 +899,13 @@ catch(...)\
 
 			if (u8CompoundEntryTag == NBT_TAG::End)
 			{
-				return true;
+				return true;//正常结束
 			}
 
 			if (u8CompoundEntryTag >= NBT_TAG::ENUM_END)
 			{
 				Error(NbtTypeTagError, tData, tVisitor, "{}:\nNBT Tag switch default: Unknown Type Tag[0x{:02X}({})]", __FUNCTION__,
-					u8CompoundEntryTag, u8CompoundEntryTag);//此处不进行提前返回，往后默认返回处理
+					u8CompoundEntryTag, u8CompoundEntryTag);
 				STACK_TRACEBACK("u8CompoundEntryTag Test");
 				return false;
 			}
@@ -878,7 +929,7 @@ catch(...)\
 	}
 
 	template<typename InputStream, typename Visitor>
-	static Control ScanSwitch(InputStream &tData, NBT_TAG tagNbt, Visitor &tVisitor, size_t szStackDepth)
+	static Control ScanSwitch(InputStream &tData, NBT_TAG tagNbt, Visitor &tVisitor, size_t szStackDepth) noexcept
 	{
 		Control retControl;
 		switch (tagNbt)
@@ -959,16 +1010,24 @@ catch(...)\
 			break;
 		default:
 			{
+				Error(NbtTypeTagError, tData, tVisitor, "{}:\nNBT Tag switch error: Unknown Type Tag[0x{:02X}({})]", __FUNCTION__,
+					(NBT_TAG_RAW_TYPE)tagNbt, (NBT_TAG_RAW_TYPE)tagNbt);
 				retControl = Control::Error;
 			}
 			break;
+		}
+
+		if (retControl == Control::Error)//如果出错，打一下栈回溯
+		{
+			STACK_TRACEBACK("Tag[0x{:02X}({})] read error!",
+				(NBT_TAG_RAW_TYPE)tagNbt, (NBT_TAG_RAW_TYPE)tagNbt);
 		}
 
 		return retControl;
 	}
 
 	template<typename InputStream, typename Visitor>
-	static bool SkipSwitch(InputStream &tData, NBT_TAG tagNbt, Visitor &tVisitor, size_t szStackDepth)
+	static bool SkipSwitch(InputStream &tData, NBT_TAG tagNbt, Visitor &tVisitor, size_t szStackDepth) noexcept
 	{
 		bool bRet = false;
 		switch (tagNbt)
@@ -1049,35 +1108,43 @@ catch(...)\
 			break;
 		default:
 			{
+				Error(NbtTypeTagError, tData, tVisitor, "{}:\nNBT Tag switch error: Unknown Type Tag[0x{:02X}({})]", __FUNCTION__,
+					(NBT_TAG_RAW_TYPE)tagNbt, (NBT_TAG_RAW_TYPE)tagNbt);
 				bRet = false;
 			}
 			break;
+		}
+
+		if (!bRet)//如果出错，打一下栈回溯
+		{
+			STACK_TRACEBACK("Tag[0x{:02X}({})] read error!",
+				(NBT_TAG_RAW_TYPE)tagNbt, (NBT_TAG_RAW_TYPE)tagNbt);
 		}
 
 		return bRet;
 	}
 
 ///@endcond
-
 public:
 	template<typename InputStream, typename Visitor>
 	requires(IsLookLike_NBT_Visitor<Visitor>)
-	static bool Scan(InputStream &IptStream, Visitor &tVisitor, size_t szStackDepth = 512)
+	static bool Scan(InputStream &IptStream, Visitor &tVisitor, size_t szStackDepth = 512) noexcept
 	{
 		return ScanCompoundType<true>(IptStream, tVisitor, szStackDepth) != Control::Error;
 	}
 	
 	template<typename DataType = std::vector<uint8_t>, typename Visitor>
 	requires(IsLookLike_NBT_Visitor<Visitor>)
-	static bool Scan(const DataType &tDataInput, size_t szStartIdx, Visitor &tVisitor, size_t szStackDepth = 512)
+	static bool Scan(const DataType &tDataInput, size_t szStartIdx, Visitor &tVisitor, size_t szStackDepth = 512) noexcept
 	{
 		NBT_IO::DefaultInputStream<DataType> IptStream(tDataInput, szStartIdx);
-
 		return ScanCompoundType<true>(IptStream, tVisitor, szStackDepth) != Control::Error;
 	}
 
 #undef MYTRY
 #undef MYCATCH
+#undef CALL_FUNC_RET_CONTROL
+#undef UNKNOWN_CONTROL_CODE
 #undef CHECK_STACK_DEPTH
 #undef STACK_TRACEBACK
 #undef STRLING

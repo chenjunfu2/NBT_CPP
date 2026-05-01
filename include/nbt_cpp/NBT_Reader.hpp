@@ -205,7 +205,7 @@ if((depth) == 0)\
 	eRet = Error(StackDepthExceeded, tData, funcInfo, "{}: NBT nesting depth exceeded maximum call stack limit", _RP___FUNCTION__);\
 	STACK_TRACEBACK(#depth " == 0");\
 	return eRet;\
-}\
+}
 
 #define MYTRY \
 try\
@@ -404,7 +404,7 @@ catch(...)\
 			if (u8CompoundEntryTag >= NBT_TAG::ENUM_END)//确认在范围内
 			{
 				eRet = Error(NbtTypeTagError, tData, funcInfo, "{}:\nNBT Tag switch default: Unknown Type Tag[0x{:02X}({})]", __FUNCTION__,
-					u8CompoundEntryTag, u8CompoundEntryTag);//此处不进行提前返回，往后默认返回处理
+					u8CompoundEntryTag, u8CompoundEntryTag);
 				STACK_TRACEBACK("u8CompoundEntryTag Test");
 				return eRet;//超出范围立刻返回
 			}

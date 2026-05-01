@@ -218,13 +218,13 @@ requires(
 	//错误处理（不完全验证）
 	{
 		visitor.VisitError(nbt_print_level, "error message")
-	} noexcept;
+	};
 	{
 		visitor.VisitError(nbt_print_level, "error with code: {}", 0)
-	} noexcept;
+	};
 	{
 		visitor.VisitError(nbt_print_level, "error with info: {}", "test info")
-	} noexcept;
+	};
 };
 
 static_assert(IsLookLike_NBT_Visitor<NBT_Visitor>);
