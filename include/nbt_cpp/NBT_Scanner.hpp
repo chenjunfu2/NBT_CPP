@@ -168,13 +168,13 @@ if((depth) == 0)\
 	return ret;\
 }
 
-#define CALL_FUNC_RET_CONTROL(func, ...) \
+#define CALL_FUNC_RET_CONTROL(name, val) \
 do\
 {\
-	Control controlRet = ResultControlToControl(func(__VA_ARGS__));\
+	Control controlRet = ResultControlToControl(val);\
 	if (controlRet == Control::Error)\
 	{\
-		Error(UnknownControlCode, tData, tVisitor, "Function [" #func "] return unknown control code");\
+		Error(UnknownControlCode, tData, tVisitor, "Function [" #name "] return unknown control code");\
 		STACK_TRACEBACK("ControlCode Test");\
 	}\
 	return controlRet;\
@@ -319,7 +319,7 @@ catch(...)\
 		}
 
 	MYTRY;
-		CALL_FUNC_RET_CONTROL(tVisitor.VisitNumericResult<T>, std::bit_cast<T>(tTmpRawData));
+		CALL_FUNC_RET_CONTROL(tVisitor.VisitNumericResult<T>, tVisitor.template VisitNumericResult<T>(std::bit_cast<T>(tTmpRawData)));
 	MYCATCH(Control::Error);
 	}
 
@@ -388,7 +388,7 @@ catch(...)\
 			tArray.emplace_back(std::move(tTmpData));//读取一个插入一个
 		}
 
-		CALL_FUNC_RET_CONTROL(tVisitor.VisitArrayResult<T>, std::move(tArray));
+		CALL_FUNC_RET_CONTROL(tVisitor.VisitArrayResult<T>, tVisitor.template VisitArrayResult<T>(std::move(tArray)));
 	MYCATCH(Control::Error);
 	}
 
@@ -411,7 +411,7 @@ catch(...)\
 			return false;
 		}
 
-		size_t szSkipSize = (size_t)iArrayLength * sizeof(T::value_type);
+		size_t szSkipSize = (size_t)iArrayLength * sizeof(typename T::value_type);
 
 		if (!tData.HasAvailData(szSkipSize))
 		{
@@ -436,7 +436,7 @@ catch(...)\
 		}
 
 	MYTRY;
-		CALL_FUNC_RET_CONTROL(tVisitor.VisitStringResult, std::move(tString));
+		CALL_FUNC_RET_CONTROL(tVisitor.VisitStringResult, tVisitor.VisitStringResult(std::move(tString)));
 	MYCATCH(Control::Error);
 	}
 
@@ -589,7 +589,7 @@ catch(...)\
 		}
 
 		//返回控制标签
-		CALL_FUNC_RET_CONTROL(tVisitor.VisitListEnd);
+		CALL_FUNC_RET_CONTROL(tVisitor.VisitListEnd, tVisitor.VisitListEnd());
 	MYCATCH(Control::Error);
 	}
 
@@ -894,7 +894,7 @@ catch(...)\
 	end_return://结束返回
 		if constexpr (!bRoot)
 		{
-			CALL_FUNC_RET_CONTROL(tVisitor.VisitCompoundEnd);//返回
+			CALL_FUNC_RET_CONTROL(tVisitor.VisitCompoundEnd, tVisitor.VisitCompoundEnd());//返回
 		}
 		else
 		{
