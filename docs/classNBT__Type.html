@@ -259,13 +259,13 @@ static constexpr <a class="el" href="#a7f8ae2e6e2f87445d1e72f7e922ba053">Long</a
 <tr class="memitem:a5732a67f89efd315f37f20f92a4defbe template"><td class="memItemLeft">static constexpr bool&#160;</td><td class="memItemRight"><a class="el" href="#a5732a67f89efd315f37f20f92a4defbe">IsContainerType_V</a></td></tr>
 <tr class="memdesc:a5732a67f89efd315f37f20f92a4defbe"><td class="mdescLeft">&#160;</td><td class="mdescRight">判断类型是否为NBT容器类型（包含List、Compound和所有数组类型）  <br /></td></tr>
 <tr class="memitem:a0c20f7e8573825530c8ba2a75b431b46" id="r_a0c20f7e8573825530c8ba2a75b431b46"><td class="memTemplParams" colspan="2">template&lt;typename T&gt; </td></tr>
-<tr class="memitem:a0c20f7e8573825530c8ba2a75b431b46 template"><td class="memItemLeft">static constexpr bool&#160;</td><td class="memItemRight"><a class="el" href="#a0c20f7e8573825530c8ba2a75b431b46">IsStringType_V</a> = std::is_same_v&lt;T, <a class="el" href="#a8580dcb2a4494cd9bc52526d43f61865">String</a>&gt;</td></tr>
+<tr class="memitem:a0c20f7e8573825530c8ba2a75b431b46 template"><td class="memItemLeft">static constexpr bool&#160;</td><td class="memItemRight"><a class="el" href="#a0c20f7e8573825530c8ba2a75b431b46">IsStringType_V</a></td></tr>
 <tr class="memdesc:a0c20f7e8573825530c8ba2a75b431b46"><td class="mdescLeft">&#160;</td><td class="mdescRight">判断类型是否为NBT String类型  <br /></td></tr>
 <tr class="memitem:aba1bda392fa0eaa04f27f22ecf1c7446" id="r_aba1bda392fa0eaa04f27f22ecf1c7446"><td class="memTemplParams" colspan="2">template&lt;typename T&gt; </td></tr>
-<tr class="memitem:aba1bda392fa0eaa04f27f22ecf1c7446 template"><td class="memItemLeft">static constexpr bool&#160;</td><td class="memItemRight"><a class="el" href="#aba1bda392fa0eaa04f27f22ecf1c7446">IsListType_V</a> = std::is_same_v&lt;T, <a class="el" href="#a87b4d71087e5c0ab1111a4999dace42f">List</a>&gt;</td></tr>
+<tr class="memitem:aba1bda392fa0eaa04f27f22ecf1c7446 template"><td class="memItemLeft">static constexpr bool&#160;</td><td class="memItemRight"><a class="el" href="#aba1bda392fa0eaa04f27f22ecf1c7446">IsListType_V</a></td></tr>
 <tr class="memdesc:aba1bda392fa0eaa04f27f22ecf1c7446"><td class="mdescLeft">&#160;</td><td class="mdescRight">判断类型是否为NBT List类型  <br /></td></tr>
 <tr class="memitem:a55bc8c31fcc208e2cbed63fd5bdf3a1a" id="r_a55bc8c31fcc208e2cbed63fd5bdf3a1a"><td class="memTemplParams" colspan="2">template&lt;typename T&gt; </td></tr>
-<tr class="memitem:a55bc8c31fcc208e2cbed63fd5bdf3a1a template"><td class="memItemLeft">static constexpr bool&#160;</td><td class="memItemRight"><a class="el" href="#a55bc8c31fcc208e2cbed63fd5bdf3a1a">IsCompoundType_V</a> = std::is_same_v&lt;T, <a class="el" href="#a9dcd5050b96a10161f18d7ae4a22e7b3">Compound</a>&gt;</td></tr>
+<tr class="memitem:a55bc8c31fcc208e2cbed63fd5bdf3a1a template"><td class="memItemLeft">static constexpr bool&#160;</td><td class="memItemRight"><a class="el" href="#a55bc8c31fcc208e2cbed63fd5bdf3a1a">IsCompoundType_V</a></td></tr>
 <tr class="memdesc:a55bc8c31fcc208e2cbed63fd5bdf3a1a"><td class="mdescLeft">&#160;</td><td class="mdescRight">判断类型是否为NBT Compound类型  <br /></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">详细描述</h2>
@@ -761,14 +761,14 @@ template&lt;typename T&gt; </div>
 </table>
 </div><div class="memdoc">
 <b>初始值:</b><div class="fragment"><div class="line">                            =</div>
-<div class="line">std::is_same_v&lt;T, ByteArray&gt; ||</div>
-<div class="line">std::is_same_v&lt;T, IntArray&gt; ||</div>
-<div class="line">std::is_same_v&lt;T, LongArray&gt;</div>
+<div class="line">std::is_same_v&lt;std::remove_cvref_t&lt;T&gt;, <a class="code hl_typedef" href="#a953bc9e67e1b5d82c0786b5992f00ed8">ByteArray</a>&gt; ||</div>
+<div class="line">std::is_same_v&lt;std::remove_cvref_t&lt;T&gt;, <a class="code hl_typedef" href="#a9c4ad0b2bcd4b5cafb0c9a3f083f9406">IntArray</a>&gt; ||</div>
+<div class="line">std::is_same_v&lt;std::remove_cvref_t&lt;T&gt;, <a class="code hl_typedef" href="#aa2c61028536166272869c3bbc91d3197">LongArray</a>&gt;</div>
 </div><!-- fragment -->
 <p>判断类型是否为NBT数组类型（包含所有数组类型） </p>
 <dl class="tparams"><dt>模板参数</dt><dd>
   <table class="tparams">
-    <tr><td class="paramname">T</td><td>需要检查的类型 </td></tr>
+    <tr><td class="paramname">T</td><td>需要检查的类型（自动移除CV限定与引用） </td></tr>
   </table>
   </dd>
 </dl>
@@ -788,7 +788,7 @@ template&lt;typename T&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool NBT_Type::IsCompoundType_V = std::is_same_v&lt;T, <a class="el" href="#a9dcd5050b96a10161f18d7ae4a22e7b3">Compound</a>&gt;</td>
+          <td class="memname">bool NBT_Type::IsCompoundType_V</td>
         </tr>
       </table>
   </td>
@@ -797,11 +797,13 @@ template&lt;typename T&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-
+<b>初始值:</b><div class="fragment"><div class="line">                               =</div>
+<div class="line">std::is_same_v&lt;std::remove_cvref_t&lt;T&gt;, <a class="code hl_typedef" href="#a9dcd5050b96a10161f18d7ae4a22e7b3">Compound</a>&gt;</div>
+</div><!-- fragment -->
 <p>判断类型是否为NBT Compound类型 </p>
 <dl class="tparams"><dt>模板参数</dt><dd>
   <table class="tparams">
-    <tr><td class="paramname">T</td><td>需要检查的类型 </td></tr>
+    <tr><td class="paramname">T</td><td>需要检查的类型（自动移除CV限定与引用） </td></tr>
   </table>
   </dd>
 </dl>
@@ -831,16 +833,16 @@ template&lt;typename T&gt; </div>
 </table>
 </div><div class="memdoc">
 <b>初始值:</b><div class="fragment"><div class="line">                                =</div>
-<div class="line">std::is_same_v&lt;T, ByteArray&gt; ||</div>
-<div class="line">std::is_same_v&lt;T, IntArray&gt; ||</div>
-<div class="line">std::is_same_v&lt;T, LongArray&gt; ||</div>
-<div class="line">std::is_same_v&lt;T, List&gt; ||</div>
-<div class="line">std::is_same_v&lt;T, Compound&gt;</div>
+<div class="line">std::is_same_v&lt;std::remove_cvref_t&lt;T&gt;, <a class="code hl_typedef" href="#a953bc9e67e1b5d82c0786b5992f00ed8">ByteArray</a>&gt; ||</div>
+<div class="line">std::is_same_v&lt;std::remove_cvref_t&lt;T&gt;, <a class="code hl_typedef" href="#a9c4ad0b2bcd4b5cafb0c9a3f083f9406">IntArray</a>&gt; ||</div>
+<div class="line">std::is_same_v&lt;std::remove_cvref_t&lt;T&gt;, <a class="code hl_typedef" href="#aa2c61028536166272869c3bbc91d3197">LongArray</a>&gt; ||</div>
+<div class="line">std::is_same_v&lt;std::remove_cvref_t&lt;T&gt;, <a class="code hl_typedef" href="#a87b4d71087e5c0ab1111a4999dace42f">List</a>&gt; ||</div>
+<div class="line">std::is_same_v&lt;std::remove_cvref_t&lt;T&gt;, <a class="code hl_typedef" href="#a9dcd5050b96a10161f18d7ae4a22e7b3">Compound</a>&gt;</div>
 </div><!-- fragment -->
 <p>判断类型是否为NBT容器类型（包含List、Compound和所有数组类型） </p>
 <dl class="tparams"><dt>模板参数</dt><dd>
   <table class="tparams">
-    <tr><td class="paramname">T</td><td>需要检查的类型 </td></tr>
+    <tr><td class="paramname">T</td><td>需要检查的类型（自动移除CV限定与引用） </td></tr>
   </table>
   </dd>
 </dl>
@@ -870,13 +872,13 @@ template&lt;typename T&gt; </div>
 </table>
 </div><div class="memdoc">
 <b>初始值:</b><div class="fragment"><div class="line">                               =</div>
-<div class="line">std::is_same_v&lt;T, Float&gt; ||</div>
-<div class="line">std::is_same_v&lt;T, Double&gt;</div>
+<div class="line">std::is_same_v&lt;std::remove_cvref_t&lt;T&gt;, <a class="code hl_typedef" href="#a8a7ac779b8e8a7fdccb3456844abe5cf">Float</a>&gt; ||</div>
+<div class="line">std::is_same_v&lt;std::remove_cvref_t&lt;T&gt;, <a class="code hl_typedef" href="#aaea549797088fb63987679367bc9d39a">Double</a>&gt;</div>
 </div><!-- fragment -->
 <p>判断类型是否为NBT浮点数类型（包含所有浮点数类型） </p>
 <dl class="tparams"><dt>模板参数</dt><dd>
   <table class="tparams">
-    <tr><td class="paramname">T</td><td>需要检查的类型 </td></tr>
+    <tr><td class="paramname">T</td><td>需要检查的类型（自动移除CV限定与引用） </td></tr>
   </table>
   </dd>
 </dl>
@@ -906,15 +908,15 @@ template&lt;typename T&gt; </div>
 </table>
 </div><div class="memdoc">
 <b>初始值:</b><div class="fragment"><div class="line">                              =</div>
-<div class="line">std::is_same_v&lt;T, Byte&gt; ||</div>
-<div class="line">std::is_same_v&lt;T, Short&gt; ||</div>
-<div class="line">std::is_same_v&lt;T, Int&gt; ||</div>
-<div class="line">std::is_same_v&lt;T, Long&gt;</div>
+<div class="line">std::is_same_v&lt;std::remove_cvref_t&lt;T&gt;, <a class="code hl_typedef" href="#a09b5ce48dffc429ad8a7d05d007741c1">Byte</a>&gt; ||</div>
+<div class="line">std::is_same_v&lt;std::remove_cvref_t&lt;T&gt;, <a class="code hl_typedef" href="#a3e47d05c36743947da966f4223237262">Short</a>&gt; ||</div>
+<div class="line">std::is_same_v&lt;std::remove_cvref_t&lt;T&gt;, <a class="code hl_typedef" href="#afee0233d7f58b90cc9ce2b903da2da22">Int</a>&gt; ||</div>
+<div class="line">std::is_same_v&lt;std::remove_cvref_t&lt;T&gt;, <a class="code hl_typedef" href="#a7f8ae2e6e2f87445d1e72f7e922ba053">Long</a>&gt;</div>
 </div><!-- fragment -->
 <p>判断类型是否为NBT整数类型（包含所有整数类型） </p>
 <dl class="tparams"><dt>模板参数</dt><dd>
   <table class="tparams">
-    <tr><td class="paramname">T</td><td>需要检查的类型 </td></tr>
+    <tr><td class="paramname">T</td><td>需要检查的类型（自动移除CV限定与引用） </td></tr>
   </table>
   </dd>
 </dl>
@@ -934,7 +936,7 @@ template&lt;typename T&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool NBT_Type::IsListType_V = std::is_same_v&lt;T, <a class="el" href="#a87b4d71087e5c0ab1111a4999dace42f">List</a>&gt;</td>
+          <td class="memname">bool NBT_Type::IsListType_V</td>
         </tr>
       </table>
   </td>
@@ -943,11 +945,13 @@ template&lt;typename T&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-
+<b>初始值:</b><div class="fragment"><div class="line">                           =</div>
+<div class="line">std::is_same_v&lt;std::remove_cvref_t&lt;T&gt;, <a class="code hl_typedef" href="#a87b4d71087e5c0ab1111a4999dace42f">List</a>&gt;</div>
+</div><!-- fragment -->
 <p>判断类型是否为NBT List类型 </p>
 <dl class="tparams"><dt>模板参数</dt><dd>
   <table class="tparams">
-    <tr><td class="paramname">T</td><td>需要检查的类型 </td></tr>
+    <tr><td class="paramname">T</td><td>需要检查的类型（自动移除CV限定与引用） </td></tr>
   </table>
   </dd>
 </dl>
@@ -977,17 +981,17 @@ template&lt;typename T&gt; </div>
 </table>
 </div><div class="memdoc">
 <b>初始值:</b><div class="fragment"><div class="line">                              =</div>
-<div class="line">std::is_same_v&lt;T, Byte&gt; ||</div>
-<div class="line">std::is_same_v&lt;T, Short&gt; ||</div>
-<div class="line">std::is_same_v&lt;T, Int&gt; ||</div>
-<div class="line">std::is_same_v&lt;T, Long&gt; ||</div>
-<div class="line">std::is_same_v&lt;T, Float&gt; ||</div>
-<div class="line">std::is_same_v&lt;T, Double&gt;</div>
+<div class="line">std::is_same_v&lt;std::remove_cvref_t&lt;T&gt;, <a class="code hl_typedef" href="#a09b5ce48dffc429ad8a7d05d007741c1">Byte</a>&gt; ||</div>
+<div class="line">std::is_same_v&lt;std::remove_cvref_t&lt;T&gt;, <a class="code hl_typedef" href="#a3e47d05c36743947da966f4223237262">Short</a>&gt; ||</div>
+<div class="line">std::is_same_v&lt;std::remove_cvref_t&lt;T&gt;, <a class="code hl_typedef" href="#afee0233d7f58b90cc9ce2b903da2da22">Int</a>&gt; ||</div>
+<div class="line">std::is_same_v&lt;std::remove_cvref_t&lt;T&gt;, <a class="code hl_typedef" href="#a7f8ae2e6e2f87445d1e72f7e922ba053">Long</a>&gt; ||</div>
+<div class="line">std::is_same_v&lt;std::remove_cvref_t&lt;T&gt;, <a class="code hl_typedef" href="#a8a7ac779b8e8a7fdccb3456844abe5cf">Float</a>&gt; ||</div>
+<div class="line">std::is_same_v&lt;std::remove_cvref_t&lt;T&gt;, <a class="code hl_typedef" href="#aaea549797088fb63987679367bc9d39a">Double</a>&gt;</div>
 </div><!-- fragment -->
 <p>判断类型是否为NBT数值类型（包含所有整数和浮点数类型） </p>
 <dl class="tparams"><dt>模板参数</dt><dd>
   <table class="tparams">
-    <tr><td class="paramname">T</td><td>需要检查的类型 </td></tr>
+    <tr><td class="paramname">T</td><td>需要检查的类型（自动移除CV限定与引用） </td></tr>
   </table>
   </dd>
 </dl>
@@ -1007,7 +1011,7 @@ template&lt;typename T&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool NBT_Type::IsStringType_V = std::is_same_v&lt;T, <a class="el" href="#a8580dcb2a4494cd9bc52526d43f61865">String</a>&gt;</td>
+          <td class="memname">bool NBT_Type::IsStringType_V</td>
         </tr>
       </table>
   </td>
@@ -1016,11 +1020,13 @@ template&lt;typename T&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-
+<b>初始值:</b><div class="fragment"><div class="line">                             =</div>
+<div class="line">std::is_same_v&lt;std::remove_cvref_t&lt;T&gt;, <a class="code hl_typedef" href="#a8580dcb2a4494cd9bc52526d43f61865">String</a>&gt;</div>
+</div><!-- fragment -->
 <p>判断类型是否为NBT String类型 </p>
 <dl class="tparams"><dt>模板参数</dt><dd>
   <table class="tparams">
-    <tr><td class="paramname">T</td><td>需要检查的类型 </td></tr>
+    <tr><td class="paramname">T</td><td>需要检查的类型（自动移除CV限定与引用） </td></tr>
   </table>
   </dd>
 </dl>

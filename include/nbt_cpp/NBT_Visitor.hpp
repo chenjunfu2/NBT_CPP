@@ -577,7 +577,7 @@ public:
 	}
 
 	/// @brief 整体扫描开始：初始化栈，将根节点设为当前帧
-    /// @note 不会自动清除已有根节点数据，多次调用会合并结果。
+	/// @note 不会自动清除已有根节点数据，多次调用会合并结果。
 	void VisitBegin(void)
 	{
 		vStack.clear();

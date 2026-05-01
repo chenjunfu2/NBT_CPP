@@ -5,7 +5,7 @@ var searchData=
   ['cjf2_5fnbt_5fcpp_5fuse_5fzlib_2',['CJF2_NBT_CPP_USE_ZLIB',['../vcpkg__config_8h.html#a831fce2189f3a52eda60471747ee6d14',1,'vcpkg_config.h']]],
   ['clear_3',['Clear',['../classNBT__Compound.html#a11ae318e17ba5b0a5a0a075701f27b44',1,'NBT_Compound::Clear()'],['../classNBT__List.html#a7096884de61f70ec185883f4012f6298',1,'NBT_List::Clear()'],['../classNBT__Node.html#af15d32d1c98c51b6c58c232fa724630c',1,'NBT_Node::Clear()']]],
   ['compiler_5fdefine_2eh_4',['Compiler_Define.h',['../Compiler__Define_8h.html',1,'']]],
-  ['compound_5',['Compound',['../classNBT__Type.html#a9dcd5050b96a10161f18d7ae4a22e7b3',1,'NBT_Type::Compound'],['../NBT__TAG_8hpp.html#ada3a2766daa185b5461d684c766b4a2ea26154ea007c65f860de5333a555a56cf',1,'Compound:&#160;NBT_TAG.hpp']]],
+  ['compound_5',['Compound',['../classNBT__Type.html#a9dcd5050b96a10161f18d7ae4a22e7b3',1,'NBT_Type::Compound'],['../structNBT__Visitor__Collector_1_1Frame.html#a3a7a5705260bb2dd6266df45acf33354a26154ea007c65f860de5333a555a56cf',1,'NBT_Visitor_Collector::Frame::Compound'],['../NBT__TAG_8hpp.html#ada3a2766daa185b5461d684c766b4a2ea26154ea007c65f860de5333a555a56cf',1,'Compound:&#160;NBT_TAG.hpp']]],
   ['compressdata_6',['CompressData',['../classNBT__IO.html#a1aedf88b6a48e4899dc796597ab236df',1,'NBT_IO']]],
   ['compressdatanothrow_7',['CompressDataNoThrow',['../classNBT__IO.html#acb1e080c5f689eaf38640ca7827b7146',1,'NBT_IO']]],
   ['contains_8',['Contains',['../classNBT__Compound.html#a8d29e5604d49149e5851bc1308abc475',1,'NBT_Compound::Contains()'],['../classNBT__List.html#a4043ffc0168fd0d771e13ba13cf5abdf',1,'NBT_List::Contains()']]],
@@ -24,6 +24,7 @@ var searchData=
   ['containsshort_21',['ContainsShort',['../classNBT__Compound.html#ad1fafccf3fbe8b6444f29e9673577be9',1,'NBT_Compound']]],
   ['containsstring_22',['ContainsString',['../classNBT__Compound.html#a46713493383299a8bebafa53983f8867',1,'NBT_Compound']]],
   ['continue_23',['Continue',['../classNBT__Visitor.html#a5dd0ef8b7205c99438132ea13413f82baa0bfb8e59e6c13fc8d990781f77694fe',1,'NBT_Visitor']]],
-  ['cpp_24',['chenjunfu2-nbt-cpp',['../index.html',1,'']]],
-  ['curdata_25',['CurData',['../classNBT__IO_1_1DefaultInputStream.html#a6417c41162dd41f04bdec06358c48b1f',1,'NBT_IO::DefaultInputStream']]]
+  ['cpdroot_24',['cpdRoot',['../classNBT__Visitor__Collector.html#add3e128190078aee5a05e9c66ca12699',1,'NBT_Visitor_Collector']]],
+  ['cpp_25',['chenjunfu2-nbt-cpp',['../index.html',1,'']]],
+  ['curdata_26',['CurData',['../classNBT__IO_1_1DefaultInputStream.html#a6417c41162dd41f04bdec06358c48b1f',1,'NBT_IO::DefaultInputStream']]]
 ];

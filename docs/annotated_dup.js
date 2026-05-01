@@ -24,5 +24,6 @@ var annotated_dup =
     [ "NBT_StringView", "classNBT__StringView.html", "classNBT__StringView" ],
     [ "NBT_Type", "classNBT__Type.html", "classNBT__Type" ],
     [ "NBT_Visitor", "classNBT__Visitor.html", "classNBT__Visitor" ],
+    [ "NBT_Visitor_Collector", "classNBT__Visitor__Collector.html", "classNBT__Visitor__Collector" ],
     [ "NBT_Writer", "classNBT__Writer.html", null ]
 ];

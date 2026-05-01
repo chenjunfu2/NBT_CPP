@@ -1,0 +1,874 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.16.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>chenjunfu2-nbt-cpp: NBT_Visitor_Collector类 参考</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">chenjunfu2-nbt-cpp<span id="projectnumber">&#160;v2.1.0</span>
+   </div>
+   <div id="projectbrief">一个基于CPP20的NBT(Named Binary Tag)库</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.16.1 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','搜索',true);
+  $(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(function(){initNavTree('classNBT__Visitor__Collector.html','','classNBT__Visitor__Collector-members'); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">NBT_Visitor_Collector类 参考</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>NBT 数据收集器，实现访问器接口，将扫描结果构建为完整的 Compound 树  
+ <a href="#details">更多...</a></p>
+
+<p><code>#include &lt;<a class="el" href="NBT__Visitor_8hpp_source.html">NBT_Visitor.hpp</a>&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+类</h2></td></tr>
+<tr class="memitem:Frame" id="r_Frame"><td class="memItemLeft">struct &#160;</td><td class="memItemRight"><a class="el" href="structNBT__Visitor__Collector_1_1Frame.html">Frame</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">栈帧  <a href="structNBT__Visitor__Collector_1_1Frame.html#details">更多...</a><br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-types" class="groupheader"><a id="pub-types" name="pub-types"></a>
+Public 类型</h2></td></tr>
+<tr class="memitem:a45fbaa34badf4b1e838b59b7e4ebbd35" id="r_a45fbaa34badf4b1e838b59b7e4ebbd35"><td class="memItemLeft"><a id="a45fbaa34badf4b1e838b59b7e4ebbd35" name="a45fbaa34badf4b1e838b59b7e4ebbd35"></a>
+using&#160;</td><td class="memItemRight"><b>ResultControl</b> = <a class="el" href="classNBT__Visitor.html#a5dd0ef8b7205c99438132ea13413f82b">NBT_Visitor::ResultControl</a></td></tr>
+<tr class="memdesc:a45fbaa34badf4b1e838b59b7e4ebbd35"><td class="mdescLeft">&#160;</td><td class="mdescRight">控制流返回码（普通回调），直接映射 <a class="el" href="classNBT__Visitor.html#a5dd0ef8b7205c99438132ea13413f82b" title="控制流返回码（用于普通回调）">NBT_Visitor::ResultControl</a> <br /></td></tr>
+<tr class="memitem:a67b57ac173a634cb884ed6a73c345e44" id="r_a67b57ac173a634cb884ed6a73c345e44"><td class="memItemLeft"><a id="a67b57ac173a634cb884ed6a73c345e44" name="a67b57ac173a634cb884ed6a73c345e44"></a>
+using&#160;</td><td class="memItemRight"><b>NestingControl</b> = <a class="el" href="classNBT__Visitor.html#a909a3db005dff0ac0f471df1ace97063">NBT_Visitor::NestingControl</a></td></tr>
+<tr class="memdesc:a67b57ac173a634cb884ed6a73c345e44"><td class="mdescLeft">&#160;</td><td class="mdescRight">控制流返回码（嵌套结构入口回调），直接映射 <a class="el" href="classNBT__Visitor.html#a909a3db005dff0ac0f471df1ace97063" title="控制流返回码（用于嵌套结构回调）">NBT_Visitor::NestingControl</a> <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Public 成员函数</h2></td></tr>
+<tr class="memitem:aa27be4bb18e74092df7d9b7bc237e52b" id="r_aa27be4bb18e74092df7d9b7bc237e52b"><td class="memItemLeft"><a id="aa27be4bb18e74092df7d9b7bc237e52b" name="aa27be4bb18e74092df7d9b7bc237e52b"></a>
+&#160;</td><td class="memItemRight"><b>NBT_Visitor_Collector</b> (const <a class="el" href="classNBT__Visitor__Collector.html">NBT_Visitor_Collector</a> &amp;)=delete</td></tr>
+<tr class="memdesc:aa27be4bb18e74092df7d9b7bc237e52b"><td class="mdescLeft">&#160;</td><td class="mdescRight">禁用拷贝构造函数 <br /></td></tr>
+<tr class="memitem:a11c9de5481477045385a96fe2e033dae" id="r_a11c9de5481477045385a96fe2e033dae"><td class="memItemLeft"><a id="a11c9de5481477045385a96fe2e033dae" name="a11c9de5481477045385a96fe2e033dae"></a>
+&#160;</td><td class="memItemRight"><b>NBT_Visitor_Collector</b> (<a class="el" href="classNBT__Visitor__Collector.html">NBT_Visitor_Collector</a> &amp;&amp;)=default</td></tr>
+<tr class="memdesc:a11c9de5481477045385a96fe2e033dae"><td class="mdescLeft">&#160;</td><td class="mdescRight">默认移动构造函数 <br /></td></tr>
+<tr class="memitem:af657cad6cf47ffdc9e8f0c3c7691acbe" id="r_af657cad6cf47ffdc9e8f0c3c7691acbe"><td class="memItemLeft"><a id="af657cad6cf47ffdc9e8f0c3c7691acbe" name="af657cad6cf47ffdc9e8f0c3c7691acbe"></a>
+<a class="el" href="classNBT__Visitor__Collector.html">NBT_Visitor_Collector</a> &amp;&#160;</td><td class="memItemRight"><b>operator=</b> (const <a class="el" href="classNBT__Visitor__Collector.html">NBT_Visitor_Collector</a> &amp;)=delete</td></tr>
+<tr class="memdesc:af657cad6cf47ffdc9e8f0c3c7691acbe"><td class="mdescLeft">&#160;</td><td class="mdescRight">禁用拷贝赋值运算符 <br /></td></tr>
+<tr class="memitem:a49d478af1f954507caa250e7c102c1f0" id="r_a49d478af1f954507caa250e7c102c1f0"><td class="memItemLeft"><a id="a49d478af1f954507caa250e7c102c1f0" name="a49d478af1f954507caa250e7c102c1f0"></a>
+<a class="el" href="classNBT__Visitor__Collector.html">NBT_Visitor_Collector</a> &amp;&#160;</td><td class="memItemRight"><b>operator=</b> (<a class="el" href="classNBT__Visitor__Collector.html">NBT_Visitor_Collector</a> &amp;&amp;)=default</td></tr>
+<tr class="memdesc:a49d478af1f954507caa250e7c102c1f0"><td class="mdescLeft">&#160;</td><td class="mdescRight">默认移动赋值运算符 <br /></td></tr>
+<tr class="memitem:a384d7191a73d63363f029d12d156f0d5" id="r_a384d7191a73d63363f029d12d156f0d5"><td class="memItemLeft">const <a class="el" href="classNBT__Type.html#a9dcd5050b96a10161f18d7ae4a22e7b3">NBT_Type::Compound</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a384d7191a73d63363f029d12d156f0d5">ViewRoot</a> (void) const noexcept</td></tr>
+<tr class="memdesc:a384d7191a73d63363f029d12d156f0d5"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取根节点的常量引用  <br /></td></tr>
+<tr class="memitem:a8edd89fdf51537e48fc3869aec473cee" id="r_a8edd89fdf51537e48fc3869aec473cee"><td class="memItemLeft"><a class="el" href="classNBT__Type.html#a9dcd5050b96a10161f18d7ae4a22e7b3">NBT_Type::Compound</a> &amp;&amp;&#160;</td><td class="memItemRight"><a class="el" href="#a8edd89fdf51537e48fc3869aec473cee">MoveRoot</a> (void) noexcept</td></tr>
+<tr class="memdesc:a8edd89fdf51537e48fc3869aec473cee"><td class="mdescLeft">&#160;</td><td class="mdescRight">移动根节点（获取所有权）  <br /></td></tr>
+<tr class="memitem:aac37fb38a446ebe9f3dafb5dec994fba" id="r_aac37fb38a446ebe9f3dafb5dec994fba"><td class="memTemplParams" colspan="2">template&lt;typename T&gt; </td></tr>
+<tr class="memitem:aac37fb38a446ebe9f3dafb5dec994fba template"><td class="memItemLeft"><a class="el" href="classNBT__Visitor.html#a5dd0ef8b7205c99438132ea13413f82b">ResultControl</a>&#160;</td><td class="memItemRight"><a class="el" href="#aac37fb38a446ebe9f3dafb5dec994fba">VisitNumericResult</a> (T tNumericResult)</td></tr>
+<tr class="memdesc:aac37fb38a446ebe9f3dafb5dec994fba"><td class="mdescLeft">&#160;</td><td class="mdescRight">处理数值类型节点     <br /></td></tr>
+<tr class="memitem:a68feef244bd42aed623fa778b8049bbb" id="r_a68feef244bd42aed623fa778b8049bbb"><td class="memTemplParams" colspan="2">template&lt;typename T&gt; </td></tr>
+<tr class="memitem:a68feef244bd42aed623fa778b8049bbb template"><td class="memItemLeft"><a class="el" href="classNBT__Visitor.html#a5dd0ef8b7205c99438132ea13413f82b">ResultControl</a>&#160;</td><td class="memItemRight"><a class="el" href="#a68feef244bd42aed623fa778b8049bbb">VisitArrayResult</a> (T &amp;&amp;tArrayResult)</td></tr>
+<tr class="memdesc:a68feef244bd42aed623fa778b8049bbb"><td class="mdescLeft">&#160;</td><td class="mdescRight">处理数组类型节点（ByteArray/IntArray/LongArray）     <br /></td></tr>
+<tr class="memitem:a5f3aeb6483e11a78c58eb5d96a365112" id="r_a5f3aeb6483e11a78c58eb5d96a365112"><td class="memItemLeft"><a class="el" href="classNBT__Visitor.html#a5dd0ef8b7205c99438132ea13413f82b">ResultControl</a>&#160;</td><td class="memItemRight"><a class="el" href="#a5f3aeb6483e11a78c58eb5d96a365112">VisitStringResult</a> (<a class="el" href="classNBT__Type.html#a8580dcb2a4494cd9bc52526d43f61865">NBT_Type::String</a> &amp;&amp;strResult)</td></tr>
+<tr class="memdesc:a5f3aeb6483e11a78c58eb5d96a365112"><td class="mdescLeft">&#160;</td><td class="mdescRight">处理字符串类型节点     <br /></td></tr>
+<tr class="memitem:a777c5b81fdfacc2492c8c9fefaab6e95" id="r_a777c5b81fdfacc2492c8c9fefaab6e95"><td class="memItemLeft"><a class="el" href="classNBT__Visitor.html#a5dd0ef8b7205c99438132ea13413f82b">ResultControl</a>&#160;</td><td class="memItemRight"><a class="el" href="#a777c5b81fdfacc2492c8c9fefaab6e95">VisitEndResult</a> (void)</td></tr>
+<tr class="memdesc:a777c5b81fdfacc2492c8c9fefaab6e95"><td class="mdescLeft">&#160;</td><td class="mdescRight">处理 End 标记节点     <br /></td></tr>
+<tr class="memitem:a6544d83db49f388b3e19cad8016a109f" id="r_a6544d83db49f388b3e19cad8016a109f"><td class="memItemLeft"><a class="el" href="classNBT__Visitor.html#a5dd0ef8b7205c99438132ea13413f82b">ResultControl</a>&#160;</td><td class="memItemRight"><a class="el" href="#a6544d83db49f388b3e19cad8016a109f">VisitListBegin</a> (<a class="el" href="NBT__TAG_8hpp.html#ada3a2766daa185b5461d684c766b4a2e">NBT_TAG</a> enListElementTag, size_t szListLength)</td></tr>
+<tr class="memitem:a91a1ca1f5543615e3dc465f7e071c029" id="r_a91a1ca1f5543615e3dc465f7e071c029"><td class="memItemLeft"><a class="el" href="classNBT__Visitor.html#a909a3db005dff0ac0f471df1ace97063">NestingControl</a>&#160;</td><td class="memItemRight"><a class="el" href="#a91a1ca1f5543615e3dc465f7e071c029">VisitListElementBegin</a> (<a class="el" href="NBT__TAG_8hpp.html#ada3a2766daa185b5461d684c766b4a2e">NBT_TAG</a> enListElementTag, size_t szListIndex)</td></tr>
+<tr class="memdesc:a91a1ca1f5543615e3dc465f7e071c029"><td class="mdescLeft">&#160;</td><td class="mdescRight">开始处理 List 中的一个元素     <br /></td></tr>
+<tr class="memitem:a1505a2596c151b0b845e98577e0f76cc" id="r_a1505a2596c151b0b845e98577e0f76cc"><td class="memItemLeft"><a class="el" href="classNBT__Visitor.html#a5dd0ef8b7205c99438132ea13413f82b">ResultControl</a>&#160;</td><td class="memItemRight"><a class="el" href="#a1505a2596c151b0b845e98577e0f76cc">VisitListElementEnd</a> (<a class="el" href="NBT__TAG_8hpp.html#ada3a2766daa185b5461d684c766b4a2e">NBT_TAG</a> enListElementTag, size_t szListIndex)</td></tr>
+<tr class="memdesc:a1505a2596c151b0b845e98577e0f76cc"><td class="mdescLeft">&#160;</td><td class="mdescRight">结束处理 List 中的一个元素     <br /></td></tr>
+<tr class="memitem:a641daba87ae767b53de298cb86cf60f6" id="r_a641daba87ae767b53de298cb86cf60f6"><td class="memItemLeft"><a class="el" href="classNBT__Visitor.html#a5dd0ef8b7205c99438132ea13413f82b">ResultControl</a>&#160;</td><td class="memItemRight"><a class="el" href="#a641daba87ae767b53de298cb86cf60f6">VisitListEnd</a> (void)</td></tr>
+<tr class="memitem:accf1e31c8e7925079ca38aa4524d1770" id="r_accf1e31c8e7925079ca38aa4524d1770"><td class="memItemLeft"><a class="el" href="classNBT__Visitor.html#a5dd0ef8b7205c99438132ea13413f82b">ResultControl</a>&#160;</td><td class="memItemRight"><a class="el" href="#accf1e31c8e7925079ca38aa4524d1770">VisitCompoundBegin</a> (void)</td></tr>
+<tr class="memitem:aab1221b5530f4ba35b116347bc6ceb58" id="r_aab1221b5530f4ba35b116347bc6ceb58"><td class="memItemLeft"><a class="el" href="classNBT__Visitor.html#a909a3db005dff0ac0f471df1ace97063">NestingControl</a>&#160;</td><td class="memItemRight"><a class="el" href="#aab1221b5530f4ba35b116347bc6ceb58">VisitCompoundNextEntryType</a> (<a class="el" href="NBT__TAG_8hpp.html#ada3a2766daa185b5461d684c766b4a2e">NBT_TAG</a> enCompoundEntryTag)</td></tr>
+<tr class="memdesc:aab1221b5530f4ba35b116347bc6ceb58"><td class="mdescLeft">&#160;</td><td class="mdescRight">在 Compound 中，开始处理下一个条目之前，仅提供类型信息     <br /></td></tr>
+<tr class="memitem:ab5cbfe6bed4e902426ab3a661e8bd76f" id="r_ab5cbfe6bed4e902426ab3a661e8bd76f"><td class="memItemLeft"><a class="el" href="classNBT__Visitor.html#a909a3db005dff0ac0f471df1ace97063">NestingControl</a>&#160;</td><td class="memItemRight"><a class="el" href="#ab5cbfe6bed4e902426ab3a661e8bd76f">VisitCompoundEntryBegin</a> (<a class="el" href="NBT__TAG_8hpp.html#ada3a2766daa185b5461d684c766b4a2e">NBT_TAG</a> enCompoundEntryTag, <a class="el" href="classNBT__Type.html#a8580dcb2a4494cd9bc52526d43f61865">NBT_Type::String</a> &amp;&amp;sName)</td></tr>
+<tr class="memitem:addc2ff9e45490abadffa257ea24ae208" id="r_addc2ff9e45490abadffa257ea24ae208"><td class="memItemLeft"><a class="el" href="classNBT__Visitor.html#a5dd0ef8b7205c99438132ea13413f82b">ResultControl</a>&#160;</td><td class="memItemRight"><a class="el" href="#addc2ff9e45490abadffa257ea24ae208">VisitCompoundEntryEnd</a> (<a class="el" href="NBT__TAG_8hpp.html#ada3a2766daa185b5461d684c766b4a2e">NBT_TAG</a> enCompoundEntryTag, <a class="el" href="classNBT__Type.html#a8580dcb2a4494cd9bc52526d43f61865">NBT_Type::String</a> &amp;&amp;sName)</td></tr>
+<tr class="memdesc:addc2ff9e45490abadffa257ea24ae208"><td class="mdescLeft">&#160;</td><td class="mdescRight">结束处理 Compound 中的一个条目     <br /></td></tr>
+<tr class="memitem:a603f731bf5461db9c7da364334bba6ce" id="r_a603f731bf5461db9c7da364334bba6ce"><td class="memItemLeft"><a class="el" href="classNBT__Visitor.html#a5dd0ef8b7205c99438132ea13413f82b">ResultControl</a>&#160;</td><td class="memItemRight"><a class="el" href="#a603f731bf5461db9c7da364334bba6ce">VisitCompoundEnd</a> (void)</td></tr>
+<tr class="memitem:aad0f5fedac5a05d708568937f531a02f" id="r_aad0f5fedac5a05d708568937f531a02f"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#aad0f5fedac5a05d708568937f531a02f">VisitBegin</a> (void)</td></tr>
+<tr class="memdesc:aad0f5fedac5a05d708568937f531a02f"><td class="mdescLeft">&#160;</td><td class="mdescRight">整体扫描开始：初始化栈，将根节点设为当前帧  <br /></td></tr>
+<tr class="memitem:a9404bf0aa59ce02e5c3c3f66ead8e179" id="r_a9404bf0aa59ce02e5c3c3f66ead8e179"><td class="memItemLeft"><a id="a9404bf0aa59ce02e5c3c3f66ead8e179" name="a9404bf0aa59ce02e5c3c3f66ead8e179"></a>
+void&#160;</td><td class="memItemRight"><b>VisitEnd</b> (void)</td></tr>
+<tr class="memdesc:a9404bf0aa59ce02e5c3c3f66ead8e179"><td class="mdescLeft">&#160;</td><td class="mdescRight">整体扫描结束：清理栈帧 <br /></td></tr>
+<tr class="memitem:a43f5427d1f9ff75c61ecb9edc08bc151" id="r_a43f5427d1f9ff75c61ecb9edc08bc151"><td class="memTemplParams" colspan="2">template&lt;typename... Args&gt; </td></tr>
+<tr class="memitem:a43f5427d1f9ff75c61ecb9edc08bc151 template"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a43f5427d1f9ff75c61ecb9edc08bc151">VisitError</a> (<a class="el" href="NBT__Print_8hpp.html#a977ff50d4d248543d59717387e6dd311">NBT_Print_Level</a> lvl, const std::format_string&lt; Args... &gt; fmt, Args &amp;&amp;... args) noexcept</td></tr>
+<tr class="memdesc:a43f5427d1f9ff75c61ecb9edc08bc151"><td class="mdescLeft">&#160;</td><td class="mdescRight">错误处理回调     <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pro-methods" class="groupheader"><a id="pro-methods" name="pro-methods"></a>
+Protected 成员函数</h2></td></tr>
+<tr class="memitem:a800b0fc9eb9aedd190811fa55662253a" id="r_a800b0fc9eb9aedd190811fa55662253a"><td class="memTemplParams" colspan="2">template&lt;typename T&gt; </td></tr>
+<tr class="memitem:a800b0fc9eb9aedd190811fa55662253a template"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a800b0fc9eb9aedd190811fa55662253a">AppendStackTop</a> (T &amp;&amp;tVal)</td></tr>
+<tr class="memdesc:a800b0fc9eb9aedd190811fa55662253a"><td class="mdescLeft">&#160;</td><td class="mdescRight">将值追加到当前栈顶的容器中  <br /></td></tr>
+<tr class="memitem:a6d9a20e76aa25727e7c973a2fa17963b" id="r_a6d9a20e76aa25727e7c973a2fa17963b"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a6d9a20e76aa25727e7c973a2fa17963b">PopStack</a> (<a class="el" href="structNBT__Visitor__Collector_1_1Frame.html#a3a7a5705260bb2dd6266df45acf33354">Frame::Type</a> enTypeRequires)</td></tr>
+<tr class="memdesc:a6d9a20e76aa25727e7c973a2fa17963b"><td class="mdescLeft">&#160;</td><td class="mdescRight">弹出栈顶，并检查类型是否匹配  <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pro-attribs" class="groupheader"><a id="pro-attribs" name="pro-attribs"></a>
+Protected 属性</h2></td></tr>
+<tr class="memitem:a85b18928cec6da9d9021334e63fdde93" id="r_a85b18928cec6da9d9021334e63fdde93"><td class="memItemLeft"><a id="a85b18928cec6da9d9021334e63fdde93" name="a85b18928cec6da9d9021334e63fdde93"></a>
+<a class="el" href="classNBT__Type.html#a8580dcb2a4494cd9bc52526d43f61865">NBT_Type::String</a>&#160;</td><td class="memItemRight"><b>sPendingKey</b></td></tr>
+<tr class="memdesc:a85b18928cec6da9d9021334e63fdde93"><td class="mdescLeft">&#160;</td><td class="mdescRight">暂存的键名，用于插入 Compound <br /></td></tr>
+<tr class="memitem:a110a24bfbd6294e372283128d08e2711" id="r_a110a24bfbd6294e372283128d08e2711"><td class="memItemLeft"><a id="a110a24bfbd6294e372283128d08e2711" name="a110a24bfbd6294e372283128d08e2711"></a>
+std::vector&lt; <a class="el" href="structNBT__Visitor__Collector_1_1Frame.html">Frame</a> &gt;&#160;</td><td class="memItemRight"><b>vStack</b> {}</td></tr>
+<tr class="memdesc:a110a24bfbd6294e372283128d08e2711"><td class="mdescLeft">&#160;</td><td class="mdescRight">栈，记录当前嵌套的容器 <br /></td></tr>
+<tr class="memitem:add3e128190078aee5a05e9c66ca12699" id="r_add3e128190078aee5a05e9c66ca12699"><td class="memItemLeft"><a id="add3e128190078aee5a05e9c66ca12699" name="add3e128190078aee5a05e9c66ca12699"></a>
+<a class="el" href="classNBT__Type.html#a9dcd5050b96a10161f18d7ae4a22e7b3">NBT_Type::Compound</a>&#160;</td><td class="memItemRight"><b>cpdRoot</b> {}</td></tr>
+<tr class="memdesc:add3e128190078aee5a05e9c66ca12699"><td class="mdescLeft">&#160;</td><td class="mdescRight">根 Compound 节点 <br /></td></tr>
+</table>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">详细描述</h2>
+<div class="textblock"><p>NBT 数据收集器，实现访问器接口，将扫描结果构建为完整的 Compound 树 </p>
+<dl class="section note"><dt>注解</dt><dd>该类会自动管理栈帧，将解析出的值插入到正确的父容器（Compound 或 List）中。 支持多次调用 ScanNBT 合并多个 NBT 流（不会自动清除已有根节点）。 </dd></dl>
+</div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">成员函数说明</h2>
+<a id="a800b0fc9eb9aedd190811fa55662253a" name="a800b0fc9eb9aedd190811fa55662253a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a800b0fc9eb9aedd190811fa55662253a">&#9670;&#160;</a></span>AppendStackTop()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool NBT_Visitor_Collector::AppendStackTop </td>
+          <td>(</td>
+          <td class="paramtype">T &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>tVal</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel protected">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>将值追加到当前栈顶的容器中 </p>
+<dl class="tparams"><dt>模板参数</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T</td><td>值类型 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">tVal</td><td>待插入的值 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>成功返回 true，失败（栈空或容器无效）返回 false </dd></dl>
+<dl class="section note"><dt>注解</dt><dd>若值本身是 Compound 或 List，会自动推入新栈帧。 </dd></dl>
+
+</div>
+</div>
+<a id="a8edd89fdf51537e48fc3869aec473cee" name="a8edd89fdf51537e48fc3869aec473cee"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8edd89fdf51537e48fc3869aec473cee">&#9670;&#160;</a></span>MoveRoot()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classNBT__Type.html#a9dcd5050b96a10161f18d7ae4a22e7b3">NBT_Type::Compound</a> &amp;&amp; NBT_Visitor_Collector::MoveRoot </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>移动根节点（获取所有权） </p>
+<dl class="section return"><dt>返回</dt><dd>根 Compound 对象的右值引用 </dd></dl>
+
+</div>
+</div>
+<a id="a6d9a20e76aa25727e7c973a2fa17963b" name="a6d9a20e76aa25727e7c973a2fa17963b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6d9a20e76aa25727e7c973a2fa17963b">&#9670;&#160;</a></span>PopStack()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool NBT_Visitor_Collector::PopStack </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structNBT__Visitor__Collector_1_1Frame.html#a3a7a5705260bb2dd6266df45acf33354">Frame::Type</a></td>          <td class="paramname"><span class="paramname"><em>enTypeRequires</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel protected">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>弹出栈顶，并检查类型是否匹配 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">enTypeRequires</td><td>要求的栈帧类型 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>成功（栈非空且类型匹配）返回 true，否则返回 false </dd></dl>
+
+</div>
+</div>
+<a id="a384d7191a73d63363f029d12d156f0d5" name="a384d7191a73d63363f029d12d156f0d5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a384d7191a73d63363f029d12d156f0d5">&#9670;&#160;</a></span>ViewRoot()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="classNBT__Type.html#a9dcd5050b96a10161f18d7ae4a22e7b3">NBT_Type::Compound</a> &amp; NBT_Visitor_Collector::ViewRoot </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>获取根节点的常量引用 </p>
+<dl class="section return"><dt>返回</dt><dd>根 Compound 对象的常量引用 </dd></dl>
+
+</div>
+</div>
+<a id="a68feef244bd42aed623fa778b8049bbb" name="a68feef244bd42aed623fa778b8049bbb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a68feef244bd42aed623fa778b8049bbb">&#9670;&#160;</a></span>VisitArrayResult()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classNBT__Visitor.html#a5dd0ef8b7205c99438132ea13413f82b">ResultControl</a> NBT_Visitor_Collector::VisitArrayResult </td>
+          <td>(</td>
+          <td class="paramtype">T &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>tArrayResult</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>处理数组类型节点（ByteArray/IntArray/LongArray）    </p>
+<dl class="tparams"><dt>模板参数</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T</td><td>数组类型，必须满足 <a class="el" href="classNBT__Type.html#ab0dace6d74cd4e85f28a52c768f198ec" title="判断类型是否为NBT数组类型（包含所有数组类型）">NBT_Type::IsArrayType_V</a> 且不是引用 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">tArrayResult</td><td>数组结果（右值引用） </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>控制码，决定后续行为    </dd></dl>
+
+</div>
+</div>
+<a id="aad0f5fedac5a05d708568937f531a02f" name="aad0f5fedac5a05d708568937f531a02f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aad0f5fedac5a05d708568937f531a02f">&#9670;&#160;</a></span>VisitBegin()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void NBT_Visitor_Collector::VisitBegin </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>整体扫描开始：初始化栈，将根节点设为当前帧 </p>
+<dl class="section note"><dt>注解</dt><dd>不会自动清除已有根节点数据，多次调用会合并结果。 </dd></dl>
+
+</div>
+</div>
+<a id="accf1e31c8e7925079ca38aa4524d1770" name="accf1e31c8e7925079ca38aa4524d1770"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#accf1e31c8e7925079ca38aa4524d1770">&#9670;&#160;</a></span>VisitCompoundBegin()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classNBT__Visitor.html#a5dd0ef8b7205c99438132ea13413f82b">ResultControl</a> NBT_Visitor_Collector::VisitCompoundBegin </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="section return"><dt>返回</dt><dd>控制码，决定后续行为    </dd></dl>
+
+</div>
+</div>
+<a id="a603f731bf5461db9c7da364334bba6ce" name="a603f731bf5461db9c7da364334bba6ce"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a603f731bf5461db9c7da364334bba6ce">&#9670;&#160;</a></span>VisitCompoundEnd()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classNBT__Visitor.html#a5dd0ef8b7205c99438132ea13413f82b">ResultControl</a> NBT_Visitor_Collector::VisitCompoundEnd </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="section return"><dt>返回</dt><dd>控制码，决定后续行为    </dd></dl>
+
+</div>
+</div>
+<a id="ab5cbfe6bed4e902426ab3a661e8bd76f" name="ab5cbfe6bed4e902426ab3a661e8bd76f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab5cbfe6bed4e902426ab3a661e8bd76f">&#9670;&#160;</a></span>VisitCompoundEntryBegin()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classNBT__Visitor.html#a909a3db005dff0ac0f471df1ace97063">NestingControl</a> NBT_Visitor_Collector::VisitCompoundEntryBegin </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="NBT__TAG_8hpp.html#ada3a2766daa185b5461d684c766b4a2e">NBT_TAG</a></td>          <td class="paramname"><span class="paramname"><em>enCompoundEntryTag</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classNBT__Type.html#a8580dcb2a4494cd9bc52526d43f61865">NBT_Type::String</a> &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>sName</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">enCompoundEntryTag</td><td>条目的类型标签 </td></tr>
+    <tr><td class="paramname">sName</td><td>条目的键名（右值引用） </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>嵌套控制码，决定后续行为    </dd></dl>
+
+</div>
+</div>
+<a id="addc2ff9e45490abadffa257ea24ae208" name="addc2ff9e45490abadffa257ea24ae208"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#addc2ff9e45490abadffa257ea24ae208">&#9670;&#160;</a></span>VisitCompoundEntryEnd()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classNBT__Visitor.html#a5dd0ef8b7205c99438132ea13413f82b">ResultControl</a> NBT_Visitor_Collector::VisitCompoundEntryEnd </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="NBT__TAG_8hpp.html#ada3a2766daa185b5461d684c766b4a2e">NBT_TAG</a></td>          <td class="paramname"><span class="paramname"><em>enCompoundEntryTag</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classNBT__Type.html#a8580dcb2a4494cd9bc52526d43f61865">NBT_Type::String</a> &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>sName</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>结束处理 Compound 中的一个条目    </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">enCompoundEntryTag</td><td>条目的类型标签 </td></tr>
+    <tr><td class="paramname">sName</td><td>条目的键名（右值引用） </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>控制码，决定后续行为    </dd></dl>
+
+</div>
+</div>
+<a id="aab1221b5530f4ba35b116347bc6ceb58" name="aab1221b5530f4ba35b116347bc6ceb58"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aab1221b5530f4ba35b116347bc6ceb58">&#9670;&#160;</a></span>VisitCompoundNextEntryType()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classNBT__Visitor.html#a909a3db005dff0ac0f471df1ace97063">NestingControl</a> NBT_Visitor_Collector::VisitCompoundNextEntryType </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="NBT__TAG_8hpp.html#ada3a2766daa185b5461d684c766b4a2e">NBT_TAG</a></td>          <td class="paramname"><span class="paramname"><em>enCompoundEntryTag</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>在 Compound 中，开始处理下一个条目之前，仅提供类型信息    </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">enCompoundEntryTag</td><td>条目的类型标签 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>嵌套控制码，决定后续行为    </dd></dl>
+
+</div>
+</div>
+<a id="a777c5b81fdfacc2492c8c9fefaab6e95" name="a777c5b81fdfacc2492c8c9fefaab6e95"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a777c5b81fdfacc2492c8c9fefaab6e95">&#9670;&#160;</a></span>VisitEndResult()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classNBT__Visitor.html#a5dd0ef8b7205c99438132ea13413f82b">ResultControl</a> NBT_Visitor_Collector::VisitEndResult </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>处理 End 标记节点    </p>
+<dl class="section note"><dt>注解</dt><dd>通常用于 List 中的空列表或标记结束，一般用户无需特殊处理 </dd></dl>
+<dl class="section return"><dt>返回</dt><dd>控制码，决定后续行为    </dd></dl>
+
+</div>
+</div>
+<a id="a43f5427d1f9ff75c61ecb9edc08bc151" name="a43f5427d1f9ff75c61ecb9edc08bc151"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a43f5427d1f9ff75c61ecb9edc08bc151">&#9670;&#160;</a></span>VisitError()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename... Args&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void NBT_Visitor_Collector::VisitError </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="NBT__Print_8hpp.html#a977ff50d4d248543d59717387e6dd311">NBT_Print_Level</a></td>          <td class="paramname"><span class="paramname"><em>lvl</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::format_string&lt; Args... &gt;</td>          <td class="paramname"><span class="paramname"><em>fmt</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Args &amp;&amp;...</td>          <td class="paramname"><span class="paramname"><em>args</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>错误处理回调    </p>
+<dl class="tparams"><dt>模板参数</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">Args</td><td>格式化参数类型包 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">lvl</td><td>错误级别 </td></tr>
+    <tr><td class="paramname">fmt</td><td>格式化字符串 </td></tr>
+    <tr><td class="paramname">args</td><td>格式化参数 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>注解</dt><dd>该函数仅用于输出/记录错误信息，不影响扫描的控制流。    </dd></dl>
+
+</div>
+</div>
+<a id="a6544d83db49f388b3e19cad8016a109f" name="a6544d83db49f388b3e19cad8016a109f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6544d83db49f388b3e19cad8016a109f">&#9670;&#160;</a></span>VisitListBegin()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classNBT__Visitor.html#a5dd0ef8b7205c99438132ea13413f82b">ResultControl</a> NBT_Visitor_Collector::VisitListBegin </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="NBT__TAG_8hpp.html#ada3a2766daa185b5461d684c766b4a2e">NBT_TAG</a></td>          <td class="paramname"><span class="paramname"><em>enListElementTag</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>szListLength</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">enListElementTag</td><td>列表元素的类型标签 </td></tr>
+    <tr><td class="paramname">szListLength</td><td>列表长度 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>控制码，决定后续行为    </dd></dl>
+
+</div>
+</div>
+<a id="a91a1ca1f5543615e3dc465f7e071c029" name="a91a1ca1f5543615e3dc465f7e071c029"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a91a1ca1f5543615e3dc465f7e071c029">&#9670;&#160;</a></span>VisitListElementBegin()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classNBT__Visitor.html#a909a3db005dff0ac0f471df1ace97063">NestingControl</a> NBT_Visitor_Collector::VisitListElementBegin </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="NBT__TAG_8hpp.html#ada3a2766daa185b5461d684c766b4a2e">NBT_TAG</a></td>          <td class="paramname"><span class="paramname"><em>enListElementTag</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>szListIndex</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>开始处理 List 中的一个元素    </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">enListElementTag</td><td>列表元素的类型标签 </td></tr>
+    <tr><td class="paramname">szListIndex</td><td>当前元素在列表中的索引（从0开始） </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>嵌套控制码，决定是否进入该元素、跳过或停止    </dd></dl>
+
+</div>
+</div>
+<a id="a1505a2596c151b0b845e98577e0f76cc" name="a1505a2596c151b0b845e98577e0f76cc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1505a2596c151b0b845e98577e0f76cc">&#9670;&#160;</a></span>VisitListElementEnd()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classNBT__Visitor.html#a5dd0ef8b7205c99438132ea13413f82b">ResultControl</a> NBT_Visitor_Collector::VisitListElementEnd </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="NBT__TAG_8hpp.html#ada3a2766daa185b5461d684c766b4a2e">NBT_TAG</a></td>          <td class="paramname"><span class="paramname"><em>enListElementTag</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>szListIndex</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>结束处理 List 中的一个元素    </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">enListElementTag</td><td>列表元素的类型标签 </td></tr>
+    <tr><td class="paramname">szListIndex</td><td>当前元素在列表中的索引（从0开始） </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>控制码，决定后续行为    </dd></dl>
+
+</div>
+</div>
+<a id="a641daba87ae767b53de298cb86cf60f6" name="a641daba87ae767b53de298cb86cf60f6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a641daba87ae767b53de298cb86cf60f6">&#9670;&#160;</a></span>VisitListEnd()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classNBT__Visitor.html#a5dd0ef8b7205c99438132ea13413f82b">ResultControl</a> NBT_Visitor_Collector::VisitListEnd </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="section return"><dt>返回</dt><dd>控制码，决定后续行为    </dd></dl>
+
+</div>
+</div>
+<a id="aac37fb38a446ebe9f3dafb5dec994fba" name="aac37fb38a446ebe9f3dafb5dec994fba"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aac37fb38a446ebe9f3dafb5dec994fba">&#9670;&#160;</a></span>VisitNumericResult()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classNBT__Visitor.html#a5dd0ef8b7205c99438132ea13413f82b">ResultControl</a> NBT_Visitor_Collector::VisitNumericResult </td>
+          <td>(</td>
+          <td class="paramtype">T</td>          <td class="paramname"><span class="paramname"><em>tNumericResult</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>处理数值类型节点    </p>
+<dl class="tparams"><dt>模板参数</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T</td><td>数值类型，必须满足 <a class="el" href="classNBT__Type.html#a133b229478ee9047158f6f99900b3d59" title="判断类型是否为NBT数值类型（包含所有整数和浮点数类型）">NBT_Type::IsNumericType_V</a> </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">tNumericResult</td><td>数值结果 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>控制码，决定后续行为    </dd></dl>
+
+</div>
+</div>
+<a id="a5f3aeb6483e11a78c58eb5d96a365112" name="a5f3aeb6483e11a78c58eb5d96a365112"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5f3aeb6483e11a78c58eb5d96a365112">&#9670;&#160;</a></span>VisitStringResult()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classNBT__Visitor.html#a5dd0ef8b7205c99438132ea13413f82b">ResultControl</a> NBT_Visitor_Collector::VisitStringResult </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classNBT__Type.html#a8580dcb2a4494cd9bc52526d43f61865">NBT_Type::String</a> &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>strResult</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>处理字符串类型节点    </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">strResult</td><td>字符串结果（右值引用） </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>控制码，决定后续行为    </dd></dl>
+
+</div>
+</div>
+<hr/>该类的文档由以下文件生成:<ul>
+<li><a class="el" href="NBT__Visitor_8hpp_source.html">NBT_Visitor.hpp</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="classNBT__Visitor__Collector.html">NBT_Visitor_Collector</a></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.16.1 </li>
+  </ul>
+</div>
+</body>
+</html>

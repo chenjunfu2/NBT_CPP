@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['use_5fraw_5fdata_0',['USE_RAW_DATA',['../structNBT__String_1_1USE__RAW__DATA.html',1,'NBT_String']]]
+  ['stringliteral_0',['StringLiteral',['../classMUTF8__Tool__Internal_1_1StringLiteral.html',1,'MUTF8_Tool_Internal']]]
 ];

@@ -92,16 +92,141 @@ $(function(){initNavTree('classNBT__Scanner.html','','classNBT__Scanner-members'
   <div class="headertitle"><div class="title">NBT_Scanner类 参考</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>NBT 数据流式扫描器，通过访问器回调处理 NBT 结构，不构建完整内存树  
+ <a href="#details">更多...</a></p>
+
+<p><code>#include &lt;<a class="el" href="NBT__Scanner_8hpp_source.html">NBT_Scanner.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-static-methods" class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 静态 Public 成员函数</h2></td></tr>
-<tr class="memitem:a78bab054109edbc2c73030820e0b3f3c" id="r_a78bab054109edbc2c73030820e0b3f3c"><td class="memTemplParams" colspan="2"><a id="a78bab054109edbc2c73030820e0b3f3c" name="a78bab054109edbc2c73030820e0b3f3c"></a>
-template&lt;typename InputStream, typename Visitor&gt; </td></tr>
-<tr class="memitem:a78bab054109edbc2c73030820e0b3f3c template"><td class="memItemLeft">static bool&#160;</td><td class="memItemRight"><b>Scan</b> (InputStream &amp;IptStream, Visitor &amp;tVisitor, size_t szStackDepth=512)</td></tr>
-<tr class="memitem:a4d2120bc7c8b8010978a96c0c154a57d" id="r_a4d2120bc7c8b8010978a96c0c154a57d"><td class="memTemplParams" colspan="2"><a id="a4d2120bc7c8b8010978a96c0c154a57d" name="a4d2120bc7c8b8010978a96c0c154a57d"></a>
-template&lt;typename DataType = std::vector&lt;uint8_t&gt;, typename Visitor&gt; </td></tr>
-<tr class="memitem:a4d2120bc7c8b8010978a96c0c154a57d template"><td class="memItemLeft">static bool&#160;</td><td class="memItemRight"><b>Scan</b> (const DataType &amp;tDataInput, size_t szStartIdx, Visitor &amp;tVisitor, size_t szStackDepth=512)</td></tr>
+<tr class="memitem:a1e3e7937d0b4096406583ab9d2ce6bcc" id="r_a1e3e7937d0b4096406583ab9d2ce6bcc"><td class="memTemplParams" colspan="2">template&lt;typename InputStream, typename Visitor&gt; </td></tr>
+<tr class="memitem:a1e3e7937d0b4096406583ab9d2ce6bcc template"><td class="memItemLeft">static bool&#160;</td><td class="memItemRight"><a class="el" href="#a1e3e7937d0b4096406583ab9d2ce6bcc">ScanNBT</a> (InputStream &amp;IptStream, Visitor &amp;tVisitor, size_t szStackDepth=512) noexcept</td></tr>
+<tr class="memdesc:a1e3e7937d0b4096406583ab9d2ce6bcc"><td class="mdescLeft">&#160;</td><td class="mdescRight">从输入流中扫描NBT数据，并通过访问器回调处理每个节点  <br /></td></tr>
+<tr class="memitem:aa1b7d093d12c333970ee15fa55dde9a8" id="r_aa1b7d093d12c333970ee15fa55dde9a8"><td class="memTemplParams" colspan="2">template&lt;typename DataType = std::vector&lt;uint8_t&gt;, typename Visitor&gt; </td></tr>
+<tr class="memitem:aa1b7d093d12c333970ee15fa55dde9a8 template"><td class="memItemLeft">static bool&#160;</td><td class="memItemRight"><a class="el" href="#aa1b7d093d12c333970ee15fa55dde9a8">ScanNBT</a> (const DataType &amp;tDataInput, size_t szStartIdx, Visitor &amp;tVisitor, size_t szStackDepth=512) noexcept</td></tr>
+<tr class="memdesc:aa1b7d093d12c333970ee15fa55dde9a8"><td class="mdescLeft">&#160;</td><td class="mdescRight">从数据容器中扫描NBT数据，并通过访问器回调处理每个节点  <br /></td></tr>
 </table>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">详细描述</h2>
+<div class="textblock"><p>NBT 数据流式扫描器，通过访问器回调处理 NBT 结构，不构建完整内存树 </p>
+<dl class="section note"><dt>注解</dt><dd>该类提供静态方法 ScanNBT，以流式方式解析 NBT 数据。解析过程中通过访问器（Visitor） 回调通知各个节点（数值、数组、字符串、列表、复合标签等），用户可通过自定义访 问器控制解析流程（进入、跳过、停止）。处理NBT时无需一次性加载整个数据树到内存。 </dd></dl>
+</div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">成员函数说明</h2>
+<a id="aa1b7d093d12c333970ee15fa55dde9a8" name="aa1b7d093d12c333970ee15fa55dde9a8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa1b7d093d12c333970ee15fa55dde9a8">&#9670;&#160;</a></span>ScanNBT() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename DataType = std::vector&lt;uint8_t&gt;, typename Visitor&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool NBT_Scanner::ScanNBT </td>
+          <td>(</td>
+          <td class="paramtype">const DataType &amp;</td>          <td class="paramname"><span class="paramname"><em>tDataInput</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>szStartIdx</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Visitor &amp;</td>          <td class="paramname"><span class="paramname"><em>tVisitor</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>szStackDepth</em></span><span class="paramdefsep"> = </span><span class="paramdefval">512</span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>从数据容器中扫描NBT数据，并通过访问器回调处理每个节点 </p>
+<dl class="tparams"><dt>模板参数</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">DataType</td><td>数据容器类型，默认为std::vector&lt;uint8_t&gt; </td></tr>
+    <tr><td class="paramname">Visitor</td><td>访问器类型，必须符合IsLookLike_NBT_Visitor概念 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">tDataInput</td><td>输入数据容器 </td></tr>
+    <tr><td class="paramname">szStartIdx</td><td>数据起始索引，会忽略容器中前szStartIdx字节的数据 </td></tr>
+    <tr><td class="paramname">tVisitor</td><td>访问器对象，用于处理扫描过程中遇到的NBT数据节点 </td></tr>
+    <tr><td class="paramname">szStackDepth</td><td>递归最大深度，防止栈溢出 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>扫描成功返回true，失败返回false </dd></dl>
+<dl class="section note"><dt>注解</dt><dd>此函数是ScanNBT(InputStream)版本的数据容器适配版本，其它行为请参考ScanNBT(InputStream)版本的说明。 </dd></dl>
+
+</div>
+</div>
+<a id="a1e3e7937d0b4096406583ab9d2ce6bcc" name="a1e3e7937d0b4096406583ab9d2ce6bcc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1e3e7937d0b4096406583ab9d2ce6bcc">&#9670;&#160;</a></span>ScanNBT() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename InputStream, typename Visitor&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool NBT_Scanner::ScanNBT </td>
+          <td>(</td>
+          <td class="paramtype">InputStream &amp;</td>          <td class="paramname"><span class="paramname"><em>IptStream</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Visitor &amp;</td>          <td class="paramname"><span class="paramname"><em>tVisitor</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>szStackDepth</em></span><span class="paramdefsep"> = </span><span class="paramdefval">512</span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>从输入流中扫描NBT数据，并通过访问器回调处理每个节点 </p>
+<dl class="tparams"><dt>模板参数</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">InputStream</td><td>输入流类型，必须符合DefaultInputStream类型的接口 </td></tr>
+    <tr><td class="paramname">Visitor</td><td>访问器类型，必须符合IsLookLike_NBT_Visitor概念 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">IptStream</td><td>输入流对象 </td></tr>
+    <tr><td class="paramname">tVisitor</td><td>访问器对象，用于处理扫描过程中遇到的NBT数据节点 </td></tr>
+    <tr><td class="paramname">szStackDepth</td><td>递归最大深度，防止栈溢出 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>扫描成功返回true，失败返回false </dd></dl>
+<dl class="section note"><dt>注解</dt><dd>函数通过访问器回调的方式遍历整个NBT结构，不会构建完整的内存树，适合处理大型NBT数据。 若遇到格式错误或超过深度限制，函数将返回false并停止扫描。 </dd></dl>
+
+</div>
+</div>
 <hr/>该类的文档由以下文件生成:<ul>
 <li><a class="el" href="NBT__Scanner_8hpp_source.html">NBT_Scanner.hpp</a></li>
 </ul>

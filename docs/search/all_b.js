@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['list_0',['List',['../classNBT__Type.html#a87b4d71087e5c0ab1111a4999dace42f',1,'NBT_Type::List'],['../NBT__TAG_8hpp.html#ada3a2766daa185b5461d684c766b4a2ea4ee29ca12c7d126654bd0e5275de6135',1,'List:&#160;NBT_TAG.hpp']]],
+  ['list_0',['List',['../classNBT__Type.html#a87b4d71087e5c0ab1111a4999dace42f',1,'NBT_Type::List'],['../structNBT__Visitor__Collector_1_1Frame.html#a3a7a5705260bb2dd6266df45acf33354a4ee29ca12c7d126654bd0e5275de6135',1,'NBT_Visitor_Collector::Frame::List'],['../NBT__TAG_8hpp.html#ada3a2766daa185b5461d684c766b4a2ea4ee29ca12c7d126654bd0e5275de6135',1,'List:&#160;NBT_TAG.hpp']]],
   ['listlength_1',['ListLength',['../classNBT__Type.html#aada1dd1babf26819e3a18944032eceb4',1,'NBT_Type']]],
   ['listlength_5fmax_2',['ListLength_Max',['../classNBT__Type.html#ab5fc25f906a932636a99402f56090ff7',1,'NBT_Type']]],
   ['listlength_5fmin_3',['ListLength_Min',['../classNBT__Type.html#af765ad3b48be748556f296d6fd4037ac',1,'NBT_Type']]],

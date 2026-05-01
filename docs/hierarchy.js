@@ -15,6 +15,7 @@ var hierarchy =
     ] ],
     [ "NBT_IO::DefaultInputStream&lt; T &gt;", "classNBT__IO_1_1DefaultInputStream.html", null ],
     [ "NBT_IO::DefaultOutputStream&lt; T &gt;", "classNBT__IO_1_1DefaultOutputStream.html", null ],
+    [ "NBT_Visitor_Collector::Frame", "structNBT__Visitor__Collector_1_1Frame.html", null ],
     [ "std::hash&lt; NBT_String&lt; String, StringView &gt; &gt;", "structstd_1_1hash_3_01NBT__String_3_01String_00_01StringView_01_4_01_4.html", null ],
     [ "std::hash&lt; NBT_StringView&lt; String, StringView &gt; &gt;", "structstd_1_1hash_3_01NBT__StringView_3_01String_00_01StringView_01_4_01_4.html", null ],
     [ "List", null, [
@@ -32,6 +33,7 @@ var hierarchy =
     [ "NBT_Scanner", "classNBT__Scanner.html", null ],
     [ "NBT_Type", "classNBT__Type.html", null ],
     [ "NBT_Visitor", "classNBT__Visitor.html", null ],
+    [ "NBT_Visitor_Collector", "classNBT__Visitor__Collector.html", null ],
     [ "NBT_Writer", "classNBT__Writer.html", null ],
     [ "String", null, [
       [ "NBT_String< String, StringView >", "classNBT__String.html", null ]

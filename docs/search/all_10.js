@@ -6,5 +6,5 @@ var searchData=
   ['reserve_3',['Reserve',['../classNBT__List.html#a2059a6bafc0a444dac96db7dd3026d60',1,'NBT_List']]],
   ['reset_4',['Reset',['../classNBT__IO_1_1DefaultInputStream.html#aa9a9c6aa82c4d0465b23ab50671a6605',1,'NBT_IO::DefaultInputStream::Reset()'],['../classNBT__IO_1_1DefaultOutputStream.html#af0ec702d443260892fc67147a863c108',1,'NBT_IO::DefaultOutputStream::Reset()']]],
   ['resize_5',['Resize',['../classNBT__List.html#a8dfbb9a5a05538fe3efa8919d06f1fb6',1,'NBT_List::Resize(typename List::size_type szNewSize)'],['../classNBT__List.html#a6140fc872cadd17a83b1ee1947f90893',1,'NBT_List::Resize(typename List::size_type szNewSize, const typename List::value_type &amp;value)']]],
-  ['resultcontrol_6',['ResultControl',['../classNBT__Visitor.html#a5dd0ef8b7205c99438132ea13413f82b',1,'NBT_Visitor']]]
+  ['resultcontrol_6',['ResultControl',['../classNBT__Visitor.html#a5dd0ef8b7205c99438132ea13413f82b',1,'NBT_Visitor::ResultControl'],['../classNBT__Visitor__Collector.html#a45fbaa34badf4b1e838b59b7e4ebbd35',1,'NBT_Visitor_Collector::ResultControl']]]
 ];

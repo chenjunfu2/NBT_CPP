@@ -49,8 +49,9 @@ var searchData=
   ['nbt_5ftype_46',['NBT_Type',['../classNBT__Type.html',1,'']]],
   ['nbt_5ftype_2ehpp_47',['NBT_Type.hpp',['../NBT__Type_8hpp.html',1,'']]],
   ['nbt_5fvisitor_48',['NBT_Visitor',['../classNBT__Visitor.html',1,'']]],
-  ['nbt_5fwriter_49',['NBT_Writer',['../classNBT__Writer.html',1,'']]],
-  ['nbt_5fwriter_20hpp_50',['NBT_Reader.hpp 与 NBT_Writer.hpp',['../index.html#autotoc_md11',1,'']]],
-  ['nbt_5fwriter_2ehpp_51',['NBT_Writer.hpp',['../NBT__Writer_8hpp.html',1,'']]],
-  ['nestingcontrol_52',['NestingControl',['../classNBT__Visitor.html#a909a3db005dff0ac0f471df1ace97063',1,'NBT_Visitor']]]
+  ['nbt_5fvisitor_5fcollector_49',['NBT_Visitor_Collector',['../classNBT__Visitor__Collector.html',1,'NBT_Visitor_Collector'],['../classNBT__Visitor__Collector.html#aa27be4bb18e74092df7d9b7bc237e52b',1,'NBT_Visitor_Collector::NBT_Visitor_Collector(const NBT_Visitor_Collector &amp;)=delete'],['../classNBT__Visitor__Collector.html#a11c9de5481477045385a96fe2e033dae',1,'NBT_Visitor_Collector::NBT_Visitor_Collector(NBT_Visitor_Collector &amp;&amp;)=default']]],
+  ['nbt_5fwriter_50',['NBT_Writer',['../classNBT__Writer.html',1,'']]],
+  ['nbt_5fwriter_20hpp_51',['NBT_Reader.hpp 与 NBT_Writer.hpp',['../index.html#autotoc_md11',1,'']]],
+  ['nbt_5fwriter_2ehpp_52',['NBT_Writer.hpp',['../NBT__Writer_8hpp.html',1,'']]],
+  ['nestingcontrol_53',['NestingControl',['../classNBT__Visitor.html#a909a3db005dff0ac0f471df1ace97063',1,'NBT_Visitor::NestingControl'],['../classNBT__Visitor__Collector.html#a67b57ac173a634cb884ed6a73c345e44',1,'NBT_Visitor_Collector::NestingControl']]]
 ];
