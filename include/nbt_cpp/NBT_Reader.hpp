@@ -203,7 +203,7 @@ protected:
 if((depth) == 0)\
 {\
 	eRet = Error(StackDepthExceeded, tData, funcInfo, "{}: NBT nesting depth exceeded maximum call stack limit", _RP___FUNCTION__);\
-	STACK_TRACEBACK(##depth " == 0");\
+	STACK_TRACEBACK(#depth " == 0");\
 	return eRet;\
 }\
 

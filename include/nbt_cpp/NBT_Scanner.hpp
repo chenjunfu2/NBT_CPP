@@ -152,7 +152,7 @@ protected:
 if((depth) == 0)\
 {\
 	Error(StackDepthExceeded, tData, tVisitor.VisitError, "{}: NBT nesting depth exceeded maximum call stack limit", _RP___FUNCTION__);\
-	STACK_TRACEBACK(##depth " == 0");\
+	STACK_TRACEBACK(#depth " == 0");\
 	return ret;\
 }\
 
@@ -387,7 +387,7 @@ catch(...)\
 	static Control ScanListType(InputStream &tData, Visitor &tVisitor, size_t szStackDepth)
 	{
 		//栈深度检测
-		CHECK_STACK_DEPTH(szStackDepth);
+		CHECK_STACK_DEPTH(szStackDepth, Control::Error);
 
 		//读取列表标签
 		NBT_TAG_RAW_TYPE u8ListElementTag = 0;//b=byte
@@ -494,7 +494,7 @@ catch(...)\
 	static bool SkipListType(InputStream &tData, Visitor &tVisitor, size_t szStackDepth)
 	{
 		//栈深度检测
-		CHECK_STACK_DEPTH(szStackDepth);
+		CHECK_STACK_DEPTH(szStackDepth, false);
 
 		NBT_TAG_RAW_TYPE u8ListElementTag = 0;//b=byte
 		if (!ReadBigEndian(tData, u8ListElementTag, tVisitor))
@@ -549,7 +549,7 @@ catch(...)\
 	static Control ScanCompoundType(InputStream &tData, Visitor &tVisitor, size_t szStackDepth)
 	{
 		//栈深度检测
-		CHECK_STACK_DEPTH(szStackDepth);
+		CHECK_STACK_DEPTH(szStackDepth, Control::Error);
 
 		if constexpr (!bRoot)//非根部才进行compound调用
 		{
@@ -747,7 +747,7 @@ catch(...)\
 	static bool SkipCompoundType(InputStream &tData, Visitor &tVisitor, size_t szStackDepth)
 	{
 		//栈深度检测
-		CHECK_STACK_DEPTH(szStackDepth);
+		CHECK_STACK_DEPTH(szStackDepth, false);
 
 		while (true)
 		{
