@@ -478,7 +478,44 @@ void ScannerTest()
 
 	NBT_ReadWrite_Test(NbtRawData, cpdScan);
 }
-//TODO：Scanner跳过功能测试
+
+class SkippingCollector : public NBT_Visitor_Collector
+{
+public:
+	using ResultControl = NBT_Visitor::ResultControl;
+	using NestingControl = NBT_Visitor::NestingControl;
+
+	static bool ContainsSkip(const NBT_Type::String &str) noexcept
+	{
+		return str.find(MU8STR("skip")) != std::string_view::npos;
+	}
+
+	// 重写：遇到 Compound 条目时，根据键名决定是否跳过
+	NestingControl VisitCompoundNextEntry(NBT_TAG enTag, NBT_Type::String &&sName)
+	{
+		if (ContainsSkip(sName))
+		{
+			return NestingControl::Skip;
+		}
+
+		sPendingKey = std::move(sName);
+		return NestingControl::Enter;
+	}
+
+	ResultControl VisitStringResult(NBT_Type::String &&strResult)
+	{
+		if (ContainsSkip(strResult))
+		{
+			return ResultControl::Continue;//丢弃并跳过
+		}
+
+		if (!AppendStackTop(strResult))
+		{
+			return ResultControl::Stop;
+		}
+		return ResultControl::Continue;
+	}
+};
 
 void ScannerSkipTest()
 {
@@ -507,11 +544,15 @@ void ScannerSkipTest()
 				MU8STR("test str0"),
 				MU8STR("test str0 skip"),
 				MU8STR("test str1"),
+				MU8STR("test str1 skip"),
 				MU8STR("test str2"),
+				MU8STR("test str2 skip"),
 				MU8STR("test str3"),
 				MU8STR("test str3 skip"),
 				MU8STR("test str4"),
+				MU8STR("test str4 skip"),
 				MU8STR("test str5"),
+				MU8STR("test str5 skip"),
 			}
 		);
 
@@ -542,13 +583,78 @@ void ScannerSkipTest()
 		insertTarget.Merge(std::move(cpdTemp));
 	}
 
-	std::vector<uint8_t> vData;
+	NBT_Type::Compound cpdGen2
+	{
+		{MU8STR(""),NBT_Type::Compound{}}
+	};
+	{
+		auto &insertTarget = cpdGen2.GetCompound(MU8STR(""));
+
+		insertTarget.PutCompound(MU8STR("compound"),
+			NBT_Type::Compound
+			{
+				{MU8STR("byte array"),NBT_Type::ByteArray{1,2,3,4,5,6,7}},
+				{MU8STR("int array"),NBT_Type::IntArray{1,2,3,4,5,6,7}},
+				{MU8STR("long array"),NBT_Type::LongArray{1,2,3,4,5,6,7}},
+			}
+		);
+
+		insertTarget.PutList(MU8STR("list"),
+			NBT_Type::List
+			{
+				MU8STR("test str0"),
+				MU8STR("test str1"),
+				MU8STR("test str2"),
+				MU8STR("test str3"),
+				MU8STR("test str4"),
+				MU8STR("test str5"),
+			}
+		);
+
+		NBT_Type::Compound cpdTemp{};
+		cpdTemp.PutByte(MU8STR("byte"), -128);
+		cpdTemp.PutShort(MU8STR("short"), 32767);
+		cpdTemp.PutInt(MU8STR("int"), -2147483648);
+		cpdTemp.PutLong(MU8STR("long"), 1145141919810);
+		cpdTemp.PutFloat(MU8STR("float"), -0.1145f);
+		cpdTemp.PutDouble(MU8STR("double"), 114514.191981);
+		cpdTemp.PutString(MU8STR("string"), MU8STR("测试"));
+
+		insertTarget.Merge(std::move(cpdTemp));
+	}
+
+	std::vector<uint8_t> vData, vData2;
 	NBT_Writer::WriteNBT(vData, 0, cpdGen);
-	PrintHexArr(vData);
+	NBT_Writer::WriteNBT(vData2, 0, cpdGen2);
 
+	SkippingCollector vc;
 
+	NBT_Scanner::Scan(vData, 0, vc);
+	NBT_Type::Compound cpdScan = vc.MoveRoot();
 
+	NBT_Scanner::Scan(vData2, 0, vc);
+	NBT_Type::Compound cpdScan2 = vc.MoveRoot();
 
+	if (cpdScan != cpdScan2)
+	{
+		NBT_Helper::Print(cpdScan);
+		NBT_Helper::Print(cpdScan2);
+		MyAssert(false);
+	}
+
+	if (cpdScan != cpdGen2)
+	{
+		NBT_Helper::Print(cpdScan);
+		NBT_Helper::Print(cpdGen2);
+		MyAssert(false);
+	}
+
+	if (cpdScan2 != cpdGen2)
+	{
+		NBT_Helper::Print(cpdScan);
+		NBT_Helper::Print(cpdGen2);
+		MyAssert(false);
+	}
 }
 
 
@@ -564,6 +670,7 @@ int main(void)
 	MixedListTest();
 
 	ScannerTest();
+	ScannerSkipTest();
 
 	return 0;
 }

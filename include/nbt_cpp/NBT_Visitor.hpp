@@ -458,6 +458,7 @@ public:
 
 	void VisitBegin(void)
 	{
+		vStack.clear();
 		vStack.push_back(
 			Frame
 			{
@@ -465,12 +466,15 @@ public:
 				.pCompound = &cpdRoot,
 			}
 		);
+		sPendingKey.clear();
+		//cpdRoot.Clear();//不清理，方便拼接，用户需要可自行清理
 		return;
 	}
 
 	void VisitEnd(void)
 	{
 		vStack.pop_back();
+		vStack.clear();
 		vStack.shrink_to_fit();
 		return;
 	}
@@ -478,7 +482,7 @@ public:
 	template<typename... Args>
 	void VisitError(NBT_Print_Level lvl, const std::format_string<Args...> fmt, Args&&... args) noexcept
 	{
-		//throw or print error
+		NBT_Print{}(lvl, fmt, std::forward<Args>(args)...);
 		return;
 	}
 };
