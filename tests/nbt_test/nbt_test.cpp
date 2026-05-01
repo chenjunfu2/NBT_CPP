@@ -16,6 +16,13 @@
 //	return {};
 //}
 
+template<typename... Args>
+void print(std::format_string<Args...> fmt, Args&&... args)
+{
+	std::string output = std::format(fmt, std::forward<Args>(args)...);
+	fwrite(output.data(), 1, output.size(), stdout);
+}
+
 void PrintBool(bool b, const char *s = "", const char *e = "")
 {
 	printf("%s%s%s", s, b ? "true" : "false", e);
@@ -812,6 +819,8 @@ int main_xx(void)
 int main(int argc, char *argv[])
 {
 	MyAssert(argc == 2 && argv[1] != NULL);
+
+	print("Test File: [{}]", argv[1]);
 	CodeTimer ct;
 
 	std::vector<uint8_t> vData;
@@ -825,6 +834,10 @@ int main(int argc, char *argv[])
 	MyAssert(NBT_IO::DecompressDataNoThrow(vDataDcp, vData));
 	ct.Stop();
 	ct.PrintElapsed("DecompressData Time[", "]\n");
+
+	//丢弃数据
+	vData.clear();
+	vData.shrink_to_fit();
 
 	NBT_Type::Compound cpdRead;
 	ct.Start();
