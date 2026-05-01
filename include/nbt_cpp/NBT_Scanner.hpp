@@ -178,6 +178,7 @@ protected:
 		//数组保存
 		T tArray{};
 		tArray.reserve(szArrayLength);
+
 		//读取dElementCount个元素
 		for (size_t i = 0; i < szArrayLength; ++i)
 		{
