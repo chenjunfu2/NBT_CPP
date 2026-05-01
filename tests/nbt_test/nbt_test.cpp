@@ -4,7 +4,10 @@
 
 #include <stdio.h>
 //#include <source_location>
+#include <set>
 #include <map>
+#include <unordered_set>
+#include <unordered_map>
 #include <iostream>
 
 
@@ -816,6 +819,49 @@ int main_xx(void)
 	return 0;
 }
 
+
+class KeyCollector : public NBT_Visitor_Collector
+{
+protected:
+	std::unordered_set<NBT_Type::String> setFindKey{};
+	size_t szSaveStack = 0;
+	size_t szStack = 0;
+
+public:
+	KeyCollector(std::initializer_list<NBT_Type::String> init_list) :setFindKey{ init_list }
+	{}
+
+public:
+	using ResultControl = NBT_Visitor::ResultControl;
+	using NestingControl = NBT_Visitor::NestingControl;
+
+	bool ContainsTargetKey(const NBT_Type::String &str) noexcept
+	{
+		return setFindKey.contains(str);
+	}
+
+	// 重写：遇到 Compound 条目时，根据键名决定是否跳过
+	NestingControl VisitCompoundNextEntry(NBT_TAG enTag, NBT_Type::String &&sName)
+	{
+		++szStack;
+
+		if (!bRoot && !ContainsTargetKey(sName))
+		{
+			return NestingControl::Skip;
+		}
+
+		if (bRoot)
+		{
+			bRoot = false;
+		}
+
+		
+		sPendingKey = std::move(sName);
+		return NestingControl::Enter;
+	}
+};
+
+
 int main(int argc, char *argv[])
 {
 	MyAssert(argc == 2 && argv[1] != NULL);
@@ -856,5 +902,19 @@ int main(int argc, char *argv[])
 	ct.Stop();
 	ct.PrintElapsed("Test Time[", "]\n");
 
+	KeyCollector kc
+	{
+		MU8STR("Metadata"),
+		MU8STR("MinecraftDataVersion"),
+		MU8STR("SubVersion"),
+		MU8STR("Version"),
+	};
+	ct.Start();
+	MyAssert(NBT_Scanner::ScanNBT(vDataDcp, 0, kc));
+	ct.Stop();
+	ct.PrintElapsed("ScanNBT Time[", "]\n");
+	NBT_Helper::Print(kc.ViewRoot());
+
+	print("\n[Test end]\n");
 	return 0;
 }

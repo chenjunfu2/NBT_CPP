@@ -4,6 +4,7 @@
 #include "NBT_Print.hpp"
 
 #include <stdint.h>
+#include <vector>
 
 //提示性实现类（鸭子类型），仅用于模板通过性验证与用户接口提示
 class NBT_Visitor
@@ -59,10 +60,16 @@ public:
 		return ResultControl::Continue;
 	}
 
-	NestingControl VisitListNextElement(NBT_TAG enListElementTag, size_t szListIndex)
+	NestingControl VisitListElementBegin(NBT_TAG enListElementTag, size_t szListIndex)
 	{
 		//do something...
 		return NestingControl::Enter;
+	}
+
+	ResultControl VisitListElementEnd(void)
+	{
+		//do something...
+		return ResultControl::Continue;
 	}
 
 	ResultControl VisitListEnd(void)
@@ -83,10 +90,16 @@ public:
 		return NestingControl::Enter;
 	}
 
-	NestingControl VisitCompoundNextEntry(NBT_TAG enCompoundEntryTag, NBT_Type::String &&sName)
+	NestingControl VisitCompoundEntryBegin(NBT_TAG enCompoundEntryTag, NBT_Type::String &&sName)
 	{
 		//do something...
 		return NestingControl::Enter;
+	}
+
+	ResultControl VisitCompoundEntryEnd(void)
+	{
+		//do something...
+		return ResultControl::Continue;
 	}
 
 	ResultControl VisitCompoundEnd(void)
@@ -187,8 +200,11 @@ requires(
 		visitor.VisitListBegin(nbt_tag, nbt_list_length)
 	} -> std::same_as<decltype(nbt_visitor.VisitListBegin(nbt_tag, nbt_list_length))>;
 	{
-		visitor.VisitListNextElement(nbt_tag, nbt_list_index)
-	} -> std::same_as<decltype(nbt_visitor.VisitListNextElement(nbt_tag, nbt_list_index))>;
+		visitor.VisitListElementBegin(nbt_tag, nbt_list_index)
+	} -> std::same_as<decltype(nbt_visitor.VisitListElementBegin(nbt_tag, nbt_list_index))>;
+	{
+		visitor.VisitListElementEnd()
+	};
 	{
 		visitor.VisitListEnd()
 	} -> std::same_as<decltype(nbt_visitor.VisitListEnd())>;
@@ -201,8 +217,11 @@ requires(
 		visitor.VisitCompoundNextEntryType(nbt_tag)
 	} -> std::same_as<decltype(nbt_visitor.VisitCompoundNextEntryType(nbt_tag))>;
 	{
-		visitor.VisitCompoundNextEntry(nbt_tag, std::move(nbt_string))
-	} -> std::same_as<decltype(nbt_visitor.VisitCompoundNextEntry(nbt_tag, std::move(nbt_string)))>;
+		visitor.VisitCompoundEntryBegin(nbt_tag, std::move(nbt_string))
+	} -> std::same_as<decltype(nbt_visitor.VisitCompoundEntryBegin(nbt_tag, std::move(nbt_string)))>;
+	{
+		visitor.VisitCompoundEntryEnd()
+	};
 	{
 		visitor.VisitCompoundEnd()
 	} -> std::same_as<decltype(nbt_visitor.VisitCompoundEnd())>;
@@ -228,8 +247,6 @@ requires(
 };
 
 static_assert(IsLookLike_NBT_Visitor<NBT_Visitor>);
-
-#include <vector>
 
 class NBT_Visitor_Collector
 {
@@ -412,9 +429,14 @@ public:
 		return ResultControl::Continue;
 	}
 
-	NestingControl VisitListNextElement(NBT_TAG enListElementTag, size_t szListIndex)
+	NestingControl VisitListElementBegin(NBT_TAG enListElementTag, size_t szListIndex)
 	{
 		return NestingControl::Enter;
+	}
+
+	ResultControl VisitListElementEnd(void)
+	{
+		return ResultControl::Continue;
 	}
 
 	ResultControl VisitListEnd(void)
@@ -440,10 +462,15 @@ public:
 		return NestingControl::Enter;
 	}
 
-	NestingControl VisitCompoundNextEntry(NBT_TAG enCompoundEntryTag, NBT_Type::String &&sName)
+	NestingControl VisitCompoundEntryBegin(NBT_TAG enCompoundEntryTag, NBT_Type::String &&sName)
 	{
 		sPendingKey = sName;
 		return NestingControl::Enter;
+	}
+
+	ResultControl VisitCompoundEntryEnd(void)
+	{
+		return ResultControl::Continue;
 	}
 
 	ResultControl VisitCompoundEnd(void)
