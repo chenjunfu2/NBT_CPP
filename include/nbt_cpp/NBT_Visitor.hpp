@@ -482,3 +482,5 @@ public:
 		return;
 	}
 };
+
+static_assert(IsLookLike_NBT_Visitor<NBT_Visitor_Collector>);

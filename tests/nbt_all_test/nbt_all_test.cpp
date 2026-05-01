@@ -5,7 +5,7 @@
 #include <my/MyAssert.hpp>
 
 template<typename T>
-void PrintHexArr(T data, uint8_t u8CountOfLine = 16, const char *pstrLineBeg = " ", const char *pstrLineEnd = "\n", const char* pstrHexPadding = " ") noexcept
+void PrintHexArr(const T &data, uint8_t u8CountOfLine = 16, const char *pstrLineBeg = " ", const char *pstrLineEnd = "\n", const char* pstrHexPadding = " ") noexcept
 {
 	uint8_t u8CountCur = 0;
 	
@@ -479,6 +479,80 @@ void ScannerTest()
 	NBT_ReadWrite_Test(NbtRawData, cpdScan);
 }
 //TODO：Scanner跳过功能测试
+
+void ScannerSkipTest()
+{
+	NBT_Type::Compound cpdGen
+	{
+		{MU8STR(""),NBT_Type::Compound{}}
+	};
+	{
+		auto &insertTarget = cpdGen.GetCompound(MU8STR(""));
+
+		insertTarget.PutCompound(MU8STR("compound"),
+			NBT_Type::Compound
+			{
+				{MU8STR("byte array"),NBT_Type::ByteArray{1,2,3,4,5,6,7}},
+				{MU8STR("byte array skip"),NBT_Type::ByteArray{1,2,3,4,5,6,7}},
+				{MU8STR("int array"),NBT_Type::IntArray{1,2,3,4,5,6,7}},
+				{MU8STR("int array skip"),NBT_Type::IntArray{1,2,3,4,5,6,7}},
+				{MU8STR("long array"),NBT_Type::LongArray{1,2,3,4,5,6,7}},
+				{MU8STR("long array skip"),NBT_Type::LongArray{1,2,3,4,5,6,7}},
+			}
+		);
+
+		insertTarget.PutList(MU8STR("list"),
+			NBT_Type::List
+			{
+				MU8STR("test str0"),
+				MU8STR("test str0 skip"),
+				MU8STR("test str1"),
+				MU8STR("test str2"),
+				MU8STR("test str3"),
+				MU8STR("test str3 skip"),
+				MU8STR("test str4"),
+				MU8STR("test str5"),
+			}
+		);
+
+		insertTarget.PutList(MU8STR("list skip"),
+			NBT_Type::List
+			{
+				MU8STR("test str0 skip"),
+				MU8STR("test str1 skip"),
+			}
+		);
+
+		NBT_Type::Compound cpdTemp{};
+		cpdTemp.PutByte(MU8STR("byte"), -128);
+		cpdTemp.PutByte(MU8STR("byte skip"), -128);
+		cpdTemp.PutShort(MU8STR("short"), 32767);
+		cpdTemp.PutShort(MU8STR("short skip"), 32767);
+		cpdTemp.PutInt(MU8STR("int"), -2147483648);
+		cpdTemp.PutInt(MU8STR("int skip"), -2147483648);
+		cpdTemp.PutLong(MU8STR("long"), 1145141919810);
+		cpdTemp.PutLong(MU8STR("long skip"), 1145141919810);
+		cpdTemp.PutFloat(MU8STR("float"), -0.1145f);
+		cpdTemp.PutFloat(MU8STR("float skip"), -0.1145f);
+		cpdTemp.PutDouble(MU8STR("double"), 114514.191981);
+		cpdTemp.PutDouble(MU8STR("double skip"), 114514.191981);
+		cpdTemp.PutString(MU8STR("string"), MU8STR("测试"));
+		cpdTemp.PutString(MU8STR("string skip"), MU8STR("测试"));
+
+		insertTarget.Merge(std::move(cpdTemp));
+	}
+
+	std::vector<uint8_t> vData;
+	NBT_Writer::WriteNBT(vData, 0, cpdGen);
+	PrintHexArr(vData);
+
+
+
+
+}
+
+
+
 
 int main(void)
 {

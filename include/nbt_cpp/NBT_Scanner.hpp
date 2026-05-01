@@ -169,6 +169,7 @@ protected:
 		size_t szArrayLength = (size_t)iArrayLength;
 		size_t szArraySize = szArrayLength * sizeof(ValueType);
 
+		//先进性合法性检查
 		if (!tData.HasAvailData(szArraySize))
 		{
 			return Control::Error;
@@ -181,7 +182,7 @@ protected:
 		for (size_t i = 0; i < szArrayLength; ++i)
 		{
 			ValueType tTmpData{};
-			ReadBigEndian<true>(tData, tTmpData);//调用需要确保范围安全
+			ReadBigEndian<true>(tData, tTmpData);//调用需要确保范围安全（已在前面检查）
 			tArray.emplace_back(std::move(tTmpData));//读取一个插入一个
 		}
 
@@ -211,7 +212,7 @@ protected:
 			return false;
 		}
 
-		tData.AddIndex(szSkipSize);
+		tData.AddIndex(szSkipSize);//直接递增索引跳过
 		return true;
 	}
 
@@ -219,7 +220,7 @@ protected:
 	static Control ScanStringType(InputStream &tData, Visitor &tVisitor)
 	{
 		NBT_Type::String tString;
-		if (!GetName(tData, tString))
+		if (!GetName(tData, tString))//转发调用
 		{
 			return Control::Error;
 		}
@@ -230,116 +231,106 @@ protected:
 	template<typename InputStream>
 	static bool SkipStringType(InputStream &tData)
 	{
-		return SkipName(tData);
+		return SkipName(tData);//转发调用
 	}
 
 	template<typename InputStream, typename Visitor>
 	static Control ScanListType(InputStream &tData, Visitor &tVisitor, size_t szStackDepth)
 	{
-		if (szStackDepth == 0)
+		if (szStackDepth == 0)//栈深度
 		{
 			return Control::Error;
 		}
 
+		//读取列表标签
 		NBT_TAG_RAW_TYPE u8ListElementTag = 0;//b=byte
 		if (!ReadBigEndian(tData, u8ListElementTag))
 		{
 			return Control::Error;
 		}
 
-		NBT_TAG enListElementTag = (NBT_TAG)u8ListElementTag;
-
-		if (enListElementTag >= NBT_TAG::ENUM_END)
+		//标签验证
+		if (u8ListElementTag >= NBT_TAG::ENUM_END)
 		{
 			return Control::Error;
 		}
 
+		//类型转换
+		NBT_TAG enListElementTag = (NBT_TAG)u8ListElementTag;
+
+		//读取列表长度
 		NBT_Type::ListLength iListLength = 0;//4byte
 		if (!ReadBigEndian(tData, iListLength))
 		{
 			return Control::Error;
 		}
 
+		//验证
 		if (iListLength < 0)
 		{
 			return Control::Error;
 		}
 
+		//类型转换
 		size_t szListLength = (size_t)iListLength;
+
+		//大小&类型判断
 		if (enListElementTag == NBT_TAG::End && szListLength != 0)
 		{
 			return Control::Error;
 		}
 
+		//类型设置
 		if (szListLength == 0 && enListElementTag != NBT_TAG::End)
 		{
 			enListElementTag = NBT_TAG::End;
 		}
 
 		//遍历索引
-		size_t i = 0;
+		size_t i = 0;//声明在外面，用于跳过剩余的起始位置
 
-		NBT_Visitor::ResultControl visitRet = tVisitor.VisitListBegin(enListElementTag, szListLength);
-		switch (visitRet)
+		//访问器开始回调
+		switch (tVisitor.VisitListBegin(enListElementTag, szListLength))
 		{
-		case NBT_Visitor::ResultControl::Continue://继续处理
-			break;
-		case NBT_Visitor::ResultControl::Break:
-			goto skip_any;
-			break;
-		case NBT_Visitor::ResultControl::Stop:
-			return Control::Stop;
-			break;
-		default:
-			return Control::Error;
-			break;
+		case NBT_Visitor::ResultControl::Continue:	/*继续（什么也不做）*/	break;
+		case NBT_Visitor::ResultControl::Break:		goto skip_any;			break;//这时候索引从0开始，跳过所有
+		case NBT_Visitor::ResultControl::Stop:		return Control::Stop;	break;
+		default:									return Control::Error;	break;
 		}
 
+		//遍历读取
 		for (; i < szListLength; ++i)
 		{
-			NBT_Visitor::NestingControl visitRet = tVisitor.VisitListNextElement(enListElementTag, i);
-			switch (visitRet)
+			//访问器元素回调
+			switch (tVisitor.VisitListNextElement(enListElementTag, i))
 			{
-			case NBT_Visitor::NestingControl::Enter:
-				break;
-			case NBT_Visitor::NestingControl::Skip:
+			case NBT_Visitor::NestingControl::Enter:	/*进入值（什么也不做）*/	break;
+			case NBT_Visitor::NestingControl::Skip:		//跳过当前元素
 				{
 					if (!SkipSwitch(tData, enListElementTag, szStackDepth - 1))
 					{
 						return Control::Error;
 					}
-					continue;
+					continue;//跳过当前并继续
 				}
 				break;
-			case NBT_Visitor::NestingControl::Break:
-				//跳过剩余所有列表元素
-				goto skip_any;
-				break;
-			case NBT_Visitor::NestingControl::Stop:
-				return Control::Stop;
-				break;
-			default:
-				return Control::Error;
-				break;
+			case NBT_Visitor::NestingControl::Break:	goto skip_any;			break;//跳过剩余所有列表元素，注意当前元素还未读取，所以下面依旧从i开始跳
+			case NBT_Visitor::NestingControl::Stop:		return Control::Stop;	break;
+			default:									return Control::Error;	break;
 			}
 
-			Control visitSubRet = ScanSwitch(tData, enListElementTag, tVisitor, szStackDepth - 1);
-			switch (visitSubRet)
+			//元素递归访问
+			switch (ScanSwitch(tData, enListElementTag, tVisitor, szStackDepth - 1))
 			{
-			case Control::Continue://继续（什么也不做）
-			case Control::Break://跳过（从内部跳出）（什么也不做）
-				break;
-			case Control::Stop:
-				return Control::Stop;
-				break;
-			case Control::Error:
-			default:
-				return Control::Error;
-				break;
+			case Control::Continue:	/*继续（什么也不做）*/	break;
+			case Control::Break:	/*跳过（什么也不做）*/	break;//（从内部跳过之后传出的标签不具有传递性）
+			case Control::Stop:		return Control::Stop;	break;
+			case Control::Error:	return Control::Error;	break;
+			default:				return Control::Error;	break;//非法标签
 			}
 		}
 
-	skip_any:
+	skip_any://跳过剩余，如果没有则不跳过
 		for (size_t j = i; j < szListLength; ++j)//从当前i开始跳到结束
 		{
 			if (!SkipSwitch(tData, enListElementTag, szStackDepth - 1))
@@ -348,6 +339,7 @@ protected:
 			}
 		}
 
+		//返回控制标签
 		return ResultControlToControl(tVisitor.VisitListEnd());
 	}
 
@@ -365,12 +357,12 @@ protected:
 			return false;
 		}
 
-		NBT_TAG enListElementTag = (NBT_TAG)u8ListElementTag;
-
-		if (enListElementTag >= NBT_TAG::ENUM_END)
+		if (u8ListElementTag >= NBT_TAG::ENUM_END)
 		{
 			return false;
 		}
+
+		NBT_TAG enListElementTag = (NBT_TAG)u8ListElementTag;
 
 		NBT_Type::ListLength iListLength = 0;//4byte
 		if (!ReadBigEndian(tData, iListLength))
@@ -384,6 +376,7 @@ protected:
 		}
 
 		size_t szListLength = (size_t)iListLength;
+
 		if (enListElementTag == NBT_TAG::End && szListLength != 0)
 		{
 			return false;
@@ -410,6 +403,7 @@ protected:
 	template<bool bRoot, typename InputStream, typename Visitor>
 	static Control ScanCompoundType(InputStream &tData, Visitor &tVisitor, size_t szStackDepth)
 	{
+		//栈深度检查
 		if (szStackDepth == 0)
 		{
 			return Control::Error;
@@ -417,23 +411,20 @@ protected:
 
 		if constexpr (!bRoot)//非根部才进行compound调用
 		{
-			NBT_Visitor::ResultControl visitBegRet = tVisitor.VisitCompoundBegin();
-			switch (visitBegRet)
+			switch (tVisitor.VisitCompoundBegin())
 			{
-			case NBT_Visitor::ResultControl::Continue://继续
-				break;
-			case NBT_Visitor::ResultControl::Break:
-				goto skip_any;
-				break;
-			case NBT_Visitor::ResultControl::Stop:
-				return Control::Stop;
-				break;
-			default:
-				return Control::Error;
-				break;
+			case NBT_Visitor::ResultControl::Continue:	/*继续（什么也不做）*/	break;
+			case NBT_Visitor::ResultControl::Break:		goto skip_any;			break;//跳过所有
+			case NBT_Visitor::ResultControl::Stop:		return Control::Stop;	break;
+			default:									return Control::Error;	break;
 			}
 		}
+		else//根部调用访问器起始回调
+		{
+			tVisitor.VisitBegin();
+		}
 
+		//循环直到内部退出
 		while (true)
 		{
 			//处理末尾情况
@@ -443,112 +434,118 @@ protected:
 				{
 					return Control::Error;
 				}
-
-				return Control::Stop;//结束
+				else//根部遇到末尾，正常结束
+				{
+					return Control::Stop;
+				}
 			}
 
 			//先读取一下类型
-			NBT_TAG enCompoundEntryTag = (NBT_TAG)(NBT_TAG_RAW_TYPE)tData.GetNext();
-			if (enCompoundEntryTag == NBT_TAG::End)//处理End情况
+			NBT_TAG_RAW_TYPE u8CompoundEntryTag = (NBT_TAG_RAW_TYPE)tData.GetNext();
+			if (u8CompoundEntryTag == NBT_TAG::End)//处理End情况
 			{
-				goto end_return;
+				goto end_return;//遇到end tag，正常离开
 			}
 
-			if (enCompoundEntryTag >= NBT_TAG::ENUM_END)
+			//范围验证
+			if (u8CompoundEntryTag >= NBT_TAG::ENUM_END)
 			{
 				return Control::Error;
 			}
 
-			NBT_Visitor::NestingControl visitTypeRet = tVisitor.VisitCompoundNextEntryType(enCompoundEntryTag);
-			switch (visitTypeRet)
+			//验证完成，类型转换
+			NBT_TAG enCompoundEntryTag = u8CompoundEntryTag;
+
+			//访问器条目回调（仅类型）
+			switch (tVisitor.VisitCompoundNextEntryType(enCompoundEntryTag))
 			{
-			case NBT_Visitor::NestingControl::Enter://继续
-				break;
-			case NBT_Visitor::NestingControl::Skip://跳过一个
+			case NBT_Visitor::NestingControl::Enter:	/*进入（什么也不做）*/	break;
+			case NBT_Visitor::NestingControl::Skip:		//跳过一个
 				{
+					//类型已被读取
+					//跳过名称
 					if (!SkipName(tData))
 					{
 						return Control::Error;
 					}
 
+					//跳过数据
 					if (!SkipSwitch(tData, enCompoundEntryTag, szStackDepth - 1))
 					{
 						return Control::Error;
 					}
 				}
 				break;
-			case NBT_Visitor::NestingControl::Break:
+			case NBT_Visitor::NestingControl::Break:	//跳过所有（离开）
 				{
-					if (!SkipName(tData))//先跳过当前剩余
+					//类型已被读取
+					//跳过名称
+					if (!SkipName(tData))
 					{
 						return Control::Error;
 					}
 
+					//跳过数据
 					if (!SkipSwitch(tData, enCompoundEntryTag, szStackDepth - 1))
 					{
 						return Control::Error;
 					}
+
+					//前面跳过当前剩余未完成的部分，然后到尾部跳过所有
 					goto skip_any;
 				}
 				break;
-			case NBT_Visitor::NestingControl::Stop:
-				return Control::Stop;
-				break;
-			default:
-				return Control::Error;
-				break;
+			case NBT_Visitor::NestingControl::Stop:	return Control::Stop;	break;
+			default:								return Control::Error;	break;
 			}
 
-
+			//读取名称
 			NBT_Type::String sName{};
 			if (!GetName(tData, sName))
 			{
 				return Control::Error;
 			}
 
-			NBT_Visitor::NestingControl visitEntryRet = tVisitor.VisitCompoundNextEntry(enCompoundEntryTag, std::move(sName));
-			switch (visitEntryRet)//TODO
+			//调用访问器（类型名称）
+			switch (tVisitor.VisitCompoundNextEntry(enCompoundEntryTag, std::move(sName)))
 			{
-			case NBT_Visitor::NestingControl::Enter://继续
-				break;
-			case NBT_Visitor::NestingControl::Skip://跳过一个
+			case NBT_Visitor::NestingControl::Enter:	/*进入（什么也不做）*/	break;
+			case NBT_Visitor::NestingControl::Skip:		//跳过一个
 				{
+					//类型、名称已被读取
+					//跳过数据
 					if (!SkipSwitch(tData, enCompoundEntryTag, szStackDepth - 1))
 					{
 						return Control::Error;
 					}
+					continue;//继续上面的循环
 				}
 				break;
 			case NBT_Visitor::NestingControl::Break://跳过剩余
 				{
+					//类型、名称已被读取
+					//跳过数据
 					if (!SkipSwitch(tData, enCompoundEntryTag, szStackDepth - 1))//先跳过当前
 					{
 						return Control::Error;
 					}
+
+					//前面跳过当前剩余未完成的部分，然后到尾部跳过所有
 					goto skip_any;
 				}
 				break;
-			case NBT_Visitor::NestingControl::Stop:
-				return Control::Stop;
-				break;
-			default:
-				return Control::Error;
-				break;
+			case NBT_Visitor::NestingControl::Stop:	return Control::Stop;	break;
+			default:								return Control::Error;	break;
 			}
 
-			Control visitSubRet = ScanSwitch(tData, enCompoundEntryTag, tVisitor, szStackDepth - 1);
-			switch (visitSubRet)
+			//元素递归访问
+			switch (ScanSwitch(tData, enCompoundEntryTag, tVisitor, szStackDepth - 1))
 			{
-			case Control::Continue://啥也不做（继续）
-			case Control::Break://从内部跳出（啥也不做）（继续）
-				break;
-			case Control::Stop:
-				return Control::Stop;
-				break;
-			case Control::Error:
-			default:
-				return Control::Error;
-				break;
+			case Control::Continue:	/*继续（什么也不做）*/	break;
+			case Control::Break:	/*跳过（什么也不做）*/	break;//（从内部跳过之后传出的标签不具有传递性）
+			case Control::Stop:		return Control::Stop;	break;
+			case Control::Error:	return Control::Error;	break;
+			default:				return Control::Error;	break;//非法标签
 			}
 		}
 
@@ -567,17 +564,19 @@ protected:
 				return Control::Stop;//结束
 			}
 
-			NBT_TAG enCompoundEntryTag = (NBT_TAG)(NBT_TAG_RAW_TYPE)tData.GetNext();
+			NBT_TAG_RAW_TYPE u8CompoundEntryTag = (NBT_TAG_RAW_TYPE)tData.GetNext();
 
-			if (enCompoundEntryTag == NBT_TAG::End)
+			if (u8CompoundEntryTag == NBT_TAG::End)
 			{
-				goto end_return;
+				goto end_return;//遇到end tag，正常离开
 			}
 
-			if (enCompoundEntryTag >= NBT_TAG::ENUM_END)
+			if (u8CompoundEntryTag >= NBT_TAG::ENUM_END)
 			{
 				return Control::Error;
 			}
+
+			NBT_TAG enCompoundEntryTag = u8CompoundEntryTag;
 
 			if (!SkipName(tData))
 			{
@@ -590,13 +589,14 @@ protected:
 			}
 		}
 
-	end_return:
+	end_return://结束返回
 		if constexpr (!bRoot)
 		{
 			return ResultControlToControl(tVisitor.VisitCompoundEnd());//返回
 		}
 		else
 		{
+			tVisitor.VisitEnd();//根部调用结束
 			return Control::Stop;//根部直接返回
 		}
 	}
@@ -830,11 +830,7 @@ public:
 	requires(IsLookLike_NBT_Visitor<Visitor>)
 	static bool Scan(InputStream &IptStream, Visitor &tVisitor, size_t szStackDepth = 512)
 	{
-		tVisitor.VisitBegin();
-		Control scanRet = ScanCompoundType<true>(IptStream, tVisitor, szStackDepth);
-		tVisitor.VisitEnd();
-
-		return scanRet != Control::Error;
+		return ScanCompoundType<true>(IptStream, tVisitor, szStackDepth) != Control::Error;
 	}
 	
 	template<typename DataType = std::vector<uint8_t>, typename Visitor>
@@ -843,11 +839,7 @@ public:
 	{
 		NBT_IO::DefaultInputStream<DataType> IptStream(tDataInput, szStartIdx);
 
-		tVisitor.VisitBegin();
-		Control scanRet = ScanCompoundType<true>(IptStream, tVisitor, szStackDepth);
-		tVisitor.VisitEnd();
-
-		return scanRet != Control::Error;
+		return ScanCompoundType<true>(IptStream, tVisitor, szStackDepth) != Control::Error;
 	}
 
 };

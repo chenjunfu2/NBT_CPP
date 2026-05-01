@@ -272,6 +272,7 @@ catch(...)\
 			return eRet;
 		}
 
+		//验证完成，类型转换
 		using ValueType = NBT_Type::String::value_type;
 		size_t szStringLength = (size_t)wStringLength;
 		size_t szStringSize = szStringLength * sizeof(ValueType);
@@ -340,6 +341,7 @@ catch(...)\
 			return eRet;
 		}
 
+		//验证完成，类型转换
 		using ValueType = typename T::value_type;
 		size_t szArrayLength = (size_t)iArrayLength;
 		size_t szArraySize = szArrayLength * sizeof(ValueType);
@@ -391,19 +393,22 @@ catch(...)\
 			}
 
 			//先读取一下类型
-			NBT_TAG enCompoundEntryTag = (NBT_TAG)(NBT_TAG_RAW_TYPE)tData.GetNext();
-			if (enCompoundEntryTag == NBT_TAG::End)//处理End情况
+			NBT_TAG_RAW_TYPE u8CompoundEntryTag = (NBT_TAG_RAW_TYPE)tData.GetNext();
+			if (u8CompoundEntryTag == NBT_TAG::End)//处理End情况
 			{
 				return eRet;//直接返回（默认值AllOk）
 			}
 
-			if (enCompoundEntryTag >= NBT_TAG::ENUM_END)//确认在范围内
+			if (u8CompoundEntryTag >= NBT_TAG::ENUM_END)//确认在范围内
 			{
 				eRet = Error(NbtTypeTagError, tData, funcInfo, "{}:\nNBT Tag switch default: Unknown Type Tag[0x{:02X}({})]", __FUNCTION__,
-					(NBT_TAG_RAW_TYPE)enCompoundEntryTag, (NBT_TAG_RAW_TYPE)enCompoundEntryTag);//此处不进行提前返回，往后默认返回处理
-				STACK_TRACEBACK("enCompoundEntryTag Test");
+					u8CompoundEntryTag, u8CompoundEntryTag);//此处不进行提前返回，往后默认返回处理
+				STACK_TRACEBACK("u8CompoundEntryTag Test");
 				return eRet;//超出范围立刻返回
 			}
+
+			//验证完成，类型转换
+			NBT_TAG enCompoundEntryTag = u8CompoundEntryTag;
 
 			//然后读取名称
 			NBT_Type::String sName{};
@@ -482,16 +487,17 @@ catch(...)\
 			return eRet;
 		}
 
-		NBT_TAG enListElementTag = (NBT_TAG)u8ListElementTag;
-
 		//错误的列表元素类型
-		if (enListElementTag >= NBT_TAG::ENUM_END)
+		if (u8ListElementTag >= NBT_TAG::ENUM_END)
 		{
 			eRet = Error(NbtTypeTagError, tData, funcInfo, "{}:\nList NBT Type:Unknown Type Tag[0x{:02X}({})]", __FUNCTION__,
-				(NBT_TAG_RAW_TYPE)enListElementTag, (NBT_TAG_RAW_TYPE)enListElementTag);
-			STACK_TRACEBACK("enListElementTag Test");
+				(NBT_TAG_RAW_TYPE)u8ListElementTag, (NBT_TAG_RAW_TYPE)u8ListElementTag);
+			STACK_TRACEBACK("u8ListElementTag Test");
 			return eRet;
 		}
+
+		//验证完成，类型转换
+		NBT_TAG enListElementTag = (NBT_TAG)u8ListElementTag;
 
 		//读取4字节的有符号列表长度
 		NBT_Type::ListLength iListLength = 0;//4byte
@@ -510,6 +516,7 @@ catch(...)\
 			return eRet;
 		}
 
+		//验证完成，类型转换
 		size_t szListLength = (size_t)iListLength;
 
 		//防止重复N个结束标签，带有结束标签的必须是空列表
