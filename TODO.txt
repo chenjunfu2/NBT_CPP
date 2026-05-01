@@ -3,12 +3,3 @@
 测试使用MyAssert验证
 多编译器测试
 多平台测试
-
-List提供Insert功能
-
-NBT_Helper提供一个通用遍历例程，统一化不同的例程调用通用例程，并提供用户遍历接口
-
-NBT_String构造补全，允许从std::string构造转换（默认），直接强转底层拷贝构造（explicit），view允许从std::string强转底层拷贝构造（explicit）
-
-提供流式遍历访问功能
-
