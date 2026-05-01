@@ -1128,14 +1128,14 @@ catch(...)\
 public:
 	template<typename InputStream, typename Visitor>
 	requires(IsLookLike_NBT_Visitor<Visitor>)
-	static bool Scan(InputStream &IptStream, Visitor &tVisitor, size_t szStackDepth = 512) noexcept
+	static bool ScanNBT(InputStream &IptStream, Visitor &tVisitor, size_t szStackDepth = 512) noexcept
 	{
 		return ScanCompoundType<true>(IptStream, tVisitor, szStackDepth) != Control::Error;
 	}
 	
 	template<typename DataType = std::vector<uint8_t>, typename Visitor>
 	requires(IsLookLike_NBT_Visitor<Visitor>)
-	static bool Scan(const DataType &tDataInput, size_t szStartIdx, Visitor &tVisitor, size_t szStackDepth = 512) noexcept
+	static bool ScanNBT(const DataType &tDataInput, size_t szStartIdx, Visitor &tVisitor, size_t szStackDepth = 512) noexcept
 	{
 		NBT_IO::DefaultInputStream<DataType> IptStream(tDataInput, szStartIdx);
 		return ScanCompoundType<true>(IptStream, tVisitor, szStackDepth) != Control::Error;

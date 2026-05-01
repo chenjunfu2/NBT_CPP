@@ -473,7 +473,7 @@ void ScannerTest()
 )" > ();
 
 	NBT_Visitor_Collector vc;
-	NBT_Scanner::Scan(NbtRawData, 0, vc);
+	NBT_Scanner::ScanNBT(NbtRawData, 0, vc);
 	NBT_Type::Compound cpdScan = vc.MoveRoot();
 
 	NBT_ReadWrite_Test(NbtRawData, cpdScan);
@@ -629,10 +629,10 @@ void ScannerSkipTest()
 
 	SkippingCollector vc;
 
-	NBT_Scanner::Scan(vData, 0, vc);
+	NBT_Scanner::ScanNBT(vData, 0, vc);
 	NBT_Type::Compound cpdScan = vc.MoveRoot();
 
-	NBT_Scanner::Scan(vData2, 0, vc);
+	NBT_Scanner::ScanNBT(vData2, 0, vc);
 	NBT_Type::Compound cpdScan2 = vc.MoveRoot();
 
 	if (cpdScan != cpdScan2)
@@ -656,9 +656,6 @@ void ScannerSkipTest()
 		MyAssert(false);
 	}
 }
-
-
-
 
 int main(void)
 {

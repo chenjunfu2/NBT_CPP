@@ -628,7 +628,7 @@ int maingg(void)
 }
 
 
-int main(void)//_teststring
+int main_rmv51(void)//_teststring
 {
 	uint8_t arr0[] = { 't','e','s','t', '0'};
 	uint8_t arr1[] = { 't','e','s','t', '1', (uint8_t)'\0'};
@@ -809,3 +809,39 @@ int main_xx(void)
 	return 0;
 }
 
+int main(int argc, char *argv[])
+{
+	MyAssert(argc == 2 && argv[1] != NULL);
+	CodeTimer ct;
+
+	std::vector<uint8_t> vData;
+	ct.Start();
+	MyAssert(NBT_IO::ReadFile(argv[1], vData));
+	ct.Stop();
+	ct.PrintElapsed("ReadFile Time[", "]\n");
+
+	std::vector<uint8_t> vDataDcp;
+	ct.Start();
+	MyAssert(NBT_IO::DecompressDataNoThrow(vDataDcp, vData));
+	ct.Stop();
+	ct.PrintElapsed("DecompressData Time[", "]\n");
+
+	NBT_Type::Compound cpdRead;
+	ct.Start();
+	MyAssert(NBT_Reader::ReadNBT(vDataDcp, 0, cpdRead));
+	ct.Stop();
+	ct.PrintElapsed("ReadNBT Time[", "]\n");
+
+	NBT_Visitor_Collector vc;
+	ct.Start();
+	MyAssert(NBT_Scanner::ScanNBT(vDataDcp, 0, vc));
+	ct.Stop();
+	ct.PrintElapsed("ScanNBT Time[", "]\n");
+
+	ct.Start();
+	MyAssert(cpdRead == vc.ViewRoot());
+	ct.Stop();
+	ct.PrintElapsed("Test Time[", "]\n");
+
+	return 0;
+}
