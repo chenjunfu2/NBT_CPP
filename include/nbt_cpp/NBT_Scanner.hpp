@@ -33,9 +33,9 @@ protected:
 		}
 	}
 
-	template<bool bNoCheck = false, typename T, typename InputStream>
+	template<bool bNoCheck = false, typename T, typename InputStream, typename Visitor>
 	requires std::integral<T>
-	static inline std::conditional_t<bNoCheck, void, bool> ReadBigEndian(InputStream &tData, T &tVal)
+	static inline std::conditional_t<bNoCheck, void, bool> ReadBigEndian(InputStream &tData, T &tVal, Visitor &tVisitor)
 	{
 		if constexpr (!bNoCheck)
 		{
@@ -55,12 +55,12 @@ protected:
 		}
 	}
 
-	template<typename InputStream>
-	static bool GetName(InputStream &tData, NBT_Type::String &tName)
+	template<typename InputStream, typename Visitor>
+	static bool GetName(InputStream &tData, NBT_Type::String &tName, Visitor &tVisitor)
 	{
 		//读取长度
 		NBT_Type::StringLength wStringLength = 0;//w->word=2*byte
-		if (!ReadBigEndian(tData, wStringLength))
+		if (!ReadBigEndian(tData, wStringLength, tVisitor))
 		{
 			return false;
 		}
@@ -84,12 +84,12 @@ protected:
 		return true;
 	}
 
-	template<typename InputStream>
-	static bool SkipName(InputStream &tData)
+	template<typename InputStream, typename Visitor>
+	static bool SkipName(InputStream &tData, Visitor &tVisitor)
 	{
 		//读取长度
 		NBT_Type::StringLength wStringLength = 0;//w->word=2*byte
-		if (!ReadBigEndian(tData, wStringLength))
+		if (!ReadBigEndian(tData, wStringLength, tVisitor))
 		{
 			return false;
 		}
@@ -113,8 +113,8 @@ protected:
 		return ResultControlToControl(tVisitor.VisitListEnd());
 	}
 
-	template<typename InputStream>
-	static bool SkipEndType(InputStream &tData)
+	template<typename InputStream, typename Visitor>
+	static bool SkipEndType(InputStream &tData, Visitor &tVisitor)
 	{
 		//EndType无数据负载
 		return true;
@@ -125,7 +125,7 @@ protected:
 	{
 		using RAW_DATA_T = NBT_Type::BuiltinRawType_T<T>;//类型映射
 		RAW_DATA_T tTmpRawData = 0;
-		if (!ReadBigEndian(tData, tTmpRawData))
+		if (!ReadBigEndian(tData, tTmpRawData, tVisitor))
 		{
 			return Control::Error;
 		}
@@ -133,8 +133,8 @@ protected:
 		return ResultControlToControl(tVisitor.VisitNumericResult<T>(std::bit_cast<T>(tTmpRawData)));
 	}
 
-	template<typename T, typename InputStream>
-	static bool SkipBuiltInType(InputStream &tData)
+	template<typename T, typename InputStream, typename Visitor>
+	static bool SkipBuiltInType(InputStream &tData, Visitor &tVisitor)
 	{
 		using RAW_DATA_T = NBT_Type::BuiltinRawType_T<T>;//类型映射
 		size_t szSkipSize = sizeof(RAW_DATA_T);
@@ -154,7 +154,7 @@ protected:
 	{
 		//获取4字节有符号数，代表数组元素个数
 		NBT_Type::ArrayLength iArrayLength = 0;//4byte
-		if (!ReadBigEndian(tData, iArrayLength))
+		if (!ReadBigEndian(tData, iArrayLength, tVisitor))
 		{
 			return Control::Error;
 		}
@@ -183,19 +183,19 @@ protected:
 		for (size_t i = 0; i < szArrayLength; ++i)
 		{
 			ValueType tTmpData{};
-			ReadBigEndian<true>(tData, tTmpData);//调用需要确保范围安全（已在前面检查）
+			ReadBigEndian<true>(tData, tTmpData, tVisitor);//调用需要确保范围安全（已在前面检查）
 			tArray.emplace_back(std::move(tTmpData));//读取一个插入一个
 		}
 
 		return ResultControlToControl(tVisitor.VisitArrayResult<T>(std::move(tArray)));
 	}
 
-	template<typename T, typename InputStream>
-	static bool SkipArrayType(InputStream &tData)
+	template<typename T, typename InputStream, typename Visitor>
+	static bool SkipArrayType(InputStream &tData, Visitor &tVisitor)
 	{
 		//获取4字节有符号数，代表数组元素个数
 		NBT_Type::ArrayLength iArrayLength = 0;//4byte
-		if (!ReadBigEndian(tData, iArrayLength))
+		if (!ReadBigEndian(tData, iArrayLength, tVisitor))
 		{
 			return false;
 		}
@@ -229,10 +229,10 @@ protected:
 		return ResultControlToControl(tVisitor.VisitStringResult(std::move(tString)));
 	}
 
-	template<typename InputStream>
-	static bool SkipStringType(InputStream &tData)
+	template<typename InputStream, typename Visitor>
+	static bool SkipStringType(InputStream &tData, Visitor &tVisitor)
 	{
-		return SkipName(tData);//转发调用
+		return SkipName(tData, tVisitor);//转发调用
 	}
 
 	template<typename InputStream, typename Visitor>
@@ -245,7 +245,7 @@ protected:
 
 		//读取列表标签
 		NBT_TAG_RAW_TYPE u8ListElementTag = 0;//b=byte
-		if (!ReadBigEndian(tData, u8ListElementTag))
+		if (!ReadBigEndian(tData, u8ListElementTag, tVisitor))
 		{
 			return Control::Error;
 		}
@@ -261,7 +261,7 @@ protected:
 
 		//读取列表长度
 		NBT_Type::ListLength iListLength = 0;//4byte
-		if (!ReadBigEndian(tData, iListLength))
+		if (!ReadBigEndian(tData, iListLength, tVisitor))
 		{
 			return Control::Error;
 		}
@@ -308,7 +308,7 @@ protected:
 			case NBT_Visitor::NestingControl::Enter:	/*进入值（什么也不做）*/	break;
 			case NBT_Visitor::NestingControl::Skip:		//跳过当前元素
 				{
-					if (!SkipSwitch(tData, enListElementTag, szStackDepth - 1))
+					if (!SkipSwitch(tData, enListElementTag, tVisitor, szStackDepth - 1))
 					{
 						return Control::Error;
 					}
@@ -334,7 +334,7 @@ protected:
 	skip_any://跳过剩余，如果没有则不跳过
 		for (size_t j = i; j < szListLength; ++j)//从当前i开始跳到结束
 		{
-			if (!SkipSwitch(tData, enListElementTag, szStackDepth - 1))
+			if (!SkipSwitch(tData, enListElementTag, tVisitor, szStackDepth - 1))
 			{
 				return Control::Error;
 			}
@@ -344,8 +344,8 @@ protected:
 		return ResultControlToControl(tVisitor.VisitListEnd());
 	}
 
-	template<typename InputStream>
-	static bool SkipListType(InputStream &tData, size_t szStackDepth)
+	template<typename InputStream, typename Visitor>
+	static bool SkipListType(InputStream &tData, Visitor &tVisitor, size_t szStackDepth)
 	{
 		if (szStackDepth == 0)
 		{
@@ -353,7 +353,7 @@ protected:
 		}
 
 		NBT_TAG_RAW_TYPE u8ListElementTag = 0;//b=byte
-		if (!ReadBigEndian(tData, u8ListElementTag))
+		if (!ReadBigEndian(tData, u8ListElementTag, tVisitor))
 		{
 			return false;
 		}
@@ -366,7 +366,7 @@ protected:
 		NBT_TAG enListElementTag = (NBT_TAG)u8ListElementTag;
 
 		NBT_Type::ListLength iListLength = 0;//4byte
-		if (!ReadBigEndian(tData, iListLength))
+		if (!ReadBigEndian(tData, iListLength, tVisitor))
 		{
 			return false;
 		}
@@ -392,7 +392,7 @@ protected:
 
 		for (size_t i = 0; i < szSkipLength; ++i)
 		{
-			if (!SkipSwitch(tData, enListElementTag, szStackDepth - 1))
+			if (!SkipSwitch(tData, enListElementTag, tVisitor, szStackDepth - 1))
 			{
 				return false;
 			}
@@ -465,13 +465,13 @@ protected:
 				{
 					//类型已被读取
 					//跳过名称
-					if (!SkipName(tData))
+					if (!SkipName(tData, tVisitor))
 					{
 						return Control::Error;
 					}
 
 					//跳过数据
-					if (!SkipSwitch(tData, enCompoundEntryTag, szStackDepth - 1))
+					if (!SkipSwitch(tData, enCompoundEntryTag, tVisitor, szStackDepth - 1))
 					{
 						return Control::Error;
 					}
@@ -481,13 +481,13 @@ protected:
 				{
 					//类型已被读取
 					//跳过名称
-					if (!SkipName(tData))
+					if (!SkipName(tData, tVisitor))
 					{
 						return Control::Error;
 					}
 
 					//跳过数据
-					if (!SkipSwitch(tData, enCompoundEntryTag, szStackDepth - 1))
+					if (!SkipSwitch(tData, enCompoundEntryTag, tVisitor, szStackDepth - 1))
 					{
 						return Control::Error;
 					}
@@ -515,7 +515,7 @@ protected:
 				{
 					//类型、名称已被读取
 					//跳过数据
-					if (!SkipSwitch(tData, enCompoundEntryTag, szStackDepth - 1))
+					if (!SkipSwitch(tData, enCompoundEntryTag, tVisitor, szStackDepth - 1))
 					{
 						return Control::Error;
 					}
@@ -526,7 +526,7 @@ protected:
 				{
 					//类型、名称已被读取
 					//跳过数据
-					if (!SkipSwitch(tData, enCompoundEntryTag, szStackDepth - 1))//先跳过当前
+					if (!SkipSwitch(tData, enCompoundEntryTag, tVisitor, szStackDepth - 1))//先跳过当前
 					{
 						return Control::Error;
 					}
@@ -579,12 +579,12 @@ protected:
 
 			NBT_TAG enCompoundEntryTag = u8CompoundEntryTag;
 
-			if (!SkipName(tData))
+			if (!SkipName(tData, tVisitor))
 			{
 				return Control::Error;
 			}
 
-			if (!SkipSwitch(tData, enCompoundEntryTag, szStackDepth - 1))
+			if (!SkipSwitch(tData, enCompoundEntryTag, tVisitor, szStackDepth - 1))
 			{
 				return Control::Error;
 			}
@@ -602,8 +602,8 @@ protected:
 		}
 	}
 
-	template<typename InputStream>
-	static bool SkipCompoundType(InputStream &tData, size_t szStackDepth)
+	template<typename InputStream, typename Visitor>
+	static bool SkipCompoundType(InputStream &tData, Visitor &tVisitor, size_t szStackDepth)
 	{
 		if (szStackDepth == 0)
 		{
@@ -630,12 +630,12 @@ protected:
 				return false;
 			}
 
-			if (!SkipName(tData))
+			if (!SkipName(tData, tVisitor))
 			{
 				return false;
 			}
 
-			if (!SkipSwitch(tData, enCompoundEntryTag, szStackDepth - 1))
+			if (!SkipSwitch(tData, enCompoundEntryTag, tVisitor, szStackDepth - 1))
 			{
 				return false;
 			}
@@ -734,84 +734,84 @@ protected:
 		return retControl;
 	}
 
-	template<typename InputStream>
-	static bool SkipSwitch(InputStream &tData, NBT_TAG tagNbt, size_t szStackDepth)
+	template<typename InputStream, typename Visitor>
+	static bool SkipSwitch(InputStream &tData, NBT_TAG tagNbt, Visitor &tVisitor, size_t szStackDepth)
 	{
 		bool bRet = false;
 		switch (tagNbt)
 		{
 		case NBT_TAG::End:
 			{
-				bRet = SkipEndType(tData);
+				bRet = SkipEndType(tData, tVisitor);
 			}
 			break;
 		case NBT_TAG::Byte:
 			{
 				using CurType = NBT_Type::TagToType_T<NBT_TAG::Byte>;
-				bRet = SkipBuiltInType<CurType>(tData);
+				bRet = SkipBuiltInType<CurType>(tData, tVisitor);
 			}
 			break;
 		case NBT_TAG::Short:
 			{
 				using CurType = NBT_Type::TagToType_T<NBT_TAG::Short>;
-				bRet = SkipBuiltInType<CurType>(tData);
+				bRet = SkipBuiltInType<CurType>(tData, tVisitor);
 			}
 			break;
 		case NBT_TAG::Int:
 			{
 				using CurType = NBT_Type::TagToType_T<NBT_TAG::Int>;
-				bRet = SkipBuiltInType<CurType>(tData);
+				bRet = SkipBuiltInType<CurType>(tData, tVisitor);
 			}
 			break;
 		case NBT_TAG::Long:
 			{
 				using CurType = NBT_Type::TagToType_T<NBT_TAG::Long>;
-				bRet = SkipBuiltInType<CurType>(tData);
+				bRet = SkipBuiltInType<CurType>(tData, tVisitor);
 			}
 			break;
 		case NBT_TAG::Float:
 			{
 				using CurType = NBT_Type::TagToType_T<NBT_TAG::Float>;
-				bRet = SkipBuiltInType<CurType>(tData);
+				bRet = SkipBuiltInType<CurType>(tData, tVisitor);
 			}
 			break;
 		case NBT_TAG::Double:
 			{
 				using CurType = NBT_Type::TagToType_T<NBT_TAG::Double>;
-				bRet = SkipBuiltInType<CurType>(tData);
+				bRet = SkipBuiltInType<CurType>(tData, tVisitor);
 			}
 			break;
 		case NBT_TAG::ByteArray:
 			{
 				using CurType = NBT_Type::TagToType_T<NBT_TAG::ByteArray>;
-				bRet = SkipArrayType<CurType>(tData);
+				bRet = SkipArrayType<CurType>(tData, tVisitor);
 			}
 			break;
 		case NBT_TAG::String:
 			{
-				bRet = SkipStringType(tData);
+				bRet = SkipStringType(tData, tVisitor);
 			}
 			break;
 		case NBT_TAG::List:
 			{
-				bRet = SkipListType(tData, szStackDepth);
+				bRet = SkipListType(tData, tVisitor, szStackDepth);
 			}
 			break;
 		case NBT_TAG::Compound:
 			{
-				bRet = SkipCompoundType(tData, szStackDepth);
+				bRet = SkipCompoundType(tData, tVisitor, szStackDepth);
 			}
 			break;
 		case NBT_TAG::IntArray:
 			{
 				using CurType = NBT_Type::TagToType_T<NBT_TAG::IntArray>;
-				bRet = SkipArrayType<CurType>(tData);
+				bRet = SkipArrayType<CurType>(tData, tVisitor);
 			}
 			break;
 		case NBT_TAG::LongArray:
 			{
 				using CurType = NBT_Type::TagToType_T<NBT_TAG::LongArray>;
-				bRet = SkipArrayType<CurType>(tData);
+				bRet = SkipArrayType<CurType>(tData, tVisitor);
 			}
 			break;
 		default:
