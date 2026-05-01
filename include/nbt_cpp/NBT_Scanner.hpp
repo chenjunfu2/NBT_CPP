@@ -189,6 +189,9 @@ catch(...)\
 		{
 			if (!tData.HasAvailData(sizeof(T)))
 			{
+				Error(OutOfRangeError, tData, tVisitor, "tData size [{}], current index [{}], remaining data size [{}], but try to read [{}]",
+					tData.Size(), tData.Index(), tData.Size() - tData.Index(), sizeof(T));
+				STACK_TRACEBACK("HasAvailData Test");
 				return false;
 			}
 		}
@@ -210,6 +213,7 @@ catch(...)\
 		NBT_Type::StringLength wStringLength = 0;//w->word=2*byte
 		if (!ReadBigEndian(tData, wStringLength, tVisitor))
 		{
+			STACK_TRACEBACK("wStringLength Read");
 			return false;
 		}
 
@@ -220,6 +224,9 @@ catch(...)\
 		//检查长度
 		if (!tData.HasAvailData(szStringSize))
 		{
+			Error(OutOfRangeError, tData, tVisitor, "{}:\n(Index[{}] + szStringLength[{}])[{}] > DataSize[{}]", __FUNCTION__,
+				tData.Index(), szStringLength, tData.Index() + szStringLength, tData.Size());
+			STACK_TRACEBACK("HasAvailData Test");
 			return false;
 		}
 
@@ -239,6 +246,7 @@ catch(...)\
 		NBT_Type::StringLength wStringLength = 0;//w->word=2*byte
 		if (!ReadBigEndian(tData, wStringLength, tVisitor))
 		{
+			STACK_TRACEBACK("wStringLength Read");
 			return false;
 		}
 
@@ -247,6 +255,9 @@ catch(...)\
 		//检查长度
 		if (!tData.HasAvailData(szSkipSize))
 		{
+			Error(OutOfRangeError, tData, tVisitor, "{}:\n(Index[{}] + szSkipSize[{}])[{}] > DataSize[{}]", __FUNCTION__,
+				tData.Index(), szSkipSize, tData.Index() + szSkipSize, tData.Size());
+			STACK_TRACEBACK("HasAvailData Test");
 			return false;
 		}
 
@@ -275,6 +286,7 @@ catch(...)\
 		RAW_DATA_T tTmpRawData = 0;
 		if (!ReadBigEndian(tData, tTmpRawData, tVisitor))
 		{
+			STACK_TRACEBACK("tTmpRawData Read");
 			return Control::Error;
 		}
 
@@ -289,6 +301,9 @@ catch(...)\
 
 		if (!tData.HasAvailData(szSkipSize))
 		{
+			Error(OutOfRangeError, tData, tVisitor, "{}:\n(Index[{}] + szSkipSize[{}])[{}] > DataSize[{}]", __FUNCTION__,
+				tData.Index(), szSkipSize, tData.Index() + szSkipSize, tData.Size());
+			STACK_TRACEBACK("HasAvailData Test");
 			return false;
 		}
 
@@ -304,22 +319,29 @@ catch(...)\
 		NBT_Type::ArrayLength iArrayLength = 0;//4byte
 		if (!ReadBigEndian(tData, iArrayLength, tVisitor))
 		{
+			STACK_TRACEBACK("iArrayLength Read");
 			return Control::Error;
 		}
 
 		//检查有符号数大小范围
 		if (iArrayLength < 0)
 		{
+			Error(OutOfRangeError, tData, tVisitor, ":\niArrayLength[{}] < 0", __FUNCTION__, iArrayLength);
+			STACK_TRACEBACK("iArrayLength Test");
 			return Control::Error;
 		}
 
+		//验证完成，类型转换
 		using ValueType = typename T::value_type;
 		size_t szArrayLength = (size_t)iArrayLength;
 		size_t szArraySize = szArrayLength * sizeof(ValueType);
 
-		//先进性合法性检查
+		//先进行合法性检查
 		if (!tData.HasAvailData(szArraySize))
 		{
+			Error(OutOfRangeError, tData, tVisitor, "{}:\n(Index[{}] + szArraySize[{}])[{}] > DataSize[{}]", __FUNCTION__,
+				tData.Index(), szArrayLength, tData.Index() + szArraySize, tData.Size());
+			STACK_TRACEBACK("HasAvailData Test");
 			return Control::Error;
 		}
 
@@ -345,12 +367,15 @@ catch(...)\
 		NBT_Type::ArrayLength iArrayLength = 0;//4byte
 		if (!ReadBigEndian(tData, iArrayLength, tVisitor))
 		{
+			STACK_TRACEBACK("iArrayLength Read");
 			return false;
 		}
 
 		//检查有符号数大小范围
 		if (iArrayLength < 0)
 		{
+			Error(OutOfRangeError, tData, tVisitor, ":\niArrayLength[{}] < 0", __FUNCTION__, iArrayLength);
+			STACK_TRACEBACK("iArrayLength Test");
 			return false;
 		}
 
@@ -358,6 +383,9 @@ catch(...)\
 
 		if (!tData.HasAvailData(szSkipSize))
 		{
+			Error(OutOfRangeError, tData, tVisitor, "{}:\n(Index[{}] + szSkipSize[{}])[{}] > DataSize[{}]", __FUNCTION__,
+				tData.Index(), szSkipSize, tData.Index() + szSkipSize, tData.Size());
+			STACK_TRACEBACK("HasAvailData Test");
 			return false;
 		}
 
@@ -371,6 +399,7 @@ catch(...)\
 		NBT_Type::String tString;
 		if (!GetName(tData, tString))//转发调用
 		{
+			STACK_TRACEBACK("GetString");
 			return Control::Error;
 		}
 
@@ -380,7 +409,13 @@ catch(...)\
 	template<typename InputStream, typename Visitor>
 	static bool SkipStringType(InputStream &tData, Visitor &tVisitor)
 	{
-		return SkipName(tData, tVisitor);//转发调用
+		if (!SkipName(tData, tVisitor))//转发调用
+		{
+			STACK_TRACEBACK("SkipString");
+			return false;
+		}
+
+		return true;
 	}
 
 	template<typename InputStream, typename Visitor>
@@ -393,12 +428,16 @@ catch(...)\
 		NBT_TAG_RAW_TYPE u8ListElementTag = 0;//b=byte
 		if (!ReadBigEndian(tData, u8ListElementTag, tVisitor))
 		{
+			STACK_TRACEBACK("u8ListElementTag Read");
 			return Control::Error;
 		}
 
 		//标签验证
 		if (u8ListElementTag >= NBT_TAG::ENUM_END)
 		{
+			Error(NbtTypeTagError, tData, tVisitor, "{}:\nList NBT Type:Unknown Type Tag[0x{:02X}({})]", __FUNCTION__,
+				(NBT_TAG_RAW_TYPE)u8ListElementTag, (NBT_TAG_RAW_TYPE)u8ListElementTag);
+			STACK_TRACEBACK("u8ListElementTag Test");
 			return Control::Error;
 		}
 
@@ -409,12 +448,15 @@ catch(...)\
 		NBT_Type::ListLength iListLength = 0;//4byte
 		if (!ReadBigEndian(tData, iListLength, tVisitor))
 		{
+			STACK_TRACEBACK("iListLength Read");
 			return Control::Error;
 		}
 
 		//验证
 		if (iListLength < 0)
 		{
+			Error(OutOfRangeError, tData, tVisitor, ":\niListLength[{}] < 0", __FUNCTION__, iListLength);
+			STACK_TRACEBACK("iListLength Test");
 			return Control::Error;
 		}
 
@@ -424,6 +466,9 @@ catch(...)\
 		//大小&类型判断
 		if (enListElementTag == NBT_TAG::End && szListLength != 0)
 		{
+			Error(ListElementTypeError, tData, tVisitor, "{}:\nThe list with TAG_End[0x00] tag must be empty, but [{}] elements were found", __FUNCTION__,
+				szListLength);
+			STACK_TRACEBACK("enListElementTag And szListLength Test");
 			return Control::Error;
 		}
 
@@ -456,6 +501,7 @@ catch(...)\
 				{
 					if (!SkipSwitch(tData, enListElementTag, tVisitor, szStackDepth - 1))
 					{
+						STACK_TRACEBACK("SkipSwitch Error, Size: [{}] Index: [{}]", szListLength, i);
 						return Control::Error;
 					}
 					continue;//跳过当前并继续
@@ -472,7 +518,10 @@ catch(...)\
 			case Control::Continue:	/*继续（什么也不做）*/	break;
 			case Control::Break:	/*跳过（什么也不做）*/	break;//（从内部跳过之后传出的标签不具有传递性）
 			case Control::Stop:		return Control::Stop;	break;
-			case Control::Error:	return Control::Error;	break;
+			case Control::Error:
+				STACK_TRACEBACK("ScanSwitch Error, Size: [{}] Index: [{}]", szListLength, i);
+				return Control::Error;
+				break;
 			default:				return Control::Error;	break;//非法标签
 			}
 		}
@@ -482,6 +531,7 @@ catch(...)\
 		{
 			if (!SkipSwitch(tData, enListElementTag, tVisitor, szStackDepth - 1))
 			{
+				STACK_TRACEBACK("SkipSwitch Error, Size: [{}] Index: [{}]", szListLength, j);
 				return Control::Error;
 			}
 		}
@@ -499,11 +549,15 @@ catch(...)\
 		NBT_TAG_RAW_TYPE u8ListElementTag = 0;//b=byte
 		if (!ReadBigEndian(tData, u8ListElementTag, tVisitor))
 		{
+			STACK_TRACEBACK("u8ListElementTag Read");
 			return false;
 		}
 
 		if (u8ListElementTag >= NBT_TAG::ENUM_END)
 		{
+			Error(NbtTypeTagError, tData, tVisitor, "{}:\nList NBT Type:Unknown Type Tag[0x{:02X}({})]", __FUNCTION__,
+				(NBT_TAG_RAW_TYPE)u8ListElementTag, (NBT_TAG_RAW_TYPE)u8ListElementTag);
+			STACK_TRACEBACK("u8ListElementTag Test");
 			return false;
 		}
 
@@ -512,11 +566,14 @@ catch(...)\
 		NBT_Type::ListLength iListLength = 0;//4byte
 		if (!ReadBigEndian(tData, iListLength, tVisitor))
 		{
+			STACK_TRACEBACK("iListLength Read");
 			return false;
 		}
 
 		if (iListLength < 0)
 		{
+			Error(OutOfRangeError, tData, tVisitor, ":\niListLength[{}] < 0", __FUNCTION__, iListLength);
+			STACK_TRACEBACK("iListLength Test");
 			return false;
 		}
 
@@ -524,6 +581,9 @@ catch(...)\
 
 		if (enListElementTag == NBT_TAG::End && szListLength != 0)
 		{
+			Error(ListElementTypeError, tData, tVisitor, "{}:\nThe list with TAG_End[0x00] tag must be empty, but [{}] elements were found", __FUNCTION__,
+				szListLength);
+			STACK_TRACEBACK("enListElementTag And szListLength Test");
 			return false;
 		}
 
@@ -538,6 +598,7 @@ catch(...)\
 		{
 			if (!SkipSwitch(tData, enListElementTag, tVisitor, szStackDepth - 1))
 			{
+				STACK_TRACEBACK("SkipSwitch Error, Size: [{}] Index: [{}]", szListLength, i);
 				return false;
 			}
 		}
@@ -574,6 +635,9 @@ catch(...)\
 			{
 				if constexpr (!bRoot)//非根部情况遇到末尾，则报错
 				{
+					Error(OutOfRangeError, tData, funcInfo, "{}:\nIndex[{}] >= DataSize()[{}]", __FUNCTION__,
+						tData.Index(), tData.Size());
+					STACK_TRACEBACK("HasAvailData Test");
 					return Control::Error;
 				}
 				else//根部遇到末尾，正常结束
@@ -592,6 +656,9 @@ catch(...)\
 			//范围验证
 			if (u8CompoundEntryTag >= NBT_TAG::ENUM_END)
 			{
+				Error(NbtTypeTagError, tData, funcInfo, "{}:\nNBT Tag switch default: Unknown Type Tag[0x{:02X}({})]", __FUNCTION__,
+					u8CompoundEntryTag, u8CompoundEntryTag);//此处不进行提前返回，往后默认返回处理
+				STACK_TRACEBACK("u8CompoundEntryTag Test");
 				return Control::Error;
 			}
 
@@ -608,12 +675,14 @@ catch(...)\
 					//跳过名称
 					if (!SkipName(tData, tVisitor))
 					{
+						STACK_TRACEBACK("SkipName Fail, Type: [NBT_Type::{}]", NBT_Type::GetTypeName(enCompoundEntryTag));
 						return Control::Error;
 					}
 
 					//跳过数据
 					if (!SkipSwitch(tData, enCompoundEntryTag, tVisitor, szStackDepth - 1))
 					{
+						STACK_TRACEBACK("SkipSwitch Fail, Type: [NBT_Type::{}]", NBT_Type::GetTypeName(enCompoundEntryTag));
 						return Control::Error;
 					}
 				}
@@ -624,12 +693,14 @@ catch(...)\
 					//跳过名称
 					if (!SkipName(tData, tVisitor))
 					{
+						STACK_TRACEBACK("SkipName Fail, Type: [NBT_Type::{}]", NBT_Type::GetTypeName(enCompoundEntryTag));
 						return Control::Error;
 					}
 
 					//跳过数据
 					if (!SkipSwitch(tData, enCompoundEntryTag, tVisitor, szStackDepth - 1))
 					{
+						STACK_TRACEBACK("SkipSwitch Fail, Type: [NBT_Type::{}]", NBT_Type::GetTypeName(enCompoundEntryTag));
 						return Control::Error;
 					}
 
@@ -700,10 +771,15 @@ catch(...)\
 			{
 				if constexpr (!bRoot)//非根部情况遇到末尾，则报错
 				{
+					Error(OutOfRangeError, tData, funcInfo, "{}:\nIndex[{}] >= DataSize()[{}]", __FUNCTION__,
+						tData.Index(), tData.Size());
+					STACK_TRACEBACK("HasAvailData Test");
 					return Control::Error;
 				}
-
-				return Control::Stop;//结束
+				else
+				{
+					return Control::Stop;//结束
+				}
 			}
 
 			NBT_TAG_RAW_TYPE u8CompoundEntryTag = (NBT_TAG_RAW_TYPE)tData.GetNext();
@@ -722,11 +798,13 @@ catch(...)\
 
 			if (!SkipName(tData, tVisitor))
 			{
+				STACK_TRACEBACK("SkipName Fail, Type: [NBT_Type::{}]", NBT_Type::GetTypeName(enCompoundEntryTag));
 				return Control::Error;
 			}
 
 			if (!SkipSwitch(tData, enCompoundEntryTag, tVisitor, szStackDepth - 1))
 			{
+				STACK_TRACEBACK("SkipSwitch Fail, Type: [NBT_Type::{}]", NBT_Type::GetTypeName(enCompoundEntryTag));
 				return Control::Error;
 			}
 		}
@@ -754,28 +832,38 @@ catch(...)\
 			//跳过compound值
 			if (!tData.HasAvailData(sizeof(NBT_TAG_RAW_TYPE)))//处理末尾情况
 			{
+				Error(OutOfRangeError, tData, funcInfo, "{}:\nIndex[{}] >= DataSize()[{}]", __FUNCTION__,
+					tData.Index(), tData.Size());
+				STACK_TRACEBACK("HasAvailData Test");
 				return false;//跳过必然不可能是根部调用
 			}
 
-			NBT_TAG enCompoundEntryTag = (NBT_TAG)(NBT_TAG_RAW_TYPE)tData.GetNext();
+			NBT_TAG_RAW_TYPE u8CompoundEntryTag = (NBT_TAG_RAW_TYPE)tData.GetNext();
 
-			if (enCompoundEntryTag == NBT_TAG::End)
+			if (u8CompoundEntryTag == NBT_TAG::End)
 			{
 				return true;
 			}
 
-			if (enCompoundEntryTag >= NBT_TAG::ENUM_END)
+			if (u8CompoundEntryTag >= NBT_TAG::ENUM_END)
 			{
+				Error(NbtTypeTagError, tData, funcInfo, "{}:\nNBT Tag switch default: Unknown Type Tag[0x{:02X}({})]", __FUNCTION__,
+					u8CompoundEntryTag, u8CompoundEntryTag);//此处不进行提前返回，往后默认返回处理
+				STACK_TRACEBACK("u8CompoundEntryTag Test");
 				return false;
 			}
 
+			NBT_TAG enCompoundEntryTag = u8CompoundEntryTag;
+
 			if (!SkipName(tData, tVisitor))
 			{
+				STACK_TRACEBACK("SkipName Fail, Type: [NBT_Type::{}]", NBT_Type::GetTypeName(enCompoundEntryTag));
 				return false;
 			}
 
 			if (!SkipSwitch(tData, enCompoundEntryTag, tVisitor, szStackDepth - 1))
 			{
+				STACK_TRACEBACK("SkipSwitch Fail, Type: [NBT_Type::{}]", NBT_Type::GetTypeName(enCompoundEntryTag));
 				return false;
 			}
 		}

@@ -388,6 +388,7 @@ catch(...)\
 				{
 					eRet = Error(OutOfRangeError, tData, funcInfo, "{}:\nIndex[{}] >= DataSize()[{}]", __FUNCTION__,
 						tData.Index(), tData.Size());
+					STACK_TRACEBACK("HasAvailData Test");
 				}
 
 				return eRet;//否则直接返回（默认值AllOk）
