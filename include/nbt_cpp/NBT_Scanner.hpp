@@ -635,7 +635,7 @@ catch(...)\
 			{
 				if constexpr (!bRoot)//非根部情况遇到末尾，则报错
 				{
-					Error(OutOfRangeError, tData, funcInfo, "{}:\nIndex[{}] >= DataSize()[{}]", __FUNCTION__,
+					Error(OutOfRangeError, tData, tVisitor, "{}:\nIndex[{}] >= DataSize()[{}]", __FUNCTION__,
 						tData.Index(), tData.Size());
 					STACK_TRACEBACK("HasAvailData Test");
 					return Control::Error;
@@ -656,7 +656,7 @@ catch(...)\
 			//范围验证
 			if (u8CompoundEntryTag >= NBT_TAG::ENUM_END)
 			{
-				Error(NbtTypeTagError, tData, funcInfo, "{}:\nNBT Tag switch default: Unknown Type Tag[0x{:02X}({})]", __FUNCTION__,
+				Error(NbtTypeTagError, tData, tVisitor, "{}:\nNBT Tag switch default: Unknown Type Tag[0x{:02X}({})]", __FUNCTION__,
 					u8CompoundEntryTag, u8CompoundEntryTag);//此处不进行提前返回，往后默认返回处理
 				STACK_TRACEBACK("u8CompoundEntryTag Test");
 				return Control::Error;
@@ -716,6 +716,7 @@ catch(...)\
 			NBT_Type::String sName{};
 			if (!GetName(tData, sName))
 			{
+				STACK_TRACEBACK("GetName Fail, Type: [NBT_Type::{}]", NBT_Type::GetTypeName(enCompoundEntryTag));
 				return Control::Error;
 			}
 
@@ -729,6 +730,7 @@ catch(...)\
 					//跳过数据
 					if (!SkipSwitch(tData, enCompoundEntryTag, tVisitor, szStackDepth - 1))
 					{
+						STACK_TRACEBACK("SkipSwitch Fail, Type: [NBT_Type::{}]", NBT_Type::GetTypeName(enCompoundEntryTag));
 						return Control::Error;
 					}
 					continue;//继续上面的循环
@@ -740,6 +742,7 @@ catch(...)\
 					//跳过数据
 					if (!SkipSwitch(tData, enCompoundEntryTag, tVisitor, szStackDepth - 1))//先跳过当前
 					{
+						STACK_TRACEBACK("SkipSwitch Fail, Type: [NBT_Type::{}]", NBT_Type::GetTypeName(enCompoundEntryTag));
 						return Control::Error;
 					}
 
@@ -757,7 +760,10 @@ catch(...)\
 			case Control::Continue:	/*继续（什么也不做）*/	break;
 			case Control::Break:	/*跳过（什么也不做）*/	break;//（从内部跳过之后传出的标签不具有传递性）
 			case Control::Stop:		return Control::Stop;	break;
-			case Control::Error:	return Control::Error;	break;
+			case Control::Error:
+				STACK_TRACEBACK("ScanSwitch Error, Type: [NBT_Type::{}]", NBT_Type::GetTypeName(enCompoundEntryTag));
+				return Control::Error;
+				break;
 			default:				return Control::Error;	break;//非法标签
 			}
 		}
@@ -771,7 +777,7 @@ catch(...)\
 			{
 				if constexpr (!bRoot)//非根部情况遇到末尾，则报错
 				{
-					Error(OutOfRangeError, tData, funcInfo, "{}:\nIndex[{}] >= DataSize()[{}]", __FUNCTION__,
+					Error(OutOfRangeError, tData, tVisitor, "{}:\nIndex[{}] >= DataSize()[{}]", __FUNCTION__,
 						tData.Index(), tData.Size());
 					STACK_TRACEBACK("HasAvailData Test");
 					return Control::Error;
@@ -832,7 +838,7 @@ catch(...)\
 			//跳过compound值
 			if (!tData.HasAvailData(sizeof(NBT_TAG_RAW_TYPE)))//处理末尾情况
 			{
-				Error(OutOfRangeError, tData, funcInfo, "{}:\nIndex[{}] >= DataSize()[{}]", __FUNCTION__,
+				Error(OutOfRangeError, tData, tVisitor, "{}:\nIndex[{}] >= DataSize()[{}]", __FUNCTION__,
 					tData.Index(), tData.Size());
 				STACK_TRACEBACK("HasAvailData Test");
 				return false;//跳过必然不可能是根部调用
@@ -847,7 +853,7 @@ catch(...)\
 
 			if (u8CompoundEntryTag >= NBT_TAG::ENUM_END)
 			{
-				Error(NbtTypeTagError, tData, funcInfo, "{}:\nNBT Tag switch default: Unknown Type Tag[0x{:02X}({})]", __FUNCTION__,
+				Error(NbtTypeTagError, tData, tVisitor, "{}:\nNBT Tag switch default: Unknown Type Tag[0x{:02X}({})]", __FUNCTION__,
 					u8CompoundEntryTag, u8CompoundEntryTag);//此处不进行提前返回，往后默认返回处理
 				STACK_TRACEBACK("u8CompoundEntryTag Test");
 				return false;

@@ -417,7 +417,7 @@ catch(...)\
 			eRet = GetName(tData, sName, funcInfo);
 			if (eRet != AllOk)
 			{
-				STACK_TRACEBACK("GetName Fail, Type: [NBT_Type::{}]", NBT_Type::GetTypeName(enCompoundEntryTag));
+				STACK_TRACEBACK("GetName Error, Type: [NBT_Type::{}]", NBT_Type::GetTypeName(enCompoundEntryTag));
 				return eRet;//名称读取失败立刻返回
 			}
 
@@ -426,7 +426,7 @@ catch(...)\
 			eRet = GetSwitch<bUnwrapMixedList>(tData, tmpNode, enCompoundEntryTag, szStackDepth - 1, funcInfo);
 			if (eRet != AllOk)
 			{
-				STACK_TRACEBACK("GetSwitch Fail, Name: \"{}\", Type: [NBT_Type::{}]", sName.ToCharTypeUTF8(), NBT_Type::GetTypeName(enCompoundEntryTag));//注意这里ToCharTypeUTF8可能抛异常
+				STACK_TRACEBACK("GetSwitch Error, Name: \"{}\", Type: [NBT_Type::{}]", sName.ToCharTypeUTF8(), NBT_Type::GetTypeName(enCompoundEntryTag));//注意这里ToCharTypeUTF8可能抛异常
 				//return eRet;//注意此处不返回，进行插入，以便分析错误之前的正确数据
 			}
 

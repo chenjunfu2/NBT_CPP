@@ -277,7 +277,7 @@ catch(...)\
 		eRet = CheckReserve(tData, szStringSize, funcInfo);//提前分配
 		if (eRet != AllOk)
 		{
-			STACK_TRACEBACK("CheckReserve Fail, Check Size: [{}]", szStringSize);
+			STACK_TRACEBACK("CheckReserve Error, Check Size: [{}]", szStringSize);
 			return eRet;
 		}
 		//范围写入
@@ -338,7 +338,7 @@ catch(...)\
 		eRet = CheckReserve(tData, szArraySize, funcInfo);//提前分配
 		if (eRet != AllOk)
 		{
-			STACK_TRACEBACK("CheckReserve Fail, Check Size: [{}]", szArraySize);
+			STACK_TRACEBACK("CheckReserve Error, Check Size: [{}]", szArraySize);
 			return eRet;
 		}
 
@@ -384,7 +384,7 @@ catch(...)\
 		eRet = PutName(tData, sName, funcInfo);
 		if (eRet != AllOk)
 		{
-			STACK_TRACEBACK("PutName Fail, Type: [NBT_Type::{}]", NBT_Type::GetTypeName(enCompoundEntryTag));
+			STACK_TRACEBACK("PutName Error, Type: [NBT_Type::{}]", NBT_Type::GetTypeName(enCompoundEntryTag));
 			return eRet;
 		}
 
@@ -392,7 +392,7 @@ catch(...)\
 		eRet = PutSwitch<bSortCompound>(tData, nodeNbt, enCompoundEntryTag, szStackDepth - 1, funcInfo);
 		if (eRet != AllOk)
 		{
-			STACK_TRACEBACK("PutSwitch Fail, Name: \"{}\", Type: [NBT_Type::{}]",
+			STACK_TRACEBACK("PutSwitch Error, Name: \"{}\", Type: [NBT_Type::{}]",
 				sName.ToCharTypeUTF8(), NBT_Type::GetTypeName(enCompoundEntryTag));//此处ToCharTypeUTF8可能抛异常
 			return eRet;
 		}
