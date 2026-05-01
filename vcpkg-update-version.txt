@@ -1,3 +1,15 @@
+#修复bug，处理todo，新增内容等
+#通过本地测试项目
+#通过GitHub Action测试项目
+#更新doxygen vesrion
+#更新vcpkg version
+#删除vcpkg hash
+#生成doxygen文档
+#推送所有内容
+#在GitHub生成新版本Tag
+#更新vcpkg hash
+#测试vcpkg本地安装可用性
+#准备推送vcpkg官方仓库
 #从项目目录启动cmd
 
 #git运行目录在vcpkg_fork\vcpkg\下
