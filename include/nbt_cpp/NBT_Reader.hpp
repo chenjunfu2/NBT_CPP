@@ -46,9 +46,9 @@ protected:
 	constexpr static inline const char *const errReason[] =
 	{
 		"AllOk",
-		"ListElementTypeError",
 		"UnknownError",
 		"StdException",
+		"ListElementTypeError",
 		"OutOfMemoryError",
 		"StackDepthExceeded",
 		"NbtTypeTagError",

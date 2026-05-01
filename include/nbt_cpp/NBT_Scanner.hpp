@@ -14,6 +14,52 @@ class NBT_Scanner
 
 protected:
 ///@cond
+
+	enum ErrCode : uint8_t
+	{
+		AllOk = 0,//没有问题
+
+		UnknownError,//其他错误（代码问题）
+		StdException,//标准异常（代码问题）
+		ListElementTypeError,//列表元素类型错误（NBT文件问题）
+		OutOfMemoryError,//内存不足错误（NBT文件问题）
+		StackDepthExceeded,//调用栈深度过深（NBT文件or代码设置问题）
+		NbtTypeTagError,//NBT标签类型错误（NBT文件问题）
+		OutOfRangeError,//（NBT内部长度错误溢出）（NBT文件问题）
+
+		ERRCODE_END,//结束标记，统计负数部分大小
+	};
+
+	constexpr static inline const char *const errReason[] =
+	{
+		"AllOk",
+		
+		"UnknownError",
+		"StdException",
+		"ListElementTypeError",
+		"OutOfMemoryError",
+		"StackDepthExceeded",
+		"NbtTypeTagError",
+		"OutOfRangeError",
+	};
+
+	//记得同步数组！
+	static_assert(sizeof(errReason) / sizeof(errReason[0]) == ERRCODE_END, "errReason array out sync");
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 	enum class Control : uint8_t
 	{
 		Continue,	///< 继续处理（继续迭代）
