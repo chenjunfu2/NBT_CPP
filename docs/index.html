@@ -93,7 +93,7 @@ $(function(){initNavTree('index.html','',''); });
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><p><a class="anchor" id="md_doxygen__resource_2ROOT"></a></p>
-<p><a href="https://github.com/chenjunfu2/NBT_CPP/">开源库链接(Github)</a> <br  />
+<p><b><a href="https://github.com/chenjunfu2/NBT_CPP/">开源库链接(Github)</a></b> <br  />
  <b>最新版本上线vcpkg可能存在延迟，如果需要最新内容，请通过git仓库内的include文件夹安装</b></p>
 <p><b>使用vcpkg安装：</b> <br  />
  </p><div class="fragment"><div class="line">vcpkg install chenjunfu2-nbt-cpp[zlib,xxhash]</div>
@@ -168,26 +168,37 @@ NBT_Node_View.hpp</h3>
 NBT_Helper.hpp</h3>
 <ul>
 <li><a class="el" href="NBT__Print_8hpp.html" title="用于处理NBT信息打印的默认实现">NBT_Print.hpp</a></li>
+<li><a class="el" href="NBT__Endian_8hpp.html" title="端序工具集">NBT_Endian.hpp</a></li>
 <li><a class="el" href="NBT__Node_8hpp.html" title="NBT节点类型，支持存储所有NBT类型的变体">NBT_Node.hpp</a></li>
 <li><a class="el" href="NBT__Node__View_8hpp.html" title="NBT节点类型的视图，支持指向所有NBT类型的变体视图，不持有对象">NBT_Node_View.hpp</a></li>
 <li><a class="el" href="NBT__Hash_8hpp.html" title="哈希工具集">NBT_Hash.hpp</a> （仅在安装xxhash库的情况下）</li>
 </ul>
-<p>这个头文件基本上是处理nbt对象打印、序列化、哈希的帮助函数， 不使用重载而是单独提供的原因是，cpp不方便去包装任何builtin类型并给这些类型提供各种重载， 反而是给访问做到一起才更方便。而在MC中因为用的是Java，本身提供builtin类型的包装器， 所以使用重载更为方便，此为设计模式的差异。</p>
+<p>这个头文件基本上是处理nbt对象打印、序列化、哈希（需安装xxhash库）的帮助函数， 不使用重载而是单独提供的原因是，cpp不方便去包装任何builtin类型并给这些类型提供各种重载， 反而是给访问做到一起才更方便。而在MC中因为用的是Java，本身提供builtin类型的包装器， 所以使用重载更为方便，此为设计模式的差异。</p>
 <h3 class="doxsection"><a class="anchor" id="autotoc_md11"></a>
+NBT_Scanner.hpp</h3>
+<ul>
+<li><a class="el" href="NBT__Node_8hpp.html" title="NBT节点类型，支持存储所有NBT类型的变体">NBT_Node.hpp</a></li>
+<li><a class="el" href="NBT__Visitor_8hpp_source.html">NBT_Visitor.hpp</a></li>
+<li><a class="el" href="NBT__Endian_8hpp.html" title="端序工具集">NBT_Endian.hpp</a></li>
+<li><a class="el" href="NBT__IO_8hpp.html" title="IO工具集">NBT_IO.hpp</a></li>
+</ul>
+<p>这个头文件基本上是用于快速扫描NBT二进制文件的，可以在不进行NBT对象树的完整构建的情况下， 选择性的从二进制流中读取、遍历、查找、仅构建需要的内容等。</p>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md12"></a>
 NBT_Reader.hpp 与 NBT_Writer.hpp</h3>
 <ul>
 <li><a class="el" href="NBT__Print_8hpp.html" title="用于处理NBT信息打印的默认实现">NBT_Print.hpp</a></li>
 <li><a class="el" href="NBT__Node_8hpp.html" title="NBT节点类型，支持存储所有NBT类型的变体">NBT_Node.hpp</a></li>
 <li><a class="el" href="NBT__Endian_8hpp.html" title="端序工具集">NBT_Endian.hpp</a></li>
+<li><a class="el" href="NBT__IO_8hpp.html" title="IO工具集">NBT_IO.hpp</a></li>
 </ul>
 <p>这两个头文件包含了NBT_Print（打印功能的默认实现，可被替换）， 同时也包含了NBT_Node，因为它们必须看见所有类型才能知道怎么读写， 最后包含了NBT_Endian，以使得不同平台能处理大小端转换， 它们基本上做的内容是差不多的，所以包含的模块也一致， 一个是从字节流中读取到NBT类型，另一个是从NBT类型中写出到字节流， 有点像std::ifstream和std::ofstream的功能。</p>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md12"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md13"></a>
 NBT_IO.hpp</h3>
 <ul>
 <li><a class="el" href="NBT__Print_8hpp.html" title="用于处理NBT信息打印的默认实现">NBT_Print.hpp</a></li>
 </ul>
-<p>这个头文件基本上是完成从文件中读写NBT字节流与压缩解压功能的， 是否提供压缩解压功能取决于是否安装zlib库。 基本上不存在额外的NBT库依赖，它只处理文件与字节流。</p>
-<h4 class="doxsection"><a class="anchor" id="autotoc_md13"></a>
+<p>这个头文件基本上是完成从文件中读写NBT字节流与压缩解压（需安装zlib库）功能的， 基本上不存在额外的NBT库依赖，它只处理文件与字节流。</p>
+<h4 class="doxsection"><a class="anchor" id="autotoc_md14"></a>
 以上内容为各主要模块的说明，具体用法可以参考项目里的usage</h4>
 <p>一般情况下的处理流程是这样的（这里省略报错处理流程且默认你安装了zlib库）：</p>
 <ol type="1">
