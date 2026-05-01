@@ -109,7 +109,7 @@ public:
 	}
 
 	template<typename... Args>
-	void VisitError(NBT_Print_Level lvl, const std::format_string<Args...> fmt, Args&&... args)
+	void VisitError(NBT_Print_Level lvl, const std::format_string<Args...> fmt, Args&&... args) noexcept
 	{
 		//throw or print error
 		return;
@@ -218,13 +218,13 @@ requires(
 	//错误处理（不完全验证）
 	{
 		visitor.VisitError(nbt_print_level, "error message")
-	};
+	} noexcept;
 	{
 		visitor.VisitError(nbt_print_level, "error with code: {}", 0)
-	};
+	} noexcept;
 	{
 		visitor.VisitError(nbt_print_level, "error with info: {}", "test info")
-	};
+	} noexcept;
 };
 
 static_assert(IsLookLike_NBT_Visitor<NBT_Visitor>);
@@ -476,7 +476,7 @@ public:
 	}
 
 	template<typename... Args>
-	void VisitError(NBT_Print_Level lvl, const std::format_string<Args...> fmt, Args&&... args)
+	void VisitError(NBT_Print_Level lvl, const std::format_string<Args...> fmt, Args&&... args) noexcept
 	{
 		//throw or print error
 		return;

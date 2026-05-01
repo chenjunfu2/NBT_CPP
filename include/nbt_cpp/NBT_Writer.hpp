@@ -88,7 +88,7 @@ protected:
 	requires(std::is_same_v<T, ErrCode> || std::is_same_v<T, WarnCode>)
 	static std::conditional_t<std::is_same_v<T, ErrCode>, ErrCode, void> Error
 		(
-			const T &code,
+			const T code,
 			const OutputStream &tData,
 			InfoFunc &funcInfo,
 			const std::format_string<Args...> fmt,
@@ -189,11 +189,11 @@ protected:
 #define STRLING(l) #l
 
 #define STACK_TRACEBACK(fmt, ...) funcInfo(NBT_Print_Level::Err, "In [{}] Line:[" _RP___LINE__ "]: \n" fmt "\n\n", _RP___FUNCTION__ __VA_OPT__(,) __VA_ARGS__);
-#define CHECK_STACK_DEPTH(Depth) \
-if((Depth) <= 0)\
+#define CHECK_STACK_DEPTH(depth) \
+if((depth) == 0)\
 {\
 	eRet = Error(StackDepthExceeded, tData, funcInfo, "{}: NBT nesting depth exceeded maximum call stack limit", _RP___FUNCTION__);\
-	STACK_TRACEBACK("(Depth) <= 0");\
+	STACK_TRACEBACK(##depth " == 0");\
 	return eRet;\
 }\
 

@@ -13,53 +13,6 @@ class NBT_Scanner
 	~NBT_Scanner(void) = delete;
 
 protected:
-///@cond
-
-	enum ErrCode : uint8_t
-	{
-		AllOk = 0,//没有问题
-
-		UnknownError,//其他错误（代码问题）
-		StdException,//标准异常（代码问题）
-		ListElementTypeError,//列表元素类型错误（NBT文件问题）
-		OutOfMemoryError,//内存不足错误（NBT文件问题）
-		StackDepthExceeded,//调用栈深度过深（NBT文件or代码设置问题）
-		NbtTypeTagError,//NBT标签类型错误（NBT文件问题）
-		OutOfRangeError,//（NBT内部长度错误溢出）（NBT文件问题）
-
-		ERRCODE_END,//结束标记，统计负数部分大小
-	};
-
-	constexpr static inline const char *const errReason[] =
-	{
-		"AllOk",
-		
-		"UnknownError",
-		"StdException",
-		"ListElementTypeError",
-		"OutOfMemoryError",
-		"StackDepthExceeded",
-		"NbtTypeTagError",
-		"OutOfRangeError",
-	};
-
-	//记得同步数组！
-	static_assert(sizeof(errReason) / sizeof(errReason[0]) == ERRCODE_END, "errReason array out sync");
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 	enum class Control : uint8_t
 	{
 		Continue,	///< 继续处理（继续迭代）
@@ -78,6 +31,155 @@ protected:
 		default:									return Control::Error;		break;
 		}
 	}
+
+protected:
+///@cond
+	enum ErrCode : uint8_t
+	{
+		AllOk = 0,//没有问题
+
+		UnknownError,//其他错误（代码问题）
+		StdException,//标准异常（代码问题）
+		UnknownControlCode,//未知的控制码（代码问题）
+		ListElementTypeError,//列表元素类型错误（NBT文件问题）
+		OutOfMemoryError,//内存不足错误（NBT文件问题）
+		StackDepthExceeded,//调用栈深度过深（NBT文件or代码设置问题）
+		NbtTypeTagError,//NBT标签类型错误（NBT文件问题）
+		OutOfRangeError,//（NBT内部长度错误溢出）（NBT文件问题）
+
+		ERRCODE_END,//结束标记，统计负数部分大小
+	};
+
+	constexpr static inline const char *const errReason[] =
+	{
+		"AllOk",
+		
+		"UnknownError",
+		"StdException",
+		"UnknownControlCode",
+		"ListElementTypeError",
+		"OutOfMemoryError",
+		"StackDepthExceeded",
+		"NbtTypeTagError",
+		"OutOfRangeError",
+	};
+
+	//记得同步数组！
+	static_assert(sizeof(errReason) / sizeof(errReason[0]) == ERRCODE_END, "errReason array out sync");
+
+	template <typename InputStream, typename Visitor, typename... Args>
+	static ErrCode Error
+	(
+		const ErrCode errCode,
+		const InputStream &tData,
+		Visitor &tVisitor,
+		const std::format_string<Args...> fmt,
+		Args&&... args
+	) noexcept
+	{
+		if (code >= ERRCODE_END)//保证code不会溢出
+		{
+			return code;
+		}
+		
+		//打印错误原因
+		NBT_Print_Level lvl = NBT_Print_Level::Err;
+		tVisitor.VisitError(lvl, "Scan Err[{}]: {}\n", (uint8_t)code, errReason[code]);
+
+		//打印扩展信息
+		tVisitor.VisitError(lvl, "Extra Info: \"");
+		tVisitor.VisitError(lvl, std::move(fmt), std::forward<Args>(args)...);
+		tVisitor.VisitError(lvl, "\"\n\n");
+
+		//如果可以，预览szCurrent前后n个字符，否则裁切到边界
+#define VIEW_PRE (4 * 8 + 3)//向前
+#define VIEW_SUF (4 * 8 + 5)//向后
+		size_t rangeBeg = (tData.Index() > VIEW_PRE) ? (tData.Index() - VIEW_PRE) : (0);//上边界裁切
+		size_t rangeEnd = ((tData.Index() + VIEW_SUF) < tData.Size()) ? (tData.Index() + VIEW_SUF) : (tData.Size());//下边界裁切
+#undef VIEW_SUF
+#undef VIEW_PRE
+		//输出信息
+		tVisitor.VisitError
+		(
+			lvl,
+			"Data Review:\n"\
+			"Current: 0x{:02X}({})\n"\
+			"Data Size: 0x{:02X}({})\n"\
+			"Data Range: [0x{:02X}({}),0x{:02X}({})):\n",
+
+			(uint64_t)tData.Index(), tData.Index(),
+			(uint64_t)tData.Size(), tData.Size(),
+			(uint64_t)rangeBeg, rangeBeg,
+			(uint64_t)rangeEnd, rangeEnd
+		);
+
+		//打数据
+		for (size_t i = rangeBeg; i < rangeEnd; ++i)
+		{
+			if ((i - rangeBeg) % 8 == 0)//输出地址
+			{
+				if (i != rangeBeg)//除去第一个每8个换行
+				{
+					tVisitor.VisitError(lvl, "\n");
+				}
+				tVisitor.VisitError(lvl, "0x{:02X}: ", (uint64_t)i);
+			}
+
+			if (i != tData.Index())
+			{
+				tVisitor.VisitError(lvl, " {:02X} ", (uint8_t)tData[i]);
+			}
+			else//如果是当前出错字节，加方括号框起
+			{
+				tVisitor.VisitError(lvl, "[{:02X}]", (uint8_t)tData[i]);
+			}
+		}
+
+		//输出提示信息
+		tVisitor.VisitError(lvl, "\nSkip err data and return...\n\n");
+
+		return errCode;
+	}
+
+#define _RP___FUNCTION__ __FUNCTION__//用于编译过程二次替换达到函数内部
+
+#define _RP___LINE__ _RP_STRLING(__LINE__)
+#define _RP_STRLING(l) STRLING(l)
+#define STRLING(l) #l
+
+#define STACK_TRACEBACK(fmt, ...) tVisitor.VisitError(NBT_Print_Level::Err, "In [{}] Line:[" _RP___LINE__ "]: \n" fmt "\n\n", _RP___FUNCTION__ __VA_OPT__(,) __VA_ARGS__);
+#define CHECK_STACK_DEPTH(depth, ret) \
+if((depth) == 0)\
+{\
+	Error(StackDepthExceeded, tData, tVisitor.VisitError, "{}: NBT nesting depth exceeded maximum call stack limit", _RP___FUNCTION__);\
+	STACK_TRACEBACK(##depth " == 0");\
+	return ret;\
+}\
+
+#define MYTRY \
+try\
+{
+
+#define MYCATCH(ret) \
+}\
+catch(const std::bad_alloc &e)\
+{\
+	Error(OutOfMemoryError, tData, tVisitor.VisitError, "{}: Info:[{}]", _RP___FUNCTION__, e.what());\
+	STACK_TRACEBACK("catch(std::bad_alloc)");\
+	return ret;\
+}\
+catch(const std::exception &e)\
+{\
+	Error(StdException, tData, tVisitor.VisitError, "{}: Info:[{}]", _RP___FUNCTION__, e.what());\
+	STACK_TRACEBACK("catch(std::exception)");\
+	return ret;\
+}\
+catch(...)\
+{\
+	Error(UnknownError, tData, tVisitor.VisitError, "{}: Info:[Unknown Exception]", _RP___FUNCTION__);\
+	STACK_TRACEBACK("catch(...)");\
+	return ret;\
+}
 
 	template<bool bNoCheck = false, typename T, typename InputStream, typename Visitor>
 	requires std::integral<T>
@@ -284,10 +386,8 @@ protected:
 	template<typename InputStream, typename Visitor>
 	static Control ScanListType(InputStream &tData, Visitor &tVisitor, size_t szStackDepth)
 	{
-		if (szStackDepth == 0)//栈深度
-		{
-			return Control::Error;
-		}
+		//栈深度检测
+		CHECK_STACK_DEPTH(szStackDepth);
 
 		//读取列表标签
 		NBT_TAG_RAW_TYPE u8ListElementTag = 0;//b=byte
@@ -393,10 +493,8 @@ protected:
 	template<typename InputStream, typename Visitor>
 	static bool SkipListType(InputStream &tData, Visitor &tVisitor, size_t szStackDepth)
 	{
-		if (szStackDepth == 0)
-		{
-			return false;
-		}
+		//栈深度检测
+		CHECK_STACK_DEPTH(szStackDepth);
 
 		NBT_TAG_RAW_TYPE u8ListElementTag = 0;//b=byte
 		if (!ReadBigEndian(tData, u8ListElementTag, tVisitor))
@@ -450,11 +548,8 @@ protected:
 	template<bool bRoot, typename InputStream, typename Visitor>
 	static Control ScanCompoundType(InputStream &tData, Visitor &tVisitor, size_t szStackDepth)
 	{
-		//栈深度检查
-		if (szStackDepth == 0)
-		{
-			return Control::Error;
-		}
+		//栈深度检测
+		CHECK_STACK_DEPTH(szStackDepth);
 
 		if constexpr (!bRoot)//非根部才进行compound调用
 		{
@@ -651,10 +746,8 @@ protected:
 	template<typename InputStream, typename Visitor>
 	static bool SkipCompoundType(InputStream &tData, Visitor &tVisitor, size_t szStackDepth)
 	{
-		if (szStackDepth == 0)
-		{
-			return false;
-		}
+		//栈深度检测
+		CHECK_STACK_DEPTH(szStackDepth);
 
 		while (true)
 		{
@@ -889,6 +982,12 @@ public:
 		return ScanCompoundType<true>(IptStream, tVisitor, szStackDepth) != Control::Error;
 	}
 
+#undef MYTRY
+#undef MYCATCH
+#undef CHECK_STACK_DEPTH
+#undef STACK_TRACEBACK
+#undef STRLING
+#undef _RP_STRLING
+#undef _RP___LINE__
+#undef _RP___FUNCTION__
 };
-//TODO: 添加使用visit输出报错
-
