@@ -9,6 +9,7 @@
 #include <unordered_set>
 #include <unordered_map>
 #include <iostream>
+#include <locale.h>
 
 
 //template <typename T>
@@ -824,8 +825,12 @@ class KeyCollector : public NBT_Visitor_Collector
 {
 protected:
 	std::unordered_set<NBT_Type::String> setFindKey{};
-	size_t szCurStack = 0;
-	size_t szSaveBegStack = 0;
+	size_t szSaveBegStack = (size_t)-1;
+
+	size_t GetStackDepth() const
+	{
+		return vStack.size() - 1;
+	}
 
 public:
 	KeyCollector(std::initializer_list<NBT_Type::String> init_list) :setFindKey{ init_list }
@@ -843,23 +848,34 @@ public:
 	// 重写：遇到 Compound 条目时，根据键名决定是否跳过
 	NestingControl VisitCompoundEntryBegin(NBT_TAG enTag, NBT_Type::String &&sName)
 	{
-		if (szCurStack < szSaveBegStack && !ContainsTargetKey(sName))
+		if (GetStackDepth() == 0)
+		{
+			sPendingKey = std::move(sName);
+			return NestingControl::Enter;
+		}
+
+		if (GetStackDepth() < szSaveBegStack && !ContainsTargetKey(sName))
 		{
 			return NestingControl::Skip;
 		}
 
 		if (enTag == NBT_TAG::Compound)
 		{
-			++szCurStack;
-			szSaveBegStack = szCurStack;
+			szSaveBegStack = GetStackDepth();
 		}
 		
 		sPendingKey = std::move(sName);
 		return NestingControl::Enter;
 	}
 
-	ResultControl VisitCompoundEntryEnd(void)
+	ResultControl VisitCompoundEntryEnd(NBT_TAG enTag, NBT_Type::String &&sName)
 	{
+		//如果退出深度之后小等于目标深度，那么设置目标深度为最深，以恢复所有判断
+		if (enTag == NBT_TAG::Compound && GetStackDepth() < szSaveBegStack)
+		{
+			szSaveBegStack = (size_t)-1;
+		}
+
 		return ResultControl::Continue;
 	}
 };
@@ -869,7 +885,7 @@ int main(int argc, char *argv[])
 {
 	MyAssert(argc == 2 && argv[1] != NULL);
 
-	print("Test File: [{}]", argv[1]);
+	print("Test File: [{}]\n", argv[1]);
 	CodeTimer ct;
 
 	std::vector<uint8_t> vData;
@@ -916,6 +932,8 @@ int main(int argc, char *argv[])
 	MyAssert(NBT_Scanner::ScanNBT(vDataDcp, 0, kc));
 	ct.Stop();
 	ct.PrintElapsed("ScanNBT Time[", "]\n");
+
+	setlocale(LC_ALL, ".UTF-8");
 	NBT_Helper::Print(kc.ViewRoot());
 
 	print("\n[Test end]\n");
