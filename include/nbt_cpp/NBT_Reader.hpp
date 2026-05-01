@@ -410,7 +410,7 @@ catch(...)\
 			}
 
 			//验证完成，类型转换
-			NBT_TAG enCompoundEntryTag = u8CompoundEntryTag;
+			NBT_TAG enCompoundEntryTag = (NBT_TAG)u8CompoundEntryTag;
 
 			//然后读取名称
 			NBT_Type::String sName{};

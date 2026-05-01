@@ -425,7 +425,7 @@ catch(...)\
 	static Control ScanStringType(InputStream &tData, Visitor &tVisitor) noexcept
 	{
 		NBT_Type::String tString;
-		if (!GetName(tData, tString))//转发调用
+		if (!GetName(tData, tString, tVisitor))//转发调用
 		{
 			STACK_TRACEBACK("GetString");
 			return Control::Error;
@@ -704,7 +704,7 @@ catch(...)\
 			}
 
 			//验证完成，类型转换
-			NBT_TAG enCompoundEntryTag = u8CompoundEntryTag;
+			NBT_TAG enCompoundEntryTag = (NBT_TAG)u8CompoundEntryTag;
 
 			//访问器条目回调（仅类型）
 			switch (tVisitor.VisitCompoundNextEntryType(enCompoundEntryTag))
@@ -757,7 +757,7 @@ catch(...)\
 
 			//读取名称
 			NBT_Type::String sName{};
-			if (!GetName(tData, sName))
+			if (!GetName(tData, sName, tVisitor))
 			{
 				STACK_TRACEBACK("GetName Fail, Type: [NBT_Type::{}]", NBT_Type::GetTypeName(enCompoundEntryTag));
 				return Control::Error;
@@ -850,7 +850,7 @@ catch(...)\
 				return Control::Error;
 			}
 
-			NBT_TAG enCompoundEntryTag = u8CompoundEntryTag;
+			NBT_TAG enCompoundEntryTag = (NBT_TAG)u8CompoundEntryTag;
 
 			if (!SkipName(tData, tVisitor))
 			{
@@ -910,7 +910,7 @@ catch(...)\
 				return false;
 			}
 
-			NBT_TAG enCompoundEntryTag = u8CompoundEntryTag;
+			NBT_TAG enCompoundEntryTag = (NBT_TAG)u8CompoundEntryTag;
 
 			if (!SkipName(tData, tVisitor))
 			{
