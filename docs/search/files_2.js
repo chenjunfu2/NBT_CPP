@@ -12,8 +12,10 @@ var searchData=
   ['nbt_5fnode_5fview_2ehpp_9',['NBT_Node_View.hpp',['../NBT__Node__View_8hpp.html',1,'']]],
   ['nbt_5fprint_2ehpp_10',['NBT_Print.hpp',['../NBT__Print_8hpp.html',1,'']]],
   ['nbt_5freader_2ehpp_11',['NBT_Reader.hpp',['../NBT__Reader_8hpp.html',1,'']]],
-  ['nbt_5fstring_2ehpp_12',['NBT_String.hpp',['../NBT__String_8hpp.html',1,'']]],
-  ['nbt_5ftag_2ehpp_13',['NBT_TAG.hpp',['../NBT__TAG_8hpp.html',1,'']]],
-  ['nbt_5ftype_2ehpp_14',['NBT_Type.hpp',['../NBT__Type_8hpp.html',1,'']]],
-  ['nbt_5fwriter_2ehpp_15',['NBT_Writer.hpp',['../NBT__Writer_8hpp.html',1,'']]]
+  ['nbt_5fscanner_2ehpp_12',['NBT_Scanner.hpp',['../NBT__Scanner_8hpp.html',1,'']]],
+  ['nbt_5fstring_2ehpp_13',['NBT_String.hpp',['../NBT__String_8hpp.html',1,'']]],
+  ['nbt_5ftag_2ehpp_14',['NBT_TAG.hpp',['../NBT__TAG_8hpp.html',1,'']]],
+  ['nbt_5ftype_2ehpp_15',['NBT_Type.hpp',['../NBT__Type_8hpp.html',1,'']]],
+  ['nbt_5fvisitor_2ehpp_16',['NBT_Visitor.hpp',['../NBT__Visitor_8hpp.html',1,'']]],
+  ['nbt_5fwriter_2ehpp_17',['NBT_Writer.hpp',['../NBT__Writer_8hpp.html',1,'']]]
 ];
