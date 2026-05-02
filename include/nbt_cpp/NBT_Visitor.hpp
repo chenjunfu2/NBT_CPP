@@ -6,6 +6,9 @@
 #include <stdint.h>
 #include <vector>
 
+/// @file
+/// @brief NBT类型二进制流访问器（作为扫描工具的回调）
+
 /// @brief 提示性实现类（鸭子类型），仅用于模板通过性验证与用户接口提示
 /// @note 用户自定义的访问器类需要实现与此类相同的成员函数（不必继承），
 /// 并满足 IsLookLike_NBT_Visitor 概念。
