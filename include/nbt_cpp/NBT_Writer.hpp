@@ -107,7 +107,7 @@ protected:
 				return code;
 			}
 			//上方if保证code不会溢出
-			funcInfo(lvl, "Read Err[{}]: {}\n", (uint8_t)code, errReason[code]);
+			funcInfo(lvl, "Write Err[{}]: {}\n", (uint8_t)code, errReason[code]);
 		}
 		else if constexpr (std::is_same_v<T, WarnCode>)
 		{
@@ -117,7 +117,7 @@ protected:
 				return;
 			}
 			//上方if保证code不会溢出
-			funcInfo(lvl, "Read Warn[{}]: {}\n", (uint8_t)code, warnReason[code]);
+			funcInfo(lvl, "Write Warn[{}]: {}\n", (uint8_t)code, warnReason[code]);
 		}
 		else
 		{
