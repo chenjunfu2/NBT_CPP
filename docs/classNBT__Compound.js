@@ -5,7 +5,7 @@ var classNBT__Compound =
     [ "NBT_Compound", "classNBT__Compound.html#a15616987b38411976c8dfcf637b26fd2", null ],
     [ "~NBT_Compound", "classNBT__Compound.html#abde89144c5554eb06271c8d01f620bd6", null ],
     [ "NBT_Compound", "classNBT__Compound.html#a1c1e53eda849634f51a87b409eae667c", null ],
-    [ "NBT_Compound", "classNBT__Compound.html#ab3a27427095b89f44f384e0a4969e23e", null ],
+    [ "NBT_Compound", "classNBT__Compound.html#a96dff9595994e803ba11e0a002533c68", null ],
     [ "Clear", "classNBT__Compound.html#a11ae318e17ba5b0a5a0a075701f27b44", null ],
     [ "Contains", "classNBT__Compound.html#a8d29e5604d49149e5851bc1308abc475", null ],
     [ "ContainsByte", "classNBT__Compound.html#ad82bbbe37a468c4dcec5e1cd4171299c", null ],

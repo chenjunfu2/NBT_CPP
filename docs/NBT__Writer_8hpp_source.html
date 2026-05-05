@@ -26,7 +26,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">chenjunfu2-nbt-cpp<span id="projectnumber">&#160;v2.1.0</span>
+   <div id="projectname">chenjunfu2-nbt-cpp<span id="projectnumber">&#160;v2.1.1</span>
    </div>
    <div id="projectbrief">一个基于CPP20的NBT(Named Binary Tag)库</div>
   </td>
@@ -196,7 +196,7 @@ $(function(){initNavTree('NBT__Writer_8hpp_source.html','',''); });
 <div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>                <span class="keywordflow">return</span> code;</div>
 <div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>            }</div>
 <div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>            <span class="comment">//上方if保证code不会溢出</span></div>
-<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>            funcInfo(lvl, <span class="stringliteral">&quot;Read Err[{}]: {}\n&quot;</span>, (uint8_t)code, errReason[code]);</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>            funcInfo(lvl, <span class="stringliteral">&quot;Write Err[{}]: {}\n&quot;</span>, (uint8_t)code, errReason[code]);</div>
 <div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>        }</div>
 <div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>        <span class="keywordflow">else</span> <span class="keywordflow">if</span> <span class="keyword">constexpr</span> (std::is_same_v&lt;T, WarnCode&gt;)</div>
 <div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>        {</div>
@@ -206,7 +206,7 @@ $(function(){initNavTree('NBT__Writer_8hpp_source.html','',''); });
 <div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>                <span class="keywordflow">return</span>;</div>
 <div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>            }</div>
 <div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>            <span class="comment">//上方if保证code不会溢出</span></div>
-<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>            funcInfo(lvl, <span class="stringliteral">&quot;Read Warn[{}]: {}\n&quot;</span>, (uint8_t)code, warnReason[code]);</div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>            funcInfo(lvl, <span class="stringliteral">&quot;Write Warn[{}]: {}\n&quot;</span>, (uint8_t)code, warnReason[code]);</div>
 <div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>        }</div>
 <div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>        <span class="keywordflow">else</span></div>
 <div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>        {</div>
@@ -913,9 +913,9 @@ $(function(){initNavTree('NBT__Writer_8hpp_source.html','',''); });
 <div class="ttc" id="aclassNBT__Endian_html_a8bb71b35386a3a4e4f557302c00e4d18"><div class="ttname"><a href="classNBT__Endian.html#a8bb71b35386a3a4e4f557302c00e4d18">NBT_Endian::NativeToBigAny</a></div><div class="ttdeci">static T NativeToBigAny(T data) noexcept</div><div class="ttdoc">从当前平台字节序转换到大端字节序，自动匹配位数</div><div class="ttdef"><b>定义</b> NBT_Endian.hpp:173</div></div>
 <div class="ttc" id="aclassNBT__IO_1_1DefaultOutputStream_html"><div class="ttname"><a href="classNBT__IO_1_1DefaultOutputStream.html">NBT_IO::DefaultOutputStream</a></div><div class="ttdoc">默认输出流类，用于将数据写入到标准库容器中</div><div class="ttdef"><b>定义</b> NBT_IO.hpp:204</div></div>
 <div class="ttc" id="aclassNBT__Node_html"><div class="ttname"><a href="classNBT__Node.html">NBT_Node</a></div><div class="ttdoc">NBT节点，用于存储NBT格式的各种数据类型</div><div class="ttdef"><b>定义</b> NBT_Node.hpp:37</div></div>
-<div class="ttc" id="aclassNBT__Node_html_a2949d34d38628035c19b73d69700e7be"><div class="ttname"><a href="classNBT__Node.html#a2949d34d38628035c19b73d69700e7be">NBT_Node::GetTag</a></div><div class="ttdeci">NBT_TAG GetTag() const noexcept</div><div class="ttdoc">获取当前存储的NBT类型的枚举值</div><div class="ttdef"><b>定义</b> NBT_Node.hpp:189</div></div>
-<div class="ttc" id="aclassNBT__Node_html_aa6dfceeaa7c874799dfeb1961ab21e4f"><div class="ttname"><a href="classNBT__Node.html#aa6dfceeaa7c874799dfeb1961ab21e4f">NBT_Node::GetCompound</a></div><div class="ttdeci">const NBT_Type::Compound &amp; GetCompound() const</div><div class="ttdoc">获取当前对象中存储的 Compound 类型的数据</div><div class="ttdef"><b>定义</b> NBT_Node.hpp:285</div></div>
-<div class="ttc" id="aclassNBT__Node_html_ad76a3c39251616d142c5cbf5af76301e"><div class="ttname"><a href="classNBT__Node.html#ad76a3c39251616d142c5cbf5af76301e">NBT_Node::Get</a></div><div class="ttdeci">const T &amp; Get() const</div><div class="ttdoc">通过指定类型获取当前存储的数据对象</div><div class="ttdef"><b>定义</b> NBT_Node.hpp:200</div></div>
+<div class="ttc" id="aclassNBT__Node_html_a2949d34d38628035c19b73d69700e7be"><div class="ttname"><a href="classNBT__Node.html#a2949d34d38628035c19b73d69700e7be">NBT_Node::GetTag</a></div><div class="ttdeci">NBT_TAG GetTag() const noexcept</div><div class="ttdoc">获取当前存储的NBT类型的枚举值</div><div class="ttdef"><b>定义</b> NBT_Node.hpp:179</div></div>
+<div class="ttc" id="aclassNBT__Node_html_aa6dfceeaa7c874799dfeb1961ab21e4f"><div class="ttname"><a href="classNBT__Node.html#aa6dfceeaa7c874799dfeb1961ab21e4f">NBT_Node::GetCompound</a></div><div class="ttdeci">const NBT_Type::Compound &amp; GetCompound() const</div><div class="ttdoc">获取当前对象中存储的 Compound 类型的数据</div><div class="ttdef"><b>定义</b> NBT_Node.hpp:275</div></div>
+<div class="ttc" id="aclassNBT__Node_html_ad76a3c39251616d142c5cbf5af76301e"><div class="ttname"><a href="classNBT__Node.html#ad76a3c39251616d142c5cbf5af76301e">NBT_Node::Get</a></div><div class="ttdeci">const T &amp; Get() const</div><div class="ttdoc">通过指定类型获取当前存储的数据对象</div><div class="ttdef"><b>定义</b> NBT_Node.hpp:190</div></div>
 <div class="ttc" id="aclassNBT__Print_html"><div class="ttname"><a href="classNBT__Print.html">NBT_Print</a></div><div class="ttdoc">一个用于打印信息到指定的C文件对象的工具类，作为库内大部分存在信息输出接口的默认实现。 实际可被使用此类为默认值参数的函数的调用方，以类似此类的仿函数参数重写的其它类型替换， 比如调用方实现了一个My_...</div><div class="ttdef"><b>定义</b> NBT_Print.hpp:24</div></div>
 <div class="ttc" id="aclassNBT__String_html_acc98daa94965d8684d0c0115dfb14a15"><div class="ttname"><a href="classNBT__String.html#acc98daa94965d8684d0c0115dfb14a15">NBT_String::ToCharTypeUTF8</a></div><div class="ttdeci">auto ToCharTypeUTF8(void) const</div><div class="ttdoc">转换到UTF-8字符编码，但是返回为char类型而非char8_t类型</div><div class="ttdef"><b>定义</b> NBT_String.hpp:283</div></div>
 <div class="ttc" id="aclassNBT__Type_html_a121fc72b4ada6455470aa0b635f3c763"><div class="ttname"><a href="classNBT__Type.html#a121fc72b4ada6455470aa0b635f3c763">NBT_Type::TagToType_T</a></div><div class="ttdeci">typename TagToType&lt; Tag &gt;::type TagToType_T</div><div class="ttdoc">从NBT_TAG获取对应的类型：编译期从NBT_TAG的enum值获取类型</div><div class="ttdef"><b>定义</b> NBT_Type.hpp:250</div></div>
