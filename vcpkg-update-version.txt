@@ -55,7 +55,7 @@ git status
 git push origin update-chenjunfu2-nbt-cpp-x.x.x
 
 # 等待pr合并
-
+#记得改名：[chenjunfu2-nbt-cpp] Update to version x.x.x
 
 
 
