@@ -26,7 +26,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">chenjunfu2-nbt-cpp<span id="projectnumber">&#160;v2.1.1</span>
+   <div id="projectname">chenjunfu2-nbt-cpp<span id="projectnumber">&#160;v2.1.2</span>
    </div>
    <div id="projectbrief">一个基于CPP20的NBT(Named Binary Tag)库</div>
   </td>
@@ -645,7 +645,7 @@ $(function(){initNavTree('NBT__Scanner_8hpp_source.html','',''); });
 <div class="line"><a id="l00559" name="l00559"></a><span class="lineno">  559</span>            <span class="keywordflow">switch</span> (ScanSwitch(tData, enListElementTag, tVisitor, szStackDepth - 1))</div>
 <div class="line"><a id="l00560" name="l00560"></a><span class="lineno">  560</span>            {</div>
 <div class="line"><a id="l00561" name="l00561"></a><span class="lineno">  561</span>            <span class="keywordflow">case</span> Control::Continue: <span class="comment">/*继续（什么也不做）*/</span>   <span class="keywordflow">break</span>;</div>
-<div class="line"><a id="l00562" name="l00562"></a><span class="lineno">  562</span>            <span class="keywordflow">case</span> Control::Break:    <span class="comment">/*跳过（什么也不做）*/</span>   <span class="keywordflow">break</span>;<span class="comment">//（从内部跳过之后传出的标签不具有传递性）</span></div>
+<div class="line"><a id="l00562" name="l00562"></a><span class="lineno">  562</span>            <span class="keywordflow">case</span> Control::Break:    <span class="keywordflow">goto</span> skip_any;          <span class="keywordflow">break</span>;<span class="comment">//跳过剩余所有</span></div>
 <div class="line"><a id="l00563" name="l00563"></a><span class="lineno">  563</span>            <span class="keywordflow">case</span> Control::Stop:     <span class="keywordflow">return</span> Control::Stop;   <span class="keywordflow">break</span>;</div>
 <div class="line"><a id="l00564" name="l00564"></a><span class="lineno">  564</span>            <span class="keywordflow">case</span> Control::Error:</div>
 <div class="line"><a id="l00565" name="l00565"></a><span class="lineno">  565</span>                STACK_TRACEBACK(<span class="stringliteral">&quot;ScanSwitch Error, Size: [{}] Index: [{}]&quot;</span>, szListLength, i);</div>
@@ -660,7 +660,7 @@ $(function(){initNavTree('NBT__Scanner_8hpp_source.html','',''); });
 <div class="line"><a id="l00574" name="l00574"></a><span class="lineno">  574</span>            <span class="keywordflow">switch</span> (tVisitor.VisitListElementEnd(enListElementTag, i))</div>
 <div class="line"><a id="l00575" name="l00575"></a><span class="lineno">  575</span>            {</div>
 <div class="line"><a id="l00576" name="l00576"></a><span class="lineno">  576</span>            <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="classNBT__Visitor.html#a5dd0ef8b7205c99438132ea13413f82baa0bfb8e59e6c13fc8d990781f77694fe">NBT_Visitor::ResultControl::Continue</a>:  <span class="comment">/*继续（什么也不做）*/</span>   <span class="keywordflow">break</span>;</div>
-<div class="line"><a id="l00577" name="l00577"></a><span class="lineno">  577</span>            <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="classNBT__Visitor.html#a5dd0ef8b7205c99438132ea13413f82bae4c38d6d45baf080943d323dd51a2ce8">NBT_Visitor::ResultControl::Break</a>:     <span class="keywordflow">goto</span> skip_any;          <span class="keywordflow">break</span>;<span class="comment">//跳过剩余</span></div>
+<div class="line"><a id="l00577" name="l00577"></a><span class="lineno">  577</span>            <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="classNBT__Visitor.html#a5dd0ef8b7205c99438132ea13413f82bae4c38d6d45baf080943d323dd51a2ce8">NBT_Visitor::ResultControl::Break</a>:     <span class="keywordflow">goto</span> skip_any;          <span class="keywordflow">break</span>;<span class="comment">//跳过剩余所有</span></div>
 <div class="line"><a id="l00578" name="l00578"></a><span class="lineno">  578</span>            <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="classNBT__Visitor.html#a5dd0ef8b7205c99438132ea13413f82ba11a755d598c0c417f9a36758c3da7481">NBT_Visitor::ResultControl::Stop</a>:      <span class="keywordflow">return</span> Control::Stop;   <span class="keywordflow">break</span>;</div>
 <div class="line"><a id="l00579" name="l00579"></a><span class="lineno">  579</span>            <span class="keywordflow">default</span>:</div>
 <div class="line"><a id="l00580" name="l00580"></a><span class="lineno">  580</span>                UNKNOWN_CONTROL_CODE(tVisitor.VisitListElementEnd, Control::Error);</div>
@@ -908,7 +908,7 @@ $(function(){initNavTree('NBT__Scanner_8hpp_source.html','',''); });
 <div class="line"><a id="l00822" name="l00822"></a><span class="lineno">  822</span>            <span class="keywordflow">switch</span> (ScanSwitch(tData, enCompoundEntryTag, tVisitor, szStackDepth - 1))</div>
 <div class="line"><a id="l00823" name="l00823"></a><span class="lineno">  823</span>            {</div>
 <div class="line"><a id="l00824" name="l00824"></a><span class="lineno">  824</span>            <span class="keywordflow">case</span> Control::Continue: <span class="comment">/*继续（什么也不做）*/</span>   <span class="keywordflow">break</span>;</div>
-<div class="line"><a id="l00825" name="l00825"></a><span class="lineno">  825</span>            <span class="keywordflow">case</span> Control::Break:    <span class="comment">/*跳过（什么也不做）*/</span>   <span class="keywordflow">break</span>;<span class="comment">//（从内部跳过之后传出的标签不具有传递性）</span></div>
+<div class="line"><a id="l00825" name="l00825"></a><span class="lineno">  825</span>            <span class="keywordflow">case</span> Control::Break:    <span class="keywordflow">goto</span> skip_any;          <span class="keywordflow">break</span>;<span class="comment">//跳过剩余所有</span></div>
 <div class="line"><a id="l00826" name="l00826"></a><span class="lineno">  826</span>            <span class="keywordflow">case</span> Control::Stop:     <span class="keywordflow">return</span> Control::Stop;   <span class="keywordflow">break</span>;</div>
 <div class="line"><a id="l00827" name="l00827"></a><span class="lineno">  827</span>            <span class="keywordflow">case</span> Control::Error:</div>
 <div class="line"><a id="l00828" name="l00828"></a><span class="lineno">  828</span>                STACK_TRACEBACK(<span class="stringliteral">&quot;ScanSwitch Error, Type: [NBT_Type::{}]&quot;</span>, <a class="code hl_function" href="classNBT__Type.html#aee5bc4a2ad015e10f57f1f5b02a41418">NBT_Type::GetTypeName</a>(enCompoundEntryTag));</div>
