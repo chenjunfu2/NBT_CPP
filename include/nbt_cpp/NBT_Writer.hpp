@@ -767,6 +767,23 @@ catch(...)\
 ///@endcond
 
 public:
+	/// @brief 提示性类型，表示在写出 Compound 时不对键值对进行任何排序。
+	/// @note 如果不使用排序，那么虽然输出是意义等价的，但不是数据值一致的。
+	struct NoSortCompound
+	{};
+
+	/// @brief 默认排序策略，提供按键的字符串字典序升序或降序排列。
+	/// @tparam bAscending 是否升序排序。true表示升序（默认），false表示降序。
+	template<bool bAscending = true>
+	struct DefaultCompoundSort
+	{
+		std::vector<NBT_Type::Compound::Const_Iterator> operator()(const NBT_Type::Compound & cpdSort)
+		{
+			return cpdSort.KeySortIt<bAscending>();
+		}
+	};
+
+
 	//输出到tData中，部分功能和原理参照ReadNBT处的注释，szDataStartIndex在此处可以对一个tData通过不同的tCompound和szStartIdx = tData.size()
 	//来调用以达到把多个不同的nbt输出到同一个tData内的功能
 
@@ -781,7 +798,7 @@ public:
 	/// @return 写入成功返回true，失败返回false
 	/// @note 错误与警告信息都输出到funcInfo，错误会导致函数结束剩下的写出任务，并进行栈回溯输出，最终返回false。警告则只会输出一次信息，然后继续执行，如果没有任何错误但是存在警告，函数仍将返回true。
 	template<bool bSortCompound = true, typename OutputStream, typename InfoFunc = NBT_Print>
-	static bool WriteNBT(OutputStream &OptStream, const NBT_Type::Compound &tCompound, size_t szStackDepth = 512, InfoFunc funcInfo = NBT_Print{}) noexcept
+	static bool WriteNBT(OutputStream &OptStream, const NBT_Type::Compound &tCompound, size_t szStackDepth = 512, InfoFunc funcInfo = InfoFunc{}) noexcept
 	{
 		return PutCompoundType<true, bSortCompound>(OptStream, tCompound, szStackDepth, funcInfo) == AllOk;
 	}
@@ -800,7 +817,7 @@ public:
 	/// 虽然可以合并到流中，但是如果对这个流进行读取，读取例程为了保证在同一个Compound中的键的唯一性，会丢失部分信息，具体请参考ReadNBT接口的说明。
 	/// 此函数是WriteNBT的标准库容器版本，其它信息请参考WriteNBT(OutputStream)版本的详细说明。
 	template<bool bSortCompound = true, typename DataType = std::vector<uint8_t>, typename InfoFunc = NBT_Print>
-	static bool WriteNBT(DataType &tDataOutput, size_t szStartIdx, const NBT_Type::Compound &tCompound, size_t szStackDepth = 512, InfoFunc funcInfo = NBT_Print{}) noexcept
+	static bool WriteNBT(DataType &tDataOutput, size_t szStartIdx, const NBT_Type::Compound &tCompound, size_t szStackDepth = 512, InfoFunc funcInfo = InfoFunc{}) noexcept
 	{
 		NBT_IO::DefaultOutputStream<DataType> OptStream(tDataOutput, szStartIdx);
 		return PutCompoundType<true, bSortCompound>(OptStream, tCompound, szStackDepth, funcInfo) == AllOk;

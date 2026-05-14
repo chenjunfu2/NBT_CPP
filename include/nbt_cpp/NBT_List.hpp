@@ -26,6 +26,20 @@ class NBT_List :protected List
 	friend class NBT_Helper;
 	
 public:
+	using Value_Type =				typename List::value_type;
+	using Allocator_Type =			typename List::allocator_type;
+	using Size_Type =				typename List::size_type;
+	using Difference_Type =			typename List::difference_type;
+	using Reference =				typename List::reference;
+	using Const_Reference =			typename List::const_reference;
+	using Pointer =					typename List::pointer;
+	using Const_Pointer =			typename List::const_pointer;
+	using Iterator =				typename List::iterator;
+	using Const_Iterator =			typename List::const_iterator;
+	using Reverse_Iterator =		typename List::reverse_iterator;
+	using Const_Reverse_Iterator =	typename List::const_reverse_iterator;
+
+public:
 	//完美转发、初始化列表代理构造
 
 	/// @brief 构造函数
