@@ -40,7 +40,7 @@ void PrintHexValNative(T data) noexcept
 	printf("[%zuBit]: ", sizeof(T) * 8);
 
 	uint8_t u8Arr[sizeof(T)] = {};
-	memcpy(u8Arr, &data, sizeof(u8Arr));
+	memcpy(u8Arr, &data, sizeof(T));
 
 	for (auto it : u8Arr)
 	{
@@ -55,7 +55,7 @@ template<typename L, typename R>
 bool TestByteCount(const L &l, const R &r)
 requires (sizeof(l[0]) == 1 && sizeof(r[0]) == 1)
 {
-	uint64_t u64ByteCountArr[UINT8_MAX] = { 0 };
+	uint64_t u64ByteCountArr[UINT8_MAX + 1] = { 0 };
 	for (const auto &it : l)
 	{
 		++u64ByteCountArr[(uint8_t)it];
@@ -787,8 +787,6 @@ public:
 
 void CustomPrioritySortTest(void)
 {
-	printf("test0");
-
 	// ============================================================
 	// 1. 构造三层嵌套测试数据
 	// ============================================================
@@ -847,8 +845,6 @@ void CustomPrioritySortTest(void)
 	{
 		MU8STR("z_trailer_last"),
 	};
-
-	printf("test");
 
 	// ============================================================
 	// 3. 写出：自定义排序 vs 默认排序
