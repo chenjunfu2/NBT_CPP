@@ -698,7 +698,7 @@ $(function(){initNavTree('NBT__IO_8hpp_source.html','',''); });
 <div class="line"><a id="l00689" name="l00689"></a><span class="lineno">  689</span>                <span class="comment">//这里不对szOut处理，因为会在开头与结尾计算</span></div>
 <div class="line"><a id="l00690" name="l00690"></a><span class="lineno">  690</span>            }</div>
 <div class="line"><a id="l00691" name="l00691"></a><span class="lineno">  691</span>            </div>
-<div class="line"><a id="l00692" name="l00692"></a><span class="lineno">  692</span>            <span class="comment">//解压，如果剩余不为0则代表分块了，使用Z_NO_FLUSH，否则Z_FINISH</span></div>
+<div class="line"><a id="l00692" name="l00692"></a><span class="lineno">  692</span>            <span class="comment">//压缩，如果剩余不为0则代表分块了，使用Z_NO_FLUSH，否则Z_FINISH</span></div>
 <div class="line"><a id="l00693" name="l00693"></a><span class="lineno">  693</span>            iRet = deflate(&amp;zs, szRemainingSize != 0 ? Z_NO_FLUSH : Z_FINISH);</div>
 <div class="line"><a id="l00694" name="l00694"></a><span class="lineno">  694</span> </div>
 <div class="line"><a id="l00695" name="l00695"></a><span class="lineno">  695</span>            <span class="comment">//计算本次压缩的大小</span></div>

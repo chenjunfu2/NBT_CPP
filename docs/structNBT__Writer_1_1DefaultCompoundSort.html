@@ -100,8 +100,8 @@ $(function(){initNavTree('structNBT__Writer_1_1DefaultCompoundSort.html','','str
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public 成员函数</h2></td></tr>
-<tr class="memitem:a2d1588e643786bd8e3952ec80e158ed6" id="r_a2d1588e643786bd8e3952ec80e158ed6"><td class="memItemLeft"><a id="a2d1588e643786bd8e3952ec80e158ed6" name="a2d1588e643786bd8e3952ec80e158ed6"></a>
-std::vector&lt; NBT_Type::Compound::Const_Iterator &gt;&#160;</td><td class="memItemRight"><b>operator()</b> (const <a class="el" href="classNBT__Type.html#a9dcd5050b96a10161f18d7ae4a22e7b3">NBT_Type::Compound</a> &amp;cpdSort)</td></tr>
+<tr class="memitem:a2d1588e643786bd8e3952ec80e158ed6" id="r_a2d1588e643786bd8e3952ec80e158ed6"><td class="memItemLeft">std::vector&lt; NBT_Type::Compound::Const_Iterator &gt;&#160;</td><td class="memItemRight"><a class="el" href="#a2d1588e643786bd8e3952ec80e158ed6">operator()</a> (const <a class="el" href="classNBT__Type.html#a9dcd5050b96a10161f18d7ae4a22e7b3">NBT_Type::Compound</a> &amp;cpdSort)</td></tr>
+<tr class="memdesc:a2d1588e643786bd8e3952ec80e158ed6"><td class="mdescLeft">&#160;</td><td class="mdescRight">对给定的 Compound 对象进行排序，返回指向其元素的迭代器向量。  <br /></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">详细描述</h2>
 <div class="textblock"><div class="compoundTemplParams">template&lt;bool bAscending = true&gt;<br />
@@ -112,7 +112,45 @@ struct NBT_Writer::DefaultCompoundSort&lt; bAscending &gt;</div><p>默认排序�
   </table>
   </dd>
 </dl>
-</div><hr/>该结构体的文档由以下文件生成:<ul>
+</div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">成员函数说明</h2>
+<a id="a2d1588e643786bd8e3952ec80e158ed6" name="a2d1588e643786bd8e3952ec80e158ed6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2d1588e643786bd8e3952ec80e158ed6">&#9670;&#160;</a></span>operator()()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;bool bAscending = true&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; NBT_Type::Compound::Const_Iterator &gt; <a class="el" href="structNBT__Writer_1_1DefaultCompoundSort.html">NBT_Writer::DefaultCompoundSort</a>&lt; bAscending &gt;::operator() </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classNBT__Type.html#a9dcd5050b96a10161f18d7ae4a22e7b3">NBT_Type::Compound</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>cpdSort</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>对给定的 Compound 对象进行排序，返回指向其元素的迭代器向量。 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">cpdSort</td><td>需要排序的 Compound 对象。 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd><span class="tt">std::vector&lt;NBT_Type::Compound::Const_Iterator&gt;</span>，其中迭代器按排序顺序排列。 </dd></dl>
+<dl class="section note"><dt>注解</dt><dd>该函数通常由 <span class="tt"><a class="el" href="classNBT__Writer.html" title="这个类用于提供从NBT_Type::Compound对象写出到NBT二进制流的序列化功能">NBT_Writer</a></span> 内部调用，用户一般不直接使用。 </dd></dl>
+
+</div>
+</div>
+<hr/>该结构体的文档由以下文件生成:<ul>
 <li><a class="el" href="NBT__Writer_8hpp_source.html">NBT_Writer.hpp</a></li>
 </ul>
 </div><!-- contents -->

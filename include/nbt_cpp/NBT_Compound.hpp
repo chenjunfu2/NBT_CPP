@@ -26,6 +26,11 @@ class NBT_Compound :protected Compound//Compound is Map
 	friend class NBT_Helper;
 
 public:
+	/// @name 暴露父类定义的类型成员
+	/// @brief 使用using代理转发类型
+	/// @note 具体类型描述请参考标准库说明
+	/// @{
+
 	using Hasher =					typename Compound::hasher;
 	using Key_Type =				typename Compound::key_type;
 	using Mapped_Type =				typename Compound::mapped_type;
@@ -44,6 +49,8 @@ public:
 	using Const_Local_Iterator =	typename Compound::const_local_iterator;
 	using Node_Type =				typename Compound::node_type;
 	using Insert_Return_Type =		typename Compound::insert_return_type;
+
+	/// @}
 
 public:
 	//完美转发、初始化列表代理构造

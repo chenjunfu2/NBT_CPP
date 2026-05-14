@@ -26,6 +26,11 @@ class NBT_List :protected List
 	friend class NBT_Helper;
 	
 public:
+	/// @name 暴露父类定义的类型成员
+	/// @brief 使用using代理转发类型
+	/// @note 具体类型描述请参考标准库说明
+	/// @{
+	
 	using Value_Type =				typename List::value_type;
 	using Allocator_Type =			typename List::allocator_type;
 	using Size_Type =				typename List::size_type;
@@ -38,6 +43,8 @@ public:
 	using Const_Iterator =			typename List::const_iterator;
 	using Reverse_Iterator =		typename List::reverse_iterator;
 	using Const_Reverse_Iterator =	typename List::const_reverse_iterator;
+
+	/// @}
 
 public:
 	//完美转发、初始化列表代理构造
@@ -620,7 +627,7 @@ typename List::value_type &Set##type(typename List::size_type szPos, typename NB
 	/// @name 针对每种类型提供插入和设置函数，由宏批量生成
 	/// @brief 具体作用说明：
 	/// - Add开头+类型名的函数：在指定位置插入指定类型的数据
-	/// - AddFront开头+类型名的函数：在列表末尾插入指定类型的数据
+	/// - AddFront开头+类型名的函数：在列表开头插入指定类型的数据
 	/// - AddBack开头+类型名的函数：在列表末尾插入指定类型的数据
 	/// - Set开头+类型名的函数：设置指定位置的指定类型数据
 	/// @{

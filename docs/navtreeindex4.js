@@ -55,6 +55,7 @@ var NAVTREEINDEX4 =
 "structNBT__Visitor__Collector_1_1Frame.html#ab897fe628081d1ee32cd61d10872c0f3":[8,0,19,0,1],
 "structNBT__Visitor__Collector_1_1Frame.html#accf80001bd8d0afea2f4187e203a917a":[8,0,19,0,3],
 "structNBT__Writer_1_1DefaultCompoundSort.html":[8,0,20,1],
+"structNBT__Writer_1_1DefaultCompoundSort.html#a2d1588e643786bd8e3952ec80e158ed6":[8,0,20,1,0],
 "structNBT__Writer_1_1NoSortCompound.html":[8,0,20,0],
 "structstd_1_1hash_3_01NBT__StringView_3_01String_00_01StringView_01_4_01_4.html":[6,0,1,1],
 "structstd_1_1hash_3_01NBT__StringView_3_01String_00_01StringView_01_4_01_4.html":[8,0,1,1],

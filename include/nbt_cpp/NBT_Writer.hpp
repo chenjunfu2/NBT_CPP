@@ -777,6 +777,10 @@ public:
 	template<bool bAscending = true>
 	struct DefaultCompoundSort
 	{
+		/// @brief 对给定的 Compound 对象进行排序，返回指向其元素的迭代器向量。
+		/// @param cpdSort 需要排序的 Compound 对象。
+		/// @return `std::vector<NBT_Type::Compound::Const_Iterator>`，其中迭代器按排序顺序排列。
+		/// @note 该函数通常由 `NBT_Writer` 内部调用，用户一般不直接使用。
 		std::vector<NBT_Type::Compound::Const_Iterator> operator()(const NBT_Type::Compound & cpdSort)
 		{
 			return cpdSort.KeySortIt<bAscending>();
