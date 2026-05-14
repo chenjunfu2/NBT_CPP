@@ -439,7 +439,7 @@ catch(...)\
 			{
 				try//筛掉标准库异常
 				{
-					return tCompound.KeySortIt();
+					return SortPolicy{}(tCompound);
 				}
 				catch (const std::bad_alloc &e)
 				{
