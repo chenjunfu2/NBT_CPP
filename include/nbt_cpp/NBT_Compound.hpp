@@ -208,11 +208,13 @@ public:
 	}
 
 	/// @brief 获取按键名排序的迭代器向量（非常量版本）
-	/// @return 包含所有元素迭代器的vector，这些迭代器按照键名升序排序
+	/// @tparam bAscending 是否升序排序，默认为true（升序）；若为false则按降序排序
+	/// @return 包含所有元素迭代器的vector，这些迭代器按照键名排序（升序或降序由模板参数决定）
 	/// @note 返回的迭代器可用于遍历元素，并允许修改元素的值
 	/// 排序仅影响返回的vector，不影响底层unordered_map的实际顺序
 	/// @warning 因为返回值中存储迭代器，在对当前容器进行修改后默认迭代器失效，
 	/// 请勿再次通过返回的std::vector中的迭代器访问容器成员
+	template<bool bAscending = true>
 	std::vector<typename Compound::iterator> KeySortIt(void)
 	{
 		std::vector<typename Compound::iterator> listSortIt;
@@ -225,7 +227,14 @@ public:
 		std::sort(listSortIt.begin(), listSortIt.end(),
 			[](const auto &l, const auto &r) -> bool
 			{
-				return l->first < r->first;
+				if constexpr (bAscending)
+				{
+					return l->first < r->first;
+				}
+				else
+				{
+					return l->first > r->first;
+				}
 			}
 		);
 
@@ -233,11 +242,13 @@ public:
 	}
 
 	/// @brief 获取按键名排序的常量迭代器向量（常量版本）
-	/// @return 包含所有元素常量迭代器的vector，这些迭代器按照键名升序排序
+	/// @tparam bAscending 是否升序排序，默认为true（升序）；若为false则按降序排序
+	/// @return 包含所有元素常量迭代器的vector，这些迭代器按照键名排序（升序或降序由模板参数决定）
 	/// @note 返回的迭代器可用于遍历元素，但不允许修改元素的值
 	/// 排序仅影响返回的std::vector，不影响底层unordered_map的实际顺序
 	/// @warning 因为返回值中存储迭代器，在对当前容器进行修改后默认迭代器失效，
 	/// 请勿再次通过返回的std::vector中的迭代器访问容器成员
+	template<bool bAscending = true>
 	std::vector<typename Compound::const_iterator> KeySortIt(void) const
 	{
 		std::vector<typename Compound::const_iterator> listSortIt;
@@ -250,7 +261,14 @@ public:
 		std::sort(listSortIt.begin(), listSortIt.end(),
 			[](const auto &l, const auto &r) -> bool
 			{
-				return l->first < r->first;
+				if constexpr (bAscending)
+				{
+					return l->first < r->first;
+				}
+				else
+				{
+					return l->first > r->first;
+				}
 			}
 		);
 
