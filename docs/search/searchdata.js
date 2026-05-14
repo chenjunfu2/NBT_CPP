@@ -2,7 +2,7 @@ var indexSectionsWithContent =
 {
   0: "_abcdefghiklmnoprstuvw~与以使包可库注",
   1: "_dfhmnsu",
-  2: "mns",
+  2: "ms",
   3: "cmnv",
   4: "abcdefghiklmnoprstuvw~",
   5: "abceilpstv",
@@ -12,7 +12,7 @@ var indexSectionsWithContent =
   9: "gi",
   10: "cmtu",
   11: "chn与以使包可库注",
-  12: "hi"
+  12: "i"
 };
 
 var indexSectionNames =

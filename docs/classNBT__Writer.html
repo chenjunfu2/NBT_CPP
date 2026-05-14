@@ -98,25 +98,32 @@ $(function(){initNavTree('classNBT__Writer.html','','classNBT__Writer-members');
 
 <p><code>#include &lt;<a class="el" href="NBT__Writer_8hpp_source.html">NBT_Writer.hpp</a>&gt;</code></p>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+类</h2></td></tr>
+<tr class="memitem:NoSortCompound" id="r_NoSortCompound"><td class="memItemLeft">struct &#160;</td><td class="memItemRight"><a class="el" href="structNBT__Writer_1_1NoSortCompound.html">NoSortCompound</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">提示性类型，表示在写出 Compound 时不对键值对进行任何排序。  <a href="structNBT__Writer_1_1NoSortCompound.html#details">更多...</a><br /></td></tr>
+<tr class="memitem:DefaultCompoundSort" id="r_DefaultCompoundSort"><td class="memItemLeft">struct &#160;</td><td class="memItemRight"><a class="el" href="structNBT__Writer_1_1DefaultCompoundSort.html">DefaultCompoundSort</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">默认排序策略，提供按键的字符串字典序升序或降序排列。  <a href="structNBT__Writer_1_1DefaultCompoundSort.html#details">更多...</a><br /></td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-static-methods" class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 静态 Public 成员函数</h2></td></tr>
-<tr class="memitem:a21747da6670ca56e4aa54aef890864eb" id="r_a21747da6670ca56e4aa54aef890864eb"><td class="memTemplParams" colspan="2">template&lt;bool bSortCompound = true, typename OutputStream, typename InfoFunc = NBT_Print&gt; </td></tr>
-<tr class="memitem:a21747da6670ca56e4aa54aef890864eb template"><td class="memItemLeft">static bool&#160;</td><td class="memItemRight"><a class="el" href="#a21747da6670ca56e4aa54aef890864eb">WriteNBT</a> (OutputStream &amp;OptStream, const <a class="el" href="classNBT__Type.html#a9dcd5050b96a10161f18d7ae4a22e7b3">NBT_Type::Compound</a> &amp;tCompound, size_t szStackDepth=512, InfoFunc funcInfo=<a class="el" href="classNBT__Print.html">NBT_Print</a>{}) noexcept</td></tr>
-<tr class="memdesc:a21747da6670ca56e4aa54aef890864eb"><td class="mdescLeft">&#160;</td><td class="mdescRight">将NBT_Type::Compound对象写入到输出流中  <br /></td></tr>
-<tr class="memitem:a71e825126323a834d3501d3fe6bb405f" id="r_a71e825126323a834d3501d3fe6bb405f"><td class="memTemplParams" colspan="2">template&lt;bool bSortCompound = true, typename DataType = std::vector&lt;uint8_t&gt;, typename InfoFunc = NBT_Print&gt; </td></tr>
-<tr class="memitem:a71e825126323a834d3501d3fe6bb405f template"><td class="memItemLeft">static bool&#160;</td><td class="memItemRight"><a class="el" href="#a71e825126323a834d3501d3fe6bb405f">WriteNBT</a> (DataType &amp;tDataOutput, size_t szStartIdx, const <a class="el" href="classNBT__Type.html#a9dcd5050b96a10161f18d7ae4a22e7b3">NBT_Type::Compound</a> &amp;tCompound, size_t szStackDepth=512, InfoFunc funcInfo=<a class="el" href="classNBT__Print.html">NBT_Print</a>{}) noexcept</td></tr>
-<tr class="memdesc:a71e825126323a834d3501d3fe6bb405f"><td class="mdescLeft">&#160;</td><td class="mdescRight">将NBT_Type::Compound对象写入到数据容器中  <br /></td></tr>
+<tr class="memitem:a7feaacc74b70bfa6f599d53699b4b38c" id="r_a7feaacc74b70bfa6f599d53699b4b38c"><td class="memTemplParams" colspan="2">template&lt;typename SortPolicy = DefaultCompoundSort&lt;true&gt;, typename OutputStream, typename InfoFunc = NBT_Print&gt; </td></tr>
+<tr class="memitem:a7feaacc74b70bfa6f599d53699b4b38c template"><td class="memItemLeft">static bool&#160;</td><td class="memItemRight"><a class="el" href="#a7feaacc74b70bfa6f599d53699b4b38c">WriteNBT</a> (OutputStream &amp;OptStream, const <a class="el" href="classNBT__Type.html#a9dcd5050b96a10161f18d7ae4a22e7b3">NBT_Type::Compound</a> &amp;tCompound, size_t szStackDepth=512, InfoFunc funcInfo=InfoFunc{}) noexcept</td></tr>
+<tr class="memdesc:a7feaacc74b70bfa6f599d53699b4b38c"><td class="mdescLeft">&#160;</td><td class="mdescRight">将NBT_Type::Compound对象写入到输出流中  <br /></td></tr>
+<tr class="memitem:ace3595d301de6aff55f24bc13dbafc25" id="r_ace3595d301de6aff55f24bc13dbafc25"><td class="memTemplParams" colspan="2">template&lt;typename SortPolicy = DefaultCompoundSort&lt;true&gt;, typename DataType = std::vector&lt;uint8_t&gt;, typename InfoFunc = NBT_Print&gt; </td></tr>
+<tr class="memitem:ace3595d301de6aff55f24bc13dbafc25 template"><td class="memItemLeft">static bool&#160;</td><td class="memItemRight"><a class="el" href="#ace3595d301de6aff55f24bc13dbafc25">WriteNBT</a> (DataType &amp;tDataOutput, size_t szStartIdx, const <a class="el" href="classNBT__Type.html#a9dcd5050b96a10161f18d7ae4a22e7b3">NBT_Type::Compound</a> &amp;tCompound, size_t szStackDepth=512, InfoFunc funcInfo=InfoFunc{}) noexcept</td></tr>
+<tr class="memdesc:ace3595d301de6aff55f24bc13dbafc25"><td class="mdescLeft">&#160;</td><td class="mdescRight">将NBT_Type::Compound对象写入到数据容器中  <br /></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">详细描述</h2>
 <div class="textblock"><p>这个类用于提供从NBT_Type::Compound对象写出到NBT二进制流的序列化功能 </p>
 </div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">成员函数说明</h2>
-<a id="a71e825126323a834d3501d3fe6bb405f" name="a71e825126323a834d3501d3fe6bb405f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a71e825126323a834d3501d3fe6bb405f">&#9670;&#160;</a></span>WriteNBT() <span class="overload">[1/2]</span></h2>
+<a id="ace3595d301de6aff55f24bc13dbafc25" name="ace3595d301de6aff55f24bc13dbafc25"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ace3595d301de6aff55f24bc13dbafc25">&#9670;&#160;</a></span>WriteNBT() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;bool bSortCompound = true, typename DataType = std::vector&lt;uint8_t&gt;, typename InfoFunc = NBT_Print&gt; </div>
+template&lt;typename SortPolicy = DefaultCompoundSort&lt;true&gt;, typename DataType = std::vector&lt;uint8_t&gt;, typename InfoFunc = NBT_Print&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -144,7 +151,7 @@ template&lt;bool bSortCompound = true, typename DataType = std::vector&lt;uint8_
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">InfoFunc</td>          <td class="paramname"><span class="paramname"><em>funcInfo</em></span><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="classNBT__Print.html">NBT_Print</a>{}</span>&#160;)</td>
+          <td class="paramtype">InfoFunc</td>          <td class="paramname"><span class="paramname"><em>funcInfo</em></span><span class="paramdefsep"> = </span><span class="paramdefval">InfoFunc{}</span>&#160;)</td>
         </tr>
       </table>
   </td>
@@ -157,7 +164,7 @@ template&lt;bool bSortCompound = true, typename DataType = std::vector&lt;uint8_
 <p>将NBT_Type::Compound对象写入到数据容器中 </p>
 <dl class="tparams"><dt>模板参数</dt><dd>
   <table class="tparams">
-    <tr><td class="paramname">bSortCompound</td><td>是否对Compound对象内部的键进行排序，以获得一致性的输出结果 </td></tr>
+    <tr><td class="paramname">SortPolicy</td><td>用于进行Compound写出前排序的可调用类型，或不进行排序的提示标签类型 </td></tr>
     <tr><td class="paramname">DataType</td><td>数据容器类型 </td></tr>
     <tr><td class="paramname">InfoFunc</td><td>信息输出仿函数类型 </td></tr>
   </table>
@@ -178,13 +185,13 @@ template&lt;bool bSortCompound = true, typename DataType = std::vector&lt;uint8_
 
 </div>
 </div>
-<a id="a21747da6670ca56e4aa54aef890864eb" name="a21747da6670ca56e4aa54aef890864eb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a21747da6670ca56e4aa54aef890864eb">&#9670;&#160;</a></span>WriteNBT() <span class="overload">[2/2]</span></h2>
+<a id="a7feaacc74b70bfa6f599d53699b4b38c" name="a7feaacc74b70bfa6f599d53699b4b38c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7feaacc74b70bfa6f599d53699b4b38c">&#9670;&#160;</a></span>WriteNBT() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;bool bSortCompound = true, typename OutputStream, typename InfoFunc = NBT_Print&gt; </div>
+template&lt;typename SortPolicy = DefaultCompoundSort&lt;true&gt;, typename OutputStream, typename InfoFunc = NBT_Print&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -207,7 +214,7 @@ template&lt;bool bSortCompound = true, typename OutputStream, typename InfoFunc 
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">InfoFunc</td>          <td class="paramname"><span class="paramname"><em>funcInfo</em></span><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="classNBT__Print.html">NBT_Print</a>{}</span>&#160;)</td>
+          <td class="paramtype">InfoFunc</td>          <td class="paramname"><span class="paramname"><em>funcInfo</em></span><span class="paramdefsep"> = </span><span class="paramdefval">InfoFunc{}</span>&#160;)</td>
         </tr>
       </table>
   </td>
@@ -220,7 +227,7 @@ template&lt;bool bSortCompound = true, typename OutputStream, typename InfoFunc 
 <p>将NBT_Type::Compound对象写入到输出流中 </p>
 <dl class="tparams"><dt>模板参数</dt><dd>
   <table class="tparams">
-    <tr><td class="paramname">bSortCompound</td><td>是否对Compound对象内部的键进行排序，以获得一致性的输出结果 </td></tr>
+    <tr><td class="paramname">SortPolicy</td><td>用于进行Compound写出前排序的可调用类型，或不进行排序的提示标签类型 </td></tr>
     <tr><td class="paramname">OutputStream</td><td>输出流类型，必须符合DefaultOutputStream类型的接口 </td></tr>
     <tr><td class="paramname">InfoFunc</td><td>信息输出仿函数类型 </td></tr>
   </table>

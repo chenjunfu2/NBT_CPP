@@ -23,5 +23,6 @@ var searchData=
   ['nbt_5ftype_20',['NBT_Type',['../classNBT__Type.html',1,'']]],
   ['nbt_5fvisitor_21',['NBT_Visitor',['../classNBT__Visitor.html',1,'']]],
   ['nbt_5fvisitor_5fcollector_22',['NBT_Visitor_Collector',['../classNBT__Visitor__Collector.html',1,'']]],
-  ['nbt_5fwriter_23',['NBT_Writer',['../classNBT__Writer.html',1,'']]]
+  ['nbt_5fwriter_23',['NBT_Writer',['../classNBT__Writer.html',1,'']]],
+  ['nosortcompound_24',['NoSortCompound',['../structNBT__Writer_1_1NoSortCompound.html',1,'NBT_Writer']]]
 ];
