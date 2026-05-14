@@ -243,17 +243,17 @@ void NBT_ReadWrite_Test(const Data_T &NbtRawData, const NBT_Type::Compound &cpdG
 
 	//无序写出测试
 	std::vector<uint8_t> testWrite;
-	NBT_Writer::WriteNBT<NBT_Writer::NoSortCompound>(testWrite, 0, cpdRead);//使用无序写出
+	MyAssert(NBT_Writer::WriteNBT<NBT_Writer::NoSortCompound>(testWrite, 0, cpdRead));//使用无序写出
 
 	std::vector<uint8_t> testGenWrite;
-	NBT_Writer::WriteNBT<NBT_Writer::NoSortCompound>(testGenWrite, 0, cpdGen);//使用无序写出
+	MyAssert(NBT_Writer::WriteNBT<NBT_Writer::NoSortCompound>(testGenWrite, 0, cpdGen));//使用无序写出
 
 	//有序写出测试
 	std::vector<uint8_t> testSortWrite;
-	NBT_Writer::WriteNBT<NBT_Writer::DefaultCompoundSort<true>>(testSortWrite, 0, cpdRead);//使用有序写出
+	MyAssert(NBT_Writer::WriteNBT<NBT_Writer::DefaultCompoundSort<true>>(testSortWrite, 0, cpdRead));//使用有序写出
 
 	std::vector<uint8_t> testSortGenWrite;
-	NBT_Writer::WriteNBT<NBT_Writer::DefaultCompoundSort<true>>(testSortGenWrite, 0, cpdGen);//使用有序写出
+	MyAssert(NBT_Writer::WriteNBT<NBT_Writer::DefaultCompoundSort<true>>(testSortGenWrite, 0, cpdGen));//使用有序写出
 
 	//判断字节是否完全相等
 	auto TestBytes = [](const auto &l, const auto &r) -> bool
@@ -471,7 +471,7 @@ void ScannerTest()
 )" > ();
 
 	NBT_Visitor_Collector vc;
-	NBT_Scanner::ScanNBT(NbtRawData, 0, vc);
+	MyAssert(NBT_Scanner::ScanNBT(NbtRawData, 0, vc));
 	NBT_Type::Compound cpdScan = vc.MoveRoot();
 
 	NBT_ReadWrite_Test(NbtRawData, cpdScan);
@@ -622,15 +622,15 @@ void ScannerSkipTest()
 	}
 
 	std::vector<uint8_t> vData, vData2;
-	NBT_Writer::WriteNBT(vData, 0, cpdGen);
-	NBT_Writer::WriteNBT(vData2, 0, cpdGen2);
+	MyAssert(NBT_Writer::WriteNBT(vData, 0, cpdGen));
+	MyAssert(NBT_Writer::WriteNBT(vData2, 0, cpdGen2));
 
 	SkippingCollector vc;
 
-	NBT_Scanner::ScanNBT(vData, 0, vc);
+	MyAssert(NBT_Scanner::ScanNBT(vData, 0, vc));
 	NBT_Type::Compound cpdScan = vc.MoveRoot();
 
-	NBT_Scanner::ScanNBT(vData2, 0, vc);
+	MyAssert(NBT_Scanner::ScanNBT(vData2, 0, vc));
 	NBT_Type::Compound cpdScan2 = vc.MoveRoot();
 
 	if (cpdScan != cpdScan2)
@@ -846,20 +846,22 @@ void CustomPrioritySortTest(void)
 		MU8STR("z_trailer_last"),
 	};
 
+	printf("test");
+
 	// ============================================================
 	// 3. 写出：自定义排序 vs 默认排序
 	// ============================================================
 	std::vector<uint8_t> vDataPriority;
-	NBT_Writer::WriteNBT<PriorityCompoundSort>(vDataPriority, 0, cpdRoot);
+	MyAssert(NBT_Writer::WriteNBT<PriorityCompoundSort>(vDataPriority, 0, cpdRoot));
 
 	std::vector<uint8_t> vDataDefault;
-	NBT_Writer::WriteNBT<NBT_Writer::DefaultCompoundSort<true>>(vDataDefault, 0, cpdRoot);
+	MyAssert(NBT_Writer::WriteNBT<NBT_Writer::DefaultCompoundSort<true>>(vDataDefault, 0, cpdRoot));
 
 	// ============================================================
 	// 4. 用 KeyOrderRecorder 扫描自定义排序的二进制输出
 	// ============================================================
 	KeyOrderRecorder recorder;
-	NBT_Scanner::ScanNBT(vDataPriority, 0, recorder);
+	MyAssert(NBT_Scanner::ScanNBT(vDataPriority, 0, recorder));
 
 	// 扫描器深度优先遍历，深层 Compound 先结束
 	// m_keyOrders[0] = 最深层, [1] = 中间层, [2] = 根层
@@ -883,7 +885,7 @@ void CustomPrioritySortTest(void)
 	MyAssert(nestedKeys[4] == MU8STR("z_trailer_last"));
 
 	// --- 4.3 验证根层 Compound（6 个键）---
-	const auto &rootKeys = recorder.m_keyOrders.back();
+	const auto &rootKeys = recorder.m_keyOrders[2];
 	MyAssert(rootKeys.size() == 6);
 	MyAssert(rootKeys[0] == MU8STR("z_priority_first"));
 	MyAssert(rootKeys[1] == MU8STR("y_priority_second"));
