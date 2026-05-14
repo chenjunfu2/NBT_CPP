@@ -787,6 +787,8 @@ public:
 
 void CustomPrioritySortTest(void)
 {
+	printf("test0");
+
 	// ============================================================
 	// 1. 构造三层嵌套测试数据
 	// ============================================================
@@ -794,18 +796,18 @@ void CustomPrioritySortTest(void)
 	// 1.1 最深层 Compound（深度 = 3）
 	NBT_Type::Compound cpdDeep
 	{
-		{MU8STR("z_priority_first"), (NBT_Type::String)MU8STR("deep priority value")},
+		{MU8STR("z_priority_first"), MU8STR("deep priority value")},
 		{MU8STR("a_deep_normal"),    (NBT_Type::Float)3.14f},
 		{MU8STR("b_deep_normal"),    (NBT_Type::Double)2.718281828},
-		{MU8STR("z_trailer_last"),   (NBT_Type::Long)(int64_t)999888777666},
+		{MU8STR("z_trailer_last"),   (NBT_Type::Long)999888777666},
 	};
 
 	// 1.2 中间层 Compound（深度 = 2），内含多种类型和一个嵌套 Compound
 	NBT_Type::Compound cpdNested
 	{
-		{MU8STR("z_priority_first"), (NBT_Type::Byte)(int8_t)10},
-		{MU8STR("a_nested_normal"),  (NBT_Type::Short)(int16_t)100},
-		{MU8STR("b_nested_normal"),  (NBT_Type::Int)(int32_t)1000},
+		{MU8STR("z_priority_first"), (NBT_Type::Byte)10},
+		{MU8STR("a_nested_normal"),  (NBT_Type::Short)100},
+		{MU8STR("b_nested_normal"),  (NBT_Type::Int)1000},
 		{MU8STR("nested_deep"),      std::move(cpdDeep)},
 		{MU8STR("z_trailer_last"),   NBT_Type::ByteArray{1, 2, 3, 4, 5}},
 	};
@@ -823,11 +825,11 @@ void CustomPrioritySortTest(void)
 	{
 		{MU8STR(""), NBT_Type::Compound
 			{
-				{MU8STR("z_priority_first"),  (NBT_Type::Byte)(int8_t)1},
+				{MU8STR("z_priority_first"),  (NBT_Type::Byte)1},
 				{MU8STR("a_normal_cpd"),      std::move(cpdNested)},
-				{MU8STR("b_normal"),          (NBT_Type::Byte)(int8_t)2},
+				{MU8STR("b_normal"),          (NBT_Type::Byte)2},
 				{MU8STR("c_normal_list"),     std::move(testList)},
-				{MU8STR("y_priority_second"), (NBT_Type::Short)(int16_t)3},
+				{MU8STR("y_priority_second"), (NBT_Type::Short)3},
 				{MU8STR("z_trailer_last"),    NBT_Type::LongArray{1, 2, 3}},
 			}
 		}
