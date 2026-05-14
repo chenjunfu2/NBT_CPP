@@ -215,17 +215,17 @@ void NBT_ReadWrite_Test(const Data_T &NbtRawData, const NBT_Type::Compound &cpdG
 
 	//无序写出测试
 	std::vector<uint8_t> testWrite;
-	NBT_Writer::WriteNBT<false>(testWrite, 0, cpdRead);//false使用无序写出
+	NBT_Writer::WriteNBT<NBT_Writer::NoSortCompound>(testWrite, 0, cpdRead);//使用无序写出
 
 	std::vector<uint8_t> testGenWrite;
-	NBT_Writer::WriteNBT<false>(testGenWrite, 0, cpdGen);//false使用无序写出
+	NBT_Writer::WriteNBT<NBT_Writer::NoSortCompound>(testGenWrite, 0, cpdGen);//使用无序写出
 
 	//有序写出测试
 	std::vector<uint8_t> testSortWrite;
-	NBT_Writer::WriteNBT<true>(testSortWrite, 0, cpdRead);//true使用有序写出
+	NBT_Writer::WriteNBT<NBT_Writer::DefaultCompoundSort<true>>(testSortWrite, 0, cpdRead);//使用有序写出
 
 	std::vector<uint8_t> testSortGenWrite;
-	NBT_Writer::WriteNBT<true>(testSortGenWrite, 0, cpdGen);//true使用有序写出
+	NBT_Writer::WriteNBT<NBT_Writer::DefaultCompoundSort<true>>(testSortGenWrite, 0, cpdGen);//使用有序写出
 
 	//判断不同的字节数目是否相同（因为nbt的compound是无序类型，所以字节可能被打乱，但是数量必须相同）
 	auto TestByteCount =
