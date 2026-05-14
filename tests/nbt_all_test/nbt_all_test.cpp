@@ -50,6 +50,34 @@ void PrintHexValNative(T data) noexcept
 	printf("\n");
 }
 
+//判断不同的字节数目是否相同（因为nbt的compound是无序类型，所以字节可能被打乱，但是数量必须相同）
+template<typename L, typename R>
+bool TestByteCount(const L &l, const R &r)
+requires (sizeof(l[0]) == 1 && sizeof(r[0]) == 1)
+{
+	uint64_t u64ByteCountArr[UINT8_MAX] = { 0 };
+	for (const auto &it : l)
+	{
+		++u64ByteCountArr[(uint8_t)it];
+	}
+
+	for (const auto &it : r)
+	{
+		--u64ByteCountArr[(uint8_t)it];
+	}
+
+	for (const auto &it : u64ByteCountArr)
+	{
+		if (it != 0)
+		{
+			PrintHexArr(l);
+			PrintHexArr(r);
+			return false;
+		}
+	}
+
+	return true;
+};
 
 void StrHexArrayTest(void)
 {
@@ -226,36 +254,6 @@ void NBT_ReadWrite_Test(const Data_T &NbtRawData, const NBT_Type::Compound &cpdG
 
 	std::vector<uint8_t> testSortGenWrite;
 	NBT_Writer::WriteNBT<NBT_Writer::DefaultCompoundSort<true>>(testSortGenWrite, 0, cpdGen);//使用有序写出
-
-	//判断不同的字节数目是否相同（因为nbt的compound是无序类型，所以字节可能被打乱，但是数量必须相同）
-	auto TestByteCount =
-	[](const auto &l, const auto &r) -> bool
-	requires (sizeof(l[0]) == 1 && sizeof(r[0]) == 1)
-	{
-		uint64_t u64ByteCountArr[UINT8_MAX] = { 0 };
-		for (const auto &it : l)
-		{
-			++u64ByteCountArr[(uint8_t)it];
-		}
-
-		for (const auto &it : r)
-		{
-			--u64ByteCountArr[(uint8_t)it];
-		}
-
-		for (const auto &it : u64ByteCountArr)
-		{
-			if (it != 0)
-			{
-				PrintHexArr(l);
-				PrintHexArr(r);
-				return false;
-			}
-		}
-
-		return true;
-	};
-
 
 	//判断字节是否完全相等
 	auto TestBytes = [](const auto &l, const auto &r) -> bool
@@ -657,6 +655,257 @@ void ScannerSkipTest()
 	}
 }
 
+struct PriorityCompoundSort
+{
+	// 优先级键：按列表顺序排在最前面
+	static inline std::vector<NBT_Type::String> s_priorityKeys{};
+	// 拖尾键：按列表顺序排在最后面
+	static inline std::vector<NBT_Type::String> s_trailerKeys{};
+
+	std::vector<NBT_Type::Compound::Const_Iterator> operator()(const NBT_Type::Compound &cpdSort) const
+	{
+		std::vector<NBT_Type::Compound::Const_Iterator> result;
+		result.reserve(cpdSort.Size());
+
+		std::vector<NBT_Type::Compound::Const_Iterator> priorityIts;
+		std::vector<NBT_Type::Compound::Const_Iterator> normalIts;
+		std::vector<NBT_Type::Compound::Const_Iterator> trailerIts;
+
+		for (auto it = cpdSort.cbegin(); it != cpdSort.cend(); ++it)
+		{
+			bool bFound = false;
+
+			for (const auto &key : s_priorityKeys)
+			{
+				if (it->first == key)
+				{
+					priorityIts.push_back(it);
+					bFound = true;
+					break;
+				}
+			}
+			if (bFound) continue;
+
+			for (const auto &key : s_trailerKeys)
+			{
+				if (it->first == key)
+				{
+					trailerIts.push_back(it);
+					bFound = true;
+					break;
+				}
+			}
+			if (bFound) continue;
+
+			normalIts.push_back(it);
+		}
+
+		// 优先级键：按 s_priorityKeys 定义顺序排列
+		std::sort(priorityIts.begin(), priorityIts.end(),
+			[this](const auto &l, const auto &r) -> bool
+			{
+				size_t posL = ~size_t(0), posR = ~size_t(0);
+				for (size_t i = 0; i < s_priorityKeys.size(); ++i)
+				{
+					if (l->first == s_priorityKeys[i]) posL = i;
+					if (r->first == s_priorityKeys[i]) posR = i;
+				}
+				return posL < posR;
+			});
+
+		// 普通键：字典升序
+		std::sort(normalIts.begin(), normalIts.end(),
+			[](const auto &l, const auto &r) -> bool
+			{
+				return l->first < r->first;
+			});
+
+		// 拖尾键：按 s_trailerKeys 定义顺序排列
+		std::sort(trailerIts.begin(), trailerIts.end(),
+			[this](const auto &l, const auto &r) -> bool
+			{
+				size_t posL = ~size_t(0), posR = ~size_t(0);
+				for (size_t i = 0; i < s_trailerKeys.size(); ++i)
+				{
+					if (l->first == s_trailerKeys[i]) posL = i;
+					if (r->first == s_trailerKeys[i]) posR = i;
+				}
+				return posL < posR;
+			});
+
+		result.insert(result.end(), priorityIts.begin(), priorityIts.end());
+		result.insert(result.end(), normalIts.begin(), normalIts.end());
+		result.insert(result.end(), trailerIts.begin(), trailerIts.end());
+		return result;
+	}
+};
+
+class KeyOrderRecorder : public NBT_Visitor
+{
+public:
+	using ResultControl = NBT_Visitor::ResultControl;
+	using NestingControl = NBT_Visitor::NestingControl;
+
+	// 每层 Compound 的键出现顺序（根层在最后）
+	std::vector<std::vector<NBT_Type::String>> m_keyOrders;
+
+private:
+	std::vector<std::vector<NBT_Type::String>> m_keyStack;
+
+public:
+	NestingControl VisitCompoundEntryBegin(NBT_TAG enCompoundEntryTag, NBT_Type::String &&sName)
+	{
+		if (!m_keyStack.empty())
+			m_keyStack.back().push_back(std::move(sName));
+		return NestingControl::Enter;
+	}
+
+	ResultControl VisitCompoundBegin(void)
+	{
+		m_keyStack.push_back({});
+		return ResultControl::Continue;
+	}
+
+	ResultControl VisitCompoundEnd(void)
+	{
+		m_keyOrders.push_back(std::move(m_keyStack.back()));
+		m_keyStack.pop_back();
+		return ResultControl::Continue;
+	}
+
+	void VisitBegin(void)
+	{
+		m_keyStack.push_back({});
+	}
+
+	void VisitEnd(void)
+	{
+		m_keyOrders.push_back(std::move(m_keyStack.back()));
+		m_keyStack.pop_back();
+	}
+};
+
+void CustomPrioritySortTest(void)
+{
+	// ============================================================
+	// 1. 构造三层嵌套测试数据
+	// ============================================================
+
+	// 1.1 最深层 Compound（深度 = 3）
+	NBT_Type::Compound cpdDeep
+	{
+		{MU8STR("z_priority_first"), (NBT_Type::String)MU8STR("deep priority value")},
+		{MU8STR("a_deep_normal"),    (NBT_Type::Float)3.14f},
+		{MU8STR("b_deep_normal"),    (NBT_Type::Double)2.718281828},
+		{MU8STR("z_trailer_last"),   (NBT_Type::Long)(int64_t)999888777666},
+	};
+
+	// 1.2 中间层 Compound（深度 = 2），内含多种类型和一个嵌套 Compound
+	NBT_Type::Compound cpdNested
+	{
+		{MU8STR("z_priority_first"), (NBT_Type::Byte)(int8_t)10},
+		{MU8STR("a_nested_normal"),  (NBT_Type::Short)(int16_t)100},
+		{MU8STR("b_nested_normal"),  (NBT_Type::Int)(int32_t)1000},
+		{MU8STR("nested_deep"),      std::move(cpdDeep)},
+		{MU8STR("z_trailer_last"),   NBT_Type::ByteArray{1, 2, 3, 4, 5}},
+	};
+
+	// 1.3 构造一个 List 用于根层
+	NBT_Type::List testList
+	{
+		MU8STR("list_str_a"),
+		MU8STR("list_str_b"),
+		MU8STR("list_str_c"),
+	};
+
+	// 1.4 根 Compound（深度 = 1）
+	NBT_Type::Compound cpdRoot
+	{
+		{MU8STR(""), NBT_Type::Compound
+			{
+				{MU8STR("z_priority_first"),  (NBT_Type::Byte)(int8_t)1},
+				{MU8STR("a_normal_cpd"),      std::move(cpdNested)},
+				{MU8STR("b_normal"),          (NBT_Type::Byte)(int8_t)2},
+				{MU8STR("c_normal_list"),     std::move(testList)},
+				{MU8STR("y_priority_second"), (NBT_Type::Short)(int16_t)3},
+				{MU8STR("z_trailer_last"),    NBT_Type::LongArray{1, 2, 3}},
+			}
+		}
+	};
+
+	// ============================================================
+	// 2. 配置排序规则（对所有层级生效）
+	// ============================================================
+	PriorityCompoundSort::s_priorityKeys =
+	{
+		MU8STR("z_priority_first"),
+		MU8STR("y_priority_second"),
+	};
+	PriorityCompoundSort::s_trailerKeys =
+	{
+		MU8STR("z_trailer_last"),
+	};
+
+	// ============================================================
+	// 3. 写出：自定义排序 vs 默认排序
+	// ============================================================
+	std::vector<uint8_t> vDataPriority;
+	NBT_Writer::WriteNBT<PriorityCompoundSort>(vDataPriority, 0, cpdRoot);
+
+	std::vector<uint8_t> vDataDefault;
+	NBT_Writer::WriteNBT<NBT_Writer::DefaultCompoundSort<true>>(vDataDefault, 0, cpdRoot);
+
+	// ============================================================
+	// 4. 用 KeyOrderRecorder 扫描自定义排序的二进制输出
+	// ============================================================
+	KeyOrderRecorder recorder;
+	NBT_Scanner::ScanNBT(vDataPriority, 0, recorder);
+
+	// 扫描器深度优先遍历，深层 Compound 先结束
+	// m_keyOrders[0] = 最深层, [1] = 中间层, [2] = 根层
+	MyAssert(recorder.m_keyOrders.size() == 3);
+
+	// --- 4.1 验证最深层 Compound（4 个键）---
+	const auto &deepKeys = recorder.m_keyOrders[0];
+	MyAssert(deepKeys.size() == 4);
+	MyAssert(deepKeys[0] == MU8STR("z_priority_first"));
+	MyAssert(deepKeys[1] == MU8STR("a_deep_normal"));
+	MyAssert(deepKeys[2] == MU8STR("b_deep_normal"));
+	MyAssert(deepKeys[3] == MU8STR("z_trailer_last"));
+
+	// --- 4.2 验证中间层 Compound（5 个键）---
+	const auto &nestedKeys = recorder.m_keyOrders[1];
+	MyAssert(nestedKeys.size() == 5);
+	MyAssert(nestedKeys[0] == MU8STR("z_priority_first"));
+	MyAssert(nestedKeys[1] == MU8STR("a_nested_normal"));
+	MyAssert(nestedKeys[2] == MU8STR("b_nested_normal"));
+	MyAssert(nestedKeys[3] == MU8STR("nested_deep"));
+	MyAssert(nestedKeys[4] == MU8STR("z_trailer_last"));
+
+	// --- 4.3 验证根层 Compound（6 个键）---
+	const auto &rootKeys = recorder.m_keyOrders.back();
+	MyAssert(rootKeys.size() == 6);
+	MyAssert(rootKeys[0] == MU8STR("z_priority_first"));
+	MyAssert(rootKeys[1] == MU8STR("y_priority_second"));
+	MyAssert(rootKeys[2] == MU8STR("a_normal_cpd"));
+	MyAssert(rootKeys[3] == MU8STR("b_normal"));
+	MyAssert(rootKeys[4] == MU8STR("c_normal_list"));
+	MyAssert(rootKeys[5] == MU8STR("z_trailer_last"));
+
+	// ============================================================
+	// 5. 验证数据语义等价性
+	// ============================================================
+	NBT_Type::Compound cpdFromDefault{};
+	NBT_Reader::ReadNBT(vDataDefault, 0, cpdFromDefault);
+	MyAssert(cpdRoot == cpdFromDefault);
+
+	// ============================================================
+	// 6. 验证字节流确实不同但是每种字节数相等（排序真实影响了二进制布局但是没有破坏数据）
+	// ============================================================
+	MyAssert(vDataPriority != vDataDefault);
+	MyAssert(TestByteCount(vDataPriority, vDataDefault));
+}
+
 int main(void)
 {
 	StrHexArrayTest();
@@ -668,6 +917,8 @@ int main(void)
 
 	ScannerTest();
 	ScannerSkipTest();
+
+	CustomPrioritySortTest();
 
 	return 0;
 }
