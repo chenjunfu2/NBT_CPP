@@ -225,7 +225,7 @@ catch(...)\
 		}
 
 		T BigEndianVal{};
-		tData.GetRange((uint8_t *)&BigEndianVal, sizeof(BigEndianVal));
+		tData.GetRange((void *)&BigEndianVal, sizeof(BigEndianVal));
 		tVal = NBT_Endian::BigToNativeAny(BigEndianVal);
 
 		if constexpr (!bNoCheck)
@@ -259,11 +259,9 @@ catch(...)\
 			return false;
 		}
 
-		//解析数据
-		tName.reserve(szStringLength);//提前分配
-		tName.assign((const ValueType *)tData.CurData(), szStringLength);//构造string（如果长度为0则构造0长字符串，合法行为）
-		
-		tData.AddIndex(szStringSize);//移动下标
+		//解析出名称
+		tName.resize(szStringLength);//设置大小
+		tData.GetRange((void *)tName.data(), szStringSize);//构造string（如果长度为0则构造0长字符串，合法行为）
 
 		return true;
 	MYCATCH(false);
@@ -292,7 +290,7 @@ catch(...)\
 		}
 
 		//跳过数据
-		tData.AddIndex(szSkipSize);
+		tData.SkipData(szSkipSize);
 		return true;
 	}
 
@@ -342,7 +340,7 @@ catch(...)\
 		}
 
 		//跳过数据
-		tData.AddIndex(szSkipSize);
+		tData.SkipData(szSkipSize);
 		return true;
 	}
 
@@ -425,7 +423,7 @@ catch(...)\
 			return false;
 		}
 
-		tData.AddIndex(szSkipSize);//直接递增索引跳过
+		tData.SkipData(szSkipSize);//直接递增索引跳过
 		return true;
 	}
 

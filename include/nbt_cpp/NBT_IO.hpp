@@ -106,37 +106,26 @@ public:
 		}
 
 		/// @brief 回退一个字节的读取
-		/// @note 如果当前已在流的起始位置，则不会进行任何操作
+		/// @note 调用者保证不会导致范围溢出
 		void UnGet() noexcept
 		{
-			if (szIndex != 0)
-			{
-				--szIndex;
-			}
+			--szIndex;
 		}
 
-		/// @brief 获取当前读取位置的指针
-		/// @return 指向当前读取位置数据的指针
-		/// @note 这个接口一般用于直接访问当前及后续的数据而不拷贝
-		const ValueType *CurData() const noexcept
-		{
-			return &(tData[szIndex]);
-		}
-
-		/// @brief 向后推进读取
-		/// @param szSize 要推进的字节数
-		/// @return 推进后的新读取位置
-		/// @note 这个接口一般与CurData合并使用，通过CurData读取一段数据后，调用此接口移动当前读取位置
-		size_t AddIndex(size_t szSize) noexcept
+		/// @brief 跳过一段数据
+		/// @param szSize 要跳过的字节数
+		/// @return 跳过后的新读取位置
+		/// @note 调用者保证不会导致范围溢出
+		size_t SkipData(size_t szSize) noexcept
 		{
 			return szIndex += szSize;
 		}
 
-		/// @brief 向前撤销读取
-		/// @param szSize 要撤销的字节数
-		/// @return 撤销后的新读取位置
-		/// @note 这个接口一般用于在某些情况下撤销一部分的读取
-		size_t SubIndex(size_t szSize) noexcept
+		/// @brief 回退一段数据
+		/// @param szSize 要回退的字节数
+		/// @return 回退后的新读取位置
+		/// @note 调用者保证不会导致范围溢出
+		size_t RewindData(size_t szSize) noexcept
 		{
 			return szIndex -= szSize;
 		}
@@ -169,16 +158,9 @@ public:
 			szIndex = 0;
 		}
 
-		/// @brief 获取底层数据的起始指针
-		/// @return 指向底层数据起始位置的常量指针
-		const ValueType *BaseData() const noexcept
-		{
-			return tData.data();
-		}
-
 		/// @brief 获取当前读取位置（只读）
 		/// @return 当前读取位置索引
-		size_t Index() const noexcept
+		const size_t &Index() const noexcept
 		{
 			return szIndex;
 		}
@@ -279,9 +261,20 @@ public:
 		}
 
 		/// @brief 删除（撤销）最后一个写入的字节
+		/// @note 调用者保证不会导致范围溢出
 		void UnPut(void) noexcept
 		{
 			tData.pop_back();
+		}
+
+		/// @brief 删除（撤销）最后szSize个写入的字节
+		/// @param szSize 要删除的字节数
+		/// @return 删除后的新大小
+		/// @note 调用者保证不会导致范围溢出
+		size_t RemoveData(size_t szSize) noexcept
+		{
+			tData.resize(tData.size() - szSize);
+			return tData.size();
 		}
 
 		/// @brief 获取当前字节流中已有的数据大小
@@ -295,20 +288,6 @@ public:
 		void Reset(void) noexcept
 		{
 			tData.clear();
-		}
-
-		/// @brief 获取底层数据的常量引用
-		/// @return 底层数据容器的常量引用
-		const T &Data(void) const noexcept
-		{
-			return tData;
-		}
-
-		/// @brief 获取底层数据的非常量引用
-		/// @return 底层数据容器的非常量引用
-		T &Data(void) noexcept
-		{
-			return tData;
 		}
 	};
 
