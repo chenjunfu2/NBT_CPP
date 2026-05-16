@@ -26,7 +26,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">chenjunfu2-nbt-cpp<span id="projectnumber">&#160;v2.1.2</span>
+   <div id="projectname">chenjunfu2-nbt-cpp<span id="projectnumber">&#160;v2.1.3</span>
    </div>
    <div id="projectbrief">一个基于CPP20的NBT(Named Binary Tag)库</div>
   </td>
@@ -137,12 +137,10 @@ Public 成员函数</h2></td></tr>
 <tr class="memdesc:afa328ddf02771d03502159d5e34f5ba9"><td class="mdescLeft">&#160;</td><td class="mdescRight">从流中读取一段数据  <br /></td></tr>
 <tr class="memitem:a4e7f50f574a9883dc220cc9a1fdabd71" id="r_a4e7f50f574a9883dc220cc9a1fdabd71"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a4e7f50f574a9883dc220cc9a1fdabd71">UnGet</a> () noexcept</td></tr>
 <tr class="memdesc:a4e7f50f574a9883dc220cc9a1fdabd71"><td class="mdescLeft">&#160;</td><td class="mdescRight">回退一个字节的读取  <br /></td></tr>
-<tr class="memitem:a6417c41162dd41f04bdec06358c48b1f" id="r_a6417c41162dd41f04bdec06358c48b1f"><td class="memItemLeft">const <a class="el" href="#a62d5dbc8993452afcf47933b24e3dc12">ValueType</a> *&#160;</td><td class="memItemRight"><a class="el" href="#a6417c41162dd41f04bdec06358c48b1f">CurData</a> () const noexcept</td></tr>
-<tr class="memdesc:a6417c41162dd41f04bdec06358c48b1f"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取当前读取位置的指针  <br /></td></tr>
-<tr class="memitem:af91d9b18d44d8a1ccc4d12caa73113e5" id="r_af91d9b18d44d8a1ccc4d12caa73113e5"><td class="memItemLeft">size_t&#160;</td><td class="memItemRight"><a class="el" href="#af91d9b18d44d8a1ccc4d12caa73113e5">AddIndex</a> (size_t szSize) noexcept</td></tr>
-<tr class="memdesc:af91d9b18d44d8a1ccc4d12caa73113e5"><td class="mdescLeft">&#160;</td><td class="mdescRight">向后推进读取  <br /></td></tr>
-<tr class="memitem:a9dc86eb022585fc542e0c7b04fe6cfc6" id="r_a9dc86eb022585fc542e0c7b04fe6cfc6"><td class="memItemLeft">size_t&#160;</td><td class="memItemRight"><a class="el" href="#a9dc86eb022585fc542e0c7b04fe6cfc6">SubIndex</a> (size_t szSize) noexcept</td></tr>
-<tr class="memdesc:a9dc86eb022585fc542e0c7b04fe6cfc6"><td class="mdescLeft">&#160;</td><td class="mdescRight">向前撤销读取  <br /></td></tr>
+<tr class="memitem:add0dc1e4ae11bde91049ffe01c78216f" id="r_add0dc1e4ae11bde91049ffe01c78216f"><td class="memItemLeft">size_t&#160;</td><td class="memItemRight"><a class="el" href="#add0dc1e4ae11bde91049ffe01c78216f">SkipData</a> (size_t szSize) noexcept</td></tr>
+<tr class="memdesc:add0dc1e4ae11bde91049ffe01c78216f"><td class="mdescLeft">&#160;</td><td class="mdescRight">跳过一段数据  <br /></td></tr>
+<tr class="memitem:a26a5fc11c6168c79916906458034d030" id="r_a26a5fc11c6168c79916906458034d030"><td class="memItemLeft">size_t&#160;</td><td class="memItemRight"><a class="el" href="#a26a5fc11c6168c79916906458034d030">RewindData</a> (size_t szSize) noexcept</td></tr>
+<tr class="memdesc:a26a5fc11c6168c79916906458034d030"><td class="mdescLeft">&#160;</td><td class="mdescRight">回退一段数据  <br /></td></tr>
 <tr class="memitem:af5affd31d2b0cc922536e90fdce46c79" id="r_af5affd31d2b0cc922536e90fdce46c79"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#af5affd31d2b0cc922536e90fdce46c79">IsEnd</a> () const noexcept</td></tr>
 <tr class="memdesc:af5affd31d2b0cc922536e90fdce46c79"><td class="mdescLeft">&#160;</td><td class="mdescRight">检查是否已到达流末尾  <br /></td></tr>
 <tr class="memitem:a7afbba8a93b38ffe2e4df8e91172737f" id="r_a7afbba8a93b38ffe2e4df8e91172737f"><td class="memItemLeft">size_t&#160;</td><td class="memItemRight"><a class="el" href="#a7afbba8a93b38ffe2e4df8e91172737f">Size</a> () const noexcept</td></tr>
@@ -152,10 +150,8 @@ Public 成员函数</h2></td></tr>
 <tr class="memitem:aa9a9c6aa82c4d0465b23ab50671a6605" id="r_aa9a9c6aa82c4d0465b23ab50671a6605"><td class="memItemLeft"><a id="aa9a9c6aa82c4d0465b23ab50671a6605" name="aa9a9c6aa82c4d0465b23ab50671a6605"></a>
 void&#160;</td><td class="memItemRight"><b>Reset</b> () noexcept</td></tr>
 <tr class="memdesc:aa9a9c6aa82c4d0465b23ab50671a6605"><td class="mdescLeft">&#160;</td><td class="mdescRight">重置流读取位置到起始处 <br /></td></tr>
-<tr class="memitem:a9e3811ba393e9ee2a51d65b0ff92fee1" id="r_a9e3811ba393e9ee2a51d65b0ff92fee1"><td class="memItemLeft">const <a class="el" href="#a62d5dbc8993452afcf47933b24e3dc12">ValueType</a> *&#160;</td><td class="memItemRight"><a class="el" href="#a9e3811ba393e9ee2a51d65b0ff92fee1">BaseData</a> () const noexcept</td></tr>
-<tr class="memdesc:a9e3811ba393e9ee2a51d65b0ff92fee1"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取底层数据的起始指针  <br /></td></tr>
-<tr class="memitem:a52fb0b9c5fc4314ada7a6c248fcdaf0e" id="r_a52fb0b9c5fc4314ada7a6c248fcdaf0e"><td class="memItemLeft">size_t&#160;</td><td class="memItemRight"><a class="el" href="#a52fb0b9c5fc4314ada7a6c248fcdaf0e">Index</a> () const noexcept</td></tr>
-<tr class="memdesc:a52fb0b9c5fc4314ada7a6c248fcdaf0e"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取当前读取位置（只读）  <br /></td></tr>
+<tr class="memitem:ab6a0f00039f847a53c94f2cc660d6e24" id="r_ab6a0f00039f847a53c94f2cc660d6e24"><td class="memItemLeft">const size_t &amp;&#160;</td><td class="memItemRight"><a class="el" href="#ab6a0f00039f847a53c94f2cc660d6e24">Index</a> () const noexcept</td></tr>
+<tr class="memdesc:ab6a0f00039f847a53c94f2cc660d6e24"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取当前读取位置（只读）  <br /></td></tr>
 <tr class="memitem:accbc87158f7c3fb3769a297edfe3abcb" id="r_accbc87158f7c3fb3769a297edfe3abcb"><td class="memItemLeft">size_t &amp;&#160;</td><td class="memItemRight"><a class="el" href="#accbc87158f7c3fb3769a297edfe3abcb">Index</a> () noexcept</td></tr>
 <tr class="memdesc:accbc87158f7c3fb3769a297edfe3abcb"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取当前读取位置（可写）  <br /></td></tr>
 </table>
@@ -216,104 +212,6 @@ template&lt;typename T = std::vector&lt;uint8_t&gt;&gt; </div>
 </div>
 </div>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">成员函数说明</h2>
-<a id="af91d9b18d44d8a1ccc4d12caa73113e5" name="af91d9b18d44d8a1ccc4d12caa73113e5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af91d9b18d44d8a1ccc4d12caa73113e5">&#9670;&#160;</a></span>AddIndex()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T = std::vector&lt;uint8_t&gt;&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">size_t <a class="el" href="classNBT__IO_1_1DefaultInputStream.html">NBT_IO::DefaultInputStream</a>&lt; T &gt;::AddIndex </td>
-          <td>(</td>
-          <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>szSize</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>向后推进读取 </p>
-<dl class="params"><dt>参数</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">szSize</td><td>要推进的字节数 </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>返回</dt><dd>推进后的新读取位置 </dd></dl>
-<dl class="section note"><dt>注解</dt><dd>这个接口一般与CurData合并使用，通过CurData读取一段数据后，调用此接口移动当前读取位置 </dd></dl>
-
-</div>
-</div>
-<a id="a9e3811ba393e9ee2a51d65b0ff92fee1" name="a9e3811ba393e9ee2a51d65b0ff92fee1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9e3811ba393e9ee2a51d65b0ff92fee1">&#9670;&#160;</a></span>BaseData()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T = std::vector&lt;uint8_t&gt;&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">const <a class="el" href="#a62d5dbc8993452afcf47933b24e3dc12">ValueType</a> * <a class="el" href="classNBT__IO_1_1DefaultInputStream.html">NBT_IO::DefaultInputStream</a>&lt; T &gt;::BaseData </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>获取底层数据的起始指针 </p>
-<dl class="section return"><dt>返回</dt><dd>指向底层数据起始位置的常量指针 </dd></dl>
-
-</div>
-</div>
-<a id="a6417c41162dd41f04bdec06358c48b1f" name="a6417c41162dd41f04bdec06358c48b1f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6417c41162dd41f04bdec06358c48b1f">&#9670;&#160;</a></span>CurData()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T = std::vector&lt;uint8_t&gt;&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">const <a class="el" href="#a62d5dbc8993452afcf47933b24e3dc12">ValueType</a> * <a class="el" href="classNBT__IO_1_1DefaultInputStream.html">NBT_IO::DefaultInputStream</a>&lt; T &gt;::CurData </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>获取当前读取位置的指针 </p>
-<dl class="section return"><dt>返回</dt><dd>指向当前读取位置数据的指针 </dd></dl>
-<dl class="section note"><dt>注解</dt><dd>这个接口一般用于直接访问当前及后续的数据而不拷贝 </dd></dl>
-
-</div>
-</div>
 <a id="afd497148479065ecf6d69b99d7afd137" name="afd497148479065ecf6d69b99d7afd137"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#afd497148479065ecf6d69b99d7afd137">&#9670;&#160;</a></span>GetNext()</h2>
 
@@ -422,8 +320,8 @@ template&lt;typename T = std::vector&lt;uint8_t&gt;&gt; </div>
 
 </div>
 </div>
-<a id="a52fb0b9c5fc4314ada7a6c248fcdaf0e" name="a52fb0b9c5fc4314ada7a6c248fcdaf0e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a52fb0b9c5fc4314ada7a6c248fcdaf0e">&#9670;&#160;</a></span>Index() <span class="overload">[1/2]</span></h2>
+<a id="ab6a0f00039f847a53c94f2cc660d6e24" name="ab6a0f00039f847a53c94f2cc660d6e24"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab6a0f00039f847a53c94f2cc660d6e24">&#9670;&#160;</a></span>Index() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -434,7 +332,7 @@ template&lt;typename T = std::vector&lt;uint8_t&gt;&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">size_t <a class="el" href="classNBT__IO_1_1DefaultInputStream.html">NBT_IO::DefaultInputStream</a>&lt; T &gt;::Index </td>
+          <td class="memname">const size_t &amp; <a class="el" href="classNBT__IO_1_1DefaultInputStream.html">NBT_IO::DefaultInputStream</a>&lt; T &gt;::Index </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td> const</td>
@@ -550,6 +448,43 @@ template&lt;typename T = std::vector&lt;uint8_t&gt;&gt; </div>
 
 </div>
 </div>
+<a id="a26a5fc11c6168c79916906458034d030" name="a26a5fc11c6168c79916906458034d030"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a26a5fc11c6168c79916906458034d030">&#9670;&#160;</a></span>RewindData()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T = std::vector&lt;uint8_t&gt;&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t <a class="el" href="classNBT__IO_1_1DefaultInputStream.html">NBT_IO::DefaultInputStream</a>&lt; T &gt;::RewindData </td>
+          <td>(</td>
+          <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>szSize</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>回退一段数据 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">szSize</td><td>要回退的字节数 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>回退后的新读取位置 </dd></dl>
+<dl class="section note"><dt>注解</dt><dd>调用者保证不会导致范围溢出 </dd></dl>
+
+</div>
+</div>
 <a id="a7afbba8a93b38ffe2e4df8e91172737f" name="a7afbba8a93b38ffe2e4df8e91172737f"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a7afbba8a93b38ffe2e4df8e91172737f">&#9670;&#160;</a></span>Size()</h2>
 
@@ -580,8 +515,8 @@ template&lt;typename T = std::vector&lt;uint8_t&gt;&gt; </div>
 
 </div>
 </div>
-<a id="a9dc86eb022585fc542e0c7b04fe6cfc6" name="a9dc86eb022585fc542e0c7b04fe6cfc6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9dc86eb022585fc542e0c7b04fe6cfc6">&#9670;&#160;</a></span>SubIndex()</h2>
+<a id="add0dc1e4ae11bde91049ffe01c78216f" name="add0dc1e4ae11bde91049ffe01c78216f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#add0dc1e4ae11bde91049ffe01c78216f">&#9670;&#160;</a></span>SkipData()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -592,7 +527,7 @@ template&lt;typename T = std::vector&lt;uint8_t&gt;&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">size_t <a class="el" href="classNBT__IO_1_1DefaultInputStream.html">NBT_IO::DefaultInputStream</a>&lt; T &gt;::SubIndex </td>
+          <td class="memname">size_t <a class="el" href="classNBT__IO_1_1DefaultInputStream.html">NBT_IO::DefaultInputStream</a>&lt; T &gt;::SkipData </td>
           <td>(</td>
           <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>szSize</em></span></td><td>)</td>
           <td></td>
@@ -605,15 +540,15 @@ template&lt;typename T = std::vector&lt;uint8_t&gt;&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>向前撤销读取 </p>
+<p>跳过一段数据 </p>
 <dl class="params"><dt>参数</dt><dd>
   <table class="params">
-    <tr><td class="paramname">szSize</td><td>要撤销的字节数 </td></tr>
+    <tr><td class="paramname">szSize</td><td>要跳过的字节数 </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>返回</dt><dd>撤销后的新读取位置 </dd></dl>
-<dl class="section note"><dt>注解</dt><dd>这个接口一般用于在某些情况下撤销一部分的读取 </dd></dl>
+<dl class="section return"><dt>返回</dt><dd>跳过后的新读取位置 </dd></dl>
+<dl class="section note"><dt>注解</dt><dd>调用者保证不会导致范围溢出 </dd></dl>
 
 </div>
 </div>
@@ -643,7 +578,7 @@ template&lt;typename T = std::vector&lt;uint8_t&gt;&gt; </div>
 </div><div class="memdoc">
 
 <p>回退一个字节的读取 </p>
-<dl class="section note"><dt>注解</dt><dd>如果当前已在流的起始位置，则不会进行任何操作 </dd></dl>
+<dl class="section note"><dt>注解</dt><dd>调用者保证不会导致范围溢出 </dd></dl>
 
 </div>
 </div>

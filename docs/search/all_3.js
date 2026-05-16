@@ -25,6 +25,5 @@ var searchData=
   ['containsstring_22',['ContainsString',['../classNBT__Compound.html#a46713493383299a8bebafa53983f8867',1,'NBT_Compound']]],
   ['continue_23',['Continue',['../classNBT__Visitor.html#a5dd0ef8b7205c99438132ea13413f82baa0bfb8e59e6c13fc8d990781f77694fe',1,'NBT_Visitor']]],
   ['cpdroot_24',['cpdRoot',['../classNBT__Visitor__Collector.html#add3e128190078aee5a05e9c66ca12699',1,'NBT_Visitor_Collector']]],
-  ['cpp_25',['chenjunfu2-nbt-cpp',['../index.html',1,'']]],
-  ['curdata_26',['CurData',['../classNBT__IO_1_1DefaultInputStream.html#a6417c41162dd41f04bdec06358c48b1f',1,'NBT_IO::DefaultInputStream']]]
+  ['cpp_25',['chenjunfu2-nbt-cpp',['../index.html',1,'']]]
 ];

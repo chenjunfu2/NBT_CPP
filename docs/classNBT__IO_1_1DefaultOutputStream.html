@@ -26,7 +26,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">chenjunfu2-nbt-cpp<span id="projectnumber">&#160;v2.1.2</span>
+   <div id="projectname">chenjunfu2-nbt-cpp<span id="projectnumber">&#160;v2.1.3</span>
    </div>
    <div id="projectbrief">一个基于CPP20的NBT(Named Binary Tag)库</div>
   </td>
@@ -135,18 +135,15 @@ Public 成员函数</h2></td></tr>
 <tr class="memdesc:a1758795b7ee93cf4c518eb3706db461c"><td class="mdescLeft">&#160;</td><td class="mdescRight">向流中写入一段数据  <br /></td></tr>
 <tr class="memitem:aca068899c75594ab8f2ccdb2ef1d0aa9" id="r_aca068899c75594ab8f2ccdb2ef1d0aa9"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#aca068899c75594ab8f2ccdb2ef1d0aa9">AddReserve</a> (size_t szAddSize)</td></tr>
 <tr class="memdesc:aca068899c75594ab8f2ccdb2ef1d0aa9"><td class="mdescLeft">&#160;</td><td class="mdescRight">预分配额外容量  <br /></td></tr>
-<tr class="memitem:a181793376e739472e7e43391b4ede9b8" id="r_a181793376e739472e7e43391b4ede9b8"><td class="memItemLeft"><a id="a181793376e739472e7e43391b4ede9b8" name="a181793376e739472e7e43391b4ede9b8"></a>
-void&#160;</td><td class="memItemRight"><b>UnPut</b> (void) noexcept</td></tr>
-<tr class="memdesc:a181793376e739472e7e43391b4ede9b8"><td class="mdescLeft">&#160;</td><td class="mdescRight">删除（撤销）最后一个写入的字节 <br /></td></tr>
+<tr class="memitem:a181793376e739472e7e43391b4ede9b8" id="r_a181793376e739472e7e43391b4ede9b8"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a181793376e739472e7e43391b4ede9b8">UnPut</a> (void) noexcept</td></tr>
+<tr class="memdesc:a181793376e739472e7e43391b4ede9b8"><td class="mdescLeft">&#160;</td><td class="mdescRight">删除（撤销）最后一个写入的字节  <br /></td></tr>
+<tr class="memitem:ad04a69b12c4564fdb100d4979cbfb4e8" id="r_ad04a69b12c4564fdb100d4979cbfb4e8"><td class="memItemLeft">size_t&#160;</td><td class="memItemRight"><a class="el" href="#ad04a69b12c4564fdb100d4979cbfb4e8">RemoveData</a> (size_t szSize) noexcept</td></tr>
+<tr class="memdesc:ad04a69b12c4564fdb100d4979cbfb4e8"><td class="mdescLeft">&#160;</td><td class="mdescRight">删除（撤销）最后szSize个写入的字节  <br /></td></tr>
 <tr class="memitem:a729d001d0051630eda4a2ef30fa88856" id="r_a729d001d0051630eda4a2ef30fa88856"><td class="memItemLeft">size_t&#160;</td><td class="memItemRight"><a class="el" href="#a729d001d0051630eda4a2ef30fa88856">Size</a> (void) const noexcept</td></tr>
 <tr class="memdesc:a729d001d0051630eda4a2ef30fa88856"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取当前字节流中已有的数据大小  <br /></td></tr>
 <tr class="memitem:af0ec702d443260892fc67147a863c108" id="r_af0ec702d443260892fc67147a863c108"><td class="memItemLeft"><a id="af0ec702d443260892fc67147a863c108" name="af0ec702d443260892fc67147a863c108"></a>
 void&#160;</td><td class="memItemRight"><b>Reset</b> (void) noexcept</td></tr>
 <tr class="memdesc:af0ec702d443260892fc67147a863c108"><td class="mdescLeft">&#160;</td><td class="mdescRight">重置流，清空所有数据 <br /></td></tr>
-<tr class="memitem:a1f476a9d0f1c736d8248288922df77c7" id="r_a1f476a9d0f1c736d8248288922df77c7"><td class="memItemLeft">const T &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a1f476a9d0f1c736d8248288922df77c7">Data</a> (void) const noexcept</td></tr>
-<tr class="memdesc:a1f476a9d0f1c736d8248288922df77c7"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取底层数据的常量引用  <br /></td></tr>
-<tr class="memitem:a41dec4401262086ce19a86a117d4bfbd" id="r_a41dec4401262086ce19a86a117d4bfbd"><td class="memItemLeft">T &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a41dec4401262086ce19a86a117d4bfbd">Data</a> (void) noexcept</td></tr>
-<tr class="memdesc:a41dec4401262086ce19a86a117d4bfbd"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取底层数据的非常量引用  <br /></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">详细描述</h2>
 <div class="textblock"><div class="compoundTemplParams">template&lt;typename T = std::vector&lt;uint8_t&gt;&gt;<br />
@@ -238,66 +235,6 @@ template&lt;typename T = std::vector&lt;uint8_t&gt;&gt; </div>
   </dd>
 </dl>
 <dl class="section note"><dt>注解</dt><dd>这个接口一般是用于性能优化的，提前要求流预留空间以便后续的写入。 请不要假设在所有写入操作之前都会进行此调用，这个接口只有部分情况会用到。 </dd></dl>
-
-</div>
-</div>
-<a id="a1f476a9d0f1c736d8248288922df77c7" name="a1f476a9d0f1c736d8248288922df77c7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1f476a9d0f1c736d8248288922df77c7">&#9670;&#160;</a></span>Data() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T = std::vector&lt;uint8_t&gt;&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">const T &amp; <a class="el" href="classNBT__IO_1_1DefaultOutputStream.html">NBT_IO::DefaultOutputStream</a>&lt; T &gt;::Data </td>
-          <td>(</td>
-          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>获取底层数据的常量引用 </p>
-<dl class="section return"><dt>返回</dt><dd>底层数据容器的常量引用 </dd></dl>
-
-</div>
-</div>
-<a id="a41dec4401262086ce19a86a117d4bfbd" name="a41dec4401262086ce19a86a117d4bfbd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a41dec4401262086ce19a86a117d4bfbd">&#9670;&#160;</a></span>Data() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T = std::vector&lt;uint8_t&gt;&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">T &amp; <a class="el" href="classNBT__IO_1_1DefaultOutputStream.html">NBT_IO::DefaultOutputStream</a>&lt; T &gt;::Data </td>
-          <td>(</td>
-          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>获取底层数据的非常量引用 </p>
-<dl class="section return"><dt>返回</dt><dd>底层数据容器的非常量引用 </dd></dl>
 
 </div>
 </div>
@@ -423,6 +360,43 @@ template&lt;typename T = std::vector&lt;uint8_t&gt;&gt; </div>
 
 </div>
 </div>
+<a id="ad04a69b12c4564fdb100d4979cbfb4e8" name="ad04a69b12c4564fdb100d4979cbfb4e8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad04a69b12c4564fdb100d4979cbfb4e8">&#9670;&#160;</a></span>RemoveData()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T = std::vector&lt;uint8_t&gt;&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t <a class="el" href="classNBT__IO_1_1DefaultOutputStream.html">NBT_IO::DefaultOutputStream</a>&lt; T &gt;::RemoveData </td>
+          <td>(</td>
+          <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>szSize</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>删除（撤销）最后szSize个写入的字节 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">szSize</td><td>要删除的字节数 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>删除后的新大小 </dd></dl>
+<dl class="section note"><dt>注解</dt><dd>调用者保证不会导致范围溢出 </dd></dl>
+
+</div>
+</div>
 <a id="a729d001d0051630eda4a2ef30fa88856" name="a729d001d0051630eda4a2ef30fa88856"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a729d001d0051630eda4a2ef30fa88856">&#9670;&#160;</a></span>Size()</h2>
 
@@ -450,6 +424,36 @@ template&lt;typename T = std::vector&lt;uint8_t&gt;&gt; </div>
 
 <p>获取当前字节流中已有的数据大小 </p>
 <dl class="section return"><dt>返回</dt><dd>数据大小，以字节数计 </dd></dl>
+
+</div>
+</div>
+<a id="a181793376e739472e7e43391b4ede9b8" name="a181793376e739472e7e43391b4ede9b8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a181793376e739472e7e43391b4ede9b8">&#9670;&#160;</a></span>UnPut()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T = std::vector&lt;uint8_t&gt;&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classNBT__IO_1_1DefaultOutputStream.html">NBT_IO::DefaultOutputStream</a>&lt; T &gt;::UnPut </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>删除（撤销）最后一个写入的字节 </p>
+<dl class="section note"><dt>注解</dt><dd>调用者保证不会导致范围溢出 </dd></dl>
 
 </div>
 </div>
