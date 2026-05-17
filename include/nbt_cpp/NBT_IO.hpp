@@ -787,7 +787,7 @@ public:
 		}
 	}
 
-	/// @brief 解压数据，但是不抛出异常，而是通过funcErrInfo打印异常信息并返回成功与否
+	/// @brief 解压数据，但是不抛出异常，而是通过funcInfo打印异常信息并返回成功与否
 	/// @tparam I 输入的顺序容器类型
 	/// @tparam O 输出的顺序容器类型
 	/// @tparam InfoFunc 打印异常信息的仿函数类型
@@ -795,7 +795,7 @@ public:
 	/// @param iData 输出的顺序容器引用
 	/// @param funcInfo 打印异常信息的仿函数
 	/// @return 操作是否成功
-	/// @note funcErrInfo默认实现为NBT_Print并输出到标准异常stderr，用户可以自定义。
+	/// @note funcInfo默认实现为NBT_Print并输出到标准异常stderr，用户可以自定义。
 	/// 类似于NBT_Print的仿函数类型并替换输出例程，具体情况请参照NBT_Print类的说明。
 	/// 顺序容器必须存储字节流，内部的值类型大小必须为1，且必须可平凡拷贝。
 	template<typename I, typename O, typename InfoFunc = NBT_Print>
@@ -825,7 +825,7 @@ public:
 		}
 	}
 
-	/// @brief 压缩数据，但是不抛出异常，而是通过funcErrInfo打印异常信息并返回成功与否
+	/// @brief 压缩数据，但是不抛出异常，而是通过funcInfo打印异常信息并返回成功与否
 	/// @tparam I 输入的顺序容器类型
 	/// @tparam O 输出的顺序容器类型
 	/// @tparam InfoFunc 打印异常信息的仿函数类型
@@ -834,7 +834,7 @@ public:
 	/// @param iLevel 压缩等级
 	/// @param funcInfo 打印异常信息的仿函数
 	/// @return 操作是否成功
-	/// @note funcErrInfo默认实现为NBT_Print并输出到标准异常stderr，用户可以自定义。
+	/// @note funcInfo默认实现为NBT_Print并输出到标准异常stderr，用户可以自定义。
 	/// 类似于NBT_Print的仿函数类型并替换输出例程，具体情况请参照NBT_Print类的说明。
 	/// 顺序容器必须存储字节流，内部的值类型大小必须为1，且必须可平凡拷贝。
 	template<typename I, typename O, typename InfoFunc = NBT_Print>
