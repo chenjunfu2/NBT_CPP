@@ -44,9 +44,9 @@ void PrintHex(const char *ps, const std::basic_string_view<T> &s, const char *pe
 	printf("%s", pe);
 }
 
-template<typename T>
+template<typename T, typename CT>
 requires std::is_integral_v<T>
-void PrintHex(const char *ps, const std::basic_string<T> &s, const char *pe = "\n")
+void PrintHex(const char *ps, const std::basic_string<T, CT> &s, const char *pe = "\n")
 {
 	printf("%s", ps);
 	for (const auto &c : s)
@@ -200,8 +200,8 @@ int main(void)
 	constexpr auto ret2 = U16TOMU8STR(u"test😀😁😂🤣😃😄😅😆😗😘🥰😍😎😋😊😉😙😚☺🙂🤗🤩🤔🤨223$$在明确是常量表达式的上下文中，不需要检查是否在常量求值中，因为答案总是\"是\"");
 	auto ret3 = U16CV2MU8(testu16);
 
-	std::basic_string_view<uint8_t> mu8_0(ret.data(), ret.size());
-	std::basic_string_view<uint8_t> mu8_1(ret2.data(), ret2.size());
+	std::basic_string_view<uint8_t, MUTF8_Char_Traits<uint8_t>> mu8_0(ret.data(), ret.size());
+	std::basic_string_view<uint8_t, MUTF8_Char_Traits<uint8_t>> mu8_1(ret2.data(), ret2.size());
 
 	TestPrint(mu8_0, mu8_1);
 

@@ -432,7 +432,7 @@ namespace std
 		/// @return hash的值
 		size_t operator()(const NBT_String<String, StringView> &s) const noexcept
 		{
-			return std::hash<std::basic_string_view<char>>{}(s.GetCharTypeView());
+			return std::hash<std::basic_string<typename NBT_String<String, StringView>::value_type, MUTF8_Char_Traits<typename NBT_String<String, StringView>::value_type>>>{}(s);
 		}
 	};
 
@@ -448,7 +448,7 @@ namespace std
 		/// @return hash的值
 		size_t operator()(const NBT_StringView<String, StringView> &s) const noexcept
 		{
-			return std::hash<std::basic_string_view<char>>{}(s.GetCharTypeView());
+			return std::hash<std::basic_string_view<typename NBT_StringView<String, StringView>::value_type, MUTF8_Char_Traits<typename NBT_StringView<String, StringView>::value_type>>>{}(s);
 		}
 	};
 }

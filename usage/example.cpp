@@ -39,7 +39,7 @@ bool ReadNbtFile(const char *pFileName, NBT_Type::Compound &cpd)
 
 int main(void)
 {
-	setlocale(LC_ALL, "zh_CN.UTF-8");
+	setlocale(LC_ALL, ".UTF-8");
 
 	//插入各种示例数据
 	NBT_Type::Compound cpd;

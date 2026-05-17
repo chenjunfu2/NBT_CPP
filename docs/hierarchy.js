@@ -7,9 +7,6 @@ var hierarchy =
     [ "std::array", null, [
       [ "MUTF8_Tool_Internal::StringLiteral< T, N >", "classMUTF8__Tool__Internal_1_1StringLiteral.html", null ]
     ] ],
-    [ "std::basic_string", null, [
-      [ "NBT_String< std::basic_string< uint8_t >, std::basic_string_view< uint8_t > >", "classNBT__String.html", null ]
-    ] ],
     [ "Compound", null, [
       [ "NBT_Compound< Compound >", "classNBT__Compound.html", null ]
     ] ],
@@ -22,6 +19,10 @@ var hierarchy =
     [ "std::hash&lt; NBT_StringView&lt; String, StringView &gt; &gt;", "structstd_1_1hash_3_01NBT__StringView_3_01String_00_01StringView_01_4_01_4.html", null ],
     [ "List", null, [
       [ "NBT_List< List >", "classNBT__List.html", null ]
+    ] ],
+    [ "MUTF8_Char_Traits&lt; MU8T &gt;", "structMUTF8__Char__Traits.html", null ],
+    [ "MUTF8_String", null, [
+      [ "NBT_String< MUTF8_String, MUTF8_String_View >", "classNBT__String.html", null ]
     ] ],
     [ "MUTF8_Tool&lt; MU8T, U16T, U8T &gt;", "classMUTF8__Tool.html", null ],
     [ "NBT_Endian", "classNBT__Endian.html", null ],

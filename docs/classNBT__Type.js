@@ -18,7 +18,7 @@ var classNBT__Type =
     [ "Long", "classNBT__Type.html#a7f8ae2e6e2f87445d1e72f7e922ba053", null ],
     [ "LongArray", "classNBT__Type.html#aa2c61028536166272869c3bbc91d3197", null ],
     [ "Short", "classNBT__Type.html#a3e47d05c36743947da966f4223237262", null ],
-    [ "String", "classNBT__Type.html#a8580dcb2a4494cd9bc52526d43f61865", null ],
+    [ "String", "classNBT__Type.html#a5efe8f76052bcfe6ed8779a60a78a295", null ],
     [ "StringLength", "classNBT__Type.html#aae1d0d45649a20866a3b95d9323a768a", null ],
     [ "TagToType_T", "classNBT__Type.html#a121fc72b4ada6455470aa0b635f3c763", null ],
     [ "TypeList", "classNBT__Type.html#a9a7c80f2a9957107e6a93aa33760adf9", null ]

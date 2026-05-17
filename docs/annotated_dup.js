@@ -7,6 +7,7 @@ var annotated_dup =
       [ "hash&lt; NBT_String&lt; String, StringView &gt; &gt;", "structstd_1_1hash_3_01NBT__String_3_01String_00_01StringView_01_4_01_4.html", "structstd_1_1hash_3_01NBT__String_3_01String_00_01StringView_01_4_01_4" ],
       [ "hash&lt; NBT_StringView&lt; String, StringView &gt; &gt;", "structstd_1_1hash_3_01NBT__StringView_3_01String_00_01StringView_01_4_01_4.html", "structstd_1_1hash_3_01NBT__StringView_3_01String_00_01StringView_01_4_01_4" ]
     ] ],
+    [ "MUTF8_Char_Traits", "structMUTF8__Char__Traits.html", null ],
     [ "MUTF8_Tool", "classMUTF8__Tool.html", "classMUTF8__Tool" ],
     [ "NBT_Array", "classNBT__Array.html", null ],
     [ "NBT_Compound", "classNBT__Compound.html", "classNBT__Compound" ],

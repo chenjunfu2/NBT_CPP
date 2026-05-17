@@ -32,7 +32,7 @@ var searchData=
   ['std_29',['std',['../namespacestd.html',1,'']]],
   ['stop_30',['Stop',['../NBT__Visitor_8hpp.html#a34ddd189bc0a47dc441b469bdab2abe3a11a755d598c0c417f9a36758c3da7481',1,'Stop:&#160;NBT_Visitor.hpp'],['../NBT__Visitor_8hpp.html#a9079b657e4cc5d8bb840b40cafc01a44a11a755d598c0c417f9a36758c3da7481',1,'Stop:&#160;NBT_Visitor.hpp']]],
   ['streamtype_31',['StreamType',['../classNBT__IO_1_1DefaultInputStream.html#a7fb682dd10dbceac8c2c9dbb87008e17',1,'NBT_IO::DefaultInputStream::StreamType'],['../classNBT__IO_1_1DefaultOutputStream.html#a210afdc983230e4ce50a912e1b1dfe71',1,'NBT_IO::DefaultOutputStream::StreamType']]],
-  ['string_32',['String',['../classNBT__Type.html#a8580dcb2a4494cd9bc52526d43f61865',1,'NBT_Type::String'],['../NBT__TAG_8hpp.html#ada3a2766daa185b5461d684c766b4a2ea27118326006d3829667a400ad23d5d98',1,'String:&#160;NBT_TAG.hpp']]],
+  ['string_32',['String',['../classNBT__Type.html#a5efe8f76052bcfe6ed8779a60a78a295',1,'NBT_Type::String'],['../NBT__TAG_8hpp.html#ada3a2766daa185b5461d684c766b4a2ea27118326006d3829667a400ad23d5d98',1,'String:&#160;NBT_TAG.hpp']]],
   ['stringlength_33',['StringLength',['../classNBT__Type.html#aae1d0d45649a20866a3b95d9323a768a',1,'NBT_Type']]],
   ['stringlength_5fmax_34',['StringLength_Max',['../classNBT__Type.html#a46c6f23bc65828e79fd08579780ddc47',1,'NBT_Type']]],
   ['stringlength_5fmin_35',['StringLength_Min',['../classNBT__Type.html#a028c43de1fb5a063bc1087d350e20199',1,'NBT_Type']]],

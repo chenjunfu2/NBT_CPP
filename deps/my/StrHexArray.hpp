@@ -73,7 +73,7 @@ private:
 		}
 	};
 
-	template<typename T = std::basic_string<uint8_t>>
+	template<typename T = std::vector<uint8_t>>
 	requires(sizeof(typename T::value_type) == 1)//大小必须为1
 	class DynamicArray
 	{
