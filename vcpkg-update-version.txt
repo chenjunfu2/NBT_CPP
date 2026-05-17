@@ -1,3 +1,6 @@
+#使用git命令：git diff [commit-hash-1]..[commit-hash-2] -- [路径] > diff.txt
+#根据diff编写更新说明
+
 #修复bug，处理todo，新增内容等
 #通过本地测试项目
 #通过GitHub Action测试项目
