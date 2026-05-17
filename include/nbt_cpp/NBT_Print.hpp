@@ -35,7 +35,7 @@ private:
 	FILE *pfOutputErr = NULL;
 
 public:
-	using Level = NBT_Print_Level;
+	using Level = NBT_Print_Level;	///< 信息等级，直接映射NBT_Print_Level
 
 public:
 
@@ -122,7 +122,7 @@ public:
 class NBT_NoPrint
 {
 public:
-	using Level = NBT_Print_Level;
+	using Level = NBT_Print_Level;	///< 信息等级，直接映射NBT_Print_Level
 
 public:
 	/// @brief 默认构造函数
@@ -139,7 +139,7 @@ public:
 	/// @param fmt 格式化字符串（忽略）
 	/// @param ...args 格式化参数（忽略）
 	template<typename... Args>
-	void operator()(Level, const std::format_string<Args...>, Args&&...) const noexcept
+	void operator()(Level lvl, const std::format_string<Args...> fmt, Args&&... args) const noexcept
 	{
 		return;
 	}
@@ -149,7 +149,7 @@ public:
 	/// @param fmt 格式化字符串（忽略）
 	/// @param ...args 格式化参数（忽略）
 	template<typename... Args>
-	void operator()(const std::format_string<Args...>, Args&&...) const noexcept
+	void operator()(const std::format_string<Args...> fmt, Args&&... args) const noexcept
 	{
 		return;
 	}

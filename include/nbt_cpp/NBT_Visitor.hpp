@@ -34,8 +34,8 @@ enum class NBT_Visitor_NestingControl : uint8_t
 class NBT_Visitor
 {
 public:
-	using ResultControl = NBT_Visitor_ResultControl;
-	using NestingControl = NBT_Visitor_NestingControl;
+	using ResultControl = NBT_Visitor_ResultControl;	///< 控制流返回码（普通回调），直接映射 NBT_Visitor_ResultControl
+	using NestingControl = NBT_Visitor_NestingControl;	///< 控制流返回码（嵌套结构入口回调），直接映射 NBT_Visitor_NestingControl
 
 public:
 	/// @brief 处理数值类型节点
@@ -448,7 +448,7 @@ public:
 	NBT_Visitor_Collector &operator=(NBT_Visitor_Collector &&) = default;
 
 public:
-	using ResultControl = NBT_Visitor_ResultControl; ///< 控制流返回码（普通回调），直接映射 NBT_Visitor_ResultControl
+	using ResultControl = NBT_Visitor_ResultControl;	///< 控制流返回码（普通回调），直接映射 NBT_Visitor_ResultControl
 	using NestingControl = NBT_Visitor_NestingControl;	///< 控制流返回码（嵌套结构入口回调），直接映射 NBT_Visitor_NestingControl
 
 	/// @brief 获取根节点的常量引用
