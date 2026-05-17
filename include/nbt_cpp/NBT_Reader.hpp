@@ -747,6 +747,17 @@ public:
 		return GetCompoundType<true, bUnwrapMixedList>(IptStream, tCompound, szStackDepth, funcInfo) == AllOk;
 	}
 
+#ifdef CJF2_NBT_CPP_USE_ZLIB
+	template <typename InfoFunc = NBT_Print>
+	static bool SimpleReadNbtFile(NBT_Type::Compound &tCompound, const std::filesystem::path &pathFileName, InfoFunc funcInfo = InfoFunc{ stderr }) noexcept
+	{
+
+
+
+
+
+	}
+#endif
 
 #undef MYTRY
 #undef MYCATCH

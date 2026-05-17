@@ -827,6 +827,14 @@ public:
 		return PutCompoundType<true, SortPolicy>(OptStream, tCompound, szStackDepth, funcInfo) == AllOk;
 	}
 
+#ifdef CJF2_NBT_CPP_USE_ZLIB
+	template <typename InfoFunc = NBT_Print>
+	static bool SimpleWriteNbtFile(const NBT_Type::Compound &tCompound, const std::filesystem::path &pathFileName, InfoFunc funcInfo = InfoFunc{}) noexcept
+	{
+
+
+	}
+#endif
 
 #undef MYTRY
 #undef MYCATCH

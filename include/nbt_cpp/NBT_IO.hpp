@@ -335,25 +335,28 @@ public:
 	requires (sizeof(typename T::value_type) == 1 && std::is_trivially_copyable_v<typename T::value_type>)
 	static bool ReadFile(const std::filesystem::path &pathFileName, T &tData)
 	{
-		std::fstream fRead;
-		fRead.open(pathFileName, std::ios_base::binary | std::ios_base::in);
-		if (!fRead)
+		std::error_code ec;
+
+		bool bRegularFile = std::filesystem::is_regular_file(pathFileName, ec);
+		if (ec || !bRegularFile)//必须是普通文件
 		{
 			return false;
 		}
 
 		//获取文件大小
-		// 移动到文件末尾
-		if (!fRead.seekg(0, std::ios::end))
+		uintmax_t umFileSize = std::filesystem::file_size(pathFileName, ec);
+		if (ec || umFileSize > (uintmax_t)std::numeric_limits<size_t>::max())//大小超过size_t范围，无法读取
 		{
 			return false;
 		}
 
-		// 获取文件大小
-		size_t szFileSize = fRead.tellg();
+		//转换为size_t
+		size_t szFileSize = (size_t)umFileSize;
 
-		//回到文件开头
-		if (!fRead.seekg(0, std::ios::beg))
+		//打开文件
+		std::fstream fRead;
+		fRead.open(pathFileName, std::ios_base::binary | std::ios_base::in);
+		if (!fRead)
 		{
 			return false;
 		}
@@ -704,10 +707,10 @@ public:
 	/// @note funcErrInfo默认实现为NBT_Print并输出到标准异常stderr，用户可以自定义。
 	/// 类似于NBT_Print的仿函数类型并替换输出例程，具体情况请参照NBT_Print类的说明。
 	/// 顺序容器必须存储字节流，内部的值类型大小必须为1，且必须可平凡拷贝。
-	template<typename I, typename O, typename ErrInfoFunc = NBT_Print>
+	template<typename I, typename O, typename InfoFunc = NBT_Print>
 	requires (sizeof(typename I::value_type) == 1 && std::is_trivially_copyable_v<typename I::value_type> &&
 			  sizeof(typename O::value_type) == 1 && std::is_trivially_copyable_v<typename O::value_type>)
-	static bool DecompressDataNoThrow(O &oData, const I &iData, ErrInfoFunc funcErrInfo = NBT_Print{ stderr }) noexcept
+	static bool DecompressDataNoThrow(O &oData, const I &iData, InfoFunc funcInfo = InfoFunc{}) noexcept
 	{
 		try
 		{
@@ -716,17 +719,17 @@ public:
 		}
 		catch (const std::bad_alloc &e)
 		{
-			funcErrInfo("std::bad_alloc:[{}]\n", e.what());
+			funcInfo(NBT_Print_Level::Err, "std::bad_alloc:[{}]\n", e.what());
 			return false;
 		}
 		catch (const std::exception &e)
 		{
-			funcErrInfo("std::exception:[{}]\n", e.what());
+			funcInfo(NBT_Print_Level::Err, "std::exception:[{}]\n", e.what());
 			return false;
 		}
 		catch (...)
 		{
-			funcErrInfo("Unknown Error\n");
+			funcInfo(NBT_Print_Level::Err, "Unknown Error\n");
 			return false;
 		}
 	}
@@ -743,10 +746,10 @@ public:
 	/// @note funcErrInfo默认实现为NBT_Print并输出到标准异常stderr，用户可以自定义。
 	/// 类似于NBT_Print的仿函数类型并替换输出例程，具体情况请参照NBT_Print类的说明。
 	/// 顺序容器必须存储字节流，内部的值类型大小必须为1，且必须可平凡拷贝。
-	template<typename I, typename O, typename ErrInfoFunc = NBT_Print>
+	template<typename I, typename O, typename InfoFunc = NBT_Print>
 	requires (sizeof(typename I::value_type) == 1 && std::is_trivially_copyable_v<typename I::value_type> &&
 			  sizeof(typename O::value_type) == 1 && std::is_trivially_copyable_v<typename O::value_type>)
-	static bool CompressDataNoThrow(O &oData, const I &iData, int iLevel = Z_DEFAULT_COMPRESSION, ErrInfoFunc funcErrInfo = NBT_Print{ stderr }) noexcept
+	static bool CompressDataNoThrow(O &oData, const I &iData, int iLevel = Z_DEFAULT_COMPRESSION, InfoFunc funcInfo = InfoFunc{}) noexcept
 	{
 		try
 		{
@@ -755,20 +758,20 @@ public:
 		}
 		catch (const std::bad_alloc &e)
 		{
-			funcErrInfo("std::bad_alloc:[{}]\n", e.what());
+			funcInfo(NBT_Print_Level::Err, "std::bad_alloc:[{}]\n", e.what());
 			return false;
 		}
 		catch (const std::exception &e)
 		{
-			funcErrInfo("std::exception:[{}]\n", e.what());
+			funcInfo(NBT_Print_Level::Err, "std::exception:[{}]\n", e.what());
 			return false;
 		}
 		catch (...)
 		{
-			funcErrInfo("Unknown Error\n");
+			funcInfo(NBT_Print_Level::Err, "Unknown Error\n");
 			return false;
 		}
 	}
-
 #endif
+
 };
