@@ -810,10 +810,10 @@ int main_xx(void)
 		}
 	};
 
-	printf("\n%s\n", NBT_Helper::Serialize<true, false, true>(testprint).ToCharTypeUTF8().c_str());
-	printf("\n%s\n", NBT_Helper::Serialize<true, false, false>(testprint).c_str());
+	printf("\n%s\n", NBT_Helper::Serialize<NBT_Helper::DefaultCompoundSort<true>, false, true>(testprint).ToCharTypeUTF8().c_str());
+	printf("\n%s\n", NBT_Helper::Serialize<NBT_Helper::DefaultCompoundSort<true>, false, false>(testprint).c_str());
 
-	printf("\n%s\n", NBT_Helper::Serialize<true, true, false>(testprint).c_str());
+	printf("\n%s\n", NBT_Helper::Serialize<NBT_Helper::DefaultCompoundSort<true>, true, false>(testprint).c_str());
 
 	NBT_Helper::Print(testprint);
 
