@@ -1187,6 +1187,53 @@ public:
 		return ScanCompoundType<true>(IptStream, tVisitor, szStackDepth) != Control::Error;
 	}
 
+#ifdef CJF2_NBT_CPP_USE_ZLIB
+
+	/// @brief 从可能被压缩的文件中扫描 NBT 数据，并通过访问器回调处理每个节点
+	/// @tparam Visitor 访问器类型，必须符合 IsLookLike_NBT_Visitor 概念
+	/// @tparam InfoFunc 错误信息输出仿函数类型
+	/// @param pathFileName 源文件路径
+	/// @param tVisitor 访问器对象，用于处理扫描过程中遇到的 NBT 数据节点
+	/// @param funcInfo 错误信息处理仿函数
+	/// @return 扫描成功返回 true，失败返回 false
+	/// @note 本函数会读取整个文件内容，先尝试使用 Zlib 解压。若解压失败，则假定文件未压缩，直接使用原始数据。
+	/// 然后调用 ScanNBT 扫描数据。如果文件不存在，则会失败。
+	template <typename Visitor, typename InfoFunc = NBT_Print>
+	requires(IsLookLike_NBT_Visitor<Visitor>)
+	static bool SimpleScanNbtFile(const std::filesystem::path &pathFileName, Visitor &tVisitor, InfoFunc funcInfo = InfoFunc{}) noexcept
+	{
+		// 读取文件
+		std::vector<uint8_t> vFileData;
+		if (!NBT_IO::ReadFile(pathFileName, vFileData, funcInfo))
+		{
+			funcInfo(NBT_Print_Level::Err, "Error: Cannot read file [{}].\n", pathFileName.string());
+			return false;
+		}
+
+		// 尝试解压，失败则视作未压缩数据
+		std::vector<uint8_t> vNbtData;
+		if (!NBT_IO::DecompressDataNoThrow(vNbtData, vFileData, funcInfo))
+		{
+			funcInfo(NBT_Print_Level::Warn, "Warning: Decompression failed, assuming uncompressed data.\n");
+			vNbtData = std::move(vFileData);
+		}
+
+		// 清理数据
+		vFileData.clear();
+		vFileData.shrink_to_fit();
+
+		// 扫描
+		if (!ScanNBT(vNbtData, 0, tVisitor, 512))
+		{
+			funcInfo(NBT_Print_Level::Err, "Error: ScanNBT failed.\n");
+			return false;
+		}
+
+		return true;
+	}
+
+#endif // CJF2_NBT_CPP_USE_ZLIB
+
 #undef MYTRY
 #undef MYCATCH
 #undef CALL_FUNC_RET_CONTROL

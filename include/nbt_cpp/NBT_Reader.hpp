@@ -751,14 +751,14 @@ public:
 
 	/// @brief 从可能被压缩的文件中读取 NBT 数据到 NBT_Type::Compound 对象中
 	/// @tparam InfoFunc 信息输出仿函数类型
-	/// @param[out] tCompound 用于返回读取结果的对象
 	/// @param pathFileName 源文件路径
+	/// @param[out] tCompound 用于返回读取结果的对象
 	/// @param funcInfo 错误信息处理仿函数
 	/// @return 读取成功返回 true，失败返回 false
 	/// @note 本函数会读取整个文件内容，先尝试使用 Zlib 解压。若解压失败，则假定文件未压缩，直接使用原始数据。
 	/// 然后调用 ReadNBT 解析数据到 Compound 对象。如果文件不存在，则会失败。
 	template <typename InfoFunc = NBT_Print>
-	static bool SimpleReadNbtFile(NBT_Type::Compound &tCompound, const std::filesystem::path &pathFileName, InfoFunc funcInfo = InfoFunc{}) noexcept
+	static bool SimpleReadNbtFile(const std::filesystem::path &pathFileName, NBT_Type::Compound &tCompound, InfoFunc funcInfo = InfoFunc{}) noexcept
 	{
 		//读取文件
 		std::vector<uint8_t> vFileData;

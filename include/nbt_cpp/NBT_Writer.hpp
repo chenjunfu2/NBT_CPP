@@ -831,14 +831,14 @@ public:
 
 	/// @brief 将 NBT_Type::Compound 对象以可能压缩的方式写入到文件中
 	/// @tparam InfoFunc 信息输出仿函数类型
-	/// @param tCompound 用于写出的对象
 	/// @param pathFileName 目标文件路径
+	/// @param tCompound 用于写出的对象
 	/// @param funcInfo 错误信息处理仿函数
 	/// @return 写入成功返回 true，失败返回 false
 	/// @note 本函数会先调用 WriteNBT 将 Compound 序列化为二进制数据，然后尝试使用 Zlib 压缩（压缩级别 -1）。
 	/// 若压缩失败，则直接写出未压缩的数据。最终将结果写入指定文件。如果文件已存在，会被覆盖，文件未存在则创建文件。
 	template <typename InfoFunc = NBT_Print>
-	static bool SimpleWriteNbtFile(const NBT_Type::Compound &tCompound, const std::filesystem::path &pathFileName, InfoFunc funcInfo = InfoFunc{}) noexcept
+	static bool SimpleWriteNbtFile(const std::filesystem::path &pathFileName, const NBT_Type::Compound &tCompound, InfoFunc funcInfo = InfoFunc{}) noexcept
 	{
 		//写入文件
 		std::vector<uint8_t> vNbtData;
