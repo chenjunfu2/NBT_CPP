@@ -238,7 +238,7 @@ void NBT_ReadWrite_Test(const Data_T &NbtRawData, const NBT_Type::Compound &cpdG
 			}
 
 			return true;
-		}(NBT_Helper::Hash<true>(cpdGen, 0x12345678), NBT_Helper::Hash<true>(cpdRead, 0x12345678))//true使用排序hash
+		}(NBT_Helper::Hash<NBT_Helper::DefaultCompoundSort<true>>(cpdGen, 0x12345678), NBT_Helper::Hash<NBT_Helper::DefaultCompoundSort<true>>(cpdRead, 0x12345678))//使用排序hash
 	);
 
 	//无序写出测试

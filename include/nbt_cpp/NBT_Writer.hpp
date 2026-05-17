@@ -425,7 +425,7 @@ catch(...)\
 		ErrCode eRet = AllOk;
 		CHECK_STACK_DEPTH(szStackDepth);
 		
-		using IterableRangeType = typename std::conditional_t<std::is_same_v<SortPolicy, NoSortCompound>, const NBT_Type::Compound &, std::vector<NBT_Type::Compound::const_iterator>>;
+		using IterableRangeType = typename std::conditional_t<std::is_same_v<SortPolicy, NoSortCompound>, const NBT_Type::Compound &, std::vector<NBT_Type::Compound::Const_Iterator>>;
 
 		//通过模板SortPolicy指定是否执行排序输出（nbt中仅compound是无序结构）
 		IterableRangeType tmpIterableRange =//注意此处如果内部抛出异常，返回空vector的情况下还有可能二次异常，所以外部还需另一个try catch
