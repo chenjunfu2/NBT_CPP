@@ -1,8 +1,8 @@
 var classNBT__Visitor__Collector =
 [
     [ "Frame", "structNBT__Visitor__Collector_1_1Frame.html", "structNBT__Visitor__Collector_1_1Frame" ],
-    [ "NestingControl", "classNBT__Visitor__Collector.html#a67b57ac173a634cb884ed6a73c345e44", null ],
-    [ "ResultControl", "classNBT__Visitor__Collector.html#a45fbaa34badf4b1e838b59b7e4ebbd35", null ],
+    [ "NestingControl", "classNBT__Visitor__Collector.html#a8d2b1f6152c262e2edc411c6709aa1d7", null ],
+    [ "ResultControl", "classNBT__Visitor__Collector.html#af676ff3bfe0dd57e0ffd9da8d57c354c", null ],
     [ "NBT_Visitor_Collector", "classNBT__Visitor__Collector.html#aa27be4bb18e74092df7d9b7bc237e52b", null ],
     [ "NBT_Visitor_Collector", "classNBT__Visitor__Collector.html#a11c9de5481477045385a96fe2e033dae", null ],
     [ "AppendStackTop", "classNBT__Visitor__Collector.html#a800b0fc9eb9aedd190811fa55662253a", null ],

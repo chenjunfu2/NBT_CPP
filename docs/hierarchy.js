@@ -13,6 +13,7 @@ var hierarchy =
     [ "Compound", null, [
       [ "NBT_Compound< Compound >", "classNBT__Compound.html", null ]
     ] ],
+    [ "NBT_Helper::DefaultCompoundSort&lt; bAscending &gt;", "structNBT__Helper_1_1DefaultCompoundSort.html", null ],
     [ "NBT_Writer::DefaultCompoundSort&lt; bAscending &gt;", "structNBT__Writer_1_1DefaultCompoundSort.html", null ],
     [ "NBT_IO::DefaultInputStream&lt; T &gt;", "classNBT__IO_1_1DefaultInputStream.html", null ],
     [ "NBT_IO::DefaultOutputStream&lt; T &gt;", "classNBT__IO_1_1DefaultOutputStream.html", null ],
@@ -29,6 +30,7 @@ var hierarchy =
     [ "NBT_IO", "classNBT__IO.html", null ],
     [ "NBT_Node", "classNBT__Node.html", null ],
     [ "NBT_Node_View&lt; bIsConst &gt;", "classNBT__Node__View.html", null ],
+    [ "NBT_NoPrint", "classNBT__NoPrint.html", null ],
     [ "NBT_Print", "classNBT__Print.html", null ],
     [ "NBT_Reader", "classNBT__Reader.html", null ],
     [ "NBT_Scanner", "classNBT__Scanner.html", null ],
@@ -36,6 +38,7 @@ var hierarchy =
     [ "NBT_Visitor", "classNBT__Visitor.html", null ],
     [ "NBT_Visitor_Collector", "classNBT__Visitor__Collector.html", null ],
     [ "NBT_Writer", "classNBT__Writer.html", null ],
+    [ "NBT_Helper::NoSortCompound", "structNBT__Helper_1_1NoSortCompound.html", null ],
     [ "NBT_Writer::NoSortCompound", "structNBT__Writer_1_1NoSortCompound.html", null ],
     [ "String", null, [
       [ "NBT_String< String, StringView >", "classNBT__String.html", null ]

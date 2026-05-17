@@ -1,5 +1,17 @@
 var classNBT__List =
 [
+    [ "Allocator_Type", "classNBT__List.html#a0040bfe75562eede6ccf52a86fb226dd", null ],
+    [ "Const_Iterator", "classNBT__List.html#abe89e79b64b61d39d7a0e31ce8a994ea", null ],
+    [ "Const_Pointer", "classNBT__List.html#a01963f6c89d894ee1153c4610dcf3f53", null ],
+    [ "Const_Reference", "classNBT__List.html#afefff9e0a389308c085ba42a92acd919", null ],
+    [ "Const_Reverse_Iterator", "classNBT__List.html#a5478037655db3c1bbf0118b613fd7094", null ],
+    [ "Difference_Type", "classNBT__List.html#a57e6bccea3d293453a5520c7c8a75a3e", null ],
+    [ "Iterator", "classNBT__List.html#a584377e88d5519593caada85d37487c4", null ],
+    [ "Pointer", "classNBT__List.html#aae3c0640d0b4797ef237d13b84782eb2", null ],
+    [ "Reference", "classNBT__List.html#a2167b8299b52644dec36354dcc7aa2be", null ],
+    [ "Reverse_Iterator", "classNBT__List.html#a2399bb41d99ddd6d2c2711b2e596a2cb", null ],
+    [ "Size_Type", "classNBT__List.html#a0ddbac8445246dfe73daa937ba9b4581", null ],
+    [ "Value_Type", "classNBT__List.html#a6bfb0db2f52774ec8ff54e00a318b23f", null ],
     [ "NBT_List", "classNBT__List.html#a8d0616bbbefa1d2eb5bb5b0263d17f9c", null ],
     [ "NBT_List", "classNBT__List.html#aa332cbd20b92bdc65800f85dfd0b62fa", null ],
     [ "NBT_List", "classNBT__List.html#a9a2c712374336f988e5a94d87cb9b342", null ],

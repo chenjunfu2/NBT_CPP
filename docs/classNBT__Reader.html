@@ -106,6 +106,9 @@ $(function(){initNavTree('classNBT__Reader.html','','classNBT__Reader-members');
 <tr class="memitem:a61114755d0dea1b11f098722f1bb126e" id="r_a61114755d0dea1b11f098722f1bb126e"><td class="memTemplParams" colspan="2">template&lt;bool bUnwrapMixedList = true, typename DataType = std::vector&lt;uint8_t&gt;, typename InfoFunc = NBT_Print&gt; </td></tr>
 <tr class="memitem:a61114755d0dea1b11f098722f1bb126e template"><td class="memItemLeft">static bool&#160;</td><td class="memItemRight"><a class="el" href="#a61114755d0dea1b11f098722f1bb126e">ReadNBT</a> (const DataType &amp;tDataInput, size_t szStartIdx, <a class="el" href="classNBT__Type.html#a9dcd5050b96a10161f18d7ae4a22e7b3">NBT_Type::Compound</a> &amp;tCompound, size_t szStackDepth=512, InfoFunc funcInfo=InfoFunc{}) noexcept</td></tr>
 <tr class="memdesc:a61114755d0dea1b11f098722f1bb126e"><td class="mdescLeft">&#160;</td><td class="mdescRight">从数据容器中读取NBT数据到NBT_Type::Compound对象中  <br /></td></tr>
+<tr class="memitem:a5195a06a9b4b730361e11a11c84bef3f" id="r_a5195a06a9b4b730361e11a11c84bef3f"><td class="memTemplParams" colspan="2">template&lt;typename InfoFunc = NBT_Print&gt; </td></tr>
+<tr class="memitem:a5195a06a9b4b730361e11a11c84bef3f template"><td class="memItemLeft">static bool&#160;</td><td class="memItemRight"><a class="el" href="#a5195a06a9b4b730361e11a11c84bef3f">SimpleReadNbtFile</a> (const std::filesystem::path &amp;pathFileName, <a class="el" href="classNBT__Type.html#a9dcd5050b96a10161f18d7ae4a22e7b3">NBT_Type::Compound</a> &amp;tCompound, InfoFunc funcInfo=InfoFunc{}) noexcept</td></tr>
+<tr class="memdesc:a5195a06a9b4b730361e11a11c84bef3f"><td class="mdescLeft">&#160;</td><td class="mdescRight">从可能被压缩的文件中读取 NBT 数据到 <a class="el" href="classNBT__Type.html#a9dcd5050b96a10161f18d7ae4a22e7b3" title="集合类型，可存储任意不同的NBT类型，通过名称映射值">NBT_Type::Compound</a> 对象中  <br /></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">详细描述</h2>
 <div class="textblock"><p>这个类用于提供从NBT二进制流读取到NBT_Type::Compound对象的反序列化功能 </p>
@@ -237,6 +240,60 @@ template&lt;bool bUnwrapMixedList = true, typename InputStream, typename InfoFun
 </dl>
 <dl class="section return"><dt>返回</dt><dd>读取成功返回true，失败返回false </dd></dl>
 <dl class="section note"><dt>注解</dt><dd>错误与警告信息都输出到funcInfo，错误会导致函数结束剩下的写出任务，并进行栈回溯输出，最终返回false。警告则只会输出一次信息，然后继续执行，如果没有任何错误但是存在警告，函数仍将返回true。 函数不会清除tCompound对象的数据，所以可以通过多次调用此函数，把多个NBT数据流合并到同一个tCompound对象内， 但是如果多个流中有重复、同名的NBT键，则会产生冲突，为了保证键的唯一性，后来的值会替换原先的值，并通过funcInfo产生一个警告信息。 </dd></dl>
+
+</div>
+</div>
+<a id="a5195a06a9b4b730361e11a11c84bef3f" name="a5195a06a9b4b730361e11a11c84bef3f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5195a06a9b4b730361e11a11c84bef3f">&#9670;&#160;</a></span>SimpleReadNbtFile()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename InfoFunc = NBT_Print&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool NBT_Reader::SimpleReadNbtFile </td>
+          <td>(</td>
+          <td class="paramtype">const std::filesystem::path &amp;</td>          <td class="paramname"><span class="paramname"><em>pathFileName</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classNBT__Type.html#a9dcd5050b96a10161f18d7ae4a22e7b3">NBT_Type::Compound</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>tCompound</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">InfoFunc</td>          <td class="paramname"><span class="paramname"><em>funcInfo</em></span><span class="paramdefsep"> = </span><span class="paramdefval">InfoFunc{}</span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>从可能被压缩的文件中读取 NBT 数据到 <a class="el" href="classNBT__Type.html#a9dcd5050b96a10161f18d7ae4a22e7b3" title="集合类型，可存储任意不同的NBT类型，通过名称映射值">NBT_Type::Compound</a> 对象中 </p>
+<dl class="tparams"><dt>模板参数</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">InfoFunc</td><td>信息输出仿函数类型 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir"></td><td class="paramname">pathFileName</td><td>源文件路径 </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">tCompound</td><td>用于返回读取结果的对象 </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">funcInfo</td><td>错误信息处理仿函数 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>读取成功返回 true，失败返回 false </dd></dl>
+<dl class="section note"><dt>注解</dt><dd>本函数会读取整个文件内容，先尝试使用 Zlib 解压。若解压失败，则假定文件未压缩，直接使用原始数据。 然后调用 ReadNBT 解析数据到 Compound 对象。如果文件不存在，则会失败。 </dd></dl>
 
 </div>
 </div>

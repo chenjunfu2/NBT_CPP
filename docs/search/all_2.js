@@ -15,7 +15,7 @@ var searchData=
   ['backshort_12',['BackShort',['../classNBT__List.html#aac36fac7dc70f865f142008a1d2f60ec',1,'NBT_List::BackShort(void) const'],['../classNBT__List.html#a762e4d37d2cf357de4dbec6cc8cc6d31',1,'NBT_List::BackShort(void)']]],
   ['backstring_13',['BackString',['../classNBT__List.html#a7482809de9d8d5e02078230018f450b6',1,'NBT_List::BackString(void) const'],['../classNBT__List.html#affd46b6a866f1e29d5d68cebf96ff392',1,'NBT_List::BackString(void)']]],
   ['bigtonativeany_14',['BigToNativeAny',['../classNBT__Endian.html#a82f4e968a2c3a4ff0010dfb5cba394fa',1,'NBT_Endian']]],
-  ['break_15',['Break',['../classNBT__Visitor.html#a5dd0ef8b7205c99438132ea13413f82bae4c38d6d45baf080943d323dd51a2ce8',1,'NBT_Visitor::Break'],['../classNBT__Visitor.html#a909a3db005dff0ac0f471df1ace97063ae4c38d6d45baf080943d323dd51a2ce8',1,'NBT_Visitor::Break']]],
+  ['break_15',['Break',['../NBT__Visitor_8hpp.html#a34ddd189bc0a47dc441b469bdab2abe3ae4c38d6d45baf080943d323dd51a2ce8',1,'Break:&#160;NBT_Visitor.hpp'],['../NBT__Visitor_8hpp.html#a9079b657e4cc5d8bb840b40cafc01a44ae4c38d6d45baf080943d323dd51a2ce8',1,'Break:&#160;NBT_Visitor.hpp']]],
   ['builtinrawtype_5ft_16',['BuiltinRawType_T',['../classNBT__Type.html#aa937376fd94d8a9abe0fb6e16107009d',1,'NBT_Type']]],
   ['byte_17',['Byte',['../classNBT__Type.html#a09b5ce48dffc429ad8a7d05d007741c1',1,'NBT_Type::Byte'],['../NBT__TAG_8hpp.html#ada3a2766daa185b5461d684c766b4a2eaa245c3230debe5c956484ecc6fa93877',1,'Byte:&#160;NBT_TAG.hpp']]],
   ['byte_5fmax_18',['Byte_Max',['../classNBT__Type.html#a4914c541bb3d92c6f9160cef0423e303',1,'NBT_Type']]],

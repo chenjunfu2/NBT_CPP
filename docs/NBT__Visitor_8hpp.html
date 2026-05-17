@@ -115,10 +115,91 @@ $(function(){initNavTree('NBT__Visitor_8hpp.html','',''); });
 概念</h2></td></tr>
 <tr class="memitem:IsLookLike_5FNBT_5FVisitor" id="r_IsLookLike_5FNBT_5FVisitor"><td class="memItemLeft">concept &#160;</td><td class="memItemRight"><a class="el" href="conceptIsLookLike__NBT__Visitor.html">IsLookLike_NBT_Visitor</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">检查类型是否符合 NBT 访问器（Visitor）的接口要求 <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-enum-members" class="groupheader"><a id="enum-members" name="enum-members"></a>
+枚举</h2></td></tr>
+<tr class="memitem:a34ddd189bc0a47dc441b469bdab2abe3" id="r_a34ddd189bc0a47dc441b469bdab2abe3"><td class="memItemLeft">enum class &#160;</td><td class="memItemRight"><a class="el" href="#a34ddd189bc0a47dc441b469bdab2abe3">NBT_Visitor_ResultControl</a> : uint8_t { <a class="el" href="#a34ddd189bc0a47dc441b469bdab2abe3aa0bfb8e59e6c13fc8d990781f77694fe">Continue</a>
+, <a class="el" href="#a34ddd189bc0a47dc441b469bdab2abe3ae4c38d6d45baf080943d323dd51a2ce8">Break</a>
+, <a class="el" href="#a34ddd189bc0a47dc441b469bdab2abe3a11a755d598c0c417f9a36758c3da7481">Stop</a>
+ }</td></tr>
+<tr class="memdesc:a34ddd189bc0a47dc441b469bdab2abe3"><td class="mdescLeft">&#160;</td><td class="mdescRight">控制流返回码（用于普通回调）  <a href="#a34ddd189bc0a47dc441b469bdab2abe3">更多...</a><br /></td></tr>
+<tr class="memitem:a9079b657e4cc5d8bb840b40cafc01a44" id="r_a9079b657e4cc5d8bb840b40cafc01a44"><td class="memItemLeft">enum class &#160;</td><td class="memItemRight"><a class="el" href="#a9079b657e4cc5d8bb840b40cafc01a44">NBT_Visitor_NestingControl</a> : uint8_t { <a class="el" href="#a9079b657e4cc5d8bb840b40cafc01a44af1851d5600eae616ee802a31ac74701b">Enter</a>
+, <a class="el" href="#a9079b657e4cc5d8bb840b40cafc01a44a72ef2b9b6965d078e3c7f95487a82d1c">Skip</a>
+, <a class="el" href="#a9079b657e4cc5d8bb840b40cafc01a44ae4c38d6d45baf080943d323dd51a2ce8">Break</a>
+, <a class="el" href="#a9079b657e4cc5d8bb840b40cafc01a44a11a755d598c0c417f9a36758c3da7481">Stop</a>
+ }</td></tr>
+<tr class="memdesc:a9079b657e4cc5d8bb840b40cafc01a44"><td class="mdescLeft">&#160;</td><td class="mdescRight">控制流返回码（用于嵌套结构回调）  <a href="#a9079b657e4cc5d8bb840b40cafc01a44">更多...</a><br /></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">详细描述</h2>
 <div class="textblock"><p>NBT类型二进制流访问器（作为扫描工具的回调） </p>
-</div></div><!-- contents -->
+</div><a name="doc-enum-members" id="doc-enum-members"></a><h2 id="header-doc-enum-members" class="groupheader">枚举类型说明</h2>
+<a id="a9079b657e4cc5d8bb840b40cafc01a44" name="a9079b657e4cc5d8bb840b40cafc01a44"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9079b657e4cc5d8bb840b40cafc01a44">&#9670;&#160;</a></span>NBT_Visitor_NestingControl</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum class <a class="el" href="#a9079b657e4cc5d8bb840b40cafc01a44">NBT_Visitor_NestingControl</a> : uint8_t</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel strong">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>控制流返回码（用于嵌套结构回调） </p>
+<table class="fieldtable">
+<tr><th colspan="2">枚举值</th></tr><tr><td class="fieldname"><a id="a9079b657e4cc5d8bb840b40cafc01a44af1851d5600eae616ee802a31ac74701b" name="a9079b657e4cc5d8bb840b40cafc01a44af1851d5600eae616ee802a31ac74701b"></a>Enter&#160;</td><td class="fielddoc"><p>进入当前值（递归进入嵌套结构或展开值） </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a9079b657e4cc5d8bb840b40cafc01a44a72ef2b9b6965d078e3c7f95487a82d1c" name="a9079b657e4cc5d8bb840b40cafc01a44a72ef2b9b6965d078e3c7f95487a82d1c"></a>Skip&#160;</td><td class="fielddoc"><p>跳过当前值（跳过递归进入嵌套结构或展开值） </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a9079b657e4cc5d8bb840b40cafc01a44ae4c38d6d45baf080943d323dd51a2ce8" name="a9079b657e4cc5d8bb840b40cafc01a44ae4c38d6d45baf080943d323dd51a2ce8"></a>Break&#160;</td><td class="fielddoc"><p>跳过剩余值（离开当前结构层级回到父层级） </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a9079b657e4cc5d8bb840b40cafc01a44a11a755d598c0c417f9a36758c3da7481" name="a9079b657e4cc5d8bb840b40cafc01a44a11a755d598c0c417f9a36758c3da7481"></a>Stop&#160;</td><td class="fielddoc"><p>停止处理（终止解析） </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<a id="a34ddd189bc0a47dc441b469bdab2abe3" name="a34ddd189bc0a47dc441b469bdab2abe3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a34ddd189bc0a47dc441b469bdab2abe3">&#9670;&#160;</a></span>NBT_Visitor_ResultControl</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum class <a class="el" href="#a34ddd189bc0a47dc441b469bdab2abe3">NBT_Visitor_ResultControl</a> : uint8_t</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel strong">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>控制流返回码（用于普通回调） </p>
+<table class="fieldtable">
+<tr><th colspan="2">枚举值</th></tr><tr><td class="fieldname"><a id="a34ddd189bc0a47dc441b469bdab2abe3aa0bfb8e59e6c13fc8d990781f77694fe" name="a34ddd189bc0a47dc441b469bdab2abe3aa0bfb8e59e6c13fc8d990781f77694fe"></a>Continue&#160;</td><td class="fielddoc"><p>继续处理（继续迭代） </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a34ddd189bc0a47dc441b469bdab2abe3ae4c38d6d45baf080943d323dd51a2ce8" name="a34ddd189bc0a47dc441b469bdab2abe3ae4c38d6d45baf080943d323dd51a2ce8"></a>Break&#160;</td><td class="fielddoc"><p>跳过剩余值（离开当前结构层级回到父层级） </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a34ddd189bc0a47dc441b469bdab2abe3a11a755d598c0c417f9a36758c3da7481" name="a34ddd189bc0a47dc441b469bdab2abe3a11a755d598c0c417f9a36758c3da7481"></a>Stop&#160;</td><td class="fielddoc"><p>停止处理（终止解析） </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+</div><!-- contents -->
 </div><!-- doc-content -->
 <div id="page-nav" class="page-nav-panel">
 <div id="page-nav-resize-handle"></div>

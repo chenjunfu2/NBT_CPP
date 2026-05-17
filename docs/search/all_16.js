@@ -7,6 +7,7 @@ var searchData=
   ['_7enbt_5flist_4',['~NBT_List',['../classNBT__List.html#aa8a4cbbc10c1fbf823495598b0ca6aa1',1,'NBT_List']]],
   ['_7enbt_5fnode_5',['~NBT_Node',['../classNBT__Node.html#a75fc393abbdf7a7b407a4b65ddc62128',1,'NBT_Node']]],
   ['_7enbt_5fnode_5fview_6',['~NBT_Node_View',['../classNBT__Node__View.html#a2c7b06bbe6da6a6d72b657da19fd25b7',1,'NBT_Node_View']]],
-  ['_7enbt_5fprint_7',['~NBT_Print',['../classNBT__Print.html#a8f3f53ef5f64d005a4b0efe579d714ce',1,'NBT_Print']]],
-  ['_7estringliteral_8',['~StringLiteral',['../classMUTF8__Tool__Internal_1_1StringLiteral.html#a8ecab46788563847fdc47f52da804f40',1,'MUTF8_Tool_Internal::StringLiteral']]]
+  ['_7enbt_5fnoprint_7',['~NBT_NoPrint',['../classNBT__NoPrint.html#a5b4a71dfd1e98cf1bc20c789f55c336b',1,'NBT_NoPrint']]],
+  ['_7enbt_5fprint_8',['~NBT_Print',['../classNBT__Print.html#a8f3f53ef5f64d005a4b0efe579d714ce',1,'NBT_Print']]],
+  ['_7estringliteral_9',['~StringLiteral',['../classMUTF8__Tool__Internal_1_1StringLiteral.html#a8ecab46788563847fdc47f52da804f40',1,'MUTF8_Tool_Internal::StringLiteral']]]
 ];

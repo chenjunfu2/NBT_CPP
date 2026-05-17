@@ -514,7 +514,7 @@ $(function(){initNavTree('NBT__Writer_8hpp_source.html','',''); });
 <div class="line"><a id="l00425" name="l00425"></a><span class="lineno">  425</span>        ErrCode eRet = AllOk;</div>
 <div class="line"><a id="l00426" name="l00426"></a><span class="lineno">  426</span>        CHECK_STACK_DEPTH(szStackDepth);</div>
 <div class="line"><a id="l00427" name="l00427"></a><span class="lineno">  427</span>        </div>
-<div class="line"><a id="l00428" name="l00428"></a><span class="lineno">  428</span>        <span class="keyword">using </span>IterableRangeType = <span class="keyword">typename</span> std::conditional_t&lt;std::is_same_v&lt;SortPolicy, NoSortCompound&gt;, <span class="keyword">const</span> <a class="code hl_typedef" href="classNBT__Type.html#a9dcd5050b96a10161f18d7ae4a22e7b3">NBT_Type::Compound</a> &amp;, std::vector&lt;NBT_Type::Compound::const_iterator&gt;&gt;;</div>
+<div class="line"><a id="l00428" name="l00428"></a><span class="lineno">  428</span>        <span class="keyword">using </span>IterableRangeType = <span class="keyword">typename</span> std::conditional_t&lt;std::is_same_v&lt;SortPolicy, NoSortCompound&gt;, <span class="keyword">const</span> <a class="code hl_typedef" href="classNBT__Type.html#a9dcd5050b96a10161f18d7ae4a22e7b3">NBT_Type::Compound</a> &amp;, std::vector&lt;NBT_Type::Compound::Const_Iterator&gt;&gt;;</div>
 <div class="line"><a id="l00429" name="l00429"></a><span class="lineno">  429</span> </div>
 <div class="line"><a id="l00430" name="l00430"></a><span class="lineno">  430</span>        <span class="comment">//通过模板SortPolicy指定是否执行排序输出（nbt中仅compound是无序结构）</span></div>
 <div class="line"><a id="l00431" name="l00431"></a><span class="lineno">  431</span>        IterableRangeType tmpIterableRange =<span class="comment">//注意此处如果内部抛出异常，返回空vector的情况下还有可能二次异常，所以外部还需另一个try catch</span></div>
@@ -894,16 +894,54 @@ $(function(){initNavTree('NBT__Writer_8hpp_source.html','',''); });
 <div class="line"><a id="l00828" name="l00828"></a><span class="lineno">  828</span>    }</div>
 </div>
 <div class="line"><a id="l00829" name="l00829"></a><span class="lineno">  829</span> </div>
-<div class="line"><a id="l00830" name="l00830"></a><span class="lineno">  830</span> </div>
-<div class="line"><a id="l00831" name="l00831"></a><span class="lineno">  831</span><span class="preprocessor">#undef MYTRY</span></div>
-<div class="line"><a id="l00832" name="l00832"></a><span class="lineno">  832</span><span class="preprocessor">#undef MYCATCH</span></div>
-<div class="line"><a id="l00833" name="l00833"></a><span class="lineno">  833</span><span class="preprocessor">#undef CHECK_STACK_DEPTH</span></div>
-<div class="line"><a id="l00834" name="l00834"></a><span class="lineno">  834</span><span class="preprocessor">#undef STACK_TRACEBACK</span></div>
-<div class="line"><a id="l00835" name="l00835"></a><span class="lineno">  835</span><span class="preprocessor">#undef STRLING</span></div>
-<div class="line"><a id="l00836" name="l00836"></a><span class="lineno">  836</span><span class="preprocessor">#undef _RP_STRLING</span></div>
-<div class="line"><a id="l00837" name="l00837"></a><span class="lineno">  837</span><span class="preprocessor">#undef _RP___LINE__</span></div>
-<div class="line"><a id="l00838" name="l00838"></a><span class="lineno">  838</span><span class="preprocessor">#undef _RP___FUNCTION__</span></div>
-<div class="line"><a id="l00839" name="l00839"></a><span class="lineno">  839</span>};</div>
+<div class="line"><a id="l00830" name="l00830"></a><span class="lineno">  830</span><span class="preprocessor">#ifdef CJF2_NBT_CPP_USE_ZLIB</span></div>
+<div class="line"><a id="l00831" name="l00831"></a><span class="lineno">  831</span></div>
+<div class="line"><a id="l00840" name="l00840"></a><span class="lineno">  840</span>    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> InfoFunc = NBT_Pr<span class="keywordtype">int</span>&gt;</div>
+<div class="foldopen" id="foldopen00841" data-start="{" data-end="}">
+<div class="line"><a id="l00841" name="l00841"></a><span class="lineno"><a class="line" href="classNBT__Writer.html#ac4583e52dbd73629566e23206ab50ae4">  841</a></span>    <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code hl_function" href="classNBT__Writer.html#ac4583e52dbd73629566e23206ab50ae4">SimpleWriteNbtFile</a>(<span class="keyword">const</span> std::filesystem::path &amp;pathFileName, <span class="keyword">const</span> <a class="code hl_typedef" href="classNBT__Type.html#a9dcd5050b96a10161f18d7ae4a22e7b3">NBT_Type::Compound</a> &amp;tCompound, InfoFunc funcInfo = InfoFunc{}) <span class="keyword">noexcept</span></div>
+<div class="line"><a id="l00842" name="l00842"></a><span class="lineno">  842</span>    {</div>
+<div class="line"><a id="l00843" name="l00843"></a><span class="lineno">  843</span>        <span class="comment">//写入文件</span></div>
+<div class="line"><a id="l00844" name="l00844"></a><span class="lineno">  844</span>        std::vector&lt;uint8_t&gt; vNbtData;</div>
+<div class="line"><a id="l00845" name="l00845"></a><span class="lineno">  845</span>        <span class="keywordflow">if</span> (!<a class="code hl_function" href="classNBT__Writer.html#a7feaacc74b70bfa6f599d53699b4b38c">WriteNBT</a>(vNbtData, 0, tCompound, 512, funcInfo))</div>
+<div class="line"><a id="l00846" name="l00846"></a><span class="lineno">  846</span>        {</div>
+<div class="line"><a id="l00847" name="l00847"></a><span class="lineno">  847</span>            funcInfo(<a class="code hl_enumvalue" href="NBT__Print_8hpp.html#a977ff50d4d248543d59717387e6dd311ab47f6a6092c5d7e4bffec12dff309c3b">NBT_Print_Level::Err</a>, <span class="stringliteral">&quot;Error: WriteNBT failed.\n&quot;</span>);</div>
+<div class="line"><a id="l00848" name="l00848"></a><span class="lineno">  848</span>            <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00849" name="l00849"></a><span class="lineno">  849</span>        }</div>
+<div class="line"><a id="l00850" name="l00850"></a><span class="lineno">  850</span> </div>
+<div class="line"><a id="l00851" name="l00851"></a><span class="lineno">  851</span>        <span class="comment">//尝试压缩，压缩失败则直接写出</span></div>
+<div class="line"><a id="l00852" name="l00852"></a><span class="lineno">  852</span>        std::vector&lt;uint8_t&gt; vFileData;</div>
+<div class="line"><a id="l00853" name="l00853"></a><span class="lineno">  853</span>        <span class="keywordflow">if</span> (!<a class="code hl_function" href="classNBT__IO.html#a7d85e38e85dd8131c6c9f0f929f9c66d">NBT_IO::CompressDataNoThrow</a>(vFileData, vNbtData, -1, funcInfo))</div>
+<div class="line"><a id="l00854" name="l00854"></a><span class="lineno">  854</span>        {</div>
+<div class="line"><a id="l00855" name="l00855"></a><span class="lineno">  855</span>            funcInfo(<a class="code hl_enumvalue" href="NBT__Print_8hpp.html#a977ff50d4d248543d59717387e6dd311a56525ae64d370c0b448ac0d60710ef17">NBT_Print_Level::Warn</a>, <span class="stringliteral">&quot;Warning: Compression failed, using uncompressed data.\n&quot;</span>);</div>
+<div class="line"><a id="l00856" name="l00856"></a><span class="lineno">  856</span>            vFileData = std::move(vNbtData);</div>
+<div class="line"><a id="l00857" name="l00857"></a><span class="lineno">  857</span>        }</div>
+<div class="line"><a id="l00858" name="l00858"></a><span class="lineno">  858</span> </div>
+<div class="line"><a id="l00859" name="l00859"></a><span class="lineno">  859</span>        <span class="comment">//清理数据</span></div>
+<div class="line"><a id="l00860" name="l00860"></a><span class="lineno">  860</span>        vNbtData.clear();</div>
+<div class="line"><a id="l00861" name="l00861"></a><span class="lineno">  861</span>        vNbtData.shrink_to_fit();</div>
+<div class="line"><a id="l00862" name="l00862"></a><span class="lineno">  862</span> </div>
+<div class="line"><a id="l00863" name="l00863"></a><span class="lineno">  863</span>        <span class="comment">//写出</span></div>
+<div class="line"><a id="l00864" name="l00864"></a><span class="lineno">  864</span>        <span class="keywordflow">if</span> (!<a class="code hl_function" href="classNBT__IO.html#a9b0b11d352e2d123a518db2da48c6abe">NBT_IO::WriteFile</a>(pathFileName, vFileData, funcInfo))</div>
+<div class="line"><a id="l00865" name="l00865"></a><span class="lineno">  865</span>        {</div>
+<div class="line"><a id="l00866" name="l00866"></a><span class="lineno">  866</span>            funcInfo(<a class="code hl_enumvalue" href="NBT__Print_8hpp.html#a977ff50d4d248543d59717387e6dd311ab47f6a6092c5d7e4bffec12dff309c3b">NBT_Print_Level::Err</a>, <span class="stringliteral">&quot;Error: Cannot write file [{}].\n&quot;</span>, pathFileName.string());</div>
+<div class="line"><a id="l00867" name="l00867"></a><span class="lineno">  867</span>            <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00868" name="l00868"></a><span class="lineno">  868</span>        }</div>
+<div class="line"><a id="l00869" name="l00869"></a><span class="lineno">  869</span> </div>
+<div class="line"><a id="l00870" name="l00870"></a><span class="lineno">  870</span>        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00871" name="l00871"></a><span class="lineno">  871</span>    }</div>
+</div>
+<div class="line"><a id="l00872" name="l00872"></a><span class="lineno">  872</span> </div>
+<div class="line"><a id="l00873" name="l00873"></a><span class="lineno">  873</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00874" name="l00874"></a><span class="lineno">  874</span> </div>
+<div class="line"><a id="l00875" name="l00875"></a><span class="lineno">  875</span><span class="preprocessor">#undef MYTRY</span></div>
+<div class="line"><a id="l00876" name="l00876"></a><span class="lineno">  876</span><span class="preprocessor">#undef MYCATCH</span></div>
+<div class="line"><a id="l00877" name="l00877"></a><span class="lineno">  877</span><span class="preprocessor">#undef CHECK_STACK_DEPTH</span></div>
+<div class="line"><a id="l00878" name="l00878"></a><span class="lineno">  878</span><span class="preprocessor">#undef STACK_TRACEBACK</span></div>
+<div class="line"><a id="l00879" name="l00879"></a><span class="lineno">  879</span><span class="preprocessor">#undef STRLING</span></div>
+<div class="line"><a id="l00880" name="l00880"></a><span class="lineno">  880</span><span class="preprocessor">#undef _RP_STRLING</span></div>
+<div class="line"><a id="l00881" name="l00881"></a><span class="lineno">  881</span><span class="preprocessor">#undef _RP___LINE__</span></div>
+<div class="line"><a id="l00882" name="l00882"></a><span class="lineno">  882</span><span class="preprocessor">#undef _RP___FUNCTION__</span></div>
+<div class="line"><a id="l00883" name="l00883"></a><span class="lineno">  883</span>};</div>
 </div>
 <div class="ttc" id="aNBT__Endian_8hpp_html"><div class="ttname"><a href="NBT__Endian_8hpp.html">NBT_Endian.hpp</a></div><div class="ttdoc">端序工具集</div></div>
 <div class="ttc" id="aNBT__IO_8hpp_html"><div class="ttname"><a href="NBT__IO_8hpp.html">NBT_IO.hpp</a></div><div class="ttdoc">IO工具集</div></div>
@@ -931,6 +969,8 @@ $(function(){initNavTree('NBT__Writer_8hpp_source.html','',''); });
 <div class="ttc" id="aclassNBT__Compound_html_a1bd3c4313c8ec76749efa877cb7ba0ff"><div class="ttname"><a href="classNBT__Compound.html#a1bd3c4313c8ec76749efa877cb7ba0ff">NBT_Compound::KeySortIt</a></div><div class="ttdeci">std::vector&lt; typename Compound::iterator &gt; KeySortIt(void)</div><div class="ttdoc">获取按键名排序的迭代器向量（非常量版本）</div><div class="ttdef"><b>定义</b> NBT_Compound.hpp:182</div></div>
 <div class="ttc" id="aclassNBT__Endian_html_a8bb71b35386a3a4e4f557302c00e4d18"><div class="ttname"><a href="classNBT__Endian.html#a8bb71b35386a3a4e4f557302c00e4d18">NBT_Endian::NativeToBigAny</a></div><div class="ttdeci">static T NativeToBigAny(T data) noexcept</div><div class="ttdoc">从当前平台字节序转换到大端字节序，自动匹配位数</div><div class="ttdef"><b>定义</b> NBT_Endian.hpp:173</div></div>
 <div class="ttc" id="aclassNBT__IO_1_1DefaultOutputStream_html"><div class="ttname"><a href="classNBT__IO_1_1DefaultOutputStream.html">NBT_IO::DefaultOutputStream</a></div><div class="ttdoc">默认输出流类，用于将数据写入到标准库容器中</div><div class="ttdef"><b>定义</b> NBT_IO.hpp:186</div></div>
+<div class="ttc" id="aclassNBT__IO_html_a7d85e38e85dd8131c6c9f0f929f9c66d"><div class="ttname"><a href="classNBT__IO.html#a7d85e38e85dd8131c6c9f0f929f9c66d">NBT_IO::CompressDataNoThrow</a></div><div class="ttdeci">static bool CompressDataNoThrow(O &amp;oData, const I &amp;iData, int iLevel=Z_DEFAULT_COMPRESSION, InfoFunc funcInfo=InfoFunc{}) noexcept</div><div class="ttdoc">压缩数据，但是不抛出异常，而是通过funcErrInfo打印异常信息并返回成功与否</div><div class="ttdef"><b>定义</b> NBT_IO.hpp:843</div></div>
+<div class="ttc" id="aclassNBT__IO_html_a9b0b11d352e2d123a518db2da48c6abe"><div class="ttname"><a href="classNBT__IO.html#a9b0b11d352e2d123a518db2da48c6abe">NBT_IO::WriteFile</a></div><div class="ttdeci">static bool WriteFile(const std::filesystem::path &amp;pathFileName, const T &amp;tData, InfoFunc funcInfo=InfoFunc{}) noexcept</div><div class="ttdoc">从任意顺序容器写出字节流数据到指定文件名的文件中</div><div class="ttdef"><b>定义</b> NBT_IO.hpp:307</div></div>
 <div class="ttc" id="aclassNBT__Node_html"><div class="ttname"><a href="classNBT__Node.html">NBT_Node</a></div><div class="ttdoc">NBT节点，用于存储NBT格式的各种数据类型</div><div class="ttdef"><b>定义</b> NBT_Node.hpp:37</div></div>
 <div class="ttc" id="aclassNBT__Node_html_a2949d34d38628035c19b73d69700e7be"><div class="ttname"><a href="classNBT__Node.html#a2949d34d38628035c19b73d69700e7be">NBT_Node::GetTag</a></div><div class="ttdeci">NBT_TAG GetTag() const noexcept</div><div class="ttdoc">获取当前存储的NBT类型的枚举值</div><div class="ttdef"><b>定义</b> NBT_Node.hpp:179</div></div>
 <div class="ttc" id="aclassNBT__Node_html_aa6dfceeaa7c874799dfeb1961ab21e4f"><div class="ttname"><a href="classNBT__Node.html#aa6dfceeaa7c874799dfeb1961ab21e4f">NBT_Node::GetCompound</a></div><div class="ttdeci">const NBT_Type::Compound &amp; GetCompound() const</div><div class="ttdoc">获取当前对象中存储的 Compound 类型的数据</div><div class="ttdef"><b>定义</b> NBT_Node.hpp:275</div></div>
@@ -949,6 +989,7 @@ $(function(){initNavTree('NBT__Writer_8hpp_source.html','',''); });
 <div class="ttc" id="aclassNBT__Type_html_ac12e0beaccb23ad2b11620a503b8b0c7"><div class="ttname"><a href="classNBT__Type.html#ac12e0beaccb23ad2b11620a503b8b0c7">NBT_Type::ArrayLength_Max</a></div><div class="ttdeci">static constexpr ArrayLength ArrayLength_Max</div><div class="ttdoc">数组长度类型最大值</div><div class="ttdef"><b>定义</b> NBT_Type.hpp:143</div></div>
 <div class="ttc" id="aclassNBT__Type_html_aee5bc4a2ad015e10f57f1f5b02a41418"><div class="ttname"><a href="classNBT__Type.html#aee5bc4a2ad015e10f57f1f5b02a41418">NBT_Type::GetTypeName</a></div><div class="ttdeci">static constexpr const char * GetTypeName(NBT_TAG tag) noexcept</div><div class="ttdoc">通过类型标签获取类型名称</div><div class="ttdef"><b>定义</b> NBT_Type.hpp:123</div></div>
 <div class="ttc" id="aclassNBT__Writer_html_a7feaacc74b70bfa6f599d53699b4b38c"><div class="ttname"><a href="classNBT__Writer.html#a7feaacc74b70bfa6f599d53699b4b38c">NBT_Writer::WriteNBT</a></div><div class="ttdeci">static bool WriteNBT(OutputStream &amp;OptStream, const NBT_Type::Compound &amp;tCompound, size_t szStackDepth=512, InfoFunc funcInfo=InfoFunc{}) noexcept</div><div class="ttdoc">将NBT_Type::Compound对象写入到输出流中</div><div class="ttdef"><b>定义</b> NBT_Writer.hpp:805</div></div>
+<div class="ttc" id="aclassNBT__Writer_html_ac4583e52dbd73629566e23206ab50ae4"><div class="ttname"><a href="classNBT__Writer.html#ac4583e52dbd73629566e23206ab50ae4">NBT_Writer::SimpleWriteNbtFile</a></div><div class="ttdeci">static bool SimpleWriteNbtFile(const std::filesystem::path &amp;pathFileName, const NBT_Type::Compound &amp;tCompound, InfoFunc funcInfo=InfoFunc{}) noexcept</div><div class="ttdoc">将 NBT_Type::Compound 对象以可能压缩的方式写入到文件中</div><div class="ttdef"><b>定义</b> NBT_Writer.hpp:841</div></div>
 <div class="ttc" id="aclassNBT__Writer_html_ace3595d301de6aff55f24bc13dbafc25"><div class="ttname"><a href="classNBT__Writer.html#ace3595d301de6aff55f24bc13dbafc25">NBT_Writer::WriteNBT</a></div><div class="ttdeci">static bool WriteNBT(DataType &amp;tDataOutput, size_t szStartIdx, const NBT_Type::Compound &amp;tCompound, size_t szStackDepth=512, InfoFunc funcInfo=InfoFunc{}) noexcept</div><div class="ttdoc">将NBT_Type::Compound对象写入到数据容器中</div><div class="ttdef"><b>定义</b> NBT_Writer.hpp:824</div></div>
 <div class="ttc" id="astructNBT__Writer_1_1DefaultCompoundSort_html"><div class="ttname"><a href="structNBT__Writer_1_1DefaultCompoundSort.html">NBT_Writer::DefaultCompoundSort</a></div><div class="ttdoc">默认排序策略，提供按键的字符串字典序升序或降序排列。</div><div class="ttdef"><b>定义</b> NBT_Writer.hpp:779</div></div>
 <div class="ttc" id="astructNBT__Writer_1_1DefaultCompoundSort_html_a2d1588e643786bd8e3952ec80e158ed6"><div class="ttname"><a href="structNBT__Writer_1_1DefaultCompoundSort.html#a2d1588e643786bd8e3952ec80e158ed6">NBT_Writer::DefaultCompoundSort::operator()</a></div><div class="ttdeci">std::vector&lt; NBT_Type::Compound::Const_Iterator &gt; operator()(const NBT_Type::Compound &amp;cpdSort)</div><div class="ttdoc">对给定的 Compound 对象进行排序，返回指向其元素的迭代器向量。</div><div class="ttdef"><b>定义</b> NBT_Writer.hpp:784</div></div>

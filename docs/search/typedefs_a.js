@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['nbt_5ftag_5fraw_5ftype_0',['NBT_TAG_RAW_TYPE',['../NBT__TAG_8hpp.html#acd49bdf6bc79b8f3a1f351faec46ea6c',1,'NBT_TAG.hpp']]],
-  ['nestingcontrol_1',['NestingControl',['../classNBT__Visitor__Collector.html#a67b57ac173a634cb884ed6a73c345e44',1,'NBT_Visitor_Collector']]]
+  ['mapped_5ftype_0',['Mapped_Type',['../classNBT__Compound.html#a14bf1209a435f300b46455e2a157b0d6',1,'NBT_Compound']]],
+  ['mu8_5ft_1',['MU8_T',['../classMUTF8__Tool.html#a7bfe05740c7386dc60b28826940b4d7d',1,'MUTF8_Tool']]]
 ];

@@ -106,6 +106,9 @@ $(function(){initNavTree('classNBT__Scanner.html','','classNBT__Scanner-members'
 <tr class="memitem:aa1b7d093d12c333970ee15fa55dde9a8" id="r_aa1b7d093d12c333970ee15fa55dde9a8"><td class="memTemplParams" colspan="2">template&lt;typename DataType = std::vector&lt;uint8_t&gt;, typename Visitor&gt; </td></tr>
 <tr class="memitem:aa1b7d093d12c333970ee15fa55dde9a8 template"><td class="memItemLeft">static bool&#160;</td><td class="memItemRight"><a class="el" href="#aa1b7d093d12c333970ee15fa55dde9a8">ScanNBT</a> (const DataType &amp;tDataInput, size_t szStartIdx, Visitor &amp;tVisitor, size_t szStackDepth=512) noexcept</td></tr>
 <tr class="memdesc:aa1b7d093d12c333970ee15fa55dde9a8"><td class="mdescLeft">&#160;</td><td class="mdescRight">从数据容器中扫描NBT数据，并通过访问器回调处理每个节点  <br /></td></tr>
+<tr class="memitem:a611e625a7b2c55ac73d0afe647eb97b1" id="r_a611e625a7b2c55ac73d0afe647eb97b1"><td class="memTemplParams" colspan="2">template&lt;typename Visitor, typename InfoFunc = NBT_Print&gt; </td></tr>
+<tr class="memitem:a611e625a7b2c55ac73d0afe647eb97b1 template"><td class="memItemLeft">static bool&#160;</td><td class="memItemRight"><a class="el" href="#a611e625a7b2c55ac73d0afe647eb97b1">SimpleScanNbtFile</a> (const std::filesystem::path &amp;pathFileName, Visitor &amp;tVisitor, InfoFunc funcInfo=InfoFunc{}) noexcept</td></tr>
+<tr class="memdesc:a611e625a7b2c55ac73d0afe647eb97b1"><td class="mdescLeft">&#160;</td><td class="mdescRight">从可能被压缩的文件中扫描 NBT 数据，并通过访问器回调处理每个节点  <br /></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">详细描述</h2>
 <div class="textblock"><p>NBT 数据流式扫描器，通过访问器回调处理 NBT 结构，不构建完整内存树 </p>
@@ -224,6 +227,61 @@ template&lt;typename InputStream, typename Visitor&gt; </div>
 </dl>
 <dl class="section return"><dt>返回</dt><dd>扫描成功返回true，失败返回false </dd></dl>
 <dl class="section note"><dt>注解</dt><dd>函数通过访问器回调的方式遍历整个NBT结构，不会构建完整的内存树，适合处理大型NBT数据。 若遇到格式错误或超过深度限制，函数将返回false并停止扫描。 </dd></dl>
+
+</div>
+</div>
+<a id="a611e625a7b2c55ac73d0afe647eb97b1" name="a611e625a7b2c55ac73d0afe647eb97b1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a611e625a7b2c55ac73d0afe647eb97b1">&#9670;&#160;</a></span>SimpleScanNbtFile()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Visitor, typename InfoFunc = NBT_Print&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool NBT_Scanner::SimpleScanNbtFile </td>
+          <td>(</td>
+          <td class="paramtype">const std::filesystem::path &amp;</td>          <td class="paramname"><span class="paramname"><em>pathFileName</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Visitor &amp;</td>          <td class="paramname"><span class="paramname"><em>tVisitor</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">InfoFunc</td>          <td class="paramname"><span class="paramname"><em>funcInfo</em></span><span class="paramdefsep"> = </span><span class="paramdefval">InfoFunc{}</span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>从可能被压缩的文件中扫描 NBT 数据，并通过访问器回调处理每个节点 </p>
+<dl class="tparams"><dt>模板参数</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">Visitor</td><td>访问器类型，必须符合 <a class="el" href="conceptIsLookLike__NBT__Visitor.html" title="检查类型是否符合 NBT 访问器（Visitor）的接口要求">IsLookLike_NBT_Visitor</a> 概念 </td></tr>
+    <tr><td class="paramname">InfoFunc</td><td>错误信息输出仿函数类型 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pathFileName</td><td>源文件路径 </td></tr>
+    <tr><td class="paramname">tVisitor</td><td>访问器对象，用于处理扫描过程中遇到的 NBT 数据节点 </td></tr>
+    <tr><td class="paramname">funcInfo</td><td>错误信息处理仿函数 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>扫描成功返回 true，失败返回 false </dd></dl>
+<dl class="section note"><dt>注解</dt><dd>本函数会读取整个文件内容，先尝试使用 Zlib 解压。若解压失败，则假定文件未压缩，直接使用原始数据。 然后调用 ScanNBT 扫描数据。如果文件不存在，则会失败。 </dd></dl>
 
 </div>
 </div>

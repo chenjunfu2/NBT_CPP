@@ -98,6 +98,12 @@ $(function(){initNavTree('classNBT__Print.html','','classNBT__Print-members'); }
 
 <p><code>#include &lt;<a class="el" href="NBT__Print_8hpp_source.html">NBT_Print.hpp</a>&gt;</code></p>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-types" class="groupheader"><a id="pub-types" name="pub-types"></a>
+Public 类型</h2></td></tr>
+<tr class="memitem:af2462ecff6e72192c9f0621bfee1fadd" id="r_af2462ecff6e72192c9f0621bfee1fadd"><td class="memItemLeft"><a id="af2462ecff6e72192c9f0621bfee1fadd" name="af2462ecff6e72192c9f0621bfee1fadd"></a>
+using&#160;</td><td class="memItemRight"><b>Level</b> = <a class="el" href="NBT__Print_8hpp.html#a977ff50d4d248543d59717387e6dd311">NBT_Print_Level</a></td></tr>
+<tr class="memdesc:af2462ecff6e72192c9f0621bfee1fadd"><td class="mdescLeft">&#160;</td><td class="mdescRight">信息等级，直接映射NBT_Print_Level <br /></td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public 成员函数</h2></td></tr>
 <tr class="memitem:adc11e4db49c64e57802b625ef0d83205" id="r_adc11e4db49c64e57802b625ef0d83205"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#adc11e4db49c64e57802b625ef0d83205">NBT_Print</a> (FILE *_pfOutputInfo=stdout, FILE *_pfOutputWarn=stderr, FILE *_pfOutputErr=stderr)</td></tr>
@@ -105,9 +111,9 @@ Public 成员函数</h2></td></tr>
 <tr class="memitem:a8f3f53ef5f64d005a4b0efe579d714ce" id="r_a8f3f53ef5f64d005a4b0efe579d714ce"><td class="memItemLeft"><a id="a8f3f53ef5f64d005a4b0efe579d714ce" name="a8f3f53ef5f64d005a4b0efe579d714ce"></a>
 &#160;</td><td class="memItemRight"><b>~NBT_Print</b> (void)=default</td></tr>
 <tr class="memdesc:a8f3f53ef5f64d005a4b0efe579d714ce"><td class="mdescLeft">&#160;</td><td class="mdescRight">默认析构 <br /></td></tr>
-<tr class="memitem:a4cbba097e5551b7dff96052f4f64c9e7" id="r_a4cbba097e5551b7dff96052f4f64c9e7"><td class="memTemplParams" colspan="2">template&lt;typename... Args&gt; </td></tr>
-<tr class="memitem:a4cbba097e5551b7dff96052f4f64c9e7 template"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a4cbba097e5551b7dff96052f4f64c9e7">operator()</a> (<a class="el" href="NBT__Print_8hpp.html#a977ff50d4d248543d59717387e6dd311">NBT_Print_Level</a> lvl, const std::format_string&lt; Args... &gt; fmt, Args &amp;&amp;... args) noexcept</td></tr>
-<tr class="memdesc:a4cbba097e5551b7dff96052f4f64c9e7"><td class="mdescLeft">&#160;</td><td class="mdescRight">函数调用运算符重载，用于将类作为仿函数调用，通过使用指定等级输出信息  <br /></td></tr>
+<tr class="memitem:ac0f3e276d06e103dadf822b2a679eb5b" id="r_ac0f3e276d06e103dadf822b2a679eb5b"><td class="memTemplParams" colspan="2">template&lt;typename... Args&gt; </td></tr>
+<tr class="memitem:ac0f3e276d06e103dadf822b2a679eb5b template"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#ac0f3e276d06e103dadf822b2a679eb5b">operator()</a> (<a class="el" href="NBT__Print_8hpp.html#a977ff50d4d248543d59717387e6dd311">Level</a> lvl, const std::format_string&lt; Args... &gt; fmt, Args &amp;&amp;... args) noexcept</td></tr>
+<tr class="memdesc:ac0f3e276d06e103dadf822b2a679eb5b"><td class="mdescLeft">&#160;</td><td class="mdescRight">函数调用运算符重载，用于将类作为仿函数调用，通过使用指定等级输出信息  <br /></td></tr>
 <tr class="memitem:abfbdfa0131d496e7f1c9e06c17490fbd" id="r_abfbdfa0131d496e7f1c9e06c17490fbd"><td class="memTemplParams" colspan="2">template&lt;typename... Args&gt; </td></tr>
 <tr class="memitem:abfbdfa0131d496e7f1c9e06c17490fbd template"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#abfbdfa0131d496e7f1c9e06c17490fbd">operator()</a> (const std::format_string&lt; Args... &gt; fmt, Args &amp;&amp;... args) noexcept</td></tr>
 <tr class="memdesc:abfbdfa0131d496e7f1c9e06c17490fbd"><td class="mdescLeft">&#160;</td><td class="mdescRight">函数调用运算符重载，用于将类作为仿函数调用，默认使用Info等级输出信息  <br /></td></tr>
@@ -211,8 +217,8 @@ template&lt;typename... Args&gt; </div>
 
 </div>
 </div>
-<a id="a4cbba097e5551b7dff96052f4f64c9e7" name="a4cbba097e5551b7dff96052f4f64c9e7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4cbba097e5551b7dff96052f4f64c9e7">&#9670;&#160;</a></span>operator()() <span class="overload">[2/2]</span></h2>
+<a id="ac0f3e276d06e103dadf822b2a679eb5b" name="ac0f3e276d06e103dadf822b2a679eb5b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac0f3e276d06e103dadf822b2a679eb5b">&#9670;&#160;</a></span>operator()() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -225,7 +231,7 @@ template&lt;typename... Args&gt; </div>
         <tr>
           <td class="memname">void NBT_Print::operator() </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="NBT__Print_8hpp.html#a977ff50d4d248543d59717387e6dd311">NBT_Print_Level</a></td>          <td class="paramname"><span class="paramname"><em>lvl</em></span>, </td>
+          <td class="paramtype"><a class="el" href="NBT__Print_8hpp.html#a977ff50d4d248543d59717387e6dd311">Level</a></td>          <td class="paramname"><span class="paramname"><em>lvl</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['resultcontrol_0',['ResultControl',['../classNBT__Visitor.html#a5dd0ef8b7205c99438132ea13413f82b',1,'NBT_Visitor']]]
+  ['type_0',['Type',['../structNBT__Visitor__Collector_1_1Frame.html#a3a7a5705260bb2dd6266df45acf33354',1,'NBT_Visitor_Collector::Frame']]]
 ];

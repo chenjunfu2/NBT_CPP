@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['readfile_0',['ReadFile',['../classNBT__IO.html#aa4f71f5c823611a36cbd8aac9f3255b1',1,'NBT_IO']]],
+  ['readfile_0',['ReadFile',['../classNBT__IO.html#a63f73c9084c61fe0618fa45212bcd70e',1,'NBT_IO']]],
   ['readnbt_1',['ReadNBT',['../classNBT__Reader.html#ab4d5783f988c27715648c91ba980eee0',1,'NBT_Reader::ReadNBT(InputStream &amp;IptStream, NBT_Type::Compound &amp;tCompound, size_t szStackDepth=512, InfoFunc funcInfo=InfoFunc{}) noexcept'],['../classNBT__Reader.html#a61114755d0dea1b11f098722f1bb126e',1,'NBT_Reader::ReadNBT(const DataType &amp;tDataInput, size_t szStartIdx, NBT_Type::Compound &amp;tCompound, size_t szStackDepth=512, InfoFunc funcInfo=InfoFunc{}) noexcept']]],
   ['remove_2',['Remove',['../classNBT__Compound.html#af55b9238e41a777d8971a58de3134877',1,'NBT_Compound::Remove()'],['../classNBT__List.html#addc38f1fb67ab8e81de7ec77fa0a18a7',1,'NBT_List::Remove()']]],
   ['removedata_3',['RemoveData',['../classNBT__IO_1_1DefaultOutputStream.html#ad04a69b12c4564fdb100d4979cbfb4e8',1,'NBT_IO::DefaultOutputStream']]],

@@ -816,16 +816,54 @@ $(function(){initNavTree('NBT__Reader_8hpp_source.html','',''); });
 <div class="line"><a id="l00748" name="l00748"></a><span class="lineno">  748</span>    }</div>
 </div>
 <div class="line"><a id="l00749" name="l00749"></a><span class="lineno">  749</span> </div>
-<div class="line"><a id="l00750" name="l00750"></a><span class="lineno">  750</span> </div>
-<div class="line"><a id="l00751" name="l00751"></a><span class="lineno">  751</span><span class="preprocessor">#undef MYTRY</span></div>
-<div class="line"><a id="l00752" name="l00752"></a><span class="lineno">  752</span><span class="preprocessor">#undef MYCATCH</span></div>
-<div class="line"><a id="l00753" name="l00753"></a><span class="lineno">  753</span><span class="preprocessor">#undef CHECK_STACK_DEPTH</span></div>
-<div class="line"><a id="l00754" name="l00754"></a><span class="lineno">  754</span><span class="preprocessor">#undef STACK_TRACEBACK</span></div>
-<div class="line"><a id="l00755" name="l00755"></a><span class="lineno">  755</span><span class="preprocessor">#undef STRLING</span></div>
-<div class="line"><a id="l00756" name="l00756"></a><span class="lineno">  756</span><span class="preprocessor">#undef _RP_STRLING</span></div>
-<div class="line"><a id="l00757" name="l00757"></a><span class="lineno">  757</span><span class="preprocessor">#undef _RP___LINE__</span></div>
-<div class="line"><a id="l00758" name="l00758"></a><span class="lineno">  758</span><span class="preprocessor">#undef _RP___FUNCTION__</span></div>
-<div class="line"><a id="l00759" name="l00759"></a><span class="lineno">  759</span>};</div>
+<div class="line"><a id="l00750" name="l00750"></a><span class="lineno">  750</span><span class="preprocessor">#ifdef CJF2_NBT_CPP_USE_ZLIB</span></div>
+<div class="line"><a id="l00751" name="l00751"></a><span class="lineno">  751</span></div>
+<div class="line"><a id="l00760" name="l00760"></a><span class="lineno">  760</span>    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> InfoFunc = NBT_Pr<span class="keywordtype">int</span>&gt;</div>
+<div class="foldopen" id="foldopen00761" data-start="{" data-end="}">
+<div class="line"><a id="l00761" name="l00761"></a><span class="lineno"><a class="line" href="classNBT__Reader.html#a5195a06a9b4b730361e11a11c84bef3f">  761</a></span>    <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code hl_function" href="classNBT__Reader.html#a5195a06a9b4b730361e11a11c84bef3f">SimpleReadNbtFile</a>(<span class="keyword">const</span> std::filesystem::path &amp;pathFileName, <a class="code hl_typedef" href="classNBT__Type.html#a9dcd5050b96a10161f18d7ae4a22e7b3">NBT_Type::Compound</a> &amp;tCompound, InfoFunc funcInfo = InfoFunc{}) <span class="keyword">noexcept</span></div>
+<div class="line"><a id="l00762" name="l00762"></a><span class="lineno">  762</span>    {</div>
+<div class="line"><a id="l00763" name="l00763"></a><span class="lineno">  763</span>        <span class="comment">//读取文件</span></div>
+<div class="line"><a id="l00764" name="l00764"></a><span class="lineno">  764</span>        std::vector&lt;uint8_t&gt; vFileData;</div>
+<div class="line"><a id="l00765" name="l00765"></a><span class="lineno">  765</span>        <span class="keywordflow">if</span> (!<a class="code hl_function" href="classNBT__IO.html#a63f73c9084c61fe0618fa45212bcd70e">NBT_IO::ReadFile</a>(pathFileName, vFileData, funcInfo))</div>
+<div class="line"><a id="l00766" name="l00766"></a><span class="lineno">  766</span>        {</div>
+<div class="line"><a id="l00767" name="l00767"></a><span class="lineno">  767</span>            funcInfo(<a class="code hl_enumvalue" href="NBT__Print_8hpp.html#a977ff50d4d248543d59717387e6dd311ab47f6a6092c5d7e4bffec12dff309c3b">NBT_Print_Level::Err</a>, <span class="stringliteral">&quot;Error: Cannot read file [{}].\n&quot;</span>, pathFileName.string());</div>
+<div class="line"><a id="l00768" name="l00768"></a><span class="lineno">  768</span>            <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00769" name="l00769"></a><span class="lineno">  769</span>        }</div>
+<div class="line"><a id="l00770" name="l00770"></a><span class="lineno">  770</span> </div>
+<div class="line"><a id="l00771" name="l00771"></a><span class="lineno">  771</span>        <span class="comment">//尝试解压，失败则视作未压缩数据</span></div>
+<div class="line"><a id="l00772" name="l00772"></a><span class="lineno">  772</span>        std::vector&lt;uint8_t&gt; vNbtData;</div>
+<div class="line"><a id="l00773" name="l00773"></a><span class="lineno">  773</span>        <span class="keywordflow">if</span> (!<a class="code hl_function" href="classNBT__IO.html#a0c8ca0bd1a1e8dbf58cacd70780d3d86">NBT_IO::DecompressDataNoThrow</a>(vNbtData, vFileData, funcInfo))</div>
+<div class="line"><a id="l00774" name="l00774"></a><span class="lineno">  774</span>        {</div>
+<div class="line"><a id="l00775" name="l00775"></a><span class="lineno">  775</span>            funcInfo(<a class="code hl_enumvalue" href="NBT__Print_8hpp.html#a977ff50d4d248543d59717387e6dd311a56525ae64d370c0b448ac0d60710ef17">NBT_Print_Level::Warn</a>, <span class="stringliteral">&quot;Warning: Decompression failed, assuming uncompressed data.\n&quot;</span>);</div>
+<div class="line"><a id="l00776" name="l00776"></a><span class="lineno">  776</span>            vNbtData = std::move(vFileData);</div>
+<div class="line"><a id="l00777" name="l00777"></a><span class="lineno">  777</span>        }</div>
+<div class="line"><a id="l00778" name="l00778"></a><span class="lineno">  778</span> </div>
+<div class="line"><a id="l00779" name="l00779"></a><span class="lineno">  779</span>        <span class="comment">//清理数据</span></div>
+<div class="line"><a id="l00780" name="l00780"></a><span class="lineno">  780</span>        vFileData.clear();</div>
+<div class="line"><a id="l00781" name="l00781"></a><span class="lineno">  781</span>        vFileData.shrink_to_fit();</div>
+<div class="line"><a id="l00782" name="l00782"></a><span class="lineno">  782</span> </div>
+<div class="line"><a id="l00783" name="l00783"></a><span class="lineno">  783</span>        <span class="comment">//读取</span></div>
+<div class="line"><a id="l00784" name="l00784"></a><span class="lineno">  784</span>        <span class="keywordflow">if</span> (!<a class="code hl_function" href="classNBT__Reader.html#ab4d5783f988c27715648c91ba980eee0">ReadNBT</a>(vNbtData, 0, tCompound, 512, funcInfo))</div>
+<div class="line"><a id="l00785" name="l00785"></a><span class="lineno">  785</span>        {</div>
+<div class="line"><a id="l00786" name="l00786"></a><span class="lineno">  786</span>            funcInfo(<a class="code hl_enumvalue" href="NBT__Print_8hpp.html#a977ff50d4d248543d59717387e6dd311ab47f6a6092c5d7e4bffec12dff309c3b">NBT_Print_Level::Err</a>, <span class="stringliteral">&quot;Error: ReadNBT failed.\n&quot;</span>);</div>
+<div class="line"><a id="l00787" name="l00787"></a><span class="lineno">  787</span>            <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00788" name="l00788"></a><span class="lineno">  788</span>        }</div>
+<div class="line"><a id="l00789" name="l00789"></a><span class="lineno">  789</span> </div>
+<div class="line"><a id="l00790" name="l00790"></a><span class="lineno">  790</span>        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00791" name="l00791"></a><span class="lineno">  791</span>    }</div>
+</div>
+<div class="line"><a id="l00792" name="l00792"></a><span class="lineno">  792</span> </div>
+<div class="line"><a id="l00793" name="l00793"></a><span class="lineno">  793</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00794" name="l00794"></a><span class="lineno">  794</span> </div>
+<div class="line"><a id="l00795" name="l00795"></a><span class="lineno">  795</span><span class="preprocessor">#undef MYTRY</span></div>
+<div class="line"><a id="l00796" name="l00796"></a><span class="lineno">  796</span><span class="preprocessor">#undef MYCATCH</span></div>
+<div class="line"><a id="l00797" name="l00797"></a><span class="lineno">  797</span><span class="preprocessor">#undef CHECK_STACK_DEPTH</span></div>
+<div class="line"><a id="l00798" name="l00798"></a><span class="lineno">  798</span><span class="preprocessor">#undef STACK_TRACEBACK</span></div>
+<div class="line"><a id="l00799" name="l00799"></a><span class="lineno">  799</span><span class="preprocessor">#undef STRLING</span></div>
+<div class="line"><a id="l00800" name="l00800"></a><span class="lineno">  800</span><span class="preprocessor">#undef _RP_STRLING</span></div>
+<div class="line"><a id="l00801" name="l00801"></a><span class="lineno">  801</span><span class="preprocessor">#undef _RP___LINE__</span></div>
+<div class="line"><a id="l00802" name="l00802"></a><span class="lineno">  802</span><span class="preprocessor">#undef _RP___FUNCTION__</span></div>
+<div class="line"><a id="l00803" name="l00803"></a><span class="lineno">  803</span>};</div>
 </div>
 <div class="ttc" id="aNBT__Endian_8hpp_html"><div class="ttname"><a href="NBT__Endian_8hpp.html">NBT_Endian.hpp</a></div><div class="ttdoc">端序工具集</div></div>
 <div class="ttc" id="aNBT__IO_8hpp_html"><div class="ttname"><a href="NBT__IO_8hpp.html">NBT_IO.hpp</a></div><div class="ttdoc">IO工具集</div></div>
@@ -854,9 +892,12 @@ $(function(){initNavTree('NBT__Reader_8hpp_source.html','',''); });
 <div class="ttc" id="aclassNBT__Compound_html_ac05d337c1c881ded7408bd9674079f5f"><div class="ttname"><a href="classNBT__Compound.html#ac05d337c1c881ded7408bd9674079f5f">NBT_Compound::Has</a></div><div class="ttdeci">Compound::mapped_type * Has(const typename Compound::key_type &amp;sTagName) noexcept</div><div class="ttdoc">搜索标签是否存在</div><div class="ttdef"><b>定义</b> NBT_Compound.hpp:279</div></div>
 <div class="ttc" id="aclassNBT__Endian_html_a82f4e968a2c3a4ff0010dfb5cba394fa"><div class="ttname"><a href="classNBT__Endian.html#a82f4e968a2c3a4ff0010dfb5cba394fa">NBT_Endian::BigToNativeAny</a></div><div class="ttdeci">static T BigToNativeAny(T data) noexcept</div><div class="ttdoc">从大端字节序转换到当前平台字节序，自动匹配位数</div><div class="ttdef"><b>定义</b> NBT_Endian.hpp:209</div></div>
 <div class="ttc" id="aclassNBT__IO_1_1DefaultInputStream_html"><div class="ttname"><a href="classNBT__IO_1_1DefaultInputStream.html">NBT_IO::DefaultInputStream</a></div><div class="ttdoc">默认输入流类，用于从标准库容器中读取数据</div><div class="ttdef"><b>定义</b> NBT_IO.hpp:45</div></div>
+<div class="ttc" id="aclassNBT__IO_html_a0c8ca0bd1a1e8dbf58cacd70780d3d86"><div class="ttname"><a href="classNBT__IO.html#a0c8ca0bd1a1e8dbf58cacd70780d3d86">NBT_IO::DecompressDataNoThrow</a></div><div class="ttdeci">static bool DecompressDataNoThrow(O &amp;oData, const I &amp;iData, InfoFunc funcInfo=InfoFunc{}) noexcept</div><div class="ttdoc">解压数据，但是不抛出异常，而是通过funcErrInfo打印异常信息并返回成功与否</div><div class="ttdef"><b>定义</b> NBT_IO.hpp:804</div></div>
+<div class="ttc" id="aclassNBT__IO_html_a63f73c9084c61fe0618fa45212bcd70e"><div class="ttname"><a href="classNBT__IO.html#a63f73c9084c61fe0618fa45212bcd70e">NBT_IO::ReadFile</a></div><div class="ttdeci">static bool ReadFile(const std::filesystem::path &amp;pathFileName, T &amp;tData, InfoFunc funcInfo=InfoFunc{}) noexcept</div><div class="ttdoc">从指定文件名的文件中读取字节流数据到任意顺序容器中</div><div class="ttdef"><b>定义</b> NBT_IO.hpp:391</div></div>
 <div class="ttc" id="aclassNBT__Node_html"><div class="ttname"><a href="classNBT__Node.html">NBT_Node</a></div><div class="ttdoc">NBT节点，用于存储NBT格式的各种数据类型</div><div class="ttdef"><b>定义</b> NBT_Node.hpp:37</div></div>
 <div class="ttc" id="aclassNBT__Node_html_a0c4af79585018f895866f3be2b8d0327"><div class="ttname"><a href="classNBT__Node.html#a0c4af79585018f895866f3be2b8d0327">NBT_Node::Set</a></div><div class="ttdeci">T &amp; Set(Args &amp;&amp;... args)</div><div class="ttdoc">原位放置新对象并替换当前对象</div><div class="ttdef"><b>定义</b> NBT_Node.hpp:94</div></div>
 <div class="ttc" id="aclassNBT__Node_html_aa6dfceeaa7c874799dfeb1961ab21e4f"><div class="ttname"><a href="classNBT__Node.html#aa6dfceeaa7c874799dfeb1961ab21e4f">NBT_Node::GetCompound</a></div><div class="ttdeci">const NBT_Type::Compound &amp; GetCompound() const</div><div class="ttdoc">获取当前对象中存储的 Compound 类型的数据</div><div class="ttdef"><b>定义</b> NBT_Node.hpp:275</div></div>
+<div class="ttc" id="aclassNBT__Reader_html_a5195a06a9b4b730361e11a11c84bef3f"><div class="ttname"><a href="classNBT__Reader.html#a5195a06a9b4b730361e11a11c84bef3f">NBT_Reader::SimpleReadNbtFile</a></div><div class="ttdeci">static bool SimpleReadNbtFile(const std::filesystem::path &amp;pathFileName, NBT_Type::Compound &amp;tCompound, InfoFunc funcInfo=InfoFunc{}) noexcept</div><div class="ttdoc">从可能被压缩的文件中读取 NBT 数据到 NBT_Type::Compound 对象中</div><div class="ttdef"><b>定义</b> NBT_Reader.hpp:761</div></div>
 <div class="ttc" id="aclassNBT__Reader_html_a61114755d0dea1b11f098722f1bb126e"><div class="ttname"><a href="classNBT__Reader.html#a61114755d0dea1b11f098722f1bb126e">NBT_Reader::ReadNBT</a></div><div class="ttdeci">static bool ReadNBT(const DataType &amp;tDataInput, size_t szStartIdx, NBT_Type::Compound &amp;tCompound, size_t szStackDepth=512, InfoFunc funcInfo=InfoFunc{}) noexcept</div><div class="ttdoc">从数据容器中读取NBT数据到NBT_Type::Compound对象中</div><div class="ttdef"><b>定义</b> NBT_Reader.hpp:744</div></div>
 <div class="ttc" id="aclassNBT__Reader_html_ab4d5783f988c27715648c91ba980eee0"><div class="ttname"><a href="classNBT__Reader.html#ab4d5783f988c27715648c91ba980eee0">NBT_Reader::ReadNBT</a></div><div class="ttdeci">static bool ReadNBT(InputStream &amp;IptStream, NBT_Type::Compound &amp;tCompound, size_t szStackDepth=512, InfoFunc funcInfo=InfoFunc{}) noexcept</div><div class="ttdoc">从输入流中读取NBT数据到NBT_Type::Compound对象中</div><div class="ttdef"><b>定义</b> NBT_Reader.hpp:727</div></div>
 <div class="ttc" id="aclassNBT__String_html_acc98daa94965d8684d0c0115dfb14a15"><div class="ttname"><a href="classNBT__String.html#acc98daa94965d8684d0c0115dfb14a15">NBT_String::ToCharTypeUTF8</a></div><div class="ttdeci">auto ToCharTypeUTF8(void) const</div><div class="ttdoc">转换到UTF-8字符编码，但是返回为char类型而非char8_t类型</div><div class="ttdef"><b>定义</b> NBT_String.hpp:277</div></div>

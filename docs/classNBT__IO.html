@@ -107,12 +107,12 @@ $(function(){initNavTree('classNBT__IO.html','','classNBT__IO-members'); });
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-static-methods" class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 静态 Public 成员函数</h2></td></tr>
-<tr class="memitem:ad2a4e2f0f43e34de19df18adfa0ede8c" id="r_ad2a4e2f0f43e34de19df18adfa0ede8c"><td class="memTemplParams" colspan="2">template&lt;typename T = std::vector&lt;uint8_t&gt;&gt; </td></tr>
-<tr class="memitem:ad2a4e2f0f43e34de19df18adfa0ede8c template"><td class="memItemLeft">static bool&#160;</td><td class="memItemRight"><a class="el" href="#ad2a4e2f0f43e34de19df18adfa0ede8c">WriteFile</a> (const std::filesystem::path &amp;pathFileName, const T &amp;tData)</td></tr>
-<tr class="memdesc:ad2a4e2f0f43e34de19df18adfa0ede8c"><td class="mdescLeft">&#160;</td><td class="mdescRight">从任意顺序容器写出字节流数据到指定文件名的文件中  <br /></td></tr>
-<tr class="memitem:aa4f71f5c823611a36cbd8aac9f3255b1" id="r_aa4f71f5c823611a36cbd8aac9f3255b1"><td class="memTemplParams" colspan="2">template&lt;typename T = std::vector&lt;uint8_t&gt;&gt; </td></tr>
-<tr class="memitem:aa4f71f5c823611a36cbd8aac9f3255b1 template"><td class="memItemLeft">static bool&#160;</td><td class="memItemRight"><a class="el" href="#aa4f71f5c823611a36cbd8aac9f3255b1">ReadFile</a> (const std::filesystem::path &amp;pathFileName, T &amp;tData)</td></tr>
-<tr class="memdesc:aa4f71f5c823611a36cbd8aac9f3255b1"><td class="mdescLeft">&#160;</td><td class="mdescRight">从指定文件名的文件中读取字节流数据到任意顺序容器中  <br /></td></tr>
+<tr class="memitem:a9b0b11d352e2d123a518db2da48c6abe" id="r_a9b0b11d352e2d123a518db2da48c6abe"><td class="memTemplParams" colspan="2">template&lt;typename T = std::vector&lt;uint8_t&gt;, typename InfoFunc = NBT_Print&gt; </td></tr>
+<tr class="memitem:a9b0b11d352e2d123a518db2da48c6abe template"><td class="memItemLeft">static bool&#160;</td><td class="memItemRight"><a class="el" href="#a9b0b11d352e2d123a518db2da48c6abe">WriteFile</a> (const std::filesystem::path &amp;pathFileName, const T &amp;tData, InfoFunc funcInfo=InfoFunc{}) noexcept</td></tr>
+<tr class="memdesc:a9b0b11d352e2d123a518db2da48c6abe"><td class="mdescLeft">&#160;</td><td class="mdescRight">从任意顺序容器写出字节流数据到指定文件名的文件中  <br /></td></tr>
+<tr class="memitem:a63f73c9084c61fe0618fa45212bcd70e" id="r_a63f73c9084c61fe0618fa45212bcd70e"><td class="memTemplParams" colspan="2">template&lt;typename T = std::vector&lt;uint8_t&gt;, typename InfoFunc = NBT_Print&gt; </td></tr>
+<tr class="memitem:a63f73c9084c61fe0618fa45212bcd70e template"><td class="memItemLeft">static bool&#160;</td><td class="memItemRight"><a class="el" href="#a63f73c9084c61fe0618fa45212bcd70e">ReadFile</a> (const std::filesystem::path &amp;pathFileName, T &amp;tData, InfoFunc funcInfo=InfoFunc{}) noexcept</td></tr>
+<tr class="memdesc:a63f73c9084c61fe0618fa45212bcd70e"><td class="mdescLeft">&#160;</td><td class="mdescRight">从指定文件名的文件中读取字节流数据到任意顺序容器中  <br /></td></tr>
 <tr class="memitem:a376fee406ed1df95df347d8ec074d0ec" id="r_a376fee406ed1df95df347d8ec074d0ec"><td class="memItemLeft">static bool&#160;</td><td class="memItemRight"><a class="el" href="#a376fee406ed1df95df347d8ec074d0ec">IsFileExist</a> (const std::filesystem::path &amp;pathFileName)</td></tr>
 <tr class="memdesc:a376fee406ed1df95df347d8ec074d0ec"><td class="mdescLeft">&#160;</td><td class="mdescRight">判断指定文件名的文件是否存在  <br /></td></tr>
 <tr class="memitem:aac207e7431c4130f085b4e650b9e458c" id="r_aac207e7431c4130f085b4e650b9e458c"><td class="memItemLeft">static bool&#160;</td><td class="memItemRight"><a class="el" href="#aac207e7431c4130f085b4e650b9e458c">IsZlib</a> (uint8_t u8DataFirst, uint8_t u8DataSecond)</td></tr>
@@ -128,12 +128,12 @@ $(function(){initNavTree('classNBT__IO.html','','classNBT__IO-members'); });
 <tr class="memitem:a1aedf88b6a48e4899dc796597ab236df" id="r_a1aedf88b6a48e4899dc796597ab236df"><td class="memTemplParams" colspan="2">template&lt;typename I, typename O&gt; </td></tr>
 <tr class="memitem:a1aedf88b6a48e4899dc796597ab236df template"><td class="memItemLeft">static void&#160;</td><td class="memItemRight"><a class="el" href="#a1aedf88b6a48e4899dc796597ab236df">CompressData</a> (O &amp;oData, const I &amp;iData, int iLevel=Z_DEFAULT_COMPRESSION)</td></tr>
 <tr class="memdesc:a1aedf88b6a48e4899dc796597ab236df"><td class="mdescLeft">&#160;</td><td class="mdescRight">压缩数据，默认压缩为Gzip，也就是NBT格式的标准压缩类型，如果失败则抛出异常  <br /></td></tr>
-<tr class="memitem:acd9e15b5528d016e87ffb67464aab8c8" id="r_acd9e15b5528d016e87ffb67464aab8c8"><td class="memTemplParams" colspan="2">template&lt;typename I, typename O, typename ErrInfoFunc = NBT_Print&gt; </td></tr>
-<tr class="memitem:acd9e15b5528d016e87ffb67464aab8c8 template"><td class="memItemLeft">static bool&#160;</td><td class="memItemRight"><a class="el" href="#acd9e15b5528d016e87ffb67464aab8c8">DecompressDataNoThrow</a> (O &amp;oData, const I &amp;iData, ErrInfoFunc funcErrInfo=<a class="el" href="classNBT__Print.html">NBT_Print</a>{ stderr }) noexcept</td></tr>
-<tr class="memdesc:acd9e15b5528d016e87ffb67464aab8c8"><td class="mdescLeft">&#160;</td><td class="mdescRight">解压数据，但是不抛出异常，而是通过funcErrInfo打印异常信息并返回成功与否  <br /></td></tr>
-<tr class="memitem:acb1e080c5f689eaf38640ca7827b7146" id="r_acb1e080c5f689eaf38640ca7827b7146"><td class="memTemplParams" colspan="2">template&lt;typename I, typename O, typename ErrInfoFunc = NBT_Print&gt; </td></tr>
-<tr class="memitem:acb1e080c5f689eaf38640ca7827b7146 template"><td class="memItemLeft">static bool&#160;</td><td class="memItemRight"><a class="el" href="#acb1e080c5f689eaf38640ca7827b7146">CompressDataNoThrow</a> (O &amp;oData, const I &amp;iData, int iLevel=Z_DEFAULT_COMPRESSION, ErrInfoFunc funcErrInfo=<a class="el" href="classNBT__Print.html">NBT_Print</a>{ stderr }) noexcept</td></tr>
-<tr class="memdesc:acb1e080c5f689eaf38640ca7827b7146"><td class="mdescLeft">&#160;</td><td class="mdescRight">压缩数据，但是不抛出异常，而是通过funcErrInfo打印异常信息并返回成功与否  <br /></td></tr>
+<tr class="memitem:a0c8ca0bd1a1e8dbf58cacd70780d3d86" id="r_a0c8ca0bd1a1e8dbf58cacd70780d3d86"><td class="memTemplParams" colspan="2">template&lt;typename I, typename O, typename InfoFunc = NBT_Print&gt; </td></tr>
+<tr class="memitem:a0c8ca0bd1a1e8dbf58cacd70780d3d86 template"><td class="memItemLeft">static bool&#160;</td><td class="memItemRight"><a class="el" href="#a0c8ca0bd1a1e8dbf58cacd70780d3d86">DecompressDataNoThrow</a> (O &amp;oData, const I &amp;iData, InfoFunc funcInfo=InfoFunc{}) noexcept</td></tr>
+<tr class="memdesc:a0c8ca0bd1a1e8dbf58cacd70780d3d86"><td class="mdescLeft">&#160;</td><td class="mdescRight">解压数据，但是不抛出异常，而是通过funcErrInfo打印异常信息并返回成功与否  <br /></td></tr>
+<tr class="memitem:a7d85e38e85dd8131c6c9f0f929f9c66d" id="r_a7d85e38e85dd8131c6c9f0f929f9c66d"><td class="memTemplParams" colspan="2">template&lt;typename I, typename O, typename InfoFunc = NBT_Print&gt; </td></tr>
+<tr class="memitem:a7d85e38e85dd8131c6c9f0f929f9c66d template"><td class="memItemLeft">static bool&#160;</td><td class="memItemRight"><a class="el" href="#a7d85e38e85dd8131c6c9f0f929f9c66d">CompressDataNoThrow</a> (O &amp;oData, const I &amp;iData, int iLevel=Z_DEFAULT_COMPRESSION, InfoFunc funcInfo=InfoFunc{}) noexcept</td></tr>
+<tr class="memdesc:a7d85e38e85dd8131c6c9f0f929f9c66d"><td class="mdescLeft">&#160;</td><td class="mdescRight">压缩数据，但是不抛出异常，而是通过funcErrInfo打印异常信息并返回成功与否  <br /></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">详细描述</h2>
 <div class="textblock"><p>用于提供nbt文件读写，解压与压缩功能 </p>
@@ -192,13 +192,13 @@ template&lt;typename I, typename O&gt; </div>
 
 </div>
 </div>
-<a id="acb1e080c5f689eaf38640ca7827b7146" name="acb1e080c5f689eaf38640ca7827b7146"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acb1e080c5f689eaf38640ca7827b7146">&#9670;&#160;</a></span>CompressDataNoThrow()</h2>
+<a id="a7d85e38e85dd8131c6c9f0f929f9c66d" name="a7d85e38e85dd8131c6c9f0f929f9c66d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7d85e38e85dd8131c6c9f0f929f9c66d">&#9670;&#160;</a></span>CompressDataNoThrow()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename I, typename O, typename ErrInfoFunc = NBT_Print&gt; </div>
+template&lt;typename I, typename O, typename InfoFunc = NBT_Print&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -221,7 +221,7 @@ template&lt;typename I, typename O, typename ErrInfoFunc = NBT_Print&gt; </div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">ErrInfoFunc</td>          <td class="paramname"><span class="paramname"><em>funcErrInfo</em></span><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="classNBT__Print.html">NBT_Print</a>{&#160;stderr&#160;}</span>&#160;)</td>
+          <td class="paramtype">InfoFunc</td>          <td class="paramname"><span class="paramname"><em>funcInfo</em></span><span class="paramdefsep"> = </span><span class="paramdefval">InfoFunc{}</span>&#160;)</td>
         </tr>
       </table>
   </td>
@@ -236,7 +236,7 @@ template&lt;typename I, typename O, typename ErrInfoFunc = NBT_Print&gt; </div>
   <table class="tparams">
     <tr><td class="paramname">I</td><td>输入的顺序容器类型 </td></tr>
     <tr><td class="paramname">O</td><td>输出的顺序容器类型 </td></tr>
-    <tr><td class="paramname">ErrInfoFunc</td><td>打印异常信息的仿函数类型 </td></tr>
+    <tr><td class="paramname">InfoFunc</td><td>打印异常信息的仿函数类型 </td></tr>
   </table>
   </dd>
 </dl>
@@ -245,7 +245,7 @@ template&lt;typename I, typename O, typename ErrInfoFunc = NBT_Print&gt; </div>
     <tr><td class="paramdir">[out]</td><td class="paramname">oData</td><td>输入的顺序容器引用 </td></tr>
     <tr><td class="paramdir"></td><td class="paramname">iData</td><td>输出的顺序容器引用 </td></tr>
     <tr><td class="paramdir"></td><td class="paramname">iLevel</td><td>压缩等级 </td></tr>
-    <tr><td class="paramdir"></td><td class="paramname">funcErrInfo</td><td>打印异常信息的仿函数 </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">funcInfo</td><td>打印异常信息的仿函数 </td></tr>
   </table>
   </dd>
 </dl>
@@ -302,13 +302,13 @@ template&lt;typename I, typename O&gt; </div>
 
 </div>
 </div>
-<a id="acd9e15b5528d016e87ffb67464aab8c8" name="acd9e15b5528d016e87ffb67464aab8c8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acd9e15b5528d016e87ffb67464aab8c8">&#9670;&#160;</a></span>DecompressDataNoThrow()</h2>
+<a id="a0c8ca0bd1a1e8dbf58cacd70780d3d86" name="a0c8ca0bd1a1e8dbf58cacd70780d3d86"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0c8ca0bd1a1e8dbf58cacd70780d3d86">&#9670;&#160;</a></span>DecompressDataNoThrow()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename I, typename O, typename ErrInfoFunc = NBT_Print&gt; </div>
+template&lt;typename I, typename O, typename InfoFunc = NBT_Print&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -326,7 +326,7 @@ template&lt;typename I, typename O, typename ErrInfoFunc = NBT_Print&gt; </div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">ErrInfoFunc</td>          <td class="paramname"><span class="paramname"><em>funcErrInfo</em></span><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="classNBT__Print.html">NBT_Print</a>{&#160;stderr&#160;}</span>&#160;)</td>
+          <td class="paramtype">InfoFunc</td>          <td class="paramname"><span class="paramname"><em>funcInfo</em></span><span class="paramdefsep"> = </span><span class="paramdefval">InfoFunc{}</span>&#160;)</td>
         </tr>
       </table>
   </td>
@@ -341,7 +341,7 @@ template&lt;typename I, typename O, typename ErrInfoFunc = NBT_Print&gt; </div>
   <table class="tparams">
     <tr><td class="paramname">I</td><td>输入的顺序容器类型 </td></tr>
     <tr><td class="paramname">O</td><td>输出的顺序容器类型 </td></tr>
-    <tr><td class="paramname">ErrInfoFunc</td><td>打印异常信息的仿函数类型 </td></tr>
+    <tr><td class="paramname">InfoFunc</td><td>打印异常信息的仿函数类型 </td></tr>
   </table>
   </dd>
 </dl>
@@ -349,7 +349,7 @@ template&lt;typename I, typename O, typename ErrInfoFunc = NBT_Print&gt; </div>
   <table class="params">
     <tr><td class="paramdir">[out]</td><td class="paramname">oData</td><td>输入的顺序容器引用 </td></tr>
     <tr><td class="paramdir"></td><td class="paramname">iData</td><td>输出的顺序容器引用 </td></tr>
-    <tr><td class="paramdir"></td><td class="paramname">funcErrInfo</td><td>打印异常信息的仿函数 </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">funcInfo</td><td>打印异常信息的仿函数 </td></tr>
   </table>
   </dd>
 </dl>
@@ -516,13 +516,13 @@ template&lt;typename T&gt; </div>
 
 </div>
 </div>
-<a id="aa4f71f5c823611a36cbd8aac9f3255b1" name="aa4f71f5c823611a36cbd8aac9f3255b1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa4f71f5c823611a36cbd8aac9f3255b1">&#9670;&#160;</a></span>ReadFile()</h2>
+<a id="a63f73c9084c61fe0618fa45212bcd70e" name="a63f73c9084c61fe0618fa45212bcd70e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a63f73c9084c61fe0618fa45212bcd70e">&#9670;&#160;</a></span>ReadFile()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename T = std::vector&lt;uint8_t&gt;&gt; </div>
+template&lt;typename T = std::vector&lt;uint8_t&gt;, typename InfoFunc = NBT_Print&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -535,12 +535,17 @@ template&lt;typename T = std::vector&lt;uint8_t&gt;&gt; </div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">T &amp;</td>          <td class="paramname"><span class="paramname"><em>tData</em></span>&#160;)</td>
+          <td class="paramtype">T &amp;</td>          <td class="paramname"><span class="paramname"><em>tData</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">InfoFunc</td>          <td class="paramname"><span class="paramname"><em>funcInfo</em></span><span class="paramdefsep"> = </span><span class="paramdefval">InfoFunc{}</span>&#160;)</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -549,6 +554,7 @@ template&lt;typename T = std::vector&lt;uint8_t&gt;&gt; </div>
 <dl class="tparams"><dt>模板参数</dt><dd>
   <table class="tparams">
     <tr><td class="paramname">T</td><td>任意顺序容器类型 </td></tr>
+    <tr><td class="paramname">InfoFunc</td><td>打印异常信息的仿函数类型 </td></tr>
   </table>
   </dd>
 </dl>
@@ -556,21 +562,22 @@ template&lt;typename T = std::vector&lt;uint8_t&gt;&gt; </div>
   <table class="params">
     <tr><td class="paramdir"></td><td class="paramname">pathFileName</td><td>目标文件名 </td></tr>
     <tr><td class="paramdir">[out]</td><td class="paramname">tData</td><td>顺序容器的引用 </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">funcInfo</td><td>打印异常信息的仿函数 </td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>返回</dt><dd>读取是否成功 </dd></dl>
-<dl class="section note"><dt>注解</dt><dd>如果文件不存在，则失败。 顺序容器必须存储字节流，内部的值类型大小必须为1，且必须可平凡拷贝。 </dd></dl>
+<dl class="section note"><dt>注解</dt><dd>文件必须是常规文件。如果文件不存在，则失败。 顺序容器必须存储字节流，内部的值类型大小必须为1，且必须可平凡拷贝。 </dd></dl>
 
 </div>
 </div>
-<a id="ad2a4e2f0f43e34de19df18adfa0ede8c" name="ad2a4e2f0f43e34de19df18adfa0ede8c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad2a4e2f0f43e34de19df18adfa0ede8c">&#9670;&#160;</a></span>WriteFile()</h2>
+<a id="a9b0b11d352e2d123a518db2da48c6abe" name="a9b0b11d352e2d123a518db2da48c6abe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9b0b11d352e2d123a518db2da48c6abe">&#9670;&#160;</a></span>WriteFile()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename T = std::vector&lt;uint8_t&gt;&gt; </div>
+template&lt;typename T = std::vector&lt;uint8_t&gt;, typename InfoFunc = NBT_Print&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -583,12 +590,17 @@ template&lt;typename T = std::vector&lt;uint8_t&gt;&gt; </div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const T &amp;</td>          <td class="paramname"><span class="paramname"><em>tData</em></span>&#160;)</td>
+          <td class="paramtype">const T &amp;</td>          <td class="paramname"><span class="paramname"><em>tData</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">InfoFunc</td>          <td class="paramname"><span class="paramname"><em>funcInfo</em></span><span class="paramdefsep"> = </span><span class="paramdefval">InfoFunc{}</span>&#160;)</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -597,6 +609,7 @@ template&lt;typename T = std::vector&lt;uint8_t&gt;&gt; </div>
 <dl class="tparams"><dt>模板参数</dt><dd>
   <table class="tparams">
     <tr><td class="paramname">T</td><td>任意顺序容器类型 </td></tr>
+    <tr><td class="paramname">InfoFunc</td><td>打印异常信息的仿函数类型 </td></tr>
   </table>
   </dd>
 </dl>
@@ -604,11 +617,12 @@ template&lt;typename T = std::vector&lt;uint8_t&gt;&gt; </div>
   <table class="params">
     <tr><td class="paramname">pathFileName</td><td>目标文件名 </td></tr>
     <tr><td class="paramname">tData</td><td>顺序容器的引用 </td></tr>
+    <tr><td class="paramname">funcInfo</td><td>打印异常信息的仿函数 </td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>返回</dt><dd>写出是否成功 </dd></dl>
-<dl class="section note"><dt>注解</dt><dd>如果文件已存在则直接清空并覆盖，未存在则创建文件。 顺序容器必须存储字节流，内部的值类型大小必须为1，且必须可平凡拷贝。 </dd></dl>
+<dl class="section note"><dt>注解</dt><dd>文件必须是常规文件。如果文件已存在则直接清空并覆盖，未存在则创建文件。 顺序容器必须存储字节流，内部的值类型大小必须为1，且必须可平凡拷贝。 </dd></dl>
 
 </div>
 </div>

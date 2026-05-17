@@ -43,9 +43,10 @@ var searchData=
   ['addreserve_40',['AddReserve',['../classNBT__IO_1_1DefaultOutputStream.html#aca068899c75594ab8f2ccdb2ef1d0aa9',1,'NBT_IO::DefaultOutputStream']]],
   ['addshort_41',['AddShort',['../classNBT__List.html#a8fe4d28d6ed14334a2ba3b1d2706c159',1,'NBT_List::AddShort(typename List::size_type szPos, const typename NBT_Type::Short &amp;vTagVal)'],['../classNBT__List.html#ab6fee77521e2ab69ee29dcc18f7753ad',1,'NBT_List::AddShort(typename List::size_type szPos, typename NBT_Type::Short &amp;&amp;vTagVal)']]],
   ['addstring_42',['AddString',['../classNBT__List.html#a6af3e8f3596bbe5386ad9648a62cb017',1,'NBT_List::AddString(typename List::size_type szPos, const typename NBT_Type::String &amp;vTagVal)'],['../classNBT__List.html#a39fd61de9b905dc940da6372a12b7121',1,'NBT_List::AddString(typename List::size_type szPos, typename NBT_Type::String &amp;&amp;vTagVal)']]],
-  ['appendstacktop_43',['AppendStackTop',['../classNBT__Visitor__Collector.html#a800b0fc9eb9aedd190811fa55662253a',1,'NBT_Visitor_Collector']]],
-  ['arraylength_44',['ArrayLength',['../classNBT__Type.html#a38f9e5a21f8d2e8217fcdf65c47039a4',1,'NBT_Type']]],
-  ['arraylength_5fmax_45',['ArrayLength_Max',['../classNBT__Type.html#ac12e0beaccb23ad2b11620a503b8b0c7',1,'NBT_Type']]],
-  ['arraylength_5fmin_46',['ArrayLength_Min',['../classNBT__Type.html#a61c44fff74188bb26d53106f53a71709',1,'NBT_Type']]],
-  ['autobyteswap_47',['AutoByteSwap',['../classNBT__Endian.html#ae098aa276c399b2edf2e4c1bd805e86a',1,'NBT_Endian']]]
+  ['allocator_5ftype_43',['Allocator_Type',['../classNBT__Compound.html#a32c1aedf6ee6e8209cc7e65688a5e8eb',1,'NBT_Compound::Allocator_Type'],['../classNBT__List.html#a0040bfe75562eede6ccf52a86fb226dd',1,'NBT_List::Allocator_Type']]],
+  ['appendstacktop_44',['AppendStackTop',['../classNBT__Visitor__Collector.html#a800b0fc9eb9aedd190811fa55662253a',1,'NBT_Visitor_Collector']]],
+  ['arraylength_45',['ArrayLength',['../classNBT__Type.html#a38f9e5a21f8d2e8217fcdf65c47039a4',1,'NBT_Type']]],
+  ['arraylength_5fmax_46',['ArrayLength_Max',['../classNBT__Type.html#ac12e0beaccb23ad2b11620a503b8b0c7',1,'NBT_Type']]],
+  ['arraylength_5fmin_47',['ArrayLength_Min',['../classNBT__Type.html#a61c44fff74188bb26d53106f53a71709',1,'NBT_Type']]],
+  ['autobyteswap_48',['AutoByteSwap',['../classNBT__Endian.html#ae098aa276c399b2edf2e4c1bd805e86a',1,'NBT_Endian']]]
 ];

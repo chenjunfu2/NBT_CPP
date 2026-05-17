@@ -1,0 +1,244 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.16.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>chenjunfu2-nbt-cpp: NBT_NoPrint类 参考</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">chenjunfu2-nbt-cpp<span id="projectnumber">&#160;v2.1.3</span>
+   </div>
+   <div id="projectbrief">一个基于CPP20的NBT(Named Binary Tag)库</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.16.1 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','搜索',true);
+  $(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(function(){initNavTree('classNBT__NoPrint.html','','classNBT__NoPrint-members'); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">NBT_NoPrint类 参考</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>忽略所有输出的打印工具类，与 <a class="el" href="classNBT__Print.html" title="一个用于打印信息到指定的C文件对象的工具类，作为库内大部分存在信息输出接口的默认实现。 实际可被使用此类为默认值参数的函数的调用方，以类似此类的仿函数参数重写的其它类型替换， 比如调用方实现了一个My_...">NBT_Print</a> 拥有完全相同的仿函数接口。 可用于替换 <a class="el" href="classNBT__Print.html" title="一个用于打印信息到指定的C文件对象的工具类，作为库内大部分存在信息输出接口的默认实现。 实际可被使用此类为默认值参数的函数的调用方，以类似此类的仿函数参数重写的其它类型替换， 比如调用方实现了一个My_...">NBT_Print</a> 以禁用所有信息输出。  
+ <a href="#details">更多...</a></p>
+
+<p><code>#include &lt;<a class="el" href="NBT__Print_8hpp_source.html">NBT_Print.hpp</a>&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-types" class="groupheader"><a id="pub-types" name="pub-types"></a>
+Public 类型</h2></td></tr>
+<tr class="memitem:a3b1b2ed6ea31eaadb43bdc5c893578d7" id="r_a3b1b2ed6ea31eaadb43bdc5c893578d7"><td class="memItemLeft"><a id="a3b1b2ed6ea31eaadb43bdc5c893578d7" name="a3b1b2ed6ea31eaadb43bdc5c893578d7"></a>
+using&#160;</td><td class="memItemRight"><b>Level</b> = <a class="el" href="NBT__Print_8hpp.html#a977ff50d4d248543d59717387e6dd311">NBT_Print_Level</a></td></tr>
+<tr class="memdesc:a3b1b2ed6ea31eaadb43bdc5c893578d7"><td class="mdescLeft">&#160;</td><td class="mdescRight">信息等级，直接映射NBT_Print_Level <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Public 成员函数</h2></td></tr>
+<tr class="memitem:adfe088ea6469604c954d9fc7f945f216" id="r_adfe088ea6469604c954d9fc7f945f216"><td class="memItemLeft"><a id="adfe088ea6469604c954d9fc7f945f216" name="adfe088ea6469604c954d9fc7f945f216"></a>
+&#160;</td><td class="memItemRight"><b>NBT_NoPrint</b> (void) noexcept</td></tr>
+<tr class="memdesc:adfe088ea6469604c954d9fc7f945f216"><td class="mdescLeft">&#160;</td><td class="mdescRight">默认构造函数 <br /></td></tr>
+<tr class="memitem:a5b4a71dfd1e98cf1bc20c789f55c336b" id="r_a5b4a71dfd1e98cf1bc20c789f55c336b"><td class="memItemLeft"><a id="a5b4a71dfd1e98cf1bc20c789f55c336b" name="a5b4a71dfd1e98cf1bc20c789f55c336b"></a>
+&#160;</td><td class="memItemRight"><b>~NBT_NoPrint</b> (void) noexcept</td></tr>
+<tr class="memdesc:a5b4a71dfd1e98cf1bc20c789f55c336b"><td class="mdescLeft">&#160;</td><td class="mdescRight">默认析构函数 <br /></td></tr>
+<tr class="memitem:a6ffa63657b9b41d7d174716c27e20b58" id="r_a6ffa63657b9b41d7d174716c27e20b58"><td class="memTemplParams" colspan="2">template&lt;typename... Args&gt; </td></tr>
+<tr class="memitem:a6ffa63657b9b41d7d174716c27e20b58 template"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a6ffa63657b9b41d7d174716c27e20b58">operator()</a> (<a class="el" href="NBT__Print_8hpp.html#a977ff50d4d248543d59717387e6dd311">Level</a> lvl, const std::format_string&lt; Args... &gt; fmt, Args &amp;&amp;... args) const noexcept</td></tr>
+<tr class="memdesc:a6ffa63657b9b41d7d174716c27e20b58"><td class="mdescLeft">&#160;</td><td class="mdescRight">仿函数调用，接受打印等级和格式化字符串，忽略所有参数。  <br /></td></tr>
+<tr class="memitem:a9af82a17c98ef902579bf0bb7510019e" id="r_a9af82a17c98ef902579bf0bb7510019e"><td class="memTemplParams" colspan="2">template&lt;typename... Args&gt; </td></tr>
+<tr class="memitem:a9af82a17c98ef902579bf0bb7510019e template"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a9af82a17c98ef902579bf0bb7510019e">operator()</a> (const std::format_string&lt; Args... &gt; fmt, Args &amp;&amp;... args) const noexcept</td></tr>
+<tr class="memdesc:a9af82a17c98ef902579bf0bb7510019e"><td class="mdescLeft">&#160;</td><td class="mdescRight">仿函数调用，默认 Info 等级，忽略所有参数。  <br /></td></tr>
+</table>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">详细描述</h2>
+<div class="textblock"><p>忽略所有输出的打印工具类，与 <a class="el" href="classNBT__Print.html" title="一个用于打印信息到指定的C文件对象的工具类，作为库内大部分存在信息输出接口的默认实现。 实际可被使用此类为默认值参数的函数的调用方，以类似此类的仿函数参数重写的其它类型替换， 比如调用方实现了一个My_...">NBT_Print</a> 拥有完全相同的仿函数接口。 可用于替换 <a class="el" href="classNBT__Print.html" title="一个用于打印信息到指定的C文件对象的工具类，作为库内大部分存在信息输出接口的默认实现。 实际可被使用此类为默认值参数的函数的调用方，以类似此类的仿函数参数重写的其它类型替换， 比如调用方实现了一个My_...">NBT_Print</a> 以禁用所有信息输出。 </p>
+</div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">成员函数说明</h2>
+<a id="a9af82a17c98ef902579bf0bb7510019e" name="a9af82a17c98ef902579bf0bb7510019e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9af82a17c98ef902579bf0bb7510019e">&#9670;&#160;</a></span>operator()() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename... Args&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void NBT_NoPrint::operator() </td>
+          <td>(</td>
+          <td class="paramtype">const std::format_string&lt; Args... &gt;</td>          <td class="paramname"><span class="paramname"><em>fmt</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Args &amp;&amp;...</td>          <td class="paramname"><span class="paramname"><em>args</em></span>&#160;) const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>仿函数调用，默认 Info 等级，忽略所有参数。 </p>
+<dl class="tparams"><dt>模板参数</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">Args</td><td>可变模板参数 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">fmt</td><td>格式化字符串（忽略） </td></tr>
+    <tr><td class="paramname">...args</td><td>格式化参数（忽略） </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a6ffa63657b9b41d7d174716c27e20b58" name="a6ffa63657b9b41d7d174716c27e20b58"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6ffa63657b9b41d7d174716c27e20b58">&#9670;&#160;</a></span>operator()() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename... Args&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void NBT_NoPrint::operator() </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="NBT__Print_8hpp.html#a977ff50d4d248543d59717387e6dd311">Level</a></td>          <td class="paramname"><span class="paramname"><em>lvl</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::format_string&lt; Args... &gt;</td>          <td class="paramname"><span class="paramname"><em>fmt</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Args &amp;&amp;...</td>          <td class="paramname"><span class="paramname"><em>args</em></span>&#160;) const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>仿函数调用，接受打印等级和格式化字符串，忽略所有参数。 </p>
+<dl class="tparams"><dt>模板参数</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">Args</td><td>可变模板参数 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">lvl</td><td>打印等级（忽略） </td></tr>
+    <tr><td class="paramname">fmt</td><td>格式化字符串（忽略） </td></tr>
+    <tr><td class="paramname">...args</td><td>格式化参数（忽略） </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<hr/>该类的文档由以下文件生成:<ul>
+<li><a class="el" href="NBT__Print_8hpp_source.html">NBT_Print.hpp</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="classNBT__NoPrint.html">NBT_NoPrint</a></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.16.1 </li>
+  </ul>
+</div>
+</body>
+</html>

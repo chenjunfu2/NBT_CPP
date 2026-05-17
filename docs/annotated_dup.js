@@ -17,6 +17,7 @@ var annotated_dup =
     [ "NBT_List", "classNBT__List.html", "classNBT__List" ],
     [ "NBT_Node", "classNBT__Node.html", "classNBT__Node" ],
     [ "NBT_Node_View", "classNBT__Node__View.html", "classNBT__Node__View" ],
+    [ "NBT_NoPrint", "classNBT__NoPrint.html", "classNBT__NoPrint" ],
     [ "NBT_Print", "classNBT__Print.html", "classNBT__Print" ],
     [ "NBT_Reader", "classNBT__Reader.html", null ],
     [ "NBT_Scanner", "classNBT__Scanner.html", null ],
