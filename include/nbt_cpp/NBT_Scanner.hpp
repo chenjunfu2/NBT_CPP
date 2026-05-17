@@ -31,13 +31,13 @@ protected:
 		Error,		///< 出现错误（终止解析）
 	};
 
-	static Control ResultControlToControl(NBT_Visitor::ResultControl enResultControl)
+	static Control ResultControlToControl(NBT_Visitor_ResultControl enResultControl)
 	{
 		switch (enResultControl)
 		{
-		case NBT_Visitor::ResultControl::Continue:	return Control::Continue;	break;
-		case NBT_Visitor::ResultControl::Break:		return Control::Break;		break;
-		case NBT_Visitor::ResultControl::Stop:		return Control::Stop;		break;
+		case NBT_Visitor_ResultControl::Continue:	return Control::Continue;	break;
+		case NBT_Visitor_ResultControl::Break:		return Control::Break;		break;
+		case NBT_Visitor_ResultControl::Stop:		return Control::Stop;		break;
 		default:									return Control::Error;		break;
 		}
 	}
@@ -521,9 +521,9 @@ catch(...)\
 		//访问器开始回调
 		switch (tVisitor.VisitListBegin(enListElementTag, szListLength))
 		{
-		case NBT_Visitor::ResultControl::Continue:	/*继续（什么也不做）*/	break;
-		case NBT_Visitor::ResultControl::Break:		goto skip_any;			break;//这时候索引从0开始，跳过所有
-		case NBT_Visitor::ResultControl::Stop:		return Control::Stop;	break;
+		case NBT_Visitor_ResultControl::Continue:	/*继续（什么也不做）*/	break;
+		case NBT_Visitor_ResultControl::Break:		goto skip_any;			break;//这时候索引从0开始，跳过所有
+		case NBT_Visitor_ResultControl::Stop:		return Control::Stop;	break;
 		default:
 			UNKNOWN_CONTROL_CODE(tVisitor.VisitListBegin, Control::Error);
 			break;
@@ -535,8 +535,8 @@ catch(...)\
 			//访问器元素回调
 			switch (tVisitor.VisitListElementBegin(enListElementTag, i))
 			{
-			case NBT_Visitor::NestingControl::Enter:	/*进入值（什么也不做）*/	break;
-			case NBT_Visitor::NestingControl::Skip:		//跳过当前元素
+			case NBT_Visitor_NestingControl::Enter:	/*进入值（什么也不做）*/	break;
+			case NBT_Visitor_NestingControl::Skip:		//跳过当前元素
 				{
 					if (!SkipSwitch(tData, enListElementTag, tVisitor, szStackDepth - 1))
 					{
@@ -546,8 +546,8 @@ catch(...)\
 					continue;//跳过当前并继续
 				}
 				break;
-			case NBT_Visitor::NestingControl::Break:	goto skip_any;			break;//跳过剩余所有列表元素，注意当前元素还未读取，所以下面依旧从i开始跳
-			case NBT_Visitor::NestingControl::Stop:		return Control::Stop;	break;
+			case NBT_Visitor_NestingControl::Break:	goto skip_any;			break;//跳过剩余所有列表元素，注意当前元素还未读取，所以下面依旧从i开始跳
+			case NBT_Visitor_NestingControl::Stop:		return Control::Stop;	break;
 			default:
 				UNKNOWN_CONTROL_CODE(tVisitor.VisitListElementBegin, Control::Error);
 				break;
@@ -571,9 +571,9 @@ catch(...)\
 			//元素结束回调
 			switch (tVisitor.VisitListElementEnd(enListElementTag, i))
 			{
-			case NBT_Visitor::ResultControl::Continue:	/*继续（什么也不做）*/	break;
-			case NBT_Visitor::ResultControl::Break:		goto skip_any;			break;//跳过剩余所有
-			case NBT_Visitor::ResultControl::Stop:		return Control::Stop;	break;
+			case NBT_Visitor_ResultControl::Continue:	/*继续（什么也不做）*/	break;
+			case NBT_Visitor_ResultControl::Break:		goto skip_any;			break;//跳过剩余所有
+			case NBT_Visitor_ResultControl::Stop:		return Control::Stop;	break;
 			default:
 				UNKNOWN_CONTROL_CODE(tVisitor.VisitListElementEnd, Control::Error);
 				break;
@@ -672,9 +672,9 @@ catch(...)\
 		{
 			switch (tVisitor.VisitCompoundBegin())
 			{
-			case NBT_Visitor::ResultControl::Continue:	/*继续（什么也不做）*/	break;
-			case NBT_Visitor::ResultControl::Break:		goto skip_any;			break;//跳过所有
-			case NBT_Visitor::ResultControl::Stop:		return Control::Stop;	break;
+			case NBT_Visitor_ResultControl::Continue:	/*继续（什么也不做）*/	break;
+			case NBT_Visitor_ResultControl::Break:		goto skip_any;			break;//跳过所有
+			case NBT_Visitor_ResultControl::Stop:		return Control::Stop;	break;
 			default:
 				UNKNOWN_CONTROL_CODE(tVisitor.VisitCompoundBegin, Control::Error);
 				break;
@@ -726,8 +726,8 @@ catch(...)\
 			//访问器条目回调（仅类型）
 			switch (tVisitor.VisitCompoundNextEntryType(enCompoundEntryTag))
 			{
-			case NBT_Visitor::NestingControl::Enter:	/*进入（什么也不做）*/	break;
-			case NBT_Visitor::NestingControl::Skip:		//跳过一个
+			case NBT_Visitor_NestingControl::Enter:	/*进入（什么也不做）*/	break;
+			case NBT_Visitor_NestingControl::Skip:		//跳过一个
 				{
 					//类型已被读取
 					//跳过名称
@@ -745,7 +745,7 @@ catch(...)\
 					}
 				}
 				break;
-			case NBT_Visitor::NestingControl::Break:	//跳过所有（离开）
+			case NBT_Visitor_NestingControl::Break:	//跳过所有（离开）
 				{
 					//类型已被读取
 					//跳过名称
@@ -766,7 +766,7 @@ catch(...)\
 					goto skip_any;
 				}
 				break;
-			case NBT_Visitor::NestingControl::Stop:	return Control::Stop;	break;
+			case NBT_Visitor_NestingControl::Stop:	return Control::Stop;	break;
 			default:
 				UNKNOWN_CONTROL_CODE(tVisitor.VisitCompoundNextEntryType, Control::Error);
 				break;
@@ -783,8 +783,8 @@ catch(...)\
 			//调用访问器（类型名称）
 			switch (tVisitor.VisitCompoundEntryBegin(enCompoundEntryTag, std::move(sName)))
 			{
-			case NBT_Visitor::NestingControl::Enter:	/*进入（什么也不做）*/	break;
-			case NBT_Visitor::NestingControl::Skip:		//跳过一个
+			case NBT_Visitor_NestingControl::Enter:	/*进入（什么也不做）*/	break;
+			case NBT_Visitor_NestingControl::Skip:		//跳过一个
 				{
 					//类型、名称已被读取
 					//跳过数据
@@ -796,7 +796,7 @@ catch(...)\
 					continue;//继续上面的循环
 				}
 				break;
-			case NBT_Visitor::NestingControl::Break://跳过剩余
+			case NBT_Visitor_NestingControl::Break://跳过剩余
 				{
 					//类型、名称已被读取
 					//跳过数据
@@ -810,7 +810,7 @@ catch(...)\
 					goto skip_any;
 				}
 				break;
-			case NBT_Visitor::NestingControl::Stop:	return Control::Stop;	break;
+			case NBT_Visitor_NestingControl::Stop:	return Control::Stop;	break;
 			default:
 				UNKNOWN_CONTROL_CODE(tVisitor.VisitCompoundEntryBegin, Control::Error);
 				break;
@@ -834,9 +834,9 @@ catch(...)\
 			//元素访问结束回调
 			switch (tVisitor.VisitCompoundEntryEnd(enCompoundEntryTag, std::move(sName)))
 			{
-			case NBT_Visitor::ResultControl::Continue:	/*继续（什么也不做）*/	break;
-			case NBT_Visitor::ResultControl::Break:		goto skip_any;			break;//跳过剩余所有
-			case NBT_Visitor::ResultControl::Stop:		return Control::Stop;	break;
+			case NBT_Visitor_ResultControl::Continue:	/*继续（什么也不做）*/	break;
+			case NBT_Visitor_ResultControl::Break:		goto skip_any;			break;//跳过剩余所有
+			case NBT_Visitor_ResultControl::Stop:		return Control::Stop;	break;
 			default:
 				UNKNOWN_CONTROL_CODE(tVisitor.VisitCompoundEntryEnd, Control::Error);
 				break;
