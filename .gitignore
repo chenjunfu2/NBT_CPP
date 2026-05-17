@@ -366,7 +366,6 @@ FodyWeavers.xsd
 build/
 
 # My
-*.nbt
 *.TMP
 *.bak
 *.nbt
