@@ -130,10 +130,10 @@ $(function(){initNavTree('classNBT__IO.html','','classNBT__IO-members'); });
 <tr class="memdesc:a1aedf88b6a48e4899dc796597ab236df"><td class="mdescLeft">&#160;</td><td class="mdescRight">压缩数据，默认压缩为Gzip，也就是NBT格式的标准压缩类型，如果失败则抛出异常  <br /></td></tr>
 <tr class="memitem:a0c8ca0bd1a1e8dbf58cacd70780d3d86" id="r_a0c8ca0bd1a1e8dbf58cacd70780d3d86"><td class="memTemplParams" colspan="2">template&lt;typename I, typename O, typename InfoFunc = NBT_Print&gt; </td></tr>
 <tr class="memitem:a0c8ca0bd1a1e8dbf58cacd70780d3d86 template"><td class="memItemLeft">static bool&#160;</td><td class="memItemRight"><a class="el" href="#a0c8ca0bd1a1e8dbf58cacd70780d3d86">DecompressDataNoThrow</a> (O &amp;oData, const I &amp;iData, InfoFunc funcInfo=InfoFunc{}) noexcept</td></tr>
-<tr class="memdesc:a0c8ca0bd1a1e8dbf58cacd70780d3d86"><td class="mdescLeft">&#160;</td><td class="mdescRight">解压数据，但是不抛出异常，而是通过funcErrInfo打印异常信息并返回成功与否  <br /></td></tr>
+<tr class="memdesc:a0c8ca0bd1a1e8dbf58cacd70780d3d86"><td class="mdescLeft">&#160;</td><td class="mdescRight">解压数据，但是不抛出异常，而是通过funcInfo打印异常信息并返回成功与否  <br /></td></tr>
 <tr class="memitem:a7d85e38e85dd8131c6c9f0f929f9c66d" id="r_a7d85e38e85dd8131c6c9f0f929f9c66d"><td class="memTemplParams" colspan="2">template&lt;typename I, typename O, typename InfoFunc = NBT_Print&gt; </td></tr>
 <tr class="memitem:a7d85e38e85dd8131c6c9f0f929f9c66d template"><td class="memItemLeft">static bool&#160;</td><td class="memItemRight"><a class="el" href="#a7d85e38e85dd8131c6c9f0f929f9c66d">CompressDataNoThrow</a> (O &amp;oData, const I &amp;iData, int iLevel=Z_DEFAULT_COMPRESSION, InfoFunc funcInfo=InfoFunc{}) noexcept</td></tr>
-<tr class="memdesc:a7d85e38e85dd8131c6c9f0f929f9c66d"><td class="mdescLeft">&#160;</td><td class="mdescRight">压缩数据，但是不抛出异常，而是通过funcErrInfo打印异常信息并返回成功与否  <br /></td></tr>
+<tr class="memdesc:a7d85e38e85dd8131c6c9f0f929f9c66d"><td class="mdescLeft">&#160;</td><td class="mdescRight">压缩数据，但是不抛出异常，而是通过funcInfo打印异常信息并返回成功与否  <br /></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">详细描述</h2>
 <div class="textblock"><p>用于提供nbt文件读写，解压与压缩功能 </p>
@@ -231,7 +231,7 @@ template&lt;typename I, typename O, typename InfoFunc = NBT_Print&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>压缩数据，但是不抛出异常，而是通过funcErrInfo打印异常信息并返回成功与否 </p>
+<p>压缩数据，但是不抛出异常，而是通过funcInfo打印异常信息并返回成功与否 </p>
 <dl class="tparams"><dt>模板参数</dt><dd>
   <table class="tparams">
     <tr><td class="paramname">I</td><td>输入的顺序容器类型 </td></tr>
@@ -250,7 +250,7 @@ template&lt;typename I, typename O, typename InfoFunc = NBT_Print&gt; </div>
   </dd>
 </dl>
 <dl class="section return"><dt>返回</dt><dd>操作是否成功 </dd></dl>
-<dl class="section note"><dt>注解</dt><dd>funcErrInfo默认实现为NBT_Print并输出到标准异常stderr，用户可以自定义。 类似于NBT_Print的仿函数类型并替换输出例程，具体情况请参照NBT_Print类的说明。 顺序容器必须存储字节流，内部的值类型大小必须为1，且必须可平凡拷贝。 </dd></dl>
+<dl class="section note"><dt>注解</dt><dd>funcInfo默认实现为NBT_Print并输出到标准异常stderr，用户可以自定义。 类似于NBT_Print的仿函数类型并替换输出例程，具体情况请参照NBT_Print类的说明。 顺序容器必须存储字节流，内部的值类型大小必须为1，且必须可平凡拷贝。 </dd></dl>
 
 </div>
 </div>
@@ -336,7 +336,7 @@ template&lt;typename I, typename O, typename InfoFunc = NBT_Print&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>解压数据，但是不抛出异常，而是通过funcErrInfo打印异常信息并返回成功与否 </p>
+<p>解压数据，但是不抛出异常，而是通过funcInfo打印异常信息并返回成功与否 </p>
 <dl class="tparams"><dt>模板参数</dt><dd>
   <table class="tparams">
     <tr><td class="paramname">I</td><td>输入的顺序容器类型 </td></tr>
@@ -354,7 +354,7 @@ template&lt;typename I, typename O, typename InfoFunc = NBT_Print&gt; </div>
   </dd>
 </dl>
 <dl class="section return"><dt>返回</dt><dd>操作是否成功 </dd></dl>
-<dl class="section note"><dt>注解</dt><dd>funcErrInfo默认实现为NBT_Print并输出到标准异常stderr，用户可以自定义。 类似于NBT_Print的仿函数类型并替换输出例程，具体情况请参照NBT_Print类的说明。 顺序容器必须存储字节流，内部的值类型大小必须为1，且必须可平凡拷贝。 </dd></dl>
+<dl class="section note"><dt>注解</dt><dd>funcInfo默认实现为NBT_Print并输出到标准异常stderr，用户可以自定义。 类似于NBT_Print的仿函数类型并替换输出例程，具体情况请参照NBT_Print类的说明。 顺序容器必须存储字节流，内部的值类型大小必须为1，且必须可平凡拷贝。 </dd></dl>
 
 </div>
 </div>
