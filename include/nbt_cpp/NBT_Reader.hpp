@@ -748,15 +748,48 @@ public:
 	}
 
 #ifdef CJF2_NBT_CPP_USE_ZLIB
+
+	/// @brief 从可能被压缩的文件中读取 NBT 数据到 NBT_Type::Compound 对象中
+	/// @tparam InfoFunc 信息输出仿函数类型
+	/// @param[out] tCompound 用于返回读取结果的对象
+	/// @param pathFileName 源文件路径
+	/// @param funcInfo 错误信息处理仿函数
+	/// @return 读取成功返回 true，失败返回 false
+	/// @note 本函数会读取整个文件内容，先尝试使用 Zlib 解压。若解压失败，则假定文件未压缩，直接使用原始数据。
+	/// 然后调用 ReadNBT 解析数据到 Compound 对象。如果文件不存在，则会失败。
 	template <typename InfoFunc = NBT_Print>
-	static bool SimpleReadNbtFile(NBT_Type::Compound &tCompound, const std::filesystem::path &pathFileName, InfoFunc funcInfo = InfoFunc{ stderr }) noexcept
+	static bool SimpleReadNbtFile(NBT_Type::Compound &tCompound, const std::filesystem::path &pathFileName, InfoFunc funcInfo = InfoFunc{}) noexcept
 	{
+		//读取文件
+		std::vector<uint8_t> vFileData;
+		if (!NBT_IO::ReadFile(pathFileName, vFileData, funcInfo))
+		{
+			funcInfo(NBT_Print_Level::Err, "Error: Cannot read file [{}].\n", pathFileName.string());
+			return false;
+		}
 
+		//尝试解压，失败则视作未压缩数据
+		std::vector<uint8_t> vNbtData;
+		if (!NBT_IO::DecompressDataNoThrow(vNbtData, vFileData, funcInfo))
+		{
+			funcInfo(NBT_Print_Level::Warn, "Warning: Decompression failed, assuming uncompressed data.\n");
+			vNbtData = std::move(vFileData);
+		}
 
+		//清理数据
+		vFileData.clear();
+		vFileData.shrink_to_fit();
 
+		//读取
+		if (!ReadNBT(vNbtData, 0, tCompound, 512, funcInfo))
+		{
+			funcInfo(NBT_Print_Level::Err, "Error: ReadNBT failed.\n");
+			return false;
+		}
 
-
+		return true;
 	}
+
 #endif
 
 #undef MYTRY

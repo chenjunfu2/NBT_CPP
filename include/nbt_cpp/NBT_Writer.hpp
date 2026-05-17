@@ -828,12 +828,48 @@ public:
 	}
 
 #ifdef CJF2_NBT_CPP_USE_ZLIB
+
+	/// @brief 将 NBT_Type::Compound 对象以可能压缩的方式写入到文件中
+	/// @tparam InfoFunc 信息输出仿函数类型
+	/// @param tCompound 用于写出的对象
+	/// @param pathFileName 目标文件路径
+	/// @param funcInfo 错误信息处理仿函数
+	/// @return 写入成功返回 true，失败返回 false
+	/// @note 本函数会先调用 WriteNBT 将 Compound 序列化为二进制数据，然后尝试使用 Zlib 压缩（压缩级别 -1）。
+	/// 若压缩失败，则直接写出未压缩的数据。最终将结果写入指定文件。如果文件已存在，会被覆盖，文件未存在则创建文件。
 	template <typename InfoFunc = NBT_Print>
 	static bool SimpleWriteNbtFile(const NBT_Type::Compound &tCompound, const std::filesystem::path &pathFileName, InfoFunc funcInfo = InfoFunc{}) noexcept
 	{
+		//写入文件
+		std::vector<uint8_t> vNbtData;
+		if (!WriteNBT(vNbtData, 0, tCompound, 512, funcInfo))
+		{
+			funcInfo(NBT_Print_Level::Err, "Error: WriteNBT failed.\n");
+			return false;
+		}
 
+		//尝试压缩，压缩失败则直接写出
+		std::vector<uint8_t> vFileData;
+		if (!NBT_IO::CompressDataNoThrow(vFileData, vNbtData, -1, funcInfo))
+		{
+			funcInfo(NBT_Print_Level::Warn, "Warning: Compression failed, using uncompressed data.\n");
+			vFileData = std::move(vNbtData);
+		}
 
+		//清理数据
+		vNbtData.clear();
+		vNbtData.shrink_to_fit();
+
+		//写出
+		if (!NBT_IO::WriteFile(pathFileName, vFileData, funcInfo))
+		{
+			funcInfo(NBT_Print_Level::Err, "Error: Cannot write file [{}].\n", pathFileName.string());
+			return false;
+		}
+
+		return true;
 	}
+
 #endif
 
 #undef MYTRY
