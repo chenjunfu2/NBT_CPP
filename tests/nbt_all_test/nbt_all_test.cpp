@@ -702,7 +702,7 @@ struct PriorityCompoundSort
 
 		// 优先级键：按 s_priorityKeys 定义顺序排列
 		std::sort(priorityIts.begin(), priorityIts.end(),
-			[this](const auto &l, const auto &r) -> bool
+			[](const auto &l, const auto &r) -> bool
 			{
 				size_t posL = ~size_t(0), posR = ~size_t(0);
 				for (size_t i = 0; i < s_priorityKeys.size(); ++i)
@@ -722,7 +722,7 @@ struct PriorityCompoundSort
 
 		// 拖尾键：按 s_trailerKeys 定义顺序排列
 		std::sort(trailerIts.begin(), trailerIts.end(),
-			[this](const auto &l, const auto &r) -> bool
+			[](const auto &l, const auto &r) -> bool
 			{
 				size_t posL = ~size_t(0), posR = ~size_t(0);
 				for (size_t i = 0; i < s_trailerKeys.size(); ++i)

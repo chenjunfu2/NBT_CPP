@@ -138,7 +138,6 @@ int main(void)
 
 	auto HexPrint = [](auto data, size_t beg = 0, size_t end = (size_t)-1) -> void
 	{
-		uint8_t i = 0;
 		using ut = std::make_unsigned_t<std::remove_reference_t<decltype(data[0])>>;
 
 		if (beg >= end || beg >= data.size())
