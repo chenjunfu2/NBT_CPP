@@ -55,7 +55,7 @@ public:
 	using VariantData = TypeListToVariant<NBT_Type::TypeList>::type;
 
 protected:
-	//数据对象（要求必须持有数据）
+	/// @brief 数据对象（要求必须持有数据）
 	VariantData data;
 
 public:

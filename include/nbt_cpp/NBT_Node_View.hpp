@@ -51,7 +51,7 @@ public:
 	using VariantData = TypeListPointerToVariant<NBT_Type::TypeList>::type;
 
 protected:
-	//数据对象（仅持有数据的指针）
+	/// @brief 数据对象（仅持有数据的指针）
 	VariantData data;
 
 public:
