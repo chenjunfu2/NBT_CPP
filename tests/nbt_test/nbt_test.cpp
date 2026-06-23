@@ -943,7 +943,124 @@ int main_xx2551(int argc, char *argv[])
 	return 0;
 }
 
+
 int main(void)
+{
+	NBT_Type::Compound cpd;
+	const NBT_Type::Compound cpdc;
+	NBT_Type::List list;
+	const NBT_Type::List listc;
+	NBT_Node node;
+	const NBT_Node nodec;
+	NBT_Node_View<true> nodecv;
+	const NBT_Node_View<true> nodecvc;
+	NBT_Node_View<false> nodev;
+	const NBT_Node_View<false> nodevc;
+	
+	cpd.GetData();
+	cpdc.GetData();
+
+	list.GetData();
+	listc.GetData();
+
+	node.GetData();
+	nodec.GetData();
+
+	nodecv.GetData();
+	nodecvc.GetData();
+
+	nodev.GetData();
+	nodevc.GetData();
+
+	node.GetIfEnd();
+	node.GetIfByte();
+	node.GetIfShort();
+	node.GetIfInt();
+	node.GetIfLong();
+	node.GetIfFloat();
+	node.GetIfDouble();
+	node.GetIfByteArray();
+	node.GetIfIntArray();
+	node.GetIfLongArray();
+	node.GetIfString();
+	node.GetIfList();
+	node.GetIfCompound();
+
+	GetIfEnd(node);
+	GetIfByte(node);
+	GetIfShort(node);
+	GetIfInt(node);
+	GetIfLong(node);
+	GetIfFloat(node);
+	GetIfDouble(node);
+	GetIfByteArray(node);
+	GetIfIntArray(node);
+	GetIfLongArray(node);
+	GetIfString(node);
+	GetIfList(node);
+	GetIfCompound(node);
+
+	nodecv.GetIfEnd();
+	nodecv.GetIfByte();
+	nodecv.GetIfShort();
+	nodecv.GetIfInt();
+	nodecv.GetIfLong();
+	nodecv.GetIfFloat();
+	nodecv.GetIfDouble();
+	nodecv.GetIfByteArray();
+	nodecv.GetIfIntArray();
+	nodecv.GetIfLongArray();
+	nodecv.GetIfString();
+	nodecv.GetIfList();
+	nodecv.GetIfCompound();
+
+	GetIfEnd(nodecv);
+	GetIfByte(nodecv);
+	GetIfShort(nodecv);
+	GetIfInt(nodecv);
+	GetIfLong(nodecv);
+	GetIfFloat(nodecv);
+	GetIfDouble(nodecv);
+	GetIfByteArray(nodecv);
+	GetIfIntArray(nodecv);
+	GetIfLongArray(nodecv);
+	GetIfString(nodecv);
+	GetIfList(nodecv);
+	GetIfCompound(nodecv);
+
+	nodev.GetIfEnd();
+	nodev.GetIfByte();
+	nodev.GetIfShort();
+	nodev.GetIfInt();
+	nodev.GetIfLong();
+	nodev.GetIfFloat();
+	nodev.GetIfDouble();
+	nodev.GetIfByteArray();
+	nodev.GetIfIntArray();
+	nodev.GetIfLongArray();
+	nodev.GetIfString();
+	nodev.GetIfList();
+	nodev.GetIfCompound();
+
+	GetIfEnd(nodev);
+	GetIfByte(nodev);
+	GetIfShort(nodev);
+	GetIfInt(nodev);
+	GetIfLong(nodev);
+	GetIfFloat(nodev);
+	GetIfDouble(nodev);
+	GetIfByteArray(nodev);
+	GetIfIntArray(nodev);
+	GetIfLongArray(nodev);
+	GetIfString(nodev);
+	GetIfList(nodev);
+	GetIfCompound(nodev);
+
+	return 0;
+}
+
+
+int main______(void)
 {
 	return 0;//pass test
 }

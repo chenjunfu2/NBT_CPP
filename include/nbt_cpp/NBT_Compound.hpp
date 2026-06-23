@@ -84,6 +84,20 @@ public:
 	NBT_Compound(const NBT_Compound &_Copy) :Compound(_Copy)
 	{}
 
+	/// @brief 获取底层容器数据的常量引用
+	/// @return 底层容器数据的常量引用
+	const Compound &GetData(void) const noexcept
+	{
+		return *this;
+	}
+
+	/// @brief 获取底层容器数据的引用
+	/// @return 底层容器数据的引用
+	Compound &GetData(void) noexcept
+	{
+		return *this;
+	}
+
 	/// @brief 移动赋值运算符
 	/// @param _Move 要移动的源对象
 	/// @return 当前对象的引用
@@ -99,13 +113,6 @@ public:
 	NBT_Compound &operator=(const NBT_Compound &_Copy)
 	{
 		Compound::operator=(_Copy);
-		return *this;
-	}
-
-	/// @brief 获取底层容器数据的常量引用
-	/// @return 底层容器数据的常量引用
-	const Compound &GetData(void) const noexcept
-	{
 		return *this;
 	}
 
