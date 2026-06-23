@@ -26,7 +26,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">chenjunfu2-nbt-cpp<span id="projectnumber">&#160;v2.1.3</span>
+   <div id="projectname">chenjunfu2-nbt-cpp<span id="projectnumber">&#160;v2.1.4</span>
    </div>
    <div id="projectbrief">一个基于CPP20的NBT(Named Binary Tag)库</div>
   </td>
@@ -182,12 +182,14 @@ Public 成员函数</h2></td></tr>
 <tr class="memdesc:a1c1e53eda849634f51a87b409eae667c"><td class="mdescLeft">&#160;</td><td class="mdescRight">移动构造函数  <br /></td></tr>
 <tr class="memitem:a96dff9595994e803ba11e0a002533c68" id="r_a96dff9595994e803ba11e0a002533c68"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a96dff9595994e803ba11e0a002533c68">NBT_Compound</a> (const <a class="el" href="classNBT__Compound.html">NBT_Compound</a> &amp;_Copy)</td></tr>
 <tr class="memdesc:a96dff9595994e803ba11e0a002533c68"><td class="mdescLeft">&#160;</td><td class="mdescRight">拷贝构造函数  <br /></td></tr>
+<tr class="memitem:a5179c66852b9e8d22fe3ba4c279f45b5" id="r_a5179c66852b9e8d22fe3ba4c279f45b5"><td class="memItemLeft">const Compound &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a5179c66852b9e8d22fe3ba4c279f45b5">GetData</a> (void) const noexcept</td></tr>
+<tr class="memdesc:a5179c66852b9e8d22fe3ba4c279f45b5"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取底层容器数据的常量引用  <br /></td></tr>
+<tr class="memitem:a95c2eb574d8fb0c1eb3ca9e42d3c3466" id="r_a95c2eb574d8fb0c1eb3ca9e42d3c3466"><td class="memItemLeft">Compound &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a95c2eb574d8fb0c1eb3ca9e42d3c3466">GetData</a> (void) noexcept</td></tr>
+<tr class="memdesc:a95c2eb574d8fb0c1eb3ca9e42d3c3466"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取底层容器数据的引用  <br /></td></tr>
 <tr class="memitem:a2ba93a31d028e00c25220151e56cfbb2" id="r_a2ba93a31d028e00c25220151e56cfbb2"><td class="memItemLeft"><a class="el" href="classNBT__Compound.html">NBT_Compound</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a2ba93a31d028e00c25220151e56cfbb2">operator=</a> (<a class="el" href="classNBT__Compound.html">NBT_Compound</a> &amp;&amp;_Move) noexcept</td></tr>
 <tr class="memdesc:a2ba93a31d028e00c25220151e56cfbb2"><td class="mdescLeft">&#160;</td><td class="mdescRight">移动赋值运算符  <br /></td></tr>
 <tr class="memitem:a20ac9ea08a74b07827910c5d7aed3652" id="r_a20ac9ea08a74b07827910c5d7aed3652"><td class="memItemLeft"><a class="el" href="classNBT__Compound.html">NBT_Compound</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a20ac9ea08a74b07827910c5d7aed3652">operator=</a> (const <a class="el" href="classNBT__Compound.html">NBT_Compound</a> &amp;_Copy)</td></tr>
 <tr class="memdesc:a20ac9ea08a74b07827910c5d7aed3652"><td class="mdescLeft">&#160;</td><td class="mdescRight">拷贝赋值运算符  <br /></td></tr>
-<tr class="memitem:a5179c66852b9e8d22fe3ba4c279f45b5" id="r_a5179c66852b9e8d22fe3ba4c279f45b5"><td class="memItemLeft">const Compound &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a5179c66852b9e8d22fe3ba4c279f45b5">GetData</a> (void) const noexcept</td></tr>
-<tr class="memdesc:a5179c66852b9e8d22fe3ba4c279f45b5"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取底层容器数据的常量引用  <br /></td></tr>
 <tr class="memitem:ab3b6761149366721f803b7490b71c453" id="r_ab3b6761149366721f803b7490b71c453"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#ab3b6761149366721f803b7490b71c453">operator==</a> (const <a class="el" href="classNBT__Compound.html">NBT_Compound</a> &amp;_Right) const noexcept</td></tr>
 <tr class="memdesc:ab3b6761149366721f803b7490b71c453"><td class="mdescLeft">&#160;</td><td class="mdescRight">相等比较运算符  <br /></td></tr>
 <tr class="memitem:a14298a425fd7d608cb5dfdc7af8f7964" id="r_a14298a425fd7d608cb5dfdc7af8f7964"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a14298a425fd7d608cb5dfdc7af8f7964">operator!=</a> (const <a class="el" href="classNBT__Compound.html">NBT_Compound</a> &amp;_Right) const noexcept</td></tr>
@@ -1621,7 +1623,7 @@ template&lt;typename Compound&gt; </div>
 </div>
 </div>
 <a id="a5179c66852b9e8d22fe3ba4c279f45b5" name="a5179c66852b9e8d22fe3ba4c279f45b5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5179c66852b9e8d22fe3ba4c279f45b5">&#9670;&#160;</a></span>GetData()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a5179c66852b9e8d22fe3ba4c279f45b5">&#9670;&#160;</a></span>GetData() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1647,6 +1649,36 @@ template&lt;typename Compound&gt; </div>
 
 <p>获取底层容器数据的常量引用 </p>
 <dl class="section return"><dt>返回</dt><dd>底层容器数据的常量引用 </dd></dl>
+
+</div>
+</div>
+<a id="a95c2eb574d8fb0c1eb3ca9e42d3c3466" name="a95c2eb574d8fb0c1eb3ca9e42d3c3466"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a95c2eb574d8fb0c1eb3ca9e42d3c3466">&#9670;&#160;</a></span>GetData() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Compound&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Compound &amp; <a class="el" href="classNBT__Compound.html">NBT_Compound</a>&lt; Compound &gt;::GetData </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>获取底层容器数据的引用 </p>
+<dl class="section return"><dt>返回</dt><dd>底层容器数据的引用 </dd></dl>
 
 </div>
 </div>

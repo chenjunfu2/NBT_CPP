@@ -50,6 +50,7 @@ var classNBT__Compound =
     [ "GetCompound", "classNBT__Compound.html#ade2437d0ff0a8864e77b5dc526d58d10", null ],
     [ "GetCompound", "classNBT__Compound.html#a4c5e37a80b8b29f4036dd6106cee77e2", null ],
     [ "GetData", "classNBT__Compound.html#a5179c66852b9e8d22fe3ba4c279f45b5", null ],
+    [ "GetData", "classNBT__Compound.html#a95c2eb574d8fb0c1eb3ca9e42d3c3466", null ],
     [ "GetDouble", "classNBT__Compound.html#a7fda7a7d85f93e964dd272e8142577fc", null ],
     [ "GetDouble", "classNBT__Compound.html#a9964a36ab631181300397edba81f7d1f", null ],
     [ "GetEnd", "classNBT__Compound.html#a34cd55b3acf913109857785cdfdc7521", null ],

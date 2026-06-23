@@ -168,6 +168,7 @@ var classNBT__List =
     [ "GetCompound", "classNBT__List.html#affbd47cfb0a9f7df632f5df56e1f6204", null ],
     [ "GetCompound", "classNBT__List.html#a33e2acdb1d5b309a59995f956072a9ce", null ],
     [ "GetData", "classNBT__List.html#a25e00aaf9a73e10ee50015dfb0db9a3d", null ],
+    [ "GetData", "classNBT__List.html#a389062ab76067823c1069184648d9800", null ],
     [ "GetDouble", "classNBT__List.html#aea609b3edea68f5e06952ce030e60c31", null ],
     [ "GetDouble", "classNBT__List.html#ab7fb4dba81f97182f262aa7195068a23", null ],
     [ "GetEnd", "classNBT__List.html#a9233fc78a51841aa441dfb7cb4053b05", null ],

@@ -26,7 +26,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">chenjunfu2-nbt-cpp<span id="projectnumber">&#160;v2.1.3</span>
+   <div id="projectname">chenjunfu2-nbt-cpp<span id="projectnumber">&#160;v2.1.4</span>
    </div>
    <div id="projectbrief">一个基于CPP20的NBT(Named Binary Tag)库</div>
   </td>
@@ -98,6 +98,12 @@ $(function(){initNavTree('classNBT__Node.html','','classNBT__Node-members'); });
 
 <p><code>#include &lt;<a class="el" href="NBT__Node_8hpp_source.html">NBT_Node.hpp</a>&gt;</code></p>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-types" class="groupheader"><a id="pub-types" name="pub-types"></a>
+Public 类型</h2></td></tr>
+<tr class="memitem:a26e094aaafe5e7a51adfe27d12b52aef" id="r_a26e094aaafe5e7a51adfe27d12b52aef"><td class="memItemLeft"><a id="a26e094aaafe5e7a51adfe27d12b52aef" name="a26e094aaafe5e7a51adfe27d12b52aef"></a>
+using&#160;</td><td class="memItemRight"><b>VariantData</b> = TypeListToVariant&lt;<a class="el" href="classNBT__Type.html#a9a7c80f2a9957107e6a93aa33760adf9">NBT_Type::TypeList</a>&gt;::type</td></tr>
+<tr class="memdesc:a26e094aaafe5e7a51adfe27d12b52aef"><td class="mdescLeft">&#160;</td><td class="mdescRight">用于存储NBT数据的具体变体类型 <br /></td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public 成员函数</h2></td></tr>
 <tr class="memitem:aec695b2e6b60ac1ba6973a021daed0c1" id="r_aec695b2e6b60ac1ba6973a021daed0c1"><td class="memTemplParams" colspan="2">template&lt;typename T, typename... Args&gt; </td></tr>
@@ -125,6 +131,10 @@ Public 成员函数</h2></td></tr>
 <tr class="memdesc:a0a1a8d205a7cdd957d5c364c892fb714"><td class="mdescLeft">&#160;</td><td class="mdescRight">拷贝构造函数  <br /></td></tr>
 <tr class="memitem:a7893d87f3e41b17db8afd96dfa851f94" id="r_a7893d87f3e41b17db8afd96dfa851f94"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a7893d87f3e41b17db8afd96dfa851f94">NBT_Node</a> (<a class="el" href="classNBT__Node.html">NBT_Node</a> &amp;&amp;_NBT_Node) noexcept</td></tr>
 <tr class="memdesc:a7893d87f3e41b17db8afd96dfa851f94"><td class="mdescLeft">&#160;</td><td class="mdescRight">移动构造函数  <br /></td></tr>
+<tr class="memitem:aa903a1319a192d0e963a7a234332f2da" id="r_aa903a1319a192d0e963a7a234332f2da"><td class="memItemLeft">const <a class="el" href="#a26e094aaafe5e7a51adfe27d12b52aef">VariantData</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#aa903a1319a192d0e963a7a234332f2da">GetData</a> (void) const noexcept</td></tr>
+<tr class="memdesc:aa903a1319a192d0e963a7a234332f2da"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取底层容器数据的常量引用  <br /></td></tr>
+<tr class="memitem:a76b95f672e58b94fcd55fbce7fe0dc4d" id="r_a76b95f672e58b94fcd55fbce7fe0dc4d"><td class="memItemLeft"><a class="el" href="#a26e094aaafe5e7a51adfe27d12b52aef">VariantData</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a76b95f672e58b94fcd55fbce7fe0dc4d">GetData</a> (void) noexcept</td></tr>
+<tr class="memdesc:a76b95f672e58b94fcd55fbce7fe0dc4d"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取底层容器数据的引用  <br /></td></tr>
 <tr class="memitem:a5f97f665c3babadf9fb71eed0c630a7c" id="r_a5f97f665c3babadf9fb71eed0c630a7c"><td class="memItemLeft"><a class="el" href="classNBT__Node.html">NBT_Node</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a5f97f665c3babadf9fb71eed0c630a7c">operator=</a> (const <a class="el" href="classNBT__Node.html">NBT_Node</a> &amp;_NBT_Node)</td></tr>
 <tr class="memdesc:a5f97f665c3babadf9fb71eed0c630a7c"><td class="mdescLeft">&#160;</td><td class="mdescRight">拷贝赋值运算符  <br /></td></tr>
 <tr class="memitem:ac0049147897c4c059f42323045f73e61" id="r_ac0049147897c4c059f42323045f73e61"><td class="memItemLeft"><a class="el" href="classNBT__Node.html">NBT_Node</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#ac0049147897c4c059f42323045f73e61">operator=</a> (<a class="el" href="classNBT__Node.html">NBT_Node</a> &amp;&amp;_NBT_Node) noexcept</td></tr>
@@ -146,9 +156,21 @@ void&#160;</td><td class="memItemRight"><b>Clear</b> (void)</td></tr>
 <tr class="memitem:a101ad25fefbba5823e7ea734890d4007" id="r_a101ad25fefbba5823e7ea734890d4007"><td class="memTemplParams" colspan="2">template&lt;typename T&gt; </td></tr>
 <tr class="memitem:a101ad25fefbba5823e7ea734890d4007 template"><td class="memItemLeft">T &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a101ad25fefbba5823e7ea734890d4007">Get</a> ()</td></tr>
 <tr class="memdesc:a101ad25fefbba5823e7ea734890d4007"><td class="mdescLeft">&#160;</td><td class="mdescRight">通过指定类型获取当前存储的数据对象  <br /></td></tr>
+<tr class="memitem:a354f9e66483157d5ec336951cb6a2a20" id="r_a354f9e66483157d5ec336951cb6a2a20"><td class="memTemplParams" colspan="2">template&lt;typename T&gt; </td></tr>
+<tr class="memitem:a354f9e66483157d5ec336951cb6a2a20 template"><td class="memItemLeft">const T *&#160;</td><td class="memItemRight"><a class="el" href="#a354f9e66483157d5ec336951cb6a2a20">GetIf</a> () const noexcept</td></tr>
+<tr class="memdesc:a354f9e66483157d5ec336951cb6a2a20"><td class="mdescLeft">&#160;</td><td class="mdescRight">通过指定类型获取当前存储的数据对象指针  <br /></td></tr>
+<tr class="memitem:adc070772a27cdcd889e91f0a92d234fb" id="r_adc070772a27cdcd889e91f0a92d234fb"><td class="memTemplParams" colspan="2">template&lt;typename T&gt; </td></tr>
+<tr class="memitem:adc070772a27cdcd889e91f0a92d234fb template"><td class="memItemLeft">T *&#160;</td><td class="memItemRight"><a class="el" href="#adc070772a27cdcd889e91f0a92d234fb">GetIf</a> () noexcept</td></tr>
+<tr class="memdesc:adc070772a27cdcd889e91f0a92d234fb"><td class="mdescLeft">&#160;</td><td class="mdescRight">通过指定类型获取当前存储的数据对象指针  <br /></td></tr>
 <tr class="memitem:ac7f46830b4c5f9c8d439dee43893840d" id="r_ac7f46830b4c5f9c8d439dee43893840d"><td class="memTemplParams" colspan="2">template&lt;typename T&gt; </td></tr>
 <tr class="memitem:ac7f46830b4c5f9c8d439dee43893840d template"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#ac7f46830b4c5f9c8d439dee43893840d">TypeHolds</a> () const</td></tr>
 <tr class="memdesc:ac7f46830b4c5f9c8d439dee43893840d"><td class="mdescLeft">&#160;</td><td class="mdescRight">类型判断  <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pro-attribs" class="groupheader"><a id="pro-attribs" name="pro-attribs"></a>
+Protected 属性</h2></td></tr>
+<tr class="memitem:a8c48e591976f34559283c2393f3170c6" id="r_a8c48e591976f34559283c2393f3170c6"><td class="memItemLeft"><a id="a8c48e591976f34559283c2393f3170c6" name="a8c48e591976f34559283c2393f3170c6"></a>
+<a class="el" href="#a26e094aaafe5e7a51adfe27d12b52aef">VariantData</a>&#160;</td><td class="memItemRight"><b>data</b></td></tr>
+<tr class="memdesc:a8c48e591976f34559283c2393f3170c6"><td class="mdescLeft">&#160;</td><td class="mdescRight">数据对象（要求必须持有数据） <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-friends" class="groupheader"><a id="friends" name="friends"></a>
 友元</h2></td></tr>
@@ -167,156 +189,260 @@ template&lt;bool bIsConst&gt; </td></tr>
 <tr class="memdesc:a60e8d32342eb4a2c1bb1f6a786dea136"><td class="mdescLeft">&#160;</td><td class="mdescRight">友元函数：从NBT_Node对象中获取 End 类型的数据  <br /></td></tr>
 <tr class="memitem:a6b9acb3d9a9253c5932c619e3ed8070b" id="r_a6b9acb3d9a9253c5932c619e3ed8070b"><td class="memItemLeft">const <a class="el" href="classNBT__Type.html#a16ac41e6cfe61a603407221527b6b16c">NBT_Type::End</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a6b9acb3d9a9253c5932c619e3ed8070b">GetEnd</a> (const <a class="el" href="classNBT__Node.html">NBT_Node</a> &amp;node)</td></tr>
 <tr class="memdesc:a6b9acb3d9a9253c5932c619e3ed8070b"><td class="mdescLeft">&#160;</td><td class="mdescRight">友元函数：从NBT_Node对象中获取 End 类型的数据  <br /></td></tr>
+<tr class="memitem:ae57285c22d79df62a79ec004cd743447" id="r_ae57285c22d79df62a79ec004cd743447"><td class="memItemLeft"><a class="el" href="classNBT__Type.html#a16ac41e6cfe61a603407221527b6b16c">NBT_Type::End</a> *&#160;</td><td class="memItemRight"><a class="el" href="#ae57285c22d79df62a79ec004cd743447">GetIfEnd</a> (<a class="el" href="classNBT__Node.html">NBT_Node</a> &amp;node) noexcept</td></tr>
+<tr class="memdesc:ae57285c22d79df62a79ec004cd743447"><td class="mdescLeft">&#160;</td><td class="mdescRight">友元函数：从NBT_Node对象中获取 End 类型数据的指针  <br /></td></tr>
+<tr class="memitem:af12235382707a7ce553fabb7702066b3" id="r_af12235382707a7ce553fabb7702066b3"><td class="memItemLeft">const <a class="el" href="classNBT__Type.html#a16ac41e6cfe61a603407221527b6b16c">NBT_Type::End</a> *&#160;</td><td class="memItemRight"><a class="el" href="#af12235382707a7ce553fabb7702066b3">GetIfEnd</a> (const <a class="el" href="classNBT__Node.html">NBT_Node</a> &amp;node) noexcept</td></tr>
+<tr class="memdesc:af12235382707a7ce553fabb7702066b3"><td class="mdescLeft">&#160;</td><td class="mdescRight">友元函数：从NBT_Node对象中获取 End 类型数据的常量指针  <br /></td></tr>
 <tr class="memitem:ac2ba163d8e4b0784f73b1810d7fe0dbd" id="r_ac2ba163d8e4b0784f73b1810d7fe0dbd"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#ac2ba163d8e4b0784f73b1810d7fe0dbd">IsEnd</a> (const <a class="el" href="classNBT__Node.html">NBT_Node</a> &amp;node)</td></tr>
 <tr class="memdesc:ac2ba163d8e4b0784f73b1810d7fe0dbd"><td class="mdescLeft">&#160;</td><td class="mdescRight">友元函数：检查目标对象中是否存储 End 类型的数据  <br /></td></tr>
 <tr class="memitem:a26e6b22668db8a8d9f8d6620f1a04fd1" id="r_a26e6b22668db8a8d9f8d6620f1a04fd1"><td class="memItemLeft"><a class="el" href="classNBT__Type.html#a09b5ce48dffc429ad8a7d05d007741c1">NBT_Type::Byte</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a26e6b22668db8a8d9f8d6620f1a04fd1">GetByte</a> (<a class="el" href="classNBT__Node.html">NBT_Node</a> &amp;node)</td></tr>
 <tr class="memdesc:a26e6b22668db8a8d9f8d6620f1a04fd1"><td class="mdescLeft">&#160;</td><td class="mdescRight">友元函数：从NBT_Node对象中获取 Byte 类型的数据  <br /></td></tr>
 <tr class="memitem:afff642848b796846b1b8e9ffa671e99b" id="r_afff642848b796846b1b8e9ffa671e99b"><td class="memItemLeft">const <a class="el" href="classNBT__Type.html#a09b5ce48dffc429ad8a7d05d007741c1">NBT_Type::Byte</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#afff642848b796846b1b8e9ffa671e99b">GetByte</a> (const <a class="el" href="classNBT__Node.html">NBT_Node</a> &amp;node)</td></tr>
 <tr class="memdesc:afff642848b796846b1b8e9ffa671e99b"><td class="mdescLeft">&#160;</td><td class="mdescRight">友元函数：从NBT_Node对象中获取 Byte 类型的数据  <br /></td></tr>
+<tr class="memitem:a76f6063bd6f81a6bd6687fa370c38ff6" id="r_a76f6063bd6f81a6bd6687fa370c38ff6"><td class="memItemLeft"><a class="el" href="classNBT__Type.html#a09b5ce48dffc429ad8a7d05d007741c1">NBT_Type::Byte</a> *&#160;</td><td class="memItemRight"><a class="el" href="#a76f6063bd6f81a6bd6687fa370c38ff6">GetIfByte</a> (<a class="el" href="classNBT__Node.html">NBT_Node</a> &amp;node) noexcept</td></tr>
+<tr class="memdesc:a76f6063bd6f81a6bd6687fa370c38ff6"><td class="mdescLeft">&#160;</td><td class="mdescRight">友元函数：从NBT_Node对象中获取 Byte 类型数据的指针  <br /></td></tr>
+<tr class="memitem:abee461174e16c6b164ea6a0fbd427410" id="r_abee461174e16c6b164ea6a0fbd427410"><td class="memItemLeft">const <a class="el" href="classNBT__Type.html#a09b5ce48dffc429ad8a7d05d007741c1">NBT_Type::Byte</a> *&#160;</td><td class="memItemRight"><a class="el" href="#abee461174e16c6b164ea6a0fbd427410">GetIfByte</a> (const <a class="el" href="classNBT__Node.html">NBT_Node</a> &amp;node) noexcept</td></tr>
+<tr class="memdesc:abee461174e16c6b164ea6a0fbd427410"><td class="mdescLeft">&#160;</td><td class="mdescRight">友元函数：从NBT_Node对象中获取 Byte 类型数据的常量指针  <br /></td></tr>
 <tr class="memitem:ae21836345781212520fcdeccfe5e7fb6" id="r_ae21836345781212520fcdeccfe5e7fb6"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#ae21836345781212520fcdeccfe5e7fb6">IsByte</a> (const <a class="el" href="classNBT__Node.html">NBT_Node</a> &amp;node)</td></tr>
 <tr class="memdesc:ae21836345781212520fcdeccfe5e7fb6"><td class="mdescLeft">&#160;</td><td class="mdescRight">友元函数：检查目标对象中是否存储 Byte 类型的数据  <br /></td></tr>
 <tr class="memitem:aae1596f7c587123cddae8fbf0e2c613f" id="r_aae1596f7c587123cddae8fbf0e2c613f"><td class="memItemLeft"><a class="el" href="classNBT__Type.html#a3e47d05c36743947da966f4223237262">NBT_Type::Short</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#aae1596f7c587123cddae8fbf0e2c613f">GetShort</a> (<a class="el" href="classNBT__Node.html">NBT_Node</a> &amp;node)</td></tr>
 <tr class="memdesc:aae1596f7c587123cddae8fbf0e2c613f"><td class="mdescLeft">&#160;</td><td class="mdescRight">友元函数：从NBT_Node对象中获取 Short 类型的数据  <br /></td></tr>
 <tr class="memitem:a7f3c8449b669b19155c708be42422e29" id="r_a7f3c8449b669b19155c708be42422e29"><td class="memItemLeft">const <a class="el" href="classNBT__Type.html#a3e47d05c36743947da966f4223237262">NBT_Type::Short</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a7f3c8449b669b19155c708be42422e29">GetShort</a> (const <a class="el" href="classNBT__Node.html">NBT_Node</a> &amp;node)</td></tr>
 <tr class="memdesc:a7f3c8449b669b19155c708be42422e29"><td class="mdescLeft">&#160;</td><td class="mdescRight">友元函数：从NBT_Node对象中获取 Short 类型的数据  <br /></td></tr>
+<tr class="memitem:acc4ef3260431a3297055f8e3961b23dc" id="r_acc4ef3260431a3297055f8e3961b23dc"><td class="memItemLeft"><a class="el" href="classNBT__Type.html#a3e47d05c36743947da966f4223237262">NBT_Type::Short</a> *&#160;</td><td class="memItemRight"><a class="el" href="#acc4ef3260431a3297055f8e3961b23dc">GetIfShort</a> (<a class="el" href="classNBT__Node.html">NBT_Node</a> &amp;node) noexcept</td></tr>
+<tr class="memdesc:acc4ef3260431a3297055f8e3961b23dc"><td class="mdescLeft">&#160;</td><td class="mdescRight">友元函数：从NBT_Node对象中获取 Short 类型数据的指针  <br /></td></tr>
+<tr class="memitem:a6befc00b5ee0546a2e51e0968567f552" id="r_a6befc00b5ee0546a2e51e0968567f552"><td class="memItemLeft">const <a class="el" href="classNBT__Type.html#a3e47d05c36743947da966f4223237262">NBT_Type::Short</a> *&#160;</td><td class="memItemRight"><a class="el" href="#a6befc00b5ee0546a2e51e0968567f552">GetIfShort</a> (const <a class="el" href="classNBT__Node.html">NBT_Node</a> &amp;node) noexcept</td></tr>
+<tr class="memdesc:a6befc00b5ee0546a2e51e0968567f552"><td class="mdescLeft">&#160;</td><td class="mdescRight">友元函数：从NBT_Node对象中获取 Short 类型数据的常量指针  <br /></td></tr>
 <tr class="memitem:a861476ee69cb0f0f4af5ee5beb510479" id="r_a861476ee69cb0f0f4af5ee5beb510479"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a861476ee69cb0f0f4af5ee5beb510479">IsShort</a> (const <a class="el" href="classNBT__Node.html">NBT_Node</a> &amp;node)</td></tr>
 <tr class="memdesc:a861476ee69cb0f0f4af5ee5beb510479"><td class="mdescLeft">&#160;</td><td class="mdescRight">友元函数：检查目标对象中是否存储 Short 类型的数据  <br /></td></tr>
 <tr class="memitem:aa67bcbdb89785aae8a80ee499bb46ad6" id="r_aa67bcbdb89785aae8a80ee499bb46ad6"><td class="memItemLeft"><a class="el" href="classNBT__Type.html#afee0233d7f58b90cc9ce2b903da2da22">NBT_Type::Int</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#aa67bcbdb89785aae8a80ee499bb46ad6">GetInt</a> (<a class="el" href="classNBT__Node.html">NBT_Node</a> &amp;node)</td></tr>
 <tr class="memdesc:aa67bcbdb89785aae8a80ee499bb46ad6"><td class="mdescLeft">&#160;</td><td class="mdescRight">友元函数：从NBT_Node对象中获取 Int 类型的数据  <br /></td></tr>
 <tr class="memitem:a9faac408e6d3c3d571b947e4472b903c" id="r_a9faac408e6d3c3d571b947e4472b903c"><td class="memItemLeft">const <a class="el" href="classNBT__Type.html#afee0233d7f58b90cc9ce2b903da2da22">NBT_Type::Int</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a9faac408e6d3c3d571b947e4472b903c">GetInt</a> (const <a class="el" href="classNBT__Node.html">NBT_Node</a> &amp;node)</td></tr>
 <tr class="memdesc:a9faac408e6d3c3d571b947e4472b903c"><td class="mdescLeft">&#160;</td><td class="mdescRight">友元函数：从NBT_Node对象中获取 Int 类型的数据  <br /></td></tr>
+<tr class="memitem:a44fd547576a22fc2bd7a4bd28e80384e" id="r_a44fd547576a22fc2bd7a4bd28e80384e"><td class="memItemLeft"><a class="el" href="classNBT__Type.html#afee0233d7f58b90cc9ce2b903da2da22">NBT_Type::Int</a> *&#160;</td><td class="memItemRight"><a class="el" href="#a44fd547576a22fc2bd7a4bd28e80384e">GetIfInt</a> (<a class="el" href="classNBT__Node.html">NBT_Node</a> &amp;node) noexcept</td></tr>
+<tr class="memdesc:a44fd547576a22fc2bd7a4bd28e80384e"><td class="mdescLeft">&#160;</td><td class="mdescRight">友元函数：从NBT_Node对象中获取 Int 类型数据的指针  <br /></td></tr>
+<tr class="memitem:a0975303b887f348d05ba7720987ed534" id="r_a0975303b887f348d05ba7720987ed534"><td class="memItemLeft">const <a class="el" href="classNBT__Type.html#afee0233d7f58b90cc9ce2b903da2da22">NBT_Type::Int</a> *&#160;</td><td class="memItemRight"><a class="el" href="#a0975303b887f348d05ba7720987ed534">GetIfInt</a> (const <a class="el" href="classNBT__Node.html">NBT_Node</a> &amp;node) noexcept</td></tr>
+<tr class="memdesc:a0975303b887f348d05ba7720987ed534"><td class="mdescLeft">&#160;</td><td class="mdescRight">友元函数：从NBT_Node对象中获取 Int 类型数据的常量指针  <br /></td></tr>
 <tr class="memitem:a699a37d53cacf40578809be838963a43" id="r_a699a37d53cacf40578809be838963a43"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a699a37d53cacf40578809be838963a43">IsInt</a> (const <a class="el" href="classNBT__Node.html">NBT_Node</a> &amp;node)</td></tr>
 <tr class="memdesc:a699a37d53cacf40578809be838963a43"><td class="mdescLeft">&#160;</td><td class="mdescRight">友元函数：检查目标对象中是否存储 Int 类型的数据  <br /></td></tr>
 <tr class="memitem:a52b18fd7f8a2b64a22c029b5bae743b0" id="r_a52b18fd7f8a2b64a22c029b5bae743b0"><td class="memItemLeft"><a class="el" href="classNBT__Type.html#a7f8ae2e6e2f87445d1e72f7e922ba053">NBT_Type::Long</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a52b18fd7f8a2b64a22c029b5bae743b0">GetLong</a> (<a class="el" href="classNBT__Node.html">NBT_Node</a> &amp;node)</td></tr>
 <tr class="memdesc:a52b18fd7f8a2b64a22c029b5bae743b0"><td class="mdescLeft">&#160;</td><td class="mdescRight">友元函数：从NBT_Node对象中获取 Long 类型的数据  <br /></td></tr>
 <tr class="memitem:aee2e796254af12a7a04e1988006068f3" id="r_aee2e796254af12a7a04e1988006068f3"><td class="memItemLeft">const <a class="el" href="classNBT__Type.html#a7f8ae2e6e2f87445d1e72f7e922ba053">NBT_Type::Long</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#aee2e796254af12a7a04e1988006068f3">GetLong</a> (const <a class="el" href="classNBT__Node.html">NBT_Node</a> &amp;node)</td></tr>
 <tr class="memdesc:aee2e796254af12a7a04e1988006068f3"><td class="mdescLeft">&#160;</td><td class="mdescRight">友元函数：从NBT_Node对象中获取 Long 类型的数据  <br /></td></tr>
+<tr class="memitem:a07f1b100a0f6eba0c9f7aef4a2075a78" id="r_a07f1b100a0f6eba0c9f7aef4a2075a78"><td class="memItemLeft"><a class="el" href="classNBT__Type.html#a7f8ae2e6e2f87445d1e72f7e922ba053">NBT_Type::Long</a> *&#160;</td><td class="memItemRight"><a class="el" href="#a07f1b100a0f6eba0c9f7aef4a2075a78">GetIfLong</a> (<a class="el" href="classNBT__Node.html">NBT_Node</a> &amp;node) noexcept</td></tr>
+<tr class="memdesc:a07f1b100a0f6eba0c9f7aef4a2075a78"><td class="mdescLeft">&#160;</td><td class="mdescRight">友元函数：从NBT_Node对象中获取 Long 类型数据的指针  <br /></td></tr>
+<tr class="memitem:ad5fb7c670d5af01bc84e6af36a4c3795" id="r_ad5fb7c670d5af01bc84e6af36a4c3795"><td class="memItemLeft">const <a class="el" href="classNBT__Type.html#a7f8ae2e6e2f87445d1e72f7e922ba053">NBT_Type::Long</a> *&#160;</td><td class="memItemRight"><a class="el" href="#ad5fb7c670d5af01bc84e6af36a4c3795">GetIfLong</a> (const <a class="el" href="classNBT__Node.html">NBT_Node</a> &amp;node) noexcept</td></tr>
+<tr class="memdesc:ad5fb7c670d5af01bc84e6af36a4c3795"><td class="mdescLeft">&#160;</td><td class="mdescRight">友元函数：从NBT_Node对象中获取 Long 类型数据的常量指针  <br /></td></tr>
 <tr class="memitem:a87f03c676e7505e569b817b5fc8d90b8" id="r_a87f03c676e7505e569b817b5fc8d90b8"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a87f03c676e7505e569b817b5fc8d90b8">IsLong</a> (const <a class="el" href="classNBT__Node.html">NBT_Node</a> &amp;node)</td></tr>
 <tr class="memdesc:a87f03c676e7505e569b817b5fc8d90b8"><td class="mdescLeft">&#160;</td><td class="mdescRight">友元函数：检查目标对象中是否存储 Long 类型的数据  <br /></td></tr>
 <tr class="memitem:a7dbe8f089e0a3967513439e7f4308569" id="r_a7dbe8f089e0a3967513439e7f4308569"><td class="memItemLeft"><a class="el" href="classNBT__Type.html#a8a7ac779b8e8a7fdccb3456844abe5cf">NBT_Type::Float</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a7dbe8f089e0a3967513439e7f4308569">GetFloat</a> (<a class="el" href="classNBT__Node.html">NBT_Node</a> &amp;node)</td></tr>
 <tr class="memdesc:a7dbe8f089e0a3967513439e7f4308569"><td class="mdescLeft">&#160;</td><td class="mdescRight">友元函数：从NBT_Node对象中获取 Float 类型的数据  <br /></td></tr>
 <tr class="memitem:afe9f025746e5f60cab8bf5c70f7b0be4" id="r_afe9f025746e5f60cab8bf5c70f7b0be4"><td class="memItemLeft">const <a class="el" href="classNBT__Type.html#a8a7ac779b8e8a7fdccb3456844abe5cf">NBT_Type::Float</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#afe9f025746e5f60cab8bf5c70f7b0be4">GetFloat</a> (const <a class="el" href="classNBT__Node.html">NBT_Node</a> &amp;node)</td></tr>
 <tr class="memdesc:afe9f025746e5f60cab8bf5c70f7b0be4"><td class="mdescLeft">&#160;</td><td class="mdescRight">友元函数：从NBT_Node对象中获取 Float 类型的数据  <br /></td></tr>
+<tr class="memitem:afebbcb50ef33cfcfc273118fa6629945" id="r_afebbcb50ef33cfcfc273118fa6629945"><td class="memItemLeft"><a class="el" href="classNBT__Type.html#a8a7ac779b8e8a7fdccb3456844abe5cf">NBT_Type::Float</a> *&#160;</td><td class="memItemRight"><a class="el" href="#afebbcb50ef33cfcfc273118fa6629945">GetIfFloat</a> (<a class="el" href="classNBT__Node.html">NBT_Node</a> &amp;node) noexcept</td></tr>
+<tr class="memdesc:afebbcb50ef33cfcfc273118fa6629945"><td class="mdescLeft">&#160;</td><td class="mdescRight">友元函数：从NBT_Node对象中获取 Float 类型数据的指针  <br /></td></tr>
+<tr class="memitem:a6268b0bd62af153eb94688db5bac12d9" id="r_a6268b0bd62af153eb94688db5bac12d9"><td class="memItemLeft">const <a class="el" href="classNBT__Type.html#a8a7ac779b8e8a7fdccb3456844abe5cf">NBT_Type::Float</a> *&#160;</td><td class="memItemRight"><a class="el" href="#a6268b0bd62af153eb94688db5bac12d9">GetIfFloat</a> (const <a class="el" href="classNBT__Node.html">NBT_Node</a> &amp;node) noexcept</td></tr>
+<tr class="memdesc:a6268b0bd62af153eb94688db5bac12d9"><td class="mdescLeft">&#160;</td><td class="mdescRight">友元函数：从NBT_Node对象中获取 Float 类型数据的常量指针  <br /></td></tr>
 <tr class="memitem:aec44a9177176a3b70f0eb2f9386fe912" id="r_aec44a9177176a3b70f0eb2f9386fe912"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#aec44a9177176a3b70f0eb2f9386fe912">IsFloat</a> (const <a class="el" href="classNBT__Node.html">NBT_Node</a> &amp;node)</td></tr>
 <tr class="memdesc:aec44a9177176a3b70f0eb2f9386fe912"><td class="mdescLeft">&#160;</td><td class="mdescRight">友元函数：检查目标对象中是否存储 Float 类型的数据  <br /></td></tr>
 <tr class="memitem:a6b9de90118feb4402d65acc0eea5672c" id="r_a6b9de90118feb4402d65acc0eea5672c"><td class="memItemLeft"><a class="el" href="classNBT__Type.html#aaea549797088fb63987679367bc9d39a">NBT_Type::Double</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a6b9de90118feb4402d65acc0eea5672c">GetDouble</a> (<a class="el" href="classNBT__Node.html">NBT_Node</a> &amp;node)</td></tr>
 <tr class="memdesc:a6b9de90118feb4402d65acc0eea5672c"><td class="mdescLeft">&#160;</td><td class="mdescRight">友元函数：从NBT_Node对象中获取 Double 类型的数据  <br /></td></tr>
 <tr class="memitem:ac13d8f7bc7017731fe8c311a71ef211d" id="r_ac13d8f7bc7017731fe8c311a71ef211d"><td class="memItemLeft">const <a class="el" href="classNBT__Type.html#aaea549797088fb63987679367bc9d39a">NBT_Type::Double</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#ac13d8f7bc7017731fe8c311a71ef211d">GetDouble</a> (const <a class="el" href="classNBT__Node.html">NBT_Node</a> &amp;node)</td></tr>
 <tr class="memdesc:ac13d8f7bc7017731fe8c311a71ef211d"><td class="mdescLeft">&#160;</td><td class="mdescRight">友元函数：从NBT_Node对象中获取 Double 类型的数据  <br /></td></tr>
+<tr class="memitem:a9daf0564d2f163505a7e05dccd26acff" id="r_a9daf0564d2f163505a7e05dccd26acff"><td class="memItemLeft"><a class="el" href="classNBT__Type.html#aaea549797088fb63987679367bc9d39a">NBT_Type::Double</a> *&#160;</td><td class="memItemRight"><a class="el" href="#a9daf0564d2f163505a7e05dccd26acff">GetIfDouble</a> (<a class="el" href="classNBT__Node.html">NBT_Node</a> &amp;node) noexcept</td></tr>
+<tr class="memdesc:a9daf0564d2f163505a7e05dccd26acff"><td class="mdescLeft">&#160;</td><td class="mdescRight">友元函数：从NBT_Node对象中获取 Double 类型数据的指针  <br /></td></tr>
+<tr class="memitem:a1f5c07963f909e82f4ba0871d4e03385" id="r_a1f5c07963f909e82f4ba0871d4e03385"><td class="memItemLeft">const <a class="el" href="classNBT__Type.html#aaea549797088fb63987679367bc9d39a">NBT_Type::Double</a> *&#160;</td><td class="memItemRight"><a class="el" href="#a1f5c07963f909e82f4ba0871d4e03385">GetIfDouble</a> (const <a class="el" href="classNBT__Node.html">NBT_Node</a> &amp;node) noexcept</td></tr>
+<tr class="memdesc:a1f5c07963f909e82f4ba0871d4e03385"><td class="mdescLeft">&#160;</td><td class="mdescRight">友元函数：从NBT_Node对象中获取 Double 类型数据的常量指针  <br /></td></tr>
 <tr class="memitem:aaf1fb226cc19e419251887720f235640" id="r_aaf1fb226cc19e419251887720f235640"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#aaf1fb226cc19e419251887720f235640">IsDouble</a> (const <a class="el" href="classNBT__Node.html">NBT_Node</a> &amp;node)</td></tr>
 <tr class="memdesc:aaf1fb226cc19e419251887720f235640"><td class="mdescLeft">&#160;</td><td class="mdescRight">友元函数：检查目标对象中是否存储 Double 类型的数据  <br /></td></tr>
 <tr class="memitem:af2295acf1291bc581dc0a3221b9a82d7" id="r_af2295acf1291bc581dc0a3221b9a82d7"><td class="memItemLeft"><a class="el" href="classNBT__Type.html#a953bc9e67e1b5d82c0786b5992f00ed8">NBT_Type::ByteArray</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#af2295acf1291bc581dc0a3221b9a82d7">GetByteArray</a> (<a class="el" href="classNBT__Node.html">NBT_Node</a> &amp;node)</td></tr>
 <tr class="memdesc:af2295acf1291bc581dc0a3221b9a82d7"><td class="mdescLeft">&#160;</td><td class="mdescRight">友元函数：从NBT_Node对象中获取 ByteArray 类型的数据  <br /></td></tr>
 <tr class="memitem:a3799d96d0a3e8f5e2b43a6929a7a2edc" id="r_a3799d96d0a3e8f5e2b43a6929a7a2edc"><td class="memItemLeft">const <a class="el" href="classNBT__Type.html#a953bc9e67e1b5d82c0786b5992f00ed8">NBT_Type::ByteArray</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a3799d96d0a3e8f5e2b43a6929a7a2edc">GetByteArray</a> (const <a class="el" href="classNBT__Node.html">NBT_Node</a> &amp;node)</td></tr>
 <tr class="memdesc:a3799d96d0a3e8f5e2b43a6929a7a2edc"><td class="mdescLeft">&#160;</td><td class="mdescRight">友元函数：从NBT_Node对象中获取 ByteArray 类型的数据  <br /></td></tr>
+<tr class="memitem:aa525ef392e6b2d8fb1942975b7db0496" id="r_aa525ef392e6b2d8fb1942975b7db0496"><td class="memItemLeft"><a class="el" href="classNBT__Type.html#a953bc9e67e1b5d82c0786b5992f00ed8">NBT_Type::ByteArray</a> *&#160;</td><td class="memItemRight"><a class="el" href="#aa525ef392e6b2d8fb1942975b7db0496">GetIfByteArray</a> (<a class="el" href="classNBT__Node.html">NBT_Node</a> &amp;node) noexcept</td></tr>
+<tr class="memdesc:aa525ef392e6b2d8fb1942975b7db0496"><td class="mdescLeft">&#160;</td><td class="mdescRight">友元函数：从NBT_Node对象中获取 ByteArray 类型数据的指针  <br /></td></tr>
+<tr class="memitem:a337baa0ddfd4bcacd7a65daf5322c18e" id="r_a337baa0ddfd4bcacd7a65daf5322c18e"><td class="memItemLeft">const <a class="el" href="classNBT__Type.html#a953bc9e67e1b5d82c0786b5992f00ed8">NBT_Type::ByteArray</a> *&#160;</td><td class="memItemRight"><a class="el" href="#a337baa0ddfd4bcacd7a65daf5322c18e">GetIfByteArray</a> (const <a class="el" href="classNBT__Node.html">NBT_Node</a> &amp;node) noexcept</td></tr>
+<tr class="memdesc:a337baa0ddfd4bcacd7a65daf5322c18e"><td class="mdescLeft">&#160;</td><td class="mdescRight">友元函数：从NBT_Node对象中获取 ByteArray 类型数据的常量指针  <br /></td></tr>
 <tr class="memitem:adae0d240dd3248aa6c247e418d19bdb3" id="r_adae0d240dd3248aa6c247e418d19bdb3"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#adae0d240dd3248aa6c247e418d19bdb3">IsByteArray</a> (const <a class="el" href="classNBT__Node.html">NBT_Node</a> &amp;node)</td></tr>
 <tr class="memdesc:adae0d240dd3248aa6c247e418d19bdb3"><td class="mdescLeft">&#160;</td><td class="mdescRight">友元函数：检查目标对象中是否存储 ByteArray 类型的数据  <br /></td></tr>
 <tr class="memitem:ada7ae37b650372ebac5770fd6afa713e" id="r_ada7ae37b650372ebac5770fd6afa713e"><td class="memItemLeft"><a class="el" href="classNBT__Type.html#a9c4ad0b2bcd4b5cafb0c9a3f083f9406">NBT_Type::IntArray</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#ada7ae37b650372ebac5770fd6afa713e">GetIntArray</a> (<a class="el" href="classNBT__Node.html">NBT_Node</a> &amp;node)</td></tr>
 <tr class="memdesc:ada7ae37b650372ebac5770fd6afa713e"><td class="mdescLeft">&#160;</td><td class="mdescRight">友元函数：从NBT_Node对象中获取 IntArray 类型的数据  <br /></td></tr>
 <tr class="memitem:acb4d316c463af284ac2a4f0a4083a878" id="r_acb4d316c463af284ac2a4f0a4083a878"><td class="memItemLeft">const <a class="el" href="classNBT__Type.html#a9c4ad0b2bcd4b5cafb0c9a3f083f9406">NBT_Type::IntArray</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#acb4d316c463af284ac2a4f0a4083a878">GetIntArray</a> (const <a class="el" href="classNBT__Node.html">NBT_Node</a> &amp;node)</td></tr>
 <tr class="memdesc:acb4d316c463af284ac2a4f0a4083a878"><td class="mdescLeft">&#160;</td><td class="mdescRight">友元函数：从NBT_Node对象中获取 IntArray 类型的数据  <br /></td></tr>
+<tr class="memitem:acee242acd5e8e3856f83feb875fb6679" id="r_acee242acd5e8e3856f83feb875fb6679"><td class="memItemLeft"><a class="el" href="classNBT__Type.html#a9c4ad0b2bcd4b5cafb0c9a3f083f9406">NBT_Type::IntArray</a> *&#160;</td><td class="memItemRight"><a class="el" href="#acee242acd5e8e3856f83feb875fb6679">GetIfIntArray</a> (<a class="el" href="classNBT__Node.html">NBT_Node</a> &amp;node) noexcept</td></tr>
+<tr class="memdesc:acee242acd5e8e3856f83feb875fb6679"><td class="mdescLeft">&#160;</td><td class="mdescRight">友元函数：从NBT_Node对象中获取 IntArray 类型数据的指针  <br /></td></tr>
+<tr class="memitem:ab286276638a3d024fccd86e0fe112d6a" id="r_ab286276638a3d024fccd86e0fe112d6a"><td class="memItemLeft">const <a class="el" href="classNBT__Type.html#a9c4ad0b2bcd4b5cafb0c9a3f083f9406">NBT_Type::IntArray</a> *&#160;</td><td class="memItemRight"><a class="el" href="#ab286276638a3d024fccd86e0fe112d6a">GetIfIntArray</a> (const <a class="el" href="classNBT__Node.html">NBT_Node</a> &amp;node) noexcept</td></tr>
+<tr class="memdesc:ab286276638a3d024fccd86e0fe112d6a"><td class="mdescLeft">&#160;</td><td class="mdescRight">友元函数：从NBT_Node对象中获取 IntArray 类型数据的常量指针  <br /></td></tr>
 <tr class="memitem:acc4d4898b1e7b0d1a7ba30b6709e9add" id="r_acc4d4898b1e7b0d1a7ba30b6709e9add"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#acc4d4898b1e7b0d1a7ba30b6709e9add">IsIntArray</a> (const <a class="el" href="classNBT__Node.html">NBT_Node</a> &amp;node)</td></tr>
 <tr class="memdesc:acc4d4898b1e7b0d1a7ba30b6709e9add"><td class="mdescLeft">&#160;</td><td class="mdescRight">友元函数：检查目标对象中是否存储 IntArray 类型的数据  <br /></td></tr>
 <tr class="memitem:af991d606fa2fac28773f1c48cb999791" id="r_af991d606fa2fac28773f1c48cb999791"><td class="memItemLeft"><a class="el" href="classNBT__Type.html#aa2c61028536166272869c3bbc91d3197">NBT_Type::LongArray</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#af991d606fa2fac28773f1c48cb999791">GetLongArray</a> (<a class="el" href="classNBT__Node.html">NBT_Node</a> &amp;node)</td></tr>
 <tr class="memdesc:af991d606fa2fac28773f1c48cb999791"><td class="mdescLeft">&#160;</td><td class="mdescRight">友元函数：从NBT_Node对象中获取 LongArray 类型的数据  <br /></td></tr>
 <tr class="memitem:a140bef214b4175ae0d3d213b0fad0609" id="r_a140bef214b4175ae0d3d213b0fad0609"><td class="memItemLeft">const <a class="el" href="classNBT__Type.html#aa2c61028536166272869c3bbc91d3197">NBT_Type::LongArray</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a140bef214b4175ae0d3d213b0fad0609">GetLongArray</a> (const <a class="el" href="classNBT__Node.html">NBT_Node</a> &amp;node)</td></tr>
 <tr class="memdesc:a140bef214b4175ae0d3d213b0fad0609"><td class="mdescLeft">&#160;</td><td class="mdescRight">友元函数：从NBT_Node对象中获取 LongArray 类型的数据  <br /></td></tr>
+<tr class="memitem:ab23e8bb54c7e61395f679ed1c9092ff9" id="r_ab23e8bb54c7e61395f679ed1c9092ff9"><td class="memItemLeft"><a class="el" href="classNBT__Type.html#aa2c61028536166272869c3bbc91d3197">NBT_Type::LongArray</a> *&#160;</td><td class="memItemRight"><a class="el" href="#ab23e8bb54c7e61395f679ed1c9092ff9">GetIfLongArray</a> (<a class="el" href="classNBT__Node.html">NBT_Node</a> &amp;node) noexcept</td></tr>
+<tr class="memdesc:ab23e8bb54c7e61395f679ed1c9092ff9"><td class="mdescLeft">&#160;</td><td class="mdescRight">友元函数：从NBT_Node对象中获取 LongArray 类型数据的指针  <br /></td></tr>
+<tr class="memitem:a4af194e6c49ed7cc4b770dc0f9550e6a" id="r_a4af194e6c49ed7cc4b770dc0f9550e6a"><td class="memItemLeft">const <a class="el" href="classNBT__Type.html#aa2c61028536166272869c3bbc91d3197">NBT_Type::LongArray</a> *&#160;</td><td class="memItemRight"><a class="el" href="#a4af194e6c49ed7cc4b770dc0f9550e6a">GetIfLongArray</a> (const <a class="el" href="classNBT__Node.html">NBT_Node</a> &amp;node) noexcept</td></tr>
+<tr class="memdesc:a4af194e6c49ed7cc4b770dc0f9550e6a"><td class="mdescLeft">&#160;</td><td class="mdescRight">友元函数：从NBT_Node对象中获取 LongArray 类型数据的常量指针  <br /></td></tr>
 <tr class="memitem:a5f1846aa6c62b019192401d27164b03f" id="r_a5f1846aa6c62b019192401d27164b03f"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a5f1846aa6c62b019192401d27164b03f">IsLongArray</a> (const <a class="el" href="classNBT__Node.html">NBT_Node</a> &amp;node)</td></tr>
 <tr class="memdesc:a5f1846aa6c62b019192401d27164b03f"><td class="mdescLeft">&#160;</td><td class="mdescRight">友元函数：检查目标对象中是否存储 LongArray 类型的数据  <br /></td></tr>
 <tr class="memitem:aa807a2b10c8e4be128d2c5d9e04c09c6" id="r_aa807a2b10c8e4be128d2c5d9e04c09c6"><td class="memItemLeft"><a class="el" href="classNBT__Type.html#a5efe8f76052bcfe6ed8779a60a78a295">NBT_Type::String</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#aa807a2b10c8e4be128d2c5d9e04c09c6">GetString</a> (<a class="el" href="classNBT__Node.html">NBT_Node</a> &amp;node)</td></tr>
 <tr class="memdesc:aa807a2b10c8e4be128d2c5d9e04c09c6"><td class="mdescLeft">&#160;</td><td class="mdescRight">友元函数：从NBT_Node对象中获取 String 类型的数据  <br /></td></tr>
 <tr class="memitem:abcb52a73162a35316a51c44d5af6978f" id="r_abcb52a73162a35316a51c44d5af6978f"><td class="memItemLeft">const <a class="el" href="classNBT__Type.html#a5efe8f76052bcfe6ed8779a60a78a295">NBT_Type::String</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#abcb52a73162a35316a51c44d5af6978f">GetString</a> (const <a class="el" href="classNBT__Node.html">NBT_Node</a> &amp;node)</td></tr>
 <tr class="memdesc:abcb52a73162a35316a51c44d5af6978f"><td class="mdescLeft">&#160;</td><td class="mdescRight">友元函数：从NBT_Node对象中获取 String 类型的数据  <br /></td></tr>
+<tr class="memitem:ad48b1aaa01e83bd6b19a7244c63b59f6" id="r_ad48b1aaa01e83bd6b19a7244c63b59f6"><td class="memItemLeft"><a class="el" href="classNBT__Type.html#a5efe8f76052bcfe6ed8779a60a78a295">NBT_Type::String</a> *&#160;</td><td class="memItemRight"><a class="el" href="#ad48b1aaa01e83bd6b19a7244c63b59f6">GetIfString</a> (<a class="el" href="classNBT__Node.html">NBT_Node</a> &amp;node) noexcept</td></tr>
+<tr class="memdesc:ad48b1aaa01e83bd6b19a7244c63b59f6"><td class="mdescLeft">&#160;</td><td class="mdescRight">友元函数：从NBT_Node对象中获取 String 类型数据的指针  <br /></td></tr>
+<tr class="memitem:ad0f678b22bb97be1296d580e42e7db05" id="r_ad0f678b22bb97be1296d580e42e7db05"><td class="memItemLeft">const <a class="el" href="classNBT__Type.html#a5efe8f76052bcfe6ed8779a60a78a295">NBT_Type::String</a> *&#160;</td><td class="memItemRight"><a class="el" href="#ad0f678b22bb97be1296d580e42e7db05">GetIfString</a> (const <a class="el" href="classNBT__Node.html">NBT_Node</a> &amp;node) noexcept</td></tr>
+<tr class="memdesc:ad0f678b22bb97be1296d580e42e7db05"><td class="mdescLeft">&#160;</td><td class="mdescRight">友元函数：从NBT_Node对象中获取 String 类型数据的常量指针  <br /></td></tr>
 <tr class="memitem:a6f78f3973bc75cf1f2e7c9d4595efc9a" id="r_a6f78f3973bc75cf1f2e7c9d4595efc9a"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a6f78f3973bc75cf1f2e7c9d4595efc9a">IsString</a> (const <a class="el" href="classNBT__Node.html">NBT_Node</a> &amp;node)</td></tr>
 <tr class="memdesc:a6f78f3973bc75cf1f2e7c9d4595efc9a"><td class="mdescLeft">&#160;</td><td class="mdescRight">友元函数：检查目标对象中是否存储 String 类型的数据  <br /></td></tr>
 <tr class="memitem:a1e0faaa776a79c90eedce0a867572287" id="r_a1e0faaa776a79c90eedce0a867572287"><td class="memItemLeft"><a class="el" href="classNBT__Type.html#a87b4d71087e5c0ab1111a4999dace42f">NBT_Type::List</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a1e0faaa776a79c90eedce0a867572287">GetList</a> (<a class="el" href="classNBT__Node.html">NBT_Node</a> &amp;node)</td></tr>
 <tr class="memdesc:a1e0faaa776a79c90eedce0a867572287"><td class="mdescLeft">&#160;</td><td class="mdescRight">友元函数：从NBT_Node对象中获取 List 类型的数据  <br /></td></tr>
 <tr class="memitem:a4cb8d9de58ce90b1b896ade87fc19fc3" id="r_a4cb8d9de58ce90b1b896ade87fc19fc3"><td class="memItemLeft">const <a class="el" href="classNBT__Type.html#a87b4d71087e5c0ab1111a4999dace42f">NBT_Type::List</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a4cb8d9de58ce90b1b896ade87fc19fc3">GetList</a> (const <a class="el" href="classNBT__Node.html">NBT_Node</a> &amp;node)</td></tr>
 <tr class="memdesc:a4cb8d9de58ce90b1b896ade87fc19fc3"><td class="mdescLeft">&#160;</td><td class="mdescRight">友元函数：从NBT_Node对象中获取 List 类型的数据  <br /></td></tr>
+<tr class="memitem:ad935aef8ec9ec8526c0332e25f5566bf" id="r_ad935aef8ec9ec8526c0332e25f5566bf"><td class="memItemLeft"><a class="el" href="classNBT__Type.html#a87b4d71087e5c0ab1111a4999dace42f">NBT_Type::List</a> *&#160;</td><td class="memItemRight"><a class="el" href="#ad935aef8ec9ec8526c0332e25f5566bf">GetIfList</a> (<a class="el" href="classNBT__Node.html">NBT_Node</a> &amp;node) noexcept</td></tr>
+<tr class="memdesc:ad935aef8ec9ec8526c0332e25f5566bf"><td class="mdescLeft">&#160;</td><td class="mdescRight">友元函数：从NBT_Node对象中获取 List 类型数据的指针  <br /></td></tr>
+<tr class="memitem:ac7891dbb371ad083afd4104aa21128a3" id="r_ac7891dbb371ad083afd4104aa21128a3"><td class="memItemLeft">const <a class="el" href="classNBT__Type.html#a87b4d71087e5c0ab1111a4999dace42f">NBT_Type::List</a> *&#160;</td><td class="memItemRight"><a class="el" href="#ac7891dbb371ad083afd4104aa21128a3">GetIfList</a> (const <a class="el" href="classNBT__Node.html">NBT_Node</a> &amp;node) noexcept</td></tr>
+<tr class="memdesc:ac7891dbb371ad083afd4104aa21128a3"><td class="mdescLeft">&#160;</td><td class="mdescRight">友元函数：从NBT_Node对象中获取 List 类型数据的常量指针  <br /></td></tr>
 <tr class="memitem:aea40dcd452a521f3e034a81a7db71722" id="r_aea40dcd452a521f3e034a81a7db71722"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#aea40dcd452a521f3e034a81a7db71722">IsList</a> (const <a class="el" href="classNBT__Node.html">NBT_Node</a> &amp;node)</td></tr>
 <tr class="memdesc:aea40dcd452a521f3e034a81a7db71722"><td class="mdescLeft">&#160;</td><td class="mdescRight">友元函数：检查目标对象中是否存储 List 类型的数据  <br /></td></tr>
 <tr class="memitem:abcdd64a151068f489f9f6c0696a4ad02" id="r_abcdd64a151068f489f9f6c0696a4ad02"><td class="memItemLeft"><a class="el" href="classNBT__Type.html#a9dcd5050b96a10161f18d7ae4a22e7b3">NBT_Type::Compound</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#abcdd64a151068f489f9f6c0696a4ad02">GetCompound</a> (<a class="el" href="classNBT__Node.html">NBT_Node</a> &amp;node)</td></tr>
 <tr class="memdesc:abcdd64a151068f489f9f6c0696a4ad02"><td class="mdescLeft">&#160;</td><td class="mdescRight">友元函数：从NBT_Node对象中获取 Compound 类型的数据  <br /></td></tr>
 <tr class="memitem:a8ff0b53f9eee149ab8e610e49f0b3cb6" id="r_a8ff0b53f9eee149ab8e610e49f0b3cb6"><td class="memItemLeft">const <a class="el" href="classNBT__Type.html#a9dcd5050b96a10161f18d7ae4a22e7b3">NBT_Type::Compound</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a8ff0b53f9eee149ab8e610e49f0b3cb6">GetCompound</a> (const <a class="el" href="classNBT__Node.html">NBT_Node</a> &amp;node)</td></tr>
 <tr class="memdesc:a8ff0b53f9eee149ab8e610e49f0b3cb6"><td class="mdescLeft">&#160;</td><td class="mdescRight">友元函数：从NBT_Node对象中获取 Compound 类型的数据  <br /></td></tr>
+<tr class="memitem:ac28da0ea03367fd6a9a001918b56d52c" id="r_ac28da0ea03367fd6a9a001918b56d52c"><td class="memItemLeft"><a class="el" href="classNBT__Type.html#a9dcd5050b96a10161f18d7ae4a22e7b3">NBT_Type::Compound</a> *&#160;</td><td class="memItemRight"><a class="el" href="#ac28da0ea03367fd6a9a001918b56d52c">GetIfCompound</a> (<a class="el" href="classNBT__Node.html">NBT_Node</a> &amp;node) noexcept</td></tr>
+<tr class="memdesc:ac28da0ea03367fd6a9a001918b56d52c"><td class="mdescLeft">&#160;</td><td class="mdescRight">友元函数：从NBT_Node对象中获取 Compound 类型数据的指针  <br /></td></tr>
+<tr class="memitem:a53495db978447b664f0b85e8add60130" id="r_a53495db978447b664f0b85e8add60130"><td class="memItemLeft">const <a class="el" href="classNBT__Type.html#a9dcd5050b96a10161f18d7ae4a22e7b3">NBT_Type::Compound</a> *&#160;</td><td class="memItemRight"><a class="el" href="#a53495db978447b664f0b85e8add60130">GetIfCompound</a> (const <a class="el" href="classNBT__Node.html">NBT_Node</a> &amp;node) noexcept</td></tr>
+<tr class="memdesc:a53495db978447b664f0b85e8add60130"><td class="mdescLeft">&#160;</td><td class="mdescRight">友元函数：从NBT_Node对象中获取 Compound 类型数据的常量指针  <br /></td></tr>
 <tr class="memitem:adf9cc7fac169087cbe0d98e34f2da4ff" id="r_adf9cc7fac169087cbe0d98e34f2da4ff"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#adf9cc7fac169087cbe0d98e34f2da4ff">IsCompound</a> (const <a class="el" href="classNBT__Node.html">NBT_Node</a> &amp;node)</td></tr>
 <tr class="memdesc:adf9cc7fac169087cbe0d98e34f2da4ff"><td class="mdescLeft">&#160;</td><td class="mdescRight">友元函数：检查目标对象中是否存储 Compound 类型的数据  <br /></td></tr>
 <tr class="memitem:af8ab793fe173f787dd0b2c42e4619886" id="r_af8ab793fe173f787dd0b2c42e4619886"><td class="memItemLeft">const <a class="el" href="classNBT__Type.html#a16ac41e6cfe61a603407221527b6b16c">NBT_Type::End</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#af8ab793fe173f787dd0b2c42e4619886">GetEnd</a> () const</td></tr>
 <tr class="memdesc:af8ab793fe173f787dd0b2c42e4619886"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取当前对象中存储的 End 类型的数据  <br /></td></tr>
 <tr class="memitem:a1c2209082b44b3f95d2b928140c7f4a9" id="r_a1c2209082b44b3f95d2b928140c7f4a9"><td class="memItemLeft"><a class="el" href="classNBT__Type.html#a16ac41e6cfe61a603407221527b6b16c">NBT_Type::End</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a1c2209082b44b3f95d2b928140c7f4a9">GetEnd</a> ()</td></tr>
 <tr class="memdesc:a1c2209082b44b3f95d2b928140c7f4a9"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取当前对象中存储的 End 类型的数据  <br /></td></tr>
+<tr class="memitem:a72c20909a330fd99dcc786410d7d73d3" id="r_a72c20909a330fd99dcc786410d7d73d3"><td class="memItemLeft">const <a class="el" href="classNBT__Type.html#a16ac41e6cfe61a603407221527b6b16c">NBT_Type::End</a> *&#160;</td><td class="memItemRight"><a class="el" href="#a72c20909a330fd99dcc786410d7d73d3">GetIfEnd</a> () const noexcept</td></tr>
+<tr class="memdesc:a72c20909a330fd99dcc786410d7d73d3"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取当前对象中存储的 End 类型数据的常量指针  <br /></td></tr>
+<tr class="memitem:aee384c94aa1aed0590ce2191498e0907" id="r_aee384c94aa1aed0590ce2191498e0907"><td class="memItemLeft"><a class="el" href="classNBT__Type.html#a16ac41e6cfe61a603407221527b6b16c">NBT_Type::End</a> *&#160;</td><td class="memItemRight"><a class="el" href="#aee384c94aa1aed0590ce2191498e0907">GetIfEnd</a> () noexcept</td></tr>
+<tr class="memdesc:aee384c94aa1aed0590ce2191498e0907"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取当前对象中存储的 End 类型数据的指针  <br /></td></tr>
 <tr class="memitem:a73390c4a7ce3aee0189db027ef480cae" id="r_a73390c4a7ce3aee0189db027ef480cae"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a73390c4a7ce3aee0189db027ef480cae">IsEnd</a> () const</td></tr>
 <tr class="memdesc:a73390c4a7ce3aee0189db027ef480cae"><td class="mdescLeft">&#160;</td><td class="mdescRight">检查当前对象中是否存储 End 类型的数据  <br /></td></tr>
 <tr class="memitem:a693b5762fd67ba84bf31a5aacb54d092" id="r_a693b5762fd67ba84bf31a5aacb54d092"><td class="memItemLeft">const <a class="el" href="classNBT__Type.html#a09b5ce48dffc429ad8a7d05d007741c1">NBT_Type::Byte</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a693b5762fd67ba84bf31a5aacb54d092">GetByte</a> () const</td></tr>
 <tr class="memdesc:a693b5762fd67ba84bf31a5aacb54d092"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取当前对象中存储的 Byte 类型的数据  <br /></td></tr>
 <tr class="memitem:a3c8fa5b56b473d7d44b1336d84fc95c4" id="r_a3c8fa5b56b473d7d44b1336d84fc95c4"><td class="memItemLeft"><a class="el" href="classNBT__Type.html#a09b5ce48dffc429ad8a7d05d007741c1">NBT_Type::Byte</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a3c8fa5b56b473d7d44b1336d84fc95c4">GetByte</a> ()</td></tr>
 <tr class="memdesc:a3c8fa5b56b473d7d44b1336d84fc95c4"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取当前对象中存储的 Byte 类型的数据  <br /></td></tr>
+<tr class="memitem:a6d0f20d271bf3bfb897f40b0438e4ab9" id="r_a6d0f20d271bf3bfb897f40b0438e4ab9"><td class="memItemLeft">const <a class="el" href="classNBT__Type.html#a09b5ce48dffc429ad8a7d05d007741c1">NBT_Type::Byte</a> *&#160;</td><td class="memItemRight"><a class="el" href="#a6d0f20d271bf3bfb897f40b0438e4ab9">GetIfByte</a> () const noexcept</td></tr>
+<tr class="memdesc:a6d0f20d271bf3bfb897f40b0438e4ab9"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取当前对象中存储的 Byte 类型数据的常量指针  <br /></td></tr>
+<tr class="memitem:a231a32e8423d34026324647b1709427e" id="r_a231a32e8423d34026324647b1709427e"><td class="memItemLeft"><a class="el" href="classNBT__Type.html#a09b5ce48dffc429ad8a7d05d007741c1">NBT_Type::Byte</a> *&#160;</td><td class="memItemRight"><a class="el" href="#a231a32e8423d34026324647b1709427e">GetIfByte</a> () noexcept</td></tr>
+<tr class="memdesc:a231a32e8423d34026324647b1709427e"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取当前对象中存储的 Byte 类型数据的指针  <br /></td></tr>
 <tr class="memitem:a928d9679b5385ae5eaf0ac0eb0118fe4" id="r_a928d9679b5385ae5eaf0ac0eb0118fe4"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a928d9679b5385ae5eaf0ac0eb0118fe4">IsByte</a> () const</td></tr>
 <tr class="memdesc:a928d9679b5385ae5eaf0ac0eb0118fe4"><td class="mdescLeft">&#160;</td><td class="mdescRight">检查当前对象中是否存储 Byte 类型的数据  <br /></td></tr>
 <tr class="memitem:a5abe645bb6bb02bc04f9cdacd2f0b057" id="r_a5abe645bb6bb02bc04f9cdacd2f0b057"><td class="memItemLeft">const <a class="el" href="classNBT__Type.html#a3e47d05c36743947da966f4223237262">NBT_Type::Short</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a5abe645bb6bb02bc04f9cdacd2f0b057">GetShort</a> () const</td></tr>
 <tr class="memdesc:a5abe645bb6bb02bc04f9cdacd2f0b057"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取当前对象中存储的 Short 类型的数据  <br /></td></tr>
 <tr class="memitem:ab69cf42402a6ad60120c84cbef7a9f70" id="r_ab69cf42402a6ad60120c84cbef7a9f70"><td class="memItemLeft"><a class="el" href="classNBT__Type.html#a3e47d05c36743947da966f4223237262">NBT_Type::Short</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#ab69cf42402a6ad60120c84cbef7a9f70">GetShort</a> ()</td></tr>
 <tr class="memdesc:ab69cf42402a6ad60120c84cbef7a9f70"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取当前对象中存储的 Short 类型的数据  <br /></td></tr>
+<tr class="memitem:aac34f79ac92c06d105f40016547bd9ad" id="r_aac34f79ac92c06d105f40016547bd9ad"><td class="memItemLeft">const <a class="el" href="classNBT__Type.html#a3e47d05c36743947da966f4223237262">NBT_Type::Short</a> *&#160;</td><td class="memItemRight"><a class="el" href="#aac34f79ac92c06d105f40016547bd9ad">GetIfShort</a> () const noexcept</td></tr>
+<tr class="memdesc:aac34f79ac92c06d105f40016547bd9ad"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取当前对象中存储的 Short 类型数据的常量指针  <br /></td></tr>
+<tr class="memitem:a5a2a22e16c8eda1f2c9607545ed1c2a6" id="r_a5a2a22e16c8eda1f2c9607545ed1c2a6"><td class="memItemLeft"><a class="el" href="classNBT__Type.html#a3e47d05c36743947da966f4223237262">NBT_Type::Short</a> *&#160;</td><td class="memItemRight"><a class="el" href="#a5a2a22e16c8eda1f2c9607545ed1c2a6">GetIfShort</a> () noexcept</td></tr>
+<tr class="memdesc:a5a2a22e16c8eda1f2c9607545ed1c2a6"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取当前对象中存储的 Short 类型数据的指针  <br /></td></tr>
 <tr class="memitem:a7157a6e1967fd7f2b5576fb87420054c" id="r_a7157a6e1967fd7f2b5576fb87420054c"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a7157a6e1967fd7f2b5576fb87420054c">IsShort</a> () const</td></tr>
 <tr class="memdesc:a7157a6e1967fd7f2b5576fb87420054c"><td class="mdescLeft">&#160;</td><td class="mdescRight">检查当前对象中是否存储 Short 类型的数据  <br /></td></tr>
 <tr class="memitem:a69280faa86f891e62b10ba1ccd65489f" id="r_a69280faa86f891e62b10ba1ccd65489f"><td class="memItemLeft">const <a class="el" href="classNBT__Type.html#afee0233d7f58b90cc9ce2b903da2da22">NBT_Type::Int</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a69280faa86f891e62b10ba1ccd65489f">GetInt</a> () const</td></tr>
 <tr class="memdesc:a69280faa86f891e62b10ba1ccd65489f"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取当前对象中存储的 Int 类型的数据  <br /></td></tr>
 <tr class="memitem:a525aa1e5ac610b43697b75e3aa327152" id="r_a525aa1e5ac610b43697b75e3aa327152"><td class="memItemLeft"><a class="el" href="classNBT__Type.html#afee0233d7f58b90cc9ce2b903da2da22">NBT_Type::Int</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a525aa1e5ac610b43697b75e3aa327152">GetInt</a> ()</td></tr>
 <tr class="memdesc:a525aa1e5ac610b43697b75e3aa327152"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取当前对象中存储的 Int 类型的数据  <br /></td></tr>
+<tr class="memitem:aba59b94978cece5a67995fe9a7e7d1c8" id="r_aba59b94978cece5a67995fe9a7e7d1c8"><td class="memItemLeft">const <a class="el" href="classNBT__Type.html#afee0233d7f58b90cc9ce2b903da2da22">NBT_Type::Int</a> *&#160;</td><td class="memItemRight"><a class="el" href="#aba59b94978cece5a67995fe9a7e7d1c8">GetIfInt</a> () const noexcept</td></tr>
+<tr class="memdesc:aba59b94978cece5a67995fe9a7e7d1c8"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取当前对象中存储的 Int 类型数据的常量指针  <br /></td></tr>
+<tr class="memitem:a650701428bde7c2b048c3e0544d70e66" id="r_a650701428bde7c2b048c3e0544d70e66"><td class="memItemLeft"><a class="el" href="classNBT__Type.html#afee0233d7f58b90cc9ce2b903da2da22">NBT_Type::Int</a> *&#160;</td><td class="memItemRight"><a class="el" href="#a650701428bde7c2b048c3e0544d70e66">GetIfInt</a> () noexcept</td></tr>
+<tr class="memdesc:a650701428bde7c2b048c3e0544d70e66"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取当前对象中存储的 Int 类型数据的指针  <br /></td></tr>
 <tr class="memitem:aaa8f631637d7735dd115f882e02e4a95" id="r_aaa8f631637d7735dd115f882e02e4a95"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#aaa8f631637d7735dd115f882e02e4a95">IsInt</a> () const</td></tr>
 <tr class="memdesc:aaa8f631637d7735dd115f882e02e4a95"><td class="mdescLeft">&#160;</td><td class="mdescRight">检查当前对象中是否存储 Int 类型的数据  <br /></td></tr>
 <tr class="memitem:ad163ea40e2be1745077cc3a282bf6f1c" id="r_ad163ea40e2be1745077cc3a282bf6f1c"><td class="memItemLeft">const <a class="el" href="classNBT__Type.html#a7f8ae2e6e2f87445d1e72f7e922ba053">NBT_Type::Long</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#ad163ea40e2be1745077cc3a282bf6f1c">GetLong</a> () const</td></tr>
 <tr class="memdesc:ad163ea40e2be1745077cc3a282bf6f1c"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取当前对象中存储的 Long 类型的数据  <br /></td></tr>
 <tr class="memitem:aa8cdd3e06393fb0d3ace92231f57fa98" id="r_aa8cdd3e06393fb0d3ace92231f57fa98"><td class="memItemLeft"><a class="el" href="classNBT__Type.html#a7f8ae2e6e2f87445d1e72f7e922ba053">NBT_Type::Long</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#aa8cdd3e06393fb0d3ace92231f57fa98">GetLong</a> ()</td></tr>
 <tr class="memdesc:aa8cdd3e06393fb0d3ace92231f57fa98"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取当前对象中存储的 Long 类型的数据  <br /></td></tr>
+<tr class="memitem:af96bd1cda0ff0a4ca0911338e0868fda" id="r_af96bd1cda0ff0a4ca0911338e0868fda"><td class="memItemLeft">const <a class="el" href="classNBT__Type.html#a7f8ae2e6e2f87445d1e72f7e922ba053">NBT_Type::Long</a> *&#160;</td><td class="memItemRight"><a class="el" href="#af96bd1cda0ff0a4ca0911338e0868fda">GetIfLong</a> () const noexcept</td></tr>
+<tr class="memdesc:af96bd1cda0ff0a4ca0911338e0868fda"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取当前对象中存储的 Long 类型数据的常量指针  <br /></td></tr>
+<tr class="memitem:a84c91aa8972ce6eb7d1ecfe9629d330e" id="r_a84c91aa8972ce6eb7d1ecfe9629d330e"><td class="memItemLeft"><a class="el" href="classNBT__Type.html#a7f8ae2e6e2f87445d1e72f7e922ba053">NBT_Type::Long</a> *&#160;</td><td class="memItemRight"><a class="el" href="#a84c91aa8972ce6eb7d1ecfe9629d330e">GetIfLong</a> () noexcept</td></tr>
+<tr class="memdesc:a84c91aa8972ce6eb7d1ecfe9629d330e"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取当前对象中存储的 Long 类型数据的指针  <br /></td></tr>
 <tr class="memitem:abdafa1efef950cf866e914212d4bdc61" id="r_abdafa1efef950cf866e914212d4bdc61"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#abdafa1efef950cf866e914212d4bdc61">IsLong</a> () const</td></tr>
 <tr class="memdesc:abdafa1efef950cf866e914212d4bdc61"><td class="mdescLeft">&#160;</td><td class="mdescRight">检查当前对象中是否存储 Long 类型的数据  <br /></td></tr>
 <tr class="memitem:ab5c989498342afe9c7c918011f8e05d7" id="r_ab5c989498342afe9c7c918011f8e05d7"><td class="memItemLeft">const <a class="el" href="classNBT__Type.html#a8a7ac779b8e8a7fdccb3456844abe5cf">NBT_Type::Float</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#ab5c989498342afe9c7c918011f8e05d7">GetFloat</a> () const</td></tr>
 <tr class="memdesc:ab5c989498342afe9c7c918011f8e05d7"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取当前对象中存储的 Float 类型的数据  <br /></td></tr>
 <tr class="memitem:ae20dff02deeb8bfeeaa87d7ef82b7241" id="r_ae20dff02deeb8bfeeaa87d7ef82b7241"><td class="memItemLeft"><a class="el" href="classNBT__Type.html#a8a7ac779b8e8a7fdccb3456844abe5cf">NBT_Type::Float</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#ae20dff02deeb8bfeeaa87d7ef82b7241">GetFloat</a> ()</td></tr>
 <tr class="memdesc:ae20dff02deeb8bfeeaa87d7ef82b7241"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取当前对象中存储的 Float 类型的数据  <br /></td></tr>
+<tr class="memitem:a53770a76ead7b5409e7f5c1489e75929" id="r_a53770a76ead7b5409e7f5c1489e75929"><td class="memItemLeft">const <a class="el" href="classNBT__Type.html#a8a7ac779b8e8a7fdccb3456844abe5cf">NBT_Type::Float</a> *&#160;</td><td class="memItemRight"><a class="el" href="#a53770a76ead7b5409e7f5c1489e75929">GetIfFloat</a> () const noexcept</td></tr>
+<tr class="memdesc:a53770a76ead7b5409e7f5c1489e75929"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取当前对象中存储的 Float 类型数据的常量指针  <br /></td></tr>
+<tr class="memitem:a7231217c1c3583689a06429ef9878de0" id="r_a7231217c1c3583689a06429ef9878de0"><td class="memItemLeft"><a class="el" href="classNBT__Type.html#a8a7ac779b8e8a7fdccb3456844abe5cf">NBT_Type::Float</a> *&#160;</td><td class="memItemRight"><a class="el" href="#a7231217c1c3583689a06429ef9878de0">GetIfFloat</a> () noexcept</td></tr>
+<tr class="memdesc:a7231217c1c3583689a06429ef9878de0"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取当前对象中存储的 Float 类型数据的指针  <br /></td></tr>
 <tr class="memitem:a04eea9aa642d1b1d7c2452cc5f8cae4b" id="r_a04eea9aa642d1b1d7c2452cc5f8cae4b"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a04eea9aa642d1b1d7c2452cc5f8cae4b">IsFloat</a> () const</td></tr>
 <tr class="memdesc:a04eea9aa642d1b1d7c2452cc5f8cae4b"><td class="mdescLeft">&#160;</td><td class="mdescRight">检查当前对象中是否存储 Float 类型的数据  <br /></td></tr>
 <tr class="memitem:a1c10bac31d318350df4f77f4dccd4edb" id="r_a1c10bac31d318350df4f77f4dccd4edb"><td class="memItemLeft">const <a class="el" href="classNBT__Type.html#aaea549797088fb63987679367bc9d39a">NBT_Type::Double</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a1c10bac31d318350df4f77f4dccd4edb">GetDouble</a> () const</td></tr>
 <tr class="memdesc:a1c10bac31d318350df4f77f4dccd4edb"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取当前对象中存储的 Double 类型的数据  <br /></td></tr>
 <tr class="memitem:aa267ef2f24f490508ad6b59585948381" id="r_aa267ef2f24f490508ad6b59585948381"><td class="memItemLeft"><a class="el" href="classNBT__Type.html#aaea549797088fb63987679367bc9d39a">NBT_Type::Double</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#aa267ef2f24f490508ad6b59585948381">GetDouble</a> ()</td></tr>
 <tr class="memdesc:aa267ef2f24f490508ad6b59585948381"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取当前对象中存储的 Double 类型的数据  <br /></td></tr>
+<tr class="memitem:af1a56f5bde22c1368385c77eb37a7320" id="r_af1a56f5bde22c1368385c77eb37a7320"><td class="memItemLeft">const <a class="el" href="classNBT__Type.html#aaea549797088fb63987679367bc9d39a">NBT_Type::Double</a> *&#160;</td><td class="memItemRight"><a class="el" href="#af1a56f5bde22c1368385c77eb37a7320">GetIfDouble</a> () const noexcept</td></tr>
+<tr class="memdesc:af1a56f5bde22c1368385c77eb37a7320"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取当前对象中存储的 Double 类型数据的常量指针  <br /></td></tr>
+<tr class="memitem:a00874cea5a4d565ef9bcd90a445e3a6f" id="r_a00874cea5a4d565ef9bcd90a445e3a6f"><td class="memItemLeft"><a class="el" href="classNBT__Type.html#aaea549797088fb63987679367bc9d39a">NBT_Type::Double</a> *&#160;</td><td class="memItemRight"><a class="el" href="#a00874cea5a4d565ef9bcd90a445e3a6f">GetIfDouble</a> () noexcept</td></tr>
+<tr class="memdesc:a00874cea5a4d565ef9bcd90a445e3a6f"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取当前对象中存储的 Double 类型数据的指针  <br /></td></tr>
 <tr class="memitem:a18bec59a8bf3179cbcbdb6ef4719ddc2" id="r_a18bec59a8bf3179cbcbdb6ef4719ddc2"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a18bec59a8bf3179cbcbdb6ef4719ddc2">IsDouble</a> () const</td></tr>
 <tr class="memdesc:a18bec59a8bf3179cbcbdb6ef4719ddc2"><td class="mdescLeft">&#160;</td><td class="mdescRight">检查当前对象中是否存储 Double 类型的数据  <br /></td></tr>
 <tr class="memitem:a6f2944a11b12aa12ba2e5c353f22a63d" id="r_a6f2944a11b12aa12ba2e5c353f22a63d"><td class="memItemLeft">const <a class="el" href="classNBT__Type.html#a953bc9e67e1b5d82c0786b5992f00ed8">NBT_Type::ByteArray</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a6f2944a11b12aa12ba2e5c353f22a63d">GetByteArray</a> () const</td></tr>
 <tr class="memdesc:a6f2944a11b12aa12ba2e5c353f22a63d"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取当前对象中存储的 ByteArray 类型的数据  <br /></td></tr>
 <tr class="memitem:a7232e665de164264f2d29dc181c0084b" id="r_a7232e665de164264f2d29dc181c0084b"><td class="memItemLeft"><a class="el" href="classNBT__Type.html#a953bc9e67e1b5d82c0786b5992f00ed8">NBT_Type::ByteArray</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a7232e665de164264f2d29dc181c0084b">GetByteArray</a> ()</td></tr>
 <tr class="memdesc:a7232e665de164264f2d29dc181c0084b"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取当前对象中存储的 ByteArray 类型的数据  <br /></td></tr>
+<tr class="memitem:a68a5b88473d641408c01eb1e51014cd5" id="r_a68a5b88473d641408c01eb1e51014cd5"><td class="memItemLeft">const <a class="el" href="classNBT__Type.html#a953bc9e67e1b5d82c0786b5992f00ed8">NBT_Type::ByteArray</a> *&#160;</td><td class="memItemRight"><a class="el" href="#a68a5b88473d641408c01eb1e51014cd5">GetIfByteArray</a> () const noexcept</td></tr>
+<tr class="memdesc:a68a5b88473d641408c01eb1e51014cd5"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取当前对象中存储的 ByteArray 类型数据的常量指针  <br /></td></tr>
+<tr class="memitem:a5b51451d78391ea1ea7d705843f797e6" id="r_a5b51451d78391ea1ea7d705843f797e6"><td class="memItemLeft"><a class="el" href="classNBT__Type.html#a953bc9e67e1b5d82c0786b5992f00ed8">NBT_Type::ByteArray</a> *&#160;</td><td class="memItemRight"><a class="el" href="#a5b51451d78391ea1ea7d705843f797e6">GetIfByteArray</a> () noexcept</td></tr>
+<tr class="memdesc:a5b51451d78391ea1ea7d705843f797e6"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取当前对象中存储的 ByteArray 类型数据的指针  <br /></td></tr>
 <tr class="memitem:a73622dc113c6e17ab73a632e1b921984" id="r_a73622dc113c6e17ab73a632e1b921984"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a73622dc113c6e17ab73a632e1b921984">IsByteArray</a> () const</td></tr>
 <tr class="memdesc:a73622dc113c6e17ab73a632e1b921984"><td class="mdescLeft">&#160;</td><td class="mdescRight">检查当前对象中是否存储 ByteArray 类型的数据  <br /></td></tr>
 <tr class="memitem:a663d07afa80c6dddb6c4f6c45fb872f1" id="r_a663d07afa80c6dddb6c4f6c45fb872f1"><td class="memItemLeft">const <a class="el" href="classNBT__Type.html#a9c4ad0b2bcd4b5cafb0c9a3f083f9406">NBT_Type::IntArray</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a663d07afa80c6dddb6c4f6c45fb872f1">GetIntArray</a> () const</td></tr>
 <tr class="memdesc:a663d07afa80c6dddb6c4f6c45fb872f1"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取当前对象中存储的 IntArray 类型的数据  <br /></td></tr>
 <tr class="memitem:a1986fa7a9063d3536bcfef4402f1a960" id="r_a1986fa7a9063d3536bcfef4402f1a960"><td class="memItemLeft"><a class="el" href="classNBT__Type.html#a9c4ad0b2bcd4b5cafb0c9a3f083f9406">NBT_Type::IntArray</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a1986fa7a9063d3536bcfef4402f1a960">GetIntArray</a> ()</td></tr>
 <tr class="memdesc:a1986fa7a9063d3536bcfef4402f1a960"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取当前对象中存储的 IntArray 类型的数据  <br /></td></tr>
+<tr class="memitem:a12cc0ae2cb5c09877ed1c485b6024c04" id="r_a12cc0ae2cb5c09877ed1c485b6024c04"><td class="memItemLeft">const <a class="el" href="classNBT__Type.html#a9c4ad0b2bcd4b5cafb0c9a3f083f9406">NBT_Type::IntArray</a> *&#160;</td><td class="memItemRight"><a class="el" href="#a12cc0ae2cb5c09877ed1c485b6024c04">GetIfIntArray</a> () const noexcept</td></tr>
+<tr class="memdesc:a12cc0ae2cb5c09877ed1c485b6024c04"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取当前对象中存储的 IntArray 类型数据的常量指针  <br /></td></tr>
+<tr class="memitem:a7c0908ec892e1a1f171ceaab12cad4d7" id="r_a7c0908ec892e1a1f171ceaab12cad4d7"><td class="memItemLeft"><a class="el" href="classNBT__Type.html#a9c4ad0b2bcd4b5cafb0c9a3f083f9406">NBT_Type::IntArray</a> *&#160;</td><td class="memItemRight"><a class="el" href="#a7c0908ec892e1a1f171ceaab12cad4d7">GetIfIntArray</a> () noexcept</td></tr>
+<tr class="memdesc:a7c0908ec892e1a1f171ceaab12cad4d7"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取当前对象中存储的 IntArray 类型数据的指针  <br /></td></tr>
 <tr class="memitem:a27e47f83f5ffd548f66b9d86c8e47e82" id="r_a27e47f83f5ffd548f66b9d86c8e47e82"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a27e47f83f5ffd548f66b9d86c8e47e82">IsIntArray</a> () const</td></tr>
 <tr class="memdesc:a27e47f83f5ffd548f66b9d86c8e47e82"><td class="mdescLeft">&#160;</td><td class="mdescRight">检查当前对象中是否存储 IntArray 类型的数据  <br /></td></tr>
 <tr class="memitem:a1fb2642181acaebdc29cd74754a3374b" id="r_a1fb2642181acaebdc29cd74754a3374b"><td class="memItemLeft">const <a class="el" href="classNBT__Type.html#aa2c61028536166272869c3bbc91d3197">NBT_Type::LongArray</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a1fb2642181acaebdc29cd74754a3374b">GetLongArray</a> () const</td></tr>
 <tr class="memdesc:a1fb2642181acaebdc29cd74754a3374b"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取当前对象中存储的 LongArray 类型的数据  <br /></td></tr>
 <tr class="memitem:a7f58334b283d747c758d1ab462aba625" id="r_a7f58334b283d747c758d1ab462aba625"><td class="memItemLeft"><a class="el" href="classNBT__Type.html#aa2c61028536166272869c3bbc91d3197">NBT_Type::LongArray</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a7f58334b283d747c758d1ab462aba625">GetLongArray</a> ()</td></tr>
 <tr class="memdesc:a7f58334b283d747c758d1ab462aba625"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取当前对象中存储的 LongArray 类型的数据  <br /></td></tr>
+<tr class="memitem:a86c6b73d0b7f40113869d394a807eefe" id="r_a86c6b73d0b7f40113869d394a807eefe"><td class="memItemLeft">const <a class="el" href="classNBT__Type.html#aa2c61028536166272869c3bbc91d3197">NBT_Type::LongArray</a> *&#160;</td><td class="memItemRight"><a class="el" href="#a86c6b73d0b7f40113869d394a807eefe">GetIfLongArray</a> () const noexcept</td></tr>
+<tr class="memdesc:a86c6b73d0b7f40113869d394a807eefe"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取当前对象中存储的 LongArray 类型数据的常量指针  <br /></td></tr>
+<tr class="memitem:a166f68c5281cc0744f87fb247ce80c13" id="r_a166f68c5281cc0744f87fb247ce80c13"><td class="memItemLeft"><a class="el" href="classNBT__Type.html#aa2c61028536166272869c3bbc91d3197">NBT_Type::LongArray</a> *&#160;</td><td class="memItemRight"><a class="el" href="#a166f68c5281cc0744f87fb247ce80c13">GetIfLongArray</a> () noexcept</td></tr>
+<tr class="memdesc:a166f68c5281cc0744f87fb247ce80c13"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取当前对象中存储的 LongArray 类型数据的指针  <br /></td></tr>
 <tr class="memitem:a53a7381c74da11e2cda75bcc5751d1a1" id="r_a53a7381c74da11e2cda75bcc5751d1a1"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a53a7381c74da11e2cda75bcc5751d1a1">IsLongArray</a> () const</td></tr>
 <tr class="memdesc:a53a7381c74da11e2cda75bcc5751d1a1"><td class="mdescLeft">&#160;</td><td class="mdescRight">检查当前对象中是否存储 LongArray 类型的数据  <br /></td></tr>
 <tr class="memitem:a5d7b782cdd5bf0ba7564eeac96a9451c" id="r_a5d7b782cdd5bf0ba7564eeac96a9451c"><td class="memItemLeft">const <a class="el" href="classNBT__Type.html#a5efe8f76052bcfe6ed8779a60a78a295">NBT_Type::String</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a5d7b782cdd5bf0ba7564eeac96a9451c">GetString</a> () const</td></tr>
 <tr class="memdesc:a5d7b782cdd5bf0ba7564eeac96a9451c"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取当前对象中存储的 String 类型的数据  <br /></td></tr>
 <tr class="memitem:a27a23ade61af620db86d694c2a06302e" id="r_a27a23ade61af620db86d694c2a06302e"><td class="memItemLeft"><a class="el" href="classNBT__Type.html#a5efe8f76052bcfe6ed8779a60a78a295">NBT_Type::String</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a27a23ade61af620db86d694c2a06302e">GetString</a> ()</td></tr>
 <tr class="memdesc:a27a23ade61af620db86d694c2a06302e"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取当前对象中存储的 String 类型的数据  <br /></td></tr>
+<tr class="memitem:adbfc21a13e8def501b1c7952274db967" id="r_adbfc21a13e8def501b1c7952274db967"><td class="memItemLeft">const <a class="el" href="classNBT__Type.html#a5efe8f76052bcfe6ed8779a60a78a295">NBT_Type::String</a> *&#160;</td><td class="memItemRight"><a class="el" href="#adbfc21a13e8def501b1c7952274db967">GetIfString</a> () const noexcept</td></tr>
+<tr class="memdesc:adbfc21a13e8def501b1c7952274db967"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取当前对象中存储的 String 类型数据的常量指针  <br /></td></tr>
+<tr class="memitem:a07a830d88ab889e56f75a32b7f5e3090" id="r_a07a830d88ab889e56f75a32b7f5e3090"><td class="memItemLeft"><a class="el" href="classNBT__Type.html#a5efe8f76052bcfe6ed8779a60a78a295">NBT_Type::String</a> *&#160;</td><td class="memItemRight"><a class="el" href="#a07a830d88ab889e56f75a32b7f5e3090">GetIfString</a> () noexcept</td></tr>
+<tr class="memdesc:a07a830d88ab889e56f75a32b7f5e3090"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取当前对象中存储的 String 类型数据的指针  <br /></td></tr>
 <tr class="memitem:ab33efd22909082bdbbf56b49228fff8c" id="r_ab33efd22909082bdbbf56b49228fff8c"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#ab33efd22909082bdbbf56b49228fff8c">IsString</a> () const</td></tr>
 <tr class="memdesc:ab33efd22909082bdbbf56b49228fff8c"><td class="mdescLeft">&#160;</td><td class="mdescRight">检查当前对象中是否存储 String 类型的数据  <br /></td></tr>
 <tr class="memitem:a028db921c407b253341183cc2748817d" id="r_a028db921c407b253341183cc2748817d"><td class="memItemLeft">const <a class="el" href="classNBT__Type.html#a87b4d71087e5c0ab1111a4999dace42f">NBT_Type::List</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a028db921c407b253341183cc2748817d">GetList</a> () const</td></tr>
 <tr class="memdesc:a028db921c407b253341183cc2748817d"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取当前对象中存储的 List 类型的数据  <br /></td></tr>
 <tr class="memitem:aabe106452da16584dbadf0452e68c26d" id="r_aabe106452da16584dbadf0452e68c26d"><td class="memItemLeft"><a class="el" href="classNBT__Type.html#a87b4d71087e5c0ab1111a4999dace42f">NBT_Type::List</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#aabe106452da16584dbadf0452e68c26d">GetList</a> ()</td></tr>
 <tr class="memdesc:aabe106452da16584dbadf0452e68c26d"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取当前对象中存储的 List 类型的数据  <br /></td></tr>
+<tr class="memitem:a6510ad08f78b9f28724ef4ef717a8be5" id="r_a6510ad08f78b9f28724ef4ef717a8be5"><td class="memItemLeft">const <a class="el" href="classNBT__Type.html#a87b4d71087e5c0ab1111a4999dace42f">NBT_Type::List</a> *&#160;</td><td class="memItemRight"><a class="el" href="#a6510ad08f78b9f28724ef4ef717a8be5">GetIfList</a> () const noexcept</td></tr>
+<tr class="memdesc:a6510ad08f78b9f28724ef4ef717a8be5"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取当前对象中存储的 List 类型数据的常量指针  <br /></td></tr>
+<tr class="memitem:a6de6c74ce76d09c5984c68c27e501895" id="r_a6de6c74ce76d09c5984c68c27e501895"><td class="memItemLeft"><a class="el" href="classNBT__Type.html#a87b4d71087e5c0ab1111a4999dace42f">NBT_Type::List</a> *&#160;</td><td class="memItemRight"><a class="el" href="#a6de6c74ce76d09c5984c68c27e501895">GetIfList</a> () noexcept</td></tr>
+<tr class="memdesc:a6de6c74ce76d09c5984c68c27e501895"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取当前对象中存储的 List 类型数据的指针  <br /></td></tr>
 <tr class="memitem:a3ec5d90e7e023c3386bcf1897dab7d8a" id="r_a3ec5d90e7e023c3386bcf1897dab7d8a"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a3ec5d90e7e023c3386bcf1897dab7d8a">IsList</a> () const</td></tr>
 <tr class="memdesc:a3ec5d90e7e023c3386bcf1897dab7d8a"><td class="mdescLeft">&#160;</td><td class="mdescRight">检查当前对象中是否存储 List 类型的数据  <br /></td></tr>
 <tr class="memitem:aa6dfceeaa7c874799dfeb1961ab21e4f" id="r_aa6dfceeaa7c874799dfeb1961ab21e4f"><td class="memItemLeft">const <a class="el" href="classNBT__Type.html#a9dcd5050b96a10161f18d7ae4a22e7b3">NBT_Type::Compound</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#aa6dfceeaa7c874799dfeb1961ab21e4f">GetCompound</a> () const</td></tr>
 <tr class="memdesc:aa6dfceeaa7c874799dfeb1961ab21e4f"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取当前对象中存储的 Compound 类型的数据  <br /></td></tr>
 <tr class="memitem:a527ad4d7d355c88badf49c0f227d583a" id="r_a527ad4d7d355c88badf49c0f227d583a"><td class="memItemLeft"><a class="el" href="classNBT__Type.html#a9dcd5050b96a10161f18d7ae4a22e7b3">NBT_Type::Compound</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a527ad4d7d355c88badf49c0f227d583a">GetCompound</a> ()</td></tr>
 <tr class="memdesc:a527ad4d7d355c88badf49c0f227d583a"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取当前对象中存储的 Compound 类型的数据  <br /></td></tr>
+<tr class="memitem:a5dc84770d84efe9716b820d7d27dc1ef" id="r_a5dc84770d84efe9716b820d7d27dc1ef"><td class="memItemLeft">const <a class="el" href="classNBT__Type.html#a9dcd5050b96a10161f18d7ae4a22e7b3">NBT_Type::Compound</a> *&#160;</td><td class="memItemRight"><a class="el" href="#a5dc84770d84efe9716b820d7d27dc1ef">GetIfCompound</a> () const noexcept</td></tr>
+<tr class="memdesc:a5dc84770d84efe9716b820d7d27dc1ef"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取当前对象中存储的 Compound 类型数据的常量指针  <br /></td></tr>
+<tr class="memitem:ac12827f7fff4423dc9fe8141e9a2611e" id="r_ac12827f7fff4423dc9fe8141e9a2611e"><td class="memItemLeft"><a class="el" href="classNBT__Type.html#a9dcd5050b96a10161f18d7ae4a22e7b3">NBT_Type::Compound</a> *&#160;</td><td class="memItemRight"><a class="el" href="#ac12827f7fff4423dc9fe8141e9a2611e">GetIfCompound</a> () noexcept</td></tr>
+<tr class="memdesc:ac12827f7fff4423dc9fe8141e9a2611e"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取当前对象中存储的 Compound 类型数据的指针  <br /></td></tr>
 <tr class="memitem:a82a7f0fb669369250a09cb49aa3887bb" id="r_a82a7f0fb669369250a09cb49aa3887bb"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a82a7f0fb669369250a09cb49aa3887bb">IsCompound</a> () const</td></tr>
 <tr class="memdesc:a82a7f0fb669369250a09cb49aa3887bb"><td class="mdescLeft">&#160;</td><td class="mdescRight">检查当前对象中是否存储 Compound 类型的数据  <br /></td></tr>
 <tr class="memitem:a7a306d33cc65684a603846f0d1e60478" id="r_a7a306d33cc65684a603846f0d1e60478"><td class="memItemLeft"><a class="el" href="classNBT__Type.html#a16ac41e6cfe61a603407221527b6b16c">NBT_Type::End</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a7a306d33cc65684a603846f0d1e60478">SetEnd</a> (const <a class="el" href="classNBT__Type.html#a16ac41e6cfe61a603407221527b6b16c">NBT_Type::End</a> &amp;value)</td></tr>
@@ -703,7 +829,7 @@ template&lt;typename T&gt; </div>
 </div><div class="memdoc">
 
 <p>获取当前对象中存储的 Byte 类型的数据 </p>
-<dl class="section return"><dt>返回</dt><dd>对指定类型数据的引用 </dd></dl>
+<dl class="section return"><dt>返回</dt><dd>Byte 类型数据的引用 </dd></dl>
 <dl class="section note"><dt>注解</dt><dd>如果类型不存在或当前存储的不是 Byte 类型，则抛出异常，具体请参考std::get的说明 </dd></dl>
 
 </div>
@@ -732,7 +858,7 @@ template&lt;typename T&gt; </div>
 </div><div class="memdoc">
 
 <p>获取当前对象中存储的 Byte 类型的数据 </p>
-<dl class="section return"><dt>返回</dt><dd>对指定类型数据的常量引用 </dd></dl>
+<dl class="section return"><dt>返回</dt><dd>Byte 类型数据的常量引用 </dd></dl>
 <dl class="section note"><dt>注解</dt><dd>如果类型不存在或当前存储的不是 Byte 类型，则抛出异常，具体请参考std::get的说明 </dd></dl>
 
 </div>
@@ -761,7 +887,7 @@ template&lt;typename T&gt; </div>
 </div><div class="memdoc">
 
 <p>获取当前对象中存储的 ByteArray 类型的数据 </p>
-<dl class="section return"><dt>返回</dt><dd>对指定类型数据的引用 </dd></dl>
+<dl class="section return"><dt>返回</dt><dd>ByteArray 类型数据的引用 </dd></dl>
 <dl class="section note"><dt>注解</dt><dd>如果类型不存在或当前存储的不是 ByteArray 类型，则抛出异常，具体请参考std::get的说明 </dd></dl>
 
 </div>
@@ -790,7 +916,7 @@ template&lt;typename T&gt; </div>
 </div><div class="memdoc">
 
 <p>获取当前对象中存储的 ByteArray 类型的数据 </p>
-<dl class="section return"><dt>返回</dt><dd>对指定类型数据的常量引用 </dd></dl>
+<dl class="section return"><dt>返回</dt><dd>ByteArray 类型数据的常量引用 </dd></dl>
 <dl class="section note"><dt>注解</dt><dd>如果类型不存在或当前存储的不是 ByteArray 类型，则抛出异常，具体请参考std::get的说明 </dd></dl>
 
 </div>
@@ -819,7 +945,7 @@ template&lt;typename T&gt; </div>
 </div><div class="memdoc">
 
 <p>获取当前对象中存储的 Compound 类型的数据 </p>
-<dl class="section return"><dt>返回</dt><dd>对指定类型数据的引用 </dd></dl>
+<dl class="section return"><dt>返回</dt><dd>Compound 类型数据的引用 </dd></dl>
 <dl class="section note"><dt>注解</dt><dd>如果类型不存在或当前存储的不是 Compound 类型，则抛出异常，具体请参考std::get的说明 </dd></dl>
 
 </div>
@@ -848,8 +974,64 @@ template&lt;typename T&gt; </div>
 </div><div class="memdoc">
 
 <p>获取当前对象中存储的 Compound 类型的数据 </p>
-<dl class="section return"><dt>返回</dt><dd>对指定类型数据的常量引用 </dd></dl>
+<dl class="section return"><dt>返回</dt><dd>Compound 类型数据的常量引用 </dd></dl>
 <dl class="section note"><dt>注解</dt><dd>如果类型不存在或当前存储的不是 Compound 类型，则抛出异常，具体请参考std::get的说明 </dd></dl>
+
+</div>
+</div>
+<a id="aa903a1319a192d0e963a7a234332f2da" name="aa903a1319a192d0e963a7a234332f2da"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa903a1319a192d0e963a7a234332f2da">&#9670;&#160;</a></span>GetData() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="#a26e094aaafe5e7a51adfe27d12b52aef">VariantData</a> &amp; NBT_Node::GetData </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>获取底层容器数据的常量引用 </p>
+<dl class="section return"><dt>返回</dt><dd>底层容器数据的常量引用 </dd></dl>
+
+</div>
+</div>
+<a id="a76b95f672e58b94fcd55fbce7fe0dc4d" name="a76b95f672e58b94fcd55fbce7fe0dc4d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a76b95f672e58b94fcd55fbce7fe0dc4d">&#9670;&#160;</a></span>GetData() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#a26e094aaafe5e7a51adfe27d12b52aef">VariantData</a> &amp; NBT_Node::GetData </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>获取底层容器数据的引用 </p>
+<dl class="section return"><dt>返回</dt><dd>底层容器数据的引用 </dd></dl>
 
 </div>
 </div>
@@ -877,7 +1059,7 @@ template&lt;typename T&gt; </div>
 </div><div class="memdoc">
 
 <p>获取当前对象中存储的 Double 类型的数据 </p>
-<dl class="section return"><dt>返回</dt><dd>对指定类型数据的引用 </dd></dl>
+<dl class="section return"><dt>返回</dt><dd>Double 类型数据的引用 </dd></dl>
 <dl class="section note"><dt>注解</dt><dd>如果类型不存在或当前存储的不是 Double 类型，则抛出异常，具体请参考std::get的说明 </dd></dl>
 
 </div>
@@ -906,7 +1088,7 @@ template&lt;typename T&gt; </div>
 </div><div class="memdoc">
 
 <p>获取当前对象中存储的 Double 类型的数据 </p>
-<dl class="section return"><dt>返回</dt><dd>对指定类型数据的常量引用 </dd></dl>
+<dl class="section return"><dt>返回</dt><dd>Double 类型数据的常量引用 </dd></dl>
 <dl class="section note"><dt>注解</dt><dd>如果类型不存在或当前存储的不是 Double 类型，则抛出异常，具体请参考std::get的说明 </dd></dl>
 
 </div>
@@ -935,7 +1117,7 @@ template&lt;typename T&gt; </div>
 </div><div class="memdoc">
 
 <p>获取当前对象中存储的 End 类型的数据 </p>
-<dl class="section return"><dt>返回</dt><dd>对指定类型数据的引用 </dd></dl>
+<dl class="section return"><dt>返回</dt><dd>End 类型数据的引用 </dd></dl>
 <dl class="section note"><dt>注解</dt><dd>如果类型不存在或当前存储的不是 End 类型，则抛出异常，具体请参考std::get的说明 </dd></dl>
 
 </div>
@@ -964,7 +1146,7 @@ template&lt;typename T&gt; </div>
 </div><div class="memdoc">
 
 <p>获取当前对象中存储的 End 类型的数据 </p>
-<dl class="section return"><dt>返回</dt><dd>对指定类型数据的常量引用 </dd></dl>
+<dl class="section return"><dt>返回</dt><dd>End 类型数据的常量引用 </dd></dl>
 <dl class="section note"><dt>注解</dt><dd>如果类型不存在或当前存储的不是 End 类型，则抛出异常，具体请参考std::get的说明 </dd></dl>
 
 </div>
@@ -993,7 +1175,7 @@ template&lt;typename T&gt; </div>
 </div><div class="memdoc">
 
 <p>获取当前对象中存储的 Float 类型的数据 </p>
-<dl class="section return"><dt>返回</dt><dd>对指定类型数据的引用 </dd></dl>
+<dl class="section return"><dt>返回</dt><dd>Float 类型数据的引用 </dd></dl>
 <dl class="section note"><dt>注解</dt><dd>如果类型不存在或当前存储的不是 Float 类型，则抛出异常，具体请参考std::get的说明 </dd></dl>
 
 </div>
@@ -1022,8 +1204,834 @@ template&lt;typename T&gt; </div>
 </div><div class="memdoc">
 
 <p>获取当前对象中存储的 Float 类型的数据 </p>
-<dl class="section return"><dt>返回</dt><dd>对指定类型数据的常量引用 </dd></dl>
+<dl class="section return"><dt>返回</dt><dd>Float 类型数据的常量引用 </dd></dl>
 <dl class="section note"><dt>注解</dt><dd>如果类型不存在或当前存储的不是 Float 类型，则抛出异常，具体请参考std::get的说明 </dd></dl>
+
+</div>
+</div>
+<a id="a354f9e66483157d5ec336951cb6a2a20" name="a354f9e66483157d5ec336951cb6a2a20"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a354f9e66483157d5ec336951cb6a2a20">&#9670;&#160;</a></span>GetIf() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const T * NBT_Node::GetIf </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>通过指定类型获取当前存储的数据对象指针 </p>
+<dl class="tparams"><dt>模板参数</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T</td><td>要访问的数据类型 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>如果当前存储的是指定类型，返回指向该对象的常量指针；否则返回 nullptr </dd></dl>
+
+</div>
+</div>
+<a id="adc070772a27cdcd889e91f0a92d234fb" name="adc070772a27cdcd889e91f0a92d234fb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adc070772a27cdcd889e91f0a92d234fb">&#9670;&#160;</a></span>GetIf() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">T * NBT_Node::GetIf </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>通过指定类型获取当前存储的数据对象指针 </p>
+<dl class="tparams"><dt>模板参数</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T</td><td>要访问的数据类型 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>如果当前存储的是指定类型，返回指向该对象的指针；否则返回 nullptr </dd></dl>
+
+</div>
+</div>
+<a id="a6d0f20d271bf3bfb897f40b0438e4ab9" name="a6d0f20d271bf3bfb897f40b0438e4ab9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6d0f20d271bf3bfb897f40b0438e4ab9">&#9670;&#160;</a></span>GetIfByte() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="classNBT__Type.html#a09b5ce48dffc429ad8a7d05d007741c1">NBT_Type::Byte</a> * NBT_Node::GetIfByte </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>获取当前对象中存储的 Byte 类型数据的常量指针 </p>
+<dl class="section return"><dt>返回</dt><dd>Byte 类型数据的常量指针 </dd></dl>
+<dl class="section note"><dt>注解</dt><dd>如果类型不存在或当前存储的不是 Byte 类型，则返回nullptr </dd></dl>
+
+</div>
+</div>
+<a id="a231a32e8423d34026324647b1709427e" name="a231a32e8423d34026324647b1709427e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a231a32e8423d34026324647b1709427e">&#9670;&#160;</a></span>GetIfByte() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classNBT__Type.html#a09b5ce48dffc429ad8a7d05d007741c1">NBT_Type::Byte</a> * NBT_Node::GetIfByte </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>获取当前对象中存储的 Byte 类型数据的指针 </p>
+<dl class="section return"><dt>返回</dt><dd>Byte 类型数据的指针 </dd></dl>
+<dl class="section note"><dt>注解</dt><dd>如果类型不存在或当前存储的不是 Byte 类型，则返回nullptr </dd></dl>
+
+</div>
+</div>
+<a id="a68a5b88473d641408c01eb1e51014cd5" name="a68a5b88473d641408c01eb1e51014cd5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a68a5b88473d641408c01eb1e51014cd5">&#9670;&#160;</a></span>GetIfByteArray() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="classNBT__Type.html#a953bc9e67e1b5d82c0786b5992f00ed8">NBT_Type::ByteArray</a> * NBT_Node::GetIfByteArray </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>获取当前对象中存储的 ByteArray 类型数据的常量指针 </p>
+<dl class="section return"><dt>返回</dt><dd>ByteArray 类型数据的常量指针 </dd></dl>
+<dl class="section note"><dt>注解</dt><dd>如果类型不存在或当前存储的不是 ByteArray 类型，则返回nullptr </dd></dl>
+
+</div>
+</div>
+<a id="a5b51451d78391ea1ea7d705843f797e6" name="a5b51451d78391ea1ea7d705843f797e6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5b51451d78391ea1ea7d705843f797e6">&#9670;&#160;</a></span>GetIfByteArray() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classNBT__Type.html#a953bc9e67e1b5d82c0786b5992f00ed8">NBT_Type::ByteArray</a> * NBT_Node::GetIfByteArray </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>获取当前对象中存储的 ByteArray 类型数据的指针 </p>
+<dl class="section return"><dt>返回</dt><dd>ByteArray 类型数据的指针 </dd></dl>
+<dl class="section note"><dt>注解</dt><dd>如果类型不存在或当前存储的不是 ByteArray 类型，则返回nullptr </dd></dl>
+
+</div>
+</div>
+<a id="a5dc84770d84efe9716b820d7d27dc1ef" name="a5dc84770d84efe9716b820d7d27dc1ef"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5dc84770d84efe9716b820d7d27dc1ef">&#9670;&#160;</a></span>GetIfCompound() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="classNBT__Type.html#a9dcd5050b96a10161f18d7ae4a22e7b3">NBT_Type::Compound</a> * NBT_Node::GetIfCompound </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>获取当前对象中存储的 Compound 类型数据的常量指针 </p>
+<dl class="section return"><dt>返回</dt><dd>Compound 类型数据的常量指针 </dd></dl>
+<dl class="section note"><dt>注解</dt><dd>如果类型不存在或当前存储的不是 Compound 类型，则返回nullptr </dd></dl>
+
+</div>
+</div>
+<a id="ac12827f7fff4423dc9fe8141e9a2611e" name="ac12827f7fff4423dc9fe8141e9a2611e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac12827f7fff4423dc9fe8141e9a2611e">&#9670;&#160;</a></span>GetIfCompound() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classNBT__Type.html#a9dcd5050b96a10161f18d7ae4a22e7b3">NBT_Type::Compound</a> * NBT_Node::GetIfCompound </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>获取当前对象中存储的 Compound 类型数据的指针 </p>
+<dl class="section return"><dt>返回</dt><dd>Compound 类型数据的指针 </dd></dl>
+<dl class="section note"><dt>注解</dt><dd>如果类型不存在或当前存储的不是 Compound 类型，则返回nullptr </dd></dl>
+
+</div>
+</div>
+<a id="af1a56f5bde22c1368385c77eb37a7320" name="af1a56f5bde22c1368385c77eb37a7320"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af1a56f5bde22c1368385c77eb37a7320">&#9670;&#160;</a></span>GetIfDouble() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="classNBT__Type.html#aaea549797088fb63987679367bc9d39a">NBT_Type::Double</a> * NBT_Node::GetIfDouble </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>获取当前对象中存储的 Double 类型数据的常量指针 </p>
+<dl class="section return"><dt>返回</dt><dd>Double 类型数据的常量指针 </dd></dl>
+<dl class="section note"><dt>注解</dt><dd>如果类型不存在或当前存储的不是 Double 类型，则返回nullptr </dd></dl>
+
+</div>
+</div>
+<a id="a00874cea5a4d565ef9bcd90a445e3a6f" name="a00874cea5a4d565ef9bcd90a445e3a6f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a00874cea5a4d565ef9bcd90a445e3a6f">&#9670;&#160;</a></span>GetIfDouble() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classNBT__Type.html#aaea549797088fb63987679367bc9d39a">NBT_Type::Double</a> * NBT_Node::GetIfDouble </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>获取当前对象中存储的 Double 类型数据的指针 </p>
+<dl class="section return"><dt>返回</dt><dd>Double 类型数据的指针 </dd></dl>
+<dl class="section note"><dt>注解</dt><dd>如果类型不存在或当前存储的不是 Double 类型，则返回nullptr </dd></dl>
+
+</div>
+</div>
+<a id="a72c20909a330fd99dcc786410d7d73d3" name="a72c20909a330fd99dcc786410d7d73d3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a72c20909a330fd99dcc786410d7d73d3">&#9670;&#160;</a></span>GetIfEnd() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="classNBT__Type.html#a16ac41e6cfe61a603407221527b6b16c">NBT_Type::End</a> * NBT_Node::GetIfEnd </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>获取当前对象中存储的 End 类型数据的常量指针 </p>
+<dl class="section return"><dt>返回</dt><dd>End 类型数据的常量指针 </dd></dl>
+<dl class="section note"><dt>注解</dt><dd>如果类型不存在或当前存储的不是 End 类型，则返回nullptr </dd></dl>
+
+</div>
+</div>
+<a id="aee384c94aa1aed0590ce2191498e0907" name="aee384c94aa1aed0590ce2191498e0907"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aee384c94aa1aed0590ce2191498e0907">&#9670;&#160;</a></span>GetIfEnd() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classNBT__Type.html#a16ac41e6cfe61a603407221527b6b16c">NBT_Type::End</a> * NBT_Node::GetIfEnd </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>获取当前对象中存储的 End 类型数据的指针 </p>
+<dl class="section return"><dt>返回</dt><dd>End 类型数据的指针 </dd></dl>
+<dl class="section note"><dt>注解</dt><dd>如果类型不存在或当前存储的不是 End 类型，则返回nullptr </dd></dl>
+
+</div>
+</div>
+<a id="a53770a76ead7b5409e7f5c1489e75929" name="a53770a76ead7b5409e7f5c1489e75929"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a53770a76ead7b5409e7f5c1489e75929">&#9670;&#160;</a></span>GetIfFloat() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="classNBT__Type.html#a8a7ac779b8e8a7fdccb3456844abe5cf">NBT_Type::Float</a> * NBT_Node::GetIfFloat </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>获取当前对象中存储的 Float 类型数据的常量指针 </p>
+<dl class="section return"><dt>返回</dt><dd>Float 类型数据的常量指针 </dd></dl>
+<dl class="section note"><dt>注解</dt><dd>如果类型不存在或当前存储的不是 Float 类型，则返回nullptr </dd></dl>
+
+</div>
+</div>
+<a id="a7231217c1c3583689a06429ef9878de0" name="a7231217c1c3583689a06429ef9878de0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7231217c1c3583689a06429ef9878de0">&#9670;&#160;</a></span>GetIfFloat() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classNBT__Type.html#a8a7ac779b8e8a7fdccb3456844abe5cf">NBT_Type::Float</a> * NBT_Node::GetIfFloat </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>获取当前对象中存储的 Float 类型数据的指针 </p>
+<dl class="section return"><dt>返回</dt><dd>Float 类型数据的指针 </dd></dl>
+<dl class="section note"><dt>注解</dt><dd>如果类型不存在或当前存储的不是 Float 类型，则返回nullptr </dd></dl>
+
+</div>
+</div>
+<a id="aba59b94978cece5a67995fe9a7e7d1c8" name="aba59b94978cece5a67995fe9a7e7d1c8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aba59b94978cece5a67995fe9a7e7d1c8">&#9670;&#160;</a></span>GetIfInt() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="classNBT__Type.html#afee0233d7f58b90cc9ce2b903da2da22">NBT_Type::Int</a> * NBT_Node::GetIfInt </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>获取当前对象中存储的 Int 类型数据的常量指针 </p>
+<dl class="section return"><dt>返回</dt><dd>Int 类型数据的常量指针 </dd></dl>
+<dl class="section note"><dt>注解</dt><dd>如果类型不存在或当前存储的不是 Int 类型，则返回nullptr </dd></dl>
+
+</div>
+</div>
+<a id="a650701428bde7c2b048c3e0544d70e66" name="a650701428bde7c2b048c3e0544d70e66"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a650701428bde7c2b048c3e0544d70e66">&#9670;&#160;</a></span>GetIfInt() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classNBT__Type.html#afee0233d7f58b90cc9ce2b903da2da22">NBT_Type::Int</a> * NBT_Node::GetIfInt </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>获取当前对象中存储的 Int 类型数据的指针 </p>
+<dl class="section return"><dt>返回</dt><dd>Int 类型数据的指针 </dd></dl>
+<dl class="section note"><dt>注解</dt><dd>如果类型不存在或当前存储的不是 Int 类型，则返回nullptr </dd></dl>
+
+</div>
+</div>
+<a id="a12cc0ae2cb5c09877ed1c485b6024c04" name="a12cc0ae2cb5c09877ed1c485b6024c04"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a12cc0ae2cb5c09877ed1c485b6024c04">&#9670;&#160;</a></span>GetIfIntArray() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="classNBT__Type.html#a9c4ad0b2bcd4b5cafb0c9a3f083f9406">NBT_Type::IntArray</a> * NBT_Node::GetIfIntArray </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>获取当前对象中存储的 IntArray 类型数据的常量指针 </p>
+<dl class="section return"><dt>返回</dt><dd>IntArray 类型数据的常量指针 </dd></dl>
+<dl class="section note"><dt>注解</dt><dd>如果类型不存在或当前存储的不是 IntArray 类型，则返回nullptr </dd></dl>
+
+</div>
+</div>
+<a id="a7c0908ec892e1a1f171ceaab12cad4d7" name="a7c0908ec892e1a1f171ceaab12cad4d7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7c0908ec892e1a1f171ceaab12cad4d7">&#9670;&#160;</a></span>GetIfIntArray() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classNBT__Type.html#a9c4ad0b2bcd4b5cafb0c9a3f083f9406">NBT_Type::IntArray</a> * NBT_Node::GetIfIntArray </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>获取当前对象中存储的 IntArray 类型数据的指针 </p>
+<dl class="section return"><dt>返回</dt><dd>IntArray 类型数据的指针 </dd></dl>
+<dl class="section note"><dt>注解</dt><dd>如果类型不存在或当前存储的不是 IntArray 类型，则返回nullptr </dd></dl>
+
+</div>
+</div>
+<a id="a6510ad08f78b9f28724ef4ef717a8be5" name="a6510ad08f78b9f28724ef4ef717a8be5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6510ad08f78b9f28724ef4ef717a8be5">&#9670;&#160;</a></span>GetIfList() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="classNBT__Type.html#a87b4d71087e5c0ab1111a4999dace42f">NBT_Type::List</a> * NBT_Node::GetIfList </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>获取当前对象中存储的 List 类型数据的常量指针 </p>
+<dl class="section return"><dt>返回</dt><dd>List 类型数据的常量指针 </dd></dl>
+<dl class="section note"><dt>注解</dt><dd>如果类型不存在或当前存储的不是 List 类型，则返回nullptr </dd></dl>
+
+</div>
+</div>
+<a id="a6de6c74ce76d09c5984c68c27e501895" name="a6de6c74ce76d09c5984c68c27e501895"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6de6c74ce76d09c5984c68c27e501895">&#9670;&#160;</a></span>GetIfList() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classNBT__Type.html#a87b4d71087e5c0ab1111a4999dace42f">NBT_Type::List</a> * NBT_Node::GetIfList </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>获取当前对象中存储的 List 类型数据的指针 </p>
+<dl class="section return"><dt>返回</dt><dd>List 类型数据的指针 </dd></dl>
+<dl class="section note"><dt>注解</dt><dd>如果类型不存在或当前存储的不是 List 类型，则返回nullptr </dd></dl>
+
+</div>
+</div>
+<a id="af96bd1cda0ff0a4ca0911338e0868fda" name="af96bd1cda0ff0a4ca0911338e0868fda"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af96bd1cda0ff0a4ca0911338e0868fda">&#9670;&#160;</a></span>GetIfLong() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="classNBT__Type.html#a7f8ae2e6e2f87445d1e72f7e922ba053">NBT_Type::Long</a> * NBT_Node::GetIfLong </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>获取当前对象中存储的 Long 类型数据的常量指针 </p>
+<dl class="section return"><dt>返回</dt><dd>Long 类型数据的常量指针 </dd></dl>
+<dl class="section note"><dt>注解</dt><dd>如果类型不存在或当前存储的不是 Long 类型，则返回nullptr </dd></dl>
+
+</div>
+</div>
+<a id="a84c91aa8972ce6eb7d1ecfe9629d330e" name="a84c91aa8972ce6eb7d1ecfe9629d330e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a84c91aa8972ce6eb7d1ecfe9629d330e">&#9670;&#160;</a></span>GetIfLong() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classNBT__Type.html#a7f8ae2e6e2f87445d1e72f7e922ba053">NBT_Type::Long</a> * NBT_Node::GetIfLong </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>获取当前对象中存储的 Long 类型数据的指针 </p>
+<dl class="section return"><dt>返回</dt><dd>Long 类型数据的指针 </dd></dl>
+<dl class="section note"><dt>注解</dt><dd>如果类型不存在或当前存储的不是 Long 类型，则返回nullptr </dd></dl>
+
+</div>
+</div>
+<a id="a86c6b73d0b7f40113869d394a807eefe" name="a86c6b73d0b7f40113869d394a807eefe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a86c6b73d0b7f40113869d394a807eefe">&#9670;&#160;</a></span>GetIfLongArray() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="classNBT__Type.html#aa2c61028536166272869c3bbc91d3197">NBT_Type::LongArray</a> * NBT_Node::GetIfLongArray </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>获取当前对象中存储的 LongArray 类型数据的常量指针 </p>
+<dl class="section return"><dt>返回</dt><dd>LongArray 类型数据的常量指针 </dd></dl>
+<dl class="section note"><dt>注解</dt><dd>如果类型不存在或当前存储的不是 LongArray 类型，则返回nullptr </dd></dl>
+
+</div>
+</div>
+<a id="a166f68c5281cc0744f87fb247ce80c13" name="a166f68c5281cc0744f87fb247ce80c13"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a166f68c5281cc0744f87fb247ce80c13">&#9670;&#160;</a></span>GetIfLongArray() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classNBT__Type.html#aa2c61028536166272869c3bbc91d3197">NBT_Type::LongArray</a> * NBT_Node::GetIfLongArray </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>获取当前对象中存储的 LongArray 类型数据的指针 </p>
+<dl class="section return"><dt>返回</dt><dd>LongArray 类型数据的指针 </dd></dl>
+<dl class="section note"><dt>注解</dt><dd>如果类型不存在或当前存储的不是 LongArray 类型，则返回nullptr </dd></dl>
+
+</div>
+</div>
+<a id="aac34f79ac92c06d105f40016547bd9ad" name="aac34f79ac92c06d105f40016547bd9ad"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aac34f79ac92c06d105f40016547bd9ad">&#9670;&#160;</a></span>GetIfShort() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="classNBT__Type.html#a3e47d05c36743947da966f4223237262">NBT_Type::Short</a> * NBT_Node::GetIfShort </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>获取当前对象中存储的 Short 类型数据的常量指针 </p>
+<dl class="section return"><dt>返回</dt><dd>Short 类型数据的常量指针 </dd></dl>
+<dl class="section note"><dt>注解</dt><dd>如果类型不存在或当前存储的不是 Short 类型，则返回nullptr </dd></dl>
+
+</div>
+</div>
+<a id="a5a2a22e16c8eda1f2c9607545ed1c2a6" name="a5a2a22e16c8eda1f2c9607545ed1c2a6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5a2a22e16c8eda1f2c9607545ed1c2a6">&#9670;&#160;</a></span>GetIfShort() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classNBT__Type.html#a3e47d05c36743947da966f4223237262">NBT_Type::Short</a> * NBT_Node::GetIfShort </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>获取当前对象中存储的 Short 类型数据的指针 </p>
+<dl class="section return"><dt>返回</dt><dd>Short 类型数据的指针 </dd></dl>
+<dl class="section note"><dt>注解</dt><dd>如果类型不存在或当前存储的不是 Short 类型，则返回nullptr </dd></dl>
+
+</div>
+</div>
+<a id="adbfc21a13e8def501b1c7952274db967" name="adbfc21a13e8def501b1c7952274db967"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adbfc21a13e8def501b1c7952274db967">&#9670;&#160;</a></span>GetIfString() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="classNBT__Type.html#a5efe8f76052bcfe6ed8779a60a78a295">NBT_Type::String</a> * NBT_Node::GetIfString </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>获取当前对象中存储的 String 类型数据的常量指针 </p>
+<dl class="section return"><dt>返回</dt><dd>String 类型数据的常量指针 </dd></dl>
+<dl class="section note"><dt>注解</dt><dd>如果类型不存在或当前存储的不是 String 类型，则返回nullptr </dd></dl>
+
+</div>
+</div>
+<a id="a07a830d88ab889e56f75a32b7f5e3090" name="a07a830d88ab889e56f75a32b7f5e3090"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a07a830d88ab889e56f75a32b7f5e3090">&#9670;&#160;</a></span>GetIfString() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classNBT__Type.html#a5efe8f76052bcfe6ed8779a60a78a295">NBT_Type::String</a> * NBT_Node::GetIfString </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>获取当前对象中存储的 String 类型数据的指针 </p>
+<dl class="section return"><dt>返回</dt><dd>String 类型数据的指针 </dd></dl>
+<dl class="section note"><dt>注解</dt><dd>如果类型不存在或当前存储的不是 String 类型，则返回nullptr </dd></dl>
 
 </div>
 </div>
@@ -1051,7 +2059,7 @@ template&lt;typename T&gt; </div>
 </div><div class="memdoc">
 
 <p>获取当前对象中存储的 Int 类型的数据 </p>
-<dl class="section return"><dt>返回</dt><dd>对指定类型数据的引用 </dd></dl>
+<dl class="section return"><dt>返回</dt><dd>Int 类型数据的引用 </dd></dl>
 <dl class="section note"><dt>注解</dt><dd>如果类型不存在或当前存储的不是 Int 类型，则抛出异常，具体请参考std::get的说明 </dd></dl>
 
 </div>
@@ -1080,7 +2088,7 @@ template&lt;typename T&gt; </div>
 </div><div class="memdoc">
 
 <p>获取当前对象中存储的 Int 类型的数据 </p>
-<dl class="section return"><dt>返回</dt><dd>对指定类型数据的常量引用 </dd></dl>
+<dl class="section return"><dt>返回</dt><dd>Int 类型数据的常量引用 </dd></dl>
 <dl class="section note"><dt>注解</dt><dd>如果类型不存在或当前存储的不是 Int 类型，则抛出异常，具体请参考std::get的说明 </dd></dl>
 
 </div>
@@ -1109,7 +2117,7 @@ template&lt;typename T&gt; </div>
 </div><div class="memdoc">
 
 <p>获取当前对象中存储的 IntArray 类型的数据 </p>
-<dl class="section return"><dt>返回</dt><dd>对指定类型数据的引用 </dd></dl>
+<dl class="section return"><dt>返回</dt><dd>IntArray 类型数据的引用 </dd></dl>
 <dl class="section note"><dt>注解</dt><dd>如果类型不存在或当前存储的不是 IntArray 类型，则抛出异常，具体请参考std::get的说明 </dd></dl>
 
 </div>
@@ -1138,7 +2146,7 @@ template&lt;typename T&gt; </div>
 </div><div class="memdoc">
 
 <p>获取当前对象中存储的 IntArray 类型的数据 </p>
-<dl class="section return"><dt>返回</dt><dd>对指定类型数据的常量引用 </dd></dl>
+<dl class="section return"><dt>返回</dt><dd>IntArray 类型数据的常量引用 </dd></dl>
 <dl class="section note"><dt>注解</dt><dd>如果类型不存在或当前存储的不是 IntArray 类型，则抛出异常，具体请参考std::get的说明 </dd></dl>
 
 </div>
@@ -1167,7 +2175,7 @@ template&lt;typename T&gt; </div>
 </div><div class="memdoc">
 
 <p>获取当前对象中存储的 List 类型的数据 </p>
-<dl class="section return"><dt>返回</dt><dd>对指定类型数据的引用 </dd></dl>
+<dl class="section return"><dt>返回</dt><dd>List 类型数据的引用 </dd></dl>
 <dl class="section note"><dt>注解</dt><dd>如果类型不存在或当前存储的不是 List 类型，则抛出异常，具体请参考std::get的说明 </dd></dl>
 
 </div>
@@ -1196,7 +2204,7 @@ template&lt;typename T&gt; </div>
 </div><div class="memdoc">
 
 <p>获取当前对象中存储的 List 类型的数据 </p>
-<dl class="section return"><dt>返回</dt><dd>对指定类型数据的常量引用 </dd></dl>
+<dl class="section return"><dt>返回</dt><dd>List 类型数据的常量引用 </dd></dl>
 <dl class="section note"><dt>注解</dt><dd>如果类型不存在或当前存储的不是 List 类型，则抛出异常，具体请参考std::get的说明 </dd></dl>
 
 </div>
@@ -1225,7 +2233,7 @@ template&lt;typename T&gt; </div>
 </div><div class="memdoc">
 
 <p>获取当前对象中存储的 Long 类型的数据 </p>
-<dl class="section return"><dt>返回</dt><dd>对指定类型数据的引用 </dd></dl>
+<dl class="section return"><dt>返回</dt><dd>Long 类型数据的引用 </dd></dl>
 <dl class="section note"><dt>注解</dt><dd>如果类型不存在或当前存储的不是 Long 类型，则抛出异常，具体请参考std::get的说明 </dd></dl>
 
 </div>
@@ -1254,7 +2262,7 @@ template&lt;typename T&gt; </div>
 </div><div class="memdoc">
 
 <p>获取当前对象中存储的 Long 类型的数据 </p>
-<dl class="section return"><dt>返回</dt><dd>对指定类型数据的常量引用 </dd></dl>
+<dl class="section return"><dt>返回</dt><dd>Long 类型数据的常量引用 </dd></dl>
 <dl class="section note"><dt>注解</dt><dd>如果类型不存在或当前存储的不是 Long 类型，则抛出异常，具体请参考std::get的说明 </dd></dl>
 
 </div>
@@ -1283,7 +2291,7 @@ template&lt;typename T&gt; </div>
 </div><div class="memdoc">
 
 <p>获取当前对象中存储的 LongArray 类型的数据 </p>
-<dl class="section return"><dt>返回</dt><dd>对指定类型数据的引用 </dd></dl>
+<dl class="section return"><dt>返回</dt><dd>LongArray 类型数据的引用 </dd></dl>
 <dl class="section note"><dt>注解</dt><dd>如果类型不存在或当前存储的不是 LongArray 类型，则抛出异常，具体请参考std::get的说明 </dd></dl>
 
 </div>
@@ -1312,7 +2320,7 @@ template&lt;typename T&gt; </div>
 </div><div class="memdoc">
 
 <p>获取当前对象中存储的 LongArray 类型的数据 </p>
-<dl class="section return"><dt>返回</dt><dd>对指定类型数据的常量引用 </dd></dl>
+<dl class="section return"><dt>返回</dt><dd>LongArray 类型数据的常量引用 </dd></dl>
 <dl class="section note"><dt>注解</dt><dd>如果类型不存在或当前存储的不是 LongArray 类型，则抛出异常，具体请参考std::get的说明 </dd></dl>
 
 </div>
@@ -1341,7 +2349,7 @@ template&lt;typename T&gt; </div>
 </div><div class="memdoc">
 
 <p>获取当前对象中存储的 Short 类型的数据 </p>
-<dl class="section return"><dt>返回</dt><dd>对指定类型数据的引用 </dd></dl>
+<dl class="section return"><dt>返回</dt><dd>Short 类型数据的引用 </dd></dl>
 <dl class="section note"><dt>注解</dt><dd>如果类型不存在或当前存储的不是 Short 类型，则抛出异常，具体请参考std::get的说明 </dd></dl>
 
 </div>
@@ -1370,7 +2378,7 @@ template&lt;typename T&gt; </div>
 </div><div class="memdoc">
 
 <p>获取当前对象中存储的 Short 类型的数据 </p>
-<dl class="section return"><dt>返回</dt><dd>对指定类型数据的常量引用 </dd></dl>
+<dl class="section return"><dt>返回</dt><dd>Short 类型数据的常量引用 </dd></dl>
 <dl class="section note"><dt>注解</dt><dd>如果类型不存在或当前存储的不是 Short 类型，则抛出异常，具体请参考std::get的说明 </dd></dl>
 
 </div>
@@ -1399,7 +2407,7 @@ template&lt;typename T&gt; </div>
 </div><div class="memdoc">
 
 <p>获取当前对象中存储的 String 类型的数据 </p>
-<dl class="section return"><dt>返回</dt><dd>对指定类型数据的引用 </dd></dl>
+<dl class="section return"><dt>返回</dt><dd>String 类型数据的引用 </dd></dl>
 <dl class="section note"><dt>注解</dt><dd>如果类型不存在或当前存储的不是 String 类型，则抛出异常，具体请参考std::get的说明 </dd></dl>
 
 </div>
@@ -1428,7 +2436,7 @@ template&lt;typename T&gt; </div>
 </div><div class="memdoc">
 
 <p>获取当前对象中存储的 String 类型的数据 </p>
-<dl class="section return"><dt>返回</dt><dd>对指定类型数据的常量引用 </dd></dl>
+<dl class="section return"><dt>返回</dt><dd>String 类型数据的常量引用 </dd></dl>
 <dl class="section note"><dt>注解</dt><dd>如果类型不存在或当前存储的不是 String 类型，则抛出异常，具体请参考std::get的说明 </dd></dl>
 
 </div>
@@ -3784,6 +4792,916 @@ template&lt;typename T&gt; </div>
 </dl>
 <dl class="section return"><dt>返回</dt><dd>对 Float 类型数据的引用 </dd></dl>
 <dl class="section note"><dt>注解</dt><dd>如果类型不存在或当前存储的不是 Float 类型，则抛出异常，具体请参考std::get的说明 </dd></dl>
+
+</div>
+</div>
+<a id="abee461174e16c6b164ea6a0fbd427410" name="abee461174e16c6b164ea6a0fbd427410"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abee461174e16c6b164ea6a0fbd427410">&#9670;&#160;</a></span>GetIfByte <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="classNBT__Type.html#a09b5ce48dffc429ad8a7d05d007741c1">NBT_Type::Byte</a> * GetIfByte </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classNBT__Node.html">NBT_Node</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>node</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel friend">friend</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>友元函数：从NBT_Node对象中获取 Byte 类型数据的常量指针 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">node</td><td>要从中获取类型指针的NBT_Node对象 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>Byte 类型数据的常量指针 </dd></dl>
+<dl class="section note"><dt>注解</dt><dd>如果类型不存在或当前存储的不是 Byte 类型，则返回nullptr </dd></dl>
+
+</div>
+</div>
+<a id="a76f6063bd6f81a6bd6687fa370c38ff6" name="a76f6063bd6f81a6bd6687fa370c38ff6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a76f6063bd6f81a6bd6687fa370c38ff6">&#9670;&#160;</a></span>GetIfByte <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classNBT__Type.html#a09b5ce48dffc429ad8a7d05d007741c1">NBT_Type::Byte</a> * GetIfByte </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classNBT__Node.html">NBT_Node</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>node</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel friend">friend</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>友元函数：从NBT_Node对象中获取 Byte 类型数据的指针 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">node</td><td>要从中获取类型指针的NBT_Node对象 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>Byte 类型数据的指针 </dd></dl>
+<dl class="section note"><dt>注解</dt><dd>如果类型不存在或当前存储的不是 Byte 类型，则返回nullptr </dd></dl>
+
+</div>
+</div>
+<a id="a337baa0ddfd4bcacd7a65daf5322c18e" name="a337baa0ddfd4bcacd7a65daf5322c18e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a337baa0ddfd4bcacd7a65daf5322c18e">&#9670;&#160;</a></span>GetIfByteArray <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="classNBT__Type.html#a953bc9e67e1b5d82c0786b5992f00ed8">NBT_Type::ByteArray</a> * GetIfByteArray </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classNBT__Node.html">NBT_Node</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>node</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel friend">friend</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>友元函数：从NBT_Node对象中获取 ByteArray 类型数据的常量指针 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">node</td><td>要从中获取类型指针的NBT_Node对象 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>ByteArray 类型数据的常量指针 </dd></dl>
+<dl class="section note"><dt>注解</dt><dd>如果类型不存在或当前存储的不是 ByteArray 类型，则返回nullptr </dd></dl>
+
+</div>
+</div>
+<a id="aa525ef392e6b2d8fb1942975b7db0496" name="aa525ef392e6b2d8fb1942975b7db0496"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa525ef392e6b2d8fb1942975b7db0496">&#9670;&#160;</a></span>GetIfByteArray <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classNBT__Type.html#a953bc9e67e1b5d82c0786b5992f00ed8">NBT_Type::ByteArray</a> * GetIfByteArray </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classNBT__Node.html">NBT_Node</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>node</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel friend">friend</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>友元函数：从NBT_Node对象中获取 ByteArray 类型数据的指针 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">node</td><td>要从中获取类型指针的NBT_Node对象 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>ByteArray 类型数据的指针 </dd></dl>
+<dl class="section note"><dt>注解</dt><dd>如果类型不存在或当前存储的不是 ByteArray 类型，则返回nullptr </dd></dl>
+
+</div>
+</div>
+<a id="a53495db978447b664f0b85e8add60130" name="a53495db978447b664f0b85e8add60130"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a53495db978447b664f0b85e8add60130">&#9670;&#160;</a></span>GetIfCompound <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="classNBT__Type.html#a9dcd5050b96a10161f18d7ae4a22e7b3">NBT_Type::Compound</a> * GetIfCompound </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classNBT__Node.html">NBT_Node</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>node</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel friend">friend</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>友元函数：从NBT_Node对象中获取 Compound 类型数据的常量指针 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">node</td><td>要从中获取类型指针的NBT_Node对象 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>Compound 类型数据的常量指针 </dd></dl>
+<dl class="section note"><dt>注解</dt><dd>如果类型不存在或当前存储的不是 Compound 类型，则返回nullptr </dd></dl>
+
+</div>
+</div>
+<a id="ac28da0ea03367fd6a9a001918b56d52c" name="ac28da0ea03367fd6a9a001918b56d52c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac28da0ea03367fd6a9a001918b56d52c">&#9670;&#160;</a></span>GetIfCompound <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classNBT__Type.html#a9dcd5050b96a10161f18d7ae4a22e7b3">NBT_Type::Compound</a> * GetIfCompound </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classNBT__Node.html">NBT_Node</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>node</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel friend">friend</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>友元函数：从NBT_Node对象中获取 Compound 类型数据的指针 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">node</td><td>要从中获取类型指针的NBT_Node对象 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>Compound 类型数据的指针 </dd></dl>
+<dl class="section note"><dt>注解</dt><dd>如果类型不存在或当前存储的不是 Compound 类型，则返回nullptr </dd></dl>
+
+</div>
+</div>
+<a id="a1f5c07963f909e82f4ba0871d4e03385" name="a1f5c07963f909e82f4ba0871d4e03385"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1f5c07963f909e82f4ba0871d4e03385">&#9670;&#160;</a></span>GetIfDouble <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="classNBT__Type.html#aaea549797088fb63987679367bc9d39a">NBT_Type::Double</a> * GetIfDouble </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classNBT__Node.html">NBT_Node</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>node</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel friend">friend</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>友元函数：从NBT_Node对象中获取 Double 类型数据的常量指针 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">node</td><td>要从中获取类型指针的NBT_Node对象 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>Double 类型数据的常量指针 </dd></dl>
+<dl class="section note"><dt>注解</dt><dd>如果类型不存在或当前存储的不是 Double 类型，则返回nullptr </dd></dl>
+
+</div>
+</div>
+<a id="a9daf0564d2f163505a7e05dccd26acff" name="a9daf0564d2f163505a7e05dccd26acff"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9daf0564d2f163505a7e05dccd26acff">&#9670;&#160;</a></span>GetIfDouble <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classNBT__Type.html#aaea549797088fb63987679367bc9d39a">NBT_Type::Double</a> * GetIfDouble </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classNBT__Node.html">NBT_Node</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>node</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel friend">friend</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>友元函数：从NBT_Node对象中获取 Double 类型数据的指针 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">node</td><td>要从中获取类型指针的NBT_Node对象 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>Double 类型数据的指针 </dd></dl>
+<dl class="section note"><dt>注解</dt><dd>如果类型不存在或当前存储的不是 Double 类型，则返回nullptr </dd></dl>
+
+</div>
+</div>
+<a id="af12235382707a7ce553fabb7702066b3" name="af12235382707a7ce553fabb7702066b3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af12235382707a7ce553fabb7702066b3">&#9670;&#160;</a></span>GetIfEnd <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="classNBT__Type.html#a16ac41e6cfe61a603407221527b6b16c">NBT_Type::End</a> * GetIfEnd </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classNBT__Node.html">NBT_Node</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>node</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel friend">friend</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>友元函数：从NBT_Node对象中获取 End 类型数据的常量指针 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">node</td><td>要从中获取类型指针的NBT_Node对象 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>End 类型数据的常量指针 </dd></dl>
+<dl class="section note"><dt>注解</dt><dd>如果类型不存在或当前存储的不是 End 类型，则返回nullptr </dd></dl>
+
+</div>
+</div>
+<a id="ae57285c22d79df62a79ec004cd743447" name="ae57285c22d79df62a79ec004cd743447"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae57285c22d79df62a79ec004cd743447">&#9670;&#160;</a></span>GetIfEnd <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classNBT__Type.html#a16ac41e6cfe61a603407221527b6b16c">NBT_Type::End</a> * GetIfEnd </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classNBT__Node.html">NBT_Node</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>node</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel friend">friend</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>友元函数：从NBT_Node对象中获取 End 类型数据的指针 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">node</td><td>要从中获取类型指针的NBT_Node对象 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>End 类型数据的指针 </dd></dl>
+<dl class="section note"><dt>注解</dt><dd>如果类型不存在或当前存储的不是 End 类型，则返回nullptr </dd></dl>
+
+</div>
+</div>
+<a id="a6268b0bd62af153eb94688db5bac12d9" name="a6268b0bd62af153eb94688db5bac12d9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6268b0bd62af153eb94688db5bac12d9">&#9670;&#160;</a></span>GetIfFloat <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="classNBT__Type.html#a8a7ac779b8e8a7fdccb3456844abe5cf">NBT_Type::Float</a> * GetIfFloat </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classNBT__Node.html">NBT_Node</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>node</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel friend">friend</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>友元函数：从NBT_Node对象中获取 Float 类型数据的常量指针 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">node</td><td>要从中获取类型指针的NBT_Node对象 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>Float 类型数据的常量指针 </dd></dl>
+<dl class="section note"><dt>注解</dt><dd>如果类型不存在或当前存储的不是 Float 类型，则返回nullptr </dd></dl>
+
+</div>
+</div>
+<a id="afebbcb50ef33cfcfc273118fa6629945" name="afebbcb50ef33cfcfc273118fa6629945"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afebbcb50ef33cfcfc273118fa6629945">&#9670;&#160;</a></span>GetIfFloat <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classNBT__Type.html#a8a7ac779b8e8a7fdccb3456844abe5cf">NBT_Type::Float</a> * GetIfFloat </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classNBT__Node.html">NBT_Node</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>node</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel friend">friend</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>友元函数：从NBT_Node对象中获取 Float 类型数据的指针 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">node</td><td>要从中获取类型指针的NBT_Node对象 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>Float 类型数据的指针 </dd></dl>
+<dl class="section note"><dt>注解</dt><dd>如果类型不存在或当前存储的不是 Float 类型，则返回nullptr </dd></dl>
+
+</div>
+</div>
+<a id="a0975303b887f348d05ba7720987ed534" name="a0975303b887f348d05ba7720987ed534"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0975303b887f348d05ba7720987ed534">&#9670;&#160;</a></span>GetIfInt <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="classNBT__Type.html#afee0233d7f58b90cc9ce2b903da2da22">NBT_Type::Int</a> * GetIfInt </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classNBT__Node.html">NBT_Node</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>node</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel friend">friend</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>友元函数：从NBT_Node对象中获取 Int 类型数据的常量指针 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">node</td><td>要从中获取类型指针的NBT_Node对象 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>Int 类型数据的常量指针 </dd></dl>
+<dl class="section note"><dt>注解</dt><dd>如果类型不存在或当前存储的不是 Int 类型，则返回nullptr </dd></dl>
+
+</div>
+</div>
+<a id="a44fd547576a22fc2bd7a4bd28e80384e" name="a44fd547576a22fc2bd7a4bd28e80384e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a44fd547576a22fc2bd7a4bd28e80384e">&#9670;&#160;</a></span>GetIfInt <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classNBT__Type.html#afee0233d7f58b90cc9ce2b903da2da22">NBT_Type::Int</a> * GetIfInt </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classNBT__Node.html">NBT_Node</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>node</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel friend">friend</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>友元函数：从NBT_Node对象中获取 Int 类型数据的指针 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">node</td><td>要从中获取类型指针的NBT_Node对象 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>Int 类型数据的指针 </dd></dl>
+<dl class="section note"><dt>注解</dt><dd>如果类型不存在或当前存储的不是 Int 类型，则返回nullptr </dd></dl>
+
+</div>
+</div>
+<a id="ab286276638a3d024fccd86e0fe112d6a" name="ab286276638a3d024fccd86e0fe112d6a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab286276638a3d024fccd86e0fe112d6a">&#9670;&#160;</a></span>GetIfIntArray <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="classNBT__Type.html#a9c4ad0b2bcd4b5cafb0c9a3f083f9406">NBT_Type::IntArray</a> * GetIfIntArray </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classNBT__Node.html">NBT_Node</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>node</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel friend">friend</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>友元函数：从NBT_Node对象中获取 IntArray 类型数据的常量指针 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">node</td><td>要从中获取类型指针的NBT_Node对象 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>IntArray 类型数据的常量指针 </dd></dl>
+<dl class="section note"><dt>注解</dt><dd>如果类型不存在或当前存储的不是 IntArray 类型，则返回nullptr </dd></dl>
+
+</div>
+</div>
+<a id="acee242acd5e8e3856f83feb875fb6679" name="acee242acd5e8e3856f83feb875fb6679"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acee242acd5e8e3856f83feb875fb6679">&#9670;&#160;</a></span>GetIfIntArray <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classNBT__Type.html#a9c4ad0b2bcd4b5cafb0c9a3f083f9406">NBT_Type::IntArray</a> * GetIfIntArray </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classNBT__Node.html">NBT_Node</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>node</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel friend">friend</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>友元函数：从NBT_Node对象中获取 IntArray 类型数据的指针 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">node</td><td>要从中获取类型指针的NBT_Node对象 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>IntArray 类型数据的指针 </dd></dl>
+<dl class="section note"><dt>注解</dt><dd>如果类型不存在或当前存储的不是 IntArray 类型，则返回nullptr </dd></dl>
+
+</div>
+</div>
+<a id="ac7891dbb371ad083afd4104aa21128a3" name="ac7891dbb371ad083afd4104aa21128a3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac7891dbb371ad083afd4104aa21128a3">&#9670;&#160;</a></span>GetIfList <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="classNBT__Type.html#a87b4d71087e5c0ab1111a4999dace42f">NBT_Type::List</a> * GetIfList </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classNBT__Node.html">NBT_Node</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>node</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel friend">friend</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>友元函数：从NBT_Node对象中获取 List 类型数据的常量指针 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">node</td><td>要从中获取类型指针的NBT_Node对象 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>List 类型数据的常量指针 </dd></dl>
+<dl class="section note"><dt>注解</dt><dd>如果类型不存在或当前存储的不是 List 类型，则返回nullptr </dd></dl>
+
+</div>
+</div>
+<a id="ad935aef8ec9ec8526c0332e25f5566bf" name="ad935aef8ec9ec8526c0332e25f5566bf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad935aef8ec9ec8526c0332e25f5566bf">&#9670;&#160;</a></span>GetIfList <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classNBT__Type.html#a87b4d71087e5c0ab1111a4999dace42f">NBT_Type::List</a> * GetIfList </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classNBT__Node.html">NBT_Node</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>node</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel friend">friend</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>友元函数：从NBT_Node对象中获取 List 类型数据的指针 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">node</td><td>要从中获取类型指针的NBT_Node对象 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>List 类型数据的指针 </dd></dl>
+<dl class="section note"><dt>注解</dt><dd>如果类型不存在或当前存储的不是 List 类型，则返回nullptr </dd></dl>
+
+</div>
+</div>
+<a id="ad5fb7c670d5af01bc84e6af36a4c3795" name="ad5fb7c670d5af01bc84e6af36a4c3795"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad5fb7c670d5af01bc84e6af36a4c3795">&#9670;&#160;</a></span>GetIfLong <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="classNBT__Type.html#a7f8ae2e6e2f87445d1e72f7e922ba053">NBT_Type::Long</a> * GetIfLong </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classNBT__Node.html">NBT_Node</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>node</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel friend">friend</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>友元函数：从NBT_Node对象中获取 Long 类型数据的常量指针 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">node</td><td>要从中获取类型指针的NBT_Node对象 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>Long 类型数据的常量指针 </dd></dl>
+<dl class="section note"><dt>注解</dt><dd>如果类型不存在或当前存储的不是 Long 类型，则返回nullptr </dd></dl>
+
+</div>
+</div>
+<a id="a07f1b100a0f6eba0c9f7aef4a2075a78" name="a07f1b100a0f6eba0c9f7aef4a2075a78"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a07f1b100a0f6eba0c9f7aef4a2075a78">&#9670;&#160;</a></span>GetIfLong <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classNBT__Type.html#a7f8ae2e6e2f87445d1e72f7e922ba053">NBT_Type::Long</a> * GetIfLong </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classNBT__Node.html">NBT_Node</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>node</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel friend">friend</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>友元函数：从NBT_Node对象中获取 Long 类型数据的指针 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">node</td><td>要从中获取类型指针的NBT_Node对象 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>Long 类型数据的指针 </dd></dl>
+<dl class="section note"><dt>注解</dt><dd>如果类型不存在或当前存储的不是 Long 类型，则返回nullptr </dd></dl>
+
+</div>
+</div>
+<a id="a4af194e6c49ed7cc4b770dc0f9550e6a" name="a4af194e6c49ed7cc4b770dc0f9550e6a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4af194e6c49ed7cc4b770dc0f9550e6a">&#9670;&#160;</a></span>GetIfLongArray <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="classNBT__Type.html#aa2c61028536166272869c3bbc91d3197">NBT_Type::LongArray</a> * GetIfLongArray </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classNBT__Node.html">NBT_Node</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>node</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel friend">friend</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>友元函数：从NBT_Node对象中获取 LongArray 类型数据的常量指针 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">node</td><td>要从中获取类型指针的NBT_Node对象 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>LongArray 类型数据的常量指针 </dd></dl>
+<dl class="section note"><dt>注解</dt><dd>如果类型不存在或当前存储的不是 LongArray 类型，则返回nullptr </dd></dl>
+
+</div>
+</div>
+<a id="ab23e8bb54c7e61395f679ed1c9092ff9" name="ab23e8bb54c7e61395f679ed1c9092ff9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab23e8bb54c7e61395f679ed1c9092ff9">&#9670;&#160;</a></span>GetIfLongArray <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classNBT__Type.html#aa2c61028536166272869c3bbc91d3197">NBT_Type::LongArray</a> * GetIfLongArray </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classNBT__Node.html">NBT_Node</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>node</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel friend">friend</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>友元函数：从NBT_Node对象中获取 LongArray 类型数据的指针 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">node</td><td>要从中获取类型指针的NBT_Node对象 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>LongArray 类型数据的指针 </dd></dl>
+<dl class="section note"><dt>注解</dt><dd>如果类型不存在或当前存储的不是 LongArray 类型，则返回nullptr </dd></dl>
+
+</div>
+</div>
+<a id="a6befc00b5ee0546a2e51e0968567f552" name="a6befc00b5ee0546a2e51e0968567f552"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6befc00b5ee0546a2e51e0968567f552">&#9670;&#160;</a></span>GetIfShort <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="classNBT__Type.html#a3e47d05c36743947da966f4223237262">NBT_Type::Short</a> * GetIfShort </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classNBT__Node.html">NBT_Node</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>node</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel friend">friend</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>友元函数：从NBT_Node对象中获取 Short 类型数据的常量指针 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">node</td><td>要从中获取类型指针的NBT_Node对象 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>Short 类型数据的常量指针 </dd></dl>
+<dl class="section note"><dt>注解</dt><dd>如果类型不存在或当前存储的不是 Short 类型，则返回nullptr </dd></dl>
+
+</div>
+</div>
+<a id="acc4ef3260431a3297055f8e3961b23dc" name="acc4ef3260431a3297055f8e3961b23dc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acc4ef3260431a3297055f8e3961b23dc">&#9670;&#160;</a></span>GetIfShort <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classNBT__Type.html#a3e47d05c36743947da966f4223237262">NBT_Type::Short</a> * GetIfShort </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classNBT__Node.html">NBT_Node</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>node</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel friend">friend</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>友元函数：从NBT_Node对象中获取 Short 类型数据的指针 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">node</td><td>要从中获取类型指针的NBT_Node对象 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>Short 类型数据的指针 </dd></dl>
+<dl class="section note"><dt>注解</dt><dd>如果类型不存在或当前存储的不是 Short 类型，则返回nullptr </dd></dl>
+
+</div>
+</div>
+<a id="ad0f678b22bb97be1296d580e42e7db05" name="ad0f678b22bb97be1296d580e42e7db05"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad0f678b22bb97be1296d580e42e7db05">&#9670;&#160;</a></span>GetIfString <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="classNBT__Type.html#a5efe8f76052bcfe6ed8779a60a78a295">NBT_Type::String</a> * GetIfString </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classNBT__Node.html">NBT_Node</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>node</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel friend">friend</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>友元函数：从NBT_Node对象中获取 String 类型数据的常量指针 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">node</td><td>要从中获取类型指针的NBT_Node对象 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>String 类型数据的常量指针 </dd></dl>
+<dl class="section note"><dt>注解</dt><dd>如果类型不存在或当前存储的不是 String 类型，则返回nullptr </dd></dl>
+
+</div>
+</div>
+<a id="ad48b1aaa01e83bd6b19a7244c63b59f6" name="ad48b1aaa01e83bd6b19a7244c63b59f6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad48b1aaa01e83bd6b19a7244c63b59f6">&#9670;&#160;</a></span>GetIfString <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classNBT__Type.html#a5efe8f76052bcfe6ed8779a60a78a295">NBT_Type::String</a> * GetIfString </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classNBT__Node.html">NBT_Node</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>node</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel friend">friend</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>友元函数：从NBT_Node对象中获取 String 类型数据的指针 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">node</td><td>要从中获取类型指针的NBT_Node对象 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>String 类型数据的指针 </dd></dl>
+<dl class="section note"><dt>注解</dt><dd>如果类型不存在或当前存储的不是 String 类型，则返回nullptr </dd></dl>
 
 </div>
 </div>
