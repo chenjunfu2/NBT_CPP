@@ -1,6 +1,7 @@
 var classNBT__String =
 [
     [ "USE_RAW_DATA", "structNBT__String_1_1USE__RAW__DATA.html", null ],
+    [ "Super", "classNBT__String.html#a83dc7acae1f522d48ad2efe7b768f93c", null ],
     [ "View", "classNBT__String.html#a0b6037dd11409fde0d48bf501863cc57", null ],
     [ "NBT_String", "classNBT__String.html#a36bfb992d5dcf9332339aee479d51202", null ],
     [ "NBT_String", "classNBT__String.html#a2c99d3d570bc3b3add3915f48eb6bfdd", null ],
@@ -32,6 +33,8 @@ var classNBT__String =
     [ "FromWchartTypeUTF16", "classNBT__String.html#a6399a443f290350f9cd72a558454f2c2", null ],
     [ "FromWchartTypeUTF16", "classNBT__String.html#aec4c6a7cb6090e604ac28c84b3c89a72", null ],
     [ "GetCharTypeView", "classNBT__String.html#a5eb1495a67fa3d068a96d6a3244d0552", null ],
+    [ "GetData", "classNBT__String.html#a9464e0e3b121cd300a2695d1cb87f712", null ],
+    [ "GetData", "classNBT__String.html#aab9f58b70dabb139589f61b8046f76dc", null ],
     [ "ToCharTypeUTF8", "classNBT__String.html#acc98daa94965d8684d0c0115dfb14a15", null ],
     [ "ToUTF16", "classNBT__String.html#a145584faa1178b6cf83165d8b3e6ba6b", null ],
     [ "ToUTF8", "classNBT__String.html#a51aa60b3affb42e25e4ea5dd69a829d7", null ],

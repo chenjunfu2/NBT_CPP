@@ -11,6 +11,7 @@ var classNBT__List =
     [ "Reference", "classNBT__List.html#a2167b8299b52644dec36354dcc7aa2be", null ],
     [ "Reverse_Iterator", "classNBT__List.html#a2399bb41d99ddd6d2c2711b2e596a2cb", null ],
     [ "Size_Type", "classNBT__List.html#a0ddbac8445246dfe73daa937ba9b4581", null ],
+    [ "Super", "classNBT__List.html#a39814a11d069f2af10697b33b9a3575a", null ],
     [ "Value_Type", "classNBT__List.html#a6bfb0db2f52774ec8ff54e00a318b23f", null ],
     [ "NBT_List", "classNBT__List.html#a8d0616bbbefa1d2eb5bb5b0263d17f9c", null ],
     [ "NBT_List", "classNBT__List.html#aa332cbd20b92bdc65800f85dfd0b62fa", null ],

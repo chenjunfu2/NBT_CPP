@@ -9,7 +9,7 @@ var annotated_dup =
     ] ],
     [ "MUTF8_Char_Traits", "structMUTF8__Char__Traits.html", null ],
     [ "MUTF8_Tool", "classMUTF8__Tool.html", "classMUTF8__Tool" ],
-    [ "NBT_Array", "classNBT__Array.html", null ],
+    [ "NBT_Array", "classNBT__Array.html", "classNBT__Array" ],
     [ "NBT_Compound", "classNBT__Compound.html", "classNBT__Compound" ],
     [ "NBT_Endian", "classNBT__Endian.html", null ],
     [ "NBT_Hash", "classNBT__Hash.html", "classNBT__Hash" ],

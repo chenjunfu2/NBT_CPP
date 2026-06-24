@@ -37,5 +37,5 @@ var searchData=
   ['stringlength_5fmax_34',['StringLength_Max',['../classNBT__Type.html#a46c6f23bc65828e79fd08579780ddc47',1,'NBT_Type']]],
   ['stringlength_5fmin_35',['StringLength_Min',['../classNBT__Type.html#a028c43de1fb5a063bc1087d350e20199',1,'NBT_Type']]],
   ['stringliteral_36',['StringLiteral',['../classMUTF8__Tool__Internal_1_1StringLiteral.html',1,'MUTF8_Tool_Internal::StringLiteral&lt; T, N &gt;'],['../classMUTF8__Tool__Internal_1_1StringLiteral.html#a8e9ee01d5ed3e0a7bef7c84e389a5180',1,'MUTF8_Tool_Internal::StringLiteral::StringLiteral(const T(&amp;_tStr)[N]) noexcept']]],
-  ['super_37',['Super',['../classMUTF8__Tool__Internal_1_1StringLiteral.html#a1a9db23ce74d67156dca031aa8675015',1,'MUTF8_Tool_Internal::StringLiteral']]]
+  ['super_37',['Super',['../classMUTF8__Tool__Internal_1_1StringLiteral.html#a1a9db23ce74d67156dca031aa8675015',1,'MUTF8_Tool_Internal::StringLiteral::Super'],['../classNBT__Array.html#aa707b165a3779ae5b8264c8d3d0cc738',1,'NBT_Array::Super'],['../classNBT__Compound.html#a18751d8d2f4fc8f15cc9c78eb7122790',1,'NBT_Compound::Super'],['../classNBT__List.html#a39814a11d069f2af10697b33b9a3575a',1,'NBT_List::Super'],['../classNBT__StringView.html#a0af92b33ffa0c1e96fed1d91d23b6d7e',1,'NBT_StringView::Super'],['../classNBT__String.html#a83dc7acae1f522d48ad2efe7b768f93c',1,'NBT_String::Super']]]
 ];

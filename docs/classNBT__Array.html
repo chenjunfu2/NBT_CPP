@@ -26,7 +26,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">chenjunfu2-nbt-cpp<span id="projectnumber">&#160;v2.1.4</span>
+   <div id="projectname">chenjunfu2-nbt-cpp<span id="projectnumber">&#160;v2.1.5</span>
    </div>
    <div id="projectbrief">一个基于CPP20的NBT(Named Binary Tag)库</div>
   </td>
@@ -104,6 +104,19 @@ $(function(){initNavTree('classNBT__Array.html','','classNBT__Array-members'); }
   <img src="classNBT__Array.png" alt=""/>
  </div></div>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-types" class="groupheader"><a id="pub-types" name="pub-types"></a>
+Public 类型</h2></td></tr>
+<tr class="memitem:aa707b165a3779ae5b8264c8d3d0cc738" id="r_aa707b165a3779ae5b8264c8d3d0cc738"><td class="memItemLeft"><a id="aa707b165a3779ae5b8264c8d3d0cc738" name="aa707b165a3779ae5b8264c8d3d0cc738"></a>
+using&#160;</td><td class="memItemRight"><b>Super</b> = Array</td></tr>
+<tr class="memdesc:aa707b165a3779ae5b8264c8d3d0cc738"><td class="mdescLeft">&#160;</td><td class="mdescRight">父类类型 <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Public 成员函数</h2></td></tr>
+<tr class="memitem:a668edf9f6f0cf8dcd7d7bfb9a03f5647" id="r_a668edf9f6f0cf8dcd7d7bfb9a03f5647"><td class="memItemLeft">const Array &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a668edf9f6f0cf8dcd7d7bfb9a03f5647">GetData</a> (void) const noexcept</td></tr>
+<tr class="memdesc:a668edf9f6f0cf8dcd7d7bfb9a03f5647"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取底层容器数据的常量引用  <br /></td></tr>
+<tr class="memitem:a45c29983380daa6c6c4298b7d4d98d90" id="r_a45c29983380daa6c6c4298b7d4d98d90"><td class="memItemLeft">Array &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a45c29983380daa6c6c4298b7d4d98d90">GetData</a> (void) noexcept</td></tr>
+<tr class="memdesc:a45c29983380daa6c6c4298b7d4d98d90"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取底层容器数据的引用  <br /></td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-friends" class="groupheader"><a id="friends" name="friends"></a>
 友元</h2></td></tr>
 <tr class="memitem:a7bc260970fa83d84a5f90ce08fb18bad" id="r_a7bc260970fa83d84a5f90ce08fb18bad"><td class="memItemLeft"><a id="a7bc260970fa83d84a5f90ce08fb18bad" name="a7bc260970fa83d84a5f90ce08fb18bad"></a>
@@ -123,7 +136,68 @@ class NBT_Array&lt; Array &gt;</div><p>继承自标准库std::vector的代理类
   </dd>
 </dl>
 <dl class="section note"><dt>注解</dt><dd>用户不应自行实例化此类，请使用NBT_Type::xxxArray来访问此类实例化类型（xxx为具体Array存储的类型） </dd></dl>
-</div><hr/>该类的文档由以下文件生成:<ul>
+</div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">成员函数说明</h2>
+<a id="a668edf9f6f0cf8dcd7d7bfb9a03f5647" name="a668edf9f6f0cf8dcd7d7bfb9a03f5647"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a668edf9f6f0cf8dcd7d7bfb9a03f5647">&#9670;&#160;</a></span>GetData() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Array&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const Array &amp; <a class="el" href="classNBT__Array.html">NBT_Array</a>&lt; Array &gt;::GetData </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>获取底层容器数据的常量引用 </p>
+<dl class="section return"><dt>返回</dt><dd>底层容器数据的常量引用 </dd></dl>
+
+</div>
+</div>
+<a id="a45c29983380daa6c6c4298b7d4d98d90" name="a45c29983380daa6c6c4298b7d4d98d90"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a45c29983380daa6c6c4298b7d4d98d90">&#9670;&#160;</a></span>GetData() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Array&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Array &amp; <a class="el" href="classNBT__Array.html">NBT_Array</a>&lt; Array &gt;::GetData </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>获取底层容器数据的引用 </p>
+<dl class="section return"><dt>返回</dt><dd>底层容器数据的引用 </dd></dl>
+
+</div>
+</div>
+<hr/>该类的文档由以下文件生成:<ul>
 <li><a class="el" href="NBT__Array_8hpp_source.html">NBT_Array.hpp</a></li>
 </ul>
 </div><!-- contents -->

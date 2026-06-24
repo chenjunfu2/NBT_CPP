@@ -26,7 +26,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">chenjunfu2-nbt-cpp<span id="projectnumber">&#160;v2.1.4</span>
+   <div id="projectname">chenjunfu2-nbt-cpp<span id="projectnumber">&#160;v2.1.5</span>
    </div>
    <div id="projectbrief">一个基于CPP20的NBT(Named Binary Tag)库</div>
   </td>
@@ -104,6 +104,12 @@ $(function(){initNavTree('classNBT__StringView.html','','classNBT__StringView-me
   <img src="classNBT__StringView.png" alt=""/>
  </div></div>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-types" class="groupheader"><a id="pub-types" name="pub-types"></a>
+Public 类型</h2></td></tr>
+<tr class="memitem:a0af92b33ffa0c1e96fed1d91d23b6d7e" id="r_a0af92b33ffa0c1e96fed1d91d23b6d7e"><td class="memItemLeft"><a id="a0af92b33ffa0c1e96fed1d91d23b6d7e" name="a0af92b33ffa0c1e96fed1d91d23b6d7e"></a>
+using&#160;</td><td class="memItemRight"><b>Super</b> = StringView</td></tr>
+<tr class="memdesc:a0af92b33ffa0c1e96fed1d91d23b6d7e"><td class="mdescLeft">&#160;</td><td class="mdescRight">父类类型 <br /></td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public 成员函数</h2></td></tr>
 <tr class="memitem:aa23046a9c3a2dfa855f651014fdc2c40" id="r_aa23046a9c3a2dfa855f651014fdc2c40"><td class="memItemLeft">constexpr&#160;</td><td class="memItemRight"><a class="el" href="#aa23046a9c3a2dfa855f651014fdc2c40">NBT_StringView</a> (const StringView &amp;_Copy)</td></tr>
@@ -119,6 +125,10 @@ Public 成员函数</h2></td></tr>
 <tr class="memdesc:abfcba2418ef8ca730d4cba2185321b64"><td class="mdescLeft">&#160;</td><td class="mdescRight">删除临时对象构造方式，防止从临时对象构造导致悬空指针  <br /></td></tr>
 <tr class="memitem:a96b53aa1b4a1329be16cc59b3d6a5844" id="r_a96b53aa1b4a1329be16cc59b3d6a5844"><td class="memItemLeft">std::basic_string_view&lt; char &gt;&#160;</td><td class="memItemRight"><a class="el" href="#a96b53aa1b4a1329be16cc59b3d6a5844">GetCharTypeView</a> (void) const noexcept</td></tr>
 <tr class="memdesc:a96b53aa1b4a1329be16cc59b3d6a5844"><td class="mdescLeft">&#160;</td><td class="mdescRight">直接获取char类型的视图  <br /></td></tr>
+<tr class="memitem:a3d0a78b05657ffd8b3fbdf177ec1669b" id="r_a3d0a78b05657ffd8b3fbdf177ec1669b"><td class="memItemLeft">const StringView &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a3d0a78b05657ffd8b3fbdf177ec1669b">GetData</a> (void) const noexcept</td></tr>
+<tr class="memdesc:a3d0a78b05657ffd8b3fbdf177ec1669b"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取底层容器数据的常量引用  <br /></td></tr>
+<tr class="memitem:a0749df277aba49876715d190236651ed" id="r_a0749df277aba49876715d190236651ed"><td class="memItemLeft">StringView &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a0749df277aba49876715d190236651ed">GetData</a> (void) noexcept</td></tr>
+<tr class="memdesc:a0749df277aba49876715d190236651ed"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取底层容器数据的引用  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-friends" class="groupheader"><a id="friends" name="friends"></a>
 友元</h2></td></tr>
@@ -356,6 +366,66 @@ template&lt;typename String, typename StringView&gt; </div>
 <p>直接获取char类型的视图 </p>
 <dl class="section return"><dt>返回</dt><dd>返回char类型的视图View </dd></dl>
 <dl class="section note"><dt>注解</dt><dd>仅用于方便部分只支持char类型字符串的库使用，不要把它当成Mutf8到Utf8的字符编码转换功能。 要使用此转换，请使用NBT_String，也就是NBT_Type::String中的转换函数，或是直接通过此对象调用MUTF8_Tool中 的转换API，此类不直接提供转换API的原因在于这个类不该完成带有额外拷贝或开销的内容，它只是视图。 </dd></dl>
+
+</div>
+</div>
+<a id="a3d0a78b05657ffd8b3fbdf177ec1669b" name="a3d0a78b05657ffd8b3fbdf177ec1669b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3d0a78b05657ffd8b3fbdf177ec1669b">&#9670;&#160;</a></span>GetData() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename String, typename StringView&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const StringView &amp; <a class="el" href="classNBT__StringView.html">NBT_StringView</a>&lt; String, StringView &gt;::GetData </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>获取底层容器数据的常量引用 </p>
+<dl class="section return"><dt>返回</dt><dd>底层容器数据的常量引用 </dd></dl>
+
+</div>
+</div>
+<a id="a0749df277aba49876715d190236651ed" name="a0749df277aba49876715d190236651ed"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0749df277aba49876715d190236651ed">&#9670;&#160;</a></span>GetData() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename String, typename StringView&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">StringView &amp; <a class="el" href="classNBT__StringView.html">NBT_StringView</a>&lt; String, StringView &gt;::GetData </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>获取底层容器数据的引用 </p>
+<dl class="section return"><dt>返回</dt><dd>底层容器数据的引用 </dd></dl>
 
 </div>
 </div>

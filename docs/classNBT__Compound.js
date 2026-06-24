@@ -17,6 +17,7 @@ var classNBT__Compound =
     [ "Pointer", "classNBT__Compound.html#af0471ade779d19679acce17f7cf22665", null ],
     [ "Reference", "classNBT__Compound.html#ae4af48e9c6d49c4ba851cc63c827d7e5", null ],
     [ "Size_Type", "classNBT__Compound.html#a6c373d5b048d5b0f70493cb3513fb0c4", null ],
+    [ "Super", "classNBT__Compound.html#a18751d8d2f4fc8f15cc9c78eb7122790", null ],
     [ "Value_Type", "classNBT__Compound.html#a4a87f81370a3b73f13d2df347cbae6bf", null ],
     [ "NBT_Compound", "classNBT__Compound.html#ab80af5d24c856b4226dd3bcae02b5027", null ],
     [ "NBT_Compound", "classNBT__Compound.html#a0275838da82fb155c2ece6bd313d5779", null ],
