@@ -26,6 +26,9 @@ class NBT_List :protected List
 	friend class NBT_Helper;
 	
 public:
+	/// @brief 父类类型
+	using Super = List;
+
 	/// @name 暴露父类定义的类型成员
 	/// @brief 使用using代理转发类型
 	/// @note 具体类型描述请参考标准库说明
