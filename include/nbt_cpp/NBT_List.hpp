@@ -175,22 +175,22 @@ public:
 
 	/// @brief 根据位置查找值
 	/// @param szPos 要查找的位置
-	/// @return 位置对应的值的指针，如果值不存在则为NULL
+	/// @return 位置对应的值的指针，如果值不存在则为nullptr
 	typename List::value_type *Has(const typename List::size_type &szPos) noexcept
 	{
 		return szPos < List::size()
 			? &List::operator[](szPos)
-			: NULL;
+			: nullptr;
 	}
 
 	/// @brief 根据位置查找值（常量版本）
 	/// @param szPos 要查找的位置
-	/// @return 位置对应的值的指针，如果值不存在则为NULL
+	/// @return 位置对应的值的指针，如果值不存在则为nullptr
 	const typename List::value_type *Has(const typename List::size_type &szPos) const noexcept
 	{
 		return szPos < List::size()
 			? &List::operator[](szPos)
-			: NULL;
+			: nullptr;
 	}
 
 	/// @brief 获取列表开头的元素
@@ -446,27 +446,27 @@ typename NBT_Type::type &Get##type(const typename List::size_type &szPos)\
 /**
  @brief 获取指定位置的 type 类型数据（常量版本）
  @param szPos 位置索引
- @return type 类型数据的指针，如果位置不存在或类型不对则返回NULL
+ @return type 类型数据的指针，如果位置不存在或类型不对则返回nullptr
  */\
 const typename NBT_Type::type *Has##type(const typename List::size_type &szPos) const noexcept\
 {\
 	auto *p = Has(szPos);\
-	return p != NULL && p->Is##type()\
-		? &p->Get##type()\
-		: NULL;\
+	return p != nullptr\
+		? p->GetIf##type()\
+		: nullptr;\
 }\
 \
 /**
  @brief 获取指定位置的 type 类型数据
  @param szPos 位置索引
- @return type 类型数据的指针，如果位置不存在或类型不对则返回NULL
+ @return type 类型数据的指针，如果位置不存在或类型不对则返回nullptr
  */\
 typename NBT_Type::type *Has##type(const typename List::size_type &szPos) noexcept\
 {\
 	auto *p = Has(szPos);\
-	return p != NULL && p->Is##type()\
-		? &p->Get##type()\
-		: NULL;\
+	return p != nullptr\
+		? p->GetIf##type()\
+		: nullptr;\
 }\
 \
 /**
@@ -477,7 +477,7 @@ typename NBT_Type::type *Has##type(const typename List::size_type &szPos) noexce
  */\
 const typename NBT_Type::type &Front##type(void) const\
 {\
-	return List::front().Get##type(); \
+	return List::front().Get##type();\
 }\
 \
 /**
@@ -488,7 +488,7 @@ const typename NBT_Type::type &Front##type(void) const\
  */\
 typename NBT_Type::type &Front##type(void)\
  {\
-	return List::front().Get##type(); \
+	return List::front().Get##type();\
  }\
 /**
  @brief 获取列表最后一个 type 类型数据（常量版本）

@@ -630,8 +630,8 @@ int maingg(void)
 	NBT_Type::Compound c{ {MU8STR(""),std::move(l)} };
 
 	std::vector<uint8_t> s;
-	MyAssert(NBT_Writer::WriteNBT(s, 0, c, 512, NBT_Print{ NULL,NULL }));//仅输出ERR
-	MyAssert(NBT_Reader::ReadNBT<true>(s, 0, c, 512, NBT_Print{ NULL,NULL }));//仅输出ERR
+	MyAssert(NBT_Writer::WriteNBT(s, 0, c, 512, NBT_Print{ nullptr,nullptr }));//仅输出ERR
+	MyAssert(NBT_Reader::ReadNBT<true>(s, 0, c, 512, NBT_Print{ nullptr,nullptr }));//仅输出ERR
 
 	NBT_Helper::Print(c);
 
@@ -673,7 +673,7 @@ int main_rmv51(void)//_teststring
 		{std::u8string_view(u8"test15"), NBT_Type::String::USE_RAW_DATA{}},
 	};
 
-	NBT_Print print(stdout, NULL, NULL);
+	NBT_Print print(stdout, nullptr, nullptr);
 
 	size_t i = 0;
 	for (const auto &it : sArr)
@@ -886,7 +886,7 @@ public:
 
 int main_xx2551(int argc, char *argv[])
 {
-	MyAssert(argc == 2 && argv[1] != NULL);
+	MyAssert(argc == 2 && argv[1] != nullptr);
 
 	print("Test File: [{}]\n", argv[1]);
 	CodeTimer ct;
