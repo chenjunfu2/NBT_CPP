@@ -472,7 +472,7 @@ typename NBT_Type::type *Has##type(const typename List::size_type &szPos) noexce
 /**
  @brief 获取列表第一个 type 类型数据（常量版本）
  @return type 类型数据的常量引用
- @note 如果列表为空或类型不匹配则抛出异常，
+ @note 如果列表为空则行为未定义，类型不匹配则抛出异常，
  具体请参考std::vector关于front的说明与std::get的说明
  */\
 const typename NBT_Type::type &Front##type(void) const\
@@ -483,17 +483,38 @@ const typename NBT_Type::type &Front##type(void) const\
 /**
  @brief 获取列表第一个 type 类型数据
  @return type 类型数据的引用
- @note 如果列表为空或类型不匹配则抛出异常，
+ @note 如果列表为空则行为未定义，类型不匹配则抛出异常，
  具体请参考std::vector关于front的说明与std::get的说明
  */\
 typename NBT_Type::type &Front##type(void)\
- {\
+{\
 	return List::front().Get##type();\
- }\
+}\
+\
+/**
+ @brief 获取列表第一个 type 类型数据的指针（常量版本）
+ @return type 类型数据的常量指针
+ @note 如果类型不匹配则返回nullptr，如果列表为空则行为未定义
+ */\
+const typename NBT_Type::type *FrontIf##type(void) const\
+{\
+	return List::front().GetIf##type();\
+}\
+\
+/**
+ @brief 获取列表第一个 type 类型数据的指针
+ @return type 类型数据的指针
+ @note 如果类型不匹配则返回nullptr，如果列表为空则行为未定义
+ */\
+typename NBT_Type::type *FrontIf##type(void)\
+{\
+	return List::front().GetIf##type();\
+}\
+\
 /**
  @brief 获取列表最后一个 type 类型数据（常量版本）
  @return type 类型数据的常量引用
- @note 如果列表为空或类型不匹配则抛出异常，
+ @note 如果列表为空则行为未定义，类型不匹配则抛出异常，
  具体请参考std::vector关于back的说明与std::get的说明
  */\
 const typename NBT_Type::type &Back##type(void) const\
@@ -504,12 +525,32 @@ const typename NBT_Type::type &Back##type(void) const\
 /**
  @brief 获取列表最后一个 type 类型数据
  @return type 类型数据的引用
- @note 如果列表为空或类型不匹配则抛出异常，
+ @note 如果列表为空则行为未定义，类型不匹配则抛出异常，
  具体请参考std::vector关于back的说明与std::get的说明
  */\
 typename NBT_Type::type &Back##type(void)\
 {\
 	return List::back().Get##type();\
+}\
+\
+/**
+ @brief 获取列表最后一个 type 类型数据的指针（常量版本）
+ @return type 类型数据的常量指针
+ @note 如果类型不匹配则返回nullptr，如果列表为空则行为未定义
+ */\
+const typename NBT_Type::type *BackIf##type(void) const\
+{\
+	return List::back().GetIf##type();\
+}\
+\
+/**
+ @brief 获取列表最后一个 type 类型数据的指针
+ @return type 类型数据的指针
+ @note 如果类型不匹配则返回nullptr，如果列表为空则行为未定义
+ */\
+typename NBT_Type::type *BackIf##type(void)\
+{\
+	return List::back().GetIf##type();\
 }
 
  /// @name 针对每种类型提供一个方便使用的函数，由宏批量生成

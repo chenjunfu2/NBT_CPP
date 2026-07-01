@@ -956,6 +956,30 @@ int main(void)
 	const NBT_Node_View<true> nodecvc;
 	NBT_Node_View<false> nodev;
 	const NBT_Node_View<false> nodevc;
+
+	list.AddBackCompound({});
+
+	list.FrontIfCompound();
+	list.FrontIfIntArray();
+	list.FrontIfList();
+	list.FrontIfDouble();
+	list.FrontIfInt();
+
+	list.BackIfCompound();
+	list.BackIfIntArray();
+	list.BackIfList();
+	list.BackIfDouble();
+	list.BackIfInt();
+
+	cpd.PutCompound(MU8STR(""), {});
+
+	cpd.ContainsCompound(MU8STR(""));
+	cpd.HasCompound(MU8STR(""));
+	cpd.HasIntArray(MU8STR(""));
+	cpd.HasList(MU8STR(""));
+	cpd.HasDouble(MU8STR(""));
+	cpd.HasInt(MU8STR(""));
+
 	
 	cpd.GetData();
 	cpdc.GetData();
