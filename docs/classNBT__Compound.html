@@ -240,7 +240,7 @@ Public 成员函数</h2></td></tr>
 <tr><td colspan="2" class="ititle"><div class="groupText"><p>具体作用说明：</p>
 <ul>
 <li>Get开头+类型名的函数：直接获取指定标签名且对应类型的引用，异常由std::unordered_map的at与std::get具体实现决定</li>
-<li>Has开头 + 类型名的函数：判断指定标签名是否存在，且标签名对应的类型是否是指定类型，都符合则返回对应指针，否则返回NULL指针 </li>
+<li>Has开头 + 类型名的函数：判断指定标签名是否存在，且标签名对应的类型是否是指定类型，都符合则返回对应指针，否则返回nullptr指针 </li>
 </ul>
 </div></td></tr>
 <tr class="memitem:a7ff7630c736028eb5aa9faa65a957741" id="r_a7ff7630c736028eb5aa9faa65a957741"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a7ff7630c736028eb5aa9faa65a957741">ContainsEnd</a> (const typename Compound::key_type &amp;sTagName) const</td></tr>
@@ -2457,7 +2457,7 @@ template&lt;typename Compound&gt; </div>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>返回</dt><dd>如果找到，则返回指向标签名对应的值的常量指针，否则返回NULL指针 </dd></dl>
+<dl class="section return"><dt>返回</dt><dd>如果找到，则返回指向标签名对应的值的常量指针，否则返回nullptr指针 </dd></dl>
 <dl class="section note"><dt>注解</dt><dd>标签不存在时不会抛出异常，适用于检查性访问 </dd></dl>
 
 </div>
@@ -2494,7 +2494,7 @@ template&lt;typename Compound&gt; </div>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>返回</dt><dd>如果找到，则返回指向标签名对应的值的指针，否则返回NULL指针 </dd></dl>
+<dl class="section return"><dt>返回</dt><dd>如果找到，则返回指向标签名对应的值的指针，否则返回nullptr指针 </dd></dl>
 <dl class="section note"><dt>注解</dt><dd>标签不存在时不会抛出异常，适用于检查性访问 </dd></dl>
 
 </div>
@@ -2531,7 +2531,7 @@ template&lt;typename Compound&gt; </div>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>返回</dt><dd>如果存在且对应值的类型为 Byte 则返回指向数据的常量指针，否则返回NULL </dd></dl>
+<dl class="section return"><dt>返回</dt><dd>如果存在且对应值的类型为 Byte 则返回指向数据的常量指针，否则返回nullptr </dd></dl>
 <dl class="section note"><dt>注解</dt><dd>标签不存在或类型不为 Byte 时不会抛出异常，适用于检查性访问 </dd></dl>
 
 </div>
@@ -2568,7 +2568,7 @@ template&lt;typename Compound&gt; </div>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>返回</dt><dd>如果存在且对应值的类型为 Byte 则返回指向数据的指针，否则返回NULL </dd></dl>
+<dl class="section return"><dt>返回</dt><dd>如果存在且对应值的类型为 Byte 则返回指向数据的指针，否则返回nullptr </dd></dl>
 <dl class="section note"><dt>注解</dt><dd>标签不存在或类型不为 Byte 时不会抛出异常，适用于检查性访问 </dd></dl>
 
 </div>
@@ -2605,7 +2605,7 @@ template&lt;typename Compound&gt; </div>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>返回</dt><dd>如果存在且对应值的类型为 ByteArray 则返回指向数据的常量指针，否则返回NULL </dd></dl>
+<dl class="section return"><dt>返回</dt><dd>如果存在且对应值的类型为 ByteArray 则返回指向数据的常量指针，否则返回nullptr </dd></dl>
 <dl class="section note"><dt>注解</dt><dd>标签不存在或类型不为 ByteArray 时不会抛出异常，适用于检查性访问 </dd></dl>
 
 </div>
@@ -2642,7 +2642,7 @@ template&lt;typename Compound&gt; </div>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>返回</dt><dd>如果存在且对应值的类型为 ByteArray 则返回指向数据的指针，否则返回NULL </dd></dl>
+<dl class="section return"><dt>返回</dt><dd>如果存在且对应值的类型为 ByteArray 则返回指向数据的指针，否则返回nullptr </dd></dl>
 <dl class="section note"><dt>注解</dt><dd>标签不存在或类型不为 ByteArray 时不会抛出异常，适用于检查性访问 </dd></dl>
 
 </div>
@@ -2679,7 +2679,7 @@ template&lt;typename Compound&gt; </div>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>返回</dt><dd>如果存在且对应值的类型为 Compound 则返回指向数据的常量指针，否则返回NULL </dd></dl>
+<dl class="section return"><dt>返回</dt><dd>如果存在且对应值的类型为 Compound 则返回指向数据的常量指针，否则返回nullptr </dd></dl>
 <dl class="section note"><dt>注解</dt><dd>标签不存在或类型不为 Compound 时不会抛出异常，适用于检查性访问 </dd></dl>
 
 </div>
@@ -2716,7 +2716,7 @@ template&lt;typename Compound&gt; </div>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>返回</dt><dd>如果存在且对应值的类型为 Compound 则返回指向数据的指针，否则返回NULL </dd></dl>
+<dl class="section return"><dt>返回</dt><dd>如果存在且对应值的类型为 Compound 则返回指向数据的指针，否则返回nullptr </dd></dl>
 <dl class="section note"><dt>注解</dt><dd>标签不存在或类型不为 Compound 时不会抛出异常，适用于检查性访问 </dd></dl>
 
 </div>
@@ -2753,7 +2753,7 @@ template&lt;typename Compound&gt; </div>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>返回</dt><dd>如果存在且对应值的类型为 Double 则返回指向数据的常量指针，否则返回NULL </dd></dl>
+<dl class="section return"><dt>返回</dt><dd>如果存在且对应值的类型为 Double 则返回指向数据的常量指针，否则返回nullptr </dd></dl>
 <dl class="section note"><dt>注解</dt><dd>标签不存在或类型不为 Double 时不会抛出异常，适用于检查性访问 </dd></dl>
 
 </div>
@@ -2790,7 +2790,7 @@ template&lt;typename Compound&gt; </div>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>返回</dt><dd>如果存在且对应值的类型为 Double 则返回指向数据的指针，否则返回NULL </dd></dl>
+<dl class="section return"><dt>返回</dt><dd>如果存在且对应值的类型为 Double 则返回指向数据的指针，否则返回nullptr </dd></dl>
 <dl class="section note"><dt>注解</dt><dd>标签不存在或类型不为 Double 时不会抛出异常，适用于检查性访问 </dd></dl>
 
 </div>
@@ -2827,7 +2827,7 @@ template&lt;typename Compound&gt; </div>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>返回</dt><dd>如果存在且对应值的类型为 End 则返回指向数据的常量指针，否则返回NULL </dd></dl>
+<dl class="section return"><dt>返回</dt><dd>如果存在且对应值的类型为 End 则返回指向数据的常量指针，否则返回nullptr </dd></dl>
 <dl class="section note"><dt>注解</dt><dd>标签不存在或类型不为 End 时不会抛出异常，适用于检查性访问 </dd></dl>
 
 </div>
@@ -2864,7 +2864,7 @@ template&lt;typename Compound&gt; </div>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>返回</dt><dd>如果存在且对应值的类型为 End 则返回指向数据的指针，否则返回NULL </dd></dl>
+<dl class="section return"><dt>返回</dt><dd>如果存在且对应值的类型为 End 则返回指向数据的指针，否则返回nullptr </dd></dl>
 <dl class="section note"><dt>注解</dt><dd>标签不存在或类型不为 End 时不会抛出异常，适用于检查性访问 </dd></dl>
 
 </div>
@@ -2901,7 +2901,7 @@ template&lt;typename Compound&gt; </div>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>返回</dt><dd>如果存在且对应值的类型为 Float 则返回指向数据的常量指针，否则返回NULL </dd></dl>
+<dl class="section return"><dt>返回</dt><dd>如果存在且对应值的类型为 Float 则返回指向数据的常量指针，否则返回nullptr </dd></dl>
 <dl class="section note"><dt>注解</dt><dd>标签不存在或类型不为 Float 时不会抛出异常，适用于检查性访问 </dd></dl>
 
 </div>
@@ -2938,7 +2938,7 @@ template&lt;typename Compound&gt; </div>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>返回</dt><dd>如果存在且对应值的类型为 Float 则返回指向数据的指针，否则返回NULL </dd></dl>
+<dl class="section return"><dt>返回</dt><dd>如果存在且对应值的类型为 Float 则返回指向数据的指针，否则返回nullptr </dd></dl>
 <dl class="section note"><dt>注解</dt><dd>标签不存在或类型不为 Float 时不会抛出异常，适用于检查性访问 </dd></dl>
 
 </div>
@@ -2975,7 +2975,7 @@ template&lt;typename Compound&gt; </div>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>返回</dt><dd>如果存在且对应值的类型为 Int 则返回指向数据的常量指针，否则返回NULL </dd></dl>
+<dl class="section return"><dt>返回</dt><dd>如果存在且对应值的类型为 Int 则返回指向数据的常量指针，否则返回nullptr </dd></dl>
 <dl class="section note"><dt>注解</dt><dd>标签不存在或类型不为 Int 时不会抛出异常，适用于检查性访问 </dd></dl>
 
 </div>
@@ -3012,7 +3012,7 @@ template&lt;typename Compound&gt; </div>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>返回</dt><dd>如果存在且对应值的类型为 Int 则返回指向数据的指针，否则返回NULL </dd></dl>
+<dl class="section return"><dt>返回</dt><dd>如果存在且对应值的类型为 Int 则返回指向数据的指针，否则返回nullptr </dd></dl>
 <dl class="section note"><dt>注解</dt><dd>标签不存在或类型不为 Int 时不会抛出异常，适用于检查性访问 </dd></dl>
 
 </div>
@@ -3049,7 +3049,7 @@ template&lt;typename Compound&gt; </div>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>返回</dt><dd>如果存在且对应值的类型为 IntArray 则返回指向数据的常量指针，否则返回NULL </dd></dl>
+<dl class="section return"><dt>返回</dt><dd>如果存在且对应值的类型为 IntArray 则返回指向数据的常量指针，否则返回nullptr </dd></dl>
 <dl class="section note"><dt>注解</dt><dd>标签不存在或类型不为 IntArray 时不会抛出异常，适用于检查性访问 </dd></dl>
 
 </div>
@@ -3086,7 +3086,7 @@ template&lt;typename Compound&gt; </div>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>返回</dt><dd>如果存在且对应值的类型为 IntArray 则返回指向数据的指针，否则返回NULL </dd></dl>
+<dl class="section return"><dt>返回</dt><dd>如果存在且对应值的类型为 IntArray 则返回指向数据的指针，否则返回nullptr </dd></dl>
 <dl class="section note"><dt>注解</dt><dd>标签不存在或类型不为 IntArray 时不会抛出异常，适用于检查性访问 </dd></dl>
 
 </div>
@@ -3123,7 +3123,7 @@ template&lt;typename Compound&gt; </div>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>返回</dt><dd>如果存在且对应值的类型为 List 则返回指向数据的常量指针，否则返回NULL </dd></dl>
+<dl class="section return"><dt>返回</dt><dd>如果存在且对应值的类型为 List 则返回指向数据的常量指针，否则返回nullptr </dd></dl>
 <dl class="section note"><dt>注解</dt><dd>标签不存在或类型不为 List 时不会抛出异常，适用于检查性访问 </dd></dl>
 
 </div>
@@ -3160,7 +3160,7 @@ template&lt;typename Compound&gt; </div>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>返回</dt><dd>如果存在且对应值的类型为 List 则返回指向数据的指针，否则返回NULL </dd></dl>
+<dl class="section return"><dt>返回</dt><dd>如果存在且对应值的类型为 List 则返回指向数据的指针，否则返回nullptr </dd></dl>
 <dl class="section note"><dt>注解</dt><dd>标签不存在或类型不为 List 时不会抛出异常，适用于检查性访问 </dd></dl>
 
 </div>
@@ -3197,7 +3197,7 @@ template&lt;typename Compound&gt; </div>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>返回</dt><dd>如果存在且对应值的类型为 Long 则返回指向数据的常量指针，否则返回NULL </dd></dl>
+<dl class="section return"><dt>返回</dt><dd>如果存在且对应值的类型为 Long 则返回指向数据的常量指针，否则返回nullptr </dd></dl>
 <dl class="section note"><dt>注解</dt><dd>标签不存在或类型不为 Long 时不会抛出异常，适用于检查性访问 </dd></dl>
 
 </div>
@@ -3234,7 +3234,7 @@ template&lt;typename Compound&gt; </div>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>返回</dt><dd>如果存在且对应值的类型为 Long 则返回指向数据的指针，否则返回NULL </dd></dl>
+<dl class="section return"><dt>返回</dt><dd>如果存在且对应值的类型为 Long 则返回指向数据的指针，否则返回nullptr </dd></dl>
 <dl class="section note"><dt>注解</dt><dd>标签不存在或类型不为 Long 时不会抛出异常，适用于检查性访问 </dd></dl>
 
 </div>
@@ -3271,7 +3271,7 @@ template&lt;typename Compound&gt; </div>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>返回</dt><dd>如果存在且对应值的类型为 LongArray 则返回指向数据的常量指针，否则返回NULL </dd></dl>
+<dl class="section return"><dt>返回</dt><dd>如果存在且对应值的类型为 LongArray 则返回指向数据的常量指针，否则返回nullptr </dd></dl>
 <dl class="section note"><dt>注解</dt><dd>标签不存在或类型不为 LongArray 时不会抛出异常，适用于检查性访问 </dd></dl>
 
 </div>
@@ -3308,7 +3308,7 @@ template&lt;typename Compound&gt; </div>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>返回</dt><dd>如果存在且对应值的类型为 LongArray 则返回指向数据的指针，否则返回NULL </dd></dl>
+<dl class="section return"><dt>返回</dt><dd>如果存在且对应值的类型为 LongArray 则返回指向数据的指针，否则返回nullptr </dd></dl>
 <dl class="section note"><dt>注解</dt><dd>标签不存在或类型不为 LongArray 时不会抛出异常，适用于检查性访问 </dd></dl>
 
 </div>
@@ -3345,7 +3345,7 @@ template&lt;typename Compound&gt; </div>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>返回</dt><dd>如果存在且对应值的类型为 Short 则返回指向数据的常量指针，否则返回NULL </dd></dl>
+<dl class="section return"><dt>返回</dt><dd>如果存在且对应值的类型为 Short 则返回指向数据的常量指针，否则返回nullptr </dd></dl>
 <dl class="section note"><dt>注解</dt><dd>标签不存在或类型不为 Short 时不会抛出异常，适用于检查性访问 </dd></dl>
 
 </div>
@@ -3382,7 +3382,7 @@ template&lt;typename Compound&gt; </div>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>返回</dt><dd>如果存在且对应值的类型为 Short 则返回指向数据的指针，否则返回NULL </dd></dl>
+<dl class="section return"><dt>返回</dt><dd>如果存在且对应值的类型为 Short 则返回指向数据的指针，否则返回nullptr </dd></dl>
 <dl class="section note"><dt>注解</dt><dd>标签不存在或类型不为 Short 时不会抛出异常，适用于检查性访问 </dd></dl>
 
 </div>
@@ -3419,7 +3419,7 @@ template&lt;typename Compound&gt; </div>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>返回</dt><dd>如果存在且对应值的类型为 String 则返回指向数据的常量指针，否则返回NULL </dd></dl>
+<dl class="section return"><dt>返回</dt><dd>如果存在且对应值的类型为 String 则返回指向数据的常量指针，否则返回nullptr </dd></dl>
 <dl class="section note"><dt>注解</dt><dd>标签不存在或类型不为 String 时不会抛出异常，适用于检查性访问 </dd></dl>
 
 </div>
@@ -3456,7 +3456,7 @@ template&lt;typename Compound&gt; </div>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>返回</dt><dd>如果存在且对应值的类型为 String 则返回指向数据的指针，否则返回NULL </dd></dl>
+<dl class="section return"><dt>返回</dt><dd>如果存在且对应值的类型为 String 则返回指向数据的指针，否则返回nullptr </dd></dl>
 <dl class="section note"><dt>注解</dt><dd>标签不存在或类型不为 String 时不会抛出异常，适用于检查性访问 </dd></dl>
 
 </div>

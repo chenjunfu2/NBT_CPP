@@ -643,7 +643,7 @@ $(function(){initNavTree('NBT__IO_8hpp_source.html','',''); });
 <div class="line"><a id="l00634" name="l00634"></a><span class="lineno">  634</span>        <span class="comment">//错误处理</span></div>
 <div class="line"><a id="l00635" name="l00635"></a><span class="lineno">  635</span>        <span class="keywordflow">if</span> (iRet != Z_STREAM_END)</div>
 <div class="line"><a id="l00636" name="l00636"></a><span class="lineno">  636</span>        {</div>
-<div class="line"><a id="l00637" name="l00637"></a><span class="lineno">  637</span>            <span class="keywordflow">if</span> (zs.msg != NULL)<span class="comment">//错误消息不为null则抛出带消息异常</span></div>
+<div class="line"><a id="l00637" name="l00637"></a><span class="lineno">  637</span>            <span class="keywordflow">if</span> (zs.msg != <span class="keyword">nullptr</span>)<span class="comment">//错误消息不为null则抛出带消息异常</span></div>
 <div class="line"><a id="l00638" name="l00638"></a><span class="lineno">  638</span>            {</div>
 <div class="line"><a id="l00639" name="l00639"></a><span class="lineno">  639</span>                <span class="keywordflow">throw</span> std::runtime_error(std::string(<span class="stringliteral">&quot;Zlib decompression failed with error message: &quot;</span>) + std::string(zs.msg));</div>
 <div class="line"><a id="l00640" name="l00640"></a><span class="lineno">  640</span>            }</div>
@@ -779,7 +779,7 @@ $(function(){initNavTree('NBT__IO_8hpp_source.html','',''); });
 <div class="line"><a id="l00776" name="l00776"></a><span class="lineno">  776</span>        <span class="comment">//错误处理</span></div>
 <div class="line"><a id="l00777" name="l00777"></a><span class="lineno">  777</span>        <span class="keywordflow">if</span> (iRet != Z_STREAM_END)</div>
 <div class="line"><a id="l00778" name="l00778"></a><span class="lineno">  778</span>        {</div>
-<div class="line"><a id="l00779" name="l00779"></a><span class="lineno">  779</span>            <span class="keywordflow">if</span> (zs.msg != NULL)</div>
+<div class="line"><a id="l00779" name="l00779"></a><span class="lineno">  779</span>            <span class="keywordflow">if</span> (zs.msg != <span class="keyword">nullptr</span>)</div>
 <div class="line"><a id="l00780" name="l00780"></a><span class="lineno">  780</span>            {</div>
 <div class="line"><a id="l00781" name="l00781"></a><span class="lineno">  781</span>                <span class="keywordflow">throw</span> std::runtime_error(std::string(<span class="stringliteral">&quot;Zlib compression failed with error message: &quot;</span>) + std::string(zs.msg));</div>
 <div class="line"><a id="l00782" name="l00782"></a><span class="lineno">  782</span>            }</div>

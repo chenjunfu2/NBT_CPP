@@ -116,9 +116,9 @@ $(function(){initNavTree('NBT__Print_8hpp_source.html','',''); });
 <div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="preprocessor">#endif</span></div>
 <div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
 <div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="keyword">private</span>:</div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    FILE *pfOutputInfo = NULL;</div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    FILE *pfOutputWarn = NULL;</div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    FILE *pfOutputErr = NULL;</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    FILE *pfOutputInfo = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    FILE *pfOutputWarn = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    FILE *pfOutputErr = <span class="keyword">nullptr</span>;</div>
 <div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
 <div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><span class="keyword">public</span>:</div>
 <div class="line"><a id="l00038" name="l00038"></a><span class="lineno"><a class="line" href="classNBT__Print.html#af2462ecff6e72192c9f0621bfee1fadd">   38</a></span>    <span class="keyword">using </span><a class="code hl_typedef" href="classNBT__Print.html#af2462ecff6e72192c9f0621bfee1fadd">Level</a> = <a class="code hl_enumeration" href="NBT__Print_8hpp.html#a977ff50d4d248543d59717387e6dd311">NBT_Print_Level</a>;  </div>
@@ -139,7 +139,7 @@ $(function(){initNavTree('NBT__Print_8hpp_source.html','',''); });
 <div class="foldopen" id="foldopen00067" data-start="{" data-end="}">
 <div class="line"><a id="l00067" name="l00067"></a><span class="lineno"><a class="line" href="classNBT__Print.html#ac0f3e276d06e103dadf822b2a679eb5b">   67</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classNBT__Print.html#ac0f3e276d06e103dadf822b2a679eb5b">operator()</a>(<a class="code hl_typedef" href="classNBT__Print.html#af2462ecff6e72192c9f0621bfee1fadd">Level</a> lvl, <span class="keyword">const</span> std::format_string&lt;Args...&gt; fmt, Args&amp;&amp;... args) <span class="keyword">noexcept</span></div>
 <div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>    {</div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>        FILE *pfOutput = NULL;</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>        FILE *pfOutput = <span class="keyword">nullptr</span>;</div>
 <div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>        <span class="keywordflow">switch</span> (lvl)</div>
 <div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>        {</div>
 <div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>        <span class="keywordflow">case</span> Level::Info:</div>
@@ -152,11 +152,11 @@ $(function(){initNavTree('NBT__Print_8hpp_source.html','',''); });
 <div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>            pfOutput = pfOutputErr;</div>
 <div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>            <span class="keywordflow">break</span>;</div>
 <div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>        <span class="keywordflow">default</span>:</div>
-<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>            <span class="comment">//错误的等级不进行赋值，保持pfOutput为NULL，在后续跳过输出</span></div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>            <span class="comment">//错误的等级不进行赋值，保持pfOutput为nullptr，在后续跳过输出</span></div>
 <div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>            <span class="keywordflow">break</span>;</div>
 <div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>        }</div>
 <div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span> </div>
-<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>        <span class="keywordflow">if</span> (pfOutput == NULL)<span class="comment">//为NULL跳过</span></div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>        <span class="keywordflow">if</span> (pfOutput == <span class="keyword">nullptr</span>)<span class="comment">//为nullptr跳过</span></div>
 <div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>        {</div>
 <div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>            <span class="keywordflow">return</span>;</div>
 <div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>        }</div>
