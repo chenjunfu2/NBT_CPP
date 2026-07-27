@@ -313,13 +313,6 @@ public:
 	static constexpr bool IsStringType_V =
 		std::is_same_v<std::remove_cvref_t<T>, String>;
 
-	/// @brief 判断类型是否为NBT String View类型
-	/// @tparam T 需要检查的类型（自动移除CV限定与引用）
-	/// @return 如果类型是NBT String View，则返回true，否则返回false
-	template <typename T>
-	static constexpr bool IsStringViewType_V =
-		std::is_same_v<std::remove_cvref_t<T>, typename String::View>;
-
 	/// @brief 判断类型是否为NBT List类型
 	/// @tparam T 需要检查的类型（自动移除CV限定与引用）
 	/// @return 如果类型是List，则返回true，否则返回false
