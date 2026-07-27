@@ -23,6 +23,8 @@ var annotated_dup =
     [ "NBT_Reader", "classNBT__Reader.html", null ],
     [ "NBT_Scanner", "classNBT__Scanner.html", null ],
     [ "NBT_String", "classNBT__String.html", "classNBT__String" ],
+    [ "NBT_String_Transparent_Equal", "structNBT__String__Transparent__Equal.html", "structNBT__String__Transparent__Equal" ],
+    [ "NBT_String_Transparent_Hash", "structNBT__String__Transparent__Hash.html", "structNBT__String__Transparent__Hash" ],
     [ "NBT_StringView", "classNBT__StringView.html", "classNBT__StringView" ],
     [ "NBT_Type", "classNBT__Type.html", "classNBT__Type" ],
     [ "NBT_Visitor", "classNBT__Visitor.html", "classNBT__Visitor" ],

@@ -108,14 +108,14 @@ $(function(){initNavTree('classNBT__Writer.html','','classNBT__Writer-members');
 <tr class="heading"><td colspan="2"><h2 id="header-pub-static-methods" class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 静态 Public 成员函数</h2></td></tr>
 <tr class="memitem:a7feaacc74b70bfa6f599d53699b4b38c" id="r_a7feaacc74b70bfa6f599d53699b4b38c"><td class="memTemplParams" colspan="2">template&lt;typename SortPolicy = DefaultCompoundSort&lt;true&gt;, typename OutputStream, typename InfoFunc = NBT_Print&gt; </td></tr>
-<tr class="memitem:a7feaacc74b70bfa6f599d53699b4b38c template"><td class="memItemLeft">static bool&#160;</td><td class="memItemRight"><a class="el" href="#a7feaacc74b70bfa6f599d53699b4b38c">WriteNBT</a> (OutputStream &amp;OptStream, const <a class="el" href="classNBT__Type.html#a9dcd5050b96a10161f18d7ae4a22e7b3">NBT_Type::Compound</a> &amp;tCompound, size_t szStackDepth=512, InfoFunc funcInfo=InfoFunc{}) noexcept</td></tr>
+<tr class="memitem:a7feaacc74b70bfa6f599d53699b4b38c template"><td class="memItemLeft">static bool&#160;</td><td class="memItemRight"><a class="el" href="#a7feaacc74b70bfa6f599d53699b4b38c">WriteNBT</a> (OutputStream &amp;OptStream, const <a class="el" href="classNBT__Type.html#ab81420745f7b7c464f206471d4f104fe">NBT_Type::Compound</a> &amp;tCompound, size_t szStackDepth=512, InfoFunc funcInfo=InfoFunc{}) noexcept</td></tr>
 <tr class="memdesc:a7feaacc74b70bfa6f599d53699b4b38c"><td class="mdescLeft">&#160;</td><td class="mdescRight">将NBT_Type::Compound对象写入到输出流中  <br /></td></tr>
 <tr class="memitem:ace3595d301de6aff55f24bc13dbafc25" id="r_ace3595d301de6aff55f24bc13dbafc25"><td class="memTemplParams" colspan="2">template&lt;typename SortPolicy = DefaultCompoundSort&lt;true&gt;, typename DataType = std::vector&lt;uint8_t&gt;, typename InfoFunc = NBT_Print&gt; </td></tr>
-<tr class="memitem:ace3595d301de6aff55f24bc13dbafc25 template"><td class="memItemLeft">static bool&#160;</td><td class="memItemRight"><a class="el" href="#ace3595d301de6aff55f24bc13dbafc25">WriteNBT</a> (DataType &amp;tDataOutput, size_t szStartIdx, const <a class="el" href="classNBT__Type.html#a9dcd5050b96a10161f18d7ae4a22e7b3">NBT_Type::Compound</a> &amp;tCompound, size_t szStackDepth=512, InfoFunc funcInfo=InfoFunc{}) noexcept</td></tr>
+<tr class="memitem:ace3595d301de6aff55f24bc13dbafc25 template"><td class="memItemLeft">static bool&#160;</td><td class="memItemRight"><a class="el" href="#ace3595d301de6aff55f24bc13dbafc25">WriteNBT</a> (DataType &amp;tDataOutput, size_t szStartIdx, const <a class="el" href="classNBT__Type.html#ab81420745f7b7c464f206471d4f104fe">NBT_Type::Compound</a> &amp;tCompound, size_t szStackDepth=512, InfoFunc funcInfo=InfoFunc{}) noexcept</td></tr>
 <tr class="memdesc:ace3595d301de6aff55f24bc13dbafc25"><td class="mdescLeft">&#160;</td><td class="mdescRight">将NBT_Type::Compound对象写入到数据容器中  <br /></td></tr>
 <tr class="memitem:ac4583e52dbd73629566e23206ab50ae4" id="r_ac4583e52dbd73629566e23206ab50ae4"><td class="memTemplParams" colspan="2">template&lt;typename InfoFunc = NBT_Print&gt; </td></tr>
-<tr class="memitem:ac4583e52dbd73629566e23206ab50ae4 template"><td class="memItemLeft">static bool&#160;</td><td class="memItemRight"><a class="el" href="#ac4583e52dbd73629566e23206ab50ae4">SimpleWriteNbtFile</a> (const std::filesystem::path &amp;pathFileName, const <a class="el" href="classNBT__Type.html#a9dcd5050b96a10161f18d7ae4a22e7b3">NBT_Type::Compound</a> &amp;tCompound, InfoFunc funcInfo=InfoFunc{}) noexcept</td></tr>
-<tr class="memdesc:ac4583e52dbd73629566e23206ab50ae4"><td class="mdescLeft">&#160;</td><td class="mdescRight">将 <a class="el" href="classNBT__Type.html#a9dcd5050b96a10161f18d7ae4a22e7b3" title="集合类型，可存储任意不同的NBT类型，通过名称映射值">NBT_Type::Compound</a> 对象以可能压缩的方式写入到文件中  <br /></td></tr>
+<tr class="memitem:ac4583e52dbd73629566e23206ab50ae4 template"><td class="memItemLeft">static bool&#160;</td><td class="memItemRight"><a class="el" href="#ac4583e52dbd73629566e23206ab50ae4">SimpleWriteNbtFile</a> (const std::filesystem::path &amp;pathFileName, const <a class="el" href="classNBT__Type.html#ab81420745f7b7c464f206471d4f104fe">NBT_Type::Compound</a> &amp;tCompound, InfoFunc funcInfo=InfoFunc{}) noexcept</td></tr>
+<tr class="memdesc:ac4583e52dbd73629566e23206ab50ae4"><td class="mdescLeft">&#160;</td><td class="mdescRight">将 <a class="el" href="classNBT__Type.html#ab81420745f7b7c464f206471d4f104fe" title="集合类型，可存储任意不同的NBT类型，通过名称映射值">NBT_Type::Compound</a> 对象以可能压缩的方式写入到文件中  <br /></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">详细描述</h2>
 <div class="textblock"><p>这个类用于提供从NBT_Type::Compound对象写出到NBT二进制流的序列化功能 </p>
@@ -139,7 +139,7 @@ template&lt;typename InfoFunc = NBT_Print&gt; </div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="classNBT__Type.html#a9dcd5050b96a10161f18d7ae4a22e7b3">NBT_Type::Compound</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>tCompound</em></span>, </td>
+          <td class="paramtype">const <a class="el" href="classNBT__Type.html#ab81420745f7b7c464f206471d4f104fe">NBT_Type::Compound</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>tCompound</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -154,7 +154,7 @@ template&lt;typename InfoFunc = NBT_Print&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>将 <a class="el" href="classNBT__Type.html#a9dcd5050b96a10161f18d7ae4a22e7b3" title="集合类型，可存储任意不同的NBT类型，通过名称映射值">NBT_Type::Compound</a> 对象以可能压缩的方式写入到文件中 </p>
+<p>将 <a class="el" href="classNBT__Type.html#ab81420745f7b7c464f206471d4f104fe" title="集合类型，可存储任意不同的NBT类型，通过名称映射值">NBT_Type::Compound</a> 对象以可能压缩的方式写入到文件中 </p>
 <dl class="tparams"><dt>模板参数</dt><dd>
   <table class="tparams">
     <tr><td class="paramname">InfoFunc</td><td>信息输出仿函数类型 </td></tr>
@@ -198,7 +198,7 @@ template&lt;typename SortPolicy = DefaultCompoundSort&lt;true&gt;, typename Data
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="classNBT__Type.html#a9dcd5050b96a10161f18d7ae4a22e7b3">NBT_Type::Compound</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>tCompound</em></span>, </td>
+          <td class="paramtype">const <a class="el" href="classNBT__Type.html#ab81420745f7b7c464f206471d4f104fe">NBT_Type::Compound</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>tCompound</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -261,7 +261,7 @@ template&lt;typename SortPolicy = DefaultCompoundSort&lt;true&gt;, typename Outp
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="classNBT__Type.html#a9dcd5050b96a10161f18d7ae4a22e7b3">NBT_Type::Compound</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>tCompound</em></span>, </td>
+          <td class="paramtype">const <a class="el" href="classNBT__Type.html#ab81420745f7b7c464f206471d4f104fe">NBT_Type::Compound</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>tCompound</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>

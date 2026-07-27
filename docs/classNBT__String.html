@@ -157,8 +157,14 @@ Public 成员函数</h2></td></tr>
 <tr class="memdesc:aa3044923d907391e22e95566ccec46bf"><td class="mdescLeft">&#160;</td><td class="mdescRight">从对应的视图类型View中构造String  <br /></td></tr>
 <tr class="memitem:ac4f128e129e485bf789df2d0e29c9eec" id="r_ac4f128e129e485bf789df2d0e29c9eec"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#ac4f128e129e485bf789df2d0e29c9eec">NBT_String</a> (const StringView &amp;_View)</td></tr>
 <tr class="memdesc:ac4f128e129e485bf789df2d0e29c9eec"><td class="mdescLeft">&#160;</td><td class="mdescRight">从对应的视图类型View的父类构造String  <br /></td></tr>
-<tr class="memitem:a5eb1495a67fa3d068a96d6a3244d0552" id="r_a5eb1495a67fa3d068a96d6a3244d0552"><td class="memItemLeft">std::basic_string_view&lt; char &gt;&#160;</td><td class="memItemRight"><a class="el" href="#a5eb1495a67fa3d068a96d6a3244d0552">GetCharTypeView</a> (void) const noexcept</td></tr>
-<tr class="memdesc:a5eb1495a67fa3d068a96d6a3244d0552"><td class="mdescLeft">&#160;</td><td class="mdescRight">直接从当前对象获取char类型的视图  <br /></td></tr>
+<tr class="memitem:a5a2a06660b3a8915b95e5b2fb14fa6ec" id="r_a5a2a06660b3a8915b95e5b2fb14fa6ec"><td class="memItemLeft"><a class="el" href="#a0b6037dd11409fde0d48bf501863cc57">View</a>&#160;</td><td class="memItemRight"><a class="el" href="#a5a2a06660b3a8915b95e5b2fb14fa6ec">GetView</a> (void) const &amp;noexcept</td></tr>
+<tr class="memdesc:a5a2a06660b3a8915b95e5b2fb14fa6ec"><td class="mdescLeft">&#160;</td><td class="mdescRight">直接从当前对象获取视图  <br /></td></tr>
+<tr class="memitem:a6d9a2b6105bbb6f323a68aecb1b98dc4" id="r_a6d9a2b6105bbb6f323a68aecb1b98dc4"><td class="memItemLeft"><a class="el" href="#a0b6037dd11409fde0d48bf501863cc57">View</a>&#160;</td><td class="memItemRight"><a class="el" href="#a6d9a2b6105bbb6f323a68aecb1b98dc4">GetView</a> (void) const &amp;&amp;noexcept=delete</td></tr>
+<tr class="memdesc:a6d9a2b6105bbb6f323a68aecb1b98dc4"><td class="mdescLeft">&#160;</td><td class="mdescRight">删除临时对象转化为视图的方式，防止从临时对象构造导致悬空指针  <br /></td></tr>
+<tr class="memitem:ac67f5c2960685556662e15bbdeeb1ec3" id="r_ac67f5c2960685556662e15bbdeeb1ec3"><td class="memItemLeft">std::basic_string_view&lt; char &gt;&#160;</td><td class="memItemRight"><a class="el" href="#ac67f5c2960685556662e15bbdeeb1ec3">GetCharTypeView</a> (void) const &amp;noexcept</td></tr>
+<tr class="memdesc:ac67f5c2960685556662e15bbdeeb1ec3"><td class="mdescLeft">&#160;</td><td class="mdescRight">直接从当前对象获取char类型的视图  <br /></td></tr>
+<tr class="memitem:ad1096415863b2feea05f35dc5af7ec11" id="r_ad1096415863b2feea05f35dc5af7ec11"><td class="memItemLeft">std::basic_string_view&lt; char &gt;&#160;</td><td class="memItemRight"><a class="el" href="#ad1096415863b2feea05f35dc5af7ec11">GetCharTypeView</a> (void) const &amp;&amp;noexcept=delete</td></tr>
+<tr class="memdesc:ad1096415863b2feea05f35dc5af7ec11"><td class="mdescLeft">&#160;</td><td class="mdescRight">删除临时对象转化为char类型视图的方式，防止从临时对象构造导致悬空指针  <br /></td></tr>
 <tr class="memitem:a9464e0e3b121cd300a2695d1cb87f712" id="r_a9464e0e3b121cd300a2695d1cb87f712"><td class="memItemLeft">const String &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a9464e0e3b121cd300a2695d1cb87f712">GetData</a> (void) const noexcept</td></tr>
 <tr class="memdesc:a9464e0e3b121cd300a2695d1cb87f712"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取底层容器数据的常量引用  <br /></td></tr>
 <tr class="memitem:aab9f58b70dabb139589f61b8046f76dc" id="r_aab9f58b70dabb139589f61b8046f76dc"><td class="memItemLeft">String &amp;&#160;</td><td class="memItemRight"><a class="el" href="#aab9f58b70dabb139589f61b8046f76dc">GetData</a> (void) noexcept</td></tr>
@@ -1303,8 +1309,8 @@ template&lt;typename = void&gt; </div>
 
 </div>
 </div>
-<a id="a5eb1495a67fa3d068a96d6a3244d0552" name="a5eb1495a67fa3d068a96d6a3244d0552"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5eb1495a67fa3d068a96d6a3244d0552">&#9670;&#160;</a></span>GetCharTypeView()</h2>
+<a id="ad1096415863b2feea05f35dc5af7ec11" name="ad1096415863b2feea05f35dc5af7ec11"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad1096415863b2feea05f35dc5af7ec11">&#9670;&#160;</a></span>GetCharTypeView() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1318,7 +1324,38 @@ template&lt;typename String, typename StringView&gt; </div>
           <td class="memname">std::basic_string_view&lt; char &gt; <a class="el" href="classNBT__String.html">NBT_String</a>&lt; String, StringView &gt;::GetCharTypeView </td>
           <td>(</td>
           <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td> const</td>
+          <td> const &amp;&amp;</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel delete">delete</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>删除临时对象转化为char类型视图的方式，防止从临时对象构造导致悬空指针 </p>
+<dl class="section return"><dt>返回</dt><dd>char类型的视图View </dd></dl>
+<dl class="section note"><dt>注解</dt><dd>一定程度上的防御，防止用户疏忽，但是无法完全杜绝极端情况。 </dd></dl>
+
+</div>
+</div>
+<a id="ac67f5c2960685556662e15bbdeeb1ec3" name="ac67f5c2960685556662e15bbdeeb1ec3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac67f5c2960685556662e15bbdeeb1ec3">&#9670;&#160;</a></span>GetCharTypeView() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename String, typename StringView&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::basic_string_view&lt; char &gt; <a class="el" href="classNBT__String.html">NBT_String</a>&lt; String, StringView &gt;::GetCharTypeView </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const &amp;</td>
         </tr>
       </table>
   </td>
@@ -1391,6 +1428,68 @@ template&lt;typename String, typename StringView&gt; </div>
 
 <p>获取底层容器数据的引用 </p>
 <dl class="section return"><dt>返回</dt><dd>底层容器数据的引用 </dd></dl>
+
+</div>
+</div>
+<a id="a6d9a2b6105bbb6f323a68aecb1b98dc4" name="a6d9a2b6105bbb6f323a68aecb1b98dc4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6d9a2b6105bbb6f323a68aecb1b98dc4">&#9670;&#160;</a></span>GetView() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename String, typename StringView&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#a0b6037dd11409fde0d48bf501863cc57">View</a> <a class="el" href="classNBT__String.html">NBT_String</a>&lt; String, StringView &gt;::GetView </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const &amp;&amp;</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel delete">delete</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>删除临时对象转化为视图的方式，防止从临时对象构造导致悬空指针 </p>
+<dl class="section return"><dt>返回</dt><dd>当前对象的视图View </dd></dl>
+<dl class="section note"><dt>注解</dt><dd>一定程度上的防御，防止用户疏忽，但是无法完全杜绝极端情况。 </dd></dl>
+
+</div>
+</div>
+<a id="a5a2a06660b3a8915b95e5b2fb14fa6ec" name="a5a2a06660b3a8915b95e5b2fb14fa6ec"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5a2a06660b3a8915b95e5b2fb14fa6ec">&#9670;&#160;</a></span>GetView() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename String, typename StringView&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#a0b6037dd11409fde0d48bf501863cc57">View</a> <a class="el" href="classNBT__String.html">NBT_String</a>&lt; String, StringView &gt;::GetView </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const &amp;</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>直接从当前对象获取视图 </p>
+<dl class="section return"><dt>返回</dt><dd>当前对象的视图View </dd></dl>
+<dl class="section note"><dt>注解</dt><dd>在修改本对象，或离开作用域后，不应该再使用此函数原先返回的view类型。 </dd></dl>
 
 </div>
 </div>

@@ -101,14 +101,14 @@ $(function(){initNavTree('classNBT__Reader.html','','classNBT__Reader-members');
 <tr class="heading"><td colspan="2"><h2 id="header-pub-static-methods" class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 静态 Public 成员函数</h2></td></tr>
 <tr class="memitem:ab4d5783f988c27715648c91ba980eee0" id="r_ab4d5783f988c27715648c91ba980eee0"><td class="memTemplParams" colspan="2">template&lt;bool bUnwrapMixedList = true, typename InputStream, typename InfoFunc = NBT_Print&gt; </td></tr>
-<tr class="memitem:ab4d5783f988c27715648c91ba980eee0 template"><td class="memItemLeft">static bool&#160;</td><td class="memItemRight"><a class="el" href="#ab4d5783f988c27715648c91ba980eee0">ReadNBT</a> (InputStream &amp;IptStream, <a class="el" href="classNBT__Type.html#a9dcd5050b96a10161f18d7ae4a22e7b3">NBT_Type::Compound</a> &amp;tCompound, size_t szStackDepth=512, InfoFunc funcInfo=InfoFunc{}) noexcept</td></tr>
+<tr class="memitem:ab4d5783f988c27715648c91ba980eee0 template"><td class="memItemLeft">static bool&#160;</td><td class="memItemRight"><a class="el" href="#ab4d5783f988c27715648c91ba980eee0">ReadNBT</a> (InputStream &amp;IptStream, <a class="el" href="classNBT__Type.html#ab81420745f7b7c464f206471d4f104fe">NBT_Type::Compound</a> &amp;tCompound, size_t szStackDepth=512, InfoFunc funcInfo=InfoFunc{}) noexcept</td></tr>
 <tr class="memdesc:ab4d5783f988c27715648c91ba980eee0"><td class="mdescLeft">&#160;</td><td class="mdescRight">从输入流中读取NBT数据到NBT_Type::Compound对象中  <br /></td></tr>
 <tr class="memitem:a61114755d0dea1b11f098722f1bb126e" id="r_a61114755d0dea1b11f098722f1bb126e"><td class="memTemplParams" colspan="2">template&lt;bool bUnwrapMixedList = true, typename DataType = std::vector&lt;uint8_t&gt;, typename InfoFunc = NBT_Print&gt; </td></tr>
-<tr class="memitem:a61114755d0dea1b11f098722f1bb126e template"><td class="memItemLeft">static bool&#160;</td><td class="memItemRight"><a class="el" href="#a61114755d0dea1b11f098722f1bb126e">ReadNBT</a> (const DataType &amp;tDataInput, size_t szStartIdx, <a class="el" href="classNBT__Type.html#a9dcd5050b96a10161f18d7ae4a22e7b3">NBT_Type::Compound</a> &amp;tCompound, size_t szStackDepth=512, InfoFunc funcInfo=InfoFunc{}) noexcept</td></tr>
+<tr class="memitem:a61114755d0dea1b11f098722f1bb126e template"><td class="memItemLeft">static bool&#160;</td><td class="memItemRight"><a class="el" href="#a61114755d0dea1b11f098722f1bb126e">ReadNBT</a> (const DataType &amp;tDataInput, size_t szStartIdx, <a class="el" href="classNBT__Type.html#ab81420745f7b7c464f206471d4f104fe">NBT_Type::Compound</a> &amp;tCompound, size_t szStackDepth=512, InfoFunc funcInfo=InfoFunc{}) noexcept</td></tr>
 <tr class="memdesc:a61114755d0dea1b11f098722f1bb126e"><td class="mdescLeft">&#160;</td><td class="mdescRight">从数据容器中读取NBT数据到NBT_Type::Compound对象中  <br /></td></tr>
 <tr class="memitem:a5195a06a9b4b730361e11a11c84bef3f" id="r_a5195a06a9b4b730361e11a11c84bef3f"><td class="memTemplParams" colspan="2">template&lt;typename InfoFunc = NBT_Print&gt; </td></tr>
-<tr class="memitem:a5195a06a9b4b730361e11a11c84bef3f template"><td class="memItemLeft">static bool&#160;</td><td class="memItemRight"><a class="el" href="#a5195a06a9b4b730361e11a11c84bef3f">SimpleReadNbtFile</a> (const std::filesystem::path &amp;pathFileName, <a class="el" href="classNBT__Type.html#a9dcd5050b96a10161f18d7ae4a22e7b3">NBT_Type::Compound</a> &amp;tCompound, InfoFunc funcInfo=InfoFunc{}) noexcept</td></tr>
-<tr class="memdesc:a5195a06a9b4b730361e11a11c84bef3f"><td class="mdescLeft">&#160;</td><td class="mdescRight">从可能被压缩的文件中读取 NBT 数据到 <a class="el" href="classNBT__Type.html#a9dcd5050b96a10161f18d7ae4a22e7b3" title="集合类型，可存储任意不同的NBT类型，通过名称映射值">NBT_Type::Compound</a> 对象中  <br /></td></tr>
+<tr class="memitem:a5195a06a9b4b730361e11a11c84bef3f template"><td class="memItemLeft">static bool&#160;</td><td class="memItemRight"><a class="el" href="#a5195a06a9b4b730361e11a11c84bef3f">SimpleReadNbtFile</a> (const std::filesystem::path &amp;pathFileName, <a class="el" href="classNBT__Type.html#ab81420745f7b7c464f206471d4f104fe">NBT_Type::Compound</a> &amp;tCompound, InfoFunc funcInfo=InfoFunc{}) noexcept</td></tr>
+<tr class="memdesc:a5195a06a9b4b730361e11a11c84bef3f"><td class="mdescLeft">&#160;</td><td class="mdescRight">从可能被压缩的文件中读取 NBT 数据到 <a class="el" href="classNBT__Type.html#ab81420745f7b7c464f206471d4f104fe" title="集合类型，可存储任意不同的NBT类型，通过名称映射值">NBT_Type::Compound</a> 对象中  <br /></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">详细描述</h2>
 <div class="textblock"><p>这个类用于提供从NBT二进制流读取到NBT_Type::Compound对象的反序列化功能 </p>
@@ -137,7 +137,7 @@ template&lt;bool bUnwrapMixedList = true, typename DataType = std::vector&lt;uin
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="classNBT__Type.html#a9dcd5050b96a10161f18d7ae4a22e7b3">NBT_Type::Compound</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>tCompound</em></span>, </td>
+          <td class="paramtype"><a class="el" href="classNBT__Type.html#ab81420745f7b7c464f206471d4f104fe">NBT_Type::Compound</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>tCompound</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -200,7 +200,7 @@ template&lt;bool bUnwrapMixedList = true, typename InputStream, typename InfoFun
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="classNBT__Type.html#a9dcd5050b96a10161f18d7ae4a22e7b3">NBT_Type::Compound</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>tCompound</em></span>, </td>
+          <td class="paramtype"><a class="el" href="classNBT__Type.html#ab81420745f7b7c464f206471d4f104fe">NBT_Type::Compound</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>tCompound</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -262,7 +262,7 @@ template&lt;typename InfoFunc = NBT_Print&gt; </div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="classNBT__Type.html#a9dcd5050b96a10161f18d7ae4a22e7b3">NBT_Type::Compound</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>tCompound</em></span>, </td>
+          <td class="paramtype"><a class="el" href="classNBT__Type.html#ab81420745f7b7c464f206471d4f104fe">NBT_Type::Compound</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>tCompound</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -277,7 +277,7 @@ template&lt;typename InfoFunc = NBT_Print&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>从可能被压缩的文件中读取 NBT 数据到 <a class="el" href="classNBT__Type.html#a9dcd5050b96a10161f18d7ae4a22e7b3" title="集合类型，可存储任意不同的NBT类型，通过名称映射值">NBT_Type::Compound</a> 对象中 </p>
+<p>从可能被压缩的文件中读取 NBT 数据到 <a class="el" href="classNBT__Type.html#ab81420745f7b7c464f206471d4f104fe" title="集合类型，可存储任意不同的NBT类型，通过名称映射值">NBT_Type::Compound</a> 对象中 </p>
 <dl class="tparams"><dt>模板参数</dt><dd>
   <table class="tparams">
     <tr><td class="paramname">InfoFunc</td><td>信息输出仿函数类型 </td></tr>

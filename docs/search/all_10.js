@@ -3,7 +3,7 @@ var searchData=
   ['readfile_0',['ReadFile',['../classNBT__IO.html#a63f73c9084c61fe0618fa45212bcd70e',1,'NBT_IO']]],
   ['readnbt_1',['ReadNBT',['../classNBT__Reader.html#ab4d5783f988c27715648c91ba980eee0',1,'NBT_Reader::ReadNBT(InputStream &amp;IptStream, NBT_Type::Compound &amp;tCompound, size_t szStackDepth=512, InfoFunc funcInfo=InfoFunc{}) noexcept'],['../classNBT__Reader.html#a61114755d0dea1b11f098722f1bb126e',1,'NBT_Reader::ReadNBT(const DataType &amp;tDataInput, size_t szStartIdx, NBT_Type::Compound &amp;tCompound, size_t szStackDepth=512, InfoFunc funcInfo=InfoFunc{}) noexcept']]],
   ['reference_2',['Reference',['../classNBT__Compound.html#ae4af48e9c6d49c4ba851cc63c827d7e5',1,'NBT_Compound::Reference'],['../classNBT__List.html#a2167b8299b52644dec36354dcc7aa2be',1,'NBT_List::Reference']]],
-  ['remove_3',['Remove',['../classNBT__Compound.html#af55b9238e41a777d8971a58de3134877',1,'NBT_Compound::Remove()'],['../classNBT__List.html#addc38f1fb67ab8e81de7ec77fa0a18a7',1,'NBT_List::Remove()']]],
+  ['remove_3',['Remove',['../classNBT__Compound.html#a54474f06887711715f92b65364887bb8',1,'NBT_Compound::Remove()'],['../classNBT__List.html#addc38f1fb67ab8e81de7ec77fa0a18a7',1,'NBT_List::Remove()']]],
   ['removedata_4',['RemoveData',['../classNBT__IO_1_1DefaultOutputStream.html#ad04a69b12c4564fdb100d4979cbfb4e8',1,'NBT_IO::DefaultOutputStream']]],
   ['reserve_5',['Reserve',['../classNBT__List.html#a2059a6bafc0a444dac96db7dd3026d60',1,'NBT_List']]],
   ['reset_6',['Reset',['../classNBT__IO_1_1DefaultInputStream.html#aa9a9c6aa82c4d0465b23ab50671a6605',1,'NBT_IO::DefaultInputStream::Reset()'],['../classNBT__IO_1_1DefaultOutputStream.html#af0ec702d443260892fc67147a863c108',1,'NBT_IO::DefaultOutputStream::Reset()']]],

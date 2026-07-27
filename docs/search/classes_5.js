@@ -5,7 +5,7 @@ var searchData=
   ['nbt_5farray_3c_20std_3a_3avector_3c_20int_20_3e_20_3e_2',['NBT_Array&lt; std::vector&lt; Int &gt; &gt;',['../classNBT__Array.html',1,'']]],
   ['nbt_5farray_3c_20std_3a_3avector_3c_20long_20_3e_20_3e_3',['NBT_Array&lt; std::vector&lt; Long &gt; &gt;',['../classNBT__Array.html',1,'']]],
   ['nbt_5fcompound_4',['NBT_Compound',['../classNBT__Compound.html',1,'']]],
-  ['nbt_5fcompound_3c_20std_3a_3aunordered_5fmap_3c_20string_2c_20nbt_5fnode_20_3e_20_3e_5',['NBT_Compound&lt; std::unordered_map&lt; String, NBT_Node &gt; &gt;',['../classNBT__Compound.html',1,'']]],
+  ['nbt_5fcompound_3c_20std_3a_3aunordered_5fmap_3c_20string_2c_20nbt_5fnode_2c_20nbt_5fstring_5ftransparent_5fhash_2c_20nbt_5fstring_5ftransparent_5fequal_20_3e_20_3e_5',['NBT_Compound&lt; std::unordered_map&lt; String, NBT_Node, NBT_String_Transparent_Hash, NBT_String_Transparent_Equal &gt; &gt;',['../classNBT__Compound.html',1,'']]],
   ['nbt_5fendian_6',['NBT_Endian',['../classNBT__Endian.html',1,'']]],
   ['nbt_5fhash_7',['NBT_Hash',['../classNBT__Hash.html',1,'']]],
   ['nbt_5fhelper_8',['NBT_Helper',['../classNBT__Helper.html',1,'']]],
@@ -20,10 +20,12 @@ var searchData=
   ['nbt_5fscanner_17',['NBT_Scanner',['../classNBT__Scanner.html',1,'']]],
   ['nbt_5fstring_18',['NBT_String',['../classNBT__String.html',1,'']]],
   ['nbt_5fstring_3c_20mutf8_5fstring_2c_20mutf8_5fstring_5fview_20_3e_19',['NBT_String&lt; MUTF8_String, MUTF8_String_View &gt;',['../classNBT__String.html',1,'']]],
-  ['nbt_5fstringview_20',['NBT_StringView',['../classNBT__StringView.html',1,'']]],
-  ['nbt_5ftype_21',['NBT_Type',['../classNBT__Type.html',1,'']]],
-  ['nbt_5fvisitor_22',['NBT_Visitor',['../classNBT__Visitor.html',1,'']]],
-  ['nbt_5fvisitor_5fcollector_23',['NBT_Visitor_Collector',['../classNBT__Visitor__Collector.html',1,'']]],
-  ['nbt_5fwriter_24',['NBT_Writer',['../classNBT__Writer.html',1,'']]],
-  ['nosortcompound_25',['NoSortCompound',['../structNBT__Helper_1_1NoSortCompound.html',1,'NBT_Helper::NoSortCompound'],['../structNBT__Writer_1_1NoSortCompound.html',1,'NBT_Writer::NoSortCompound']]]
+  ['nbt_5fstring_5ftransparent_5fequal_20',['NBT_String_Transparent_Equal',['../structNBT__String__Transparent__Equal.html',1,'']]],
+  ['nbt_5fstring_5ftransparent_5fhash_21',['NBT_String_Transparent_Hash',['../structNBT__String__Transparent__Hash.html',1,'']]],
+  ['nbt_5fstringview_22',['NBT_StringView',['../classNBT__StringView.html',1,'']]],
+  ['nbt_5ftype_23',['NBT_Type',['../classNBT__Type.html',1,'']]],
+  ['nbt_5fvisitor_24',['NBT_Visitor',['../classNBT__Visitor.html',1,'']]],
+  ['nbt_5fvisitor_5fcollector_25',['NBT_Visitor_Collector',['../classNBT__Visitor__Collector.html',1,'']]],
+  ['nbt_5fwriter_26',['NBT_Writer',['../classNBT__Writer.html',1,'']]],
+  ['nosortcompound_27',['NoSortCompound',['../structNBT__Helper_1_1NoSortCompound.html',1,'NBT_Helper::NoSortCompound'],['../structNBT__Writer_1_1NoSortCompound.html',1,'NBT_Writer::NoSortCompound']]]
 ];

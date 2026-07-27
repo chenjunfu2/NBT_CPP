@@ -97,6 +97,7 @@ $(function(){initNavTree('NBT__String_8hpp.html','',''); });
 <a href="#details">更多...</a></p>
 <div class="textblock"><code>#include &lt;string&gt;</code><br />
 <code>#include &lt;array&gt;</code><br />
+<code>#include &lt;concepts&gt;</code><br />
 <code>#include &quot;<a class="el" href="MUTF8__Tool_8hpp_source.html">MUTF8_Tool.hpp</a>&quot;</code><br />
 </div>
 <p><a href="NBT__String_8hpp_source.html">浏览该文件的源代码.</a></p>
@@ -113,11 +114,22 @@ $(function(){initNavTree('NBT__String_8hpp.html','',''); });
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">NBT_String类，也就是NBT_Type::String在std名称空间中的hash函数重载  <a href="structstd_1_1hash_3_01NBT__String_3_01String_00_01StringView_01_4_01_4.html#details">更多...</a><br /></td></tr>
 <tr class="memitem:std_3A_3Ahash_3C_20NBT_5FStringView_3C_20String_2C_20StringView_20_3E_20_3E" id="r_std_3A_3Ahash_3C_20NBT_5FStringView_3C_20String_2C_20StringView_20_3E_20_3E"><td class="memItemLeft">struct &#160;</td><td class="memItemRight"><a class="el" href="structstd_1_1hash_3_01NBT__StringView_3_01String_00_01StringView_01_4_01_4.html">std::hash&lt; NBT_StringView&lt; String, StringView &gt; &gt;</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">NBT_StringView类，也就是NBT_Type::String::View在std名称空间中的hash函数重载  <a href="structstd_1_1hash_3_01NBT__StringView_3_01String_00_01StringView_01_4_01_4.html#details">更多...</a><br /></td></tr>
+<tr class="memitem:NBT_5FString_5FTransparent_5FHash" id="r_NBT_5FString_5FTransparent_5FHash"><td class="memItemLeft">struct &#160;</td><td class="memItemRight"><a class="el" href="structNBT__String__Transparent__Hash.html">NBT_String_Transparent_Hash</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">透明哈希函数对象，用于 unordered 容器的异构查找  <a href="structNBT__String__Transparent__Hash.html#details">更多...</a><br /></td></tr>
+<tr class="memitem:NBT_5FString_5FTransparent_5FEqual" id="r_NBT_5FString_5FTransparent_5FEqual"><td class="memItemLeft">struct &#160;</td><td class="memItemRight"><a class="el" href="structNBT__String__Transparent__Equal.html">NBT_String_Transparent_Equal</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">透明相等比较函数对象，用于 unordered 容器的异构查找  <a href="structNBT__String__Transparent__Equal.html#details">更多...</a><br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-namespaces" class="groupheader"><a id="namespaces" name="namespaces"></a>
 命名空间</h2></td></tr>
 <tr class="memitem:std" id="r_std"><td class="memItemLeft">namespace &#160;</td><td class="memItemRight"><a class="el" href="namespacestd.html">std</a></td></tr>
 <tr class="memdesc:namespacestd"><td class="mdescLeft">&#160;</td><td class="mdescRight">在std命名空间中添加类的默认hash特化以便unordered_map等容器自动获取 <br /></td></tr>
+<tr class="memitem:NBT_5FString_5FHelper" id="r_NBT_5FString_5FHelper"><td class="memItemLeft">namespace &#160;</td><td class="memItemRight"><a class="el" href="namespaceNBT__String__Helper.html">NBT_String_Helper</a></td></tr>
+<tr class="memdesc:namespaceNBT__String__Helper"><td class="mdescLeft">&#160;</td><td class="mdescRight">内部命名空间，提供概念约束 <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-concepts" class="groupheader"><a id="concepts" name="concepts"></a>
+概念</h2></td></tr>
+<tr class="memitem:NBT_5FString_5FHelper_3A_3AIs_5FNBT_5FString_5FOr_5FView" id="r_NBT_5FString_5FHelper_3A_3AIs_5FNBT_5FString_5FOr_5FView"><td class="memItemLeft">concept &#160;</td><td class="memItemRight"><a class="el" href="conceptNBT__String__Helper_1_1Is__NBT__String__Or__View.html">NBT_String_Helper::Is_NBT_String_Or_View</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">约束类型 T 去除 cv-ref 限定后必须是 <a class="el" href="classNBT__String.html" title="继承自标准库std::basic_string的代理类，用于存储、处理与转换Modified-UTF-8字符串">NBT_String</a> 或其对应的 View <br /></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">详细描述</h2>
 <div class="textblock"><p>NBT字符串类型 </p>

@@ -155,9 +155,9 @@ using&#160;</td><td class="memItemRight"><b>String</b> = <a class="el" href="cla
 <tr class="memitem:a87b4d71087e5c0ab1111a4999dace42f" id="r_a87b4d71087e5c0ab1111a4999dace42f"><td class="memItemLeft"><a id="a87b4d71087e5c0ab1111a4999dace42f" name="a87b4d71087e5c0ab1111a4999dace42f"></a>
 using&#160;</td><td class="memItemRight"><b>List</b> = <a class="el" href="classNBT__List.html">NBT_List</a>&lt;std::vector&lt;<a class="el" href="classNBT__Node.html">NBT_Node</a>&gt;&gt;</td></tr>
 <tr class="memdesc:a87b4d71087e5c0ab1111a4999dace42f"><td class="mdescLeft">&#160;</td><td class="mdescRight">列表类型，可顺序存储任意相同的NBT类型 <br /></td></tr>
-<tr class="memitem:a9dcd5050b96a10161f18d7ae4a22e7b3" id="r_a9dcd5050b96a10161f18d7ae4a22e7b3"><td class="memItemLeft"><a id="a9dcd5050b96a10161f18d7ae4a22e7b3" name="a9dcd5050b96a10161f18d7ae4a22e7b3"></a>
-using&#160;</td><td class="memItemRight"><b>Compound</b> = <a class="el" href="classNBT__Compound.html">NBT_Compound</a>&lt;std::unordered_map&lt;<a class="el" href="#a5efe8f76052bcfe6ed8779a60a78a295">String</a>, <a class="el" href="classNBT__Node.html">NBT_Node</a>&gt;&gt;</td></tr>
-<tr class="memdesc:a9dcd5050b96a10161f18d7ae4a22e7b3"><td class="mdescLeft">&#160;</td><td class="mdescRight">集合类型，可存储任意不同的NBT类型，通过名称映射值 <br /></td></tr>
+<tr class="memitem:ab81420745f7b7c464f206471d4f104fe" id="r_ab81420745f7b7c464f206471d4f104fe"><td class="memItemLeft"><a id="ab81420745f7b7c464f206471d4f104fe" name="ab81420745f7b7c464f206471d4f104fe"></a>
+using&#160;</td><td class="memItemRight"><b>Compound</b> = <a class="el" href="classNBT__Compound.html">NBT_Compound</a>&lt;std::unordered_map&lt;<a class="el" href="#a5efe8f76052bcfe6ed8779a60a78a295">String</a>, <a class="el" href="classNBT__Node.html">NBT_Node</a>, <a class="el" href="structNBT__String__Transparent__Hash.html">NBT_String_Transparent_Hash</a>, <a class="el" href="structNBT__String__Transparent__Equal.html">NBT_String_Transparent_Equal</a>&gt;&gt;</td></tr>
+<tr class="memdesc:ab81420745f7b7c464f206471d4f104fe"><td class="mdescLeft">&#160;</td><td class="mdescRight">集合类型，可存储任意不同的NBT类型，通过名称映射值 <br /></td></tr>
 <tr id="pub-types-2" class="groupHeader"><td colspan="2"><div class="groupHeader">部分结构的长度类型</div></td></tr>
 <tr class="memitem:a38f9e5a21f8d2e8217fcdf65c47039a4" id="r_a38f9e5a21f8d2e8217fcdf65c47039a4"><td class="memItemLeft"><a id="a38f9e5a21f8d2e8217fcdf65c47039a4" name="a38f9e5a21f8d2e8217fcdf65c47039a4"></a>
 using&#160;</td><td class="memItemRight"><b>ArrayLength</b> = int32_t</td></tr>
@@ -261,6 +261,9 @@ static constexpr <a class="el" href="#a7f8ae2e6e2f87445d1e72f7e922ba053">Long</a
 <tr class="memitem:a0c20f7e8573825530c8ba2a75b431b46" id="r_a0c20f7e8573825530c8ba2a75b431b46"><td class="memTemplParams" colspan="2">template&lt;typename T&gt; </td></tr>
 <tr class="memitem:a0c20f7e8573825530c8ba2a75b431b46 template"><td class="memItemLeft">static constexpr bool&#160;</td><td class="memItemRight"><a class="el" href="#a0c20f7e8573825530c8ba2a75b431b46">IsStringType_V</a></td></tr>
 <tr class="memdesc:a0c20f7e8573825530c8ba2a75b431b46"><td class="mdescLeft">&#160;</td><td class="mdescRight">判断类型是否为NBT String类型  <br /></td></tr>
+<tr class="memitem:a8f65f3d9e738b21e39a5b9bb6fa2f031" id="r_a8f65f3d9e738b21e39a5b9bb6fa2f031"><td class="memTemplParams" colspan="2">template&lt;typename T&gt; </td></tr>
+<tr class="memitem:a8f65f3d9e738b21e39a5b9bb6fa2f031 template"><td class="memItemLeft">static constexpr bool&#160;</td><td class="memItemRight"><a class="el" href="#a8f65f3d9e738b21e39a5b9bb6fa2f031">IsStringViewType_V</a></td></tr>
+<tr class="memdesc:a8f65f3d9e738b21e39a5b9bb6fa2f031"><td class="mdescLeft">&#160;</td><td class="mdescRight">判断类型是否为NBT <a class="el" href="#a5efe8f76052bcfe6ed8779a60a78a295" title="字符串类型，存储Java M-UTF-8字符串">String</a> View类型  <br /></td></tr>
 <tr class="memitem:aba1bda392fa0eaa04f27f22ecf1c7446" id="r_aba1bda392fa0eaa04f27f22ecf1c7446"><td class="memTemplParams" colspan="2">template&lt;typename T&gt; </td></tr>
 <tr class="memitem:aba1bda392fa0eaa04f27f22ecf1c7446 template"><td class="memItemLeft">static constexpr bool&#160;</td><td class="memItemRight"><a class="el" href="#aba1bda392fa0eaa04f27f22ecf1c7446">IsListType_V</a></td></tr>
 <tr class="memdesc:aba1bda392fa0eaa04f27f22ecf1c7446"><td class="mdescLeft">&#160;</td><td class="mdescRight">判断类型是否为NBT List类型  <br /></td></tr>
@@ -382,24 +385,24 @@ template&lt;<a class="el" href="NBT__TAG_8hpp.html#ada3a2766daa185b5461d684c766b
 <div class="line">       <a class="code hl_typedef" href="#a953bc9e67e1b5d82c0786b5992f00ed8">ByteArray</a>,</div>
 <div class="line">       <a class="code hl_typedef" href="#a5efe8f76052bcfe6ed8779a60a78a295">String</a>,</div>
 <div class="line">       <a class="code hl_typedef" href="#a87b4d71087e5c0ab1111a4999dace42f">List</a>,</div>
-<div class="line">       <a class="code hl_typedef" href="#a9dcd5050b96a10161f18d7ae4a22e7b3">Compound</a>,</div>
+<div class="line">       <a class="code hl_typedef" href="#ab81420745f7b7c464f206471d4f104fe">Compound</a>,</div>
 <div class="line">       <a class="code hl_typedef" href="#a9c4ad0b2bcd4b5cafb0c9a3f083f9406">IntArray</a>,</div>
 <div class="line">       <a class="code hl_typedef" href="#aa2c61028536166272869c3bbc91d3197">LongArray</a></div>
 <div class="line">   &gt;</div>
-<div class="ttc" id="aclassNBT__Type_html_a09b5ce48dffc429ad8a7d05d007741c1"><div class="ttname"><a href="#a09b5ce48dffc429ad8a7d05d007741c1">NBT_Type::Byte</a></div><div class="ttdeci">int8_t Byte</div><div class="ttdoc">8位有符号整数</div><div class="ttdef"><b>定义</b> NBT_Type.hpp:49</div></div>
-<div class="ttc" id="aclassNBT__Type_html_a16ac41e6cfe61a603407221527b6b16c"><div class="ttname"><a href="#a16ac41e6cfe61a603407221527b6b16c">NBT_Type::End</a></div><div class="ttdeci">std::monostate End</div><div class="ttdoc">结束标记类型，无数据</div><div class="ttdef"><b>定义</b> NBT_Type.hpp:48</div></div>
-<div class="ttc" id="aclassNBT__Type_html_a3e47d05c36743947da966f4223237262"><div class="ttname"><a href="#a3e47d05c36743947da966f4223237262">NBT_Type::Short</a></div><div class="ttdeci">int16_t Short</div><div class="ttdoc">16位有符号整数</div><div class="ttdef"><b>定义</b> NBT_Type.hpp:50</div></div>
-<div class="ttc" id="aclassNBT__Type_html_a5efe8f76052bcfe6ed8779a60a78a295"><div class="ttname"><a href="#a5efe8f76052bcfe6ed8779a60a78a295">NBT_Type::String</a></div><div class="ttdeci">NBT_String&lt; MUTF8_String, MUTF8_String_View &gt; String</div><div class="ttdoc">字符串类型，存储Java M-UTF-8字符串</div><div class="ttdef"><b>定义</b> NBT_Type.hpp:65</div></div>
-<div class="ttc" id="aclassNBT__Type_html_a7f8ae2e6e2f87445d1e72f7e922ba053"><div class="ttname"><a href="#a7f8ae2e6e2f87445d1e72f7e922ba053">NBT_Type::Long</a></div><div class="ttdeci">int64_t Long</div><div class="ttdoc">64位有符号整数</div><div class="ttdef"><b>定义</b> NBT_Type.hpp:52</div></div>
-<div class="ttc" id="aclassNBT__Type_html_a87b4d71087e5c0ab1111a4999dace42f"><div class="ttname"><a href="#a87b4d71087e5c0ab1111a4999dace42f">NBT_Type::List</a></div><div class="ttdeci">NBT_List&lt; std::vector&lt; NBT_Node &gt; &gt; List</div><div class="ttdoc">列表类型，可顺序存储任意相同的NBT类型</div><div class="ttdef"><b>定义</b> NBT_Type.hpp:69</div></div>
-<div class="ttc" id="aclassNBT__Type_html_a8a7ac779b8e8a7fdccb3456844abe5cf"><div class="ttname"><a href="#a8a7ac779b8e8a7fdccb3456844abe5cf">NBT_Type::Float</a></div><div class="ttdeci">std::conditional_t&lt;(sizeof(float)==sizeof(Float_Raw)), float, Float_Raw &gt; Float</div><div class="ttdoc">单精度浮点类型</div><div class="ttdef"><b>定义</b> NBT_Type.hpp:56</div></div>
-<div class="ttc" id="aclassNBT__Type_html_a953bc9e67e1b5d82c0786b5992f00ed8"><div class="ttname"><a href="#a953bc9e67e1b5d82c0786b5992f00ed8">NBT_Type::ByteArray</a></div><div class="ttdeci">NBT_Array&lt; std::vector&lt; Byte &gt; &gt; ByteArray</div><div class="ttdoc">存储 8位有符号整数的数组类型</div><div class="ttdef"><b>定义</b> NBT_Type.hpp:60</div></div>
-<div class="ttc" id="aclassNBT__Type_html_a9c4ad0b2bcd4b5cafb0c9a3f083f9406"><div class="ttname"><a href="#a9c4ad0b2bcd4b5cafb0c9a3f083f9406">NBT_Type::IntArray</a></div><div class="ttdeci">NBT_Array&lt; std::vector&lt; Int &gt; &gt; IntArray</div><div class="ttdoc">存储32位有符号整数的数组类型</div><div class="ttdef"><b>定义</b> NBT_Type.hpp:61</div></div>
-<div class="ttc" id="aclassNBT__Type_html_a9dcd5050b96a10161f18d7ae4a22e7b3"><div class="ttname"><a href="#a9dcd5050b96a10161f18d7ae4a22e7b3">NBT_Type::Compound</a></div><div class="ttdeci">NBT_Compound&lt; std::unordered_map&lt; String, NBT_Node &gt; &gt; Compound</div><div class="ttdoc">集合类型，可存储任意不同的NBT类型，通过名称映射值</div><div class="ttdef"><b>定义</b> NBT_Type.hpp:73</div></div>
-<div class="ttc" id="aclassNBT__Type_html_aa2c61028536166272869c3bbc91d3197"><div class="ttname"><a href="#aa2c61028536166272869c3bbc91d3197">NBT_Type::LongArray</a></div><div class="ttdeci">NBT_Array&lt; std::vector&lt; Long &gt; &gt; LongArray</div><div class="ttdoc">存储64位有符号整数的数组类型</div><div class="ttdef"><b>定义</b> NBT_Type.hpp:62</div></div>
-<div class="ttc" id="aclassNBT__Type_html_aaea549797088fb63987679367bc9d39a"><div class="ttname"><a href="#aaea549797088fb63987679367bc9d39a">NBT_Type::Double</a></div><div class="ttdeci">std::conditional_t&lt;(sizeof(double)==sizeof(Double_Raw)), double, Double_Raw &gt; Double</div><div class="ttdoc">双精度浮点类型</div><div class="ttdef"><b>定义</b> NBT_Type.hpp:57</div></div>
-<div class="ttc" id="aclassNBT__Type_html_afee0233d7f58b90cc9ce2b903da2da22"><div class="ttname"><a href="#afee0233d7f58b90cc9ce2b903da2da22">NBT_Type::Int</a></div><div class="ttdeci">int32_t Int</div><div class="ttdoc">32位有符号整数</div><div class="ttdef"><b>定义</b> NBT_Type.hpp:51</div></div>
-<div class="ttc" id="astructNBT__Type_1_1__TypeList_html"><div class="ttname"><a href="structNBT__Type_1_1__TypeList.html">NBT_Type::_TypeList</a></div><div class="ttdoc">类型列表模板</div><div class="ttdef"><b>定义</b> NBT_Type.hpp:80</div></div>
+<div class="ttc" id="aclassNBT__Type_html_a09b5ce48dffc429ad8a7d05d007741c1"><div class="ttname"><a href="#a09b5ce48dffc429ad8a7d05d007741c1">NBT_Type::Byte</a></div><div class="ttdeci">int8_t Byte</div><div class="ttdoc">8位有符号整数</div><div class="ttdef"><b>定义</b> NBT_Type.hpp:51</div></div>
+<div class="ttc" id="aclassNBT__Type_html_a16ac41e6cfe61a603407221527b6b16c"><div class="ttname"><a href="#a16ac41e6cfe61a603407221527b6b16c">NBT_Type::End</a></div><div class="ttdeci">std::monostate End</div><div class="ttdoc">结束标记类型，无数据</div><div class="ttdef"><b>定义</b> NBT_Type.hpp:50</div></div>
+<div class="ttc" id="aclassNBT__Type_html_a3e47d05c36743947da966f4223237262"><div class="ttname"><a href="#a3e47d05c36743947da966f4223237262">NBT_Type::Short</a></div><div class="ttdeci">int16_t Short</div><div class="ttdoc">16位有符号整数</div><div class="ttdef"><b>定义</b> NBT_Type.hpp:52</div></div>
+<div class="ttc" id="aclassNBT__Type_html_a5efe8f76052bcfe6ed8779a60a78a295"><div class="ttname"><a href="#a5efe8f76052bcfe6ed8779a60a78a295">NBT_Type::String</a></div><div class="ttdeci">NBT_String&lt; MUTF8_String, MUTF8_String_View &gt; String</div><div class="ttdoc">字符串类型，存储Java M-UTF-8字符串</div><div class="ttdef"><b>定义</b> NBT_Type.hpp:67</div></div>
+<div class="ttc" id="aclassNBT__Type_html_a7f8ae2e6e2f87445d1e72f7e922ba053"><div class="ttname"><a href="#a7f8ae2e6e2f87445d1e72f7e922ba053">NBT_Type::Long</a></div><div class="ttdeci">int64_t Long</div><div class="ttdoc">64位有符号整数</div><div class="ttdef"><b>定义</b> NBT_Type.hpp:54</div></div>
+<div class="ttc" id="aclassNBT__Type_html_a87b4d71087e5c0ab1111a4999dace42f"><div class="ttname"><a href="#a87b4d71087e5c0ab1111a4999dace42f">NBT_Type::List</a></div><div class="ttdeci">NBT_List&lt; std::vector&lt; NBT_Node &gt; &gt; List</div><div class="ttdoc">列表类型，可顺序存储任意相同的NBT类型</div><div class="ttdef"><b>定义</b> NBT_Type.hpp:71</div></div>
+<div class="ttc" id="aclassNBT__Type_html_a8a7ac779b8e8a7fdccb3456844abe5cf"><div class="ttname"><a href="#a8a7ac779b8e8a7fdccb3456844abe5cf">NBT_Type::Float</a></div><div class="ttdeci">std::conditional_t&lt;(sizeof(float)==sizeof(Float_Raw)), float, Float_Raw &gt; Float</div><div class="ttdoc">单精度浮点类型</div><div class="ttdef"><b>定义</b> NBT_Type.hpp:58</div></div>
+<div class="ttc" id="aclassNBT__Type_html_a953bc9e67e1b5d82c0786b5992f00ed8"><div class="ttname"><a href="#a953bc9e67e1b5d82c0786b5992f00ed8">NBT_Type::ByteArray</a></div><div class="ttdeci">NBT_Array&lt; std::vector&lt; Byte &gt; &gt; ByteArray</div><div class="ttdoc">存储 8位有符号整数的数组类型</div><div class="ttdef"><b>定义</b> NBT_Type.hpp:62</div></div>
+<div class="ttc" id="aclassNBT__Type_html_a9c4ad0b2bcd4b5cafb0c9a3f083f9406"><div class="ttname"><a href="#a9c4ad0b2bcd4b5cafb0c9a3f083f9406">NBT_Type::IntArray</a></div><div class="ttdeci">NBT_Array&lt; std::vector&lt; Int &gt; &gt; IntArray</div><div class="ttdoc">存储32位有符号整数的数组类型</div><div class="ttdef"><b>定义</b> NBT_Type.hpp:63</div></div>
+<div class="ttc" id="aclassNBT__Type_html_aa2c61028536166272869c3bbc91d3197"><div class="ttname"><a href="#aa2c61028536166272869c3bbc91d3197">NBT_Type::LongArray</a></div><div class="ttdeci">NBT_Array&lt; std::vector&lt; Long &gt; &gt; LongArray</div><div class="ttdoc">存储64位有符号整数的数组类型</div><div class="ttdef"><b>定义</b> NBT_Type.hpp:64</div></div>
+<div class="ttc" id="aclassNBT__Type_html_aaea549797088fb63987679367bc9d39a"><div class="ttname"><a href="#aaea549797088fb63987679367bc9d39a">NBT_Type::Double</a></div><div class="ttdeci">std::conditional_t&lt;(sizeof(double)==sizeof(Double_Raw)), double, Double_Raw &gt; Double</div><div class="ttdoc">双精度浮点类型</div><div class="ttdef"><b>定义</b> NBT_Type.hpp:59</div></div>
+<div class="ttc" id="aclassNBT__Type_html_ab81420745f7b7c464f206471d4f104fe"><div class="ttname"><a href="#ab81420745f7b7c464f206471d4f104fe">NBT_Type::Compound</a></div><div class="ttdeci">NBT_Compound&lt; std::unordered_map&lt; String, NBT_Node, NBT_String_Transparent_Hash, NBT_String_Transparent_Equal &gt; &gt; Compound</div><div class="ttdoc">集合类型，可存储任意不同的NBT类型，通过名称映射值</div><div class="ttdef"><b>定义</b> NBT_Type.hpp:75</div></div>
+<div class="ttc" id="aclassNBT__Type_html_afee0233d7f58b90cc9ce2b903da2da22"><div class="ttname"><a href="#afee0233d7f58b90cc9ce2b903da2da22">NBT_Type::Int</a></div><div class="ttdeci">int32_t Int</div><div class="ttdoc">32位有符号整数</div><div class="ttdef"><b>定义</b> NBT_Type.hpp:53</div></div>
+<div class="ttc" id="astructNBT__Type_1_1__TypeList_html"><div class="ttname"><a href="structNBT__Type_1_1__TypeList.html">NBT_Type::_TypeList</a></div><div class="ttdoc">类型列表模板</div><div class="ttdef"><b>定义</b> NBT_Type.hpp:82</div></div>
 </div><!-- fragment -->
 <p>完整的NBT类型列表定义 </p>
 
@@ -798,7 +801,7 @@ template&lt;typename T&gt; </div>
 </table>
 </div><div class="memdoc">
 <b>初始值:</b><div class="fragment"><div class="line">                               =</div>
-<div class="line">std::is_same_v&lt;std::remove_cvref_t&lt;T&gt;, <a class="code hl_typedef" href="#a9dcd5050b96a10161f18d7ae4a22e7b3">Compound</a>&gt;</div>
+<div class="line">std::is_same_v&lt;std::remove_cvref_t&lt;T&gt;, <a class="code hl_typedef" href="#ab81420745f7b7c464f206471d4f104fe">Compound</a>&gt;</div>
 </div><!-- fragment -->
 <p>判断类型是否为NBT Compound类型 </p>
 <dl class="tparams"><dt>模板参数</dt><dd>
@@ -837,7 +840,7 @@ template&lt;typename T&gt; </div>
 <div class="line">std::is_same_v&lt;std::remove_cvref_t&lt;T&gt;, <a class="code hl_typedef" href="#a9c4ad0b2bcd4b5cafb0c9a3f083f9406">IntArray</a>&gt; ||</div>
 <div class="line">std::is_same_v&lt;std::remove_cvref_t&lt;T&gt;, <a class="code hl_typedef" href="#aa2c61028536166272869c3bbc91d3197">LongArray</a>&gt; ||</div>
 <div class="line">std::is_same_v&lt;std::remove_cvref_t&lt;T&gt;, <a class="code hl_typedef" href="#a87b4d71087e5c0ab1111a4999dace42f">List</a>&gt; ||</div>
-<div class="line">std::is_same_v&lt;std::remove_cvref_t&lt;T&gt;, <a class="code hl_typedef" href="#a9dcd5050b96a10161f18d7ae4a22e7b3">Compound</a>&gt;</div>
+<div class="line">std::is_same_v&lt;std::remove_cvref_t&lt;T&gt;, <a class="code hl_typedef" href="#ab81420745f7b7c464f206471d4f104fe">Compound</a>&gt;</div>
 </div><!-- fragment -->
 <p>判断类型是否为NBT容器类型（包含List、Compound和所有数组类型） </p>
 <dl class="tparams"><dt>模板参数</dt><dd>
@@ -1030,7 +1033,43 @@ template&lt;typename T&gt; </div>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>返回</dt><dd>如果类型是String，则返回true，否则返回false </dd></dl>
+<dl class="section return"><dt>返回</dt><dd>如果类型是NBT String，则返回true，否则返回false </dd></dl>
+
+</div>
+</div>
+<a id="a8f65f3d9e738b21e39a5b9bb6fa2f031" name="a8f65f3d9e738b21e39a5b9bb6fa2f031"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8f65f3d9e738b21e39a5b9bb6fa2f031">&#9670;&#160;</a></span>IsStringViewType_V</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool NBT_Type::IsStringViewType_V</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span><span class="mlabel constexpr">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<b>初始值:</b><div class="fragment"><div class="line">                                 =</div>
+<div class="line">std::is_same_v&lt;std::remove_cvref_t&lt;T&gt;, <span class="keyword">typename</span> <a class="code hl_typedef" href="classNBT__String.html#a0b6037dd11409fde0d48bf501863cc57">String::View</a>&gt;</div>
+<div class="ttc" id="aclassNBT__String_html_a0b6037dd11409fde0d48bf501863cc57"><div class="ttname"><a href="classNBT__String.html#a0b6037dd11409fde0d48bf501863cc57">NBT_String&lt; MUTF8_String, MUTF8_String_View &gt;::View</a></div><div class="ttdeci">NBT_StringView&lt; MUTF8_String, MUTF8_String_View &gt; View</div><div class="ttdef"><b>定义</b> NBT_String.hpp:163</div></div>
+</div><!-- fragment -->
+<p>判断类型是否为NBT <a class="el" href="#a5efe8f76052bcfe6ed8779a60a78a295" title="字符串类型，存储Java M-UTF-8字符串">String</a> View类型 </p>
+<dl class="tparams"><dt>模板参数</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T</td><td>需要检查的类型（自动移除CV限定与引用） </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>如果类型是NBT <a class="el" href="#a5efe8f76052bcfe6ed8779a60a78a295" title="字符串类型，存储Java M-UTF-8字符串">String</a> View，则返回true，否则返回false </dd></dl>
 
 </div>
 </div>

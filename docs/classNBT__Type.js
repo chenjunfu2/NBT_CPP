@@ -5,7 +5,7 @@ var classNBT__Type =
     [ "BuiltinRawType_T", "classNBT__Type.html#aa937376fd94d8a9abe0fb6e16107009d", null ],
     [ "Byte", "classNBT__Type.html#a09b5ce48dffc429ad8a7d05d007741c1", null ],
     [ "ByteArray", "classNBT__Type.html#a953bc9e67e1b5d82c0786b5992f00ed8", null ],
-    [ "Compound", "classNBT__Type.html#a9dcd5050b96a10161f18d7ae4a22e7b3", null ],
+    [ "Compound", "classNBT__Type.html#ab81420745f7b7c464f206471d4f104fe", null ],
     [ "Double", "classNBT__Type.html#aaea549797088fb63987679367bc9d39a", null ],
     [ "Double_Raw", "classNBT__Type.html#a5d1bfcc689df36f2cd569066b9316f73", null ],
     [ "End", "classNBT__Type.html#a16ac41e6cfe61a603407221527b6b16c", null ],

@@ -2,7 +2,7 @@ var indexSectionsWithContent =
 {
   0: "_abcdefghiklmnoprstuvw~与以使包可库注",
   1: "_dfhmnsu",
-  2: "ms",
+  2: "mns",
   3: "cmnv",
   4: "abcdefghiklmnoprstuvw~",
   5: "abcdeilpstv",

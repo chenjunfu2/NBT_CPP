@@ -35,6 +35,8 @@ var hierarchy =
     [ "NBT_Print", "classNBT__Print.html", null ],
     [ "NBT_Reader", "classNBT__Reader.html", null ],
     [ "NBT_Scanner", "classNBT__Scanner.html", null ],
+    [ "NBT_String_Transparent_Equal", "structNBT__String__Transparent__Equal.html", null ],
+    [ "NBT_String_Transparent_Hash", "structNBT__String__Transparent__Hash.html", null ],
     [ "NBT_Type", "classNBT__Type.html", null ],
     [ "NBT_Visitor", "classNBT__Visitor.html", null ],
     [ "NBT_Visitor_Collector", "classNBT__Visitor__Collector.html", null ],
@@ -48,7 +50,7 @@ var hierarchy =
       [ "NBT_StringView< String, StringView >", "classNBT__StringView.html", null ]
     ] ],
     [ "std::unordered_map", null, [
-      [ "NBT_Compound< std::unordered_map< String, NBT_Node > >", "classNBT__Compound.html", null ]
+      [ "NBT_Compound< std::unordered_map< String, NBT_Node, NBT_String_Transparent_Hash, NBT_String_Transparent_Equal > >", "classNBT__Compound.html", null ]
     ] ],
     [ "NBT_String&lt; String, StringView &gt;::USE_RAW_DATA", "structNBT__String_1_1USE__RAW__DATA.html", null ],
     [ "std::vector", null, [

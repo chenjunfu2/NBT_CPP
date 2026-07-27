@@ -11,5 +11,6 @@ var searchData=
   ['islisttype_5fv_8',['IsListType_V',['../classNBT__Type.html#aba1bda392fa0eaa04f27f22ecf1c7446',1,'NBT_Type']]],
   ['isnumerictype_5fv_9',['IsNumericType_V',['../classNBT__Type.html#a133b229478ee9047158f6f99900b3d59',1,'NBT_Type']]],
   ['isstringtype_5fv_10',['IsStringType_V',['../classNBT__Type.html#a0c20f7e8573825530c8ba2a75b431b46',1,'NBT_Type']]],
-  ['isvalidtype_5fv_11',['IsValidType_V',['../classNBT__Type.html#a71dfa77059d0a3bd9a6190295ad400ca',1,'NBT_Type']]]
+  ['isstringviewtype_5fv_11',['IsStringViewType_V',['../classNBT__Type.html#a8f65f3d9e738b21e39a5b9bb6fa2f031',1,'NBT_Type']]],
+  ['isvalidtype_5fv_12',['IsValidType_V',['../classNBT__Type.html#a71dfa77059d0a3bd9a6190295ad400ca',1,'NBT_Type']]]
 ];
