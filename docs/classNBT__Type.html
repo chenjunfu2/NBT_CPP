@@ -261,9 +261,6 @@ static constexpr <a class="el" href="#a7f8ae2e6e2f87445d1e72f7e922ba053">Long</a
 <tr class="memitem:a0c20f7e8573825530c8ba2a75b431b46" id="r_a0c20f7e8573825530c8ba2a75b431b46"><td class="memTemplParams" colspan="2">template&lt;typename T&gt; </td></tr>
 <tr class="memitem:a0c20f7e8573825530c8ba2a75b431b46 template"><td class="memItemLeft">static constexpr bool&#160;</td><td class="memItemRight"><a class="el" href="#a0c20f7e8573825530c8ba2a75b431b46">IsStringType_V</a></td></tr>
 <tr class="memdesc:a0c20f7e8573825530c8ba2a75b431b46"><td class="mdescLeft">&#160;</td><td class="mdescRight">判断类型是否为NBT String类型  <br /></td></tr>
-<tr class="memitem:a8f65f3d9e738b21e39a5b9bb6fa2f031" id="r_a8f65f3d9e738b21e39a5b9bb6fa2f031"><td class="memTemplParams" colspan="2">template&lt;typename T&gt; </td></tr>
-<tr class="memitem:a8f65f3d9e738b21e39a5b9bb6fa2f031 template"><td class="memItemLeft">static constexpr bool&#160;</td><td class="memItemRight"><a class="el" href="#a8f65f3d9e738b21e39a5b9bb6fa2f031">IsStringViewType_V</a></td></tr>
-<tr class="memdesc:a8f65f3d9e738b21e39a5b9bb6fa2f031"><td class="mdescLeft">&#160;</td><td class="mdescRight">判断类型是否为NBT <a class="el" href="#a5efe8f76052bcfe6ed8779a60a78a295" title="字符串类型，存储Java M-UTF-8字符串">String</a> View类型  <br /></td></tr>
 <tr class="memitem:aba1bda392fa0eaa04f27f22ecf1c7446" id="r_aba1bda392fa0eaa04f27f22ecf1c7446"><td class="memTemplParams" colspan="2">template&lt;typename T&gt; </td></tr>
 <tr class="memitem:aba1bda392fa0eaa04f27f22ecf1c7446 template"><td class="memItemLeft">static constexpr bool&#160;</td><td class="memItemRight"><a class="el" href="#aba1bda392fa0eaa04f27f22ecf1c7446">IsListType_V</a></td></tr>
 <tr class="memdesc:aba1bda392fa0eaa04f27f22ecf1c7446"><td class="mdescLeft">&#160;</td><td class="mdescRight">判断类型是否为NBT List类型  <br /></td></tr>
@@ -1034,42 +1031,6 @@ template&lt;typename T&gt; </div>
   </dd>
 </dl>
 <dl class="section return"><dt>返回</dt><dd>如果类型是NBT String，则返回true，否则返回false </dd></dl>
-
-</div>
-</div>
-<a id="a8f65f3d9e738b21e39a5b9bb6fa2f031" name="a8f65f3d9e738b21e39a5b9bb6fa2f031"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8f65f3d9e738b21e39a5b9bb6fa2f031">&#9670;&#160;</a></span>IsStringViewType_V</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool NBT_Type::IsStringViewType_V</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel static">static</span><span class="mlabel constexpr">constexpr</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<b>初始值:</b><div class="fragment"><div class="line">                                 =</div>
-<div class="line">std::is_same_v&lt;std::remove_cvref_t&lt;T&gt;, <span class="keyword">typename</span> <a class="code hl_typedef" href="classNBT__String.html#a0b6037dd11409fde0d48bf501863cc57">String::View</a>&gt;</div>
-<div class="ttc" id="aclassNBT__String_html_a0b6037dd11409fde0d48bf501863cc57"><div class="ttname"><a href="classNBT__String.html#a0b6037dd11409fde0d48bf501863cc57">NBT_String&lt; MUTF8_String, MUTF8_String_View &gt;::View</a></div><div class="ttdeci">NBT_StringView&lt; MUTF8_String, MUTF8_String_View &gt; View</div><div class="ttdef"><b>定义</b> NBT_String.hpp:163</div></div>
-</div><!-- fragment -->
-<p>判断类型是否为NBT <a class="el" href="#a5efe8f76052bcfe6ed8779a60a78a295" title="字符串类型，存储Java M-UTF-8字符串">String</a> View类型 </p>
-<dl class="tparams"><dt>模板参数</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">T</td><td>需要检查的类型（自动移除CV限定与引用） </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>返回</dt><dd>如果类型是NBT <a class="el" href="#a5efe8f76052bcfe6ed8779a60a78a295" title="字符串类型，存储Java M-UTF-8字符串">String</a> View，则返回true，否则返回false </dd></dl>
 
 </div>
 </div>

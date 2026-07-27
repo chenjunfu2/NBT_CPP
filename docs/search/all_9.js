@@ -47,8 +47,7 @@ var searchData=
   ['isstring_44',['IsString',['../classNBT__Node.html#ab33efd22909082bdbbf56b49228fff8c',1,'NBT_Node::IsString() const'],['../classNBT__Node.html#a6f78f3973bc75cf1f2e7c9d4595efc9a',1,'NBT_Node::IsString(const NBT_Node &amp;node)'],['../classNBT__Node__View.html#a8fcd06233df8347f8147fc55c050f0ca',1,'NBT_Node_View::IsString() const'],['../classNBT__Node__View.html#abf59c51e65c6d33b1fe2cdaf1215699b',1,'NBT_Node_View::IsString(const NBT_Node_View &amp;node)']]],
   ['isstringtag_45',['IsStringTag',['../classNBT__Type.html#a880769f561cc2874f9b6f6653945237e',1,'NBT_Type']]],
   ['isstringtype_5fv_46',['IsStringType_V',['../classNBT__Type.html#a0c20f7e8573825530c8ba2a75b431b46',1,'NBT_Type']]],
-  ['isstringviewtype_5fv_47',['IsStringViewType_V',['../classNBT__Type.html#a8f65f3d9e738b21e39a5b9bb6fa2f031',1,'NBT_Type']]],
-  ['isvalidtype_5fv_48',['IsValidType_V',['../classNBT__Type.html#a71dfa77059d0a3bd9a6190295ad400ca',1,'NBT_Type']]],
-  ['iszlib_49',['IsZlib',['../classNBT__IO.html#aac207e7431c4130f085b4e650b9e458c',1,'NBT_IO']]],
-  ['iterator_50',['Iterator',['../classNBT__Compound.html#a6ca96499b7d35ee33c3e4fe87bf1ad42',1,'NBT_Compound::Iterator'],['../classNBT__List.html#a584377e88d5519593caada85d37487c4',1,'NBT_List::Iterator']]]
+  ['isvalidtype_5fv_47',['IsValidType_V',['../classNBT__Type.html#a71dfa77059d0a3bd9a6190295ad400ca',1,'NBT_Type']]],
+  ['iszlib_48',['IsZlib',['../classNBT__IO.html#aac207e7431c4130f085b4e650b9e458c',1,'NBT_IO']]],
+  ['iterator_49',['Iterator',['../classNBT__Compound.html#a6ca96499b7d35ee33c3e4fe87bf1ad42',1,'NBT_Compound::Iterator'],['../classNBT__List.html#a584377e88d5519593caada85d37487c4',1,'NBT_List::Iterator']]]
 ];
