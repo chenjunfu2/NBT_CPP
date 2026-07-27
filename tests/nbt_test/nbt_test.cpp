@@ -944,7 +944,7 @@ int main_xx2551(int argc, char *argv[])
 }
 
 
-int main(void)
+int maintestcp(void)
 {
 	NBT_Type::Compound cpd;
 	const NBT_Type::Compound cpdc;
@@ -1079,6 +1079,52 @@ int main(void)
 	GetIfString(nodev);
 	GetIfList(nodev);
 	GetIfCompound(nodev);
+
+	return 0;
+}
+
+int main(void)
+{
+	NBT_Type::String str = MU8STR("test");
+	auto v = str.GetView();
+
+	//NBT_Type::String{}.GetView();
+
+	//NBT_Type::String::View v2{ NBT_Type::String{} };
+
+	print("{}\n", str == v);
+
+	NBT_Type::Compound cpd;
+	cpd.Put(MU8STRV("0"), 1);
+	cpd.Put(MU8STRV("1"), 2);
+	cpd.Put(MU8STRV("2"), 3);
+	cpd.Put(MU8STRV("3"), 4);
+
+	print("{}\n", cpd.Get(MU8STRV("0")).GetInt());
+	print("{}\n", cpd.Has(MU8STRV("0"))->GetInt());
+	print("{}\n", cpd.Get(MU8STRV("1")).GetInt());
+	print("{}\n", cpd.Has(MU8STRV("1"))->GetInt());
+	print("{}\n", cpd.Get(MU8STRV("2")).GetInt());
+	print("{}\n", cpd.Has(MU8STRV("2"))->GetInt());
+	print("{}\n", cpd.Get(MU8STRV("3")).GetInt());
+	print("{}\n", cpd.Has(MU8STRV("3"))->GetInt());
+
+	try
+	{
+		cpd.Get(MU8STRV("-1"));
+	}
+	catch (const std::out_of_range &e)
+	{
+		print("{}\n", e.what());
+	}
+	try
+	{
+		cpd.Get(MU8STRV("1")).GetLong();
+	}
+	catch (const std::exception &e)
+	{
+		print("{}\n", e.what());
+	}
 
 	return 0;
 }
