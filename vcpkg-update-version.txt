@@ -61,7 +61,18 @@ git push origin update-chenjunfu2-nbt-cpp-x.x.x
 #记得改名：[chenjunfu2-nbt-cpp] Update to version x.x.x
 
 
+#powershell恢复更新前干净状态：
+$merge_base = git merge-base HEAD upstream/master
+git restore --source=$merge_base --staged --worktree -- versions
+git clean -fd -- versions
 
+#重新生成
+vcpkg x-add-version chenjunfu2-nbt-cpp
+
+#再次提交
+git add .
+git commit -m "Update version database after vcpkg.json change"
+git push origin update-chenjunfu2-nbt-cpp-x.x.x
 
 
 # 下面是其它内容
