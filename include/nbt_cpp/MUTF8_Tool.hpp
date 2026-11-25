@@ -1147,7 +1147,7 @@ public:
 		constexpr size_t szStringLength = ContentLength(u16String);
 		constexpr size_t szNewLength = U16ToMU8Impl<FakeStringCounter<MU8T>>(u16String.data(), szStringLength).GetData();
 
-		return U16ToMU8Impl<StaticString<MU8T, szNewLength>>(u16String.data(), szStringLength).GetData();
+		return U16ToMU8Impl<StaticString<MU8T, szNewLength>(u16String.data(), szStringLength).GetData();
 	}
 
 	//---------------------------------------------------------------------------------------------//
@@ -1223,7 +1223,7 @@ public:
 		constexpr size_t szStringLength = ContentLength(u8String);
 		constexpr size_t szNewLength = U8ToMU8Impl<FakeStringCounter<MU8T>>(u8String.data(), szStringLength).GetData();
 
-		return StaticString<MU8T, szNewLength >> (u8String.data(), szStringLength).GetData();
+		return StaticString<MU8T, szNewLength>(u8String.data(), szStringLength).GetData();
 	}
 
 	//---------------------------------------------------------------------------------------------//

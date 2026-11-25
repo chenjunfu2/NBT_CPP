@@ -1187,7 +1187,7 @@ $(function(){initNavTree('MUTF8__Tool_8hpp_source.html','',''); });
 <div class="line"><a id="l01147" name="l01147"></a><span class="lineno"> 1147</span>        <span class="keyword">constexpr</span> <span class="keywordtype">size_t</span> szStringLength = ContentLength(u16String);</div>
 <div class="line"><a id="l01148" name="l01148"></a><span class="lineno"> 1148</span>        <span class="keyword">constexpr</span> <span class="keywordtype">size_t</span> szNewLength = U16ToMU8Impl&lt;FakeStringCounter&lt;MU8T&gt;&gt;(u16String.data(), szStringLength).GetData();</div>
 <div class="line"><a id="l01149" name="l01149"></a><span class="lineno"> 1149</span> </div>
-<div class="line"><a id="l01150" name="l01150"></a><span class="lineno"> 1150</span>        <span class="keywordflow">return</span> U16ToMU8Impl&lt;StaticString&lt;MU8T, szNewLength&gt;&gt;(u16String.data(), szStringLength).GetData();</div>
+<div class="line"><a id="l01150" name="l01150"></a><span class="lineno"> 1150</span>        <span class="keywordflow">return</span> U16ToMU8Impl&lt;StaticString&lt;MU8T, szNewLength&gt;(u16String.data(), szStringLength).GetData();</div>
 <div class="line"><a id="l01151" name="l01151"></a><span class="lineno"> 1151</span>    }</div>
 </div>
 <div class="line"><a id="l01152" name="l01152"></a><span class="lineno"> 1152</span> </div>
@@ -1245,7 +1245,7 @@ $(function(){initNavTree('MUTF8__Tool_8hpp_source.html','',''); });
 <div class="line"><a id="l01223" name="l01223"></a><span class="lineno"> 1223</span>        <span class="keyword">constexpr</span> <span class="keywordtype">size_t</span> szStringLength = ContentLength(u8String);</div>
 <div class="line"><a id="l01224" name="l01224"></a><span class="lineno"> 1224</span>        <span class="keyword">constexpr</span> <span class="keywordtype">size_t</span> szNewLength = U8ToMU8Impl&lt;FakeStringCounter&lt;MU8T&gt;&gt;(u8String.data(), szStringLength).GetData();</div>
 <div class="line"><a id="l01225" name="l01225"></a><span class="lineno"> 1225</span> </div>
-<div class="line"><a id="l01226" name="l01226"></a><span class="lineno"> 1226</span>        <span class="keywordflow">return</span> StaticString&lt;MU8T, szNewLength &gt;&gt; (u8String.data(), szStringLength).GetData();</div>
+<div class="line"><a id="l01226" name="l01226"></a><span class="lineno"> 1226</span>        <span class="keywordflow">return</span> StaticString&lt;MU8T, szNewLength&gt;(u8String.data(), szStringLength).GetData();</div>
 <div class="line"><a id="l01227" name="l01227"></a><span class="lineno"> 1227</span>    }</div>
 </div>
 <div class="line"><a id="l01228" name="l01228"></a><span class="lineno"> 1228</span> </div>
