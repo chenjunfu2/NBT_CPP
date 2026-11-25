@@ -319,7 +319,7 @@ private:
 			szCounter += 1;
 		}
 
-		constexpr const size_t GetData(void) const noexcept
+		constexpr size_t GetData(void) const noexcept
 		{
 			return szCounter;
 		}
@@ -1147,7 +1147,7 @@ public:
 		constexpr size_t szStringLength = ContentLength(u16String);
 		constexpr size_t szNewLength = U16ToMU8Impl<FakeStringCounter<MU8T>>(u16String.data(), szStringLength).GetData();
 
-		return U16ToMU8Impl<StaticString<MU8T, szNewLength>(u16String.data(), szStringLength).GetData();
+		return U16ToMU8Impl<StaticString<MU8T, szNewLength>>(u16String.data(), szStringLength).GetData();
 	}
 
 	//---------------------------------------------------------------------------------------------//
@@ -1204,9 +1204,9 @@ public:
 		constexpr size_t szStringLength = ContentLength(u8String);
 		constexpr size_t szNewLength = U8ToMU8Impl<FakeStringCounter<MU8T>>(u8String.data(), szStringLength).GetData();
 
-		return MUTF8_Tool_Internal::ToStringView<U8ToMU8Impl
+		return MUTF8_Tool_Internal::ToStringView
 		<
-			StaticString<MU8T, szNewLength>>(u8String.data(), szStringLength).GetData(),
+			U8ToMU8Impl<StaticString<MU8T, szNewLength>>(u8String.data(), szStringLength).GetData(),
 			MU8_String_View
 		>();
 	}
@@ -1223,7 +1223,7 @@ public:
 		constexpr size_t szStringLength = ContentLength(u8String);
 		constexpr size_t szNewLength = U8ToMU8Impl<FakeStringCounter<MU8T>>(u8String.data(), szStringLength).GetData();
 
-		return StaticString<MU8T, szNewLength>(u8String.data(), szStringLength).GetData();
+		return U8ToMU8Impl<StaticString<MU8T, szNewLength>>(u8String.data(), szStringLength).GetData();
 	}
 
 	//---------------------------------------------------------------------------------------------//
